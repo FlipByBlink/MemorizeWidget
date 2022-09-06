@@ -29,14 +29,14 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onOpenURL { 🔗 in
-            📱.🚩ShowWidgetItem = true
-            📱.🆔WidgetItem = 🔗.description
+            📱.🚩ShowWidgetNote = true
+            📱.🆔WidgetNoteID = 🔗.description
         }
-        .sheet(isPresented: $📱.🚩ShowWidgetItem) {
-            🪧WidgetItemSheet()
+        .sheet(isPresented: $📱.🚩ShowWidgetNote) {
+            🪧WidgetNoteSheet()
         }
-        .onChange(of: 📱.🗃Items) { _ in
-            📱.💾SaveItems()
+        .onChange(of: 📱.🗃Notes) { _ in
+            📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
@@ -54,10 +54,10 @@ struct M⃣ainView: View {
                 .padding(64)
                 .border(.secondary)
             
-            if 📱.🗃Items.isEmpty {
-                🆕NewItemFormOnMain()
+            if 📱.🗃Notes.isEmpty {
+                🆕NewNoteFormOnMain()
             } else {
-                🗒ItemRow($📱.🗃Items.first!)
+                📓NoteRow($📱.🗃Notes.first!)
                     .padding(32)
             }
         }
@@ -80,16 +80,16 @@ struct 🗃ListView: View {
                     Text("約5分毎にテキストがランダムで切り替わります。")
                 }
                 
-                🆕NewItemView()
+                🆕NewNoteView()
                 
-                ForEach($📱.🗃Items) { ⓘtem in
-                    🗒ItemRow(ⓘtem)
+                ForEach($📱.🗃Notes) { ⓝote in
+                    📓NoteRow(ⓝote)
                 }
                 .onDelete { ⓘndexSet in
-                    📱.🗃Items.remove(atOffsets: ⓘndexSet)
+                    📱.🗃Notes.remove(atOffsets: ⓘndexSet)
                 }
                 .onMove { ⓘndexSet, ⓘnt in
-                    📱.🗃Items.move(fromOffsets: ⓘndexSet, toOffset: ⓘnt)
+                    📱.🗃Notes.move(fromOffsets: ⓘndexSet, toOffset: ⓘnt)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -103,17 +103,17 @@ struct 🗃ListView: View {
 }
 
 
-struct 🗒ItemRow: View {
+struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Binding var ⓘtem: 🗒Item
-    var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Items.first != ⓘtem }
+    @Binding var ⓝote: 📓Note
+    var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            TextField("+ title", text: $ⓘtem.ⓣitle)
+            TextField("+ title", text: $ⓝote.title)
                 .font(.title.weight(.semibold))
                 .foregroundStyle(🎨Thin ? .tertiary : .primary)
-            TextField("+ comment", text: $ⓘtem.ⓒomment)
+            TextField("+ comment", text: $ⓝote.comment)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                 .opacity(0.8)
@@ -122,42 +122,42 @@ struct 🗒ItemRow: View {
         .padding(.vertical, 8)
     }
     
-    init(_ ⓘtem: Binding<🗒Item>) {
-        self._ⓘtem = ⓘtem
+    init(_ ⓘtem: Binding<📓Note>) {
+        self._ⓝote = ⓘtem
     }
 }
 
 
-struct 🆕NewItemFormOnMain: View {
+struct 🆕NewNoteFormOnMain: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var ⓣitle: String = ""
     
     var body: some View {
-        TextField("+ New item", text: $ⓣitle)
+        TextField("+ New note", text: $ⓣitle)
             .font(.title2.weight(.semibold))
             .padding(32)
             .textFieldStyle(.roundedBorder)
             .onSubmit {
-                📱.🗃Items.append(🗒Item(ⓣitle))
+                📱.🗃Notes.append(📓Note(ⓣitle))
             }
     }
 }
 
-struct 🆕NewItemView: View {
+struct 🆕NewNoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @FocusState private var 🔍Focus: 🄵ocusPattern?
     
     var body: some View {
         VStack(spacing: 2) {
-            TextField("+ new item", text: $📱.🆕Item.ⓣitle)
+            TextField("+ new note", text: $📱.🆕NewNote.title)
                 .font(.title2.bold())
                 .focused($🔍Focus, equals: .ⓣitle)
             
-            TextField("comment", text: $📱.🆕Item.ⓒomment)
+            TextField("comment", text: $📱.🆕NewNote.comment)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(.secondary)
                 .focused($🔍Focus, equals: .ⓒomment)
-                .disabled(📱.🆕Item.ⓣitle == "")
+                .disabled(📱.🆕NewNote.title == "")
                 .padding(.leading, 8)
         }
         .onSubmit {
@@ -175,17 +175,17 @@ struct 🆕NewItemView: View {
                         .foregroundStyle(.tertiary)
                 }
                 .buttonStyle(.plain)
-                .disabled(📱.🆕Item.ⓣitle == "")
+                .disabled(📱.🆕NewNote.title == "")
             }
         }
     }
     
     func 🅂ubmit() {
-        if 📱.🆕Item.ⓣitle == "" { return }
+        if 📱.🆕NewNote.title == "" { return }
         
         withAnimation {
-            📱.🗃Items.insert(📱.🆕Item, at: 0)
-            📱.🆕Item = .init("")
+            📱.🗃Notes.insert(📱.🆕NewNote, at: 0)
+            📱.🆕NewNote = .init("")
         }
     }
     
@@ -196,27 +196,27 @@ struct 🆕NewItemView: View {
 }
 
 
-struct 🪧WidgetItemSheet: View {
+struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
-    var 🔢ItemIndex: Int? {
-        📱.🗃Items.firstIndex { $0.id.uuidString == 📱.🆔WidgetItem }
+    var 🔢NoteIndex: Int? {
+        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔WidgetNoteID }
     }
     
     var body: some View {
         ZStack {
             Color.clear
             
-            if let 🔢 = 🔢ItemIndex {
+            if let 🔢 = 🔢NoteIndex {
                 VStack {
-                    TextField("No title", text: $📱.🗃Items[🔢].ⓣitle)
+                    TextField("No title", text: $📱.🗃Notes[🔢].title)
                         .font(.largeTitle.bold())
-                    TextField("No comment", text: $📱.🗃Items[🔢].ⓒomment)
+                    TextField("No comment", text: $📱.🗃Notes[🔢].comment)
                         .font(.title3)
                         .foregroundStyle(.secondary)
                     
                     Button(role: .destructive) {
-                        📱.🗃Items.remove(at: 🔢)
+                        📱.🗃Notes.remove(at: 🔢)
                     } label: {
                         Image(systemName: "trash")
                             .foregroundStyle(.secondary)
@@ -230,7 +230,7 @@ struct 🪧WidgetItemSheet: View {
                     .font(.largeTitle)
             }
         }
-        .animation(.default, value: 🔢ItemIndex)
+        .animation(.default, value: 🔢NoteIndex)
         .padding(24)
         .overlay(alignment: .topTrailing) {
             Button {
@@ -243,12 +243,5 @@ struct 🪧WidgetItemSheet: View {
             .tint(.secondary)
             .accessibilityLabel("Dismiss")
         }
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

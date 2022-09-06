@@ -35,11 +35,11 @@ struct MWWidget2: Widget {
 
 struct 🤖Provider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 🗒Item(#function))
+        🕒Entry(.now, 📓Note(#function))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        completion(🕒Entry(.now, 🗒Item(#function)))
+        completion(🕒Entry(.now, 📓Note(#function)))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -48,7 +48,7 @@ struct 🤖Provider: TimelineProvider {
         for ⓒount in 0 ..< 12 {
             let ⓞffset = ⓒount * 5
             let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-            ⓔntries.append(🕒Entry(ⓓate, 📱.🗒GetWidgetItem()))
+            ⓔntries.append(🕒Entry(ⓓate, 📱.📓GetWidgetNote()))
         }
         completion(Timeline(entries: ⓔntries, policy: .atEnd))
     }
@@ -57,11 +57,11 @@ struct 🤖Provider: TimelineProvider {
 
 struct 🕒Entry: TimelineEntry {
     let date: Date
-    let ⓘtem: 🗒Item
+    let ⓝote: 📓Note
     
-    init(_ date: Date, _ ⓘtem: 🗒Item) {
+    init(_ date: Date, _ ⓝote: 📓Note) {
         self.date = date
-        self.ⓘtem = ⓘtem
+        self.ⓝote = ⓝote
     }
 }
 
@@ -83,10 +83,10 @@ struct 🅆idgetEntryView : View {
             
             VStack {
                 Spacer()
-                Text(ⓔntry.ⓘtem.ⓣitle)
+                Text(ⓔntry.ⓝote.title)
                     .font(🅃extSize.0)
                     .lineLimit(3)
-                Text(ⓔntry.ⓘtem.ⓒomment)
+                Text(ⓔntry.ⓝote.comment)
                     .font(🅃extSize.1)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -94,7 +94,7 @@ struct 🅆idgetEntryView : View {
             .padding()
             .minimumScaleFactor(0.1)
         }
-        .widgetURL(URL(string: ⓔntry.ⓘtem.id.uuidString)!)
+        .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
         .overlay(alignment: .bottom) {
             Text(ⓔntry.date, style: .offset)
                 .scaleEffect(0.8)
