@@ -19,7 +19,7 @@ struct ContentView: View {
                         .labelStyle(.iconOnly)
                 }
             
-            Text("Menu View")
+            🛠MenuView()
                 .tabItem {
                     Label("Menu", systemImage: "gearshape")
                         .labelStyle(.iconOnly)
@@ -124,6 +124,31 @@ struct 📓NoteRow: View {
     
     init(_ ⓝote: Binding<📓Note>) {
         self._ⓝote = ⓝote
+    }
+}
+
+
+struct 🛠MenuView: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                Toggle(isOn: 📱.$🚩RectangularBackground) {
+                    Label("Show rectangular background on lock screen", systemImage: "rectangle.dashed")
+                }
+                .onChange(of: 📱.🚩RectangularBackground) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+                
+                Toggle(isOn: 📱.$🚩ShowComment) {
+                    Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
+                }
+                .onChange(of: 📱.🚩ShowComment) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            }
+        }
     }
 }
 

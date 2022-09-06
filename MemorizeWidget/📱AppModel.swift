@@ -10,7 +10,10 @@ class 📱AppModel: ObservableObject {
     @Published var 🚩ShowWidgetNote: Bool = false
     @Published var 🆔WidgetNoteID: String? = nil
     
-    @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩RandomMode: Bool = false
+    private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+    @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
+    @AppStorage("RectangularBackground", store: ⓤd) var 🚩RectangularBackground: Bool = false
+    @AppStorage("ShowComment", store: ⓤd) var 🚩ShowComment: Bool = false
     
     func 📓GetWidgetNote() -> 📓Note {
         if 🗃Notes.isEmpty {

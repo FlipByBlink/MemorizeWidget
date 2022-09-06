@@ -68,6 +68,7 @@ struct 🕒Entry: TimelineEntry {
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖Provider.Entry
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
+    let 📱 = 📱AppModel()
     
     @ViewBuilder
     var body: some View {
@@ -80,9 +81,11 @@ struct 🅆idgetEntryView : View {
                         Text(ⓔntry.ⓝote.title)
                             .font(.headline)
                             .lineLimit(3)
-                        Text(ⓔntry.ⓝote.comment)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        if 📱.🚩ShowComment {
+                            Text(ⓔntry.ⓝote.comment)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
                         Spacer()
                     }
                     .padding()
@@ -97,9 +100,11 @@ struct 🅆idgetEntryView : View {
                         Text(ⓔntry.ⓝote.title)
                             .font(.title.bold())
                             .lineLimit(3)
-                        Text(ⓔntry.ⓝote.comment)
-                            .font(.title2)
-                            .foregroundStyle(.secondary)
+                        if 📱.🚩ShowComment {
+                            Text(ⓔntry.ⓝote.comment)
+                                .font(.title2)
+                                .foregroundStyle(.secondary)
+                        }
                         Spacer()
                     }
                     .padding()
@@ -108,14 +113,21 @@ struct 🅆idgetEntryView : View {
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .accessoryRectangular:
                 ZStack {
-                    AccessoryWidgetBackground()
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    if 📱.🚩RectangularBackground {
+                        AccessoryWidgetBackground()
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    }
                     VStack {
                         Text(ⓔntry.ⓝote.title)
                             .font(.headline)
-                        Text(ⓔntry.ⓝote.comment)
-                            .font(.subheadline)
+                            .padding(8)
+                        if 📱.🚩ShowComment {
+                            Text(ⓔntry.ⓝote.comment)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .widgetAccentable()
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             default:
