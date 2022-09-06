@@ -27,16 +27,16 @@ class 📱AppModel: ObservableObject {
     func 💾SaveNotes() {
         do {
             let ⓓata = try JSONEncoder().encode(🗃Notes)
-            if let 💾 = 💾AppGroupData {
-                💾.set(ⓓata, forKey: "Notes")
-            }
+            guard let 💾 = 💾AppGroupData else { return }
+            💾.set(ⓓata, forKey: "Notes")
         } catch {
             print("🚨Error: ", error)
         }
     }
     
     func 💾LoadNotes() {
-        guard let ⓓata = 💾AppGroupData?.data(forKey: "Notes") else { return }
+        guard let 💾 = 💾AppGroupData else { return }
+        guard let ⓓata = 💾.data(forKey: "Notes") else { return }
         do {
             🗃Notes = try JSONDecoder().decode([📓Note].self, from: ⓓata)
         } catch {
