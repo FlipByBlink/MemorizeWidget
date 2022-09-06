@@ -68,35 +68,55 @@ struct 🕒Entry: TimelineEntry {
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖Provider.Entry
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
-    var ⓣextSize: (Font, Font) {
-        switch ⓕamily {
-            case .systemSmall: return (.headline, .subheadline)
-            default: return (.title.bold(), .title2)
-        }
-    }
     
     @ViewBuilder
     var body: some View {
-        ZStack {
-            Color.clear
-            
-            VStack {
-                Spacer()
+        switch ⓕamily {
+            case .systemSmall:
+                ZStack {
+                    Color.clear
+                    VStack {
+                        Spacer()
+                        Text(ⓔntry.ⓝote.title)
+                            .font(.headline)
+                            .lineLimit(3)
+                        Text(ⓔntry.ⓝote.comment)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    .padding()
+                    .minimumScaleFactor(0.1)
+                }
+                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+            case .systemMedium:
+                ZStack {
+                    Color.clear
+                    VStack {
+                        Spacer()
+                        Text(ⓔntry.ⓝote.title)
+                            .font(.title.bold())
+                            .lineLimit(3)
+                        Text(ⓔntry.ⓝote.comment)
+                            .font(.title2)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    .padding()
+                    .minimumScaleFactor(0.1)
+                }
+                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+            case .accessoryRectangular:
+                VStack {
+                    Text(ⓔntry.ⓝote.title)
+                        .font(.headline)
+                    Text(ⓔntry.ⓝote.comment)
+                        .font(.subheadline)
+                }
+                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+            default:
                 Text(ⓔntry.ⓝote.title)
-                    .font(ⓣextSize.0)
-                    .lineLimit(3)
-                Text(ⓔntry.ⓝote.comment)
-                    .font(ⓣextSize.1)
-                    .foregroundStyle(.secondary)
-                Spacer()
-            }
-            .padding()
-            .minimumScaleFactor(0.1)
-        }
-        .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-        .overlay(alignment: .bottom) {
-            Text(ⓔntry.date, style: .offset)
-                .scaleEffect(0.8)
+                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
         }
     }
     
