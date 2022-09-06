@@ -122,8 +122,8 @@ struct 📓NoteRow: View {
         .padding(.vertical, 8)
     }
     
-    init(_ ⓘtem: Binding<📓Note>) {
-        self._ⓝote = ⓘtem
+    init(_ ⓝote: Binding<📓Note>) {
+        self._ⓝote = ⓝote
     }
 }
 
@@ -151,12 +151,12 @@ struct 🆕NewNoteView: View {
         VStack(spacing: 2) {
             TextField("+ new note", text: $📱.🆕NewNote.title)
                 .font(.title2.bold())
-                .focused($🔍Focus, equals: .ⓣitle)
+                .focused($🔍Focus, equals: .title)
             
             TextField("comment", text: $📱.🆕NewNote.comment)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(.secondary)
-                .focused($🔍Focus, equals: .ⓒomment)
+                .focused($🔍Focus, equals: .comment)
                 .disabled(📱.🆕NewNote.title == "")
                 .padding(.leading, 8)
         }
@@ -167,7 +167,7 @@ struct 🆕NewNoteView: View {
         .overlay(alignment: .trailing) {
             if 🔍Focus != nil {
                 Button {
-                    🔍Focus = .ⓣitle
+                    🔍Focus = .title
                     🅂ubmit()
                 } label: {
                     Image(systemName: "plus.rectangle.on.rectangle")
@@ -190,8 +190,8 @@ struct 🆕NewNoteView: View {
     }
     
     enum 🄵ocusPattern {
-        case ⓣitle
-        case ⓒomment
+        case title
+        case comment
     }
 }
 
