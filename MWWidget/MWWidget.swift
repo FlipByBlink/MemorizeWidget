@@ -28,7 +28,7 @@ struct MWWidgetSub: Widget {
         }
         .configurationDisplayName("sub")
         .description("sub")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryRectangular])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryRectangular])
     }
 }
 
@@ -107,11 +107,15 @@ struct 🅆idgetEntryView : View {
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .accessoryRectangular:
-                VStack {
-                    Text(ⓔntry.ⓝote.title)
-                        .font(.headline)
-                    Text(ⓔntry.ⓝote.comment)
-                        .font(.subheadline)
+                ZStack {
+                    AccessoryWidgetBackground()
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    VStack {
+                        Text(ⓔntry.ⓝote.title)
+                            .font(.headline)
+                        Text(ⓔntry.ⓝote.comment)
+                            .font(.subheadline)
+                    }
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             default:
