@@ -7,30 +7,52 @@ struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         MWWidget()
         MWWidgetSub()
+        MWLockScreenWidget()
+        MWLockScreenWidgetSub()
     }
 }
 
 struct MWWidget: Widget {
-    let 🏷kind = "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind"
-    
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: 🏷kind, provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "homescreen.main", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
-        .configurationDisplayName("configurationDisplayName")
-        .description("description")
+        .configurationDisplayName("MWWidget name")
+        .description("placeholder")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
 struct MWWidgetSub: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind.sub", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "homescreen.sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("sub")
         .description("sub")
         .supportedFamilies([.systemSmall, .systemLarge])
+    }
+}
+
+struct MWLockScreenWidget: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "lockscreen.main", provider: 🤖Provider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("Show title of a note.")
+        .description("placeholder")
+        .supportedFamilies([.accessoryInline, .accessoryRectangular, .accessoryCircular])
+    }
+}
+
+struct MWLockScreenWidgetSub: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "lockscreen.sub", provider: 🤖Provider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("lock screen sub")
+        .description("placeholder sub")
+        .supportedFamilies([.accessoryRectangular, .accessoryCircular])
     }
 }
 
