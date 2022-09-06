@@ -6,13 +6,15 @@ import SwiftUI
 struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         MWWidget()
-        MWWidget2()
+        MWWidgetSub()
     }
 }
 
 struct MWWidget: Widget {
+    let 🏷kind = "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind"
+    
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: 🏷kind, provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("configurationDisplayName")
@@ -21,13 +23,13 @@ struct MWWidget: Widget {
     }
 }
 
-struct MWWidget2: Widget {
+struct MWWidgetSub: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind2", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind.sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
-        .configurationDisplayName("configurationDisplayName2")
-        .description("description2")
+        .configurationDisplayName("sub")
+        .description("sub")
         .supportedFamilies([.systemSmall, .systemLarge])
     }
 }
@@ -68,9 +70,9 @@ struct 🕒Entry: TimelineEntry {
 
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖Provider.Entry
-    @Environment(\.widgetFamily) var 🄵amily: WidgetFamily
-    var 🅃extSize: (Font, Font) {
-        switch 🄵amily {
+    @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
+    var ⓣextSize: (Font, Font) {
+        switch ⓕamily {
             case .systemSmall: return (.headline, .subheadline)
             default: return (.title.bold(), .title2)
         }
@@ -84,10 +86,10 @@ struct 🅆idgetEntryView : View {
             VStack {
                 Spacer()
                 Text(ⓔntry.ⓝote.title)
-                    .font(🅃extSize.0)
+                    .font(ⓣextSize.0)
                     .lineLimit(3)
                 Text(ⓔntry.ⓝote.comment)
-                    .font(🅃extSize.1)
+                    .font(ⓣextSize.1)
                     .foregroundStyle(.secondary)
                 Spacer()
             }
