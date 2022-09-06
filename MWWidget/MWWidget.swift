@@ -2,59 +2,106 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
-    }
-
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
-}
-
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-}
-
-struct MWWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text(entry.date, style: .time)
-    }
-}
-
 @main
-struct MWWidget: Widget {
-    let kind: String = "MWWidget"
-
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            MWWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+struct MWWidgetBundle: WidgetBundle {
+    var body: some Widget {
+        MWWidget()
+        MWWidget2()
     }
 }
 
-struct MWWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        MWWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+struct MWWidget: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind", provider: 🤖Provider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("configurationDisplayName")
+        .description("description")
+        .supportedFamilies([.systemSmall, .systemMedium])
+    }
+}
+
+struct MWWidget2: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "net.aaaakkkkssssttttnnnn.MemorizeWidget.kind2", provider: 🤖Provider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("configurationDisplayName2")
+        .description("description2")
+        .supportedFamilies([.systemSmall, .systemLarge])
+    }
+}
+
+
+struct 🤖Provider: TimelineProvider {
+    func placeholder(in context: Context) -> 🕒Entry {
+        🕒Entry(.now, 🗒Item(#function))
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
+        completion(🕒Entry(.now, 🗒Item(#function)))
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        let 📱 = 📱AppModel()
+        var ⓔntries: [🕒Entry] = []
+        for ⓒount in 0 ..< 12 {
+            let ⓞffset = ⓒount * 5
+            let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
+            ⓔntries.append(🕒Entry(ⓓate, 📱.🗒GetWidgetItem()))
+        }
+        completion(Timeline(entries: ⓔntries, policy: .atEnd))
+    }
+}
+
+
+struct 🕒Entry: TimelineEntry {
+    let date: Date
+    let ⓘtem: 🗒Item
+    
+    init(_ date: Date, _ ⓘtem: 🗒Item) {
+        self.date = date
+        self.ⓘtem = ⓘtem
+    }
+}
+
+
+struct 🅆idgetEntryView : View {
+    var ⓔntry: 🤖Provider.Entry
+    @Environment(\.widgetFamily) var 🄵amily: WidgetFamily
+    var 🅃extSize: (Font, Font) {
+        switch 🄵amily {
+            case .systemSmall: return (.headline, .subheadline)
+            default: return (.title.bold(), .title2)
+        }
+    }
+    
+    @ViewBuilder
+    var body: some View {
+        ZStack {
+            Color.clear
+            
+            VStack {
+                Spacer()
+                Text(ⓔntry.ⓘtem.ⓣitle)
+                    .font(🅃extSize.0)
+                    .lineLimit(3)
+                Text(ⓔntry.ⓘtem.ⓒomment)
+                    .font(🅃extSize.1)
+                    .foregroundStyle(.secondary)
+                Spacer()
+            }
+            .padding()
+            .minimumScaleFactor(0.1)
+        }
+        .widgetURL(URL(string: ⓔntry.ⓘtem.id.uuidString)!)
+        .overlay(alignment: .bottom) {
+            Text(ⓔntry.date, style: .offset)
+                .scaleEffect(0.8)
+        }
+    }
+    
+    init(_ ⓔntry: 🤖Provider.Entry) {
+        self.ⓔntry = ⓔntry
     }
 }
