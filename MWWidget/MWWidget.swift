@@ -7,55 +7,30 @@ struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         MWWidget()
         MWWidgetSub()
-        MWLockScreenWidget()
-        MWLockScreenWidgetSub()
     }
 }
 
 struct MWWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "homescreen.main", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "main", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MWWidget name")
         .description("placeholder")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryRectangular])
     }
 }
 
 struct MWWidgetSub: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "homescreen.sub", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("sub")
         .description("sub")
-        .supportedFamilies([.systemSmall, .systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryRectangular])
     }
 }
-
-struct MWLockScreenWidget: Widget {
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "lockscreen.main", provider: 🤖Provider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
-        }
-        .configurationDisplayName("Show title of a note.")
-        .description("placeholder")
-        .supportedFamilies([.accessoryInline, .accessoryRectangular, .accessoryCircular])
-    }
-}
-
-struct MWLockScreenWidgetSub: Widget {
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "lockscreen.sub", provider: 🤖Provider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
-        }
-        .configurationDisplayName("lock screen sub")
-        .description("placeholder sub")
-        .supportedFamilies([.accessoryRectangular, .accessoryCircular])
-    }
-}
-
 
 struct 🤖Provider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
