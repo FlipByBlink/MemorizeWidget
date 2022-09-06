@@ -25,22 +25,23 @@ class 📱AppModel: ObservableObject {
     }
     
     func 💾SaveNotes() {
-//        var 📦Items: [[String]] = []
-//        🗃Notes.forEach { 🗒 in
-//            📦Items.append([🗒.title, 🗒.comment, 🗒.id.uuidString])
-//        }
-//        💾AppGroupData?.set(📦Items, forKey: "Items")
+        do {
+            let ⓓata = try JSONEncoder().encode(🗃Notes)
+            if let 💾 = 💾AppGroupData {
+                💾.set(ⓓata, forKey: "Notes")
+            }
+        } catch {
+            print("🚨Error: ", error)
+        }
     }
     
     func 💾LoadNotes() {
-//        if let 📦Items = 💾AppGroupData?.object(forKey: "Items") as? [[String]] {
-//            🗃Notes = []
-//            📦Items.forEach { ⓘtems in
-//                if ⓘtems.count == 3 {
-//                    🗃Notes.append(.init(ⓘtems[0], ⓘtems[1], UUID(uuidString: ⓘtems[2])))
-//                }
-//            }
-//        }
+        guard let ⓓata = 💾AppGroupData?.data(forKey: "Notes") else { return }
+        do {
+            🗃Notes = try JSONDecoder().decode([📓Note].self, from: ⓓata)
+        } catch {
+            print("🚨Error: ", error)
+        }
     }
     
     init() {
