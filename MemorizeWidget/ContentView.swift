@@ -29,8 +29,10 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onOpenURL { 🔗 in
-            📱.🚩ShowWidgetNote = true
-            📱.🆔WidgetNoteID = 🔗.description
+            if !📱.🗃Notes.isEmpty {
+                📱.🚩ShowWidgetNote = true
+                📱.🆔WidgetNoteID = 🔗.description
+            }
         }
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
