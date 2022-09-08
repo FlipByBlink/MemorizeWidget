@@ -46,9 +46,7 @@ struct ContentView: View {
     }
     
     enum 🔖TabTag {
-        case notesList
-        case option
-        case aboutApp
+        case notesList, option, aboutApp
     }
 }
 
@@ -62,8 +60,7 @@ struct 🗃NotesListTab: View {
                 Section {
                     Toggle(isOn: 📱.$🚩RandomMode) {
                         Label("Random mode", systemImage: "shuffle")
-                            .font(.title3.bold())
-                            .padding(.vertical)
+                            .padding(.vertical, 12)
                     }
                 } footer: {
                     Text("Change the note per 5 minutes.")
@@ -90,6 +87,10 @@ struct 🗃NotesListTab: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .animation(.default, value: 📱.🗃Notes)
+            .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
+                📱.🗃Notes.append(contentsOf: 📂ImportTSVFile(📦Result))
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -97,11 +98,6 @@ struct 🗃NotesListTab: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
-            withAnimation {
-                📱.🗃Notes.append(contentsOf: 📂ImportTSVFile(📦Result))
-            }
-        }
     }
 }
 
@@ -178,8 +174,7 @@ struct 🆕NewNoteView: View {
     }
     
     enum 🄵ocusPattern {
-        case title
-        case comment
+        case title, comment
     }
 }
 
