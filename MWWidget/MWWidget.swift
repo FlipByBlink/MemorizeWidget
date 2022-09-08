@@ -92,11 +92,11 @@ struct 🅆idgetEntryView : View {
             case .systemSmall:
                 ZStack {
                     Color.clear
-                    VStack {
+                    VStack(spacing: 0) {
                         Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.headline)
-                            .lineLimit(3)
+                            .layoutPriority(1)
                         if 📱.🚩ShowComment {
                             if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
@@ -113,11 +113,11 @@ struct 🅆idgetEntryView : View {
             case .systemMedium:
                 ZStack {
                     Color.clear
-                    VStack {
+                    VStack(spacing: 0) {
                         Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.title.bold())
-                            .lineLimit(3)
+                            .layoutPriority(1)
                         if 📱.🚩ShowComment {
                             if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
@@ -138,10 +138,11 @@ struct 🅆idgetEntryView : View {
                             AccessoryWidgetBackground()
                                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         }
-                        VStack {
+                        VStack(spacing: 0) {
                             Text(ⓔntry.ⓝote.title)
                                 .font(.headline)
                                 .padding(8)
+                                .layoutPriority(1)
                             if 📱.🚩ShowComment {
                                 if ⓔntry.ⓝote.comment != "" {
                                     Text(ⓔntry.ⓝote.comment)
