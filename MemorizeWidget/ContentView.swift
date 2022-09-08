@@ -14,11 +14,11 @@ struct ContentView: View {
                 }
                 .tag(🔖TabTag.notesList)
             
-            🛠MenuTab()
+            🔩OptionTab()
                 .tabItem {
-                    Label("Menu", systemImage: "gearshape")
+                    Label("Option", systemImage: "gearshape")
                 }
-                .tag(🔖TabTag.menu)
+                .tag(🔖TabTag.option)
             
             ℹ️AboutAppTab()
                 .tabItem {
@@ -48,7 +48,7 @@ struct ContentView: View {
     
     enum 🔖TabTag {
         case notesList
-        case menu
+        case option
         case aboutApp
     }
 }

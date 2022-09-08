@@ -2,7 +2,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🛠MenuTab: View {
+struct 🔩OptionTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     
     var body: some View {
