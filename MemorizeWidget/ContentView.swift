@@ -22,7 +22,7 @@ struct ContentView: View {
             
             ℹ️AboutAppTab()
                 .tabItem {
-                    Label("About", systemImage: "questionmark")
+                    Label("About App", systemImage: "questionmark")
                 }
                 .tag(🔖TabTag.aboutApp)
         }
@@ -33,9 +33,8 @@ struct ContentView: View {
             if !📱.🗃Notes.isEmpty {
                 📱.🚩ShowWidgetNote = true
                 📱.🆔WidgetNoteID = 🔗.description
-            } else {
-                🔖Tag = .notesList
             }
+            🔖Tag = .notesList
         }
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
@@ -67,7 +66,7 @@ struct 🗃NotesListTab: View {
                             .padding(.vertical)
                     }
                 } footer: {
-                    Text("約5分毎にテキストがランダムで切り替わります。")
+                    Text("Change the note per 5 minutes.")
                 }
                 
                 🆕NewNoteView()

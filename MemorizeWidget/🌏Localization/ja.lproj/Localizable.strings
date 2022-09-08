@@ -1,6 +1,20 @@
 
+"Notes" = "ノート";
+"Random mode" = "ランダムモード";
+"Change the note per 5 minutes." = "約5分毎にテキストがランダムで切り替わります。";
+"Import TSV file" = "TSVファイルを取り込む";
+"+ title" = "+ タイトル";
+"+ comment" = "+ コメント";
+"+ new note" = "+ 新規ノート";
+"comment" = "コメント";
+"No title" = "タイトルなし";
+"No comment" = "コメントなし";
+"Deleted." = "削除完了";
+"Show comment on widget" = "ウィジェット上にコメントを表示する";
 
-// Nothing
+"Show a note." = "ノートを表示します。";
+"Sub widget" = "予備のウィジェット";
+"This is spare widget." = "これは予備のウィジェットです。";
 
 
 // =======================================================
