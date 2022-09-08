@@ -11,24 +11,40 @@ struct MWWidgetBundle: WidgetBundle {
 }
 
 struct MWWidget: Widget {
+    var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MWWidget name")
         .description("placeholder")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryRectangular])
+        .supportedFamilies(ⓕamilys)
+    }
+    
+    init() {
+        if #available(iOS 16.0, *) {
+            ⓕamilys.append(contentsOf: [.accessoryInline, .accessoryRectangular])
+        }
     }
 }
 
 struct MWWidgetSub: Widget {
+    var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("sub")
         .description("sub")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryRectangular])
+        .supportedFamilies(ⓕamilys)
+    }
+    
+    init() {
+        if #available(iOS 16.0, *) {
+            ⓕamilys.append(.accessoryRectangular)
+        }
     }
 }
 
@@ -112,24 +128,31 @@ struct 🅆idgetEntryView : View {
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .accessoryRectangular:
-                ZStack {
-                    if 📱.🚩RectangularBackground {
-                        AccessoryWidgetBackground()
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    VStack {
-                        Text(ⓔntry.ⓝote.title)
-                            .font(.headline)
-                            .padding(8)
-                        if 📱.🚩ShowComment {
-                            Text(ⓔntry.ⓝote.comment)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
+                if #available(iOS 16.0, *) {
+                    ZStack {
+                        if 📱.🚩RectangularBackground {
+                            AccessoryWidgetBackground()
+                                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         }
+                        VStack {
+                            Text(ⓔntry.ⓝote.title)
+                                .font(.headline)
+                                .padding(8)
+                            if 📱.🚩ShowComment {
+                                Text(ⓔntry.ⓝote.comment)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .widgetAccentable()
                     }
-                    .widgetAccentable()
+                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
                 }
-                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+            case .accessoryInline:
+                if #available(iOS 16.0, *) {
+                    Text(ⓔntry.ⓝote.title)
+                        .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+                }
             default:
                 Text(ⓔntry.ⓝote.title)
                     .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)

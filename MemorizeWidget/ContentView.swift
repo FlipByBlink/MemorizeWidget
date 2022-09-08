@@ -107,7 +107,7 @@ struct 🛠MenuView: View {
     @EnvironmentObject var 📱: 📱AppModel
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
                 Toggle(isOn: 📱.$🚩RectangularBackground) {
                     Label("Show rectangular background on lock screen", systemImage: "rectangle.dashed")
