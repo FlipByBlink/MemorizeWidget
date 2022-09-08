@@ -223,9 +223,9 @@ struct 🪧WidgetNoteSheet: View {
                 ZStack {
                     Color.clear
                     if 🛒.🚩Purchased == false {
-                        📣ADView() //TODO: ちゃんと実装
+                        📣ADView()
                             .padding()
-                            .transition(.slide)
+                            .transition(.opacity)
                     }
                 }
                 .frame(height: 100)
