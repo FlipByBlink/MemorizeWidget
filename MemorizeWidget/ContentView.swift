@@ -4,26 +4,30 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🔖Tag: 🔖TabTag = .notesList
     
     var body: some View {
-        TabView {
+        TabView(selection: $🔖Tag) {
             🗃NotesListTab()
                 .tabItem {
                     Label("List", systemImage: "text.justify.leading")
                         .labelStyle(.iconOnly)
                 }
+                .tag(🔖TabTag.notesList)
             
             🛠MenuTab()
                 .tabItem {
                     Label("Menu", systemImage: "gearshape")
                         .labelStyle(.iconOnly)
                 }
+                .tag(🔖TabTag.menu)
             
             ℹ️AboutAppTab()
                 .tabItem {
                     Label("About", systemImage: "questionmark")
                         .labelStyle(.iconOnly)
                 }
+                .tag(🔖TabTag.aboutApp)
         }
         .onChange(of: 📱.🚩RandomMode) { _ in
             WidgetCenter.shared.reloadAllTimelines()
@@ -32,6 +36,8 @@ struct ContentView: View {
             if !📱.🗃Notes.isEmpty {
                 📱.🚩ShowWidgetNote = true
                 📱.🆔WidgetNoteID = 🔗.description
+            } else {
+                🔖Tag = .notesList
             }
         }
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
@@ -41,6 +47,12 @@ struct ContentView: View {
             📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
         }
+    }
+    
+    enum 🔖TabTag {
+        case notesList
+        case menu
+        case aboutApp
     }
 }
 
@@ -132,22 +144,22 @@ struct 🛠MenuTab: View {
                 }
                 
                 Button {
-                    🚩ImportFile = true
+                    🚩ImportFile.toggle()
                 } label: {
                     Label("Import TSV file", systemImage: "arrow.down.doc")
-                }
-                .fileImporter(isPresented: $🚩ImportFile, allowedContentTypes: [.tabSeparatedText]) { ⓡesult in
-                    switch ⓡesult { //TODO: 実装
-                        case .success(let success):
-                            print(success)
-                        case .failure(let failure):
-                            print(failure)
-                    }
                 }
             }
             .navigationTitle("Menu")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .fileImporter(isPresented: $🚩ImportFile, allowedContentTypes: [.tabSeparatedText]) { ⓡesult in
+            switch ⓡesult { //TODO: 実装
+                case .success(let success):
+                    print(success)
+                case .failure(let failure):
+                    print(failure)
+            }
+        }
     }
 }
 
