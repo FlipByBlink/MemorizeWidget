@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F507EA9428C9FCCA00ECF06A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9328C9FCC900ECF06A /* README.md */; };
+		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F58C9F1E28C9DF90004D8257 /* MemorizeWidgetApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F58C9F1F28C9DF90004D8257 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F58C9F2028C9DF90004D8257 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
@@ -120,6 +122,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F507EA9328C9FCC900ECF06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F507EA9528C9FDC500ECF06A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeWidgetApp.swift; sourceTree = "<group>"; };
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +174,7 @@
 		F5B5A45528C6EDA1005B6E0F = {
 			isa = PBXGroup;
 			children = (
+				F507EA9328C9FCC900ECF06A /* README.md */,
 				F5B5A46028C6EDA1005B6E0F /* MemorizeWidget */,
 				F5D30CCB28C6F6C8001198AF /* MWWidget */,
 				F5D30CC628C6F6C8001198AF /* Frameworks */,
@@ -244,6 +250,7 @@
 		F5D30CC628C6F6C8001198AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F507EA9528C9FDC500ECF06A /* StoreKit.framework */,
 				F5D30CC728C6F6C8001198AF /* WidgetKit.framework */,
 				F5D30CC928C6F6C8001198AF /* SwiftUI.framework */,
 			);
@@ -347,6 +354,7 @@
 			files = (
 				F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */,
 				F5B6FEEA28C9BDDC0045D44A /* Configuration.storekit in Resources */,
+				F507EA9428C9FCCA00ECF06A /* README.md in Resources */,
 				F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
