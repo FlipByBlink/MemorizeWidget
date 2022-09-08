@@ -10,22 +10,19 @@ struct ContentView: View {
         TabView(selection: $🔖Tag) {
             🗃NotesListTab()
                 .tabItem {
-                    Label("List", systemImage: "text.justify.leading")
-                        .labelStyle(.iconOnly)
+                    Label("Notes", systemImage: "text.justify.leading")
                 }
                 .tag(🔖TabTag.notesList)
             
             🛠MenuTab()
                 .tabItem {
                     Label("Menu", systemImage: "gearshape")
-                        .labelStyle(.iconOnly)
                 }
                 .tag(🔖TabTag.menu)
             
             ℹ️AboutAppTab()
                 .tabItem {
                     Label("About", systemImage: "questionmark")
-                        .labelStyle(.iconOnly)
                 }
                 .tag(🔖TabTag.aboutApp)
         }
@@ -105,10 +102,10 @@ struct 📓NoteRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             TextField("+ title", text: $ⓝote.title)
-                .font(.title.weight(.semibold))
+                .font(.headline.weight(.semibold))
                 .foregroundStyle(🎨Thin ? .tertiary : .primary)
             TextField("+ comment", text: $ⓝote.comment)
-                .font(.subheadline.weight(.medium))
+                .font(.footnote)
                 .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                 .opacity(0.8)
         }
