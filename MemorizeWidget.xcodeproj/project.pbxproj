@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		F507EA9428C9FCCA00ECF06A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9328C9FCC900ECF06A /* README.md */; };
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
+		F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
+		F507EAA528CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
+		F507EAA628CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
+		F507EAA728CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
+		F507EAA828CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
+		F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
+		F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
+		F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
 		F58C9F1E28C9DF90004D8257 /* MemorizeWidgetApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F58C9F1F28C9DF90004D8257 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F58C9F2028C9DF90004D8257 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
@@ -124,6 +132,14 @@
 /* Begin PBXFileReference section */
 		F507EA9328C9FCC900ECF06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F507EA9528C9FDC500ECF06A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F507EA9928CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
+		F507EA9B28CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F507EA9D28CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F507EA9F28CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
+		F507EAA028CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
+		F507EAA128CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F507EAA228CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F507EAA328CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
 		F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeWidgetApp.swift; sourceTree = "<group>"; };
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +187,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F507EA9728CA145000ECF06A /* 🌏Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F507EA9A28CA145000ECF06A /* Localizable.strings */,
+				F507EA9C28CA145000ECF06A /* InfoPlist.strings */,
+				F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */,
+				F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */,
+			);
+			path = "🌏Localization";
+			sourceTree = "<group>";
+		};
 		F5B5A45528C6EDA1005B6E0F = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +226,7 @@
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
 				F5B6FEEE28C9CCFE0045D44A /* 🔩OptionTab.swift */,
 				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
+				F507EA9728CA145000ECF06A /* 🌏Localization */,
 				F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */,
 				F5D30CDB28C707F2001198AF /* MemorizeWidget.entitlements */,
 			);
@@ -335,6 +363,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = F5B5A45528C6EDA1005B6E0F;
 			productRefGroup = F5B5A45F28C6EDA1005B6E0F /* Products */;
@@ -353,9 +382,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */,
+				F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */,
+				F507EAA828CA145000ECF06A /* InfoPlist.strings in Resources */,
+				F507EAA628CA145000ECF06A /* Localizable.strings in Resources */,
 				F5B6FEEA28C9BDDC0045D44A /* Configuration.storekit in Resources */,
 				F507EA9428C9FCCA00ECF06A /* README.md in Resources */,
 				F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */,
+				F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +396,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F507EAA528CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */,
+				F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */,
+				F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */,
+				F507EAA728CA145000ECF06A /* Localizable.strings in Resources */,
 				F5B6FED228C99B930045D44A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +445,45 @@
 			targetProxy = F5D30CD128C6F6C9001198AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F507EA9928CA145000ECF06A /* ja */,
+				F507EAA028CA145000ECF06A /* en */,
+			);
+			name = "🌏AppStoreDescription.strings";
+			sourceTree = "<group>";
+		};
+		F507EA9A28CA145000ECF06A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F507EA9B28CA145000ECF06A /* ja */,
+				F507EAA128CA145000ECF06A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F507EA9C28CA145000ECF06A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F507EA9D28CA145000ECF06A /* ja */,
+				F507EAA228CA145000ECF06A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F507EA9F28CA145000ECF06A /* ja */,
+				F507EAA328CA145000ECF06A /* en */,
+			);
+			name = "🌏VersionDescription.strings";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F5B5A46A28C6EDA3005B6E0F /* Debug */ = {
