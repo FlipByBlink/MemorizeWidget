@@ -74,6 +74,7 @@ struct 🗃ListView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -124,6 +125,7 @@ struct 🛠MenuView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
