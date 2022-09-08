@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F58C9F1E28C9DF90004D8257 /* MemorizeWidgetApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
+		F58C9F1F28C9DF90004D8257 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
+		F58C9F2028C9DF90004D8257 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
+		F58C9F2128C9DF90004D8257 /* 🛠MenuTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEEE28C9CCFE0045D44A /* 🛠MenuTab.swift */; };
+		F58C9F2228C9DF90004D8257 /* MWWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
+		F58C9F2428C9DFFB004D8257 /* ℹ️AboutAppMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEDA28C9BDDC0045D44A /* ℹ️AboutAppMenu.swift */; };
+		F58C9F2528C9DFFB004D8257 /* 📜VersionHistory.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEDD28C9BDDC0045D44A /* 📜VersionHistory.swift */; };
+		F58C9F2628C9DFFB004D8257 /* 🧑‍💻AboutDeveloperPublisher.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEDC28C9BDDC0045D44A /* 🧑‍💻AboutDeveloperPublisher.swift */; };
+		F58C9F2728C9DFFB004D8257 /* 📓SourceCodeMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEDB28C9BDDC0045D44A /* 📓SourceCodeMenu.swift */; };
+		F58C9F2A28C9E018004D8257 /* 📣ADView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FED528C9BDDC0045D44A /* 📣ADView.swift */; };
+		F58C9F2B28C9E018004D8257 /* 📣AppName.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FED628C9BDDC0045D44A /* 📣AppName.swift */; };
+		F58C9F2C28C9E018004D8257 /* 📣ADMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FED728C9BDDC0045D44A /* 📣ADMenu.swift */; };
+		F58C9F2D28C9E01F004D8257 /* 🛒PurchaseView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEE028C9BDDC0045D44A /* 🛒PurchaseView.swift */; };
+		F58C9F2E28C9E01F004D8257 /* 🛒StoreModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B6FEE128C9BDDC0045D44A /* 🛒StoreModel.swift */; };
 		F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
@@ -42,6 +56,56 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F58C9F1D28C9DF4F004D8257 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = main;
+			dstSubfolderSpec = 7;
+			files = (
+				F58C9F1E28C9DF90004D8257 /* MemorizeWidgetApp.swift in CopyFiles */,
+				F58C9F1F28C9DF90004D8257 /* ContentView.swift in CopyFiles */,
+				F58C9F2028C9DF90004D8257 /* 📱AppModel.swift in CopyFiles */,
+				F58C9F2128C9DF90004D8257 /* 🛠MenuTab.swift in CopyFiles */,
+				F58C9F2228C9DF90004D8257 /* MWWidget.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58C9F2328C9DFF4004D8257 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "ℹ️AboutApp";
+			dstSubfolderSpec = 7;
+			files = (
+				F58C9F2428C9DFFB004D8257 /* ℹ️AboutAppMenu.swift in CopyFiles */,
+				F58C9F2528C9DFFB004D8257 /* 📜VersionHistory.swift in CopyFiles */,
+				F58C9F2628C9DFFB004D8257 /* 🧑‍💻AboutDeveloperPublisher.swift in CopyFiles */,
+				F58C9F2728C9DFFB004D8257 /* 📓SourceCodeMenu.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58C9F2828C9DFFE004D8257 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📣AD";
+			dstSubfolderSpec = 7;
+			files = (
+				F58C9F2A28C9E018004D8257 /* 📣ADView.swift in CopyFiles */,
+				F58C9F2B28C9E018004D8257 /* 📣AppName.swift in CopyFiles */,
+				F58C9F2C28C9E018004D8257 /* 📣ADMenu.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58C9F2928C9E00B004D8257 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "🛒InAppPurchase";
+			dstSubfolderSpec = 7;
+			files = (
+				F58C9F2D28C9E01F004D8257 /* 🛒PurchaseView.swift in CopyFiles */,
+				F58C9F2E28C9E01F004D8257 /* 🛒StoreModel.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5D30CD428C6F6C9001198AF /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,9 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				F5B6FEDA28C9BDDC0045D44A /* ℹ️AboutAppMenu.swift */,
-				F5B6FEDB28C9BDDC0045D44A /* 📓SourceCodeMenu.swift */,
-				F5B6FEDC28C9BDDC0045D44A /* 🧑‍💻AboutDeveloperPublisher.swift */,
 				F5B6FEDD28C9BDDC0045D44A /* 📜VersionHistory.swift */,
+				F5B6FEDC28C9BDDC0045D44A /* 🧑‍💻AboutDeveloperPublisher.swift */,
+				F5B6FEDB28C9BDDC0045D44A /* 📓SourceCodeMenu.swift */,
 			);
 			path = "ℹ️AboutApp";
 			sourceTree = "<group>";
@@ -207,6 +271,10 @@
 				F5B5A45B28C6EDA1005B6E0F /* Frameworks */,
 				F5B5A45C28C6EDA1005B6E0F /* Resources */,
 				F5D30CD428C6F6C9001198AF /* Embed Foundation Extensions */,
+				F58C9F1D28C9DF4F004D8257 /* CopyFiles */,
+				F58C9F2328C9DFF4004D8257 /* CopyFiles */,
+				F58C9F2828C9DFFE004D8257 /* CopyFiles */,
+				F58C9F2928C9E00B004D8257 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -466,6 +534,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -503,6 +572,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;

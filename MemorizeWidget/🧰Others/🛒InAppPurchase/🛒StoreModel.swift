@@ -149,12 +149,6 @@ public enum 🚨StoreError: Error {
 
 
 
-//TODO: 複数購入アイテムの対応を検討
-//TODO: AppModel下にインスタンスを配置するか検討
-
-
-
-
 //Ref: Sample code "Implementing a store in your app using the StoreKit API | Apple Developer Documentation"
 //https://developer.apple.com/documentation/storekit/in-app_purchase/implementing_a_store_in_your_app_using_the_storekit_api
 //========================================================================

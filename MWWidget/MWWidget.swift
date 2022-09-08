@@ -5,12 +5,12 @@ import SwiftUI
 @main
 struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
-        MWWidget()
-        MWWidgetSub()
+        🖼MWWidget()
+        🖼MWWidgetSub()
     }
 }
 
-struct MWWidget: Widget {
+struct 🖼MWWidget: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
     
     var body: some WidgetConfiguration {
@@ -29,7 +29,7 @@ struct MWWidget: Widget {
     }
 }
 
-struct MWWidgetSub: Widget {
+struct 🖼MWWidgetSub: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
     
     var body: some WidgetConfiguration {
