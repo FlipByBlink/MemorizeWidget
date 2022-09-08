@@ -15,13 +15,6 @@ struct 🔩OptionTab: View {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 
-                Toggle(isOn: 📱.$🚩RectangularBackground) {
-                    Label("Show rectangular background on lock screen", systemImage: "rectangle.dashed")
-                }
-                .onChange(of: 📱.🚩RectangularBackground) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-                
                 📣ADMenuLink()
             }
             .navigationTitle("Option")

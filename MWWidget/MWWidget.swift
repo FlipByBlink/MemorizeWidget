@@ -132,14 +132,9 @@ struct 🅆idgetEntryView : View {
             case .accessoryRectangular:
                 if #available(iOS 16.0, *) {
                     ZStack {
-                        if 📱.🚩RectangularBackground {
-                            AccessoryWidgetBackground()
-                                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                        }
                         VStack(spacing: 0) {
                             Text(ⓔntry.ⓝote.title)
                                 .font(.headline)
-                                .padding(8)
                             if 📱.🚩ShowComment {
                                 if ⓔntry.ⓝote.comment != "" {
                                     Text(ⓔntry.ⓝote.comment)

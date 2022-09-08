@@ -14,7 +14,6 @@ class 📱AppModel: ObservableObject {
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
-    @AppStorage("RectangularBackground", store: ⓤd) var 🚩RectangularBackground: Bool = false
     @AppStorage("ShowComment", store: ⓤd) var 🚩ShowComment: Bool = false
     
     func 📓GetWidgetNote() -> 📓Note {

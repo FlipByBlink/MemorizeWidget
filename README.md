@@ -1,4 +1,4 @@
-# 📱 iPhoneApp MemorizeWidget / 暗記ウィジェット
+# 📱 MemorizeWidget / 暗記ウィジェット for iPhone, iPad
 
 <br>
 
@@ -17,36 +17,36 @@ https://apps.apple.com/app/id1111
 
 <!--==== English description ====-->
 
-AAAA.
+Flashcard on widget. Memorize a note in everyday life.
 
-【Target/Use-case】
+- Two mode. "One note mode" or "Random note mode".
 
-- AAAA
+- In Random note mode, widget changes the note per 5 minutes.
+
+- Lock screen widget supoort (iOS 16 only)
+
+- Import TSV file.
 
 【OPTION】
 
-- AAAA
-
-【OTHERS】
-
-- AAAA
+- Show comment on widget. (homescreen-widget/lockscreen-rectangular)
 
 
 ==== Japanese(native) description ====
 
-ああああ。
+ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリ。
 
-【想定ユーザー/ユースケース】
+- ２つのモード。"単体モード"と"ランダムモード"。
 
-- ああああ
+- ランダムモードでは、5分毎に表示されるノートが変わります。
+
+- ロックスリーンウィジェットにも対応(iOS16のみ)
+
+- TSVファイルをインポート可能
 
 【オプション】
 
-- ああああ
-
-【その他】
-
-- ああああ
+- ウィジェット上で"タイトル"だけでなく"コメント"を表示することも可能
 
 
 ==== Localization: All ====
