@@ -17,8 +17,8 @@ struct MWWidget: Widget {
         StaticConfiguration(kind: "main", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
-        .configurationDisplayName("MWWidget name")
-        .description("placeholder")
+        .configurationDisplayName("MemorizeWidget")
+        .description("Show a note.")
         .supportedFamilies(ⓕamilys)
     }
     
@@ -36,8 +36,8 @@ struct MWWidgetSub: Widget {
         StaticConfiguration(kind: "sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
-        .configurationDisplayName("sub")
-        .description("sub")
+        .configurationDisplayName("Sub widget")
+        .description("This is spare widget.")
         .supportedFamilies(ⓕamilys)
     }
     
@@ -98,9 +98,11 @@ struct 🅆idgetEntryView : View {
                             .font(.headline)
                             .lineLimit(3)
                         if 📱.🚩ShowComment {
-                            Text(ⓔntry.ⓝote.comment)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
+                            if ⓔntry.ⓝote.comment == "" {
+                                Text(ⓔntry.ⓝote.comment)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                         Spacer()
                     }
@@ -117,9 +119,11 @@ struct 🅆idgetEntryView : View {
                             .font(.title.bold())
                             .lineLimit(3)
                         if 📱.🚩ShowComment {
-                            Text(ⓔntry.ⓝote.comment)
-                                .font(.title2)
-                                .foregroundStyle(.secondary)
+                            if ⓔntry.ⓝote.comment == "" {
+                                Text(ⓔntry.ⓝote.comment)
+                                    .font(.title2)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                         Spacer()
                     }
@@ -139,9 +143,11 @@ struct 🅆idgetEntryView : View {
                                 .font(.headline)
                                 .padding(8)
                             if 📱.🚩ShowComment {
-                                Text(ⓔntry.ⓝote.comment)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                if ⓔntry.ⓝote.comment == "" {
+                                    Text(ⓔntry.ⓝote.comment)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
                             }
                         }
                         .widgetAccentable()

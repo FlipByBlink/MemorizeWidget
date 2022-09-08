@@ -9,7 +9,7 @@ struct ContentView: View {
         TabView {
             🗃ListView()
                 .tabItem {
-                    Label("List", systemImage: "text.badge.plus")
+                    Label("List", systemImage: "text.justify.leading")
                         .labelStyle(.iconOnly)
                 }
             
