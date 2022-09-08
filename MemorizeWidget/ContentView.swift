@@ -187,6 +187,7 @@ struct 🆕NewNoteView: View {
 
 struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔WidgetNoteID }
@@ -232,6 +233,14 @@ struct 🪧WidgetNoteSheet: View {
             .tint(.secondary)
             .accessibilityLabel("Dismiss")
         }
+        .overlay(alignment: .bottom) {
+            if 🛒.🚩Purchased == false {
+                📣ADView() //TODO: ちゃんと実装
+                    .padding()
+                    .transition(.opacity)
+            }
+        }
+        .animation(.default, value: 🛒.🚩Purchased)
     }
 }
 
