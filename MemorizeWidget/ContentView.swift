@@ -264,10 +264,11 @@ struct ℹ️AboutAppTab: View {
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                         }
-                        .padding(24)
-                        .padding(.vertical, 32)
+                        .padding(48)
                     }
-                    
+                }
+                
+                Section {
                     Link(destination: 🔗AppStoreProductURL) {
                         HStack {
                             Label("Open AppStore page", systemImage: "link")
