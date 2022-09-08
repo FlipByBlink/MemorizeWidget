@@ -34,13 +34,29 @@ struct 🛠MenuTab: View {
             .navigationTitle("Menu")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .fileImporter(isPresented: $🚩ImportFile, allowedContentTypes: [.tabSeparatedText]) { ⓡesult in
-            switch ⓡesult { //TODO: 実装
-                case .success(let success):
-                    print(success)
-                case .failure(let failure):
-                    print(failure)
-            }
+        .fileImporter(isPresented: $🚩ImportFile, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
+            do {
+                let 📦 = try 📦Result.get()
+                if 📦.startAccessingSecurityScopedResource() {
+                    let ⓦholeText = try String(contentsOf: 📦)
+                    print("WholeText: \n", ⓦholeText)
+                    let ⓞneLineTexts: [String] = ⓦholeText.components(separatedBy: .newlines)
+                    //let ⓞneLineTexts: [String] = ⓦholeText.components(separatedBy: "\r\n") // これだと上手くいく場合があるが環境依存っぽい。あとダブルクオーテーションが残る場合がある。
+                    ⓞneLineTexts.forEach { ⓞneline in
+                        if ⓞneline != "" {
+                            let ⓣexts = ⓞneline.components(separatedBy: "\t")
+                            if ⓣexts.count == 1 {
+                                📱.🗃Notes.append(📓Note(ⓣexts[0]))
+                            } else if ⓣexts.count > 1 {
+                                if ⓣexts[0] != "" {
+                                    📱.🗃Notes.append(📓Note(ⓣexts[0], ⓣexts[1]))
+                                }
+                            }
+                        }
+                    }
+                    📦.stopAccessingSecurityScopedResource()
+                }
+            } catch { print("👿", error) }
         }
     }
 }
