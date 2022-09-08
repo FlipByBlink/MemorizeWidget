@@ -84,7 +84,7 @@ struct 🗃NotesListTab: View {
                 
                 Section {
                     Button {
-                        📱.🚩ImportTSVFile.toggle()
+                        📱.🚩ShowFileImporter.toggle()
                     } label: {
                         Label("Import TSV file", systemImage: "arrow.down.doc")
                     }
@@ -98,9 +98,9 @@ struct 🗃NotesListTab: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .fileImporter(isPresented: $📱.🚩ImportTSVFile, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
+        .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
             withAnimation {
-                📱.🗃Notes.append(contentsOf: 📂ImportTSV(📦Result))
+                📱.🗃Notes.append(contentsOf: 📂ImportTSVFile(📦Result))
             }
         }
     }

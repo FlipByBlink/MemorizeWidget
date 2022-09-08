@@ -10,7 +10,7 @@ class 📱AppModel: ObservableObject {
     @Published var 🚩ShowWidgetNote: Bool = false
     @Published var 🆔WidgetNoteID: String? = nil
     
-    @Published var 🚩ImportTSVFile: Bool = false
+    @Published var 🚩ShowFileImporter: Bool = false
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
@@ -71,7 +71,7 @@ struct 📓Note: Codable, Identifiable, Hashable {
 let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 
-func 📂ImportTSV(_ 📦Result: Result<URL, Error>) -> [📓Note] {
+func 📂ImportTSVFile(_ 📦Result: Result<URL, Error>) -> [📓Note] {
     do {
         var 📚Notes: [📓Note] = []
         let 📦 = try 📦Result.get()

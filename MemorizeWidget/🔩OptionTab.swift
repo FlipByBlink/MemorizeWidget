@@ -24,7 +24,7 @@ struct 🔩OptionTab: View {
                 
                 📣ADMenuLink()
             }
-            .navigationTitle("Menu")
+            .navigationTitle("Option")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
