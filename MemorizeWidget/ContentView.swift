@@ -201,23 +201,27 @@ struct 🪧WidgetNoteSheet: View {
                 Spacer()
                 if let 🔢 = 🔢NoteIndex {
                     TextField("No title", text: $📱.🗃Notes[🔢].title)
-                        .font(.largeTitle.bold())
+                        .font(.title3.bold())
                     TextField("No comment", text: $📱.🗃Notes[🔢].comment)
-                        .font(.title3)
                         .foregroundStyle(.secondary)
                     
                     Button(role: .destructive) {
                         📱.🗃Notes.remove(at: 🔢)
                     } label: {
                         Image(systemName: "trash")
-                            .foregroundStyle(.secondary)
                             .font(.title3.bold())
+                            .foregroundStyle(.secondary)
                     }
                     .tint(.red)
                     .padding(.top, 64)
                 } else {
-                    Label("Deleted.", systemImage: "checkmark")
-                        .font(.largeTitle)
+                    VStack(spacing: 24) {
+                        Label("Deleted.", systemImage: "checkmark")
+                            .font(.largeTitle)
+                        Image(systemName: "trash")
+                            .font(.title3.weight(.heavy))
+                            .foregroundStyle(.quaternary)
+                    }
                 }
                 Spacer()
                 ZStack {
@@ -232,7 +236,7 @@ struct 🪧WidgetNoteSheet: View {
                 .animation(.default, value: 🛒.🚩Purchased)
             }
         }
-        .animation(.default, value: 🔢NoteIndex)
+        .animation(.default.speed(1.5), value: 🔢NoteIndex)
         .padding(24)
         .overlay(alignment: .topTrailing) {
             Button {
