@@ -217,11 +217,10 @@ struct 🪧WidgetNoteSheet: View {
                 } else {
                     VStack(spacing: 24) {
                         Label("Deleted.", systemImage: "checkmark")
-                            .font(.largeTitle)
                         Image(systemName: "trash")
-                            .font(.title3.weight(.heavy))
-                            .foregroundStyle(.quaternary)
                     }
+                    .imageScale(.small)
+                    .font(.largeTitle)
                 }
                 Spacer()
                 ZStack {
