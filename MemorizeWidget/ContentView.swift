@@ -7,12 +7,6 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            M⃣ainView()
-                .tabItem {
-                    Label("Main", systemImage: "character.textbox")
-                        .labelStyle(.iconOnly)
-                }
-            
             🗃ListView()
                 .tabItem {
                     Label("List", systemImage: "text.badge.plus")
@@ -44,27 +38,6 @@ struct ContentView: View {
     }
 }
 
-
-struct M⃣ainView: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    
-    var body: some View {
-        VStack {
-            Text("適用イメージ図(仮)")
-                .font(.largeTitle)
-                .foregroundColor(.secondary)
-                .padding(64)
-                .border(.secondary)
-            
-            if 📱.🗃Notes.isEmpty {
-                🆕NewNoteFormOnMain()
-            } else {
-                📓NoteRow($📱.🗃Notes.first!)
-                    .padding(32)
-            }
-        }
-    }
-}
 
 struct 🗃ListView: View {
     @EnvironmentObject var 📱: 📱AppModel
@@ -154,21 +127,6 @@ struct 🛠MenuView: View {
     }
 }
 
-
-struct 🆕NewNoteFormOnMain: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @State private var ⓣitle: String = ""
-    
-    var body: some View {
-        TextField("+ New note", text: $ⓣitle)
-            .font(.title2.weight(.semibold))
-            .padding(32)
-            .textFieldStyle(.roundedBorder)
-            .onSubmit {
-                📱.🗃Notes.append(📓Note(ⓣitle))
-            }
-    }
-}
 
 struct 🆕NewNoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
