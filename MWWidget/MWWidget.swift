@@ -154,8 +154,7 @@ struct 🅆idgetEntryView : View {
                         .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
                 }
             default:
-                Text(ⓔntry.ⓝote.title)
-                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+                Text("🐛")
         }
     }
     
