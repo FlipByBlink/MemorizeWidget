@@ -1,0 +1,38 @@
+{
+  "identifier" : "B6ADD89B",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "10.0",
+      "familyShareable" : false,
+      "internalID" : "4D4A3592",
+      "localizations" : [
+        {
+          "description" : "Option to hide self-AD banner.",
+          "displayName" : "Hide AD banner(Xcode)",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "広告バナーを非表示にするオプション",
+          "displayName" : "広告を非表示にする(Xcode)",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "MemorizeWidget.adfree",
+      "referenceName" : "AD_Free(Xcode)",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

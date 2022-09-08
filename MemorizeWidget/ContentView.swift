@@ -7,15 +7,21 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            🗃ListView()
+            🗃NotesListTab()
                 .tabItem {
                     Label("List", systemImage: "text.justify.leading")
                         .labelStyle(.iconOnly)
                 }
             
-            🛠MenuView()
+            🛠MenuTab()
                 .tabItem {
                     Label("Menu", systemImage: "gearshape")
+                        .labelStyle(.iconOnly)
+                }
+            
+            ℹ️AboutAppTab()
+                .tabItem {
+                    Label("About", systemImage: "questionmark")
                         .labelStyle(.iconOnly)
                 }
         }
@@ -39,7 +45,7 @@ struct ContentView: View {
 }
 
 
-struct 🗃ListView: View {
+struct 🗃NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     
     var body: some View {
@@ -104,7 +110,7 @@ struct 📓NoteRow: View {
 }
 
 
-struct 🛠MenuView: View {
+struct 🛠MenuTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     
     var body: some View {
@@ -124,6 +130,7 @@ struct 🛠MenuView: View {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             }
+            .navigationTitle("Menu")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -229,6 +236,74 @@ struct 🪧WidgetNoteSheet: View {
             }
             .tint(.secondary)
             .accessibilityLabel("Dismiss")
+        }
+    }
+}
+
+
+struct ℹ️AboutAppTab: View {
+    var body: some View {
+        NavigationView {
+            List {
+                ℹ️AboutAppLink()
+                📣ADMenuLink()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}
+
+struct ℹ️AboutAppLink: View {
+    var body: some View {
+        Section {
+            ZStack {
+                Color.clear
+                
+                VStack(spacing: 12) {
+                    Image("FlipByBlink")
+                        .resizable()
+                        .mask {
+                            RoundedRectangle(cornerRadius: 22.5, style: .continuous)
+                        }
+                        .shadow(radius: 3, y: 1)
+                        .frame(width: 100, height: 100)
+                    
+                    VStack(spacing: 6) {
+                        Text("MemorizeWidget")
+                            .font(.system(.title2, design: .rounded))
+                            .fontWeight(.bold)
+                            .tracking(1.5)
+                            .opacity(0.75)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                        
+                        Text("Application for iPhone / iPad")
+                            .font(.footnote)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.secondary)
+                    }
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.1)
+                }
+                .padding(24)
+                .padding(.top, 12)
+            }
+            
+            Link(destination: 🔗AppStoreProductURL) {
+                HStack {
+                    Label("Open AppStore page", systemImage: "link")
+                    Spacer()
+                    Image(systemName: "arrow.up.forward.app")
+                        .imageScale(.small)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            
+            NavigationLink  {
+                ℹ️AboutAppMenu()
+            } label: {
+                Label("About App", systemImage: "doc")
+            }
         }
     }
 }
