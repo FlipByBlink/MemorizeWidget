@@ -197,8 +197,9 @@ struct 🪧WidgetNoteSheet: View {
         ZStack {
             Color.clear
             
-            if let 🔢 = 🔢NoteIndex {
-                VStack {
+            VStack {
+                Spacer()
+                if let 🔢 = 🔢NoteIndex {
                     TextField("No title", text: $📱.🗃Notes[🔢].title)
                         .font(.largeTitle.bold())
                     TextField("No comment", text: $📱.🗃Notes[🔢].comment)
@@ -214,10 +215,21 @@ struct 🪧WidgetNoteSheet: View {
                     }
                     .tint(.red)
                     .padding(.top, 64)
+                } else {
+                    Label("Deleted.", systemImage: "checkmark")
+                        .font(.largeTitle)
                 }
-            } else {
-                Label("Deleted.", systemImage: "checkmark")
-                    .font(.largeTitle)
+                Spacer()
+                ZStack {
+                    Color.clear
+                    if 🛒.🚩Purchased == false {
+                        📣ADView() //TODO: ちゃんと実装
+                            .padding()
+                            .transition(.slide)
+                    }
+                }
+                .frame(height: 100)
+                .animation(.default, value: 🛒.🚩Purchased)
             }
         }
         .animation(.default, value: 🔢NoteIndex)
@@ -233,14 +245,6 @@ struct 🪧WidgetNoteSheet: View {
             .tint(.secondary)
             .accessibilityLabel("Dismiss")
         }
-        .overlay(alignment: .bottom) {
-            if 🛒.🚩Purchased == false {
-                📣ADView() //TODO: ちゃんと実装
-                    .padding()
-                    .transition(.opacity)
-            }
-        }
-        .animation(.default, value: 🛒.🚩Purchased)
     }
 }
 
