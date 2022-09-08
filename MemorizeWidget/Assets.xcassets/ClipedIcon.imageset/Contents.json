@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ClipedIcon360.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

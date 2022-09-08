@@ -260,12 +260,9 @@ struct ℹ️AboutAppLink: View {
                 Color.clear
                 
                 VStack(spacing: 12) {
-                    Image("FlipByBlink")
+                    Image("ClipedIcon")
                         .resizable()
-                        .mask {
-                            RoundedRectangle(cornerRadius: 22.5, style: .continuous)
-                        }
-                        .shadow(radius: 3, y: 1)
+                        .shadow(radius: 4, y: 1)
                         .frame(width: 100, height: 100)
                     
                     VStack(spacing: 6) {
