@@ -265,7 +265,7 @@ struct ℹ️AboutAppTab: View {
                             .minimumScaleFactor(0.1)
                         }
                         .padding(24)
-                        .padding(.top, 12)
+                        .padding(.vertical, 32)
                     }
                     
                     Link(destination: 🔗AppStoreProductURL) {
@@ -287,5 +287,6 @@ struct ℹ️AboutAppTab: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }

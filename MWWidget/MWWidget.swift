@@ -93,42 +93,42 @@ struct 🅆idgetEntryView : View {
                 ZStack {
                     Color.clear
                     VStack {
-                        Spacer()
+                        Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.headline)
                             .lineLimit(3)
                         if 📱.🚩ShowComment {
-                            if ⓔntry.ⓝote.comment == "" {
+                            if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
                         }
-                        Spacer()
+                        Spacer(minLength: 0)
                     }
                     .padding()
-                    .minimumScaleFactor(0.1)
+                    .minimumScaleFactor(0.5)
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .systemMedium:
                 ZStack {
                     Color.clear
                     VStack {
-                        Spacer()
+                        Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.title.bold())
                             .lineLimit(3)
                         if 📱.🚩ShowComment {
-                            if ⓔntry.ⓝote.comment == "" {
+                            if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
                                     .font(.title2)
                                     .foregroundStyle(.secondary)
                             }
                         }
-                        Spacer()
+                        Spacer(minLength: 0)
                     }
                     .padding()
-                    .minimumScaleFactor(0.1)
+                    .minimumScaleFactor(0.5)
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .accessoryRectangular:
@@ -143,7 +143,7 @@ struct 🅆idgetEntryView : View {
                                 .font(.headline)
                                 .padding(8)
                             if 📱.🚩ShowComment {
-                                if ⓔntry.ⓝote.comment == "" {
+                                if ⓔntry.ⓝote.comment != "" {
                                     Text(ⓔntry.ⓝote.comment)
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
@@ -151,6 +151,7 @@ struct 🅆idgetEntryView : View {
                             }
                         }
                         .widgetAccentable()
+                        .minimumScaleFactor(0.5)
                     }
                     .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
                 }
