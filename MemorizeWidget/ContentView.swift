@@ -162,7 +162,7 @@ struct 🆕NewNoteView: View {
     
     func 🅂ubmit() {
         if 📱.🆕NewNote.title == "" { return }
-        
+        UISelectionFeedbackGenerator().selectionChanged()
         withAnimation {
             📱.🗃Notes.insert(📱.🆕NewNote, at: 0)
             📱.🆕NewNote = .init("")
@@ -197,6 +197,7 @@ struct 🪧WidgetNoteSheet: View {
                     
                     Button(role: .destructive) {
                         📱.🗃Notes.remove(at: 🔢)
+                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
                     } label: {
                         Image(systemName: "trash")
                             .font(.title3.bold())
