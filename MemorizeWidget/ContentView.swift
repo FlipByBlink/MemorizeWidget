@@ -89,7 +89,11 @@ struct 🗃NotesListTab: View {
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.🗃Notes)
             .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
-                📱.🗃Notes.append(contentsOf: 📂ImportTSVFile(📦Result))
+                📱.📓ImportedNotes = 📂ImportTSVFile(📦Result)
+                📱.🚩ShowConfirmFileImportSheet = true
+            }
+            .sheet(isPresented: $📱.🚩ShowConfirmFileImportSheet) {
+                📂ConfirmFileImportSheet()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -98,6 +102,44 @@ struct 🗃NotesListTab: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    struct 📂ConfirmFileImportSheet: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        var body: some View {
+            NavigationView {
+                List(📱.📓ImportedNotes) { note in
+                    VStack(alignment: .leading) {
+                        Text(note.title)
+                        Text(note.comment)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(role: .cancel) {
+                            📱.🚩ShowConfirmFileImportSheet = false
+                        } label: {
+                            Label("Cancel", systemImage: "xmark")
+                        }
+                        .tint(.red)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            📱.🗃Notes.append(contentsOf: 📱.📓ImportedNotes)
+                            📱.🚩ShowConfirmFileImportSheet = false
+                        } label: {
+                            Label("Done", systemImage: "checkmark")
+                        }
+                    }
+                }
+            }
+            .onDisappear {
+                📱.📓ImportedNotes = []
+            }
+        }
     }
 }
 

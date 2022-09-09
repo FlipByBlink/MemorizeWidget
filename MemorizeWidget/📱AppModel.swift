@@ -11,6 +11,8 @@ class 📱AppModel: ObservableObject {
     @Published var 🆔WidgetNoteID: String? = nil
     
     @Published var 🚩ShowFileImporter: Bool = false
+    @Published var 🚩ShowConfirmFileImportSheet: Bool = false
+    @Published var 📓ImportedNotes: [📓Note] = []
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
