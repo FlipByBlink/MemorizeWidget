@@ -1,7 +1,7 @@
 
 "Notes" = "ノート";
 "Random mode" = "ランダムモード";
-"Change the note per 5 minutes." = "約5分毎にテキストがランダムで切り替わります。";
+"Change the note per 5 minutes." = "約5分毎にランダムでノートが切り替わります。";
 "Import TSV file" = "TSVファイルを取り込む";
 "+ title" = "+ タイトル";
 "+ comment" = "+ コメント";
