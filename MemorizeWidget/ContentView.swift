@@ -4,7 +4,7 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🔖Tab: 🔖TabTag? = .notesList
+    @State private var 🔖Tab: 🔖TabTag = .notesList
     
     var body: some View {
         TabView(selection: $🔖Tab) {
@@ -132,7 +132,6 @@ struct 🆕NewNoteView: View {
             TextField("+ new note", text: $📱.🆕NewNote.title)
                 .font(.title2.bold())
                 .focused($🔍Focus, equals: .title)
-            
             TextField("comment", text: $📱.🆕NewNote.comment)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(.secondary)
@@ -140,9 +139,7 @@ struct 🆕NewNoteView: View {
                 .disabled(📱.🆕NewNote.title == "")
                 .padding(.leading, 8)
         }
-        .onSubmit {
-            🅂ubmit()
-        }
+        .onSubmit { 🅂ubmit() }
         .padding(8)
         .overlay(alignment: .trailing) {
             if 🔍Focus != nil {
@@ -186,7 +183,6 @@ struct 🪧WidgetNoteSheet: View {
     var body: some View {
         ZStack {
             Color.clear
-            
             VStack {
                 Spacer()
                 if let 🔢 = 🔢NoteIndex {
@@ -194,7 +190,6 @@ struct 🪧WidgetNoteSheet: View {
                         .font(.title3.bold())
                     TextField("No comment", text: $📱.🗃Notes[🔢].comment)
                         .foregroundStyle(.secondary)
-                    
                     Button(role: .destructive) {
                         📱.🗃Notes.remove(at: 🔢)
                         UINotificationFeedbackGenerator().notificationOccurred(.warning)
@@ -284,6 +279,7 @@ struct 🔩OptionTab: View {
                     .scaledToFit()
                     .cornerRadius(16)
                     .shadow(radius: 2)
+                    .rotationEffect(.degrees(1))
                 Image(systemName: "arrow.right")
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.secondary)
@@ -292,6 +288,7 @@ struct 🔩OptionTab: View {
                     .scaledToFit()
                     .cornerRadius(16)
                     .shadow(radius: 2)
+                    .rotationEffect(.degrees(-0.5))
             }
         }
     }
