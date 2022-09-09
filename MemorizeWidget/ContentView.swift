@@ -216,7 +216,7 @@ struct 🪧WidgetNoteSheet: View {
                 Spacer()
                 ZStack {
                     Color.clear
-                    if 🛒.🚩Purchased == false {
+                    if 🛒.🚩ADisActive {
                         📣ADView()
                             .padding()
                             .transition(.opacity)
