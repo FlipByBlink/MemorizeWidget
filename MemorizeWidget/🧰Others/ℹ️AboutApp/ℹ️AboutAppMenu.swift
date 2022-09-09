@@ -1,5 +1,5 @@
 
-let 🔗AppStoreProductURL = URL(string: "https://apps.apple.com/app/id1111")!
+let 🔗AppStoreProductURL = URL(string: "https://apps.apple.com/app/id1644276262")!
 
 let 👤PrivacyPolicy = """
 2022-09-08

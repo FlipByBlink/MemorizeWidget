@@ -8,7 +8,7 @@
 
 ## 🔗 AppStore link
 
-https://apps.apple.com/app/id1111
+https://apps.apple.com/app/id1644276262
 
 
 <!-- Manually sync below text between "/README.md(here)" and "Localizable.strings" and "AppStoreConnect/_/Description". -->
@@ -34,7 +34,7 @@ Flashcard on widget. Memorize a note in everyday life.
 
 ==== Japanese(native) description ====
 
-ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリ。
+ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリです。
 
 - ２つのモード。「単体モード」と「ランダムモード」。
 
@@ -46,7 +46,7 @@ Flashcard on widget. Memorize a note in everyday life.
 
 【オプション】
 
-- ウィジェット上で「タイトル」だけでなく「コメント」を表示することも可能
+- ウィジェット上で「タイトル」だけでなく「コメント」を表示することも可能。(ホームスクリーンのウィジェット/ロックスクリーンの長方形ウィジェット)
 
 
 ==== Localization: All ====
