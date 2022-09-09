@@ -4,7 +4,7 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🔖Tab: 🔖TabTag = .notesList
+    @State private var 🔖Tab: 🔖TabTag? = .notesList
     
     var body: some View {
         TabView(selection: $🔖Tab) {
@@ -13,9 +13,11 @@ struct ContentView: View {
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
             
             🔩OptionTab()
+                .tag(🔖TabTag.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
             
             ℹ️AboutAppTab()
+                .tag(🔖TabTag.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onChange(of: 📱.🚩RandomMode) { _ in
@@ -42,7 +44,7 @@ struct ContentView: View {
     }
     
     enum 🔖TabTag {
-        case notesList
+        case notesList, option, about
     }
 }
 
