@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F507EA9428C9FCCA00ECF06A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9328C9FCC900ECF06A /* README.md */; };
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
 		F507EAA528CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
@@ -381,7 +380,6 @@
 				F507EAA828CA145000ECF06A /* InfoPlist.strings in Resources */,
 				F507EAA628CA145000ECF06A /* Localizable.strings in Resources */,
 				F5B6FEEA28C9BDDC0045D44A /* Configuration.storekit in Resources */,
-				F507EA9428C9FCCA00ECF06A /* README.md in Resources */,
 				F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */,
 				F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */,
 			);
