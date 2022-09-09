@@ -249,7 +249,7 @@ struct 🔩OptionTab: View {
     var body: some View {
         NavigationView {
             List {
-                VStack {
+                Section {
                     Toggle(isOn: 📱.$🚩ShowComment) {
                         Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
                     }
@@ -257,7 +257,14 @@ struct 🔩OptionTab: View {
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                     
-                    Text("説明イメージ(placeholder)")
+                    VStack(spacing: 12) {
+                        🏞BeforeAfterImage(before: "homeSmall_commentOff", after: "homeSmall_commentOn")
+                        🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
+                    }
+                    .opacity(0.8)
+                    .padding()
+                    .padding(.leading)
+                    .frame(maxHeight: 400)
                 }
                 
                 📣ADMenuLink()
@@ -265,6 +272,27 @@ struct 🔩OptionTab: View {
             .navigationTitle("Option")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    struct 🏞BeforeAfterImage: View {
+        var before: String
+        var after: String
+        
+        var body: some View {
+            HStack {
+                Image(before)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(16)
+                Image(systemName: "arrow.right")
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                Image(after)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(16)
+            }
+        }
     }
 }
 
@@ -282,11 +310,36 @@ struct 📂FileImportSheet: View {
                         🚩ShowFileImporter.toggle()
                     } label: {
                         Label("Import TSV file", systemImage: "arrow.down.doc")
-                            .font(.title3.weight(.semibold))
+                            .font(.title2.weight(.semibold))
+                            .padding(.vertical, 8)
                     }
                     
                     Section {
-                        Text("説明イメージ(placeholder)")
+                        HStack {
+                            Image("tsvImport_before")
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(12)
+                                .shadow(radius: 2)
+                            Image(systemName: "arrow.right")
+                                .font(.title2.weight(.semibold))
+                            Image("tsvImport_after")
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(12)
+                                .shadow(radius: 2)
+                        }
+                        .frame(maxHeight: 400)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical)
+                        
+                        Image("numbers_tsv_export")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                            .padding()
+                            .frame(maxHeight: 250)
                     }
                 }
                 
@@ -309,6 +362,7 @@ struct 📂FileImportSheet: View {
                             📓ImportedNotes = []
                         } label: {
                             Label("Cancel", systemImage: "xmark")
+                                .font(.body.weight(.semibold))
                         }
                         .tint(.red)
                     }
@@ -325,6 +379,7 @@ struct 📂FileImportSheet: View {
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
+                                .font(.body.weight(.semibold))
                         }
                     }
                 }
