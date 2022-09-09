@@ -244,7 +244,7 @@ struct 🔩OptionTab: View {
             List {
                 Section {
                     Toggle(isOn: 📱.$🚩ShowComment) {
-                        Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
+                        Label("Show comment on widget", systemImage: "text.append")
                             .padding(.vertical, 8)
                     }
                     .onChange(of: 📱.🚩ShowComment) { _ in
@@ -286,7 +286,7 @@ struct 🔩OptionTab: View {
                     .scaledToFit()
                     .cornerRadius(16)
                     .shadow(radius: 2)
-                    .rotationEffect(.degrees(-0.5))
+                    .rotationEffect(.degrees(1))
             }
         }
     }
