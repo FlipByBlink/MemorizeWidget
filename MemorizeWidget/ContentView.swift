@@ -257,14 +257,12 @@ struct 🔩OptionTab: View {
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                     
-                    VStack(spacing: 12) {
+                    VStack(spacing: 16) {
                         🏞BeforeAfterImage(before: "homeSmall_commentOff", after: "homeSmall_commentOn")
                         🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
                     }
-                    .opacity(0.8)
                     .padding()
-                    .padding(.leading)
-                    .frame(maxHeight: 400)
+                    .frame(maxHeight: 500)
                 }
                 
                 📣ADMenuLink()
@@ -284,6 +282,7 @@ struct 🔩OptionTab: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(16)
+                    .shadow(radius: 2)
                 Image(systemName: "arrow.right")
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.secondary)
@@ -291,6 +290,7 @@ struct 🔩OptionTab: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(16)
+                    .shadow(radius: 2)
             }
         }
     }
