@@ -252,6 +252,7 @@ struct 🔩OptionTab: View {
                 Section {
                     Toggle(isOn: 📱.$🚩ShowComment) {
                         Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
+                            .padding(.vertical, 8)
                     }
                     .onChange(of: 📱.🚩ShowComment) { _ in
                         WidgetCenter.shared.reloadAllTimelines()
