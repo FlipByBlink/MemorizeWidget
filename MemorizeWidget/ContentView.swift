@@ -11,11 +11,9 @@ struct ContentView: View {
             🗃NotesListTab()
                 .tag(🔖TabTag.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
-            
             🔩OptionTab()
                 .tag(🔖TabTag.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
-            
             ℹ️AboutAppTab()
                 .tag(🔖TabTag.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
