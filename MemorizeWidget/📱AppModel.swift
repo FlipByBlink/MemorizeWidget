@@ -10,8 +10,8 @@ class 📱AppModel: ObservableObject {
     @Published var 🚩ShowWidgetNote: Bool = false
     @Published var 🆔WidgetNoteID: String? = nil
     
+    @Published var 🚩ShowFileImporSheet: Bool = false
     @Published var 🚩ShowFileImporter: Bool = false
-    @Published var 🚩ShowConfirmFileImportSheet: Bool = false
     @Published var 📓ImportedNotes: [📓Note] = []
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)

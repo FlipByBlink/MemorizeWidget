@@ -9,22 +9,16 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $🔖Tag) {
             🗃NotesListTab()
-                .tabItem {
-                    Label("Notes", systemImage: "text.justify.leading")
-                }
                 .tag(🔖TabTag.notesList)
+                .tabItem { Label("Notes", systemImage: "text.justify.leading") }
             
             🔩OptionTab()
-                .tabItem {
-                    Label("Option", systemImage: "gearshape")
-                }
                 .tag(🔖TabTag.option)
+                .tabItem { Label("Option", systemImage: "gearshape") }
             
             ℹ️AboutAppTab()
-                .tabItem {
-                    Label("About App", systemImage: "questionmark")
-                }
-                .tag(🔖TabTag.aboutApp)
+                .tag(🔖TabTag.notesList)
+                .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onChange(of: 📱.🚩RandomMode) { _ in
             WidgetCenter.shared.reloadAllTimelines()
@@ -77,69 +71,28 @@ struct 🗃NotesListTab: View {
                 .onMove { ⓘndexSet, ⓘnt in
                     📱.🗃Notes.move(fromOffsets: ⓘndexSet, toOffset: ⓘnt)
                 }
-                
-                Section {
-                    Button {
-                        📱.🚩ShowFileImporter.toggle()
-                    } label: {
-                        Label("Import TSV file", systemImage: "arrow.down.doc")
-                    }
-                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.🗃Notes)
-            .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
-                📱.📓ImportedNotes = 📂ImportTSVFile(📦Result)
-                📱.🚩ShowConfirmFileImportSheet = true
-            }
-            .sheet(isPresented: $📱.🚩ShowConfirmFileImportSheet) {
-                📂ConfirmFileImportSheet()
+            .sheet(isPresented: $📱.🚩ShowFileImporSheet) {
+                📂FileImportSheet()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        UISelectionFeedbackGenerator().selectionChanged()
+                        📱.🚩ShowFileImporSheet.toggle()
+                    } label: {
+                        Label("Import TSV file", systemImage: "arrow.down.doc")
+                    }
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    struct 📂ConfirmFileImportSheet: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        var body: some View {
-            NavigationView {
-                List(📱.📓ImportedNotes) { note in
-                    VStack(alignment: .leading) {
-                        Text(note.title)
-                        Text(note.comment)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(role: .cancel) {
-                            📱.🚩ShowConfirmFileImportSheet = false
-                        } label: {
-                            Label("Cancel", systemImage: "xmark")
-                        }
-                        .tint(.red)
-                    }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            📱.🗃Notes.append(contentsOf: 📱.📓ImportedNotes)
-                            📱.🚩ShowConfirmFileImportSheet = false
-                        } label: {
-                            Label("Done", systemImage: "checkmark")
-                        }
-                    }
-                }
-            }
-            .onDisappear {
-                📱.📓ImportedNotes = []
-            }
-        }
     }
 }
 
@@ -306,6 +259,80 @@ struct 🔩OptionTab: View {
             .navigationTitle("Option")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+
+struct 📂FileImportSheet: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        NavigationView {
+            List {
+                if 📱.📓ImportedNotes.isEmpty {
+                    Section {
+                        Button {
+                            📱.🚩ShowFileImporter.toggle()
+                        } label: {
+                            Label("Import TSV file", systemImage: "arrow.down.doc")
+                        }
+                    }
+                }
+                
+                ForEach(📱.📓ImportedNotes) { note in
+                    VStack(alignment: .leading) {
+                        Text(note.title)
+                        Text(note.comment)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    if !📱.📓ImportedNotes.isEmpty {
+                        Button(role: .cancel) {
+                            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                            📱.📓ImportedNotes = []
+                        } label: {
+                            Label("Cancel", systemImage: "xmark")
+                        }
+                        .tint(.red)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if !📱.📓ImportedNotes.isEmpty {
+                        Button {
+                            📱.🚩ShowFileImporSheet = false
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                📱.🗃Notes.insert(contentsOf: 📱.📓ImportedNotes, at: 0)
+                                📱.📓ImportedNotes = []
+                            }
+                        } label: {
+                            Label("Done", systemImage: "checkmark")
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Button {
+                        📱.🚩ShowFileImporSheet = false
+                        UISelectionFeedbackGenerator().selectionChanged()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .foregroundStyle(.quaternary)
+                            .grayscale(1.0)
+                            .padding(8)
+                    }
+                    .accessibilityLabel("Dismiss")
+                }
+            }
+        }
+        .animation(.default, value: 📱.📓ImportedNotes)
+        .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
+            📱.📓ImportedNotes = 📂ImportTSVFile(📦Result)
+        }
     }
 }
 
