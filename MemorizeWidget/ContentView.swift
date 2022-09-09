@@ -13,11 +13,9 @@ struct ContentView: View {
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
             
             🔩OptionTab()
-                .tag(🔖TabTag.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
             
             ℹ️AboutAppTab()
-                .tag(🔖TabTag.notesList)
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onChange(of: 📱.🚩RandomMode) { _ in
@@ -44,7 +42,7 @@ struct ContentView: View {
     }
     
     enum 🔖TabTag {
-        case notesList, option, aboutApp
+        case notesList
     }
 }
 
