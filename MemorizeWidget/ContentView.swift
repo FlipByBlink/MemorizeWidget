@@ -249,11 +249,15 @@ struct 🔩OptionTab: View {
     var body: some View {
         NavigationView {
             List {
-                Toggle(isOn: 📱.$🚩ShowComment) {
-                    Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
-                }
-                .onChange(of: 📱.🚩ShowComment) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
+                VStack {
+                    Toggle(isOn: 📱.$🚩ShowComment) {
+                        Label("Show comment on widget", systemImage: "list.dash.header.rectangle")
+                    }
+                    .onChange(of: 📱.🚩ShowComment) { _ in
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                    
+                    Text("説明イメージ(placeholder)")
                 }
                 
                 📣ADMenuLink()
@@ -274,12 +278,15 @@ struct 📂FileImportSheet: View {
         NavigationView {
             List {
                 if 📓ImportedNotes.isEmpty {
+                    Button {
+                        🚩ShowFileImporter.toggle()
+                    } label: {
+                        Label("Import TSV file", systemImage: "arrow.down.doc")
+                            .font(.title3.weight(.semibold))
+                    }
+                    
                     Section {
-                        Button {
-                            🚩ShowFileImporter.toggle()
-                        } label: {
-                            Label("Import TSV file", systemImage: "arrow.down.doc")
-                        }
+                        Text("説明イメージ(placeholder)")
                     }
                 }
                 
