@@ -4,10 +4,10 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🔖Tag: 🔖TabTag = .notesList
+    @State private var 🔖Tab: 🔖TabTag = .notesList
     
     var body: some View {
-        TabView(selection: $🔖Tag) {
+        TabView(selection: $🔖Tab) {
             🗃NotesListTab()
                 .tag(🔖TabTag.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
@@ -29,7 +29,7 @@ struct ContentView: View {
                 📱.🚩ShowWidgetNote = true
                 📱.🆔WidgetNoteID = 🔗.description
             }
-            🔖Tag = .notesList
+            🔖Tab = .notesList
         }
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
