@@ -50,11 +50,12 @@ struct 🖼MWWidgetSub: Widget {
 
 struct 🤖Provider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 📓Note(#function))
+        🕒Entry(.now, 📓Note("title", "comment"))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        completion(🕒Entry(.now, 📓Note(#function)))
+        let 📱 = 📱AppModel()
+        completion(🕒Entry(.now, 📱.📓GetWidgetNote()))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
