@@ -265,20 +265,23 @@ struct 🔩OptionTab: View {
 
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🚩ShowFileImporter: Bool = false
+    @State private var 📓ImportedNotes: [📓Note] = []
+    
     var body: some View {
         NavigationView {
             List {
-                if 📱.📓ImportedNotes.isEmpty {
+                if 📓ImportedNotes.isEmpty {
                     Section {
                         Button {
-                            📱.🚩ShowFileImporter.toggle()
+                            🚩ShowFileImporter.toggle()
                         } label: {
                             Label("Import TSV file", systemImage: "arrow.down.doc")
                         }
                     }
                 }
                 
-                ForEach(📱.📓ImportedNotes) { note in
+                ForEach(📓ImportedNotes) { note in
                     VStack(alignment: .leading) {
                         Text(note.title)
                         Text(note.comment)
@@ -289,10 +292,10 @@ struct 📂FileImportSheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !📱.📓ImportedNotes.isEmpty {
+                    if !📓ImportedNotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            📱.📓ImportedNotes = []
+                            📓ImportedNotes = []
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                         }
@@ -301,13 +304,13 @@ struct 📂FileImportSheet: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !📱.📓ImportedNotes.isEmpty {
+                    if !📓ImportedNotes.isEmpty {
                         Button {
                             📱.🚩ShowFileImporSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                📱.🗃Notes.insert(contentsOf: 📱.📓ImportedNotes, at: 0)
-                                📱.📓ImportedNotes = []
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                📱.🗃Notes.insert(contentsOf: 📓ImportedNotes, at: 0)
+                                📓ImportedNotes = []
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -329,9 +332,9 @@ struct 📂FileImportSheet: View {
                 }
             }
         }
-        .animation(.default, value: 📱.📓ImportedNotes)
-        .fileImporter(isPresented: $📱.🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
-            📱.📓ImportedNotes = 📂ImportTSVFile(📦Result)
+        .animation(.default, value: 📓ImportedNotes)
+        .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
+            📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
     }
 }
