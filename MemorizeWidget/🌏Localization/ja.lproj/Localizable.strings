@@ -14,7 +14,7 @@
 
 "Show a note." = "ノートを表示します。";
 "Sub widget" = "予備のウィジェット";
-"This is spare widget." = "これは予備のウィジェットです。";
+"This is spare widget for the purpose of second widget and random-mode" = "これはランダムモードで2個目のウィジェットを配置する際に用います。";
 
 
 // =======================================================

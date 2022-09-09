@@ -37,7 +37,7 @@ struct 🖼MWWidgetSub: Widget {
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("Sub widget")
-        .description("This is spare widget.")
+        .description("This is spare widget for the purpose of second widget and random-mode")
         .supportedFamilies(ⓕamilys)
     }
     
