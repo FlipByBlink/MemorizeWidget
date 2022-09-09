@@ -25,6 +25,7 @@ struct ContentView: View {
         }
         .onOpenURL { 🔗 in
             if !📱.🗃Notes.isEmpty {
+                📱.🚩ShowFileImporSheet = false
                 📱.🚩ShowWidgetNote = true
                 📱.🆔WidgetNoteID = 🔗.description
             }
