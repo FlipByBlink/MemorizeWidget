@@ -33,6 +33,9 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
         }
+        .sheet(isPresented: $📱.🚩ShowFileImporSheet) {
+            📂FileImportSheet()
+        }
         .onChange(of: 📱.🗃Notes) { _ in
             📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
@@ -74,9 +77,6 @@ struct 🗃NotesListTab: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.🗃Notes)
-            .sheet(isPresented: $📱.🚩ShowFileImporSheet) {
-                📂FileImportSheet()
-            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -285,9 +285,11 @@ struct 📂FileImportSheet: View {
                     VStack(alignment: .leading) {
                         Text(note.title)
                         Text(note.comment)
-                            .font(.subheadline)
+                            .font(.footnote)
                             .foregroundStyle(.secondary)
+                            .padding(.leading, 8)
                     }
+                    .padding(.vertical, 8)
                 }
             }
             .toolbar {
