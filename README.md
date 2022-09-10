@@ -23,7 +23,7 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - In Random note mode, widget changes the note per 5 minutes.
 
-- Lock screen widget supoort (iOS 16 only)
+- Lock screen widget support (iOS 16 only)
 
 - Import TSV file.
 
@@ -40,7 +40,7 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - ランダムモードでは、5分毎に表示されるノートが変わります。
 
-- ロックスリーンウィジェットにも対応(iOS16のみ)
+- ロックスクリーンウィジェットにも対応(iOS16のみ)
 
 - TSVファイルをインポート可能
 
