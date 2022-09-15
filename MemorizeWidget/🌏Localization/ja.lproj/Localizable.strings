@@ -11,7 +11,10 @@
 "No comment" = "コメントなし";
 "Deleted." = "削除完了";
 "Show comment on widget" = "ウィジェット上にコメントを表示する";
+"Directions" = "注記";
+"If lock screen widgets don't update, please close this app or switch to another app." = "ロック画面ウィジェットが更新されない場合は、アプリを閉じたりアプリを切り替えたりすると変更が反映されます。";
 
+"MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";
 "Sub widget" = "予備のウィジェット";
 "This is spare widget for the purpose of second widget and random-mode" = "これはランダムモードで2個目のウィジェットを配置する際に用います。";

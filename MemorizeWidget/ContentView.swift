@@ -250,13 +250,18 @@ struct 🔩OptionTab: View {
                     .onChange(of: 📱.🚩ShowComment) { _ in
                         WidgetCenter.shared.reloadAllTimelines()
                     }
-                    
                     VStack(spacing: 16) {
                         🏞BeforeAfterImage(before: "homeSmall_commentOff", after: "homeSmall_commentOn")
                         🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
                     }
                     .padding()
                     .frame(maxHeight: 500)
+                }
+                
+                Section {
+                    Text("If lock screen widgets don't update, please close this app or switch to another app.")
+                } header: {
+                    Text("Directions")
                 }
                 
                 📣ADMenuLink()

@@ -24,7 +24,7 @@ struct 🖼MWWidget: Widget {
     
     init() {
         if #available(iOS 16.0, *) {
-            ⓕamilys.append(contentsOf: [.accessoryInline, .accessoryRectangular])
+            ⓕamilys.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
         }
     }
 }
@@ -43,7 +43,7 @@ struct 🖼MWWidgetSub: Widget {
     
     init() {
         if #available(iOS 16.0, *) {
-            ⓕamilys.append(.accessoryRectangular)
+            ⓕamilys.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
         }
     }
 }
@@ -153,6 +153,15 @@ struct 🅆idgetEntryView : View {
                 if #available(iOS 16.0, *) {
                     Text(ⓔntry.ⓝote.title)
                         .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
+                }
+            case .accessoryCircular:
+                if #available(iOS 16.0, *) {
+                    ZStack {
+                        AccessoryWidgetBackground()
+                        Text(ⓔntry.ⓝote.title)
+                            .font(.headline)
+                            .padding(.vertical, 2)
+                    }
                 }
             default:
                 Text("🐛")
