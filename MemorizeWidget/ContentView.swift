@@ -252,16 +252,20 @@ struct 🔩OptionTab: View {
                     }
                     VStack(spacing: 16) {
                         🏞BeforeAfterImage(before: "homeSmall_commentOff", after: "homeSmall_commentOn")
-                        🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
+                        if #available(iOS 16.0, *) {
+                            🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
+                        }
                     }
                     .padding()
                     .frame(maxHeight: 500)
                 }
                 
-                Section {
-                    Text("If lock screen widgets don't update, please close this app or switch to another app.")
-                } header: {
-                    Text("Directions")
+                if #available(iOS 16.0, *) {
+                    Section {
+                        Text("If lock screen widgets don't update, please close this app or switch to another app.")
+                    } header: {
+                        Text("Directions")
+                    }
                 }
                 
                 📣ADMenuLink()

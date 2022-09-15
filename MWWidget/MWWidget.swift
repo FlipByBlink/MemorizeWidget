@@ -159,9 +159,11 @@ struct 🅆idgetEntryView : View {
                     ZStack {
                         AccessoryWidgetBackground()
                         Text(ⓔntry.ⓝote.title)
-                            .font(.headline)
-                            .padding(.vertical, 2)
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .padding(.horizontal, 2)
                     }
+                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
                 }
             default:
                 Text("🐛")

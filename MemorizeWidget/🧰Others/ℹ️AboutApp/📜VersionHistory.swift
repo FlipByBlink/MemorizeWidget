@@ -1,7 +1,7 @@
 
-let 📜VersionNumber = "1.0.1"
+let 📜VersionNumber = "1.0.2"
 
-let 📜PastVersions: [(ⓝumber: String, ⓓate: String)] = [("1.0", "2022-09-09")]
+let 📜PastVersions: [(ⓝumber: String, ⓓate: String)] = [("1.0", "2022-09-09"), ("1.0.1", "2022-09-11")]
 
 
 import SwiftUI
