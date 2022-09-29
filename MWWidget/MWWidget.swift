@@ -159,6 +159,7 @@ struct 🅆idgetEntryView : View {
                     ZStack {
                         AccessoryWidgetBackground()
                         Text(ⓔntry.ⓝote.title)
+                            .multilineTextAlignment(.center)
                             .font(.caption)
                             .fontWeight(.medium)
                             .padding(.horizontal, 2)
