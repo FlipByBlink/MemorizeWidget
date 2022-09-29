@@ -22,7 +22,7 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onOpenURL { 🔗 in
-            if !📱.🗃Notes.isEmpty {
+            if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
                 📱.🚩ShowFileImporSheet = false
                 📱.🚩ShowWidgetNote = true
                 📱.🆔WidgetNoteID = 🔗.description
@@ -152,6 +152,11 @@ struct 🆕NewNoteView: View {
                 }
                 .buttonStyle(.plain)
                 .disabled(📱.🆕NewNote.title == "")
+            }
+        }
+        .onOpenURL { 🔗 in
+            if 🔗.description == "NewItemShortcut" {
+                🔍Focus = .title
             }
         }
     }

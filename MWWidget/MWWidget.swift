@@ -7,6 +7,7 @@ struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         🖼MWWidget()
         🖼MWWidgetSub()
+        📝NewItemShortcutWidget()
     }
 }
 
@@ -45,6 +46,21 @@ struct 🖼MWWidgetSub: Widget {
         if #available(iOS 16.0, *) {
             ⓕamilys.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
         }
+    }
+}
+
+struct 📝NewItemShortcutWidget: Widget {
+    var ⓕamilys: [WidgetFamily] {
+        guard #available(iOS 16.0, *) else { return [] }
+        return [.accessoryInline, .accessoryCircular]
+    }
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "NewItemShortcut", provider: 🤖Provider()) { _ in
+            🄽ewItemShortcutView()
+        }
+        .configurationDisplayName("Add new item widget")
+        .description("Shortcut to add new item.")
+        .supportedFamilies(ⓕamilys)
     }
 }
 
@@ -173,5 +189,29 @@ struct 🅆idgetEntryView : View {
     
     init(_ ⓔntry: 🤖Provider.Entry) {
         self.ⓔntry = ⓔntry
+    }
+}
+
+struct 🄽ewItemShortcutView: View {
+    @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
+    var body: some View {
+        switch ⓕamily {
+            case .accessoryInline:
+                if #available(iOS 16.0, *) {
+                    Image(systemName: "plus.rectangle.on.rectangle")
+                        .widgetURL(URL(string: "NewItemShortcut")!)
+                }
+            case .accessoryCircular:
+                if #available(iOS 16.0, *) {
+                    ZStack {
+                        AccessoryWidgetBackground()
+                        Image(systemName: "plus.rectangle.on.rectangle")
+                            .imageScale(.large)
+                    }
+                    .widgetURL(URL(string: "NewItemShortcut")!)
+                }
+            default:
+                Text("🐛")
+        }
     }
 }
