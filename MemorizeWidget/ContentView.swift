@@ -28,6 +28,7 @@ struct ContentView: View {
                 📱.🆔WidgetNoteID = 🔗.description
             }
             🔖Tab = .notesList
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
