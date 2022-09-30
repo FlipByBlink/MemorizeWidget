@@ -5,7 +5,6 @@ import WidgetKit
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🔖Tab: 🔖TabTag = .notesList
-    
     var body: some View {
         TabView(selection: $🔖Tab) {
             🗃NotesListTab()
@@ -50,7 +49,6 @@ struct ContentView: View {
 
 struct 🗃NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
-    
     var body: some View {
         NavigationView {
             List {
@@ -115,7 +113,6 @@ struct 📓NoteRow: View {
         .padding(8)
         .padding(.vertical, 8)
     }
-    
     init(_ ⓝote: Binding<📓Note>) {
         self._ⓝote = ⓝote
     }
@@ -125,7 +122,6 @@ struct 📓NoteRow: View {
 struct 🆕NewNoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @FocusState private var 🔍Focus: 🄵ocusPattern?
-    
     var body: some View {
         VStack(spacing: 2) {
             TextField("+ new note", text: $📱.🆕NewNote.title)
@@ -244,7 +240,6 @@ struct 🪧WidgetNoteSheet: View {
 
 struct 🔩OptionTab: View {
     @EnvironmentObject var 📱: 📱AppModel
-    
     var body: some View {
         NavigationView {
             List {
@@ -257,9 +252,9 @@ struct 🔩OptionTab: View {
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                     VStack(spacing: 16) {
-                        🏞BeforeAfterImage(before: "homeSmall_commentOff", after: "homeSmall_commentOn")
+                        🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
                         if #available(iOS 16.0, *) {
-                            🏞BeforeAfterImage(before: "lockscreen_commentOff", after: "lockscreen_commentOn")
+                            🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
                         }
                     }
                     .padding()
@@ -282,12 +277,11 @@ struct 🔩OptionTab: View {
     }
     
     struct 🏞BeforeAfterImage: View {
-        var before: String
-        var after: String
-        
+        var ⓑefore: String
+        var ⓐfter: String
         var body: some View {
             HStack {
-                Image(before)
+                Image(ⓑefore)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(16)
@@ -296,13 +290,17 @@ struct 🔩OptionTab: View {
                 Image(systemName: "arrow.right")
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.secondary)
-                Image(after)
+                Image(ⓐfter)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(16)
                     .shadow(radius: 2)
                     .rotationEffect(.degrees(1))
             }
+        }
+        init(_ ⓑefore: String, _ ⓐfter: String) {
+            self.ⓑefore = ⓑefore
+            self.ⓐfter = ⓐfter
         }
     }
 }
@@ -312,7 +310,6 @@ struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩ShowFileImporter: Bool = false
     @State private var 📓ImportedNotes: [📓Note] = []
-    
     var body: some View {
         NavigationView {
             List {

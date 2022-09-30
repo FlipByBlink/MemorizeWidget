@@ -13,7 +13,6 @@ struct MWWidgetBundle: WidgetBundle {
 
 struct 🖼MWWidget: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
-    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
@@ -32,7 +31,6 @@ struct 🖼MWWidget: Widget {
 
 struct 🖼MWWidgetSub: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
-    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🤖Provider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
@@ -90,7 +88,6 @@ struct 🤖Provider: TimelineProvider {
 struct 🕒Entry: TimelineEntry {
     let date: Date
     let ⓝote: 📓Note
-    
     init(_ date: Date, _ ⓝote: 📓Note) {
         self.date = date
         self.ⓝote = ⓝote
