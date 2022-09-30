@@ -132,6 +132,7 @@ struct 🆕NewNoteView: View {
                 .foregroundStyle(.secondary)
                 .focused($🔍Focus, equals: .comment)
                 .disabled(📱.🆕NewNote.title == "")
+                .opacity(📱.🆕NewNote.title == "" ? 0.6 : 1)
                 .padding(.leading, 8)
         }
         .onSubmit { 🅂ubmit() }
