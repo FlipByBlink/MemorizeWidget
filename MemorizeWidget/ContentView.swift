@@ -139,8 +139,8 @@ struct 🆕NewNoteView: View {
         .overlay(alignment: .trailing) {
             if 🔍Focus != nil {
                 Button {
-                    🔍Focus = .title
                     🅂ubmit()
+                    🔍Focus = .title
                 } label: {
                     Image(systemName: "plus.rectangle.on.rectangle")
                         .font(.title3)
