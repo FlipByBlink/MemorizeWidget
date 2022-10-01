@@ -63,6 +63,7 @@ struct 🗃NotesListTab: View {
                 
                 Button {
                     📱.🗃Notes.insert(📓Note(""), at: 0)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 } label: {
                     Label("New note", systemImage: "plus")
                 }
@@ -101,7 +102,8 @@ struct 🗃NotesListTab: View {
 
 struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @FocusState private var 🔍Focus: Bool
+    @FocusState private var 🔍TitleFocus: Bool
+    @FocusState private var 🔍CommentFocus: Bool
     @Binding var ⓝote: 📓Note
     var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
     var body: some View {
@@ -110,18 +112,27 @@ struct 📓NoteRow: View {
                 TextField("+ title", text: $ⓝote.title)
                     .font(.headline.weight(.semibold))
                     .foregroundStyle(🎨Thin ? .tertiary : .primary)
-                    .focused($🔍Focus)
+                    .focused($🔍TitleFocus)
+                    .onSubmit {
+                        UISelectionFeedbackGenerator().selectionChanged()
+                        🔍CommentFocus = true
+                    }
                 TextField("+ comment", text: $ⓝote.comment)
                     .font(.footnote)
                     .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                     .opacity(0.8)
+                    .focused($🔍CommentFocus)
+                    .onSubmit {
+                        UISelectionFeedbackGenerator().selectionChanged()
+                    }
             }
             .padding(8)
             .padding(.vertical, 8)
             
             Button {
                 guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                📱.🗃Notes.insert(.init(""), at: ⓘndex+1)
+                📱.🗃Notes.insert(📓Note(""), at: ⓘndex+1)
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } label: {
                 Label("New note", systemImage: "text.append")
                     .labelStyle(.iconOnly)
@@ -133,11 +144,11 @@ struct 📓NoteRow: View {
         .onAppear {
             if ⓝote.title == "" {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                    🔍Focus = true
+                    🔍TitleFocus = true
                 }
             }
         }
-        .onChange(of: 🔍Focus) { ⓝewValue in
+        .onChange(of: 🔍TitleFocus) { ⓝewValue in
             if ⓝewValue == false {
                 if ⓝote.title == "" {
                     📱.🗃Notes.removeAll(where: { $0 == ⓝote })
