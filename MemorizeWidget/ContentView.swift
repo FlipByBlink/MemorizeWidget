@@ -69,7 +69,7 @@ struct 🗃NotesListTab: View {
                 }
                 .onOpenURL { 🔗 in
                     if 🔗.description == "NewItemShortcut" {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             📱.🗃Notes.insert(📓Note(""), at: 0)
                             UISelectionFeedbackGenerator().selectionChanged()
                         }
