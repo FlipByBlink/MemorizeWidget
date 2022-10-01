@@ -61,7 +61,11 @@ struct 🗃NotesListTab: View {
                     Text("Change the note per 5 minutes.")
                 }
                 
-                🆕NewNoteView()
+                Button {
+                    📱.🗃Notes.insert(📓Note(""), at: 0)
+                } label: {
+                    Label("New note", systemImage: "plus")
+                }
                 
                 ForEach($📱.🗃Notes) { ⓝote in
                     📓NoteRow(ⓝote)
@@ -97,21 +101,49 @@ struct 🗃NotesListTab: View {
 
 struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @FocusState private var 🔍Focus: Bool
     @Binding var ⓝote: 📓Note
     var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
-    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            TextField("+ title", text: $ⓝote.title)
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(🎨Thin ? .tertiary : .primary)
-            TextField("+ comment", text: $ⓝote.comment)
-                .font(.footnote)
-                .foregroundStyle(🎨Thin ? .tertiary : .secondary)
-                .opacity(0.8)
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                TextField("+ title", text: $ⓝote.title)
+                    .font(.headline.weight(.semibold))
+                    .foregroundStyle(🎨Thin ? .tertiary : .primary)
+                    .focused($🔍Focus)
+                TextField("+ comment", text: $ⓝote.comment)
+                    .font(.footnote)
+                    .foregroundStyle(🎨Thin ? .tertiary : .secondary)
+                    .opacity(0.8)
+            }
+            .padding(8)
+            .padding(.vertical, 8)
+            
+            Button {
+                guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
+                📱.🗃Notes.insert(.init(""), at: ⓘndex+1)
+            } label: {
+                Label("New note", systemImage: "text.append")
+                    .labelStyle(.iconOnly)
+                    .foregroundStyle(.secondary)
+                    .imageScale(.small)
+            }
+            .buttonStyle(.borderless)
         }
-        .padding(8)
-        .padding(.vertical, 8)
+        .onAppear {
+            if ⓝote.title == "" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    🔍Focus = true
+                }
+            }
+        }
+        .onChange(of: 🔍Focus) { ⓝewValue in
+            if ⓝewValue == false {
+                if ⓝote.title == "" {
+                    📱.🗃Notes.removeAll(where: { $0 == ⓝote })
+                }
+            }
+        }
     }
     init(_ ⓝote: Binding<📓Note>) {
         self._ⓝote = ⓝote
@@ -119,58 +151,58 @@ struct 📓NoteRow: View {
 }
 
 
-struct 🆕NewNoteView: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @FocusState private var 🔍Focus: 🄵ocusPattern?
-    var body: some View {
-        VStack(spacing: 2) {
-            TextField("+ new note", text: $📱.🆕NewNote.title)
-                .font(.title2.bold())
-                .focused($🔍Focus, equals: .title)
-            TextField("comment", text: $📱.🆕NewNote.comment)
-                .font(.subheadline.weight(.medium))
-                .foregroundStyle(.secondary)
-                .focused($🔍Focus, equals: .comment)
-                .disabled(📱.🆕NewNote.title == "")
-                .opacity(📱.🆕NewNote.title == "" ? 0.6 : 1)
-                .padding(.leading, 8)
-        }
-        .onSubmit { 🅂ubmit() }
-        .padding(8)
-        .overlay(alignment: .trailing) {
-            if 🔍Focus != nil {
-                Button {
-                    🅂ubmit()
-                    🔍Focus = .title
-                } label: {
-                    Image(systemName: "plus.rectangle.on.rectangle")
-                        .font(.title3)
-                        .foregroundStyle(.tertiary)
-                }
-                .buttonStyle(.plain)
-                .disabled(📱.🆕NewNote.title == "")
-            }
-        }
-        .onOpenURL { 🔗 in
-            if 🔗.description == "NewItemShortcut" {
-                🔍Focus = .title
-            }
-        }
-    }
-    
-    func 🅂ubmit() {
-        if 📱.🆕NewNote.title == "" { return }
-        UISelectionFeedbackGenerator().selectionChanged()
-        withAnimation {
-            📱.🗃Notes.insert(📱.🆕NewNote, at: 0)
-            📱.🆕NewNote = .init("")
-        }
-    }
-    
-    enum 🄵ocusPattern {
-        case title, comment
-    }
-}
+//struct 🆕NewNoteView: View {
+//    @EnvironmentObject var 📱: 📱AppModel
+//    @FocusState private var 🔍Focus: 🄵ocusPattern?
+//    var body: some View {
+//        VStack(spacing: 2) {
+//            TextField("+ new note", text: $📱.🆕NewNote.title)
+//                .font(.title2.bold())
+//                .focused($🔍Focus, equals: .title)
+//            TextField("comment", text: $📱.🆕NewNote.comment)
+//                .font(.subheadline.weight(.medium))
+//                .foregroundStyle(.secondary)
+//                .focused($🔍Focus, equals: .comment)
+//                .disabled(📱.🆕NewNote.title == "")
+//                .opacity(📱.🆕NewNote.title == "" ? 0.6 : 1)
+//                .padding(.leading, 8)
+//        }
+//        .onSubmit { 🅂ubmit() }
+//        .padding(8)
+//        .overlay(alignment: .trailing) {
+//            if 🔍Focus != nil {
+//                Button {
+//                    🅂ubmit()
+//                    🔍Focus = .title
+//                } label: {
+//                    Image(systemName: "plus.rectangle.on.rectangle")
+//                        .font(.title3)
+//                        .foregroundStyle(.tertiary)
+//                }
+//                .buttonStyle(.plain)
+//                .disabled(📱.🆕NewNote.title == "")
+//            }
+//        }
+//        .onOpenURL { 🔗 in
+//            if 🔗.description == "NewItemShortcut" {
+//                🔍Focus = .title
+//            }
+//        }
+//    }
+//
+//    func 🅂ubmit() {
+//        if 📱.🆕NewNote.title == "" { return }
+//        UISelectionFeedbackGenerator().selectionChanged()
+//        withAnimation {
+//            📱.🗃Notes.insert(📱.🆕NewNote, at: 0)
+//            📱.🆕NewNote = .init("")
+//        }
+//    }
+//
+//    enum 🄵ocusPattern {
+//        case title, comment
+//    }
+//}
 
 
 struct 🪧WidgetNoteSheet: View {
