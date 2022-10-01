@@ -63,7 +63,7 @@ struct 🗃NotesListTab: View {
                 
                 Button {
                     📱.🗃Notes.insert(📓Note(""), at: 0)
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    UISelectionFeedbackGenerator().selectionChanged()
                 } label: {
                     Label("New note", systemImage: "plus")
                 }
@@ -138,6 +138,7 @@ struct 📓NoteRow: View {
                     .labelStyle(.iconOnly)
                     .foregroundStyle(.secondary)
                     .imageScale(.small)
+                    .padding(8)
             }
             .buttonStyle(.borderless)
         }
