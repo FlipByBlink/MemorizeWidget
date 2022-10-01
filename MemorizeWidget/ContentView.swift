@@ -67,6 +67,14 @@ struct 🗃NotesListTab: View {
                 } label: {
                     Label("New note", systemImage: "plus")
                 }
+                .onOpenURL { 🔗 in
+                    if 🔗.description == "NewItemShortcut" {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            📱.🗃Notes.insert(📓Note(""), at: 0)
+                            UISelectionFeedbackGenerator().selectionChanged()
+                        }
+                    }
+                }
                 
                 ForEach($📱.🗃Notes) { ⓝote in
                     📓NoteRow(ⓝote)
@@ -144,7 +152,7 @@ struct 📓NoteRow: View {
         }
         .onAppear {
             if ⓝote.title == "" {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     🔍TitleFocus = true
                 }
             }
@@ -161,60 +169,6 @@ struct 📓NoteRow: View {
         self._ⓝote = ⓝote
     }
 }
-
-
-//struct 🆕NewNoteView: View {
-//    @EnvironmentObject var 📱: 📱AppModel
-//    @FocusState private var 🔍Focus: 🄵ocusPattern?
-//    var body: some View {
-//        VStack(spacing: 2) {
-//            TextField("+ new note", text: $📱.🆕NewNote.title)
-//                .font(.title2.bold())
-//                .focused($🔍Focus, equals: .title)
-//            TextField("comment", text: $📱.🆕NewNote.comment)
-//                .font(.subheadline.weight(.medium))
-//                .foregroundStyle(.secondary)
-//                .focused($🔍Focus, equals: .comment)
-//                .disabled(📱.🆕NewNote.title == "")
-//                .opacity(📱.🆕NewNote.title == "" ? 0.6 : 1)
-//                .padding(.leading, 8)
-//        }
-//        .onSubmit { 🅂ubmit() }
-//        .padding(8)
-//        .overlay(alignment: .trailing) {
-//            if 🔍Focus != nil {
-//                Button {
-//                    🅂ubmit()
-//                    🔍Focus = .title
-//                } label: {
-//                    Image(systemName: "plus.rectangle.on.rectangle")
-//                        .font(.title3)
-//                        .foregroundStyle(.tertiary)
-//                }
-//                .buttonStyle(.plain)
-//                .disabled(📱.🆕NewNote.title == "")
-//            }
-//        }
-//        .onOpenURL { 🔗 in
-//            if 🔗.description == "NewItemShortcut" {
-//                🔍Focus = .title
-//            }
-//        }
-//    }
-//
-//    func 🅂ubmit() {
-//        if 📱.🆕NewNote.title == "" { return }
-//        UISelectionFeedbackGenerator().selectionChanged()
-//        withAnimation {
-//            📱.🗃Notes.insert(📱.🆕NewNote, at: 0)
-//            📱.🆕NewNote = .init("")
-//        }
-//    }
-//
-//    enum 🄵ocusPattern {
-//        case title, comment
-//    }
-//}
 
 
 struct 🪧WidgetNoteSheet: View {

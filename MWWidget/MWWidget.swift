@@ -202,8 +202,9 @@ struct 🄽ewItemShortcutView: View {
                 if #available(iOS 16.0, *) {
                     ZStack {
                         AccessoryWidgetBackground()
-                        Image(systemName: "plus.rectangle.on.rectangle")
+                        Image(systemName: "plus")
                             .imageScale(.large)
+                            .fontWeight(.medium)
                     }
                     .widgetURL(URL(string: "NewItemShortcut")!)
                 }
