@@ -136,10 +136,10 @@ struct 📓NoteRow: View {
             } label: {
                 Label("New note", systemImage: "text.append")
                     .labelStyle(.iconOnly)
-                    .foregroundStyle(.secondary)
                     .imageScale(.small)
                     .padding(8)
             }
+            .foregroundStyle(.secondary)
             .buttonStyle(.borderless)
         }
         .onAppear {
