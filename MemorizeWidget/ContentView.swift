@@ -152,7 +152,7 @@ struct 📓NoteRow: View {
         }
         .onAppear {
             if ⓝote.title == "" {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     🔍TitleFocus = true
                 }
             }
