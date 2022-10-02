@@ -275,8 +275,11 @@ struct 🔩OptionTab: View {
                         Label("OK, delete all notes.", systemImage: "trash")
                     }
                 } label: {
-                    Label("Delete all notes.", systemImage: "trash")
-                        .foregroundColor(📱.🗃Notes.isEmpty ? nil : .red)
+                    ZStack {
+                        Color.clear
+                        Label("Delete all notes.", systemImage: "trash")
+                            .foregroundColor(📱.🗃Notes.isEmpty ? nil : .red)
+                    }
                 }
                 .disabled(📱.🗃Notes.isEmpty)
             }
