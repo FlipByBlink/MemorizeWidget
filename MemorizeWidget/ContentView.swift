@@ -103,67 +103,66 @@ struct 🗃NotesListTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-}
-
-
-struct 📓NoteRow: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @FocusState private var 🔍TitleFocus: Bool
-    @FocusState private var 🔍CommentFocus: Bool
-    @Binding var ⓝote: 📓Note
-    var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 0) {
-                TextField("+ title", text: $ⓝote.title)
-                    .font(.headline.weight(.semibold))
-                    .foregroundStyle(🎨Thin ? .tertiary : .primary)
-                    .focused($🔍TitleFocus)
-                    .onSubmit {
-                        UISelectionFeedbackGenerator().selectionChanged()
-                        🔍CommentFocus = true
-                    }
-                TextField("+ comment", text: $ⓝote.comment)
-                    .font(.footnote)
-                    .foregroundStyle(🎨Thin ? .tertiary : .secondary)
-                    .opacity(0.8)
-                    .focused($🔍CommentFocus)
-                    .onSubmit {
-                        UISelectionFeedbackGenerator().selectionChanged()
-                    }
-            }
-            .padding(8)
-            .padding(.vertical, 8)
-            
-            Button {
-                guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                📱.🆕AddNewNote(ⓘndex + 1)
-            } label: {
-                Label("New note", systemImage: "text.append")
-                    .labelStyle(.iconOnly)
-                    .imageScale(.small)
-                    .padding(8)
-            }
-            .foregroundStyle(.tertiary)
-            .buttonStyle(.borderless)
-        }
-        .onAppear {
-            if ⓝote.title == "" {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                    🔍TitleFocus = true
+    
+    struct 📓NoteRow: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        @FocusState private var 🔍TitleFocus: Bool
+        @FocusState private var 🔍CommentFocus: Bool
+        @Binding var ⓝote: 📓Note
+        var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
+        var body: some View {
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    TextField("+ title", text: $ⓝote.title)
+                        .font(.headline.weight(.semibold))
+                        .foregroundStyle(🎨Thin ? .tertiary : .primary)
+                        .focused($🔍TitleFocus)
+                        .onSubmit {
+                            UISelectionFeedbackGenerator().selectionChanged()
+                            🔍CommentFocus = true
+                        }
+                    TextField("+ comment", text: $ⓝote.comment)
+                        .font(.footnote)
+                        .foregroundStyle(🎨Thin ? .tertiary : .secondary)
+                        .opacity(0.8)
+                        .focused($🔍CommentFocus)
+                        .onSubmit {
+                            UISelectionFeedbackGenerator().selectionChanged()
+                        }
                 }
+                .padding(8)
+                .padding(.vertical, 8)
+                
+                Button {
+                    guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
+                    📱.🆕AddNewNote(ⓘndex + 1)
+                } label: {
+                    Label("New note", systemImage: "text.append")
+                        .labelStyle(.iconOnly)
+                        .imageScale(.small)
+                        .padding(8)
+                }
+                .foregroundStyle(.tertiary)
+                .buttonStyle(.borderless)
             }
-        }
-        .onChange(of: 🔍TitleFocus) { ⓝewValue in
-            if ⓝewValue == false {
+            .onAppear {
                 if ⓝote.title == "" {
-                    📱.🗃Notes.removeAll(where: { $0 == ⓝote })
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        🔍TitleFocus = true
+                    }
+                }
+            }
+            .onChange(of: 🔍TitleFocus) { ⓝewValue in
+                if ⓝewValue == false {
+                    if ⓝote.title == "" {
+                        📱.🗃Notes.removeAll(where: { $0 == ⓝote })
+                    }
                 }
             }
         }
-    }
-    init(_ ⓝote: Binding<📓Note>) {
-        self._ⓝote = ⓝote
+        init(_ ⓝote: Binding<📓Note>) {
+            self._ⓝote = ⓝote
+        }
     }
 }
 
