@@ -121,6 +121,7 @@ struct 🅆idgetEntryView : View {
                     }
                     .padding()
                     .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .systemMedium:
@@ -141,6 +142,7 @@ struct 🅆idgetEntryView : View {
                     }
                     .padding()
                     .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
                 }
                 .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
             case .accessoryRectangular:
@@ -159,6 +161,7 @@ struct 🅆idgetEntryView : View {
                         }
                         .widgetAccentable()
                         .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
                     }
                     .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
                 }

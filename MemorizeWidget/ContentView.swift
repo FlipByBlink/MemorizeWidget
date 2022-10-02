@@ -147,7 +147,7 @@ struct 📓NoteRow: View {
                     .imageScale(.small)
                     .padding(8)
             }
-            .foregroundStyle(.secondary)
+            .foregroundStyle(.tertiary)
             .buttonStyle(.borderless)
         }
         .onAppear {
