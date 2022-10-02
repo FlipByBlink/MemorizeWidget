@@ -112,7 +112,7 @@ struct 🗃NotesListTab: View {
         var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
         var body: some View {
             HStack {
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 8) {
                     TextField("+ title", text: $ⓝote.title)
                         .font(.headline.weight(.semibold))
                         .foregroundStyle(🎨Thin ? .tertiary : .primary)
