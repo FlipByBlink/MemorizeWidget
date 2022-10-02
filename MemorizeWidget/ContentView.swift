@@ -266,6 +266,19 @@ struct 🔩OptionTab: View {
                 }
                 
                 📣ADMenuLink()
+                
+                Menu {
+                    Button(role: .destructive) {
+                        📱.🗃Notes.removeAll()
+                        UINotificationFeedbackGenerator().notificationOccurred(.error)
+                    } label: {
+                        Label("OK, delete all notes.", systemImage: "trash")
+                    }
+                } label: {
+                    Label("Delete all notes.", systemImage: "trash")
+                        .foregroundColor(📱.🗃Notes.isEmpty ? nil : .red)
+                }
+                .disabled(📱.🗃Notes.isEmpty)
             }
             .navigationTitle("Option")
         }
