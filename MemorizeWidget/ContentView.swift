@@ -174,7 +174,6 @@ struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
-    @State private var 🚩ShowSystemDictionary: Bool = false
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
@@ -184,14 +183,14 @@ struct 🪧WidgetNoteSheet: View {
             Color.clear
             VStack {
                 Spacer()
-                if let 🔢 = 🔢NoteIndex {
-                    TextField("No title", text: $📱.🗃Notes[🔢].title)
+                if let 🔢NoteIndex {
+                    TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
                         .font(.title3.bold())
-                    TextField("No comment", text: $📱.🗃Notes[🔢].comment)
+                    TextField("No comment", text: $📱.🗃Notes[🔢NoteIndex].comment)
                         .foregroundStyle(.secondary)
                     HStack(spacing: 32) {
                         Button(role: .destructive) {
-                            📱.🗃Notes.remove(at: 🔢)
+                            📱.🗃Notes.remove(at: 🔢NoteIndex)
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
                         } label: {
                             Image(systemName: "trash")
@@ -199,21 +198,12 @@ struct 🪧WidgetNoteSheet: View {
                                 .foregroundStyle(.secondary)
                         }
                         .tint(.red)
-                        Button {
-                            🚩ShowSystemDictionary = true
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        } label: {
-                            Label("Dictionary", systemImage: "character.book.closed")
-                                .labelStyle(.iconOnly)
-                                .font(.title3.weight(.semibold))
-                                .foregroundStyle(.secondary)
-                        }
-                        .sheet(isPresented: $🚩ShowSystemDictionary) {
-                            📗SystemDictionarySheet(term: 📱.🗃Notes[🔢].title)
-                        }
+                        📗SystemDictionaryButton(🔢NoteIndex)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.secondary)
                         Button {
                             let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
-                            let ⓣext = ⓛeading + 📱.🗃Notes[🔢].title + 📱.🔗Trailing
+                            let ⓣext = ⓛeading + 📱.🗃Notes[🔢NoteIndex].title + 📱.🔗Trailing
                             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
                             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
                             UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -532,23 +522,43 @@ struct 📂FileImportSheet: View {
 }
 
 
-struct 📗SystemDictionarySheet: View {
-    var ⓣerm: String
+struct 📗SystemDictionaryButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🚩ShowSystemDictionary: Bool = false
+    var 🔢NoteIndex: Int
     var body: some View {
-        🄳ictinaryView(term: ⓣerm)
-            .ignoresSafeArea()
-    }
-    struct 🄳ictinaryView: UIViewControllerRepresentable {
-        var ⓣerm: String
-        func makeUIViewController(context: Context) ->  UIReferenceLibraryViewController {
-            UIReferenceLibraryViewController(term: ⓣerm)
+        Button {
+            🚩ShowSystemDictionary = true
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+                .labelStyle(.iconOnly)
         }
-        func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
+        .sheet(isPresented: $🚩ShowSystemDictionary) {
+            📗SystemDictionarySheet(term: 📱.🗃Notes[🔢NoteIndex].title)
+        }
+    }
+    init(_ 🔢NoteIndex: Int) {
+        self.🔢NoteIndex = 🔢NoteIndex
+    }
+    struct 📗SystemDictionarySheet: View {
+        var ⓣerm: String
+        var body: some View {
+            🄳ictinaryView(term: ⓣerm)
+                .ignoresSafeArea()
+        }
+        struct 🄳ictinaryView: UIViewControllerRepresentable {
+            var ⓣerm: String
+            func makeUIViewController(context: Context) ->  UIReferenceLibraryViewController {
+                UIReferenceLibraryViewController(term: ⓣerm)
+            }
+            func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
+            init(term: String) {
+                ⓣerm = term
+            }
+        }
         init(term: String) {
             ⓣerm = term
         }
-    }
-    init(term: String) {
-        ⓣerm = term
     }
 }
