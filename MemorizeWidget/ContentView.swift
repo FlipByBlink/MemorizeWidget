@@ -147,7 +147,7 @@ struct 🗃NotesListTab: View {
             }
             .onAppear {
                 if ⓝote.title == "" {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                         🔍TitleFocus = true
                     }
                 }
@@ -171,6 +171,7 @@ struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
+    @Environment(\.openURL) var ⓞpenURL: OpenURLAction
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedWidgetNoteID }
     }
@@ -185,15 +186,28 @@ struct 🪧WidgetNoteSheet: View {
                         .font(.title3.bold())
                     TextField("No comment", text: $📱.🗃Notes[🔢].comment)
                         .foregroundStyle(.secondary)
-                    Button(role: .destructive) {
-                        📱.🗃Notes.remove(at: 🔢)
-                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                    } label: {
-                        Image(systemName: "trash")
-                            .font(.title3.bold())
-                            .foregroundStyle(.secondary)
+                    HStack(spacing: 32) {
+                        Button(role: .destructive) {
+                            📱.🗃Notes.remove(at: 🔢)
+                            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                        } label: {
+                            Image(systemName: "trash")
+                                .font(.title3.bold())
+                                .foregroundStyle(.secondary)
+                        }
+                        .tint(.red)
+                        Button {
+                            let ⓣext = "https://duckduckgo.com/?q=" + 📱.🗃Notes[🔢].title
+                            guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+                            guard let ⓤrl = URL(string: ⓔncodedText) else { return }
+                            ⓞpenURL.callAsFunction(ⓤrl)
+                        } label: {
+                            Label("Search duckduckgo.com", systemImage: "magnifyingglass")
+                                .labelStyle(.iconOnly)
+                                .font(.title3.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                        }
                     }
-                    .tint(.red)
                     .padding(.top, 64)
                 } else {
                     VStack(spacing: 24) {
