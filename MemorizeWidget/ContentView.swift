@@ -333,10 +333,13 @@ struct 🔩OptionTab: View {
             Section {
                 Text((📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=":📱.🔗Leading) + "NOTETITLE" + 📱.🔗Trailing)
                     .italic()
-                    .font(.system(.subheadline, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced))
                     .padding(8)
-                TextField("https://duckduckgo.com/?q=", text: $📱.🔗Leading)
-                TextField("(Input trailing component)", text: $📱.🔗Trailing)
+                    .frame(minHeight: 100)
+                    .animation(.default, value: 📱.🔗Leading)
+                TextField("URL scheme", text: $📱.🔗Leading)
+                TextField("Trailing component", text: $📱.🔗Trailing)
+                    .font(.caption)
             } header: {
                 Label("Customize search", systemImage: "magnifyingglass")
             }
