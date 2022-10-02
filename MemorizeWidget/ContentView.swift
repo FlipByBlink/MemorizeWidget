@@ -173,7 +173,6 @@ struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
-    @Environment(\.openURL) var ⓞpenURL: OpenURLAction
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
@@ -200,20 +199,10 @@ struct 🪧WidgetNoteSheet: View {
                         .tint(.red)
                         📗SystemDictionaryButton(🔢NoteIndex)
                             .font(.title3.weight(.semibold))
-                            .foregroundStyle(.secondary)
-                        Button {
-                            let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
-                            let ⓣext = ⓛeading + 📱.🗃Notes[🔢NoteIndex].title + 📱.🔗Trailing
-                            guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-                            guard let ⓤrl = URL(string: ⓔncodedText) else { return }
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                            ⓞpenURL.callAsFunction(ⓤrl)
-                        } label: {
-                            Label("Search duckduckgo.com", systemImage: "magnifyingglass")
-                                .labelStyle(.iconOnly)
-                                .font(.title3.weight(.semibold))
-                                .foregroundStyle(.secondary)
-                        }
+                            .foregroundStyle(.tertiary)
+                        🔍SearchButton(🔢NoteIndex)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.tertiary)
                     }
                     .padding(.top, 64)
                 } else {
@@ -560,5 +549,28 @@ struct 📗SystemDictionaryButton: View {
         init(term: String) {
             ⓣerm = term
         }
+    }
+}
+
+
+struct 🔍SearchButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    @Environment(\.openURL) var ⓞpenURL: OpenURLAction
+    var 🔢NoteIndex: Int
+    var body: some View {
+        Button {
+            let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
+            let ⓣext = ⓛeading + 📱.🗃Notes[🔢NoteIndex].title + 📱.🔗Trailing
+            guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+            guard let ⓤrl = URL(string: ⓔncodedText) else { return }
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            ⓞpenURL.callAsFunction(ⓤrl)
+        } label: {
+            Label("Custom search", systemImage: "magnifyingglass")
+                .labelStyle(.iconOnly)
+        }
+    }
+    init(_ 🔢NoteIndex: Int) {
+        self.🔢NoteIndex = 🔢NoteIndex
     }
 }
