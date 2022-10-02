@@ -22,7 +22,7 @@ struct ContentView: View {
         }
         .onOpenURL { 🔗 in
             if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
-                📱.🚩ShowFileImporSheet = false
+                📱.🚩ShowImportSheet = false
                 📱.🚩ShowWidgetNote = true
                 📱.🆔OpenedWidgetNoteID = 🔗.description
             }
@@ -32,7 +32,7 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩ShowWidgetNote) {
             🪧WidgetNoteSheet()
         }
-        .sheet(isPresented: $📱.🚩ShowFileImporSheet) {
+        .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
         }
         .onChange(of: 📱.🗃Notes) { _ in
@@ -94,7 +94,7 @@ struct 🗃NotesListTab: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         UISelectionFeedbackGenerator().selectionChanged()
-                        📱.🚩ShowFileImporSheet.toggle()
+                        📱.🚩ShowImportSheet.toggle()
                     } label: {
                         Label("Import TSV file", systemImage: "arrow.down.doc")
                     }
@@ -447,7 +447,7 @@ struct 📂FileImportSheet: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if !📓ImportedNotes.isEmpty {
                         Button {
-                            📱.🚩ShowFileImporSheet = false
+                            📱.🚩ShowImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 📱.🗃Notes.insert(contentsOf: 📓ImportedNotes, at: 0)
@@ -462,7 +462,7 @@ struct 📂FileImportSheet: View {
                 
                 ToolbarItem(placement: .principal) {
                     Button {
-                        📱.🚩ShowFileImporSheet = false
+                        📱.🚩ShowImportSheet = false
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")

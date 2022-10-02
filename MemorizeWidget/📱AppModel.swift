@@ -10,7 +10,7 @@ class 📱AppModel: ObservableObject {
     @Published var 🚩ShowWidgetNote: Bool = false
     @Published var 🆔OpenedWidgetNoteID: String? = nil
     
-    @Published var 🚩ShowFileImporSheet: Bool = false
+    @Published var 🚩ShowImportSheet: Bool = false
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
