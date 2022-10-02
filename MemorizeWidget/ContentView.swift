@@ -516,6 +516,7 @@ struct 📗SystemDictionarySheet: View {
     var ⓣerm: String
     var body: some View {
         🄳ictinaryView(term: ⓣerm)
+            .ignoresSafeArea()
     }
     struct 🄳ictinaryView: UIViewControllerRepresentable {
         var ⓣerm: String
