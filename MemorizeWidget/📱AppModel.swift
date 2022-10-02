@@ -2,12 +2,9 @@
 import SwiftUI
 
 class 📱AppModel: ObservableObject {
-    
     @Published var 🗃Notes: [📓Note] = []
-    
     @Published var 🚩ShowWidgetNote: Bool = false
-    @Published var 🆔OpenedWidgetNoteID: String? = nil
-    
+    @Published var 🆔OpenedNoteID: String? = nil
     @Published var 🚩ShowImportSheet: Bool = false
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)

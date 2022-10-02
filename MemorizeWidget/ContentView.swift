@@ -24,7 +24,7 @@ struct ContentView: View {
             if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
                 📱.🚩ShowImportSheet = false
                 📱.🚩ShowWidgetNote = true
-                📱.🆔OpenedWidgetNoteID = 🔗.description
+                📱.🆔OpenedNoteID = 🔗.description
             }
             🔖Tab = .notesList
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -173,7 +173,7 @@ struct 🪧WidgetNoteSheet: View {
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
     var 🔢NoteIndex: Int? {
-        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedWidgetNoteID }
+        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
     @State private var 🚩ShowSystemDictionary: Bool = false
     
