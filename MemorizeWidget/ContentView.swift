@@ -106,8 +106,7 @@ struct 🗃NotesListTab: View {
     
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
-        @FocusState private var 🔍TitleFocus: Bool
-        @FocusState private var 🔍CommentFocus: Bool
+        @FocusState private var 🔍Focus: 🄵ocusPattern?
         @Binding var ⓝote: 📓Note
         var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
         var body: some View {
@@ -116,16 +115,16 @@ struct 🗃NotesListTab: View {
                     TextField("+ title", text: $ⓝote.title)
                         .font(.headline.weight(.semibold))
                         .foregroundStyle(🎨Thin ? .tertiary : .primary)
-                        .focused($🔍TitleFocus)
+                        .focused($🔍Focus, equals: .title)
                         .onSubmit {
                             UISelectionFeedbackGenerator().selectionChanged()
-                            🔍CommentFocus = true
+                            🔍Focus = .comment
                         }
                     TextField("+ comment", text: $ⓝote.comment)
                         .font(.footnote)
                         .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                         .opacity(0.8)
-                        .focused($🔍CommentFocus)
+                        .focused($🔍Focus, equals: .comment)
                         .onSubmit {
                             UISelectionFeedbackGenerator().selectionChanged()
                         }
@@ -148,12 +147,12 @@ struct 🗃NotesListTab: View {
             .onAppear {
                 if ⓝote.title == "" {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                        🔍TitleFocus = true
+                        🔍Focus = .title
                     }
                 }
             }
-            .onChange(of: 🔍TitleFocus) { ⓝewValue in
-                if ⓝewValue == false {
+            .onChange(of: 🔍Focus) { ⓝewValue in
+                if ⓝewValue != .title {
                     if ⓝote.title == "" {
                         📱.🗃Notes.removeAll(where: { $0 == ⓝote })
                     }
@@ -162,6 +161,9 @@ struct 🗃NotesListTab: View {
         }
         init(_ ⓝote: Binding<📓Note>) {
             self._ⓝote = ⓝote
+        }
+        enum 🄵ocusPattern {
+            case title, comment
         }
     }
 }
