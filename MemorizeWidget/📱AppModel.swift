@@ -10,6 +10,8 @@ class 📱AppModel: ObservableObject {
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
     @AppStorage("ShowComment", store: ⓤd) var 🚩ShowComment: Bool = false
+    @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
+    @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     
     func 🆕AddNewNote(_ ⓘndex: Int = 0) {
         🗃Notes.insert(📓Note(""), at: ⓘndex)

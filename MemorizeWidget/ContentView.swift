@@ -212,7 +212,8 @@ struct 🪧WidgetNoteSheet: View {
                             📗SystemDictionarySheet(term: 📱.🗃Notes[🔢].title)
                         }
                         Button {
-                            let ⓣext = "https://duckduckgo.com/?q=" + 📱.🗃Notes[🔢].title
+                            let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
+                            let ⓣext = ⓛeading + 📱.🗃Notes[🔢].title + 📱.🔗Trailing
                             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
                             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
                             UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -286,6 +287,8 @@ struct 🔩OptionTab: View {
                     .frame(maxHeight: 500)
                 }
                 
+                🔍CustomizeSearch()
+                
                 if #available(iOS 16.0, *) {
                     Section {
                         Text("If lock screen widgets don't update, please close this app or switch to another app.")
@@ -342,6 +345,23 @@ struct 🔩OptionTab: View {
         init(_ ⓑefore: String, _ ⓐfter: String) {
             self.ⓑefore = ⓑefore
             self.ⓐfter = ⓐfter
+        }
+    }
+    
+    struct 🔍CustomizeSearch: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        var body: some View {
+            Section {
+                Text((📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=":📱.🔗Leading) + "NOTETITLE" + 📱.🔗Trailing)
+                    .italic()
+                    .font(.system(.subheadline, design: .monospaced))
+                    .padding(8)
+                TextField("https://duckduckgo.com/?q=", text: $📱.🔗Leading)
+                TextField("(Input trailing component)", text: $📱.🔗Trailing)
+            } header: {
+                Label("Customize search", systemImage: "magnifyingglass")
+            }
+            .headerProminence(.increased)
         }
     }
 }
