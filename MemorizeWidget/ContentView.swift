@@ -175,6 +175,7 @@ struct 🪧WidgetNoteSheet: View {
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedWidgetNoteID }
     }
+    @State private var 🚩ShowSystemDictionary: Bool = false
     
     var body: some View {
         ZStack {
@@ -196,6 +197,17 @@ struct 🪧WidgetNoteSheet: View {
                                 .foregroundStyle(.secondary)
                         }
                         .tint(.red)
+                        Button {
+                            🚩ShowSystemDictionary = true
+                        } label: {
+                            Label("Dictionary", systemImage: "character.book.closed")
+                                .labelStyle(.iconOnly)
+                                .font(.title3.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                        }
+                        .sheet(isPresented: $🚩ShowSystemDictionary) {
+                            📗SystemDictionarySheet(term: 📱.🗃Notes[🔢].title)
+                        }
                         Button {
                             let ⓣext = "https://duckduckgo.com/?q=" + 📱.🗃Notes[🔢].title
                             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
@@ -492,5 +504,26 @@ struct 📂FileImportSheet: View {
         .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
             📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
+    }
+}
+
+
+struct 📗SystemDictionarySheet: View {
+    var ⓣerm: String
+    var body: some View {
+        🄳ictinaryView(term: ⓣerm)
+    }
+    struct 🄳ictinaryView: UIViewControllerRepresentable {
+        var ⓣerm: String
+        func makeUIViewController(context: Context) ->  UIReferenceLibraryViewController {
+            UIReferenceLibraryViewController(term: ⓣerm)
+        }
+        func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
+        init(term: String) {
+            ⓣerm = term
+        }
+    }
+    init(term: String) {
+        ⓣerm = term
     }
 }
