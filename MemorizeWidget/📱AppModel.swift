@@ -16,6 +16,11 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
     @AppStorage("ShowComment", store: ⓤd) var 🚩ShowComment: Bool = false
     
+    func 🆕AddNewNote(_ ⓘndex: Int = 0) {
+        🗃Notes.insert(📓Note(""), at: ⓘndex)
+        UISelectionFeedbackGenerator().selectionChanged()
+    }
+    
     func 📓GetWidgetNote() -> 📓Note {
         if 🗃Notes.isEmpty {
             return 📓Note("No note")

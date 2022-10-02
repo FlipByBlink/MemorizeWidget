@@ -62,16 +62,14 @@ struct 🗃NotesListTab: View {
                 }
                 
                 Button {
-                    📱.🗃Notes.insert(📓Note(""), at: 0)
-                    UISelectionFeedbackGenerator().selectionChanged()
+                    📱.🆕AddNewNote()
                 } label: {
                     Label("New note", systemImage: "plus")
                 }
                 .onOpenURL { 🔗 in
                     if 🔗.description == "NewItemShortcut" {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            📱.🗃Notes.insert(📓Note(""), at: 0)
-                            UISelectionFeedbackGenerator().selectionChanged()
+                            📱.🆕AddNewNote()
                         }
                     }
                 }
@@ -139,8 +137,7 @@ struct 📓NoteRow: View {
             
             Button {
                 guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                📱.🗃Notes.insert(📓Note(""), at: ⓘndex + 1)
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                📱.🆕AddNewNote(ⓘndex + 1)
             } label: {
                 Label("New note", systemImage: "text.append")
                     .labelStyle(.iconOnly)
