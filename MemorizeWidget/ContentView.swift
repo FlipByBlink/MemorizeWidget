@@ -139,7 +139,7 @@ struct 📓NoteRow: View {
             
             Button {
                 guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                📱.🗃Notes.insert(📓Note(""), at: ⓘndex+1)
+                📱.🗃Notes.insert(📓Note(""), at: ⓘndex + 1)
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } label: {
                 Label("New note", systemImage: "text.append")

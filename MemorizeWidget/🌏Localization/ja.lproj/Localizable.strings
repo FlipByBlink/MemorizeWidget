@@ -5,7 +5,7 @@
 "Import TSV file" = "TSVファイルを取り込む";
 "+ title" = "+ タイトル";
 "+ comment" = "+ コメント";
-"+ new note" = "+ 新規ノート";
+"New note" = "新規ノート";
 "comment" = "コメント";
 "No title" = "タイトルなし";
 "No comment" = "コメントなし";
