@@ -317,6 +317,63 @@ struct 🔩OptionTab: View {
 }
 
 
+struct ℹ️AboutAppTab: View {
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    ZStack {
+                        Color.clear
+                        VStack(spacing: 12) {
+                            Image("ClipedIcon")
+                                .resizable()
+                                .shadow(radius: 4, y: 1)
+                                .frame(width: 100, height: 100)
+                            VStack(spacing: 6) {
+                                Text("MemorizeWidget")
+                                    .font(.system(.title2, design: .rounded))
+                                    .fontWeight(.bold)
+                                    .tracking(1.5)
+                                    .opacity(0.75)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.1)
+                                Text("Application for iPhone / iPad")
+                                    .font(.footnote)
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                        }
+                        .padding(48)
+                    }
+                }
+                
+                Section {
+                    Link(destination: 🔗AppStoreProductURL) {
+                        HStack {
+                            Label("Open AppStore page", systemImage: "link")
+                            Spacer()
+                            Image(systemName: "arrow.up.forward.app")
+                                .imageScale(.small)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    NavigationLink {
+                        ℹ️AboutAppMenu()
+                    } label: {
+                        Label("About App", systemImage: "doc")
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩ShowFileImporter: Bool = false
@@ -362,10 +419,10 @@ struct 📂FileImportSheet: View {
                     }
                 }
                 
-                ForEach(📓ImportedNotes) { note in
+                ForEach(📓ImportedNotes) { ⓝote in
                     VStack(alignment: .leading) {
-                        Text(note.title)
-                        Text(note.comment)
+                        Text(ⓝote.title)
+                        Text(ⓝote.comment)
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                             .padding(.leading, 8)
@@ -421,62 +478,5 @@ struct 📂FileImportSheet: View {
         .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
             📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
-    }
-}
-
-
-struct ℹ️AboutAppTab: View {
-    var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    ZStack {
-                        Color.clear
-                        VStack(spacing: 12) {
-                            Image("ClipedIcon")
-                                .resizable()
-                                .shadow(radius: 4, y: 1)
-                                .frame(width: 100, height: 100)
-                            VStack(spacing: 6) {
-                                Text("MemorizeWidget")
-                                    .font(.system(.title2, design: .rounded))
-                                    .fontWeight(.bold)
-                                    .tracking(1.5)
-                                    .opacity(0.75)
-                                    .lineLimit(1)
-                                    .minimumScaleFactor(0.1)
-                                Text("Application for iPhone / iPad")
-                                    .font(.footnote)
-                                    .fontWeight(.medium)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                        }
-                        .padding(48)
-                    }
-                }
-                
-                Section {
-                    Link(destination: 🔗AppStoreProductURL) {
-                        HStack {
-                            Label("Open AppStore page", systemImage: "link")
-                            Spacer()
-                            Image(systemName: "arrow.up.forward.app")
-                                .imageScale(.small)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    
-                    NavigationLink  {
-                        ℹ️AboutAppMenu()
-                    } label: {
-                        Label("About App", systemImage: "doc")
-                    }
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
