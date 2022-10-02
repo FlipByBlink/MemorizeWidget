@@ -8,7 +8,7 @@ class 📱AppModel: ObservableObject {
     @Published var 🆕NewNote: 📓Note = .init("")
     
     @Published var 🚩ShowWidgetNote: Bool = false
-    @Published var 🆔WidgetNoteID: String? = nil
+    @Published var 🆔OpenedWidgetNoteID: String? = nil
     
     @Published var 🚩ShowFileImporSheet: Bool = false
     

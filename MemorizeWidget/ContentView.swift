@@ -24,7 +24,7 @@ struct ContentView: View {
             if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
                 📱.🚩ShowFileImporSheet = false
                 📱.🚩ShowWidgetNote = true
-                📱.🆔WidgetNoteID = 🔗.description
+                📱.🆔OpenedWidgetNoteID = 🔗.description
             }
             🔖Tab = .notesList
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -172,7 +172,7 @@ struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
     var 🔢NoteIndex: Int? {
-        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔WidgetNoteID }
+        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedWidgetNoteID }
     }
     
     var body: some View {
