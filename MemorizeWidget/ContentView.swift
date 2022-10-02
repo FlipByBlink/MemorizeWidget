@@ -172,10 +172,10 @@ struct 🪧WidgetNoteSheet: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
+    @State private var 🚩ShowSystemDictionary: Bool = false
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
-    @State private var 🚩ShowSystemDictionary: Bool = false
     
     var body: some View {
         ZStack {
@@ -199,6 +199,7 @@ struct 🪧WidgetNoteSheet: View {
                         .tint(.red)
                         Button {
                             🚩ShowSystemDictionary = true
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         } label: {
                             Label("Dictionary", systemImage: "character.book.closed")
                                 .labelStyle(.iconOnly)
@@ -212,6 +213,7 @@ struct 🪧WidgetNoteSheet: View {
                             let ⓣext = "https://duckduckgo.com/?q=" + 📱.🗃Notes[🔢].title
                             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
                             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             ⓞpenURL.callAsFunction(ⓤrl)
                         } label: {
                             Label("Search duckduckgo.com", systemImage: "magnifyingglass")
