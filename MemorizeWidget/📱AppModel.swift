@@ -5,8 +5,6 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🗃Notes: [📓Note] = []
     
-    @Published var 🆕NewNote: 📓Note = .init("")
-    
     @Published var 🚩ShowWidgetNote: Bool = false
     @Published var 🆔OpenedWidgetNoteID: String? = nil
     
