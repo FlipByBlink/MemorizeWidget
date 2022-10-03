@@ -224,6 +224,7 @@ struct 🪧NoteSheet: View {
                             Label("Delete", systemImage: "trash")
                                 .font(.title3.bold())
                                 .foregroundStyle(.secondary)
+                                .labelStyle(.iconOnly)
                         }
                         .tint(.red)
                         📗SystemDictionaryButton(🔢NoteIndex)
