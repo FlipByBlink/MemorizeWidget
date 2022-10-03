@@ -65,6 +65,8 @@ struct 🗃NotesListTab: View {
                     📱.🆕AddNewNote()
                 } label: {
                     Label("New note", systemImage: "plus")
+                        .font(.body.bold())
+                        .padding(.vertical, 5)
                 }
                 .onOpenURL { 🔗 in
                     if 🔗.description == "NewItemShortcut" {
@@ -73,7 +75,6 @@ struct 🗃NotesListTab: View {
                         }
                     }
                 }
-                
                 ForEach($📱.🗃Notes) { ⓝote in
                     📓NoteRow(ⓝote)
                 }
