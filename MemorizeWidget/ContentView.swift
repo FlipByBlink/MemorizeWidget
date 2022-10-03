@@ -213,7 +213,7 @@ struct 🪧NoteSheet: View {
                             }
                         }
                     Spacer()
-                    HStack(spacing: 32) {
+                    HStack(spacing: 36) {
                         Button(role: .destructive) {
                             📱.🗃Notes.remove(at: 🔢NoteIndex)
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)

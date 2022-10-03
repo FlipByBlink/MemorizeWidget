@@ -160,7 +160,7 @@ struct 🅆idgetEntryView : View {
                             }
                         }
                         .widgetAccentable()
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.8)
                         .multilineTextAlignment(.center)
                     }
                     .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
