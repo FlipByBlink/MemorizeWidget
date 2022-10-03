@@ -451,17 +451,18 @@ struct ℹ️AboutAppTab: View {
 
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()
     @State private var 🚩ShowFileImporter: Bool = false
-    @State private var 📓ImportedNotes: [📓Note] = []
+//    @State private var 📓ImportedNotes: [📓Note] = []
     var body: some View {
         NavigationView {
             List {
-                if 📓ImportedNotes.isEmpty {
+                if 🚛ImportProcess.ⓞutputNotes.isEmpty {
                     Section {
                         Button {
                             🚩ShowFileImporter.toggle()
                         } label: {
-                            Label("Import TSV file", systemImage: "arrow.down.doc")
+                            Label("Import a text-encoded file", systemImage: "arrow.down.doc")
                                 .font(.title2.weight(.semibold))
                                 .padding(.vertical, 8)
                         }
@@ -492,7 +493,7 @@ struct 📂FileImportSheet: View {
                     }
                 }
                 
-                ForEach(📓ImportedNotes) { ⓝote in
+                ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
                     VStack(alignment: .leading) {
                         Text(ⓝote.title)
                         Text(ⓝote.comment)
@@ -505,10 +506,10 @@ struct 📂FileImportSheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !📓ImportedNotes.isEmpty {
+                    if !🚛ImportProcess.ⓞutputNotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            📓ImportedNotes = []
+                            🚛ImportProcess.ⓞutputNotes = []
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -516,15 +517,14 @@ struct 📂FileImportSheet: View {
                         .tint(.red)
                     }
                 }
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !📓ImportedNotes.isEmpty {
+                    if !🚛ImportProcess.ⓞutputNotes.isEmpty {
                         Button {
                             📱.🚩ShowImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.🗃Notes.insert(contentsOf: 📓ImportedNotes, at: 0)
-                                📓ImportedNotes = []
+                                📱.🗃Notes.insert(contentsOf: 🚛ImportProcess.ⓞutputNotes, at: 0)
+                                🚛ImportProcess.ⓞutputNotes = []
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -532,7 +532,6 @@ struct 📂FileImportSheet: View {
                         }
                     }
                 }
-                
                 ToolbarItem(placement: .principal) {
                     Button {
                         📱.🚩ShowImportSheet = false
@@ -546,11 +545,17 @@ struct 📂FileImportSheet: View {
                     .accessibilityLabel("Dismiss")
                 }
             }
-            .navigationTitle("Import notes")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: 📓ImportedNotes)
-        .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
-            📓ImportedNotes = 📂ImportTSVFile(📦Result)
+        .animation(.default, value: 🚛ImportProcess.ⓞutputNotes)
+        .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.text]) { 📦Result in
+            do {
+                try 🚛ImportProcess.🄸mportFile(📦Result)
+                🚛ImportProcess.🄲onvertTextToNotes()
+            } catch {
+                print(error.localizedDescription)
+            }
+//            📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
     }
 }
