@@ -194,6 +194,7 @@ struct 🪧NoteSheet: View {
                                 Text("No comment")
                                     .foregroundStyle(.quaternary)
                                     .padding(6)
+                                    .allowsHitTesting(false)
                             }
                         }
                         .overlay(alignment: .bottomTrailing) {
@@ -202,16 +203,13 @@ struct 🪧NoteSheet: View {
                                     🔍CommentFocus = false
                                     UISelectionFeedbackGenerator().selectionChanged()
                                 } label: {
-                                    Label("Done", systemImage: "checkmark")
-                                        .font(.title3)
+                                    Label("Done", systemImage: "checkmark.circle.fill")
+                                        .font(.largeTitle)
+                                        .symbolRenderingMode(.hierarchical)
                                         .labelStyle(.iconOnly)
-                                        .background {
-                                            Color(.systemBackground)
-                                                .opacity(0.5)
-                                        }
-                                        .padding(.trailing)
                                 }
                                 .foregroundStyle(.tertiary)
+                                .padding(8)
                             }
                         }
                     Spacer()
