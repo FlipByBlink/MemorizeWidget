@@ -176,18 +176,17 @@ struct 🪧NoteSheet: View {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
     var body: some View {
-        ZStack {
-            Color.clear
+        NavigationView {
             VStack {
                 Spacer()
                 if let 🔢NoteIndex {
                     TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
-                        .font(.title3.bold())
+                        .font(.title.bold())
                     TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
                         .focused($🔍CommentFocus)
                         .font(.title3.weight(.light))
                         .foregroundStyle(.secondary)
-                        .frame(maxHeight: 180)
+                        .frame(minHeight: 50, maxHeight: 180)
                         .overlay(alignment: .topLeading) {
                             if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
                                 Text("No comment")
@@ -213,6 +212,7 @@ struct 🪧NoteSheet: View {
                                 .foregroundStyle(.tertiary)
                             }
                         }
+                    Spacer()
                     HStack(spacing: 32) {
                         Button(role: .destructive) {
                             📱.🗃Notes.remove(at: 🔢NoteIndex)
@@ -230,7 +230,7 @@ struct 🪧NoteSheet: View {
                             .font(.title3.weight(.semibold))
                             .foregroundStyle(.tertiary)
                     }
-                    .frame(height: 100)
+                    .padding()
                 } else {
                     VStack(spacing: 24) {
                         Label("Deleted.", systemImage: "checkmark")
@@ -249,21 +249,21 @@ struct 🪧NoteSheet: View {
                     }
                 }
                 .frame(height: 100)
+                .minimumScaleFactor(0.1)
                 .animation(.default, value: 🛒.🚩Purchased)
             }
-        }
-        .animation(.default.speed(1.5), value: 🔢NoteIndex)
-        .padding(24)
-        .overlay(alignment: .topTrailing) {
-            Button {
-                ﹀Dismiss.callAsFunction()
-                UISelectionFeedbackGenerator().selectionChanged()
-            } label: {
-                Image(systemName: "chevron.down")
-                    .padding(24)
+            .animation(.default.speed(1.5), value: 🔢NoteIndex)
+            .padding(24)
+            .toolbar {
+                Button {
+                    ﹀Dismiss.callAsFunction()
+                    UISelectionFeedbackGenerator().selectionChanged()
+                } label: {
+                    Image(systemName: "chevron.down")
+                }
+                .tint(.secondary)
+                .accessibilityLabel("Dismiss")
             }
-            .tint(.secondary)
-            .accessibilityLabel("Dismiss")
         }
     }
 }
