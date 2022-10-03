@@ -265,6 +265,7 @@ struct 🪧NoteSheet: View {
                 .tint(.secondary)
                 .accessibilityLabel("Dismiss")
             }
+            .ignoresSafeArea(.keyboard)
         }
     }
 }
