@@ -452,65 +452,76 @@ struct ℹ️AboutAppTab: View {
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()
+    @State private var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩ShowFileImporter: Bool = false
 //    @State private var 📓ImportedNotes: [📓Note] = []
     var body: some View {
         NavigationView {
             List {
                 if 🚛ImportProcess.ⓞutputNotes.isEmpty {
-                    Section {
-                        Button {
-                            🚩ShowFileImporter.toggle()
-                        } label: {
-                            Label("Import a text-encoded file", systemImage: "arrow.down.doc")
-                                .font(.title2.weight(.semibold))
-                                .padding(.vertical, 8)
-                        }
-                        HStack {
-                            Image("tsvImport_before")
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(12)
-                                .shadow(radius: 2)
-                            Image(systemName: "arrow.right")
-                                .font(.title2.weight(.semibold))
-                            Image("tsvImport_after")
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(12)
-                                .shadow(radius: 2)
-                        }
-                        .frame(maxHeight: 400)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical)
-                        Image("numbers_tsv_export")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(12)
-                            .shadow(radius: 2)
-                            .padding()
-                            .frame(maxHeight: 250)
+                    Picker("Mode", selection: $ⓘnputMode) {
+                        Label("File", systemImage: "doc").tag(🄸nputMode.file)
+                        Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
                     }
-                    Section {
-                        Button {
-                            🚛ImportProcess.🄲onvertTextToNotes()
-                        } label: {
-                            Label("Convert this text to notes", systemImage: "arrow.down.doc")
-                                .font(.title2.weight(.semibold))
-                                .padding(.vertical, 8)
-                        }
-                        TextEditor(text: $🚛ImportProcess.ⓘnputText)
-                            .font(.subheadline.monospaced())
-                            .frame(height: 100)
-                            .padding(8)
-                            .overlay {
-                                if 🚛ImportProcess.ⓘnputText.isEmpty {
-                                    Text("Paste the text here.")
-                                        .rotationEffect(.degrees(3))
-                                        .multilineTextAlignment(.center)
-                                        .foregroundStyle(.tertiary)
-                                        .allowsHitTesting(false)
+                    .pickerStyle(.segmented)
+                    switch ⓘnputMode {
+                        case .file:
+                            Section {
+                                Button {
+                                    🚩ShowFileImporter.toggle()
+                                } label: {
+                                    Label("Import a text-encoded file", systemImage: "folder.badge.plus")
+                                        .font(.title2.weight(.semibold))
+                                        .padding(.vertical, 8)
                                 }
+                                HStack {
+                                    Image("tsvImport_before")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(12)
+                                        .shadow(radius: 2)
+                                    Image(systemName: "arrow.right")
+                                        .font(.title2.weight(.semibold))
+                                    Image("tsvImport_after")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(12)
+                                        .shadow(radius: 2)
+                                }
+                                .frame(maxHeight: 400)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical)
+                                Image("numbers_tsv_export")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .cornerRadius(12)
+                                    .shadow(radius: 2)
+                                    .padding()
+                                    .frame(maxHeight: 250)
+                            }
+                        case .text:
+                            Section {
+                                Button {
+                                    🚛ImportProcess.🄲onvertTextToNotes()
+                                } label: {
+                                    Label("Convert this text to notes", systemImage: "text.badge.plus")
+                                        .font(.title2.weight(.semibold))
+                                        .padding(.vertical, 8)
+                                }
+                                TextEditor(text: $🚛ImportProcess.ⓘnputText)
+                                    .font(.subheadline.monospaced())
+                                    .frame(height: 100)
+                                    .padding(8)
+                                    .overlay {
+                                        if 🚛ImportProcess.ⓘnputText.isEmpty {
+                                            Text("Paste the text here.")
+                                                .rotationEffect(.degrees(3))
+                                                .multilineTextAlignment(.center)
+                                                .foregroundColor(.accentColor)
+                                                .opacity(0.5)
+                                                .allowsHitTesting(false)
+                                        }
+                                    }
                             }
                     }
                 } else {
@@ -570,6 +581,7 @@ struct 📂FileImportSheet: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .animation(.default, value: 🚛ImportProcess.ⓞutputNotes)
+        .animation(.default, value: ⓘnputMode)
         .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.text]) { 📦Result in
             do {
                 try 🚛ImportProcess.🄸mportFile(📦Result)
@@ -579,6 +591,9 @@ struct 📂FileImportSheet: View {
             }
 //            📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
+    }
+    enum 🄸nputMode {
+        case file, text
     }
 }
 
