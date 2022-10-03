@@ -2,24 +2,6 @@
 import SwiftUI
 import StoreKit
 
-struct 📣ADMenuLink: View {
-    @EnvironmentObject var 🛒: 🛒StoreModel
-    
-    var body: some View {
-        Section {
-            🛒PurchaseView()
-            
-            NavigationLink {
-                📣ADMenu()
-            } label: {
-                Label("About AD / Purchase", systemImage: "megaphone")
-            }
-        } header: {
-            Text("AD / Purchase")
-        }
-    }
-}
-
 struct 📣ADMenu: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     
@@ -50,3 +32,21 @@ struct 📣ADMenu: View {
         .navigationTitle("AD / Purchase")
     }
 }
+
+//struct 📣ADMenuLink: View { // Suspension
+//    @EnvironmentObject var 🛒: 🛒StoreModel
+//
+//    var body: some View {
+//        Section {
+//            🛒PurchaseView()
+//
+//            NavigationLink {
+//                📣ADMenu()
+//            } label: {
+//                Label("About AD / Purchase", systemImage: "megaphone")
+//            }
+//        } header: {
+//            Text("AD / Purchase")
+//        }
+//    }
+//}

@@ -13,6 +13,9 @@ struct ContentView: View {
             🔩OptionTab()
                 .tag(🔖TabTag.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
+            📣AboutAdTab()
+                .tag(🔖TabTag.aboutAd)
+                .tabItem { Label("Purchase", systemImage: "cart") }
             ℹ️AboutAppTab()
                 .tag(🔖TabTag.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
@@ -41,7 +44,7 @@ struct ContentView: View {
         }
     }
     enum 🔖TabTag {
-        case notesList, option, about
+        case notesList, option, aboutAd, about
     }
 }
 
@@ -304,8 +307,6 @@ struct 🔩OptionTab: View {
                     }
                 }
                 
-                📣ADMenuLink()
-                
                 Menu {
                     Button(role: .destructive) {
                         📱.🗃Notes.removeAll()
@@ -375,6 +376,16 @@ struct 🔩OptionTab: View {
                 Label("Customize search", systemImage: "magnifyingglass")
             }
             .headerProminence(.increased)
+        }
+    }
+}
+
+
+struct 📣AboutAdTab: View {
+    @EnvironmentObject var 🛒: 🛒StoreModel
+    var body: some View {
+        NavigationView {
+            📣ADMenu()
         }
     }
 }
