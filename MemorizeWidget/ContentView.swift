@@ -60,12 +60,11 @@ struct 🗃NotesListTab: View {
                 } footer: {
                     Text("Change the note per 5 minutes.")
                 }
-                
                 Button {
                     📱.🆕AddNewNote()
                 } label: {
                     Label("New note", systemImage: "plus")
-                        .font(.body.bold())
+                        .font(.body.weight(.semibold))
                         .padding(.vertical, 5)
                 }
                 .onOpenURL { 🔗 in
@@ -338,15 +337,19 @@ struct 🔩OptionTab: View {
         var ⓛeading: String { 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading }
         var body: some View {
             Section {
-                Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
-                    .italic()
-                    .font(.system(.footnote, design: .monospaced))
-                    .padding(8)
-                    .frame(minHeight: 100)
-                    .animation(.default, value: 📱.🔗Leading.isEmpty)
-                TextField("URL scheme", text: $📱.🔗Leading)
-                TextField("Trailing component", text: $📱.🔗Trailing)
-                    .font(.caption)
+                VStack {
+                    Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
+                        .italic()
+                        .font(.system(.footnote, design: .monospaced))
+                        .padding(8)
+                        .frame(minHeight: 100)
+                        .animation(.default, value: 📱.🔗Leading.isEmpty)
+                    TextField("URL scheme", text: $📱.🔗Leading)
+                    TextField("Trailing component", text: $📱.🔗Trailing)
+                        .font(.caption)
+                        .padding(.bottom, 4)
+                }
+                .textFieldStyle(.roundedBorder)
             } header: {
                 Label("Customize search", systemImage: "magnifyingglass")
             }
