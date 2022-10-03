@@ -171,6 +171,7 @@ struct 🪧NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
+    @FocusState private var 🔍CommentFocus: Bool
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
@@ -182,8 +183,36 @@ struct 🪧NoteSheet: View {
                 if let 🔢NoteIndex {
                     TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
                         .font(.title3.bold())
-                    TextField("No comment", text: $📱.🗃Notes[🔢NoteIndex].comment)
+                    TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
+                        .focused($🔍CommentFocus)
+                        .font(.title3.weight(.light))
                         .foregroundStyle(.secondary)
+                        .frame(maxHeight: 180)
+                        .overlay(alignment: .topLeading) {
+                            if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
+                                Text("No comment")
+                                    .foregroundStyle(.quaternary)
+                                    .padding(6)
+                            }
+                        }
+                        .overlay(alignment: .bottomTrailing) {
+                            if 🔍CommentFocus {
+                                Button {
+                                    🔍CommentFocus = false
+                                    UISelectionFeedbackGenerator().selectionChanged()
+                                } label: {
+                                    Label("Done", systemImage: "checkmark")
+                                        .font(.title3)
+                                        .labelStyle(.iconOnly)
+                                        .background {
+                                            Color(.systemBackground)
+                                                .opacity(0.5)
+                                        }
+                                        .padding(.trailing)
+                                }
+                                .foregroundStyle(.tertiary)
+                            }
+                        }
                     HStack(spacing: 32) {
                         Button(role: .destructive) {
                             📱.🗃Notes.remove(at: 🔢NoteIndex)
@@ -201,7 +230,7 @@ struct 🪧NoteSheet: View {
                             .font(.title3.weight(.semibold))
                             .foregroundStyle(.tertiary)
                     }
-                    .padding(.top, 64)
+                    .frame(height: 100)
                 } else {
                     VStack(spacing: 24) {
                         Label("Deleted.", systemImage: "checkmark")
