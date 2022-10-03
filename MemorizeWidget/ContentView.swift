@@ -118,7 +118,9 @@ struct 🗃NotesListTab: View {
                         .focused($🔍Focus, equals: .title)
                         .onSubmit {
                             UISelectionFeedbackGenerator().selectionChanged()
-                            🔍Focus = .comment
+                            if !ⓝote.title.isEmpty {
+                                🔍Focus = .comment
+                            }
                         }
                     TextField("+ comment", text: $ⓝote.comment)
                         .font(.footnote)
@@ -133,21 +135,23 @@ struct 🗃NotesListTab: View {
                 .padding(.vertical, 8)
                 
                 Menu {
-                    if let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) {
-                        Button {
-                            📱.🆕AddNewNote(ⓘndex + 1)
-                        } label: {
-                            Label("New note", systemImage: "text.append")
-                        }
+                    Button {
+                        📱.🆔OpenedNoteID = ⓝote.id.description
+                        📱.🚩ShowWidgetNote = true
+                        UISelectionFeedbackGenerator().selectionChanged()
+                    } label: {
+                        Label("Detail", systemImage: "doc.plaintext")
+                    }
+                    Button {
+                        guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
+                        📱.🆕AddNewNote(ⓘndex + 1)
+                    } label: {
+                        Label("New note", systemImage: "text.append")
                     }
                 } label: {
                     Label("Menu", systemImage: "ellipsis.circle")
                         .labelStyle(.iconOnly)
                         .padding(8)
-                } primaryAction: {
-                    📱.🆔OpenedNoteID = ⓝote.id.description
-                    📱.🚩ShowWidgetNote = true
-                    UISelectionFeedbackGenerator().selectionChanged()
                 }
                 .foregroundStyle(.secondary)
             }
@@ -159,7 +163,7 @@ struct 🗃NotesListTab: View {
                 }
             }
             .onChange(of: 🔍Focus) { ⓝewValue in
-                if ⓝewValue != .title {
+                if ⓝewValue == nil {
                     if ⓝote.title == "" {
                         📱.🗃Notes.removeAll(where: { $0 == ⓝote })
                     }
@@ -183,7 +187,6 @@ struct 🪧WidgetNoteSheet: View {
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
-    
     var body: some View {
         ZStack {
             Color.clear
