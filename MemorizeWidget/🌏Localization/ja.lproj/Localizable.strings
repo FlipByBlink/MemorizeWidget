@@ -2,7 +2,7 @@
 "Notes" = "ノート";
 "Random mode" = "ランダムモード";
 "Change the note per 5 minutes." = "約5分毎にランダムでノートが切り替わります。";
-"Import TSV file" = "TSVファイルを取り込む";
+"Import notes" = "ノートをインポート";
 "+ title" = "+ タイトル";
 "+ comment" = "+ コメント";
 "New note" = "新規ノート";
@@ -23,11 +23,19 @@
 "Delete all notes." = "全てのノートを削除";
 "OK, delete all notes." = "はい、全てのノートを削除します。";
 "Purchase" = "アプリ内課金";
+"Mode" = "モード";
+"File" = "ファイル";
+"Text" = "テキスト";
+"Import a text-encoded file" = "テキストベースのファイルを取り込む";
+"Convert this text to notes" = "このテキストをノートに変換する";
+"Paste the text here." = "ここにテキストを貼り付け。";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";
 "Sub widget" = "予備のウィジェット";
 "This is spare widget for the purpose of second widget and random-mode" = "これはランダムモードで2個目のウィジェットを配置する際に用います。";
+"New note shortcut" = "新規ノートショートカット";
+"Shortcut to add new note." = "新規ノートを追加するためのショートカットです。";
 
 
 // =======================================================

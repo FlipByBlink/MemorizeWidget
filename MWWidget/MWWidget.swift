@@ -6,8 +6,8 @@ import SwiftUI
 struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         🖼MWWidget()
+        📝NewNoteShortcutWidget()
         🖼MWWidgetSub()
-        📝NewItemShortcutWidget()
     }
 }
 
@@ -47,17 +47,17 @@ struct 🖼MWWidgetSub: Widget {
     }
 }
 
-struct 📝NewItemShortcutWidget: Widget {
+struct 📝NewNoteShortcutWidget: Widget {
     var ⓕamilys: [WidgetFamily] {
         guard #available(iOS 16.0, *) else { return [] }
         return [.accessoryInline, .accessoryCircular]
     }
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "NewItemShortcut", provider: 🤖Provider()) { _ in
-            🄽ewItemShortcutView()
+        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖Provider()) { _ in
+            🄽ewNoteShortcutView()
         }
-        .configurationDisplayName("Add new item widget")
-        .description("Shortcut to add new item.")
+        .configurationDisplayName("New note shortcut")
+        .description("Shortcut to add new note.")
         .supportedFamilies(ⓕamilys)
     }
 }
@@ -192,14 +192,14 @@ struct 🅆idgetEntryView : View {
     }
 }
 
-struct 🄽ewItemShortcutView: View {
+struct 🄽ewNoteShortcutView: View {
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
     var body: some View {
         switch ⓕamily {
             case .accessoryInline:
                 if #available(iOS 16.0, *) {
                     Image(systemName: "plus.rectangle.on.rectangle")
-                        .widgetURL(URL(string: "NewItemShortcut")!)
+                        .widgetURL(URL(string: "NewNoteShortcut")!)
                 }
             case .accessoryCircular:
                 if #available(iOS 16.0, *) {
@@ -209,7 +209,7 @@ struct 🄽ewItemShortcutView: View {
                             .imageScale(.large)
                             .fontWeight(.medium)
                     }
-                    .widgetURL(URL(string: "NewItemShortcut")!)
+                    .widgetURL(URL(string: "NewNoteShortcut")!)
                 }
             default:
                 Text("🐛")

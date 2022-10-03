@@ -24,7 +24,7 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onOpenURL { 🔗 in
-            if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
+            if !📱.🗃Notes.isEmpty && (🔗.description != "NewNoteShortcut") {
                 📱.🚩ShowImportSheet = false
                 📱.🚩ShowNoteSheet = true
                 📱.🆔OpenedNoteID = 🔗.description
@@ -70,7 +70,7 @@ struct 🗃NotesListTab: View {
                         .padding(.vertical, 7)
                 }
                 .onOpenURL { 🔗 in
-                    if 🔗.description == "NewItemShortcut" {
+                    if 🔗.description == "NewNoteShortcut" {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             📱.🆕AddNewNote()
                         }
@@ -93,7 +93,7 @@ struct 🗃NotesListTab: View {
                         UISelectionFeedbackGenerator().selectionChanged()
                         📱.🚩ShowImportSheet.toggle()
                     } label: {
-                        Label("Import TSV file", systemImage: "arrow.down.doc")
+                        Label("Import notes", systemImage: "tray.and.arrow.down")
                     }
                 }
             }
