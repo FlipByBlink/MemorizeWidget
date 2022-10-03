@@ -457,15 +457,14 @@ struct 📂FileImportSheet: View {
         NavigationView {
             List {
                 if 📓ImportedNotes.isEmpty {
-                    Button {
-                        🚩ShowFileImporter.toggle()
-                    } label: {
-                        Label("Import TSV file", systemImage: "arrow.down.doc")
-                            .font(.title2.weight(.semibold))
-                            .padding(.vertical, 8)
-                    }
-                    
                     Section {
+                        Button {
+                            🚩ShowFileImporter.toggle()
+                        } label: {
+                            Label("Import TSV file", systemImage: "arrow.down.doc")
+                                .font(.title2.weight(.semibold))
+                                .padding(.vertical, 8)
+                        }
                         HStack {
                             Image("tsvImport_before")
                                 .resizable()
@@ -483,7 +482,6 @@ struct 📂FileImportSheet: View {
                         .frame(maxHeight: 400)
                         .padding(.horizontal, 8)
                         .padding(.vertical)
-                        
                         Image("numbers_tsv_export")
                             .resizable()
                             .scaledToFit()
@@ -548,6 +546,7 @@ struct 📂FileImportSheet: View {
                     .accessibilityLabel("Dismiss")
                 }
             }
+            .navigationTitle("Import notes")
         }
         .animation(.default, value: 📓ImportedNotes)
         .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.tabSeparatedText]) { 📦Result in
