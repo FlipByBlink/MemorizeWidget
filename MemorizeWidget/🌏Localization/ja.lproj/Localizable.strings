@@ -6,15 +6,23 @@
 "+ title" = "+ タイトル";
 "+ comment" = "+ コメント";
 "New note" = "新規ノート";
+"Detail" = "詳細";
 "comment" = "コメント";
 "No title" = "タイトルなし";
 "No comment" = "コメントなし";
 "Deleted." = "削除完了";
+"Delete" = "削除";
+"Dictionary" = "辞書";
+"Search" = "検索";
 "Show comment on widget" = "ウィジェット上にコメントを表示する";
 "Directions" = "注記";
 "If lock screen widgets don't update, please close this app or switch to another app." = "ロック画面ウィジェットが更新されない場合は、アプリを閉じたりアプリを切り替えたりすると変更が反映されます。";
+"Customize search" = "検索をカスタマイズ";
+"URL scheme" = "URLスキーム";
+"Trailing component" = "末尾部分";
 "Delete all notes." = "全てのノートを削除";
 "OK, delete all notes." = "はい、全てのノートを削除します。";
+"Purchase" = "アプリ内課金";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";

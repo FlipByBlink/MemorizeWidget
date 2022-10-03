@@ -221,7 +221,7 @@ struct 🪧NoteSheet: View {
                             📱.🗃Notes.remove(at: 🔢NoteIndex)
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
                         } label: {
-                            Image(systemName: "trash")
+                            Label("Delete", systemImage: "trash")
                                 .font(.title3.bold())
                                 .foregroundStyle(.secondary)
                         }
@@ -297,7 +297,7 @@ struct 🔩OptionTab: View {
                     .frame(maxHeight: 500)
                 }
                 
-                🔍SearchCustomizeSection()
+                🔍CustomizeSearchSection()
                 
                 if #available(iOS 16.0, *) {
                     Section {
@@ -354,7 +354,7 @@ struct 🔩OptionTab: View {
             self.ⓐfter = ⓐfter
         }
     }
-    struct 🔍SearchCustomizeSection: View {
+    struct 🔍CustomizeSearchSection: View {
         @EnvironmentObject var 📱: 📱AppModel
         var ⓛeading: String { 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading }
         var body: some View {
@@ -611,7 +611,7 @@ struct 🔍SearchButton: View {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
             ⓞpenURL.callAsFunction(ⓤrl)
         } label: {
-            Label("Custom search", systemImage: "magnifyingglass")
+            Label("Search", systemImage: "magnifyingglass")
                 .labelStyle(.iconOnly)
         }
     }
