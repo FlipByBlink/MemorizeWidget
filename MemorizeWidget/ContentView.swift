@@ -452,18 +452,19 @@ struct ℹ️AboutAppTab: View {
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()
-    @State private var ⓘnputMode: 🄸nputMode = .file
+    @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩ShowFileImporter: Bool = false
 //    @State private var 📓ImportedNotes: [📓Note] = []
     var body: some View {
         NavigationView {
             List {
                 if 🚛ImportProcess.ⓞutputNotes.isEmpty {
-                    Picker("Mode", selection: $ⓘnputMode) {
+                    Picker(selection: $ⓘnputMode) {
                         Label("File", systemImage: "doc").tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
+                    } label: {
+                        Label("Mode", systemImage: "tray.and.arrow.down")
                     }
-                    .pickerStyle(.segmented)
                     switch ⓘnputMode {
                         case .file:
                             Section {
@@ -471,9 +472,11 @@ struct 📂FileImportSheet: View {
                                     🚩ShowFileImporter.toggle()
                                 } label: {
                                     Label("Import a text-encoded file", systemImage: "folder.badge.plus")
-                                        .font(.title2.weight(.semibold))
+                                        .font(.headline)
                                         .padding(.vertical, 8)
                                 }
+                            }
+                            Section {
                                 HStack {
                                     Image("tsvImport_before")
                                         .resizable()
@@ -505,7 +508,7 @@ struct 📂FileImportSheet: View {
                                     🚛ImportProcess.🄲onvertTextToNotes()
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
-                                        .font(.title2.weight(.semibold))
+                                        .font(.headline)
                                         .padding(.vertical, 8)
                                 }
                                 TextEditor(text: $🚛ImportProcess.ⓘnputText)
@@ -592,7 +595,7 @@ struct 📂FileImportSheet: View {
 //            📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
     }
-    enum 🄸nputMode {
+    enum 🄸nputMode: String {
         case file, text
     }
 }
