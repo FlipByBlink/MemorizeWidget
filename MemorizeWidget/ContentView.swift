@@ -491,17 +491,39 @@ struct 📂FileImportSheet: View {
                             .padding()
                             .frame(maxHeight: 250)
                     }
-                }
-                
-                ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
-                    VStack(alignment: .leading) {
-                        Text(ⓝote.title)
-                        Text(ⓝote.comment)
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .padding(.leading, 8)
+                    Section {
+                        Button {
+                            🚛ImportProcess.🄲onvertTextToNotes()
+                        } label: {
+                            Label("Convert this text to notes", systemImage: "arrow.down.doc")
+                                .font(.title2.weight(.semibold))
+                                .padding(.vertical, 8)
+                        }
+                        TextEditor(text: $🚛ImportProcess.ⓘnputText)
+                            .font(.subheadline.monospaced())
+                            .frame(height: 100)
+                            .padding(8)
+                            .overlay {
+                                if 🚛ImportProcess.ⓘnputText.isEmpty {
+                                    Text("Paste the text here.")
+                                        .rotationEffect(.degrees(3))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundStyle(.tertiary)
+                                        .allowsHitTesting(false)
+                                }
+                            }
                     }
-                    .padding(.vertical, 8)
+                } else {
+                    ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
+                        VStack(alignment: .leading) {
+                            Text(ⓝote.title)
+                            Text(ⓝote.comment)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                                .padding(.leading, 8)
+                        }
+                        .padding(.vertical, 8)
+                    }
                 }
             }
             .toolbar {
