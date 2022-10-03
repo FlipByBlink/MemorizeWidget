@@ -63,8 +63,8 @@ struct 🗃NotesListTab: View {
                     📱.🆕AddNewNote()
                 } label: {
                     Label("New note", systemImage: "plus")
-                        .font(.title3.weight(.bold))
-                        .padding(.vertical, 5)
+                        .font(.title3.weight(.semibold))
+                        .padding(.vertical, 7)
                 }
                 .onOpenURL { 🔗 in
                     if 🔗.description == "NewItemShortcut" {
@@ -105,20 +105,20 @@ struct 🗃NotesListTab: View {
         var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
         var body: some View {
             HStack {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 8) {
                     TextField("+ title", text: $ⓝote.title)
                         .focused($🔍Focus, equals: .title)
-                        .font(.title.weight(.semibold))
+                        .font(.title2.weight(.semibold))
                         .foregroundStyle(🎨Thin ? .tertiary : .primary)
                     TextField("+ comment", text: $ⓝote.comment)
                         .focused($🔍Focus, equals: .comment)
-                        .font(.title3)
+                        .font(.title3.weight(.medium))
                         .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
                 .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
-                .padding(.vertical, 8)
+                .padding(.vertical, 6)
                 
                 Menu {
                     Button {
