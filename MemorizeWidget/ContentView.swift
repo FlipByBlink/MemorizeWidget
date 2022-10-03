@@ -112,7 +112,7 @@ struct 🗃NotesListTab: View {
                         .foregroundStyle(🎨Thin ? .tertiary : .primary)
                     TextField("+ comment", text: $ⓝote.comment)
                         .focused($🔍Focus, equals: .comment)
-                        .font(.title3.weight(.medium))
+                        .font(.title3.weight(.light))
                         .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
