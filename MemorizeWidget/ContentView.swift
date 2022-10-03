@@ -77,12 +77,8 @@ struct 🗃NotesListTab: View {
                 ForEach($📱.🗃Notes) { ⓝote in
                     📓NoteRow(ⓝote)
                 }
-                .onDelete { ⓘndexSet in
-                    📱.🗃Notes.remove(atOffsets: ⓘndexSet)
-                }
-                .onMove { ⓘndexSet, ⓘnt in
-                    📱.🗃Notes.move(fromOffsets: ⓘndexSet, toOffset: ⓘnt)
-                }
+                .onDelete { 📱.🗃Notes.remove(atOffsets: $0) }
+                .onMove { 📱.🗃Notes.move(fromOffsets: $0, toOffset: $1) }
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.🗃Notes)
@@ -90,7 +86,6 @@ struct 🗃NotesListTab: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         UISelectionFeedbackGenerator().selectionChanged()
