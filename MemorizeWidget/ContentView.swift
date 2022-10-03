@@ -266,7 +266,7 @@ struct 🔩OptionTab: View {
                     .frame(maxHeight: 500)
                 }
                 
-                🔍CustomizeSearch()
+                🔍SearchCustomizeSection()
                 
                 if #available(iOS 16.0, *) {
                     Section {
@@ -298,7 +298,6 @@ struct 🔩OptionTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
     struct 🏞BeforeAfterImage: View {
         var ⓑefore: String
         var ⓐfter: String
@@ -326,17 +325,17 @@ struct 🔩OptionTab: View {
             self.ⓐfter = ⓐfter
         }
     }
-    
-    struct 🔍CustomizeSearch: View {
+    struct 🔍SearchCustomizeSection: View {
         @EnvironmentObject var 📱: 📱AppModel
+        var ⓛeading: String { 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading }
         var body: some View {
             Section {
-                Text((📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=":📱.🔗Leading) + "NOTETITLE" + 📱.🔗Trailing)
+                Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
                     .italic()
                     .font(.system(.footnote, design: .monospaced))
                     .padding(8)
                     .frame(minHeight: 100)
-                    .animation(.default, value: 📱.🔗Leading)
+                    .animation(.default, value: 📱.🔗Leading.isEmpty)
                 TextField("URL scheme", text: $📱.🔗Leading)
                 TextField("Trailing component", text: $📱.🔗Trailing)
                     .font(.caption)
