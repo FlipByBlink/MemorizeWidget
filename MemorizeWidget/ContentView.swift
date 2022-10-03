@@ -40,7 +40,6 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
-    
     enum 🔖TabTag {
         case notesList, option, about
     }
@@ -64,7 +63,7 @@ struct 🗃NotesListTab: View {
                     📱.🆕AddNewNote()
                 } label: {
                     Label("New note", systemImage: "plus")
-                        .font(.body.weight(.semibold))
+                        .font(.title3.weight(.bold))
                         .padding(.vertical, 5)
                 }
                 .onOpenURL { 🔗 in
@@ -106,28 +105,18 @@ struct 🗃NotesListTab: View {
         var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
         var body: some View {
             HStack {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 10) {
                     TextField("+ title", text: $ⓝote.title)
-                        .font(.headline.weight(.semibold))
-                        .foregroundStyle(🎨Thin ? .tertiary : .primary)
                         .focused($🔍Focus, equals: .title)
-                        .onSubmit {
-                            UISelectionFeedbackGenerator().selectionChanged()
-                            if !ⓝote.title.isEmpty {
-                                🔍Focus = .comment
-                            }
-                        }
+                        .font(.title.weight(.semibold))
+                        .foregroundStyle(🎨Thin ? .tertiary : .primary)
                     TextField("+ comment", text: $ⓝote.comment)
-                        .font(.footnote)
+                        .focused($🔍Focus, equals: .comment)
+                        .font(.title3)
                         .foregroundStyle(🎨Thin ? .tertiary : .secondary)
                         .opacity(0.8)
-                        .focused($🔍Focus, equals: .comment)
-                        .onSubmit {
-                            if !ⓝote.comment.isEmpty {
-                                UISelectionFeedbackGenerator().selectionChanged()
-                            }
-                        }
                 }
+                .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
                 .padding(.vertical, 8)
                 
@@ -148,7 +137,8 @@ struct 🗃NotesListTab: View {
                 } label: {
                     Label("Menu", systemImage: "ellipsis.circle")
                         .labelStyle(.iconOnly)
-                        .padding(8)
+                        .padding(.vertical, 8)
+                        .padding(.trailing, 8)
                 }
                 .foregroundStyle(.secondary)
             }
