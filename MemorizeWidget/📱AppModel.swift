@@ -3,7 +3,7 @@ import SwiftUI
 
 class 📱AppModel: ObservableObject {
     @Published var 🗃Notes: [📓Note] = []
-    @Published var 🚩ShowWidgetNote: Bool = false
+    @Published var 🚩ShowNoteSheet: Bool = false
     @Published var 🆔OpenedNoteID: String? = nil
     @Published var 🚩ShowImportSheet: Bool = false
     

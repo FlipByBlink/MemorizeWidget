@@ -23,14 +23,14 @@ struct ContentView: View {
         .onOpenURL { 🔗 in
             if !📱.🗃Notes.isEmpty && (🔗.description != "NewItemShortcut") {
                 📱.🚩ShowImportSheet = false
-                📱.🚩ShowWidgetNote = true
+                📱.🚩ShowNoteSheet = true
                 📱.🆔OpenedNoteID = 🔗.description
             }
             🔖Tab = .notesList
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
-        .sheet(isPresented: $📱.🚩ShowWidgetNote) {
-            🪧WidgetNoteSheet()
+        .sheet(isPresented: $📱.🚩ShowNoteSheet) {
+            🪧NoteSheet()
         }
         .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
@@ -134,7 +134,7 @@ struct 🗃NotesListTab: View {
                 Menu {
                     Button {
                         📱.🆔OpenedNoteID = ⓝote.id.description
-                        📱.🚩ShowWidgetNote = true
+                        📱.🚩ShowNoteSheet = true
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Label("Detail", systemImage: "doc.plaintext")
@@ -177,7 +177,7 @@ struct 🗃NotesListTab: View {
 }
 
 
-struct 🪧WidgetNoteSheet: View {
+struct 🪧NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
