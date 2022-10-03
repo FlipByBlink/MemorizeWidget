@@ -13,8 +13,8 @@ struct ContentView: View {
             🔩OptionTab()
                 .tag(🔖TabTag.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
-            📣AboutAdTab()
-                .tag(🔖TabTag.aboutAd)
+            🛒PurchaseTab()
+                .tag(🔖TabTag.purchase)
                 .tabItem { Label("Purchase", systemImage: "cart") }
             ℹ️AboutAppTab()
                 .tag(🔖TabTag.about)
@@ -44,7 +44,7 @@ struct ContentView: View {
         }
     }
     enum 🔖TabTag {
-        case notesList, option, aboutAd, about
+        case notesList, option, purchase, about
     }
 }
 
@@ -382,7 +382,7 @@ struct 🔩OptionTab: View {
 }
 
 
-struct 📣AboutAdTab: View {
+struct 🛒PurchaseTab: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
         NavigationView {
