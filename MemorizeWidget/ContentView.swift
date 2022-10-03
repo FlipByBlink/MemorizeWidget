@@ -128,7 +128,9 @@ struct 🗃NotesListTab: View {
                         .opacity(0.8)
                         .focused($🔍Focus, equals: .comment)
                         .onSubmit {
-                            UISelectionFeedbackGenerator().selectionChanged()
+                            if !ⓝote.comment.isEmpty {
+                                UISelectionFeedbackGenerator().selectionChanged()
+                            }
                         }
                 }
                 .padding(8)
