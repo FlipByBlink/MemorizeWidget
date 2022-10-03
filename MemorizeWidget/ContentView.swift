@@ -182,12 +182,14 @@ struct 🪧NoteSheet: View {
                 if let 🔢NoteIndex {
                     TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
                         .font(.title.bold())
+                        .multilineTextAlignment(.center)
                     TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
                         .focused($🔍CommentFocus)
+                        .multilineTextAlignment(.center)
                         .font(.title3.weight(.light))
                         .foregroundStyle(.secondary)
                         .frame(minHeight: 50, maxHeight: 180)
-                        .overlay(alignment: .topLeading) {
+                        .overlay(alignment: .top) {
                             if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
                                 Text("No comment")
                                     .foregroundStyle(.quaternary)
@@ -238,6 +240,7 @@ struct 🪧NoteSheet: View {
                     }
                     .imageScale(.small)
                     .font(.largeTitle)
+                    .padding(.bottom, 48)
                 }
                 Spacer()
                 ZStack {
