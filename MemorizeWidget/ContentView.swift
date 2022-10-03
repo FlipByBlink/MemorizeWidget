@@ -132,17 +132,24 @@ struct 🗃NotesListTab: View {
                 .padding(8)
                 .padding(.vertical, 8)
                 
-                Button {
-                    guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                    📱.🆕AddNewNote(ⓘndex + 1)
+                Menu {
+                    if let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) {
+                        Button {
+                            📱.🆕AddNewNote(ⓘndex + 1)
+                        } label: {
+                            Label("New note", systemImage: "text.append")
+                        }
+                    }
                 } label: {
-                    Label("New note", systemImage: "text.append")
+                    Label("Menu", systemImage: "ellipsis.circle")
                         .labelStyle(.iconOnly)
-                        .imageScale(.small)
                         .padding(8)
+                } primaryAction: {
+                    📱.🆔OpenedNoteID = ⓝote.id.description
+                    📱.🚩ShowWidgetNote = true
+                    UISelectionFeedbackGenerator().selectionChanged()
                 }
-                .foregroundStyle(.tertiary)
-                .buttonStyle(.borderless)
+                .foregroundStyle(.secondary)
             }
             .onAppear {
                 if ⓝote.title == "" {
