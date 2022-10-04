@@ -271,9 +271,7 @@ struct 🪧NoteSheet: View {
                             .sheet(isPresented: $🚩ShowAboutPurchase) {
                                 NavigationView {
                                     📣ADMenu()
-                                        .toolbar {
-                                            ﹀DismissButton { 🚩ShowAboutPurchase = false }
-                                        }
+                                        .toolbar { ﹀DismissButton($🚩ShowAboutPurchase) }
                                 }
                                 .navigationViewStyle(StackNavigationViewStyle())
                             }
@@ -285,19 +283,20 @@ struct 🪧NoteSheet: View {
             }
             .animation(.default.speed(1.5), value: 🔢NoteIndex)
             .padding(24)
-            .toolbar {
-                ﹀DismissButton {
-                    ﹀Dismiss.callAsFunction()
-                }
-            }
+            .toolbar { ﹀DismissButton(﹀Dismiss) }
             .ignoresSafeArea(.keyboard)
         }
     }
     struct ﹀DismissButton: View {
-        var ⓐction: () -> Void
+        var ﹀Dismiss: DismissAction? = nil
+        @Binding var 🚩ShowSheet: Bool
         var body: some View {
             Button {
-                ⓐction()
+                if let ﹀Dismiss {
+                    ﹀Dismiss.callAsFunction()
+                } else {
+                    🚩ShowSheet = false
+                }
                 UISelectionFeedbackGenerator().selectionChanged()
             } label: {
                 Image(systemName: "chevron.down")
@@ -305,8 +304,12 @@ struct 🪧NoteSheet: View {
             .tint(.secondary)
             .accessibilityLabel("Dismiss")
         }
-        init(_ ⓐction: @escaping () -> Void) {
-            self.ⓐction = ⓐction
+        init(_ ﹀Dismiss: DismissAction) {
+            self.﹀Dismiss = ﹀Dismiss
+            self._🚩ShowSheet = .constant(false)
+        }
+        init(_ 🚩ShowSheet: Binding<Bool>) {
+            self._🚩ShowSheet = 🚩ShowSheet
         }
     }
 }
