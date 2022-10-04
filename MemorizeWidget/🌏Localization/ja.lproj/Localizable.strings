@@ -37,7 +37,7 @@
 "Convert this text to notes" = "このテキストをノートに変換する";
 "Paste the text here." = "ここにテキストを貼り付け。";
 "Example" = "例";
-"Sorry, not support multi line text in note." = "ごめんなさい、ノート内での「改行」はサポートしてません。";
+"Not support multi line text in note." = "「ノート内での改行」はサポート対象外です。";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";
