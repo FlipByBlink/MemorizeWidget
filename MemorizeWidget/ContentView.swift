@@ -454,6 +454,7 @@ struct 📂FileImportSheet: View {
     @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()
     @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩ShowFileImporter: Bool = false
+    @FocusState private var 🔍TextFieldFocus: Bool
 //    @State private var 📓ImportedNotes: [📓Note] = []
     var body: some View {
         NavigationView {
@@ -478,7 +479,6 @@ struct 📂FileImportSheet: View {
                                     🚩ShowFileImporter.toggle()
                                 } label: {
                                     Label("Import a text-encoded file", systemImage: "folder.badge.plus")
-                                        .font(.headline)
                                         .padding(.vertical, 8)
                                 }
                             }
@@ -514,10 +514,11 @@ struct 📂FileImportSheet: View {
                                     🚛ImportProcess.🄲onvertTextToNotes()
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
-                                        .font(.headline)
                                         .padding(.vertical, 8)
                                 }
+                                .disabled(🚛ImportProcess.ⓘnputText.isEmpty)
                                 TextEditor(text: $🚛ImportProcess.ⓘnputText)
+                                    .focused($🔍TextFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
@@ -531,7 +532,17 @@ struct 📂FileImportSheet: View {
                                                 .allowsHitTesting(false)
                                         }
                                     }
+                                    .toolbar {
+                                        ToolbarItem(placement: .keyboard) {
+                                            Button {
+                                                🔍TextFieldFocus = false
+                                            } label: {
+                                                Label("Done", systemImage: "checkmark")
+                                            }
+                                        }
+                                    }
                             }
+                            .animation(.default, value: 🚛ImportProcess.ⓘnputText.isEmpty)
                     }
                 } else {
                     ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
