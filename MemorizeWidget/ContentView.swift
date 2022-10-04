@@ -174,6 +174,7 @@ struct 🪧NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
+    @State private var 🚩ShowAboutPurchase: Bool = false
     @FocusState private var 🔍CommentFocus: Bool
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
@@ -251,8 +252,31 @@ struct 🪧NoteSheet: View {
                     Color.clear
                     if 🛒.🚩ADisActive {
                         📣ADView()
-                            .padding()
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    🚩ShowAboutPurchase = true
+                                    UISelectionFeedbackGenerator().selectionChanged()
+                                } label: {
+                                    Image(systemName: "questionmark.circle")
+                                        .foregroundStyle(.secondary)
+                                        .font(.body.weight(.medium))
+                                        .padding(.vertical)
+                                        .padding(.leading)
+                                }
+                                .foregroundColor(.red)
+                                .accessibilityLabel("Purchase")
+                            }
+                            .padding(.vertical)
                             .transition(.opacity)
+                            .sheet(isPresented: $🚩ShowAboutPurchase) {
+                                NavigationView {
+                                    📣ADMenu()
+                                        .toolbar {
+                                            ﹀DismissButton { 🚩ShowAboutPurchase = false }
+                                        }
+                                }
+                                .navigationViewStyle(StackNavigationViewStyle())
+                            }
                     }
                 }
                 .frame(height: 100)
@@ -262,16 +286,27 @@ struct 🪧NoteSheet: View {
             .animation(.default.speed(1.5), value: 🔢NoteIndex)
             .padding(24)
             .toolbar {
-                Button {
+                ﹀DismissButton {
                     ﹀Dismiss.callAsFunction()
-                    UISelectionFeedbackGenerator().selectionChanged()
-                } label: {
-                    Image(systemName: "chevron.down")
                 }
-                .tint(.secondary)
-                .accessibilityLabel("Dismiss")
             }
             .ignoresSafeArea(.keyboard)
+        }
+    }
+    struct ﹀DismissButton: View {
+        var ⓐction: () -> Void
+        var body: some View {
+            Button {
+                ⓐction()
+                UISelectionFeedbackGenerator().selectionChanged()
+            } label: {
+                Image(systemName: "chevron.down")
+            }
+            .tint(.secondary)
+            .accessibilityLabel("Dismiss")
+        }
+        init(_ ⓐction: @escaping () -> Void) {
+            self.ⓐction = ⓐction
         }
     }
 }
