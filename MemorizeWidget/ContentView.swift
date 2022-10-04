@@ -57,7 +57,7 @@ struct 🗃NotesListTab: View {
                 Section {
                     Toggle(isOn: 📱.$🚩RandomMode) {
                         Label("Random mode", systemImage: "shuffle")
-                            .padding(.vertical, 12)
+                            .padding(.vertical, 8)
                     }
                 } footer: {
                     Text("Change the note per 5 minutes.")
@@ -661,6 +661,7 @@ struct 📂FileImportSheet: View {
         var body: some View {
             Section {
                 Text("Sorry, not support multi line text in note.")
+                    .foregroundStyle(.secondary)
             } header: {
                 Text("Directions")
             }
