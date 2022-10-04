@@ -2,7 +2,7 @@
 
 <br>
 
-![画像](MemorizeWidget/Assets.xcassets/ClipedIcon.imageset/ClipedIcon360.png)
+![App icon](MemorizeWidget/Assets.xcassets/ClipedIcon.imageset/ClipedIcon360.png)
 
 <br>
 
