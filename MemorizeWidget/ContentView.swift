@@ -685,7 +685,7 @@ struct 📂FileImportSheet: View {
     struct 🄽otSupportMultiLineTextInNote: View {
         var body: some View {
             Section {
-                Text("Sorry, not support multi line text in note.")
+                Text("Not support multi line text in note.")
                     .foregroundStyle(.secondary)
             } header: {
                 Text("Directions")
