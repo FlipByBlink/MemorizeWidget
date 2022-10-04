@@ -268,17 +268,16 @@ struct 🪧NoteSheet: View {
                             }
                             .padding(.vertical)
                             .transition(.opacity)
-                            .sheet(isPresented: $🚩ShowAboutPurchase) {
-                                NavigationView {
-                                    📣ADMenu()
-                                        .toolbar { ﹀DismissButton($🚩ShowAboutPurchase) }
-                                }
-                                .navigationViewStyle(StackNavigationViewStyle())
-                            }
                     }
                 }
                 .frame(height: 100)
-                .minimumScaleFactor(0.1)
+                .sheet(isPresented: $🚩ShowAboutPurchase) {
+                    NavigationView {
+                        📣ADMenu()
+                            .toolbar { ﹀DismissButton($🚩ShowAboutPurchase) }
+                    }
+                    .navigationViewStyle(StackNavigationViewStyle())
+                }
                 .animation(.default, value: 🛒.🚩Purchased)
             }
             .animation(.default.speed(1.5), value: 🔢NoteIndex)
