@@ -558,7 +558,6 @@ struct 📂FileImportSheet: View {
                             Text(ⓝote.comment)
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
-                                .padding(.leading, 8)
                         }
                         .padding(.vertical, 8)
                     }

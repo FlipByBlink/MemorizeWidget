@@ -91,11 +91,10 @@ class 🚛ImportProcessModel: ObservableObject {
         ⓞneLineTexts.forEach { ⓞneLine in
             if ⓞneLine != "" {
                 let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator)
-                if ⓣexts.count == 1 {
-                    📚Notes.append(📓Note(ⓣexts[0]))
-                } else if ⓣexts.count > 1 {
-                    if ⓣexts[0] != "" {
-                        📚Notes.append(📓Note(ⓣexts[0], ⓣexts[1]))
+                if let ⓣitle = ⓣexts.first {
+                    if ⓣitle != "" {
+                        let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
+                        📚Notes.append(📓Note(ⓣitle, ⓒomment))
                     }
                 }
             }
