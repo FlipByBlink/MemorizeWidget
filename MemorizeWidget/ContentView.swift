@@ -528,29 +528,36 @@ struct 📂FileImportSheet: View {
                             }
                             Section {
                                 HStack {
-                                    Image("tsvImport_before")
+                                    Image("sample_numbers")
                                         .resizable()
                                         .scaledToFit()
                                         .cornerRadius(12)
                                         .shadow(radius: 2)
                                     Image(systemName: "arrow.right")
                                         .font(.title2.weight(.semibold))
-                                    Image("tsvImport_after")
+                                    Image("sample_importedNotes")
                                         .resizable()
                                         .scaledToFit()
                                         .cornerRadius(12)
                                         .shadow(radius: 2)
                                 }
-                                .frame(maxHeight: 400)
+                                .frame(maxHeight: 220)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical)
-                                Image("numbers_tsv_export")
+                                Image("numbers_csv_tsv_export")
                                     .resizable()
                                     .scaledToFit()
                                     .cornerRadius(12)
+                                    .frame(maxHeight: 200)
                                     .shadow(radius: 2)
                                     .padding()
-                                    .frame(maxHeight: 250)
+                                Image("sample_txt_macTextEdit")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .cornerRadius(12)
+                                    .frame(maxHeight: 200)
+                                    .shadow(radius: 2)
+                                    .padding()
                             } header: {
                                 Text("Example")
                             }
@@ -589,6 +596,25 @@ struct 📂FileImportSheet: View {
                                 .disabled(🚛ImportProcess.ⓘnputText.isEmpty)
                             }
                             .animation(.default, value: 🚛ImportProcess.ⓘnputText.isEmpty)
+                            Section {
+                                HStack {
+                                    Image("sample_appleNotes")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(12)
+                                        .shadow(radius: 2)
+                                    Image(systemName: "arrow.right")
+                                        .font(.title2.weight(.semibold))
+                                    Image("sample_importedNotes")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(12)
+                                        .shadow(radius: 2)
+                                }
+                                .frame(maxHeight: 200)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical)
+                            }
                     }
                     🄽otSupportMultiLineTextInNote()
                 } else {
