@@ -7,7 +7,11 @@
 
 - Lock screen widget support (iOS 16 only)
 
-- Import TSV file.
+- Import file(e.g. tsv, csv, txt) or text.
+
+- System dictionary support.
+
+- Customizable search function.
 
 【OPTION】
 

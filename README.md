@@ -19,13 +19,17 @@ https://apps.apple.com/app/id1644276262
 
 Flashcard on widget. Memorize a note in everyday life.
 
-- Two mode. "One note mode" or "Random note mode".
+- Two mode. \"One note mode\" or \"Random note mode\".
 
 - In Random note mode, widget changes the note per 5 minutes.
 
 - Lock screen widget support (iOS 16 only)
 
-- Import TSV file.
+- Import file(e.g. tsv, csv, txt) or text.
+
+- System dictionary support.
+
+- Customizable search function.
 
 【OPTION】
 
@@ -40,9 +44,13 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - ランダムモードでは、5分毎に表示されるノートが変わります。
 
-- ロック画面ウィジェットにも対応(iOS16のみ)
+- ロック画面ウィジェットにも対応(iOS16のみ)。
 
-- TSVファイルをインポート可能
+- テキストやファイル(tsvやcsv、txtなど)からインポート可能。
+
+- システム内蔵辞書と連携。
+
+- カスタマイズ可能な検索機能。
 
 【オプション】
 
