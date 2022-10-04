@@ -465,6 +465,12 @@ struct 📂FileImportSheet: View {
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
+                    Picker(selection: $🚛ImportProcess.ⓢeparator) {
+                        Text("Tab ␣").tag("\t")
+                        Text("Comma ,").tag(",")
+                    } label: {
+                        Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
+                    }
                     switch ⓘnputMode {
                         case .file:
                             Section {
