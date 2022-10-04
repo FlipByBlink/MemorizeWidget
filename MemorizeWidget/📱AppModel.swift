@@ -72,37 +72,6 @@ struct 📓Note: Codable, Identifiable, Hashable {
 let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 
-//func 📂ImportTSVFile(_ 📦Result: Result<URL, Error>) -> [📓Note] {
-//    do {
-//        var 📚Notes: [📓Note] = []
-//        let 📦 = try 📦Result.get()
-//        if 📦.startAccessingSecurityScopedResource() {
-//            let ⓦholeText = try String(contentsOf: 📦)
-//            print("WholeText: \n", ⓦholeText)
-//            let ⓞneLineTexts: [String] = ⓦholeText.components(separatedBy: .newlines)
-//            //let ⓞneLineTexts: [String] = ⓦholeText.components(separatedBy: "\r\n") // これだと上手くいく場合があるが環境依存っぽい。あとダブルクオーテーションが残る場合がある。
-//            ⓞneLineTexts.forEach { ⓞneline in
-//                if ⓞneline != "" {
-//                    let ⓣexts = ⓞneline.components(separatedBy: "\t")
-//                    if ⓣexts.count == 1 {
-//                        📚Notes.append(📓Note(ⓣexts[0]))
-//                    } else if ⓣexts.count > 1 {
-//                        if ⓣexts[0] != "" {
-//                            📚Notes.append(📓Note(ⓣexts[0], ⓣexts[1]))
-//                        }
-//                    }
-//                }
-//            }
-//            📦.stopAccessingSecurityScopedResource()
-//        }
-//        return 📚Notes
-//    } catch {
-//        print("👿", error)
-//        return []
-//    }
-//}
-
-
 class 🚛ImportProcessModel: ObservableObject {
     @AppStorage("separator") var ⓢeparator: String = "\t"
     @Published var ⓘnputText: String = ""
