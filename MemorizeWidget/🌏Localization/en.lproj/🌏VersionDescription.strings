@@ -1,4 +1,12 @@
 
+"1.1" = "・Bigly improve importability.
+・Comma-style and title-only-style import option.
+・Text-encoded file format(e.g. csv, txt) widely support.
+・Function to import text in app directly.
+・Add lock screen widget to add new note.
+・Add system dictionary support.
+・Add customizable search function.
+・Small fix/improve.";
 "1.0.2" = "Add circular lock screen widget support.";
 "1.0.1" = "small bug fix on ver1.0";
 "1.0" = "Initial release";

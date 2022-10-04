@@ -1,7 +1,8 @@
 
-let 📜VersionNumber = "1.0.2"
+let 📜VersionNumber = "1.1"
 
-let 📜PastVersions: [(ⓝumber: String, ⓓate: String)] = [("1.0.1", "2022-09-11"),
+let 📜PastVersions: [(ⓝumber: String, ⓓate: String)] = [("1.0.2", "2022-09-16"),
+                                                        ("1.0.1", "2022-09-11"),
                                                         ("1.0", "2022-09-09")]
 
 
