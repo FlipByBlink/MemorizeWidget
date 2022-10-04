@@ -26,9 +26,15 @@
 "Mode" = "モード";
 "File" = "ファイル";
 "Text" = "テキスト";
+"Separator" = "区切り文字";
+"Tab ␣" = "タブ ␣";
+"Tab" = "タブ";
+"Comma ," = "カンマ ,";
+"Comma" = "カンマ";
 "Import a text-encoded file" = "テキストベースのファイルを取り込む";
 "Convert this text to notes" = "このテキストをノートに変換する";
 "Paste the text here." = "ここにテキストを貼り付け。";
+"Example: \"Numbers\"" = "例: \"Numbers\"";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";

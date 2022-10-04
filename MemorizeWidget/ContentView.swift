@@ -455,7 +455,6 @@ struct 📂FileImportSheet: View {
     @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩ShowFileImporter: Bool = false
     @FocusState private var 🔍TextFieldFocus: Bool
-//    @State private var 📓ImportedNotes: [📓Note] = []
     var body: some View {
         NavigationView {
             List {
@@ -468,7 +467,9 @@ struct 📂FileImportSheet: View {
                     }
                     Picker(selection: $🚛ImportProcess.ⓢeparator) {
                         Text("Tab ␣").tag("\t")
+                            .accessibilityLabel("Tab")
                         Text("Comma ,").tag(",")
+                            .accessibilityLabel("Comma")
                     } label: {
                         Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
                     }
@@ -507,16 +508,12 @@ struct 📂FileImportSheet: View {
                                     .shadow(radius: 2)
                                     .padding()
                                     .frame(maxHeight: 250)
+                            } header: {
+                                Text("Example: \"Numbers\"")
+                                    .textCase(.none)
                             }
                         case .text:
                             Section {
-                                Button {
-                                    🚛ImportProcess.🄲onvertTextToNotes()
-                                } label: {
-                                    Label("Convert this text to notes", systemImage: "text.badge.plus")
-                                        .padding(.vertical, 8)
-                                }
-                                .disabled(🚛ImportProcess.ⓘnputText.isEmpty)
                                 TextEditor(text: $🚛ImportProcess.ⓘnputText)
                                     .focused($🔍TextFieldFocus)
                                     .font(.subheadline.monospaced())
@@ -524,7 +521,7 @@ struct 📂FileImportSheet: View {
                                     .padding(8)
                                     .overlay {
                                         if 🚛ImportProcess.ⓘnputText.isEmpty {
-                                            Text("Paste the text here.")
+                                            Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .rotationEffect(.degrees(3))
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.accentColor)
@@ -541,6 +538,13 @@ struct 📂FileImportSheet: View {
                                             }
                                         }
                                     }
+                                Button {
+                                    🚛ImportProcess.🄲onvertTextToNotes()
+                                } label: {
+                                    Label("Convert this text to notes", systemImage: "text.badge.plus")
+                                        .padding(.vertical, 8)
+                                }
+                                .disabled(🚛ImportProcess.ⓘnputText.isEmpty)
                             }
                             .animation(.default, value: 🚛ImportProcess.ⓘnputText.isEmpty)
                     }
@@ -609,7 +613,6 @@ struct 📂FileImportSheet: View {
             } catch {
                 print(error.localizedDescription)
             }
-//            📓ImportedNotes = 📂ImportTSVFile(📦Result)
         }
     }
     enum 🄸nputMode: String {
