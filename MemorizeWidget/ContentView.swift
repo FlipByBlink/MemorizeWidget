@@ -390,6 +390,7 @@ struct 🛒PurchaseTab: View {
         NavigationView {
             📣ADMenu()
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -524,7 +525,7 @@ struct 📂FileImportSheet: View {
                                     .overlay {
                                         if 🚛ImportProcess.ⓘnputText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
-                                                .rotationEffect(.degrees(3))
+                                                .rotationEffect(.degrees(2))
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.accentColor)
                                                 .opacity(0.5)

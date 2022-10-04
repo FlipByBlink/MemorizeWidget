@@ -2,7 +2,7 @@
 import SwiftUI
 
 class 📱AppModel: ObservableObject {
-    @Published var 🗃Notes: [📓Note] = []
+    @Published var 🗃Notes: [📓Note] = 🗃SampleNotes
     @Published var 🚩ShowNoteSheet: Bool = false
     @Published var 🆔OpenedNoteID: String? = nil
     @Published var 🚩ShowImportSheet: Bool = false
@@ -103,3 +103,8 @@ class 🚛ImportProcessModel: ObservableObject {
         ⓞutputNotes = 📚Notes
     }
 }
+
+
+let 🗃SampleNotes: [📓Note] = [📓Note("Widget", "Lock screen, Home screen"),
+                               📓Note("暗記", "anki, memorize"),
+                               📓Note("Import format", "comma, tab")]
