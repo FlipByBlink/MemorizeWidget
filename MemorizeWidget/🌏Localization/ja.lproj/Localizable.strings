@@ -31,10 +31,13 @@
 "Tab" = "タブ";
 "Comma ," = "カンマ ,";
 "Comma" = "カンマ";
+"(Title only)" = "(タイトルのみ)";
+"Title only" = "タイトルのみ";
 "Import a text-encoded file" = "テキストベースのファイルを取り込む";
 "Convert this text to notes" = "このテキストをノートに変換する";
 "Paste the text here." = "ここにテキストを貼り付け。";
-"Example: \"Numbers\"" = "例: \"Numbers\"";
+"Example" = "例";
+"Sorry, not support multi line text in note." = "ごめんなさい、ノート内での「改行」はサポートしてません。";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";

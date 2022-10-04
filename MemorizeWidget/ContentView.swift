@@ -514,8 +514,7 @@ struct 📂FileImportSheet: View {
                                     .padding()
                                     .frame(maxHeight: 250)
                             } header: {
-                                Text("Example: \"Numbers\"")
-                                    .textCase(.none)
+                                Text("Example")
                             }
                         case .text:
                             Section {
