@@ -73,7 +73,7 @@ let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 
 class 🚛ImportProcessModel: ObservableObject {
-    @AppStorage("separator") var ⓢeparator: String = "\t"
+    @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
     @Published var ⓘnputText: String = ""
     @Published var ⓞutputNotes: [📓Note] = []
     
@@ -89,12 +89,16 @@ class 🚛ImportProcessModel: ObservableObject {
         var 📚Notes: [📓Note] = []
         let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
         ⓞneLineTexts.forEach { ⓞneLine in
-            if ⓞneLine != "" {
-                let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator)
-                if let ⓣitle = ⓣexts.first {
-                    if ⓣitle != "" {
-                        let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                        📚Notes.append(📓Note(ⓣitle, ⓒomment))
+            if !ⓞneLine.isEmpty {
+                if ⓢeparator == .titleOnly {
+                    📚Notes.append(📓Note(ⓞneLine))
+                } else {
+                    let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
+                    if let ⓣitle = ⓣexts.first {
+                        if !ⓣitle.isEmpty {
+                            let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
+                            📚Notes.append(📓Note(ⓣitle, ⓒomment))
+                        }
                     }
                 }
             }
@@ -103,7 +107,13 @@ class 🚛ImportProcessModel: ObservableObject {
     }
 }
 
+enum 🅂eparator: String {
+    case tab = "\t"
+    case comma = ","
+    case titleOnly = ""
+}
+
 
 let 🗃SampleNotes: [📓Note] = [📓Note("Widget", "Lock screen, Home screen"),
-                               📓Note("暗記", "anki, memorize"),
+                               📓Note("暗記", "anki, memorize, あんき"),
                                📓Note("Import format", "comma, tab")]

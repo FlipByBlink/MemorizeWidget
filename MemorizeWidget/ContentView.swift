@@ -469,10 +469,12 @@ struct 📂FileImportSheet: View {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
                     Picker(selection: $🚛ImportProcess.ⓢeparator) {
-                        Text("Tab ␣").tag("\t")
+                        Text("Tab ␣").tag(🅂eparator.tab)
                             .accessibilityLabel("Tab")
-                        Text("Comma ,").tag(",")
+                        Text("Comma ,").tag(🅂eparator.comma)
                             .accessibilityLabel("Comma")
+                        Text("(Title only)").tag(🅂eparator.titleOnly)
+                            .accessibilityLabel("Title only")
                     } label: {
                         Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
                     }
@@ -551,6 +553,7 @@ struct 📂FileImportSheet: View {
                             }
                             .animation(.default, value: 🚛ImportProcess.ⓘnputText.isEmpty)
                     }
+                    🄽otSupportMultiLineTextInNote()
                 } else {
                     ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
                         VStack(alignment: .leading) {
@@ -614,6 +617,15 @@ struct 📂FileImportSheet: View {
                 🚛ImportProcess.🄲onvertTextToNotes()
             } catch {
                 print(error.localizedDescription)
+            }
+        }
+    }
+    struct 🄽otSupportMultiLineTextInNote: View {
+        var body: some View {
+            Section {
+                Text("Sorry, not support multi line text in note.")
+            } header: {
+                Text("Directions")
             }
         }
     }
