@@ -506,9 +506,9 @@ struct 📂FileImportSheet: View {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
                     Picker(selection: $🚛ImportProcess.ⓢeparator) {
-                        Text("Tab ␣").tag(🅂eparator.tab)
+                        Text("Tab ␣ ").tag(🅂eparator.tab)
                             .accessibilityLabel("Tab")
-                        Text("Comma ,").tag(🅂eparator.comma)
+                        Text("Comma , ").tag(🅂eparator.comma)
                             .accessibilityLabel("Comma")
                         Text("(Title only)").tag(🅂eparator.titleOnly)
                             .accessibilityLabel("Title only")

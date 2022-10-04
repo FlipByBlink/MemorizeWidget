@@ -27,9 +27,9 @@
 "File" = "ファイル";
 "Text" = "テキスト";
 "Separator" = "区切り文字";
-"Tab ␣" = "タブ ␣";
+"Tab ␣ " = "タブ ␣ ";
 "Tab" = "タブ";
-"Comma ," = "カンマ ,";
+"Comma , " = "カンマ , ";
 "Comma" = "カンマ";
 "(Title only)" = "(タイトルのみ)";
 "Title only" = "タイトルのみ";
