@@ -114,6 +114,6 @@ enum 🅂eparator: String {
 }
 
 
-let 🗃SampleNotes: [📓Note] = [📓Note("Widget", "Lock screen, Home screen"),
-                               📓Note("暗記", "anki, memorize, あんき"),
-                               📓Note("Import format", "comma, tab")]
+let 🗃SampleNotes: [📓Note] = [📓Note("Lemon", "Yellow Sour"),
+                               📓Note("Strawberry", "jam red sweet"),
+                               📓Note("Grape", "seedless / wine / white / black")]
