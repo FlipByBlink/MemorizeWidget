@@ -583,7 +583,7 @@ struct 📂FileImportSheet: View {
                                             Button {
                                                 🔍TextFieldFocus = false
                                             } label: {
-                                                Label("Done", systemImage: "checkmark")
+                                                Label("Done", systemImage: "keyboard.chevron.compact.down")
                                             }
                                         }
                                     }
