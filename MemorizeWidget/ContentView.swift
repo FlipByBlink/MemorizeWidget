@@ -571,6 +571,7 @@ struct 📂FileImportSheet: View {
                                     .overlay {
                                         if 🚛ImportProcess.ⓘnputText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
+                                                .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.accentColor)
@@ -614,6 +615,8 @@ struct 📂FileImportSheet: View {
                                 .frame(maxHeight: 200)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical)
+                            } header: {
+                                Text("Example")
                             }
                     }
                     🄽otSupportMultiLineTextInNote()
