@@ -14,7 +14,7 @@ struct MWWidgetBundle: WidgetBundle {
 struct 🖼MWWidget: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "main", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "main", provider: 🤖NotesProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
@@ -32,7 +32,7 @@ struct 🖼MWWidget: Widget {
 struct 🖼MWWidgetSub: Widget {
     var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "sub", provider: 🤖Provider()) { ⓔntry in
+        StaticConfiguration(kind: "sub", provider: 🤖NotesProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("Sub widget")
@@ -53,7 +53,7 @@ struct 📝NewNoteShortcutWidget: Widget {
         return [.accessoryInline, .accessoryCircular]
     }
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖Provider()) { _ in
+        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖NewNoteShortcutProvider()) { _ in
             🄽ewNoteShortcutView()
         }
         .configurationDisplayName("New note shortcut")
@@ -62,7 +62,7 @@ struct 📝NewNoteShortcutWidget: Widget {
     }
 }
 
-struct 🤖Provider: TimelineProvider {
+struct 🤖NotesProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
         🕒Entry(.now, 📓Note("title", "comment"))
     }
@@ -84,6 +84,20 @@ struct 🤖Provider: TimelineProvider {
     }
 }
 
+struct 🤖NewNoteShortcutProvider: TimelineProvider {
+    func placeholder(in context: Context) -> 🕒Entry {
+        🕒Entry(.now, 📓Note(""))
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
+        completion(🕒Entry(.now, 📓Note("")))
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        completion(Timeline(entries: [🕒Entry(.now, 📓Note(""))], policy: .never))
+    }
+}
+
 
 struct 🕒Entry: TimelineEntry {
     let date: Date
@@ -96,7 +110,7 @@ struct 🕒Entry: TimelineEntry {
 
 
 struct 🅆idgetEntryView : View {
-    var ⓔntry: 🤖Provider.Entry
+    var ⓔntry: 🤖NotesProvider.Entry
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
     let 📱 = 📱AppModel()
     
@@ -187,7 +201,7 @@ struct 🅆idgetEntryView : View {
         }
     }
     
-    init(_ ⓔntry: 🤖Provider.Entry) {
+    init(_ ⓔntry: 🤖NotesProvider.Entry) {
         self.ⓔntry = ⓔntry
     }
 }
