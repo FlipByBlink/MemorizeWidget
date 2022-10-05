@@ -403,6 +403,7 @@ struct 🔩OptionTab: View {
                     Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
                         .italic()
                         .font(.system(.footnote, design: .monospaced))
+                        .multilineTextAlignment(.center)
                         .padding(8)
                         .frame(minHeight: 100)
                         .animation(.default, value: 📱.🔗Leading.isEmpty)

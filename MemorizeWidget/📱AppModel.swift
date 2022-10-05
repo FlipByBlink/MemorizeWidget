@@ -114,6 +114,6 @@ enum 🅂eparator: String {
 }
 
 
-let 🗃SampleNotes: [📓Note] = [📓Note("Lemon", "Yellow Sour"),
+let 🗃SampleNotes: [📓Note] = [📓Note("Lemon", "yellow sour"),
                                📓Note("Strawberry", "jam red sweet"),
-                               📓Note("Grape", "seedless / wine / white / black")]
+                               📓Note("Grape", "seedless wine white black")]
