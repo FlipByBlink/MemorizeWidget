@@ -136,6 +136,7 @@
 		F507EAA128CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F507EAA228CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F507EAA328CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
+		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeWidgetApp.swift; sourceTree = "<group>"; };
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 				F5B6FED428C9BDDC0045D44A /* 📣AD */,
 				F5B6FEDE28C9BDDC0045D44A /* 🛒InAppPurchase */,
 				F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */,
+				F59EEFE528F3FA36002D9AD7 /* Info.plist */,
 			);
 			path = "🧰Others";
 			sourceTree = "<group>";
@@ -605,6 +607,7 @@
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MemorizeWidget/🧰Others/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -643,6 +646,7 @@
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MemorizeWidget/🧰Others/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
