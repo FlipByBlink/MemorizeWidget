@@ -24,7 +24,11 @@ struct ContentView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onOpenURL { 🔗 in
-            if !📱.🗃Notes.isEmpty && (🔗.description != "NewNoteShortcut") {
+            if 🔗.description == "NewNoteShortcut" {
+                📱.🚩ShowImportSheet = false
+                📱.🚩ShowNoteSheet = false
+            }
+            if 📱.🗃Notes.contains(where: { $0.id.description == 🔗.description }) {
                 📱.🚩ShowImportSheet = false
                 📱.🚩ShowNoteSheet = true
                 📱.🆔OpenedNoteID = 🔗.description
