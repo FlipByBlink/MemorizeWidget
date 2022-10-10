@@ -178,141 +178,100 @@ struct 🪧NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀Dismiss: DismissAction
-    @State private var 🚩ShowAboutPurchase: Bool = false
+    @State private var 🚩ShowADMenuSheet: Bool = false
     @FocusState private var 🔍CommentFocus: Bool
     var 🔢NoteIndex: Int? {
         📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
     }
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-                if let 🔢NoteIndex {
-                    TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
-                        .font(.title.bold())
-                        .multilineTextAlignment(.center)
-                        .accessibilityHidden(true)
-                    TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
-                        .focused($🔍CommentFocus)
-                        .multilineTextAlignment(.center)
-                        .font(.title3.weight(.light))
-                        .foregroundStyle(.secondary)
-                        .frame(minHeight: 50, maxHeight: 180)
-                        .accessibilityHidden(true)
-                        .overlay(alignment: .top) {
-                            if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
-                                Text("No comment")
-                                    .foregroundStyle(.quaternary)
-                                    .padding(6)
-                                    .allowsHitTesting(false)
-                            }
-                        }
-                        .overlay(alignment: .bottomTrailing) {
-                            if 🔍CommentFocus {
-                                Button {
-                                    🔍CommentFocus = false
-                                    UISelectionFeedbackGenerator().selectionChanged()
-                                } label: {
-                                    Label("Done", systemImage: "checkmark.circle.fill")
-                                        .font(.largeTitle)
-                                        .symbolRenderingMode(.hierarchical)
-                                        .labelStyle(.iconOnly)
-                                }
-                                .foregroundStyle(.tertiary)
-                                .padding(8)
-                            }
-                        }
+            GeometryReader { 📐 in
+                VStack {
                     Spacer()
-                    HStack(spacing: 36) {
-                        Button(role: .destructive) {
-                            📱.🗃Notes.remove(at: 🔢NoteIndex)
-                            UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                        } label: {
-                            Label("Delete", systemImage: "trash")
-                                .font(.title3.bold())
-                                .foregroundStyle(.secondary)
-                                .labelStyle(.iconOnly)
-                        }
-                        .tint(.red)
-                        📗SystemDictionaryButton(🔢NoteIndex)
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.tertiary)
-                        🔍SearchButton(🔢NoteIndex)
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.tertiary)
-                    }
-                    .padding()
-                } else {
-                    VStack(spacing: 24) {
-                        Label("Deleted.", systemImage: "checkmark")
-                        Image(systemName: "trash")
-                    }
-                    .imageScale(.small)
-                    .font(.largeTitle)
-                    .padding(.bottom, 48)
-                }
-                Spacer()
-                ZStack {
-                    Color.clear
-                    if 🛒.🚩ADisActive {
-                        📣ADView()
-                            .overlay(alignment: .topTrailing) {
-                                Button {
-                                    🚩ShowAboutPurchase = true
-                                    UISelectionFeedbackGenerator().selectionChanged()
-                                } label: {
-                                    Image(systemName: "questionmark.circle")
-                                        .foregroundStyle(.secondary)
-                                        .font(.body.weight(.medium))
-                                        .padding(.vertical)
-                                        .padding(.leading)
+                    if let 🔢NoteIndex {
+                        TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
+                            .font(.title.bold())
+                            .multilineTextAlignment(.center)
+                            .accessibilityHidden(true)
+                        TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
+                            .focused($🔍CommentFocus)
+                            .multilineTextAlignment(.center)
+                            .font(.title3.weight(.light))
+                            .foregroundStyle(.secondary)
+                            .frame(minHeight: 50, maxHeight: 180)
+                            .accessibilityHidden(true)
+                            .overlay(alignment: .top) {
+                                if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
+                                    Text("No comment")
+                                        .foregroundStyle(.quaternary)
+                                        .padding(6)
+                                        .allowsHitTesting(false)
                                 }
-                                .foregroundColor(.red)
-                                .accessibilityLabel("Purchase")
                             }
-                            .padding(.vertical)
-                            .transition(.opacity)
+                            .overlay(alignment: .bottomTrailing) {
+                                if 🔍CommentFocus {
+                                    Button {
+                                        🔍CommentFocus = false
+                                        UISelectionFeedbackGenerator().selectionChanged()
+                                    } label: {
+                                        Label("Done", systemImage: "checkmark.circle.fill")
+                                            .font(.largeTitle)
+                                            .symbolRenderingMode(.hierarchical)
+                                            .labelStyle(.iconOnly)
+                                    }
+                                    .foregroundStyle(.tertiary)
+                                    .padding(8)
+                                }
+                            }
+                        Spacer()
+                        HStack(spacing: 36) {
+                            Button(role: .destructive) {
+                                📱.🗃Notes.remove(at: 🔢NoteIndex)
+                                UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                                    .font(.title3.bold())
+                                    .foregroundStyle(.secondary)
+                                    .labelStyle(.iconOnly)
+                            }
+                            .tint(.red)
+                            📗SystemDictionaryButton(🔢NoteIndex)
+                                .font(.title3.weight(.semibold))
+                                .foregroundStyle(.tertiary)
+                            🔍SearchButton(🔢NoteIndex)
+                                .font(.title3.weight(.semibold))
+                                .foregroundStyle(.tertiary)
+                        }
+                        .padding()
+                    } else {
+                        VStack(spacing: 24) {
+                            Label("Deleted.", systemImage: "checkmark")
+                            Image(systemName: "trash")
+                        }
+                        .imageScale(.small)
+                        .font(.largeTitle)
+                        .padding(.bottom, 48)
+                    }
+                    Spacer()
+                    if 📐.size.height > 500 {
+                        📣ADView(without: .MemorizeWidget, $🚩ShowADMenuSheet)
+                            .frame(height: 160)
                     }
                 }
-                .frame(height: 100)
-                .sheet(isPresented: $🚩ShowAboutPurchase) {
-                    NavigationView {
-                        📣ADMenu()
-                            .toolbar { ﹀DismissButton($🚩ShowAboutPurchase) }
+                .modifier(📣ADMenuSheet($🚩ShowADMenuSheet))
+                .animation(.default.speed(1.5), value: 🔢NoteIndex)
+                .padding(24)
+                .toolbar {
+                    Button {
+                        ﹀Dismiss.callAsFunction()
+                        UISelectionFeedbackGenerator().selectionChanged()
+                    } label: {
+                        Image(systemName: "chevron.down")
                     }
-                    .navigationViewStyle(StackNavigationViewStyle())
+                    .tint(.secondary)
+                    .accessibilityLabel("Dismiss")
                 }
-                .animation(.default, value: 🛒.🚩Purchased)
             }
-            .animation(.default.speed(1.5), value: 🔢NoteIndex)
-            .padding(24)
-            .toolbar { ﹀DismissButton(﹀Dismiss) }
-            .ignoresSafeArea(.keyboard)
-        }
-    }
-    struct ﹀DismissButton: View {
-        var ﹀Dismiss: DismissAction? = nil
-        @Binding var 🚩ShowSheet: Bool
-        var body: some View {
-            Button {
-                if let ﹀Dismiss {
-                    ﹀Dismiss.callAsFunction()
-                } else {
-                    🚩ShowSheet = false
-                }
-                UISelectionFeedbackGenerator().selectionChanged()
-            } label: {
-                Image(systemName: "chevron.down")
-            }
-            .tint(.secondary)
-            .accessibilityLabel("Dismiss")
-        }
-        init(_ ﹀Dismiss: DismissAction) {
-            self.﹀Dismiss = ﹀Dismiss
-            self._🚩ShowSheet = .constant(false)
-        }
-        init(_ 🚩ShowSheet: Binding<Bool>) {
-            self._🚩ShowSheet = 🚩ShowSheet
         }
     }
 }

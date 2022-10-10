@@ -3,8 +3,8 @@ import SwiftUI
 
 @main
 struct MemorizeWidgetApp: App {
-    let 📱 = 📱AppModel()
-    let 🛒 = 🛒StoreModel()
+    @StateObject private var 📱 = 📱AppModel()
+    @StateObject private var 🛒 = 🛒StoreModel(id: "MemorizeWidget.adfree")
     
     var body: some Scene {
         WindowGroup {
