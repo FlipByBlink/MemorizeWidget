@@ -51,6 +51,9 @@ Flashcard on widget. Memorize a note in everyday life.
 - ウィジェット上で「タイトル」だけでなく「コメント」を表示することも可能。(ホーム画面のウィジェット/ロック画面の長方形ウィジェット)
 
 
+---
+
+
 ## Localization: All
 - English
 
