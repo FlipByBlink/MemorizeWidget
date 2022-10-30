@@ -16,6 +16,7 @@
 		F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
 		F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
+		F549E84A290E3BD100636271 /* MWWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift */; };
@@ -68,6 +69,7 @@
 			dstPath = main;
 			dstSubfolderSpec = 7;
 			files = (
+				F549E84A290E3BD100636271 /* MWWidget.swift in CopyFiles */,
 				F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in CopyFiles */,
 				F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */,
 				F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */,
@@ -522,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MemorizeWidget/MemorizeWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -561,7 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MemorizeWidget/MemorizeWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -599,7 +601,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWWidget/MWWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWWidget/Info.plist;
@@ -628,7 +630,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWWidget/MWWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWWidget/Info.plist;

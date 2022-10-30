@@ -244,13 +244,17 @@ struct 🪧NoteSheet: View {
                         }
                         .padding()
                     } else {
-                        VStack(spacing: 24) {
-                            Label("Deleted.", systemImage: "checkmark")
-                            Image(systemName: "trash")
+                        HStack {
+                            Spacer()
+                            VStack(spacing: 24) {
+                                Label("Deleted.", systemImage: "checkmark")
+                                Image(systemName: "trash")
+                            }
+                            .imageScale(.small)
+                            .font(.largeTitle)
+                            .padding(.bottom, 48)
+                            Spacer()
                         }
-                        .imageScale(.small)
-                        .font(.largeTitle)
-                        .padding(.bottom, 48)
                     }
                     Spacer()
                     if 📐.size.height > 500 {
