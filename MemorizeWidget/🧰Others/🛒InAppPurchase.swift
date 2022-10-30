@@ -64,21 +64,19 @@ struct 🛒IAPSection: View {
         }
         🛒RestoreButton()
     }
-    struct 🛒ProductPreview: View {
-        var body: some View {
-            HStack(spacing: 4) {
-                Image("ProductPreview_Before")
-                    .resizable()
-                    .scaledToFit()
-                Image(systemName: "arrow.right")
-                    .font(.title2.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Image("ProductPreview_After")
-                    .resizable()
-                    .scaledToFit()
-            }
-            .padding(24)
+    func 🛒ProductPreview() -> some View {
+        HStack(spacing: 4) {
+            Image("ProductPreview_Before")
+                .resizable()
+                .scaledToFit()
+            Image(systemName: "arrow.right")
+                .font(.title2.weight(.semibold))
+                .foregroundStyle(.secondary)
+            Image("ProductPreview_After")
+                .resizable()
+                .scaledToFit()
         }
+        .padding(24)
     }
     struct 🛒RestoreButton: View {
         @EnvironmentObject var 🛒: 🛒StoreModel

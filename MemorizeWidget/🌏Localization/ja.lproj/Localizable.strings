@@ -62,6 +62,7 @@
 "About App" = "アプリについて";
 "Version" = "バージョン";
 "builded on %@" = "%@ にビルドしました";
+"released on %@" = "%@ にリリースしました";
 "Version History" = "バージョン履歴";
 "Open AppStore page" = "AppStoreページを開く";
 "Privacy Policy" = "プライバシーポリシー";

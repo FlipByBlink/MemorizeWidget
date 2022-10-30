@@ -1,6 +1,6 @@
 
-let 📜VersionNumber = "1.1"
-let 📜PastVersions: [(ⓝumber: String, ⓓate: String)] = [("1.0.2", "2022-09-16"),
+let 📜VersionsInfo: [(ⓝumber: String, ⓓate: String)] = [("1.1", "2022-10-30"),
+                                                        ("1.0.2", "2022-09-16"),
                                                         ("1.0.1", "2022-09-11"),
                                                         ("1.0", "2022-09-09")]
 
@@ -13,6 +13,15 @@ let 👤PrivacyPolicy = """
 
 (Japanese) このアプリ自身において、ユーザーの情報を一切収集しません。
 """
+
+let 🔗WebRepositoryURL = URL(string: "https://github.com/FlipByBlink/MemorizeWidget")!
+let 🔗WebRepositoryURL_Mirror = URL(string: "https://gitlab.com/FlipByBlink/MemorizeWidget_Mirror")!
+
+enum 📁SourceFolder: String, CaseIterable, Identifiable {
+    case main
+    case 🧰Others
+    var id: String { self.rawValue }
+}
 
 
 
@@ -38,14 +47,14 @@ struct 📰AppStoreDescriptionSection: View {
         Section {
             NavigationLink {
                 ScrollView {
-                    Text("📃", tableName: "🌏AppStoreDescription")
+                    Text("AppStoreDescription", tableName: "🌏AppStoreDescription")
                         .padding()
                 }
                 .navigationBarTitle("Description")
                 .navigationBarTitleDisplayMode(.inline)
                 .textSelection(.enabled)
             } label: {
-                Text("📃", tableName: "🌏AppStoreDescription")
+                Text("AppStoreDescription", tableName: "🌏AppStoreDescription")
                     .font(.subheadline)
                     .lineLimit(7)
                     .padding(8)
@@ -103,41 +112,133 @@ struct 📜VersionHistoryLink: View {
         Section {
             NavigationLink {
                 List {
-                    Section {
-                        Text(LocalizedStringKey(📜VersionNumber), tableName: "🌏VersionDescription")
-                            .font(.subheadline)
-                            .padding()
-                    } header: {
-                        Text(📜VersionNumber)
-                    } footer: {
-                        let 📅 = Date.now.formatted(date: .long, time: .omitted)
-                        Text("builded on \(📅)")
+                    ForEach(📜VersionsInfo, id: \.self.ⓝumber) { 📜 in
+                        Section {
+                            Text(LocalizedStringKey(📜.ⓝumber), tableName: "🌏VersionDescription")
+                                .font(.subheadline)
+                                .padding()
+                                .textSelection(.enabled)
+                        } header: {
+                            Text(📜.ⓝumber)
+                        } footer: {
+                            if 📜VersionsInfo.first?.ⓝumber == 📜.ⓝumber {
+                                Text("builded on \(📜.ⓓate)")
+                            } else {
+                                Text("released on \(📜.ⓓate)")
+                            }
+                        }
+                        .headerProminence(.increased)
                     }
-                    .headerProminence(.increased)
-                    📜PastVersionSection()
                 }
                 .navigationBarTitle("Version History")
-                .textSelection(.enabled)
             } label: {
                 Label("Version", systemImage: "signpost.left")
-                    .badge(📜VersionNumber)
+                    .badge(📜VersionsInfo.first?.ⓝumber ?? "🐛")
             }
             .accessibilityLabel("Version History")
         }
     }
-    struct 📜PastVersionSection: View {
+}
+
+struct 📓SourceCodeLink: View {
+    var body: some View {
+        NavigationLink {
+            📓SourceCodeMenu()
+        } label: {
+            Label("Source code", systemImage: "doc.plaintext")
+        }
+    }
+    struct 📓SourceCodeMenu: View {
         var body: some View {
-            ForEach(📜PastVersions, id: \.self.ⓝumber) { 📜 in
-                Section {
-                    Text(LocalizedStringKey(📜.ⓝumber), tableName: "🌏VersionDescription")
-                        .font(.subheadline)
-                        .padding()
-                } header: {
-                    Text(📜.ⓝumber)
-                } footer: {
-                    Text(📜.ⓓate)
+            List {
+                ForEach(📁SourceFolder.allCases) { 📁 in
+                    📓CodeSection(📁.rawValue)
                 }
-                .headerProminence(.increased)
+                📑BundleMainInfoDictionary()
+                🔗RepositoryLinks()
+            }
+            .navigationTitle("Source code")
+        }
+        struct 📓CodeSection: View {
+            var ⓓirectoryPath: String
+            var 📁URL: URL { Bundle.main.bundleURL.appendingPathComponent(ⓓirectoryPath) }
+            var 🏷FileNames: [String]? { try? FileManager.default.contentsOfDirectory(atPath: 📁URL.path) }
+            var body: some View {
+                Section {
+                    if let 🏷FileNames {
+                        ForEach(🏷FileNames, id: \.self) { 🏷 in
+                            NavigationLink(🏷) {
+                                let 📃 = try? String(contentsOf: 📁URL.appendingPathComponent(🏷))
+                                📰SourceCodeView(📃 ?? "🐛Bug", 🏷)
+                            }
+                        }
+                        if 🏷FileNames.isEmpty { Text("🐛Bug") }
+                    }
+                } header: {
+                    Text(ⓓirectoryPath)
+                        .textCase(.none)
+                }
+            }
+            init(_ ⓓirectoryPath: String) {
+                self.ⓓirectoryPath = ⓓirectoryPath
+            }
+            func 📰SourceCodeView(_ ⓣext: String, _ ⓣitle: String) -> some View {
+                ScrollView {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        Text(ⓣext)
+                            .padding()
+                    }
+                }
+                .navigationBarTitle(LocalizedStringKey(ⓣitle))
+                .navigationBarTitleDisplayMode(.inline)
+                .font(.caption.monospaced())
+                .textSelection(.enabled)
+            }
+        }
+        func 📑BundleMainInfoDictionary() -> some View {
+            Section {
+                NavigationLink("Bundle.main.infoDictionary") {
+                    ScrollView {
+                        Text(Bundle.main.infoDictionary!.description)
+                            .padding()
+                    }
+                    .navigationBarTitle("Bundle.main.infoDictionary")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .textSelection(.enabled)
+                }
+            }
+        }
+        struct 🔗RepositoryLinks: View {
+            var body: some View {
+                Section {
+                    Link(destination: 🔗WebRepositoryURL) {
+                        HStack {
+                            Label("Web Repository", systemImage: "link")
+                            Spacer()
+                            Image(systemName: "arrow.up.forward.app")
+                                .imageScale(.small)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                } footer: {
+                    Text(🔗WebRepositoryURL.description)
+                }
+                Section {
+                    Link(destination: 🔗WebRepositoryURL_Mirror) {
+                        HStack {
+                            Label("Web Repository", systemImage: "link")
+                            Text("(Mirror)")
+                                .font(.subheadline.bold())
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            Image(systemName: "arrow.up.forward.app")
+                                .imageScale(.small)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                } footer: {
+                    Text(🔗WebRepositoryURL_Mirror.description)
+                }
             }
         }
     }

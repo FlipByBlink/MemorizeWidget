@@ -13,10 +13,7 @@ https://apps.apple.com/app/id1644276262
 
 <!-- Manually sync below text between "/README.md(here)" and "Localizable.strings" and "AppStoreConnect/_/Description". -->
 
-## 📄 Description
-
-<!--==== English description ====-->
-
+## Description
 Flashcard on widget. Memorize a note in everyday life.
 
 - Two mode. \"One note mode\" or \"Random note mode\".
@@ -31,13 +28,11 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - Customizable search function.
 
-【OPTION】
-
+### Option
 - Show comment on widget. (homescreen-widget/lockscreen-rectangular)
 
 
-==== Japanese(native) description ====
-
+## 概要
 ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリです。
 
 - ２つのモード。「単体モード」と「ランダムモード」。
@@ -52,16 +47,14 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - カスタマイズ可能な検索機能。
 
-【オプション】
-
+### オプション
 - ウィジェット上で「タイトル」だけでなく「コメント」を表示することも可能。(ホーム画面のウィジェット/ロック画面の長方形ウィジェット)
 
 
-==== Localization: All ====
+## Localization: All
+- English
 
-English
-
-Japanese(native)
+- Japanese(native)
 
 
 <br>
@@ -100,18 +93,13 @@ sear_pandora_0x@icloud.com
 
 
 ## Privacy Policy for AppStore
-
-
 2022-09-08
 
-
 ### Japanese
-
 このアプリ自身において、ユーザーの情報を一切収集しません。
 
 
 ### English
-
 This application don't collect user infomation.
 
 
