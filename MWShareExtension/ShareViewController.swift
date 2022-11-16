@@ -61,6 +61,7 @@ struct 🄼ainView: View {
     static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
+    var ⓝotes: [📓Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
     
     var body: some View {
         NavigationStack {
@@ -68,11 +69,17 @@ struct 🄼ainView: View {
                 switch ⓜodel.type {
                     case .textFile:
                         🅂eparatorPicker()
-                        ForEach(ⓜodel.importedText.components(separatedBy: .newlines), id: \.self) { line in
-                            Text(line)
+                        ForEach(ⓝotes) { ⓝote in
+                            VStack(alignment: .leading) {
+                                Text(ⓝote.title)
+                                Text(ⓝote.comment)
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(.vertical, 8)
                         }
                     case .improperFile:
-                        Label("This is not text file.", systemImage: "exclamationmark.triangle")
+                        Label("Not text file.", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
                         TextField("Title", text: $ⓜodel.inputTitle)
@@ -104,6 +111,7 @@ struct 🄼ainView: View {
                 }
             }
         }
+        .animation(.default, value: ⓢeparator)
     }
     func 🅂eparatorPicker() -> some View {
         Section {

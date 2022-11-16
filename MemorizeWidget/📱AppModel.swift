@@ -84,27 +84,30 @@ class 🚛ImportProcessModel: ObservableObject {
             📦.stopAccessingSecurityScopedResource()
         }
     }
-    
-    func 🄲onvertTextToNotes() {
-        var 📚Notes: [📓Note] = []
-        let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
-        ⓞneLineTexts.forEach { ⓞneLine in
-            if !ⓞneLine.isEmpty {
-                if ⓢeparator == .titleOnly {
-                    📚Notes.append(📓Note(ⓞneLine))
-                } else {
-                    let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
-                    if let ⓣitle = ⓣexts.first {
-                        if !ⓣitle.isEmpty {
-                            let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                            📚Notes.append(📓Note(ⓣitle, ⓒomment))
-                        }
+    func convertTextToNotes() {
+        ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
+    }
+}
+
+func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📓Note] {
+    var 📚Notes: [📓Note] = []
+    let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
+    ⓞneLineTexts.forEach { ⓞneLine in
+        if !ⓞneLine.isEmpty {
+            if ⓢeparator == .titleOnly {
+                📚Notes.append(📓Note(ⓞneLine))
+            } else {
+                let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
+                if let ⓣitle = ⓣexts.first {
+                    if !ⓣitle.isEmpty {
+                        let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
+                        📚Notes.append(📓Note(ⓣitle, ⓒomment))
                     }
                 }
             }
         }
-        ⓞutputNotes = 📚Notes
     }
+    return 📚Notes
 }
 
 enum 🅂eparator: String {

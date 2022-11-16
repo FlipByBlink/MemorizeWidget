@@ -561,7 +561,7 @@ struct 📂FileImportSheet: View {
                                         }
                                     }
                                 Button {
-                                    🚛ImportProcess.🄲onvertTextToNotes()
+                                    🚛ImportProcess.convertTextToNotes()
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
@@ -652,7 +652,7 @@ struct 📂FileImportSheet: View {
         .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.text]) { 📦Result in
             do {
                 try 🚛ImportProcess.🄸mportFile(📦Result)
-                🚛ImportProcess.🄲onvertTextToNotes()
+                🚛ImportProcess.convertTextToNotes()
             } catch {
                 print(error.localizedDescription)
             }
