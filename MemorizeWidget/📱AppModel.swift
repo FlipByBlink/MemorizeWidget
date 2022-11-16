@@ -37,6 +37,7 @@ class 📱AppModel: ObservableObject {
             if !stockNotes.isEmpty {
                 🗃Notes.insert(contentsOf: stockNotes, at: 0)
                 📚notesFromExtension.💾DataFromExtension = Data()
+                💾SaveNotes()
             }
         }
     }
@@ -63,6 +64,7 @@ class 📱AppModel: ObservableObject {
     
     init() {
         💾LoadNotes()
+        📚ImportStockNotesFromExtension()
     }
 }
 
@@ -80,8 +82,10 @@ struct 📓Note: Codable, Identifiable, Hashable {
 }
 
 
+// AppModel.initとscenePhase変化時にメインデータに取り込む
 class 📚NotesFromExtension: ObservableObject { //FIXME: まだ挙動少しおかしい
     @AppStorage("DataFromExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) var 💾DataFromExtension: Data = Data()
+    
     var stockNotes: [📓Note]? {
         try? JSONDecoder().decode([📓Note].self, from: 💾DataFromExtension)
     }
