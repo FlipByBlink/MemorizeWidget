@@ -13,6 +13,8 @@ class 📱AppModel: ObservableObject {
     @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     
+    var 📚notesFromExtension = 📚NotesFromExtension()
+    
     func 🆕AddNewNote(_ ⓘndex: Int = 0) {
         🗃Notes.insert(📓Note(""), at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
@@ -26,6 +28,15 @@ class 📱AppModel: ObservableObject {
                 return 🗃Notes.randomElement() ?? 📓Note("🐛")
             } else {
                 return 🗃Notes.first ?? 📓Note("🐛")
+            }
+        }
+    }
+    
+    func 📚ImportStockNotesFromExtension() {
+        if let stockNotes = 📚notesFromExtension.stockNotes {
+            if !stockNotes.isEmpty {
+                🗃Notes.insert(contentsOf: stockNotes, at: 0)
+                📚notesFromExtension.💾DataFromExtension = Data()
             }
         }
     }
@@ -65,6 +76,27 @@ struct 📓Note: Codable, Identifiable, Hashable {
         self.title = title
         self.comment = comment
         self.id = id ?? UUID()
+    }
+}
+
+
+class 📚NotesFromExtension: ObservableObject { //FIXME: まだ挙動少しおかしい
+    @AppStorage("DataFromExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) var 💾DataFromExtension: Data = Data()
+    var stockNotes: [📓Note]? {
+        try? JSONDecoder().decode([📓Note].self, from: 💾DataFromExtension)
+    }
+    
+    func save(notes: [📓Note]) {
+        var newStockNotes: [📓Note] = []
+        newStockNotes.append(contentsOf: notes)
+        if let stockNotes {
+            newStockNotes.append(contentsOf: stockNotes)
+        }
+        do {
+            💾DataFromExtension = try JSONEncoder().encode(newStockNotes)
+        } catch {
+            print("🚨Error: ", error)
+        }
     }
 }
 

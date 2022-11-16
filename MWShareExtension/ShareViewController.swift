@@ -94,6 +94,14 @@ struct 🄼ainView: View {
                     ToolbarItem {
                         Button {//TODO: 実装
                             print("Pressed checkmark button")
+                            switch ⓜodel.type {
+                                case .textFile:
+                                    📚NotesFromExtension().save(notes: ⓝotes)
+                                case .selectedText:
+                                    📚NotesFromExtension().save(notes: [📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
+                                default:
+                                    📚NotesFromExtension().save(notes: [📓Note("🐛")])
+                            }
                             ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                         } label: {
                             Image(systemName: "checkmark")

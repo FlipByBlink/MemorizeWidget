@@ -46,6 +46,9 @@ struct ContentView: View {
             📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
         }
+        .onChange(of: 📱.📚notesFromExtension.stockNotes) { _ in
+            📱.📚ImportStockNotesFromExtension()
+        }
     }
     enum 🔖TabTag {
         case notesList, option, purchase, about
