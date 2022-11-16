@@ -16,7 +16,6 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
         if let ⓘtem = extensionContext?.inputItems.first as? NSExtensionItem {
             if let ⓟrovider = ⓘtem.attachments?.first {
                 if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
-                    ⓜodel.type = .textFile
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
@@ -28,7 +27,6 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                         }
                     }
                 } else {
-                    ⓜodel.type = .selectedText
                     Task { @MainActor in
                         do {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
@@ -46,14 +44,9 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
 
 class 🄳ataModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
-    @Published var importedText: String = "🐛"
-    var type: 🅃ype = .selectedText
-    @Published var inputTitle: String = "🐛"
+    @Published var importedText: String = ""
+    @Published var inputTitle: String = ""
     @Published var inputComment: String = ""
-}
-
-enum 🅃ype {
-    case textFile, selectedText
 }
 
 struct 🄼ainView: View {
@@ -61,11 +54,14 @@ struct 🄼ainView: View {
     static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
+    var ⓣype: 🅃ype {
+        ⓜodel.importedText.isEmpty ? .selectedText : .textFile
+    }
     
     var body: some View {
         NavigationStack {
             List {
-                switch ⓜodel.type {
+                switch ⓣype {
                     case .textFile:
                         🅂eparatorPicker()
                         ForEach(ⓜodel.importedText.components(separatedBy: .newlines), id: \.self) { line in
@@ -111,6 +107,9 @@ struct 🄼ainView: View {
                 Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
             }
         }
+    }
+    enum 🅃ype {
+        case textFile, selectedText
     }
     init(_ ⓜodel: 🄳ataModel) {
         self.ⓜodel = ⓜodel
