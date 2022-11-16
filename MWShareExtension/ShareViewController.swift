@@ -54,9 +54,7 @@ struct 🄼ainView: View {
     static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
-    var ⓣype: 🅃ype {
-        ⓜodel.importedText.isEmpty ? .selectedText : .textFile
-    }
+    var ⓣype: 🅃ype { ⓜodel.importedText.isEmpty ? .selectedText : .textFile }
     
     var body: some View {
         NavigationStack {
