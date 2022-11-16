@@ -11,7 +11,6 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
     
     override func viewDidLoad() {
         rootView.extensionContext = extensionContext
-        print("🖨️extensionContext: ", extensionContext.debugDescription)
         if let ⓘtem = extensionContext?.inputItems.first as? NSExtensionItem {
             if let ⓟrovider = ⓘtem.attachments?.first {
                 if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
@@ -49,9 +48,9 @@ enum 🄼ode {
 
 struct 🄼ainView: View {
     var extensionContext: NSExtensionContext? = nil
-    static let ud = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
-    @AppStorage("separator", store: ud) var ⓢeparator: 🅂eparator = .tab
-    //@AppStorage("sharedText", store: ud) var sharedText = "empty"
+    static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
+    @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
+    //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
     var ⓘmportedText: String = "🐛importedText"
     var ⓜode: 🄼ode = .text
     @State private var ⓘnputTitle: String = "🐛title"
@@ -62,7 +61,7 @@ struct 🄼ainView: View {
             List {
                 switch ⓜode {
                     case .file:
-                        🅂eparatorPicker(ⓢeparator: $ⓢeparator)
+                        🅂eparatorPicker()
                         ForEach(ⓘmportedText.components(separatedBy: .newlines), id: \.self) { line in
                             Text(line)
                         }
@@ -96,11 +95,7 @@ struct 🄼ainView: View {
             }
         }
     }
-}
-
-struct 🅂eparatorPicker: View {
-    @Binding var ⓢeparator: 🅂eparator
-    var body: some View {
+    func 🅂eparatorPicker() -> some View {
         Section {
             Picker(selection: $ⓢeparator) {
                 Text("Tab ␣ ").tag(🅂eparator.tab)
