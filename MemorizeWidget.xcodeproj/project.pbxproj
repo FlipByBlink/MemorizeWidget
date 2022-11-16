@@ -32,6 +32,9 @@
 		F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
 		F5B6FED228C99B930045D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
 		F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */; };
+		F5CEA5F42924AAAC00752277 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* ShareViewController.swift */; };
+		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
+		F5CEA5FB2924AAAC00752277 /* MWShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5D30CC828C6F6C8001198AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F5D30CCA28C6F6C8001198AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
@@ -41,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F5CEA5F92924AAAC00752277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5CEA5F02924AAAC00752277;
+			remoteInfo = MWShareExtension;
+		};
 		F5D30CD128C6F6C9001198AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
@@ -82,6 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F5CEA5FB2924AAAC00752277 /* MWShareExtension.appex in Embed Foundation Extensions */,
 				F5D30CD328C6F6C9001198AF /* MWWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -110,6 +121,11 @@
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MWShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CEA5F32924AAAC00752277 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F5CEA5F62924AAAC00752277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F5CEA5F82924AAAC00752277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5CEA5FF2924AB1900752277 /* MWShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWShareExtension.entitlements; sourceTree = "<group>"; };
 		F5D30CC528C6F6C8001198AF /* MWWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MWWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D30CC728C6F6C8001198AF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F5D30CC928C6F6C8001198AF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -126,6 +142,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CEA5EE2924AAAC00752277 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +181,7 @@
 				F507EA9328C9FCC900ECF06A /* README.md */,
 				F5B5A46028C6EDA1005B6E0F /* MemorizeWidget */,
 				F5D30CCB28C6F6C8001198AF /* MWWidget */,
+				F5CEA5F22924AAAC00752277 /* MWShareExtension */,
 				F5D30CC628C6F6C8001198AF /* Frameworks */,
 				F5B5A45F28C6EDA1005B6E0F /* Products */,
 			);
@@ -168,6 +192,7 @@
 			children = (
 				F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */,
 				F5D30CC528C6F6C8001198AF /* MWWidgetExtension.appex */,
+				F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +222,17 @@
 				F59EEFE528F3FA36002D9AD7 /* Info.plist */,
 			);
 			path = "🧰Others";
+			sourceTree = "<group>";
+		};
+		F5CEA5F22924AAAC00752277 /* MWShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F5CEA5F32924AAAC00752277 /* ShareViewController.swift */,
+				F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */,
+				F5CEA5F82924AAAC00752277 /* Info.plist */,
+				F5CEA5FF2924AB1900752277 /* MWShareExtension.entitlements */,
+			);
+			path = MWShareExtension;
 			sourceTree = "<group>";
 		};
 		F5D30CC628C6F6C8001198AF /* Frameworks */ = {
@@ -237,11 +273,29 @@
 			);
 			dependencies = (
 				F5D30CD228C6F6C9001198AF /* PBXTargetDependency */,
+				F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */,
 			);
 			name = MemorizeWidget;
 			productName = MemorizeWidget;
 			productReference = F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F5CEA5F02924AAAC00752277 /* MWShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "MWShareExtension" */;
+			buildPhases = (
+				F5CEA5ED2924AAAC00752277 /* Sources */,
+				F5CEA5EE2924AAAC00752277 /* Frameworks */,
+				F5CEA5EF2924AAAC00752277 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MWShareExtension;
+			productName = MWShareExtension;
+			productReference = F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		F5D30CC428C6F6C8001198AF /* MWWidgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -267,11 +321,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					F5B5A45D28C6EDA1005B6E0F = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					F5CEA5F02924AAAC00752277 = {
+						CreatedOnToolsVersion = 14.1;
 					};
 					F5D30CC428C6F6C8001198AF = {
 						CreatedOnToolsVersion = 14.0;
@@ -294,6 +351,7 @@
 			targets = (
 				F5B5A45D28C6EDA1005B6E0F /* MemorizeWidget */,
 				F5D30CC428C6F6C8001198AF /* MWWidgetExtension */,
+				F5CEA5F02924AAAC00752277 /* MWShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -310,6 +368,14 @@
 				F507EAA628CA145000ECF06A /* Localizable.strings in Resources */,
 				F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */,
 				F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CEA5EF2924AAAC00752277 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +407,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F5CEA5ED2924AAAC00752277 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CEA5F42924AAAC00752277 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5D30CC128C6F6C8001198AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +427,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5CEA5F02924AAAC00752277 /* MWShareExtension */;
+			targetProxy = F5CEA5F92924AAAC00752277 /* PBXContainerItemProxy */;
+		};
 		F5D30CD228C6F6C9001198AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F5D30CC428C6F6C8001198AF /* MWWidgetExtension */;
@@ -395,6 +474,14 @@
 				F507EAA328CA145000ECF06A /* en */,
 			);
 			name = "🌏VersionDescription.strings";
+			sourceTree = "<group>";
+		};
+		F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5CEA5F62924AAAC00752277 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -594,6 +681,60 @@
 			};
 			name = Release;
 		};
+		F5CEA5FC2924AAAC00752277 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6696GEY228;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MWShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MWShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5CEA5FD2924AAAC00752277 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6696GEY228;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MWShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MWShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F5D30CD528C6F6C9001198AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -669,6 +810,15 @@
 			buildConfigurations = (
 				F5B5A46D28C6EDA3005B6E0F /* Debug */,
 				F5B5A46E28C6EDA3005B6E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "MWShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CEA5FC2924AAAC00752277 /* Debug */,
+				F5CEA5FD2924AAAC00752277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
