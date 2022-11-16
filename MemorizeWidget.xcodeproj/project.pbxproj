@@ -686,7 +686,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWShareExtension/Info.plist;
@@ -713,7 +713,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWShareExtension/Info.plist;
