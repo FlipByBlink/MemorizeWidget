@@ -5,32 +5,34 @@ import UniformTypeIdentifiers
 import SwiftUI
 
 class 🄷ostingController: UIHostingController<🄼ainView> {
+    let ⓜodel = 🄳ataModel()
+    
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: 🄼ainView())
+        super.init(coder: aDecoder, rootView: 🄼ainView(ⓜodel))
     }
     
     override func viewDidLoad() {
-        rootView.extensionContext = extensionContext
+        ⓜodel.extensionContext = extensionContext
         if let ⓘtem = extensionContext?.inputItems.first as? NSExtensionItem {
             if let ⓟrovider = ⓘtem.attachments?.first {
                 if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
-                    rootView.ⓣype = .textFile
+                    ⓜodel.type = .textFile
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
                                 let ⓓata = try Data(contentsOf: ⓤrl)
-                                rootView.ⓘmportedText = String(data: ⓓata, encoding: .utf8) ?? "テキストファイルではありません。"
+                                ⓜodel.importedText = String(data: ⓓata, encoding: .utf8) ?? "テキストファイルではありません。"
                             }
                         } catch {
                             print("🚨:", error.localizedDescription)
                         }
                     }
                 } else {
-                    rootView.ⓣype = .selectedText
+                    ⓜodel.type = .selectedText
                     Task { @MainActor in
                         do {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
-                                rootView.ⓘmportedText = ⓢtring
+                                ⓜodel.inputTitle = ⓢtring
                             }
                         } catch {
                             print("🚨:", error.localizedDescription)
@@ -42,33 +44,36 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
     }
 }
 
+class 🄳ataModel: ObservableObject {
+    var extensionContext: NSExtensionContext? = nil
+    @Published var importedText: String = "🐛"
+    var type: 🅃ype = .selectedText
+    @Published var inputTitle: String = "🐛"
+    @Published var inputComment: String = ""
+}
+
 enum 🅃ype {
     case textFile, selectedText
 }
 
 struct 🄼ainView: View {
-    var extensionContext: NSExtensionContext? = nil
+    @ObservedObject var ⓜodel: 🄳ataModel
     static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
-    var ⓘmportedText: String = "🐛importedText"
-    var ⓣype: 🅃ype = .selectedText
-    @State private var ⓘnputTitle: String = "🐛title"
-    @State private var ⓘnputComment: String = ""
     
     var body: some View {
         NavigationStack {
             List {
-                switch ⓣype {
+                switch ⓜodel.type {
                     case .textFile:
                         🅂eparatorPicker()
-                        ForEach(ⓘmportedText.components(separatedBy: .newlines), id: \.self) { line in
+                        ForEach(ⓜodel.importedText.components(separatedBy: .newlines), id: \.self) { line in
                             Text(line)
                         }
                     case .selectedText:
-                        TextField("Title", text: $ⓘnputTitle)
-                            .onChange(of: ⓘmportedText) { ⓘnputTitle = $0 }
-                        TextField("Comment", text: $ⓘnputComment)
+                        TextField("Title", text: $ⓜodel.inputTitle)
+                        TextField("Comment", text: $ⓜodel.inputComment)
                             .foregroundStyle(.secondary)
                 }
             }
@@ -76,7 +81,7 @@ struct 🄼ainView: View {
                 ToolbarItem {
                     Button {
                         print("Pressed checkmark button")
-                        extensionContext?.completeRequest(returningItems: nil)
+                        ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {
                         Image(systemName: "checkmark")
                     }
@@ -84,7 +89,7 @@ struct 🄼ainView: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         print("Pressed xmark button")
-                        extensionContext?.completeRequest(returningItems: nil)
+                        ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {
                         Image(systemName: "xmark")
                     }
@@ -106,6 +111,9 @@ struct 🄼ainView: View {
                 Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
             }
         }
+    }
+    init(_ ⓜodel: 🄳ataModel) {
+        self.ⓜodel = ⓜodel
     }
 }
 
