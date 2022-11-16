@@ -14,7 +14,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
         if let ⓘtem = extensionContext?.inputItems.first as? NSExtensionItem {
             if let ⓟrovider = ⓘtem.attachments?.first {
                 if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
-                    rootView.ⓜode = .file
+                    rootView.ⓣype = .textFile
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
@@ -26,7 +26,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                         }
                     }
                 } else {
-                    rootView.ⓜode = .text
+                    rootView.ⓣype = .selectedText
                     Task { @MainActor in
                         do {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
@@ -42,8 +42,8 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
     }
 }
 
-enum 🄼ode {
-    case file, text
+enum 🅃ype {
+    case textFile, selectedText
 }
 
 struct 🄼ainView: View {
@@ -52,20 +52,20 @@ struct 🄼ainView: View {
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
     var ⓘmportedText: String = "🐛importedText"
-    var ⓜode: 🄼ode = .text
+    var ⓣype: 🅃ype = .selectedText
     @State private var ⓘnputTitle: String = "🐛title"
     @State private var ⓘnputComment: String = ""
     
     var body: some View {
         NavigationStack {
             List {
-                switch ⓜode {
-                    case .file:
+                switch ⓣype {
+                    case .textFile:
                         🅂eparatorPicker()
                         ForEach(ⓘmportedText.components(separatedBy: .newlines), id: \.self) { line in
                             Text(line)
                         }
-                    case .text:
+                    case .selectedText:
                         TextField("Title", text: $ⓘnputTitle)
                             .onChange(of: ⓘmportedText) { newValue in
                                 ⓘnputTitle = newValue
