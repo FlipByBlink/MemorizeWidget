@@ -20,7 +20,12 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
                                 let ⓓata = try Data(contentsOf: ⓤrl)
-                                ⓜodel.importedText = String(data: ⓓata, encoding: .utf8) ?? "テキストファイルではありません。"
+                                if let ⓢtring = String(data: ⓓata, encoding: .utf8) {
+                                    ⓜodel.type = .textFile
+                                    ⓜodel.importedText = ⓢtring
+                                } else {
+                                    ⓜodel.type = .improperFile
+                                }
                             }
                         } catch {
                             print("🚨:", error.localizedDescription)
@@ -30,7 +35,10 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                     Task { @MainActor in
                         do {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
+                                ⓜodel.type = .selectedText
                                 ⓜodel.inputTitle = ⓢtring
+                            } else {
+                                ⓜodel.type = .improperFile
                             }
                         } catch {
                             print("🚨:", error.localizedDescription)
@@ -44,6 +52,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
 
 class 🄳ataModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
+    @Published var type: 🅃ype? = nil
     @Published var importedText: String = ""
     @Published var inputTitle: String = ""
     @Published var inputComment: String = ""
@@ -54,30 +63,36 @@ struct 🄼ainView: View {
     static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
     @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
     //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
-    var ⓣype: 🅃ype { ⓜodel.importedText.isEmpty ? .selectedText : .textFile }
     
     var body: some View {
         NavigationStack {
             List {
-                switch ⓣype {
+                switch ⓜodel.type {
                     case .textFile:
                         🅂eparatorPicker()
                         ForEach(ⓜodel.importedText.components(separatedBy: .newlines), id: \.self) { line in
                             Text(line)
                         }
+                    case .improperFile:
+                        Label("テキストファイルではありません。", systemImage: "exclamationmark.triangle")
+                            .foregroundStyle(.secondary)
                     case .selectedText:
                         TextField("Title", text: $ⓜodel.inputTitle)
                         TextField("Comment", text: $ⓜodel.inputComment)
                             .foregroundStyle(.secondary)
+                    case .none:
+                        Text("🐛")
                 }
             }
             .toolbar {
-                ToolbarItem {
-                    Button {
-                        print("Pressed checkmark button")
-                        ⓜodel.extensionContext?.completeRequest(returningItems: nil)
-                    } label: {
-                        Image(systemName: "checkmark")
+                if ⓜodel.type != .improperFile {
+                    ToolbarItem {
+                        Button {
+                            print("Pressed checkmark button")
+                            ⓜodel.extensionContext?.completeRequest(returningItems: nil)
+                        } label: {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
                 ToolbarItem(placement: .cancellationAction) {
@@ -106,12 +121,13 @@ struct 🄼ainView: View {
             }
         }
     }
-    enum 🅃ype {
-        case textFile, selectedText
-    }
     init(_ ⓜodel: 🄳ataModel) {
         self.ⓜodel = ⓜodel
     }
+}
+
+enum 🅃ype {
+    case textFile, improperFile, selectedText
 }
 
 enum 🅂eparator: String {
