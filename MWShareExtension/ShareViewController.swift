@@ -67,9 +67,7 @@ struct 🄼ainView: View {
                         }
                     case .selectedText:
                         TextField("Title", text: $ⓘnputTitle)
-                            .onChange(of: ⓘmportedText) { newValue in
-                                ⓘnputTitle = newValue
-                            }
+                            .onChange(of: ⓘmportedText) { ⓘnputTitle = $0 }
                         TextField("Comment", text: $ⓘnputComment)
                             .foregroundStyle(.secondary)
                 }
