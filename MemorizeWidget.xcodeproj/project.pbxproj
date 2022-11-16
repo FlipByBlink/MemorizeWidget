@@ -35,6 +35,7 @@
 		F5CEA5F42924AAAC00752277 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* ShareViewController.swift */; };
 		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
 		F5CEA5FB2924AAAC00752277 /* MWShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5CEA6012924CCFE00752277 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5D30CC828C6F6C8001198AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F5D30CCA28C6F6C8001198AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
@@ -412,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5CEA5F42924AAAC00752277 /* ShareViewController.swift in Sources */,
+				F5CEA6012924CCFE00752277 /* 📱AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -127,9 +127,3 @@ struct 🄼ainView: View {
 enum 🅃ype {
     case textFile, improperFile, selectedText
 }
-
-enum 🅂eparator: String {
-    case tab = "\t"
-    case comma = ","
-    case titleOnly = ""
-}
