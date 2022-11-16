@@ -37,8 +37,6 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
                                 ⓜodel.type = .selectedText
                                 ⓜodel.inputTitle = ⓢtring
-                            } else {
-                                ⓜodel.type = .improperFile
                             }
                         } catch {
                             print("🚨:", error.localizedDescription)
@@ -74,7 +72,7 @@ struct 🄼ainView: View {
                             Text(line)
                         }
                     case .improperFile:
-                        Label("テキストファイルではありません。", systemImage: "exclamationmark.triangle")
+                        Label("This is not text file.", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
                         TextField("Title", text: $ⓜodel.inputTitle)
@@ -87,7 +85,7 @@ struct 🄼ainView: View {
             .toolbar {
                 if ⓜodel.type != .improperFile {
                     ToolbarItem {
-                        Button {
+                        Button {//TODO: 実装
                             print("Pressed checkmark button")
                             ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                         } label: {
