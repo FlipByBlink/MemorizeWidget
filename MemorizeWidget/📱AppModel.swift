@@ -36,7 +36,7 @@ class 📱AppModel: ObservableObject {
             let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
             ⓤd?.set(ⓓata, forKey: "Notes")
         } catch {
-            print("🚨Error: ", error)
+            print("🚨: ", error)
         }
     }
     
@@ -46,7 +46,7 @@ class 📱AppModel: ObservableObject {
         do {
             🗃Notes = try JSONDecoder().decode([📓Note].self, from: ⓓata)
         } catch {
-            print("🚨Error: ", error)
+            print("🚨: ", error)
         }
     }
     
@@ -161,6 +161,8 @@ enum 🅂eparator: String {
     case comma = ","
     case titleOnly = ""
 }
+
+
 
 
 let 🗃SampleNotes: [📓Note] = [📓Note("Lemon", "yellow sour"),
