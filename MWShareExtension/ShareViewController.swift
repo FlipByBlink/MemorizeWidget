@@ -15,7 +15,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
         ⓜodel.extensionContext = extensionContext
         if let ⓔxtensionItem = extensionContext?.inputItems.first as? NSExtensionItem {
             if let ⓟrovider = ⓔxtensionItem.attachments?.first {
-                if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
+                if ⓟrovider.hasItemConformingToTypeIdentifier("public.file-url") {
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
