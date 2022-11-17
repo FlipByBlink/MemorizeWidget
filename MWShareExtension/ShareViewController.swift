@@ -13,8 +13,8 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
     
     override func viewDidLoad() {
         ⓜodel.extensionContext = extensionContext
-        if let ⓘtem = extensionContext?.inputItems.first as? NSExtensionItem {
-            if let ⓟrovider = ⓘtem.attachments?.first {
+        if let ⓔxtensionItem = extensionContext?.inputItems.first as? NSExtensionItem {
+            if let ⓟrovider = ⓔxtensionItem.attachments?.first {
                 if ⓟrovider.registeredTypeIdentifiers.contains("public.file-url") {
                     Task { @MainActor in
                         do {
@@ -28,7 +28,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                                 }
                             }
                         } catch {
-                            print("🚨:", error.localizedDescription)
+                            print("🚨:", error)
                         }
                     }
                 } else {
@@ -39,7 +39,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                                 ⓜodel.inputTitle = ⓢtring
                             }
                         } catch {
-                            print("🚨:", error.localizedDescription)
+                            print("🚨:", error)
                         }
                     }
                 }
