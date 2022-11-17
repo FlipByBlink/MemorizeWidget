@@ -15,9 +15,9 @@ struct MemorizeWidgetApp: App {
                 .environmentObject(🛒)
                 .onChange(of: ⓢcenePhase) { ⓝewValue in
                     if ⓝewValue == .active {
-                        let ⓢtockNotes = 📚ShareExtensionManeger.takeOutNotes()
-                        if !ⓢtockNotes.isEmpty {
-                            📱.🗃Notes.insert(contentsOf: ⓢtockNotes, at: 0)
+                        let ⓢtockedNotes = 📚ShareExtensionManeger.takeNotesOut()
+                        if !ⓢtockedNotes.isEmpty {
+                            📱.🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
                         }
                     }
                 }

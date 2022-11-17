@@ -52,9 +52,9 @@ class 📱AppModel: ObservableObject {
     
     init() {
         💾LoadNotes()
-        let ⓢtockNotes = 📚ShareExtensionManeger.takeOutNotes()
-        if !ⓢtockNotes.isEmpty {
-            🗃Notes.insert(contentsOf: ⓢtockNotes, at: 0)
+        let ⓢtockedNotes = 📚ShareExtensionManeger.takeNotesOut()
+        if !ⓢtockedNotes.isEmpty {
+            🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
             💾SaveNotes()
         }
     }
@@ -102,7 +102,7 @@ struct 📚ShareExtensionManeger {
         }
     }
     
-    static func takeOutNotes() -> [📓Note] {
+    static func takeNotesOut() -> [📓Note] {
         if !stockedNotes.isEmpty {
             let ⓢtockNotes = stockedNotes
             let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
