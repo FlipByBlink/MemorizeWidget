@@ -74,8 +74,8 @@ struct 📓Note: Codable, Identifiable, Hashable {
 }
 
 
-// AppModel.initとscenePhase変化時にメインデータに取り込む
-struct 📚ShareExtensionManeger { //FIXME: まだ挙動少しおかしい
+// AppModel.initとScenePhase変化時にメインデータに取り込む
+struct 📚ShareExtensionManeger {
     static var stockedNotes: [📓Note] {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         guard let ⓓata = ⓤd?.data(forKey: "NotesFromExtension") else { return [] }

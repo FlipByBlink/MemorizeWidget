@@ -58,11 +58,8 @@ class 🄳ataModel: ObservableObject {
 
 struct 🄼ainView: View {
     @ObservedObject var ⓜodel: 🄳ataModel
-    static let ⓤd = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
-    @AppStorage("separator", store: ⓤd) var ⓢeparator: 🅂eparator = .tab
-    //@AppStorage("sharedText", store: ⓤd) var sharedText = "empty"
+    @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓢeparator: 🅂eparator = .tab
     var ⓝotes: [📓Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
-    
     var body: some View {
         NavigationStack {
             List {
@@ -92,8 +89,7 @@ struct 🄼ainView: View {
             .toolbar {
                 if ⓜodel.type != .improperFile {
                     ToolbarItem {
-                        Button {//TODO: 実装
-                            print("Pressed checkmark button")
+                        Button {
                             switch ⓜodel.type {
                                 case .textFile:
                                     📚ShareExtensionManeger.save(ⓝotes)
@@ -110,7 +106,6 @@ struct 🄼ainView: View {
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
-                        print("Pressed xmark button")
                         ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {
                         Image(systemName: "xmark")
