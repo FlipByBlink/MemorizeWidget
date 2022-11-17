@@ -4,6 +4,7 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
         TabView(selection: $🔖tab) {
@@ -38,6 +39,18 @@ struct ContentView: View {
         }
         .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
+        }
+        .onChange(of: ⓢcenePhase) { ⓝewValue in
+            if ⓝewValue == .active {
+                let ⓢtockedNotes = 📚ShareExtensionManeger.takeNotesOut()
+                if !ⓢtockedNotes.isEmpty {
+                    📱.🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
+                }
+            }
+        }
+        .onChange(of: 📱.🗃Notes) { _ in
+            📱.💾SaveNotes()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     enum 🔖Tab {
