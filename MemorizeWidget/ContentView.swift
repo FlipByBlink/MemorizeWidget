@@ -4,20 +4,20 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🔖Tab: 🔖TabTag = .notesList
+    @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
-        TabView(selection: $🔖Tab) {
+        TabView(selection: $🔖tab) {
             🗃NotesListTab()
-                .tag(🔖TabTag.notesList)
+                .tag(🔖Tab.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
             🔩OptionTab()
-                .tag(🔖TabTag.option)
+                .tag(🔖Tab.option)
                 .tabItem { Label("Option", systemImage: "gearshape") }
             🛒PurchaseTab()
-                .tag(🔖TabTag.purchase)
+                .tag(🔖Tab.purchase)
                 .tabItem { Label("Purchase", systemImage: "cart") }
             ℹ️AboutAppTab()
-                .tag(🔖TabTag.about)
+                .tag(🔖Tab.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onOpenURL { 🔗 in
@@ -30,7 +30,7 @@ struct ContentView: View {
                 📱.🚩ShowNoteSheet = true
                 📱.🆔OpenedNoteID = 🔗.description
             }
-            🔖Tab = .notesList
+            🔖tab = .notesList
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
         .sheet(isPresented: $📱.🚩ShowNoteSheet) {
@@ -40,7 +40,7 @@ struct ContentView: View {
             📂FileImportSheet()
         }
     }
-    enum 🔖TabTag {
+    enum 🔖Tab {
         case notesList, option, purchase, about
     }
 }
