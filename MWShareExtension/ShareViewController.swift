@@ -79,8 +79,8 @@ struct 🄼ainView: View {
                         Label("Not text file.", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
-                        TextField("Title", text: $ⓜodel.inputTitle)
-                        TextField("Comment", text: $ⓜodel.inputComment)
+                        TextField("No title", text: $ⓜodel.inputTitle)
+                        TextField("No comment", text: $ⓜodel.inputComment)
                             .foregroundStyle(.secondary)
                     case .none:
                         Text("🐛")
