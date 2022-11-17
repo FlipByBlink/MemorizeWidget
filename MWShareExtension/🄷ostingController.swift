@@ -61,7 +61,7 @@ struct 🄼ainView: View {
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓢeparator: 🅂eparator = .tab
     var ⓝotes: [📓Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
                 switch ⓜodel.type {
                     case .textFile:
@@ -76,7 +76,7 @@ struct 🄼ainView: View {
                             .padding(.vertical, 8)
                         }
                     case .improperFile:
-                        Label("Not text file.", systemImage: "exclamationmark.triangle")
+                        Label("Not text file(UTF-8).", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
                         TextField("No title", text: $ⓜodel.inputTitle)
@@ -87,22 +87,21 @@ struct 🄼ainView: View {
                 }
             }
             .toolbar {
-                if ⓜodel.type != .improperFile {
-                    ToolbarItem {
-                        Button {
-                            switch ⓜodel.type {
-                                case .textFile:
-                                    📚ShareExtensionManeger.save(ⓝotes)
-                                case .selectedText:
-                                    📚ShareExtensionManeger.save([📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
-                                default:
-                                    📚ShareExtensionManeger.save([📓Note("🐛")])
-                            }
-                            ⓜodel.extensionContext?.completeRequest(returningItems: nil)
-                        } label: {
-                            Image(systemName: "checkmark")
+                ToolbarItem {
+                    Button {
+                        switch ⓜodel.type {
+                            case .textFile:
+                                📚ShareExtensionManeger.save(ⓝotes)
+                            case .selectedText:
+                                📚ShareExtensionManeger.save([📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
+                            default:
+                                📚ShareExtensionManeger.save([📓Note("🐛")])
                         }
+                        ⓜodel.extensionContext?.completeRequest(returningItems: nil)
+                    } label: {
+                        Image(systemName: "checkmark")
                     }
+                    .disabled(ⓜodel.type == .improperFile)
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
@@ -115,6 +114,7 @@ struct 🄼ainView: View {
             }
         }
         .animation(.default, value: ⓢeparator)
+        .navigationViewStyle(.stack)
     }
     func 🅂eparatorPicker() -> some View {
         Section {

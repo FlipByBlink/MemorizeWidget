@@ -37,7 +37,7 @@
 "Paste the text here." = "ここにテキストを貼り付け。";
 "Example" = "例";
 "Not support multi line text in note." = "「ノート内での改行」はサポート対象外です。";
-"Not text file." = "テキストファイルではありません。";
+"Not text file(UTF-8)." = "テキストファイル(UTF-8)ではありません。";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";
