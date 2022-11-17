@@ -20,9 +20,6 @@ struct ContentView: View {
                 .tag(🔖TabTag.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
-        .onChange(of: 📱.🚩RandomMode) { _ in
-            WidgetCenter.shared.reloadAllTimelines()
-        }
         .onOpenURL { 🔗 in
             if 🔗.description == "NewNoteShortcut" {
                 📱.🚩ShowImportSheet = false
@@ -42,10 +39,6 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
         }
-        .onChange(of: 📱.🗃Notes) { _ in
-            📱.💾SaveNotes()
-            WidgetCenter.shared.reloadAllTimelines()
-        }
     }
     enum 🔖TabTag {
         case notesList, option, purchase, about
@@ -62,6 +55,9 @@ struct 🗃NotesListTab: View {
                     Toggle(isOn: 📱.$🚩RandomMode) {
                         Label("Random mode", systemImage: "shuffle")
                             .padding(.vertical, 8)
+                    }
+                    .onChange(of: 📱.🚩RandomMode) { _ in
+                        WidgetCenter.shared.reloadAllTimelines()
                     }
                 } footer: {
                     Text("Change the note per 5 minutes.")

@@ -136,24 +136,24 @@ class 🚛ImportProcessModel: ObservableObject {
 }
 
 func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📓Note] {
-    var 📚Notes: [📓Note] = []
+    var 📚notes: [📓Note] = []
     let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
     ⓞneLineTexts.forEach { ⓞneLine in
         if !ⓞneLine.isEmpty {
             if ⓢeparator == .titleOnly {
-                📚Notes.append(📓Note(ⓞneLine))
+                📚notes.append(📓Note(ⓞneLine))
             } else {
                 let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
                 if let ⓣitle = ⓣexts.first {
                     if !ⓣitle.isEmpty {
                         let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                        📚Notes.append(📓Note(ⓣitle, ⓒomment))
+                        📚notes.append(📓Note(ⓣitle, ⓒomment))
                     }
                 }
             }
         }
     }
-    return 📚Notes
+    return 📚notes
 }
 
 enum 🅂eparator: String {

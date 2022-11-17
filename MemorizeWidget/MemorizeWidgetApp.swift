@@ -1,5 +1,6 @@
 
 import SwiftUI
+import WidgetKit
 
 @main
 struct MemorizeWidgetApp: App {
@@ -19,6 +20,10 @@ struct MemorizeWidgetApp: App {
                             📱.🗃Notes.insert(contentsOf: ⓢtockNotes, at: 0)
                         }
                     }
+                }
+                .onChange(of: 📱.🗃Notes) { _ in
+                    📱.💾SaveNotes()
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
         }
     }
