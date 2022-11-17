@@ -96,11 +96,11 @@ struct 🄼ainView: View {
                             print("Pressed checkmark button")
                             switch ⓜodel.type {
                                 case .textFile:
-                                    📚NotesFromExtension().save(notes: ⓝotes)
+                                    📚ShareExtensionManeger.save(ⓝotes)
                                 case .selectedText:
-                                    📚NotesFromExtension().save(notes: [📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
+                                    📚ShareExtensionManeger.save([📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
                                 default:
-                                    📚NotesFromExtension().save(notes: [📓Note("🐛")])
+                                    📚ShareExtensionManeger.save([📓Note("🐛")])
                             }
                             ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                         } label: {

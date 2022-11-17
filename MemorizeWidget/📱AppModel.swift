@@ -13,8 +13,6 @@ class 📱AppModel: ObservableObject {
     @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     
-    var 📚notesFromExtension = 📚NotesFromExtension()
-    
     func 🆕AddNewNote(_ ⓘndex: Int = 0) {
         🗃Notes.insert(📓Note(""), at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
@@ -28,16 +26,6 @@ class 📱AppModel: ObservableObject {
                 return 🗃Notes.randomElement() ?? 📓Note("🐛")
             } else {
                 return 🗃Notes.first ?? 📓Note("🐛")
-            }
-        }
-    }
-    
-    func 📚ImportStockNotesFromExtension() {
-        if let stockNotes = 📚notesFromExtension.stockNotes {
-            if !stockNotes.isEmpty {
-                🗃Notes.insert(contentsOf: stockNotes, at: 0)
-                📚notesFromExtension.💾DataFromExtension = Data()
-                💾SaveNotes()
             }
         }
     }
@@ -64,7 +52,11 @@ class 📱AppModel: ObservableObject {
     
     init() {
         💾LoadNotes()
-        📚ImportStockNotesFromExtension()
+        let ⓢtockNotes = 📚ShareExtensionManeger.takeOutNotes()
+        if !ⓢtockNotes.isEmpty {
+            🗃Notes.insert(contentsOf: ⓢtockNotes, at: 0)
+            💾SaveNotes()
+        }
     }
 }
 
@@ -83,23 +75,41 @@ struct 📓Note: Codable, Identifiable, Hashable {
 
 
 // AppModel.initとscenePhase変化時にメインデータに取り込む
-class 📚NotesFromExtension: ObservableObject { //FIXME: まだ挙動少しおかしい
-    @AppStorage("DataFromExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) var 💾DataFromExtension: Data = Data()
-    
-    var stockNotes: [📓Note]? {
-        try? JSONDecoder().decode([📓Note].self, from: 💾DataFromExtension)
+struct 📚ShareExtensionManeger { //FIXME: まだ挙動少しおかしい
+    static var stockedNotes: [📓Note] {
+        let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+        guard let ⓓata = ⓤd?.data(forKey: "NotesFromExtension") else { return [] }
+        do {
+            return try JSONDecoder().decode([📓Note].self, from: ⓓata)
+        } catch {
+            print("🚨:", error)
+            return []
+        }
     }
     
-    func save(notes: [📓Note]) {
-        var newStockNotes: [📓Note] = []
-        newStockNotes.append(contentsOf: notes)
-        if let stockNotes {
-            newStockNotes.append(contentsOf: stockNotes)
+    static func save(_ ⓝotes: [📓Note]) {
+        var ⓝewStockedNotes: [📓Note] = []
+        ⓝewStockedNotes.append(contentsOf: ⓝotes)
+        if !stockedNotes.isEmpty {
+            ⓝewStockedNotes.append(contentsOf: stockedNotes)
         }
         do {
-            💾DataFromExtension = try JSONEncoder().encode(newStockNotes)
+            let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+            let ⓓata = try JSONEncoder().encode(ⓝewStockedNotes)
+            ⓤd?.set(ⓓata, forKey: "NotesFromExtension")
         } catch {
-            print("🚨Error: ", error)
+            print("🚨:", error)
+        }
+    }
+    
+    static func takeOutNotes() -> [📓Note] {
+        if !stockedNotes.isEmpty {
+            let ⓢtockNotes = stockedNotes
+            let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+            ⓤd?.removeObject(forKey: "NotesFromExtension")
+            return ⓢtockNotes
+        } else {
+            return []
         }
     }
 }

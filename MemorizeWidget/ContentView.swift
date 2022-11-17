@@ -4,7 +4,6 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
     @State private var 🔖Tab: 🔖TabTag = .notesList
     var body: some View {
         TabView(selection: $🔖Tab) {
@@ -46,11 +45,6 @@ struct ContentView: View {
         .onChange(of: 📱.🗃Notes) { _ in
             📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
-        }
-        .onChange(of: ⓢcenePhase) { ⓢcene in
-            if ⓢcene == .active {
-                📱.📚ImportStockNotesFromExtension()
-            }
         }
     }
     enum 🔖TabTag {
