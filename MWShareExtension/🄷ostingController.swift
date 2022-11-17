@@ -19,16 +19,12 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
-                                let ⓓata = try Data(contentsOf: ⓤrl)
-                                if let ⓢtring = String(data: ⓓata, encoding: .utf8) {
-                                    ⓜodel.type = .textFile
-                                    ⓜodel.importedText = ⓢtring
-                                } else {
-                                    ⓜodel.type = .improperFile
-                                }
+                                ⓜodel.importedText = try String(contentsOf: ⓤrl)
+                                ⓜodel.type = .textFile
                             }
                         } catch {
                             print("🚨:", error)
+                            ⓜodel.type = .improperFile
                         }
                     }
                 } else {
