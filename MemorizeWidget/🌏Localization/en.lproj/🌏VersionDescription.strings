@@ -1,5 +1,5 @@
 
-"1.1.1" = "Add support to import notes from other app directly";
+"1.1.1" = "Add support to import notes from other app directly with Share-sheet.";
 "1.1" = "・Bigly improve importability.
 ・Comma-style and title-only-style import option.
 ・Text-encoded file format(e.g. csv, txt) widely support.

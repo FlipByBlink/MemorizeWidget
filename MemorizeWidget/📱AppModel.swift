@@ -52,10 +52,13 @@ class 📱AppModel: ObservableObject {
     
     init() {
         💾LoadNotes()
-        let ⓢtockedNotes = 📚ShareExtensionManeger.takeNotesOut()
-        if !ⓢtockedNotes.isEmpty {
-            🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
-            💾SaveNotes()
+        let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+        if let ⓓata = ⓤd?.data(forKey: "DataFromExtension") {
+            if let ⓢtockedNotes = try? JSONDecoder().decode([📓Note].self, from: ⓓata) {
+                🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
+                ⓤd?.set(Data(), forKey: "DataFromExtension")
+                💾SaveNotes()
+            }
         }
     }
 }
@@ -74,11 +77,11 @@ struct 📓Note: Codable, Identifiable, Hashable {
 }
 
 
-// AppModel.initとScenePhase変化時にメインデータに取り込む
+// AppModel.initとdata(forKey: "DataFromExtension")変化時にメインデータに取り込む
 struct 📚ShareExtensionManeger {
     static var stockedNotes: [📓Note] {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-        guard let ⓓata = ⓤd?.data(forKey: "NotesFromExtension") else { return [] }
+        guard let ⓓata = ⓤd?.data(forKey: "DataFromExtension") else { return [] }
         do {
             return try JSONDecoder().decode([📓Note].self, from: ⓓata)
         } catch {
@@ -96,20 +99,9 @@ struct 📚ShareExtensionManeger {
         do {
             let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
             let ⓓata = try JSONEncoder().encode(ⓝewStockedNotes)
-            ⓤd?.set(ⓓata, forKey: "NotesFromExtension")
+            ⓤd?.set(ⓓata, forKey: "DataFromExtension")
         } catch {
             print("🚨:", error)
-        }
-    }
-    
-    static func takeNotesOut() -> [📓Note] {
-        if !stockedNotes.isEmpty {
-            let ⓢtockNotes = stockedNotes
-            let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-            ⓤd?.removeObject(forKey: "NotesFromExtension")
-            return ⓢtockNotes
-        } else {
-            return []
         }
     }
 }

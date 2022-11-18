@@ -4,7 +4,6 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
         TabView(selection: $🔖tab) {
@@ -40,24 +39,16 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
         }
-        .onChange(of: ⓢcenePhase) { ⓝewValue in
-            if ⓝewValue == .active {
-                let ⓢtockedNotes = 📚ShareExtensionManeger.takeNotesOut()
-                if !ⓢtockedNotes.isEmpty {
-                    📱.🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
-                }
-            }
-        }
         .onChange(of: 📱.🗃Notes) { _ in
             📱.💾SaveNotes()
             WidgetCenter.shared.reloadAllTimelines()
         }
+        .modifier(💾CheckDataFromExtension())
     }
     enum 🔖Tab {
         case notesList, option, purchase, about
     }
 }
-
 
 struct 🗃NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
@@ -744,5 +735,20 @@ struct 🔍SearchButton: View {
     }
     init(_ 🔢NoteIndex: Int) {
         self.🔢NoteIndex = 🔢NoteIndex
+    }
+}
+
+
+struct 💾CheckDataFromExtension: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    @AppStorage("DataFromExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) var 💾DataFromExtension = Data()
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: 💾DataFromExtension) { ⓝewData in
+                if let ⓢtockedNotes = try? JSONDecoder().decode([📓Note].self, from: ⓝewData) {
+                    📱.🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
+                    💾DataFromExtension = Data()
+                }
+            }
     }
 }
