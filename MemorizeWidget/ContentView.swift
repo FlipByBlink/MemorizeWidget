@@ -55,7 +55,7 @@ struct 🗃NotesListTab: View {
     var body: some View {
         NavigationView {
             List {
-                🚩RandomModeToggle()
+                🚩RandomModeSection()
                 Button {
                     📱.🆕AddNewNote()
                 } label: {
@@ -81,6 +81,7 @@ struct 🗃NotesListTab: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
+                        .disabled(📱.🗃Notes.isEmpty)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -94,16 +95,11 @@ struct 🗃NotesListTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    func 🚩RandomModeToggle() -> some View {
+    func 🚩RandomModeSection() -> some View {
         Section {
             Toggle(isOn: 📱.$🚩RandomMode) {
-                Label {
-                    Text("Random mode")
-                        .foregroundStyle(📱.🚩RandomMode ? .primary : .secondary)
-                } icon: {
-                    Image(systemName: "shuffle")
-                }
-                .padding(.vertical, 8)
+                Label("Random mode", systemImage: "shuffle")
+                    .padding(.vertical, 8)
             }
             .onChange(of: 📱.🚩RandomMode) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
