@@ -85,6 +85,7 @@ struct 🄼ainView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
                         switch ⓜodel.type {
                             case .textFile:
                                 📚ShareExtensionManeger.save(ⓝotes)
