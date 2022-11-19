@@ -6,6 +6,10 @@ MemorizeWidget 暗記ウィジェット for iPhone, iPad
 
 <br>
 
+AppStore link
+-----------------
+https://apps.apple.com/app/id1644276262
+
 Description
 ---------------
 Flashcard on widget. Memorize a note in everyday life.
