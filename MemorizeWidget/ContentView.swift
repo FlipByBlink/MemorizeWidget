@@ -55,17 +55,7 @@ struct 🗃NotesListTab: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    Toggle(isOn: 📱.$🚩RandomMode) {
-                        Label("Random mode", systemImage: "shuffle")
-                            .padding(.vertical, 8)
-                    }
-                    .onChange(of: 📱.🚩RandomMode) { _ in
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                } footer: {
-                    Text("Change the note per 5 minutes.")
-                }
+                🚩RandomModeToggle()
                 Button {
                     📱.🆕AddNewNote()
                 } label: {
@@ -104,7 +94,24 @@ struct 🗃NotesListTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
+    func 🚩RandomModeToggle() -> some View {
+        Section {
+            Toggle(isOn: 📱.$🚩RandomMode) {
+                Label {
+                    Text("Random mode")
+                        .foregroundStyle(📱.🚩RandomMode ? .primary : .secondary)
+                } icon: {
+                    Image(systemName: "shuffle")
+                }
+                .padding(.vertical, 8)
+            }
+            .onChange(of: 📱.🚩RandomMode) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+        } footer: {
+            Text("Change the note per 5 minutes.")
+        }
+    }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
         @FocusState private var 🔍Focus: 🄵ocusPattern?
