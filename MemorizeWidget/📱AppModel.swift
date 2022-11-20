@@ -77,6 +77,7 @@ struct 📓Note: Codable, Identifiable, Hashable {
 }
 
 
+//FIXME: 実装やめるか検討
 // AppModel.initとdata(forKey: "DataFromExtension")変化時にメインデータに取り込む
 struct 📚ShareExtensionManeger {
     static var stockedNotes: [📓Note] {
@@ -157,6 +158,8 @@ enum 🅂eparator: String {
 
 
 
-let 🗃SampleNotes: [📓Note] = [📓Note("Lemon", "yellow sour"),
-                               📓Note("Strawberry", "jam red sweet"),
-                               📓Note("Grape", "seedless wine white black")]
+let 🗃SampleNotes: [📓Note] = 🄲onvertTextToNotes("""
+Lemon,yellow sour
+Strawberry,jam red sweet
+Grape,seedless wine white black
+""", .comma)
