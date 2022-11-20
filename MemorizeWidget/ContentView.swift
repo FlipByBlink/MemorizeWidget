@@ -4,6 +4,7 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @Environment(\.scenePhase) var scenePhase: ScenePhase
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
         TabView(selection: $🔖tab) {
@@ -39,11 +40,7 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩ShowImportSheet) {
             📂FileImportSheet()
         }
-        .onChange(of: 📱.🗃Notes) { _ in
-            📱.💾SaveNotes()
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-        .modifier(💾CheckDataFromExtension())
+        .modifier(💾DataAndWidgetManager())
     }
     enum 🔖Tab {
         case notesList, option, purchase, about
@@ -97,7 +94,7 @@ struct 🗃NotesListTab: View {
     }
     func 🆕NewNoteButton() -> some View {
         Button {
-            📱.🆕AddNewNote()
+            📱.🆕addNewNote()
         } label: {
             Label("New note", systemImage: "plus")
                 .font(.title3.weight(.semibold))
@@ -106,7 +103,7 @@ struct 🗃NotesListTab: View {
         .onOpenURL { 🔗 in
             if 🔗.description == "NewNoteShortcut" {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    📱.🆕AddNewNote()
+                    📱.🆕addNewNote()
                 }
             }
         }
@@ -114,7 +111,7 @@ struct 🗃NotesListTab: View {
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
         @FocusState private var 🔍Focus: 🄵ocusPattern?
-        @Binding var ⓝote: 📓Note
+        @Binding var ⓝote: 📗Note
         var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
         var body: some View {
             HStack {
@@ -143,7 +140,7 @@ struct 🗃NotesListTab: View {
                     }
                     Button {
                         guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
-                        📱.🆕AddNewNote(ⓘndex + 1)
+                        📱.🆕addNewNote(ⓘndex + 1)
                     } label: {
                         Label("New note", systemImage: "text.append")
                     }
@@ -170,7 +167,7 @@ struct 🗃NotesListTab: View {
                 }
             }
         }
-        init(_ ⓝote: Binding<📓Note>) {
+        init(_ ⓝote: Binding<📗Note>) {
             self._ⓝote = ⓝote
         }
         enum 🄵ocusPattern {
@@ -745,16 +742,13 @@ struct 🔍SearchButton: View {
 }
 
 
-struct 💾CheckDataFromExtension: ViewModifier {
+struct 💾DataAndWidgetManager: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("DataFromExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) var 💾DataFromExtension = Data()
+    @Environment(\.scenePhase) var 🚥phase: ScenePhase
     func body(content: Content) -> some View {
         content
-            .onChange(of: 💾DataFromExtension) { ⓝewData in
-                if let ⓢtockedNotes = try? JSONDecoder().decode([📓Note].self, from: ⓝewData) {
-                    📱.🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
-                    💾DataFromExtension = Data()
-                }
+            .onChange(of: 🚥phase) { [🚥phase] ⓝewValue in
+                📱.🚥applyDataAndWidgetAccordingAsScene(before: 🚥phase, after: ⓝewValue)
             }
     }
 }

@@ -55,7 +55,7 @@ class 🄳ataModel: ObservableObject {
 struct 🄼ainView: View {
     @ObservedObject var ⓜodel: 🄳ataModel
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓢeparator: 🅂eparator = .tab
-    var ⓝotes: [📓Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
+    var ⓝotes: [📗Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
     var body: some View {
         NavigationView {
             List {
@@ -90,9 +90,9 @@ struct 🄼ainView: View {
                             case .textFile:
                                 📚ShareExtensionManeger.save(ⓝotes)
                             case .selectedText:
-                                📚ShareExtensionManeger.save([📓Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
+                                📚ShareExtensionManeger.save([📗Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
                             default:
-                                📚ShareExtensionManeger.save([📓Note("🐛")])
+                                📚ShareExtensionManeger.save([📗Note("🐛")])
                         }
                         ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {

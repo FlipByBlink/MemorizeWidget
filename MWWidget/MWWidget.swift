@@ -64,12 +64,12 @@ struct 📝NewNoteShortcutWidget: Widget {
 
 struct 🤖NotesProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 📓Note("title", "comment"))
+        🕒Entry(.now, 📗Note("title", "comment"))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
         let 📱 = 📱AppModel()
-        completion(🕒Entry(.now, 📱.📓GetWidgetNote()))
+        completion(🕒Entry(.now, 📱.📗getWidgetNote()))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -78,7 +78,7 @@ struct 🤖NotesProvider: TimelineProvider {
         for ⓒount in 0 ..< 12 {
             let ⓞffset = ⓒount * 5
             let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-            ⓔntries.append(🕒Entry(ⓓate, 📱.📓GetWidgetNote()))
+            ⓔntries.append(🕒Entry(ⓓate, 📱.📗getWidgetNote()))
         }
         completion(Timeline(entries: ⓔntries, policy: .atEnd))
     }
@@ -86,23 +86,23 @@ struct 🤖NotesProvider: TimelineProvider {
 
 struct 🤖NewNoteShortcutProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 📓Note(""))
+        🕒Entry(.now, 📗Note(""))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        completion(🕒Entry(.now, 📓Note("")))
+        completion(🕒Entry(.now, 📗Note("")))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        completion(Timeline(entries: [🕒Entry(.now, 📓Note(""))], policy: .never))
+        completion(Timeline(entries: [🕒Entry(.now, 📗Note(""))], policy: .never))
     }
 }
 
 
 struct 🕒Entry: TimelineEntry {
     let date: Date
-    let ⓝote: 📓Note
-    init(_ date: Date, _ ⓝote: 📓Note) {
+    let ⓝote: 📗Note
+    init(_ date: Date, _ ⓝote: 📗Note) {
         self.date = date
         self.ⓝote = ⓝote
     }

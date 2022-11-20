@@ -1,8 +1,9 @@
 
 import SwiftUI
+import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 🗃Notes: [📓Note] = 🗃SampleNotes
+    @Published var 🗃Notes: [📗Note] = 🗃SampleNotes
     @Published var 🚩ShowNoteSheet: Bool = false
     @Published var 🆔OpenedNoteID: String? = nil
     @Published var 🚩ShowImportSheet: Bool = false
@@ -13,24 +14,33 @@ class 📱AppModel: ObservableObject {
     @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     
-    func 🆕AddNewNote(_ ⓘndex: Int = 0) {
-        🗃Notes.insert(📓Note(""), at: ⓘndex)
+    func 🆕addNewNote(_ ⓘndex: Int = 0) {
+        🗃Notes.insert(📗Note(""), at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
-    func 📓GetWidgetNote() -> 📓Note {
+    func 📗getWidgetNote() -> 📗Note {
         if 🗃Notes.isEmpty {
-            return 📓Note("No note")
+            return 📗Note("No note")
         } else {
             if 🚩RandomMode {
-                return 🗃Notes.randomElement() ?? 📓Note("🐛")
+                return 🗃Notes.randomElement() ?? 📗Note("🐛")
             } else {
-                return 🗃Notes.first ?? 📓Note("🐛")
+                return 🗃Notes.first ?? 📗Note("🐛")
             }
         }
     }
     
-    func 💾SaveNotes() {
+    func 🚥applyDataAndWidgetAccordingAsScene(before: ScenePhase, after: ScenePhase) {
+        if before != .active && after == .active {
+            💾loadNotesData()
+        } else if before == .active && after != .active {
+            💾saveNotesData()
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+    
+    private func 💾saveNotesData() {
         do {
             let ⓓata = try JSONEncoder().encode(🗃Notes)
             let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
@@ -40,31 +50,31 @@ class 📱AppModel: ObservableObject {
         }
     }
     
-    func 💾LoadNotes() {
+    private func 💾loadNotesData() {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return }
         do {
-            🗃Notes = try JSONDecoder().decode([📓Note].self, from: ⓓata)
+            🗃Notes = try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {
             print("🚨: ", error)
         }
     }
     
     init() {
-        💾LoadNotes()
+        💾loadNotesData()
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         if let ⓓata = ⓤd?.data(forKey: "DataFromExtension") {
-            if let ⓢtockedNotes = try? JSONDecoder().decode([📓Note].self, from: ⓓata) {
+            if let ⓢtockedNotes = try? JSONDecoder().decode([📗Note].self, from: ⓓata) {
                 🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
                 ⓤd?.set(Data(), forKey: "DataFromExtension")
-                💾SaveNotes()
+                💾saveNotesData()
             }
         }
     }
 }
 
 
-struct 📓Note: Codable, Identifiable, Hashable {
+struct 📗Note: Codable, Identifiable, Hashable {
     var title: String
     var comment: String
     var id: UUID
@@ -78,21 +88,20 @@ struct 📓Note: Codable, Identifiable, Hashable {
 
 
 //FIXME: 実装やめるか検討
-// AppModel.initとdata(forKey: "DataFromExtension")変化時にメインデータに取り込む
 struct 📚ShareExtensionManeger {
-    static var stockedNotes: [📓Note] {
+    static var stockedNotes: [📗Note] {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         guard let ⓓata = ⓤd?.data(forKey: "DataFromExtension") else { return [] }
         do {
-            return try JSONDecoder().decode([📓Note].self, from: ⓓata)
+            return try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {
             print("🚨:", error)
             return []
         }
     }
     
-    static func save(_ ⓝotes: [📓Note]) {
-        var ⓝewStockedNotes: [📓Note] = []
+    static func save(_ ⓝotes: [📗Note]) {
+        var ⓝewStockedNotes: [📗Note] = []
         ⓝewStockedNotes.append(contentsOf: ⓝotes)
         if !stockedNotes.isEmpty {
             ⓝewStockedNotes.append(contentsOf: stockedNotes)
@@ -114,7 +123,7 @@ let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 class 🚛ImportProcessModel: ObservableObject {
     @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
     @Published var ⓘnputText: String = ""
-    @Published var ⓞutputNotes: [📓Note] = []
+    @Published var ⓞutputNotes: [📗Note] = []
     
     func 🄸mportFile(_ 📦Result: Result<URL, Error>) throws {
         let 📦 = try 📦Result.get()
@@ -128,19 +137,19 @@ class 🚛ImportProcessModel: ObservableObject {
     }
 }
 
-func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📓Note] {
-    var 📚notes: [📓Note] = []
+func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📗Note] {
+    var 📚notes: [📗Note] = []
     let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
     ⓞneLineTexts.forEach { ⓞneLine in
         if !ⓞneLine.isEmpty {
             if ⓢeparator == .titleOnly {
-                📚notes.append(📓Note(ⓞneLine))
+                📚notes.append(📗Note(ⓞneLine))
             } else {
                 let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
                 if let ⓣitle = ⓣexts.first {
                     if !ⓣitle.isEmpty {
                         let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                        📚notes.append(📓Note(ⓣitle, ⓒomment))
+                        📚notes.append(📗Note(ⓣitle, ⓒomment))
                     }
                 }
             }
@@ -158,7 +167,7 @@ enum 🅂eparator: String {
 
 
 
-let 🗃SampleNotes: [📓Note] = 🄲onvertTextToNotes("""
+let 🗃SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
 Lemon,yellow sour
 Strawberry,jam red sweet
 Grape,seedless wine white black
