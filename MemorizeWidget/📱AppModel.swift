@@ -3,30 +3,30 @@ import SwiftUI
 import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 🗃Notes: [📗Note] = 🗃SampleNotes
-    @Published var 🚩ShowNoteSheet: Bool = false
-    @Published var 🆔OpenedNoteID: String? = nil
-    @Published var 🚩ShowImportSheet: Bool = false
+    @Published var 📚notes: [📗Note] = 🗃SampleNotes
+    @Published var 🚩showNoteSheet: Bool = false
+    @Published var 🆔openedNoteID: String? = nil
+    @Published var 🚩showImportSheet: Bool = false
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-    @AppStorage("RandomMode", store: ⓤd) var 🚩RandomMode: Bool = false
-    @AppStorage("ShowComment", store: ⓤd) var 🚩ShowComment: Bool = false
+    @AppStorage("RandomMode", store: ⓤd) var 🚩randomMode: Bool = false
+    @AppStorage("ShowComment", store: ⓤd) var 🚩showComment: Bool = false
     @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     
     func 🆕addNewNote(_ ⓘndex: Int = 0) {
-        🗃Notes.insert(📗Note(""), at: ⓘndex)
+        📚notes.insert(📗Note(""), at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
-    func 📗getWidgetNote() -> 📗Note {
-        if 🗃Notes.isEmpty {
+    func 📗getWidgetNote() -> 📗Note { //FIXME: リファクタリング
+        if 📚notes.isEmpty {
             return 📗Note("No note")
         } else {
-            if 🚩RandomMode {
-                return 🗃Notes.randomElement() ?? 📗Note("🐛")
+            if 🚩randomMode {
+                return 📚notes.randomElement() ?? 📗Note("🐛")
             } else {
-                return 🗃Notes.first ?? 📗Note("🐛")
+                return 📚notes.first ?? 📗Note("🐛")
             }
         }
     }
@@ -42,7 +42,7 @@ class 📱AppModel: ObservableObject {
     
     private func 💾saveNotesData() {
         do {
-            let ⓓata = try JSONEncoder().encode(🗃Notes)
+            let ⓓata = try JSONEncoder().encode(📚notes)
             let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
             ⓤd?.set(ⓓata, forKey: "Notes")
         } catch {
@@ -54,7 +54,7 @@ class 📱AppModel: ObservableObject {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return }
         do {
-            🗃Notes = try JSONDecoder().decode([📗Note].self, from: ⓓata)
+            📚notes = try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {
             print("🚨: ", error)
         }
@@ -65,7 +65,7 @@ class 📱AppModel: ObservableObject {
         let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
         if let ⓓata = ⓤd?.data(forKey: "DataFromExtension") {
             if let ⓢtockedNotes = try? JSONDecoder().decode([📗Note].self, from: ⓓata) {
-                🗃Notes.insert(contentsOf: ⓢtockedNotes, at: 0)
+                📚notes.insert(contentsOf: ⓢtockedNotes, at: 0)
                 ⓤd?.set(Data(), forKey: "DataFromExtension")
                 💾saveNotesData()
             }
@@ -87,6 +87,9 @@ struct 📗Note: Codable, Identifiable, Hashable {
 }
 
 
+let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
+
+
 //FIXME: 実装やめるか検討
 struct 📚ShareExtensionManeger {
     static var stockedNotes: [📗Note] {
@@ -99,7 +102,7 @@ struct 📚ShareExtensionManeger {
             return []
         }
     }
-    
+
     static func save(_ ⓝotes: [📗Note]) {
         var ⓝewStockedNotes: [📗Note] = []
         ⓝewStockedNotes.append(contentsOf: ⓝotes)
@@ -115,9 +118,6 @@ struct 📚ShareExtensionManeger {
         }
     }
 }
-
-
-let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 
 class 🚛ImportProcessModel: ObservableObject {
@@ -138,24 +138,24 @@ class 🚛ImportProcessModel: ObservableObject {
 }
 
 func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📗Note] {
-    var 📚notes: [📗Note] = []
+    var ⓝotes: [📗Note] = []
     let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
     ⓞneLineTexts.forEach { ⓞneLine in
         if !ⓞneLine.isEmpty {
             if ⓢeparator == .titleOnly {
-                📚notes.append(📗Note(ⓞneLine))
+                ⓝotes.append(📗Note(ⓞneLine))
             } else {
                 let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
                 if let ⓣitle = ⓣexts.first {
                     if !ⓣitle.isEmpty {
                         let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                        📚notes.append(📗Note(ⓣitle, ⓒomment))
+                        ⓝotes.append(📗Note(ⓣitle, ⓒomment))
                     }
                 }
             }
         }
     }
-    return 📚notes
+    return ⓝotes
 }
 
 enum 🅂eparator: String {

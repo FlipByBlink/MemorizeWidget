@@ -124,7 +124,7 @@ struct 🅆idgetEntryView : View {
                         Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.headline)
-                        if 📱.🚩ShowComment {
+                        if 📱.🚩showComment {
                             if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
                                     .font(.subheadline)
@@ -145,7 +145,7 @@ struct 🅆idgetEntryView : View {
                         Spacer(minLength: 0)
                         Text(ⓔntry.ⓝote.title)
                             .font(.title.bold())
-                        if 📱.🚩ShowComment {
+                        if 📱.🚩showComment {
                             if ⓔntry.ⓝote.comment != "" {
                                 Text(ⓔntry.ⓝote.comment)
                                     .font(.title2)
@@ -165,7 +165,7 @@ struct 🅆idgetEntryView : View {
                         VStack(spacing: 0) {
                             Text(ⓔntry.ⓝote.title)
                                 .font(.headline)
-                            if 📱.🚩ShowComment {
+                            if 📱.🚩showComment {
                                 if ⓔntry.ⓝote.comment != "" {
                                     Text(ⓔntry.ⓝote.comment)
                                         .font(.subheadline)

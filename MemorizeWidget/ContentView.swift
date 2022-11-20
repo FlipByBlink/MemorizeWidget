@@ -8,7 +8,7 @@ struct ContentView: View {
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
         TabView(selection: $🔖tab) {
-            🗃NotesListTab()
+            📚NotesListTab()
                 .tag(🔖Tab.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
             🔩OptionTab()
@@ -23,21 +23,21 @@ struct ContentView: View {
         }
         .onOpenURL { 🔗 in
             if 🔗.description == "NewNoteShortcut" {
-                📱.🚩ShowImportSheet = false
-                📱.🚩ShowNoteSheet = false
+                📱.🚩showImportSheet = false
+                📱.🚩showNoteSheet = false
             }
-            if 📱.🗃Notes.contains(where: { $0.id.description == 🔗.description }) {
-                📱.🚩ShowImportSheet = false
-                📱.🚩ShowNoteSheet = true
-                📱.🆔OpenedNoteID = 🔗.description
+            if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
+                📱.🚩showImportSheet = false
+                📱.🚩showNoteSheet = true
+                📱.🆔openedNoteID = 🔗.description
             }
             🔖tab = .notesList
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
-        .sheet(isPresented: $📱.🚩ShowNoteSheet) {
+        .sheet(isPresented: $📱.🚩showNoteSheet) {
             🪧NoteSheet()
         }
-        .sheet(isPresented: $📱.🚩ShowImportSheet) {
+        .sheet(isPresented: $📱.🚩showImportSheet) {
             📂FileImportSheet()
         }
         .modifier(💾DataAndWidgetManager())
@@ -47,30 +47,30 @@ struct ContentView: View {
     }
 }
 
-struct 🗃NotesListTab: View {
+struct 📚NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationView {
             List {
                 🚩RandomModeSection()
                 🆕NewNoteButton()
-                ForEach($📱.🗃Notes) { ⓝote in
+                ForEach($📱.📚notes) { ⓝote in
                     📓NoteRow(ⓝote)
                 }
-                .onDelete { 📱.🗃Notes.remove(atOffsets: $0) }
-                .onMove { 📱.🗃Notes.move(fromOffsets: $0, toOffset: $1) }
+                .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .animation(.default, value: 📱.🗃Notes)
+            .animation(.default, value: 📱.📚notes)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
-                        .disabled(📱.🗃Notes.isEmpty)
+                        .disabled(📱.📚notes.isEmpty)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         UISelectionFeedbackGenerator().selectionChanged()
-                        📱.🚩ShowImportSheet.toggle()
+                        📱.🚩showImportSheet.toggle()
                     } label: {
                         Label("Import notes", systemImage: "tray.and.arrow.down")
                     }
@@ -81,11 +81,11 @@ struct 🗃NotesListTab: View {
     }
     func 🚩RandomModeSection() -> some View {
         Section {
-            Toggle(isOn: 📱.$🚩RandomMode) {
+            Toggle(isOn: 📱.$🚩randomMode) {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .onChange(of: 📱.🚩RandomMode) { _ in
+            .onChange(of: 📱.🚩randomMode) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
@@ -112,7 +112,7 @@ struct 🗃NotesListTab: View {
         @EnvironmentObject var 📱: 📱AppModel
         @FocusState private var 🔍Focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
-        var 🎨Thin: Bool { !📱.🚩RandomMode && 📱.🗃Notes.first != ⓝote }
+        var 🎨Thin: Bool { !📱.🚩randomMode && 📱.📚notes.first != ⓝote }
         var body: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
@@ -132,14 +132,14 @@ struct 🗃NotesListTab: View {
                 .accessibilityHidden(!ⓝote.title.isEmpty)
                 Menu {
                     Button {
-                        📱.🆔OpenedNoteID = ⓝote.id.description
-                        📱.🚩ShowNoteSheet = true
+                        📱.🆔openedNoteID = ⓝote.id.description
+                        📱.🚩showNoteSheet = true
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Label("Detail", systemImage: "doc.plaintext")
                     }
                     Button {
-                        guard let ⓘndex = 📱.🗃Notes.firstIndex(of: ⓝote) else { return }
+                        guard let ⓘndex = 📱.📚notes.firstIndex(of: ⓝote) else { return }
                         📱.🆕addNewNote(ⓘndex + 1)
                     } label: {
                         Label("New note", systemImage: "text.append")
@@ -162,7 +162,7 @@ struct 🗃NotesListTab: View {
             .onChange(of: 🔍Focus) { ⓝewValue in
                 if ⓝewValue == nil {
                     if ⓝote.title == "" {
-                        📱.🗃Notes.removeAll(where: { $0 == ⓝote })
+                        📱.📚notes.removeAll(where: { $0 == ⓝote })
                     }
                 }
             }
@@ -184,7 +184,7 @@ struct 🪧NoteSheet: View {
     @State private var 🚩ShowADMenuSheet: Bool = false
     @FocusState private var 🔍CommentFocus: Bool
     var 🔢NoteIndex: Int? {
-        📱.🗃Notes.firstIndex { $0.id.uuidString == 📱.🆔OpenedNoteID }
+        📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
     }
     var body: some View {
         NavigationView {
@@ -192,11 +192,11 @@ struct 🪧NoteSheet: View {
                 VStack {
                     Spacer()
                     if let 🔢NoteIndex {
-                        TextField("No title", text: $📱.🗃Notes[🔢NoteIndex].title)
+                        TextField("No title", text: $📱.📚notes[🔢NoteIndex].title)
                             .font(.title.bold())
                             .multilineTextAlignment(.center)
                             .accessibilityHidden(true)
-                        TextEditor(text: $📱.🗃Notes[🔢NoteIndex].comment)
+                        TextEditor(text: $📱.📚notes[🔢NoteIndex].comment)
                             .focused($🔍CommentFocus)
                             .multilineTextAlignment(.center)
                             .font(.title3.weight(.light))
@@ -204,7 +204,7 @@ struct 🪧NoteSheet: View {
                             .frame(minHeight: 50, maxHeight: 180)
                             .accessibilityHidden(true)
                             .overlay(alignment: .top) {
-                                if 📱.🗃Notes[🔢NoteIndex].comment.isEmpty {
+                                if 📱.📚notes[🔢NoteIndex].comment.isEmpty {
                                     Text("No comment")
                                         .foregroundStyle(.quaternary)
                                         .padding(6)
@@ -229,7 +229,7 @@ struct 🪧NoteSheet: View {
                         Spacer()
                         HStack(spacing: 36) {
                             Button(role: .destructive) {
-                                📱.🗃Notes.remove(at: 🔢NoteIndex)
+                                📱.📚notes.remove(at: 🔢NoteIndex)
                                 UINotificationFeedbackGenerator().notificationOccurred(.warning)
                             } label: {
                                 Label("Delete", systemImage: "trash")
@@ -290,11 +290,11 @@ struct 🔩OptionTab: View {
         NavigationView {
             List {
                 Section {
-                    Toggle(isOn: 📱.$🚩ShowComment) {
+                    Toggle(isOn: 📱.$🚩showComment) {
                         Label("Show comment on widget", systemImage: "text.append")
                             .padding(.vertical, 8)
                     }
-                    .onChange(of: 📱.🚩ShowComment) { _ in
+                    .onChange(of: 📱.🚩showComment) { _ in
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                     VStack(spacing: 16) {
@@ -319,7 +319,7 @@ struct 🔩OptionTab: View {
                 
                 Menu {
                     Button(role: .destructive) {
-                        📱.🗃Notes.removeAll()
+                        📱.📚notes.removeAll()
                         UINotificationFeedbackGenerator().notificationOccurred(.error)
                     } label: {
                         Label("OK, delete all notes.", systemImage: "trash")
@@ -328,10 +328,10 @@ struct 🔩OptionTab: View {
                     ZStack {
                         Color.clear
                         Label("Delete all notes.", systemImage: "trash")
-                            .foregroundColor(📱.🗃Notes.isEmpty ? nil : .red)
+                            .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
                     }
                 }
-                .disabled(📱.🗃Notes.isEmpty)
+                .disabled(📱.📚notes.isEmpty)
             }
             .navigationTitle("Option")
         }
@@ -623,10 +623,10 @@ struct 📂FileImportSheet: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if !🚛ImportProcess.ⓞutputNotes.isEmpty {
                         Button {
-                            📱.🚩ShowImportSheet = false
+                            📱.🚩showImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.🗃Notes.insert(contentsOf: 🚛ImportProcess.ⓞutputNotes, at: 0)
+                                📱.📚notes.insert(contentsOf: 🚛ImportProcess.ⓞutputNotes, at: 0)
                                 🚛ImportProcess.ⓞutputNotes = []
                             }
                         } label: {
@@ -637,7 +637,7 @@ struct 📂FileImportSheet: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Button {
-                        📱.🚩ShowImportSheet = false
+                        📱.🚩showImportSheet = false
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
@@ -690,7 +690,7 @@ struct 📗SystemDictionaryButton: View {
                 .labelStyle(.iconOnly)
         }
         .sheet(isPresented: $🚩ShowSystemDictionary) {
-            📗SystemDictionarySheet(term: 📱.🗃Notes[🔢NoteIndex].title)
+            📗SystemDictionarySheet(term: 📱.📚notes[🔢NoteIndex].title)
         }
     }
     init(_ 🔢NoteIndex: Int) {
@@ -726,7 +726,7 @@ struct 🔍SearchButton: View {
     var body: some View {
         Button {
             let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
-            let ⓣext = ⓛeading + 📱.🗃Notes[🔢NoteIndex].title + 📱.🔗Trailing
+            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 📱.🔗Trailing
             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
