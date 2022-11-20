@@ -56,20 +56,7 @@ struct 🗃NotesListTab: View {
         NavigationView {
             List {
                 🚩RandomModeSection()
-                Button {
-                    📱.🆕AddNewNote()
-                } label: {
-                    Label("New note", systemImage: "plus")
-                        .font(.title3.weight(.semibold))
-                        .padding(.vertical, 7)
-                }
-                .onOpenURL { 🔗 in
-                    if 🔗.description == "NewNoteShortcut" {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            📱.🆕AddNewNote()
-                        }
-                    }
-                }
+                🆕NewNoteButton()
                 ForEach($📱.🗃Notes) { ⓝote in
                     📓NoteRow(ⓝote)
                 }
@@ -106,6 +93,22 @@ struct 🗃NotesListTab: View {
             }
         } footer: {
             Text("Change the note per 5 minutes.")
+        }
+    }
+    func 🆕NewNoteButton() -> some View {
+        Button {
+            📱.🆕AddNewNote()
+        } label: {
+            Label("New note", systemImage: "plus")
+                .font(.title3.weight(.semibold))
+                .padding(.vertical, 7)
+        }
+        .onOpenURL { 🔗 in
+            if 🔗.description == "NewNoteShortcut" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    📱.🆕AddNewNote()
+                }
+            }
         }
     }
     struct 📓NoteRow: View {
