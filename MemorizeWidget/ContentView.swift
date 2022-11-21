@@ -62,9 +62,6 @@ struct 📚NotesListTab: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.📚notes)
-            .refreshable {
-                📱.💾LoadNotesData()
-            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -170,11 +167,11 @@ struct 📚NotesListTab: View {
                 }
             }
         }
-        init(_ ⓝote: Binding<📗Note>) {
-            self._ⓝote = ⓝote
-        }
         enum 🄵ocusPattern {
             case title, comment
+        }
+        init(_ ⓝote: Binding<📗Note>) {
+            self._ⓝote = ⓝote
         }
     }
 }
@@ -340,31 +337,23 @@ struct 🔩OptionTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    struct 🏞BeforeAfterImage: View {
-        var ⓑefore: String
-        var ⓐfter: String
-        var body: some View {
-            HStack {
-                Image(ⓑefore)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(16)
-                    .shadow(radius: 2)
-                    .rotationEffect(.degrees(1))
-                Image(systemName: "arrow.right")
-                    .font(.title2.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Image(ⓐfter)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(16)
-                    .shadow(radius: 2)
-                    .rotationEffect(.degrees(1))
-            }
-        }
-        init(_ ⓑefore: String, _ ⓐfter: String) {
-            self.ⓑefore = ⓑefore
-            self.ⓐfter = ⓐfter
+    func 🏞BeforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
+        HStack {
+            Image(ⓑefore)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+                .rotationEffect(.degrees(1))
+            Image(systemName: "arrow.right")
+                .font(.title2.weight(.semibold))
+                .foregroundStyle(.secondary)
+            Image(ⓐfter)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+                .rotationEffect(.degrees(1))
         }
     }
     struct 🔍CustomizeSearchSection: View {
@@ -398,10 +387,8 @@ struct 🔩OptionTab: View {
 struct 🛒PurchaseTab: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
-        NavigationView {
-            📣ADMenu()
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+        NavigationView { 📣ADMenu() }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -410,15 +397,15 @@ struct ℹ️AboutAppTab: View {
     var body: some View {
         if #available(iOS 16.0, *) {
             NavigationStack {
-                🄻ist()
+                🄻istView()
                     .toolbar(.visible, for: .navigationBar)
             }
         } else {
-            NavigationView { 🄻ist() }
+            NavigationView { 🄻istView() }
                 .navigationViewStyle(StackNavigationViewStyle())
         }
     }
-    func 🄻ist() -> some View {
+    func 🄻istView() -> some View {
         List {
             Section {
                 ZStack {
@@ -664,14 +651,12 @@ struct 📂FileImportSheet: View {
             }
         }
     }
-    struct 🄽otSupportMultiLineTextInNote: View {
-        var body: some View {
-            Section {
-                Text("Not support multi line text in note.")
-                    .foregroundStyle(.secondary)
-            } header: {
-                Text("Directions")
-            }
+    func 🄽otSupportMultiLineTextInNote() -> some View {
+        Section {
+            Text("Not support multi line text in note.")
+                .foregroundStyle(.secondary)
+        } header: {
+            Text("Directions")
         }
     }
     enum 🄸nputMode: String {
