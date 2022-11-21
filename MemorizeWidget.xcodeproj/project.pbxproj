@@ -28,6 +28,7 @@
 		F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
+		F5AAE664292B54F200FB8406 /* 📨ShareExtensionModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
 		F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 			dstPath = "🧰Others";
 			dstSubfolderSpec = 7;
 			files = (
+				F5AAE664292B54F200FB8406 /* 📨ShareExtensionModel.swift in CopyFiles */,
 				F5CEA6042925D2A100752277 /* 🄷ostingViewController.swift in CopyFiles */,
 				F59EEFF128F3FCEB002D9AD7 /* ℹ️AboutAppMenu.swift in CopyFiles */,
 				F59EEFF328F3FCEB002D9AD7 /* 📣AD.swift in CopyFiles */,

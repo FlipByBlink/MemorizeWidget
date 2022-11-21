@@ -3,7 +3,7 @@ import SwiftUI
 class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     @Published var type: 🅃ype? = nil
-    @Published var importedText: String = ""
+    @Published var importedText: String = "" //TODO: リファクタリング
     @Published var inputTitle: String = ""
     @Published var inputComment: String = ""
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
