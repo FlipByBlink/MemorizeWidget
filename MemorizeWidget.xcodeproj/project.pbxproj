@@ -16,7 +16,6 @@
 		F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
 		F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
-		F549E84A290E3BD100636271 /* MWWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift */; };
@@ -28,6 +27,9 @@
 		F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
+		F5AAE666292B741B00FB8406 /* ⭐️BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
+		F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
+		F5AAE668292B754000FB8406 /* ⭐️BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
 		F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
@@ -39,7 +41,6 @@
 		F5CEA6012924CCFE00752277 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5CEA6022925C93E00752277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F5CEA6032925C94200752277 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
-		F5CEA6042925D2A100752277 /* 🄷ostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
 		F5CEA6052925D30B00752277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
 		F5D30CC828C6F6C8001198AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F5D30CCA28C6F6C8001198AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
@@ -73,7 +74,6 @@
 			dstPath = "🧰Others";
 			dstSubfolderSpec = 7;
 			files = (
-				F5CEA6042925D2A100752277 /* 🄷ostingViewController.swift in CopyFiles */,
 				F59EEFF128F3FCEB002D9AD7 /* ℹ️AboutAppMenu.swift in CopyFiles */,
 				F59EEFF328F3FCEB002D9AD7 /* 📣AD.swift in CopyFiles */,
 				F59EEFF428F3FCEB002D9AD7 /* 🛒InAppPurchase.swift in CopyFiles */,
@@ -86,7 +86,6 @@
 			dstPath = main;
 			dstSubfolderSpec = 7;
 			files = (
-				F549E84A290E3BD100636271 /* MWWidget.swift in CopyFiles */,
 				F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in CopyFiles */,
 				F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */,
 				F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */,
@@ -124,6 +123,7 @@
 		F59EEFE828F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️AboutAppMenu.swift"; sourceTree = "<group>"; };
 		F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨ShareExtensionModel.swift"; sourceTree = "<group>"; };
+		F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "⭐️BaseModel.swift"; sourceTree = "<group>"; };
 		F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeWidgetApp.swift; sourceTree = "<group>"; };
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +210,7 @@
 			children = (
 				F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
+				F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */,
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
 				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
 				F507EA9728CA145000ECF06A /* 🌏Localization */,
@@ -412,6 +413,7 @@
 			files = (
 				F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */,
 				F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */,
+				F5AAE666292B741B00FB8406 /* ⭐️BaseModel.swift in Sources */,
 				F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */,
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
 				F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */,
@@ -423,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5AAE668292B754000FB8406 /* ⭐️BaseModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
 				F5CEA6012924CCFE00752277 /* 📱AppModel.swift in Sources */,
 				F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */,
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */,
+				F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */,
 				F5D30CDA28C70546001198AF /* 📱AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
