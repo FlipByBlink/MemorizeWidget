@@ -19,12 +19,6 @@ class 📱AppModel: ObservableObject {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
-    func 🆕addNotesFromWidget(_ ⓝewNotes: [📗Note]) {
-        var ⓝotes = 💾DataManager.notes ?? []
-        ⓝotes.insert(contentsOf: ⓝewNotes, at: 0)
-        💾DataManager.save(ⓝotes)
-    }
-    
     func 💾LoadNotesData() {
         if let ⓝotes = 💾DataManager.notes {
             📚notes = ⓝotes
@@ -39,7 +33,7 @@ class 📱AppModel: ObservableObject {
 }
 
 
-class 🚛ImportProcessModel: ObservableObject {
+class 🚛ImportProcessModel: ObservableObject {//TODO: リファクタリング
     @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
     @Published var ⓘnputText: String = ""
     @Published var ⓞutputNotes: [📗Note] = []

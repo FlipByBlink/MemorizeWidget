@@ -300,7 +300,7 @@ struct 🔩OptionTab: View {
                     }
                 }
                 
-                💣RemoveAllNotesButton()
+                💣DeleteAllNotesButton()
             }
             .navigationTitle("Option")
         }
@@ -366,7 +366,7 @@ struct 🔩OptionTab: View {
         }
         .headerProminence(.increased)
     }
-    func 💣RemoveAllNotesButton() -> some View {
+    func 💣DeleteAllNotesButton() -> some View {
         Menu {
             Button(role: .destructive) {
                 📱.📚notes.removeAll()
