@@ -53,4 +53,4 @@ let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
 Lemon,yellow sour
 Strawberry,jam red sweet
 Grape,seedless wine white black
-""", .comma)
+""", .comma)//TODO: 再検討
