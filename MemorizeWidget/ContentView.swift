@@ -79,17 +79,20 @@ struct 📚NotesListTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    func 🚩RandomModeSection() -> some View {
-        Section {
-            Toggle(isOn: 📱.$🚩randomMode) {
-                Label("Random mode", systemImage: "shuffle")
-                    .padding(.vertical, 8)
+    struct 🚩RandomModeSection: View {
+        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
+        var body: some View {
+            Section {
+                Toggle(isOn: $🚩randomMode) {
+                    Label("Random mode", systemImage: "shuffle")
+                        .padding(.vertical, 8)
+                }
+                .onChange(of: 🚩randomMode) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            } footer: {
+                Text("Change the note per 5 minutes.")
             }
-            .onChange(of: 📱.🚩randomMode) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
-        } footer: {
-            Text("Change the note per 5 minutes.")
         }
     }
     func 🆕NewNoteButton() -> some View {
@@ -110,9 +113,10 @@ struct 📚NotesListTab: View {
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
+        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
         @FocusState private var 🔍Focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
-        var 🎨Thin: Bool { !📱.🚩randomMode && 📱.📚notes.first != ⓝote }
+        var 🎨Thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
         var body: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
@@ -306,42 +310,45 @@ struct 🔩OptionTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    func 💬CommentOnWidgetSection() -> some View {
-        Section {
-            Toggle(isOn: 📱.$🚩showComment) {
-                Label("Show comment on widget", systemImage: "text.append")
-                    .padding(.vertical, 8)
-            }
-            .onChange(of: 📱.🚩showComment) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
-            VStack(spacing: 16) {
-                🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
-                if #available(iOS 16.0, *) {
-                    🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+    struct 💬CommentOnWidgetSection: View {
+        @AppStorage("ShowComment", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩showComment: Bool = false//TODO: リファクタリング
+        var body: some View {
+            Section {
+                Toggle(isOn: $🚩showComment) {
+                    Label("Show comment on widget", systemImage: "text.append")
+                        .padding(.vertical, 8)
                 }
+                .onChange(of: 🚩showComment) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+                VStack(spacing: 16) {
+                    🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
+                    if #available(iOS 16.0, *) {
+                        🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                    }
+                }
+                .padding()
+                .frame(maxHeight: 500)
             }
-            .padding()
-            .frame(maxHeight: 500)
         }
-    }
-    func 🏞BeforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
-        HStack {
-            Image(ⓑefore)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(16)
-                .shadow(radius: 2)
-                .rotationEffect(.degrees(1))
-            Image(systemName: "arrow.right")
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Image(ⓐfter)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(16)
-                .shadow(radius: 2)
-                .rotationEffect(.degrees(1))
+        func 🏞BeforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
+            HStack {
+                Image(ⓑefore)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(16)
+                    .shadow(radius: 2)
+                    .rotationEffect(.degrees(1))
+                Image(systemName: "arrow.right")
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                Image(ⓐfter)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(16)
+                    .shadow(radius: 2)
+                    .rotationEffect(.degrees(1))
+            }
         }
     }
     struct 🔍CustomizeSearchSection: View {
