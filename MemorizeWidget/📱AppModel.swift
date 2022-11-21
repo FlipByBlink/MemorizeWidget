@@ -3,7 +3,7 @@ import SwiftUI
 import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 📚notes: [📗Note] = 🗃SampleNotes
+    @Published var 📚notes: [📗Note]
     @Published var 🚩showNoteSheet: Bool = false
     @Published var 🆔openedNoteID: String? = nil
     @Published var 🚩showImportSheet: Bool = false
@@ -33,43 +33,23 @@ class 📱AppModel: ObservableObject {
     
     func 🚥applyDataAndWidgetAccordingAsScene(before: ScenePhase, after: ScenePhase) {
         if before != .active && after == .active {
-            💾loadNotesData()
+            if let ⓝotes = 💾DataManager.load() {
+                📚notes = ⓝotes
+            }
         } else if before == .active && after != .active {
-            💾saveNotesData()
+            💾DataManager.save(📚notes)
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
-    private func 💾saveNotesData() {
-        do {
-            let ⓓata = try JSONEncoder().encode(📚notes)
-            let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-            ⓤd?.set(ⓓata, forKey: "Notes")
-        } catch {
-            print("🚨: ", error)
-        }
-    }
-    
-    private func 💾loadNotesData() {
-        let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-        guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return }
-        do {
-            📚notes = try JSONDecoder().decode([📗Note].self, from: ⓓata)
-        } catch {
-            print("🚨: ", error)
-        }
+    func 🆕addNotesFromWidget(_ ⓝewNotes: [📗Note]) {
+        var ⓝotes = 💾DataManager.load() ?? []
+        ⓝotes.insert(contentsOf: ⓝewNotes, at: 0)
+        💾DataManager.save(ⓝotes)
     }
     
     init() {
-        💾loadNotesData()
-        let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-        if let ⓓata = ⓤd?.data(forKey: "DataFromExtension") {
-            if let ⓢtockedNotes = try? JSONDecoder().decode([📗Note].self, from: ⓓata) {
-                📚notes.insert(contentsOf: ⓢtockedNotes, at: 0)
-                ⓤd?.set(Data(), forKey: "DataFromExtension")
-                💾saveNotesData()
-            }
-        }
+        📚notes = 💾DataManager.load() ?? 📚SampleNotes
     }
 }
 
@@ -90,32 +70,33 @@ struct 📗Note: Codable, Identifiable, Hashable {
 let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 
-//FIXME: 実装やめるか検討
-struct 📚ShareExtensionManeger {
-    static var stockedNotes: [📗Note] {
-        let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-        guard let ⓓata = ⓤd?.data(forKey: "DataFromExtension") else { return [] }
+struct 💾DataManager {
+    static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
+    static func save(_ ⓝotes: [📗Note]) {
+        do {
+            let ⓓata = try JSONEncoder().encode(ⓝotes)
+            ⓤd?.set(ⓓata, forKey: "Notes")
+        } catch {
+            print("🚨:", error)
+        }
+    }
+    static func load() -> [📗Note]? {
+        guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {
             print("🚨:", error)
-            return []
+            return nil
         }
     }
-
-    static func save(_ ⓝotes: [📗Note]) {
-        var ⓝewStockedNotes: [📗Note] = []
-        ⓝewStockedNotes.append(contentsOf: ⓝotes)
-        if !stockedNotes.isEmpty {
-            ⓝewStockedNotes.append(contentsOf: stockedNotes)
+    static func checkConflict(_ ⓐctiveNotes: [📗Note]) throws {
+        guard let ⓝotesSavedAsData = 💾DataManager.load() else { return }
+        if ⓐctiveNotes != ⓝotesSavedAsData {
+            throw 🚨DataConflict.error
         }
-        do {
-            let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-            let ⓓata = try JSONEncoder().encode(ⓝewStockedNotes)
-            ⓤd?.set(ⓓata, forKey: "DataFromExtension")
-        } catch {
-            print("🚨:", error)
-        }
+    }
+    enum 🚨DataConflict: Error {
+        case error
     }
 }
 
@@ -167,7 +148,7 @@ enum 🅂eparator: String {
 
 
 
-let 🗃SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
+let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
 Lemon,yellow sour
 Strawberry,jam red sweet
 Grape,seedless wine white black

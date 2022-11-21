@@ -50,19 +50,33 @@ class 🄳ataModel: ObservableObject {
     @Published var importedText: String = ""
     @Published var inputTitle: String = ""
     @Published var inputComment: String = ""
+    @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
+    var convertedNotes: [📗Note] { 🄲onvertTextToNotes(importedText, separator) }
+    func storeNotes() {
+        var ⓝotes = 💾DataManager.load() ?? []
+        switch type {
+            case .textFile:
+                ⓝotes.insert(contentsOf: convertedNotes, at: 0)
+                💾DataManager.save(ⓝotes)
+            case .selectedText:
+                ⓝotes.insert(contentsOf: [📗Note(inputTitle, inputComment)], at: 0)
+                💾DataManager.save(ⓝotes)
+            default:
+                💾DataManager.save([📗Note("🐛")])
+        }
+        💾DataManager.save(ⓝotes)
+    }
 }
 
 struct 🄼ainView: View {
     @ObservedObject var ⓜodel: 🄳ataModel
-    @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓢeparator: 🅂eparator = .tab
-    var ⓝotes: [📗Note] { 🄲onvertTextToNotes(ⓜodel.importedText, ⓢeparator) }
     var body: some View {
         NavigationView {
             List {
                 switch ⓜodel.type {
                     case .textFile:
                         🅂eparatorPicker()
-                        ForEach(ⓝotes) { ⓝote in
+                        ForEach(ⓜodel.convertedNotes) { ⓝote in
                             VStack(alignment: .leading) {
                                 Text(ⓝote.title)
                                 Text(ⓝote.comment)
@@ -86,14 +100,7 @@ struct 🄼ainView: View {
                 ToolbarItem {
                     Button {
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        switch ⓜodel.type {
-                            case .textFile:
-                                📚ShareExtensionManeger.save(ⓝotes)
-                            case .selectedText:
-                                📚ShareExtensionManeger.save([📗Note(ⓜodel.inputTitle, ⓜodel.inputComment)])
-                            default:
-                                📚ShareExtensionManeger.save([📗Note("🐛")])
-                        }
+                        ⓜodel.storeNotes()
                         ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {
                         Image(systemName: "checkmark")
@@ -102,6 +109,7 @@ struct 🄼ainView: View {
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
+                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
                         ⓜodel.extensionContext?.completeRequest(returningItems: nil)
                     } label: {
                         Image(systemName: "xmark")
@@ -110,12 +118,12 @@ struct 🄼ainView: View {
                 }
             }
         }
-        .animation(.default, value: ⓢeparator)
+        .animation(.default, value: ⓜodel.separator)
         .navigationViewStyle(.stack)
     }
     func 🅂eparatorPicker() -> some View {
         Section {
-            Picker(selection: $ⓢeparator) {
+            Picker(selection: $ⓜodel.separator) {
                 Text("Tab ␣ ").tag(🅂eparator.tab)
                     .accessibilityLabel("Tab")
                 Text("Comma , ").tag(🅂eparator.comma)

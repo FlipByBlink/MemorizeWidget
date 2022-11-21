@@ -750,5 +750,12 @@ struct 💾DataAndWidgetManager: ViewModifier {
             .onChange(of: 🚥phase) { [🚥phase] ⓝewValue in
                 📱.🚥applyDataAndWidgetAccordingAsScene(before: 🚥phase, after: ⓝewValue)
             }
+            .onChange(of: 📱.📚notes) { [📚notes = 📱.📚notes] _ in
+                do {
+                    try 💾DataManager.checkConflict(📚notes)
+                } catch {
+                    print("🚨: DataConflict", error)
+                }
+            }
     }
 }
