@@ -8,11 +8,9 @@ class 📱AppModel: ObservableObject {
     @Published var 🆔openedNoteID: String? = nil
     @Published var 🚩showImportSheet: Bool = false
     
-    private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
-    @AppStorage("RandomMode", store: ⓤd) var 🚩randomMode: Bool = false
-    @AppStorage("ShowComment", store: ⓤd) var 🚩showComment: Bool = false
-    @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
-    @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
+    private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)//TODO: リファクタリング
+    @AppStorage("RandomMode", store: ⓤd) var 🚩randomMode: Bool = false//TODO: リファクタリング
+    @AppStorage("ShowComment", store: ⓤd) var 🚩showComment: Bool = false//TODO: リファクタリング
     
     func 🆕addNewNote(_ ⓘndex: Int = 0) {
         📚notes.insert(📗Note(""), at: ⓘndex)

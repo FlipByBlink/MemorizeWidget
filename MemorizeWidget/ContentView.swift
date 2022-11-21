@@ -344,27 +344,31 @@ struct 🔩OptionTab: View {
                 .rotationEffect(.degrees(1))
         }
     }
-    func 🔍CustomizeSearchSection() -> some View {
-        Section {
-            VStack {
-                let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
-                Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
-                    .italic()
-                    .font(.system(.footnote, design: .monospaced))
-                    .multilineTextAlignment(.center)
-                    .padding(8)
-                    .frame(minHeight: 100)
-                    .animation(.default, value: 📱.🔗Leading.isEmpty)
-                TextField("URL scheme", text: $📱.🔗Leading)
-                TextField("Trailing component", text: $📱.🔗Trailing)
-                    .font(.caption)
-                    .padding(.bottom, 4)
+    struct 🔍CustomizeSearchSection: View {
+        @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
+        @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
+        var body: some View {
+            Section {
+                VStack {
+                    let ⓛeading = 🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗Leading
+                    Text(ⓛeading + "NOTETITLE" + 🔗Trailing)
+                        .italic()
+                        .font(.system(.footnote, design: .monospaced))
+                        .multilineTextAlignment(.center)
+                        .padding(8)
+                        .frame(minHeight: 100)
+                        .animation(.default, value: 🔗Leading.isEmpty)
+                    TextField("URL scheme", text: $🔗Leading)
+                    TextField("Trailing component", text: $🔗Trailing)
+                        .font(.caption)
+                        .padding(.bottom, 4)
+                }
+                .textFieldStyle(.roundedBorder)
+            } header: {
+                Label("Customize search", systemImage: "magnifyingglass")
             }
-            .textFieldStyle(.roundedBorder)
-        } header: {
-            Label("Customize search", systemImage: "magnifyingglass")
+            .headerProminence(.increased)
         }
-        .headerProminence(.increased)
     }
     func 💣DeleteAllNotesButton() -> some View {
         Menu {
@@ -711,12 +715,14 @@ struct 📗SystemDictionaryButton: View {
 
 struct 🔍SearchButton: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
+    @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
     var 🔢NoteIndex: Int
     var body: some View {
         Button {
-            let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
-            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 📱.🔗Trailing
+            let ⓛeading = 🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗Leading
+            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 🔗Trailing
             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
