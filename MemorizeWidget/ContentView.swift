@@ -39,7 +39,8 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩showImportSheet) {
             📂FileImportSheet()
         }
-        .modifier(💾DataAndWidgetManager())
+        .modifier(🪄ReloadWidgetOnSceneChange())
+        .modifier(💾OperateData())
     }
     enum 🔖Tab {
         case notesList, option, purchase, about
@@ -744,7 +745,7 @@ struct 🔍SearchButton: View {
 }
 
 
-struct 💾DataAndWidgetManager: ViewModifier {
+struct 💾OperateData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var 🚥phase: ScenePhase
     @State private var ⓛoadedNotes: [📗Note]? = 💾DataManager.notes
@@ -770,6 +771,17 @@ struct 💾DataAndWidgetManager: ViewModifier {
                         ⓛoadedNotes = ⓛatestDataNotes
                     }
                 }
+            }
+    }
+}
+
+
+struct 🪄ReloadWidgetOnSceneChange: ViewModifier {
+    @Environment(\.scenePhase) var scenePhase: ScenePhase
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: scenePhase) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
             }
     }
 }
