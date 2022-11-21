@@ -68,19 +68,29 @@ struct 🤖NotesProvider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        let 📱 = 📱AppModel()
-        completion(🕒Entry(.now, 📱.📗getWidgetNote()))
+        if let ⓝotes = 💾DataManager.notes {
+            if ⓝotes.isEmpty {
+                completion(🕒Entry(.now, nil))
+            } else {
+                completion(🕒Entry(.now, ⓝotes.randomElement()!))
+            }
+        }
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let 📱 = 📱AppModel()
-        var ⓔntries: [🕒Entry] = []
-        for ⓒount in 0 ..< 12 {
-            let ⓞffset = ⓒount * 5
-            let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-            ⓔntries.append(🕒Entry(ⓓate, 📱.📗getWidgetNote()))
+        if let ⓝotes = 💾DataManager.notes {
+            if ⓝotes.isEmpty {
+                completion(Timeline(entries: [🕒Entry(.now, nil)], policy: .after(.now.advanced(by: 3600))))
+            } else {
+                var ⓔntries: [🕒Entry] = []
+                for ⓒount in 0 ..< 12 {
+                    let ⓞffset = ⓒount * 5
+                    let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
+                    ⓔntries.append(🕒Entry(ⓓate, ⓝotes.randomElement()!))
+                }
+                completion(Timeline(entries: ⓔntries, policy: .atEnd))
+            }
         }
-        completion(Timeline(entries: ⓔntries, policy: .atEnd))
     }
 }
 
@@ -101,8 +111,8 @@ struct 🤖NewNoteShortcutProvider: TimelineProvider {
 
 struct 🕒Entry: TimelineEntry {
     let date: Date
-    let ⓝote: 📗Note
-    init(_ date: Date, _ ⓝote: 📗Note) {
+    let ⓝote: 📗Note?
+    init(_ date: Date, _ ⓝote: 📗Note?) {
         self.date = date
         self.ⓝote = ⓝote
     }
@@ -112,95 +122,103 @@ struct 🕒Entry: TimelineEntry {
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖NotesProvider.Entry
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
-    let 📱 = 📱AppModel()
+    @AppStorage("ShowComment", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩showComment: Bool = false
     
     @ViewBuilder
     var body: some View {
-        switch ⓕamily {
-            case .systemSmall:
-                ZStack {
-                    Color.clear
-                    VStack(spacing: 0) {
-                        Spacer(minLength: 0)
-                        Text(ⓔntry.ⓝote.title)
-                            .font(.headline)
-                        if 📱.🚩showComment {
-                            if ⓔntry.ⓝote.comment != "" {
-                                Text(ⓔntry.ⓝote.comment)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        Spacer(minLength: 0)
-                    }
-                    .padding()
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                }
-                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-            case .systemMedium:
-                ZStack {
-                    Color.clear
-                    VStack(spacing: 0) {
-                        Spacer(minLength: 0)
-                        Text(ⓔntry.ⓝote.title)
-                            .font(.title.bold())
-                        if 📱.🚩showComment {
-                            if ⓔntry.ⓝote.comment != "" {
-                                Text(ⓔntry.ⓝote.comment)
-                                    .font(.title2)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        Spacer(minLength: 0)
-                    }
-                    .padding()
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                }
-                .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-            case .accessoryRectangular:
-                if #available(iOS 16.0, *) {
+        if let ⓝote = ⓔntry.ⓝote {
+            switch ⓕamily {
+                case .systemSmall:
                     ZStack {
+                        Color.clear
                         VStack(spacing: 0) {
-                            Text(ⓔntry.ⓝote.title)
+                            Spacer(minLength: 0)
+                            Text(ⓝote.title)
                                 .font(.headline)
-                            if 📱.🚩showComment {
-                                if ⓔntry.ⓝote.comment != "" {
-                                    Text(ⓔntry.ⓝote.comment)
+                            if 🚩showComment {
+                                if ⓝote.comment != "" {
+                                    Text(ⓝote.comment)
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
                                 }
                             }
+                            Spacer(minLength: 0)
                         }
-                        .widgetAccentable()
-                        .minimumScaleFactor(0.8)
+                        .padding()
+                        .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                     }
-                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-                }
-            case .accessoryInline:
-                if #available(iOS 16.0, *) {
-                    Text(ⓔntry.ⓝote.title)
-                        .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-                }
-            case .accessoryCircular:
-                if #available(iOS 16.0, *) {
+                    .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                case .systemMedium:
                     ZStack {
-                        AccessoryWidgetBackground()
-                        Text(ⓔntry.ⓝote.title)
-                            .multilineTextAlignment(.center)
-                            .font(.caption)
-                            .fontWeight(.medium)
-                            .padding(.horizontal, 2)
+                        Color.clear
+                        VStack(spacing: 0) {
+                            Spacer(minLength: 0)
+                            Text(ⓝote.title)
+                                .font(.title.bold())
+                            if 🚩showComment {
+                                if ⓝote.comment != "" {
+                                    Text(ⓝote.comment)
+                                        .font(.title2)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                            Spacer(minLength: 0)
+                        }
+                        .padding()
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
                     }
-                    .widgetURL(URL(string: ⓔntry.ⓝote.id.uuidString)!)
-                }
-            default:
-                Text("🐛")
+                    .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                case .accessoryRectangular:
+                    if #available(iOS 16.0, *) {
+                        ZStack {
+                            VStack(spacing: 0) {
+                                Text(ⓝote.title)
+                                    .font(.headline)
+                                if 🚩showComment {
+                                    if ⓝote.comment != "" {
+                                        Text(ⓝote.comment)
+                                            .font(.subheadline)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                            }
+                            .widgetAccentable()
+                            .minimumScaleFactor(0.8)
+                            .multilineTextAlignment(.center)
+                        }
+                        .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                    }
+                case .accessoryInline:
+                    if #available(iOS 16.0, *) {
+                        Text(ⓝote.title)
+                            .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                    }
+                case .accessoryCircular:
+                    if #available(iOS 16.0, *) {
+                        ZStack {
+                            AccessoryWidgetBackground()
+                            Text(ⓝote.title)
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .padding(.horizontal, 2)
+                        }
+                        .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                    }
+                default:
+                    Text("🐛")
+            }
+        } else {
+            📗NoNoteView()
         }
     }
-    
+    func 📗NoNoteView() -> some View {
+        Image(systemName: "books.vertical")
+            .font(.title2)
+            .foregroundStyle(.tertiary)
+    }
     init(_ ⓔntry: 🤖NotesProvider.Entry) {
         self.ⓔntry = ⓔntry
     }

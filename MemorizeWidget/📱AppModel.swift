@@ -19,18 +19,6 @@ class 📱AppModel: ObservableObject {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
-    func 📗getWidgetNote() -> 📗Note { //FIXME: リファクタリング
-        if 📚notes.isEmpty {
-            return 📗Note("No note")
-        } else {
-            if 🚩randomMode {
-                return 📚notes.randomElement() ?? 📗Note("🐛")
-            } else {
-                return 📚notes.first ?? 📗Note("🐛")
-            }
-        }
-    }
-    
     func 🆕addNotesFromWidget(_ ⓝewNotes: [📗Note]) {
         var ⓝotes = 💾DataManager.notes ?? []
         ⓝotes.insert(contentsOf: ⓝewNotes, at: 0)
