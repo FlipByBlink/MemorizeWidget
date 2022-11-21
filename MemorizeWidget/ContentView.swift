@@ -114,20 +114,20 @@ struct 📚NotesListTab: View {
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
         @AppStorage("RandomMode") var 🚩randomMode: Bool = false
-        @FocusState private var 🔍Focus: 🄵ocusPattern?
+        @FocusState private var 🔍focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
-        var 🎨Thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
+        var 🎨thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
         var body: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
                     TextField("+ title", text: $ⓝote.title)
-                        .focused($🔍Focus, equals: .title)
+                        .focused($🔍focus, equals: .title)
                         .font(.title2.weight(.semibold))
-                        .foregroundStyle(🎨Thin ? .tertiary : .primary)
+                        .foregroundStyle(🎨thin ? .tertiary : .primary)
                     TextField("+ comment", text: $ⓝote.comment)
-                        .focused($🔍Focus, equals: .comment)
+                        .focused($🔍focus, equals: .comment)
                         .font(.title3.weight(.light))
-                        .foregroundStyle(🎨Thin ? .tertiary : .secondary)
+                        .foregroundStyle(🎨thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
                 .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
@@ -159,11 +159,11 @@ struct 📚NotesListTab: View {
             .onAppear {
                 if ⓝote.title == "" {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                        🔍Focus = .title
+                        🔍focus = .title
                     }
                 }
             }
-            .onChange(of: 🔍Focus) { ⓝewValue in
+            .onChange(of: 🔍focus) { ⓝewValue in
                 if ⓝewValue == nil {
                     if ⓝote.title == "" {
                         📱.📚notes.removeAll(where: { $0 == ⓝote })
@@ -184,10 +184,10 @@ struct 📚NotesListTab: View {
 struct 🪧NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
-    @Environment(\.dismiss) var ﹀Dismiss: DismissAction
-    @State private var 🚩ShowADMenuSheet: Bool = false
-    @FocusState private var 🔍CommentFocus: Bool
-    var 🔢NoteIndex: Int? {
+    @Environment(\.dismiss) var ﹀dismiss: DismissAction
+    @State private var 🚩showADMenuSheet: Bool = false
+    @FocusState private var 🔍commentFocus: Bool
+    var 🔢NoteIndex: Int? {//TODO: リファクタリング
         📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
     }
     var body: some View {
@@ -201,7 +201,7 @@ struct 🪧NoteSheet: View {
                             .multilineTextAlignment(.center)
                             .accessibilityHidden(true)
                         TextEditor(text: $📱.📚notes[🔢NoteIndex].comment)
-                            .focused($🔍CommentFocus)
+                            .focused($🔍commentFocus)
                             .multilineTextAlignment(.center)
                             .font(.title3.weight(.light))
                             .foregroundStyle(.secondary)
@@ -216,9 +216,9 @@ struct 🪧NoteSheet: View {
                                 }
                             }
                             .overlay(alignment: .bottomTrailing) {
-                                if 🔍CommentFocus {
+                                if 🔍commentFocus {
                                     Button {
-                                        🔍CommentFocus = false
+                                        🔍commentFocus = false
                                         UISelectionFeedbackGenerator().selectionChanged()
                                     } label: {
                                         Label("Done", systemImage: "checkmark.circle.fill")
@@ -265,16 +265,16 @@ struct 🪧NoteSheet: View {
                     }
                     Spacer()
                     if 📐.size.height > 500 {
-                        📣ADView(without: .MemorizeWidget, $🚩ShowADMenuSheet)
+                        📣ADView(without: .MemorizeWidget, $🚩showADMenuSheet)
                             .frame(height: 160)
                     }
                 }
-                .modifier(📣ADMenuSheet($🚩ShowADMenuSheet))
+                .modifier(📣ADMenuSheet($🚩showADMenuSheet))
                 .animation(.default.speed(1.5), value: 🔢NoteIndex)
                 .padding(24)
                 .toolbar {
                     Button {
-                        ﹀Dismiss.callAsFunction()
+                        ﹀dismiss.callAsFunction()
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
@@ -352,21 +352,21 @@ struct 🔩OptionTab: View {
         }
     }
     struct 🔍CustomizeSearchSection: View {
-        @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
-        @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
+        @AppStorage("SearchLeadingText") var 🔗leading: String = ""
+        @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
         var body: some View {
             Section {
                 VStack {
-                    let ⓛeading = 🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗Leading
-                    Text(ⓛeading + "NOTETITLE" + 🔗Trailing)
+                    let ⓛeading = 🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗leading
+                    Text(ⓛeading + "NOTETITLE" + 🔗trailing)
                         .italic()
                         .font(.system(.footnote, design: .monospaced))
                         .multilineTextAlignment(.center)
                         .padding(8)
                         .frame(minHeight: 100)
-                        .animation(.default, value: 🔗Leading.isEmpty)
-                    TextField("URL scheme", text: $🔗Leading)
-                    TextField("Trailing component", text: $🔗Trailing)
+                        .animation(.default, value: 🔗leading.isEmpty)
+                    TextField("URL scheme", text: $🔗leading)
+                    TextField("Trailing component", text: $🔗trailing)
                         .font(.caption)
                         .padding(.bottom, 4)
                 }
@@ -470,10 +470,10 @@ struct ℹ️AboutAppTab: View {
 
 struct 📂FileImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()
+    @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()//TODO: リファクタリング
     @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
-    @State private var 🚩ShowFileImporter: Bool = false
-    @FocusState private var 🔍TextFieldFocus: Bool
+    @State private var 🚩showFileImporter: Bool = false
+    @FocusState private var 🔍textFieldFocus: Bool
     var body: some View {
         NavigationView {
             List {
@@ -498,7 +498,7 @@ struct 📂FileImportSheet: View {
                         case .file:
                             Section {
                                 Button {
-                                    🚩ShowFileImporter.toggle()
+                                    🚩showFileImporter.toggle()
                                 } label: {
                                     Label("Import a text-encoded file", systemImage: "folder.badge.plus")
                                         .padding(.vertical, 8)
@@ -542,7 +542,7 @@ struct 📂FileImportSheet: View {
                         case .text:
                             Section {
                                 TextEditor(text: $🚛ImportProcess.ⓘnputText)
-                                    .focused($🔍TextFieldFocus)
+                                    .focused($🔍textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
@@ -560,7 +560,7 @@ struct 📂FileImportSheet: View {
                                     .toolbar {
                                         ToolbarItem(placement: .keyboard) {
                                             Button {
-                                                🔍TextFieldFocus = false
+                                                🔍textFieldFocus = false
                                             } label: {
                                                 Label("Done", systemImage: "keyboard.chevron.compact.down")
                                             }
@@ -655,7 +655,7 @@ struct 📂FileImportSheet: View {
         }
         .animation(.default, value: 🚛ImportProcess.ⓞutputNotes)
         .animation(.default, value: ⓘnputMode)
-        .fileImporter(isPresented: $🚩ShowFileImporter, allowedContentTypes: [.text]) { 📦Result in
+        .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦Result in
             do {
                 try 🚛ImportProcess.🄸mportFile(📦Result)
                 🚛ImportProcess.convertTextToNotes()
@@ -680,17 +680,17 @@ struct 📂FileImportSheet: View {
 
 struct 📗SystemDictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩ShowSystemDictionary: Bool = false
+    @State private var 🚩showSystemDictionary: Bool = false
     var 🔢NoteIndex: Int
     var body: some View {
         Button {
-            🚩ShowSystemDictionary = true
+            🚩showSystemDictionary = true
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
                 .labelStyle(.iconOnly)
         }
-        .sheet(isPresented: $🚩ShowSystemDictionary) {
+        .sheet(isPresented: $🚩showSystemDictionary) {
             📗SystemDictionarySheet(term: 📱.📚notes[🔢NoteIndex].title)
         }
     }
@@ -722,14 +722,14 @@ struct 📗SystemDictionaryButton: View {
 
 struct 🔍SearchButton: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("SearchLeadingText") var 🔗Leading: String = ""
-    @AppStorage("SearchTrailingText") var 🔗Trailing: String = ""
+    @AppStorage("SearchLeadingText") var 🔗leading: String = ""
+    @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
     var 🔢NoteIndex: Int
     var body: some View {
         Button {
-            let ⓛeading = 🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗Leading
-            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 🔗Trailing
+            let ⓛeading = 🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗leading
+            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 🔗trailing
             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
