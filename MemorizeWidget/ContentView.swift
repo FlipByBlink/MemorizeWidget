@@ -80,7 +80,7 @@ struct 📚NotesListTab: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
     struct 🚩RandomModeSection: View {
-        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
+        @AppStorage("RandomMode") var 🚩randomMode: Bool = false
         var body: some View {
             Section {
                 Toggle(isOn: $🚩randomMode) {
@@ -113,7 +113,7 @@ struct 📚NotesListTab: View {
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
-        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
+        @AppStorage("RandomMode") var 🚩randomMode: Bool = false
         @FocusState private var 🔍Focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
         var 🎨Thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
@@ -311,7 +311,7 @@ struct 🔩OptionTab: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
     struct 💬CommentOnWidgetSection: View {
-        @AppStorage("ShowComment", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩showComment: Bool = false//TODO: リファクタリング
+        @AppStorage("ShowComment") var 🚩showComment: Bool = false
         var body: some View {
             Section {
                 Toggle(isOn: $🚩showComment) {

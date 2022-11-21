@@ -12,6 +12,7 @@ struct MemorizeWidgetApp: App {
             ContentView()
                 .environmentObject(📱)
                 .environmentObject(🛒)
+                .defaultAppStorage(UserDefaults(suiteName: 🆔AppGroupID)!)
         }
     }
 }
