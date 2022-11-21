@@ -754,7 +754,7 @@ struct 💾DataAndWidgetManager: ViewModifier {
                 do {
                     try 💾DataManager.checkConflict(📚notes)
                 } catch {
-                    print("🚨: DataConflict", error)
+                    print("🚨: DataConflict", error) //FIXME: 修正
                 }
             }
     }

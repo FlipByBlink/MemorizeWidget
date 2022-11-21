@@ -26,6 +26,38 @@ class 📨ShareExtensionModel: ObservableObject {
         }
         💾DataManager.save(ⓝotes)
     }
+    @MainActor
+    func setUp(_ extensionContext: NSExtensionContext?) {
+        self.extensionContext = extensionContext
+        if let ⓔxtensionItem = self.extensionContext?.inputItems.first as? NSExtensionItem {
+            if let ⓟrovider = ⓔxtensionItem.attachments?.first {
+                if ⓟrovider.hasItemConformingToTypeIdentifier("public.file-url") {
+                    Task { @MainActor in
+                        do {
+                            if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
+                                self.importedText = try String(contentsOf: ⓤrl)
+                                self.type = .textFile
+                            }
+                        } catch {
+                            print("🚨:", error)
+                            self.type = .improperFile
+                        }
+                    }
+                } else {
+                    Task { @MainActor in
+                        do {
+                            if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
+                                self.type = .selectedText
+                                self.inputTitle = ⓢtring
+                            }
+                        } catch {
+                            print("🚨:", error)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 enum 🅃ype {
@@ -40,35 +72,7 @@ class 🄷ostingController: UIHostingController<🄼ainView> {
     }
     
     override func viewDidLoad() {
-        📨.extensionContext = extensionContext
-        if let ⓔxtensionItem = extensionContext?.inputItems.first as? NSExtensionItem {
-            if let ⓟrovider = ⓔxtensionItem.attachments?.first {
-                if ⓟrovider.hasItemConformingToTypeIdentifier("public.file-url") {
-                    Task { @MainActor in
-                        do {
-                            if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
-                                📨.importedText = try String(contentsOf: ⓤrl)
-                                📨.type = .textFile
-                            }
-                        } catch {
-                            print("🚨:", error)
-                            📨.type = .improperFile
-                        }
-                    }
-                } else {
-                    Task { @MainActor in
-                        do {
-                            if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
-                                📨.type = .selectedText
-                                📨.inputTitle = ⓢtring
-                            }
-                        } catch {
-                            print("🚨:", error)
-                        }
-                    }
-                }
-            }
-        }
+        📨.setUp(extensionContext)
     }
 }
 
