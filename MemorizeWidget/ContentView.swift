@@ -289,24 +289,7 @@ struct 🔩OptionTab: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    Toggle(isOn: 📱.$🚩showComment) {
-                        Label("Show comment on widget", systemImage: "text.append")
-                            .padding(.vertical, 8)
-                    }
-                    .onChange(of: 📱.🚩showComment) { _ in
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                    VStack(spacing: 16) {
-                        🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
-                        if #available(iOS 16.0, *) {
-                            🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
-                        }
-                    }
-                    .padding()
-                    .frame(maxHeight: 500)
-                }
-                
+                💬CommentOnWidgetSection()
                 🔍CustomizeSearchSection()
                 
                 if #available(iOS 16.0, *) {
@@ -317,25 +300,30 @@ struct 🔩OptionTab: View {
                     }
                 }
                 
-                Menu {
-                    Button(role: .destructive) {
-                        📱.📚notes.removeAll()
-                        UINotificationFeedbackGenerator().notificationOccurred(.error)
-                    } label: {
-                        Label("OK, delete all notes.", systemImage: "trash")
-                    }
-                } label: {
-                    ZStack {
-                        Color.clear
-                        Label("Delete all notes.", systemImage: "trash")
-                            .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
-                    }
-                }
-                .disabled(📱.📚notes.isEmpty)
+                💣RemoveAllNotesButton()
             }
             .navigationTitle("Option")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    func 💬CommentOnWidgetSection() -> some View {
+        Section {
+            Toggle(isOn: 📱.$🚩showComment) {
+                Label("Show comment on widget", systemImage: "text.append")
+                    .padding(.vertical, 8)
+            }
+            .onChange(of: 📱.🚩showComment) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+            VStack(spacing: 16) {
+                🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
+                if #available(iOS 16.0, *) {
+                    🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                }
+            }
+            .padding()
+            .frame(maxHeight: 500)
+        }
     }
     func 🏞BeforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
         HStack {
@@ -356,30 +344,44 @@ struct 🔩OptionTab: View {
                 .rotationEffect(.degrees(1))
         }
     }
-    struct 🔍CustomizeSearchSection: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        var ⓛeading: String { 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading }
-        var body: some View {
-            Section {
-                VStack {
-                    Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
-                        .italic()
-                        .font(.system(.footnote, design: .monospaced))
-                        .multilineTextAlignment(.center)
-                        .padding(8)
-                        .frame(minHeight: 100)
-                        .animation(.default, value: 📱.🔗Leading.isEmpty)
-                    TextField("URL scheme", text: $📱.🔗Leading)
-                    TextField("Trailing component", text: $📱.🔗Trailing)
-                        .font(.caption)
-                        .padding(.bottom, 4)
-                }
-                .textFieldStyle(.roundedBorder)
-            } header: {
-                Label("Customize search", systemImage: "magnifyingglass")
+    func 🔍CustomizeSearchSection() -> some View {
+        Section {
+            VStack {
+                let ⓛeading = 📱.🔗Leading.isEmpty ? "https://duckduckgo.com/?q=" : 📱.🔗Leading
+                Text(ⓛeading + "NOTETITLE" + 📱.🔗Trailing)
+                    .italic()
+                    .font(.system(.footnote, design: .monospaced))
+                    .multilineTextAlignment(.center)
+                    .padding(8)
+                    .frame(minHeight: 100)
+                    .animation(.default, value: 📱.🔗Leading.isEmpty)
+                TextField("URL scheme", text: $📱.🔗Leading)
+                TextField("Trailing component", text: $📱.🔗Trailing)
+                    .font(.caption)
+                    .padding(.bottom, 4)
             }
-            .headerProminence(.increased)
+            .textFieldStyle(.roundedBorder)
+        } header: {
+            Label("Customize search", systemImage: "magnifyingglass")
         }
+        .headerProminence(.increased)
+    }
+    func 💣RemoveAllNotesButton() -> some View {
+        Menu {
+            Button(role: .destructive) {
+                📱.📚notes.removeAll()
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+            } label: {
+                Label("OK, delete all notes.", systemImage: "trash")
+            }
+        } label: {
+            ZStack {
+                Color.clear
+                Label("Delete all notes.", systemImage: "trash")
+                    .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+            }
+        }
+        .disabled(📱.📚notes.isEmpty)
     }
 }
 
