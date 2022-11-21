@@ -4,8 +4,10 @@ import WidgetKit
 
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: [📗Note]
+    
     @Published var 🚩showNoteSheet: Bool = false
-    @Published var 🆔openedNoteID: String? = nil
+    @Published var 🆔openedNoteID: String? = nil//TODO: リファクタリング
+    
     @Published var 🚩showImportSheet: Bool = false
     
     private static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)//TODO: リファクタリング
