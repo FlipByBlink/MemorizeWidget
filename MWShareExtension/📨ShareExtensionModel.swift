@@ -4,8 +4,8 @@ class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     @Published var type: 🅃ype? = nil
     @Published var importedText: String = "" //TODO: リファクタリング
-    @Published var inputTitle: String = ""
-    @Published var inputComment: String = ""
+    @Published var inputTitle: String = "" //TODO: リファクタリング
+    @Published var inputComment: String = "" //TODO: リファクタリング
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
     var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedText, self.separator) }
     func storeNotes() {

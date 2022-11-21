@@ -9,6 +9,7 @@ class 🄷ostingViewController: UIHostingController<🄼ainView> {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         📨.setUp(extensionContext)
     }
 }
