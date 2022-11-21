@@ -31,25 +31,22 @@ class 📱AppModel: ObservableObject {
         }
     }
     
-    func 🚥applyDataAndWidgetAccordingAsScene(before: ScenePhase, after: ScenePhase) {
-        if before != .active && after == .active {
-            if let ⓝotes = 💾DataManager.load() {
-                📚notes = ⓝotes
-            }
-        } else if before == .active && after != .active {
-            💾DataManager.save(📚notes)
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-    }
-    
     func 🆕addNotesFromWidget(_ ⓝewNotes: [📗Note]) {
-        var ⓝotes = 💾DataManager.load() ?? []
+        var ⓝotes = 💾DataManager.notes ?? []
         ⓝotes.insert(contentsOf: ⓝewNotes, at: 0)
         💾DataManager.save(ⓝotes)
     }
     
+    func 💾LoadNotesData() {
+        if let ⓝotes = 💾DataManager.notes {
+            📚notes = ⓝotes
+        } else {
+            print("📢 No data.")
+        }
+    }
+    
     init() {
-        📚notes = 💾DataManager.load() ?? 📚SampleNotes
+        📚notes = 💾DataManager.notes ?? 📚SampleNotes
     }
 }
 
@@ -80,7 +77,7 @@ struct 💾DataManager {
             print("🚨:", error)
         }
     }
-    static func load() -> [📗Note]? {
+    static var notes: [📗Note]? {
         guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode([📗Note].self, from: ⓓata)
@@ -88,15 +85,6 @@ struct 💾DataManager {
             print("🚨:", error)
             return nil
         }
-    }
-    static func checkConflict(_ ⓐctiveNotes: [📗Note]) throws {
-        guard let ⓝotesSavedAsData = 💾DataManager.load() else { return }
-        if ⓐctiveNotes != ⓝotesSavedAsData {
-            throw 🚨DataConflict.error
-        }
-    }
-    enum 🚨DataConflict: Error {
-        case error
     }
 }
 

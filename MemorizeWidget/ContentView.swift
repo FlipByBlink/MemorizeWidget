@@ -4,7 +4,6 @@ import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.scenePhase) var scenePhase: ScenePhase
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
         TabView(selection: $🔖tab) {
@@ -62,6 +61,9 @@ struct 📚NotesListTab: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.📚notes)
+            .refreshable {
+                📱.💾LoadNotesData()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -745,16 +747,28 @@ struct 🔍SearchButton: View {
 struct 💾DataAndWidgetManager: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var 🚥phase: ScenePhase
+    @State private var ⓛoadedNotes: [📗Note]? = 💾DataManager.notes
+    private let 🕒timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     func body(content: Content) -> some View {
         content
             .onChange(of: 🚥phase) { [🚥phase] ⓝewValue in
-                📱.🚥applyDataAndWidgetAccordingAsScene(before: 🚥phase, after: ⓝewValue)
+                if 🚥phase != .active && ⓝewValue == .active {
+                    if let ⓝotes = 💾DataManager.notes {
+                        📱.📚notes = ⓝotes
+                        ⓛoadedNotes = ⓝotes
+                    }
+                } else if 🚥phase == .active && ⓝewValue != .active {
+                    💾DataManager.save(📱.📚notes)
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
             }
-            .onChange(of: 📱.📚notes) { [📚notes = 📱.📚notes] _ in
-                do {
-                    try 💾DataManager.checkConflict(📚notes)
-                } catch {
-                    print("🚨: DataConflict", error) //FIXME: 修正
+            .onReceive(🕒timer) { _ in
+                if 🚥phase == .active {
+                    guard let ⓛatestDataNotes = 💾DataManager.notes else { return }
+                    if ⓛoadedNotes != ⓛatestDataNotes {
+                        📱.📚notes = ⓛatestDataNotes
+                        ⓛoadedNotes = ⓛatestDataNotes
+                    }
                 }
             }
     }

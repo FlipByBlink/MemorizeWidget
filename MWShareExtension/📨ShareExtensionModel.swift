@@ -9,7 +9,7 @@ class 📨ShareExtensionModel: ObservableObject {
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
     var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedText, self.separator) }
     func storeNotes() {
-        var ⓝotes = 💾DataManager.load() ?? []
+        var ⓝotes = 💾DataManager.notes ?? []
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
