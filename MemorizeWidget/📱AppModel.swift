@@ -5,10 +5,10 @@ import WidgetKit
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: [📗Note]
     
-    @Published var 🚩showNoteSheet: Bool = false
+    @Published var 🚩showNoteSheet: Bool = false//TODO: リファクタリング
     @Published var 🆔openedNoteID: String? = nil//TODO: リファクタリング
     
-    @Published var 🚩showImportSheet: Bool = false
+    @Published var 🚩showImportSheet: Bool = false//TODO: リファクタリング
     
     func 🆕addNewNote(_ ⓘndex: Int = 0) {
         📚notes.insert(📗Note(""), at: ⓘndex)
