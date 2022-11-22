@@ -211,13 +211,10 @@ struct 🅆idgetEntryView : View {
                     Text("🐛")
             }
         } else {
-            📗NoNoteView()
+            Image(systemName: "books.vertical")
+                .font(.title.weight(.medium))
+                .foregroundStyle(.tertiary)
         }
-    }
-    func 📗NoNoteView() -> some View {
-        Image(systemName: "books.vertical")
-            .font(.title2)
-            .foregroundStyle(.tertiary)
     }
     init(_ ⓔntry: 🤖NotesProvider.Entry) {
         self.ⓔntry = ⓔntry
