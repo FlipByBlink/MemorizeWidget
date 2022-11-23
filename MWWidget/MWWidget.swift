@@ -78,7 +78,7 @@ struct 🤖NotesProvider: TimelineProvider {
 struct 🕒Entry: TimelineEntry {
     let date: Date
     let ⓝote: 📗Note?
-    init(_ date: Date, _ ⓝote: 📗Note? = nil) {
+    init(_ date: Date, _ ⓝote: 📗Note?) {
         self.date = date
         self.ⓝote = ⓝote
     }
@@ -206,11 +206,9 @@ struct 🤖NewNoteShortcutProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒NewNoteShortcutEntry {
         🕒NewNoteShortcutEntry()
     }
-    
     func getSnapshot(in context: Context, completion: @escaping (🕒NewNoteShortcutEntry) -> ()) {
         completion(🕒NewNoteShortcutEntry())
     }
-    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         completion(Timeline(entries: [🕒NewNoteShortcutEntry()], policy: .never))
     }
