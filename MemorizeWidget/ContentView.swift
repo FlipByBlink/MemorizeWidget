@@ -40,7 +40,7 @@ struct ContentView: View {
             📂FileImportSheet()
         }
         .modifier(🪄ReloadWidgetOnSceneChange())
-        .modifier(💾OperateData())
+        .modifier(💾OperateData())//TODO: 新規追加ウィジェットでクラッシュする
     }
     enum 🔖Tab {
         case notesList, option, purchase, about
