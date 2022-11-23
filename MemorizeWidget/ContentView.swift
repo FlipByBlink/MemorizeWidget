@@ -104,8 +104,8 @@ struct 📚NotesListTab: View {
                 .padding(.vertical, 7)
         }
         .onOpenURL { 🔗 in
-            if 🔗.description == "NewNoteShortcut" {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                if 🔗.description == "NewNoteShortcut" {
                     📱.🆕addNewNote()
                 }
             }
@@ -157,8 +157,8 @@ struct 📚NotesListTab: View {
                 .foregroundStyle(.secondary)
             }
             .onAppear {
-                if ⓝote.title == "" {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                    if ⓝote.title == "" {
                         🔍focus = .title
                     }
                 }
