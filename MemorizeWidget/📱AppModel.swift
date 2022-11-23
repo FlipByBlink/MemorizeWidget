@@ -15,14 +15,6 @@ class 📱AppModel: ObservableObject {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
-    func 💾LoadNotesData() {
-        if let ⓝotes = 💾DataManager.notes {
-            📚notes = ⓝotes
-        } else {
-            print("📢 No data.")
-        }
-    }
-    
     init() {
         📚notes = 💾DataManager.notes ?? 📚SampleNotes
     }
