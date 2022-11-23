@@ -21,7 +21,6 @@ struct 🖼MWWidget: Widget {
         .description("Show a note.")
         .supportedFamilies(ⓕamilys)
     }
-    
     init() {
         if #available(iOS 16.0, *) {
             ⓕamilys.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
@@ -39,7 +38,6 @@ struct 🖼MWWidgetSub: Widget {
         .description("This is spare widget for the purpose of second widget and random-mode")
         .supportedFamilies(ⓕamilys)
     }
-    
     init() {
         if #available(iOS 16.0, *) {
             ⓕamilys.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
@@ -47,26 +45,10 @@ struct 🖼MWWidgetSub: Widget {
     }
 }
 
-struct 📝NewNoteShortcutWidget: Widget {
-    var ⓕamilys: [WidgetFamily] {
-        guard #available(iOS 16.0, *) else { return [] }
-        return [.accessoryInline, .accessoryCircular]
-    }
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖NewNoteShortcutProvider()) { _ in
-            🄽ewNoteShortcutView()
-        }
-        .configurationDisplayName("New note shortcut")
-        .description("Shortcut to add new note.")
-        .supportedFamilies(ⓕamilys)
-    }
-}
-
 struct 🤖NotesProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
         🕒Entry(.now, 📗Note("title", "comment"))
     }
-    
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
         if let ⓝotes = 💾DataManager.notes {
             if ⓝotes.isEmpty {
@@ -76,7 +58,6 @@ struct 🤖NotesProvider: TimelineProvider {
             }
         }
     }
-    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         if let ⓝotes = 💾DataManager.notes {
             if ⓝotes.isEmpty {
@@ -94,30 +75,14 @@ struct 🤖NotesProvider: TimelineProvider {
     }
 }
 
-struct 🤖NewNoteShortcutProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 📗Note(""))
-    }
-    
-    func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        completion(🕒Entry(.now, 📗Note("")))
-    }
-    
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        completion(Timeline(entries: [🕒Entry(.now, 📗Note(""))], policy: .never))
-    }
-}
-
-
 struct 🕒Entry: TimelineEntry {
     let date: Date
     let ⓝote: 📗Note?
-    init(_ date: Date, _ ⓝote: 📗Note?) {
+    init(_ date: Date, _ ⓝote: 📗Note? = nil) {
         self.date = date
         self.ⓝote = ⓝote
     }
 }
-
 
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖NotesProvider.Entry
@@ -219,6 +184,40 @@ struct 🅆idgetEntryView : View {
     init(_ ⓔntry: 🤖NotesProvider.Entry) {
         self.ⓔntry = ⓔntry
     }
+}
+
+//============ ➕NewNoteShortcut ============
+struct 📝NewNoteShortcutWidget: Widget {
+    var ⓕamilys: [WidgetFamily] {
+        guard #available(iOS 16.0, *) else { return [] }
+        return [.accessoryInline, .accessoryCircular]
+    }
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖NewNoteShortcutProvider()) { _ in
+            🄽ewNoteShortcutView()
+        }
+        .configurationDisplayName("New note shortcut")
+        .description("Shortcut to add new note.")
+        .supportedFamilies(ⓕamilys)
+    }
+}
+
+struct 🤖NewNoteShortcutProvider: TimelineProvider {
+    func placeholder(in context: Context) -> 🕒NewNoteShortcutEntry {
+        🕒NewNoteShortcutEntry()
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (🕒NewNoteShortcutEntry) -> ()) {
+        completion(🕒NewNoteShortcutEntry())
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        completion(Timeline(entries: [🕒NewNoteShortcutEntry()], policy: .never))
+    }
+}
+
+struct 🕒NewNoteShortcutEntry: TimelineEntry {
+    let date: Date = .now
 }
 
 struct 🄽ewNoteShortcutView: View {
