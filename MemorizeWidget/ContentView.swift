@@ -40,7 +40,7 @@ struct ContentView: View {
             📂FileImportSheet()
         }
         .modifier(🪄ReloadWidgetOnSceneChange())
-        .modifier(💾OperateData())//TODO: 新規追加ウィジェットでクラッシュする
+        .modifier(💾OperateData())
     }
     enum 🔖Tab {
         case notesList, option, purchase, about
@@ -105,7 +105,7 @@ struct 📚NotesListTab: View {
         }
         .onOpenURL { 🔗 in
             if 🔗.description == "NewNoteShortcut" {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                     📱.🆕addNewNote()
                 }
             }
