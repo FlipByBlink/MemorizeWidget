@@ -760,7 +760,6 @@ struct 💾OperateData: ViewModifier {
                     }
                 } else if 🚥phase == .active && ⓝewValue != .active {
                     💾DataManager.save(📱.📚notes)
-                    WidgetCenter.shared.reloadAllTimelines()
                 }
             }
             .onReceive(🕒timer) { _ in
