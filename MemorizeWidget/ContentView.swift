@@ -24,14 +24,15 @@ struct ContentView: View {
             if 🔗.description == "NewNoteShortcut" {
                 📱.🚩showImportSheet = false
                 📱.🚩showNoteSheet = false
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
             if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
                 📱.🚩showImportSheet = false
                 📱.🚩showNoteSheet = true
                 📱.🆔openedNoteID = 🔗.description
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
             🔖tab = .notesList
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
         .sheet(isPresented: $📱.🚩showNoteSheet) {
             🪧NoteSheet()
