@@ -35,8 +35,8 @@ struct 🄼ainView: View {
                         Label("Not text file(UTF-8).", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
-                        TextField("No title", text: $📨.inputTitle)
-                        TextField("No comment", text: $📨.inputComment)
+                        TextField("No title", text: $📨.singleNote.title)
+                        TextField("No comment", text: $📨.singleNote.comment)
                             .foregroundStyle(.secondary)
                     case .none:
                         Text("🐛")

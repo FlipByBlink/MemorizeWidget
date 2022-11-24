@@ -186,7 +186,7 @@ struct 🅆idgetEntryView : View {
     }
 }
 
-//============ ➕NewNoteShortcut ============
+//================ ➕NewNoteShortcut ================
 struct 📝NewNoteShortcutWidget: Widget {
     var ⓕamilys: [WidgetFamily] {
         guard #available(iOS 16.0, *) else { return [] }

@@ -2,8 +2,6 @@
 import Foundation
 import WidgetKit
 
-let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
-
 struct 📗Note: Codable, Identifiable, Hashable {
     var title: String
     var comment: String
@@ -15,6 +13,8 @@ struct 📗Note: Codable, Identifiable, Hashable {
         self.id = id ?? UUID()
     }
 }
+
+let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
 struct 💾DataManager {
     static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)

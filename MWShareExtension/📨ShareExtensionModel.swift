@@ -4,8 +4,7 @@ class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     @Published var type: 🅃ype? = nil
     @Published var importedText: String = "" //TODO: リファクタリング
-    @Published var inputTitle: String = "" //TODO: リファクタリング
-    @Published var inputComment: String = "" //TODO: リファクタリング
+    @Published var singleNote = 📗Note("")
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
     var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedText, self.separator) }
     func storeNotes() {
@@ -14,7 +13,7 @@ class 📨ShareExtensionModel: ObservableObject {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
             case .selectedText:
-                ⓝotes.insert(contentsOf: [📗Note(self.inputTitle, self.inputComment)], at: 0)
+                ⓝotes.insert(contentsOf: [self.singleNote], at: 0)
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
@@ -43,7 +42,7 @@ class 📨ShareExtensionModel: ObservableObject {
                         do {
                             if let ⓢtring = try await ⓟrovider.loadItem(forTypeIdentifier: "public.plain-text") as? String {
                                 self.type = .selectedText
-                                self.inputTitle = ⓢtring
+                                self.singleNote.title = ⓢtring
                             }
                         } catch {
                             print("🚨:", error)
