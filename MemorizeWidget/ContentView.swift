@@ -102,6 +102,7 @@ struct 📚NotesListTab: View {
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
         }
+        .disabled(📱.📚notes.first?.title == "")
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
