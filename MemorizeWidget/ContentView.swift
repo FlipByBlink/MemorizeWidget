@@ -153,16 +153,13 @@ struct 📚NotesListTab: View {
                 }
                 .foregroundStyle(.secondary)
             }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                    if ⓝote.title == "" {
-                        🔍focus = .title
-                    }
-                }
-            }
             .onChange(of: 🚩focusDisable) {
-                if $0 == true {
-                    🔍focus = nil
+                if $0 { 🔍focus = nil }
+            }
+            .onChange(of: 📱.🆕newNoteID) {
+                if $0 == ⓝote.id {
+                    🔍focus = .title
+                    📱.🆕newNoteID = nil
                 }
             }
             // ==== Temporary comment out bacause of clash ====

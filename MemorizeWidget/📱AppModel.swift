@@ -10,9 +10,15 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
+    @Published var 🆕newNoteID: UUID? = nil
+    
     func addNewNote(_ ⓘndex: Int = 0) {
-        📚notes.insert(📗Note(""), at: ⓘndex)
+        let ⓝewNote = 📗Note("")
+        📚notes.insert(ⓝewNote, at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            self.🆕newNoteID = ⓝewNote.id
+        }
     }
     
     func saveNotes() {
