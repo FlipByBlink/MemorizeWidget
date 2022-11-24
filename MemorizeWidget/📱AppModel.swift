@@ -15,7 +15,17 @@ class 📱AppModel: ObservableObject {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     
+    func saveNotes() {
+        💾DataManager.save(📚notes)
+    }
+    
+    func loadNotes() {
+        guard let ⓝotes = 💾DataManager.notes else { return }
+        📚notes = ⓝotes
+    }
+    
     init() {
+        💾DataManager.cleanEmptyTitleNotes()
         📚notes = 💾DataManager.notes ?? 📚SampleNotes
     }
 }

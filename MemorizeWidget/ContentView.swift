@@ -21,13 +21,12 @@ struct ContentView: View {
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onOpenURL { 🔗 in
+            📱.🚩showNotesImportSheet = false
+            📱.🚩showNoteSheet = false
             if 🔗.description == "NewNoteShortcut" {
-                📱.🚩showNotesImportSheet = false
-                📱.🚩showNoteSheet = false
+                📱.🆕addNewNote()
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            }
-            if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
-                📱.🚩showNotesImportSheet = false
+            } else if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
                 📱.🚩showNoteSheet = true
                 📱.🆔openedNoteID = 🔗.description
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -156,13 +155,14 @@ struct 📚NotesListTab: View {
                     }
                 }
             }
-            .onChange(of: 🔍focus) { ⓝewValue in
-                if ⓝewValue == nil {
-                    if ⓝote.title == "" {
-                        📱.📚notes.removeAll(where: { $0 == ⓝote })
-                    }
-                }
-            }
+            // ==== Temporary comment out bacause of clash ====
+            //.onChange(of: 🔍focus) { ⓝewValue in
+            //    if ⓝewValue == nil {
+            //        if ⓝote.title == "" {
+            //            📱.📚notes.removeAll(where: { $0 == ⓝote })
+            //        }
+            //    }
+            //}
         }
         enum 🄵ocusPattern {
             case title, comment
@@ -753,47 +753,19 @@ struct 🔍SearchButton: View {
 
 struct 💾OperateData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.scenePhase) var 🚥phase: ScenePhase
-    @State private var 🚩editable: Bool = false
-    @State private var 🚩queuedNewNoteShortcut: Bool = false
-    @State private var ⓛoadedNotes: [📗Note]? = 💾DataManager.notes
-    private let 🕒timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    @AppStorage("savedDataByShareExtension") private var 🚩savedDataByShareExtension: Bool = false
     func body(content: Content) -> some View {
         content
-            .onChange(of: 🚥phase) { [🚥phase] ⓝewValue in
-                if 🚥phase != .active && ⓝewValue == .active {
-                    if let ⓝotes = 💾DataManager.notes {
-                        📱.📚notes = ⓝotes
-                        ⓛoadedNotes = ⓝotes
-                    }
-                    🚩editable = true
-                } else if 🚥phase == .active && ⓝewValue != .active {
-                    💾DataManager.save(📱.📚notes)
-                    🚩editable = false
-                }
+            .onChange(of: 📱.📚notes) { _ in
+                📱.saveNotes()
             }
-            .onOpenURL { 🔗 in
-                if 🚩editable {
-                    if 🔗.description == "NewNoteShortcut" {
-                        📱.🆕addNewNote()
-                    }
-                } else {
-                    🚩queuedNewNoteShortcut = true
-                }
+            .onAppear {
+                🚩savedDataByShareExtension = false
             }
-            .onChange(of: 🚩editable) {
-                if $0 && 🚩queuedNewNoteShortcut {
-                    📱.🆕addNewNote()
-                    🚩queuedNewNoteShortcut = false
-                }
-            }
-            .onReceive(🕒timer) { _ in
-                if 🚥phase == .active {
-                    guard let ⓛatestDataNotes = 💾DataManager.notes else { return }
-                    if ⓛoadedNotes != ⓛatestDataNotes {
-                        📱.📚notes = ⓛatestDataNotes
-                        ⓛoadedNotes = ⓛatestDataNotes
-                    }
+            .onChange(of: 🚩savedDataByShareExtension) {
+                if $0 == true {
+                    📱.loadNotes()
+                    🚩savedDataByShareExtension = false
                 }
             }
     }

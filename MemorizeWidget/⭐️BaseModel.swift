@@ -27,13 +27,19 @@ struct 💾DataManager {
             print("🚨:", error)
         }
     }
-    static var notes: [📗Note]? {
+    static var notes: [📗Note]? {//TODO: Optionalを再検討
         guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {
             print("🚨:", error)
             return nil
+        }
+    }
+    static func cleanEmptyTitleNotes() {
+        if var ⓝotes = Self.notes {
+            ⓝotes.removeAll { $0.title == "" }
+            Self.save(ⓝotes)
         }
     }
 }

@@ -21,6 +21,7 @@ class 📨ShareExtensionModel: ObservableObject {
                 💾DataManager.save([📗Note("🐛")])
         }
         💾DataManager.save(ⓝotes)
+        UserDefaults(suiteName: 🆔AppGroupID)?.set(true, forKey: "savedDataByShareExtension")
     }
     @MainActor
     func setUp(_ extensionContext: NSExtensionContext?) {
