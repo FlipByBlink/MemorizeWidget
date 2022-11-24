@@ -22,12 +22,12 @@ struct ContentView: View {
         }
         .onOpenURL { 🔗 in
             if 🔗.description == "NewNoteShortcut" {
-                📱.🚩showImportSheet = false
+                📱.🚩showNotesImportSheet = false
                 📱.🚩showNoteSheet = false
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
             if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
-                📱.🚩showImportSheet = false
+                📱.🚩showNotesImportSheet = false
                 📱.🚩showNoteSheet = true
                 📱.🆔openedNoteID = 🔗.description
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -35,10 +35,10 @@ struct ContentView: View {
             🔖tab = .notesList
         }
         .sheet(isPresented: $📱.🚩showNoteSheet) {
-            🪧NoteSheet()
+            📖NoteSheet()
         }
-        .sheet(isPresented: $📱.🚩showImportSheet) {
-            📂FileImportSheet()
+        .sheet(isPresented: $📱.🚩showNotesImportSheet) {
+            📥NotesImportSheet()
         }
         .modifier(🪄ReloadWidgetOnSceneChange())
         .modifier(💾OperateData())
@@ -71,7 +71,7 @@ struct 📚NotesListTab: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         UISelectionFeedbackGenerator().selectionChanged()
-                        📱.🚩showImportSheet.toggle()
+                        📱.🚩showNotesImportSheet.toggle()
                     } label: {
                         Label("Import notes", systemImage: "tray.and.arrow.down")
                     }
@@ -175,13 +175,13 @@ struct 📚NotesListTab: View {
 }
 
 
-struct 🪧NoteSheet: View {
+struct 📖NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var ﹀dismiss: DismissAction
     @State private var 🚩showADMenuSheet: Bool = false
     @FocusState private var 🔍commentFocus: Bool
-    var 🔢NoteIndex: Int? {//TODO: リファクタリング
+    var 🔢noteIndex: Int? {
         📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
     }
     var body: some View {
@@ -189,12 +189,12 @@ struct 🪧NoteSheet: View {
             GeometryReader { 📐 in
                 VStack {
                     Spacer()
-                    if let 🔢NoteIndex {
-                        TextField("No title", text: $📱.📚notes[🔢NoteIndex].title)
+                    if let 🔢noteIndex {
+                        TextField("No title", text: $📱.📚notes[🔢noteIndex].title)
                             .font(.title.bold())
                             .multilineTextAlignment(.center)
                             .accessibilityHidden(true)
-                        TextEditor(text: $📱.📚notes[🔢NoteIndex].comment)
+                        TextEditor(text: $📱.📚notes[🔢noteIndex].comment)
                             .focused($🔍commentFocus)
                             .multilineTextAlignment(.center)
                             .font(.title3.weight(.light))
@@ -202,7 +202,7 @@ struct 🪧NoteSheet: View {
                             .frame(minHeight: 50, maxHeight: 180)
                             .accessibilityHidden(true)
                             .overlay(alignment: .top) {
-                                if 📱.📚notes[🔢NoteIndex].comment.isEmpty {
+                                if 📱.📚notes[🔢noteIndex].comment.isEmpty {
                                     Text("No comment")
                                         .foregroundStyle(.quaternary)
                                         .padding(6)
@@ -227,7 +227,7 @@ struct 🪧NoteSheet: View {
                         Spacer()
                         HStack(spacing: 36) {
                             Button(role: .destructive) {
-                                📱.📚notes.remove(at: 🔢NoteIndex)
+                                📱.📚notes.remove(at: 🔢noteIndex)
                                 UINotificationFeedbackGenerator().notificationOccurred(.warning)
                             } label: {
                                 Label("Delete", systemImage: "trash")
@@ -236,10 +236,10 @@ struct 🪧NoteSheet: View {
                                     .labelStyle(.iconOnly)
                             }
                             .tint(.red)
-                            📗SystemDictionaryButton(🔢NoteIndex)
+                            📗SystemDictionaryButton(🔢noteIndex)
                                 .font(.title3.weight(.semibold))
                                 .foregroundStyle(.tertiary)
-                            🔍SearchButton(🔢NoteIndex)
+                            🔍SearchButton(🔢noteIndex)
                                 .font(.title3.weight(.semibold))
                                 .foregroundStyle(.tertiary)
                         }
@@ -264,7 +264,7 @@ struct 🪧NoteSheet: View {
                     }
                 }
                 .modifier(📣ADMenuSheet($🚩showADMenuSheet))
-                .animation(.default.speed(1.5), value: 🔢NoteIndex)
+                .animation(.default.speed(1.5), value: 🔢noteIndex)
                 .padding(24)
                 .toolbar {
                     Button {
@@ -462,23 +462,23 @@ struct ℹ️AboutAppTab: View {
 }
 
 
-struct 📂FileImportSheet: View {
+struct 📥NotesImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @ObservedObject private var 🚛ImportProcess = 🚛ImportProcessModel()//TODO: リファクタリング
+    @ObservedObject private var 🚛importProcess = 🚛ImportProcessModel()//TODO: リファクタリング
     @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩showFileImporter: Bool = false
     @FocusState private var 🔍textFieldFocus: Bool
     var body: some View {
         NavigationView {
             List {
-                if 🚛ImportProcess.ⓞutputNotes.isEmpty {
+                if 🚛importProcess.ⓞutputNotes.isEmpty {
                     Picker(selection: $ⓘnputMode) {
                         Label("File", systemImage: "doc").tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
-                    Picker(selection: $🚛ImportProcess.ⓢeparator) {
+                    Picker(selection: $🚛importProcess.ⓢeparator) {
                         Text("Tab ␣ ").tag(🅂eparator.tab)
                             .accessibilityLabel("Tab")
                         Text("Comma , ").tag(🅂eparator.comma)
@@ -535,13 +535,13 @@ struct 📂FileImportSheet: View {
                             }
                         case .text:
                             Section {
-                                TextEditor(text: $🚛ImportProcess.ⓘnputText)
+                                TextEditor(text: $🚛importProcess.ⓘnputText)
                                     .focused($🔍textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
                                     .overlay {
-                                        if 🚛ImportProcess.ⓘnputText.isEmpty {
+                                        if 🚛importProcess.ⓘnputText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
@@ -561,14 +561,14 @@ struct 📂FileImportSheet: View {
                                         }
                                     }
                                 Button {
-                                    🚛ImportProcess.convertTextToNotes()
+                                    🚛importProcess.convertTextToNotes()
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
                                 }
-                                .disabled(🚛ImportProcess.ⓘnputText.isEmpty)
+                                .disabled(🚛importProcess.ⓘnputText.isEmpty)
                             }
-                            .animation(.default, value: 🚛ImportProcess.ⓘnputText.isEmpty)
+                            .animation(.default, value: 🚛importProcess.ⓘnputText.isEmpty)
                             Section {
                                 HStack {
                                     Image("sample_appleNotes")
@@ -593,7 +593,7 @@ struct 📂FileImportSheet: View {
                     }
                     🄽otSupportMultiLineTextInNote()
                 } else {
-                    ForEach(🚛ImportProcess.ⓞutputNotes) { ⓝote in
+                    ForEach(🚛importProcess.ⓞutputNotes) { ⓝote in
                         VStack(alignment: .leading) {
                             Text(ⓝote.title)
                             Text(ⓝote.comment)
@@ -606,10 +606,10 @@ struct 📂FileImportSheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !🚛ImportProcess.ⓞutputNotes.isEmpty {
+                    if !🚛importProcess.ⓞutputNotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            🚛ImportProcess.ⓞutputNotes = []
+                            🚛importProcess.ⓞutputNotes = []
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -618,13 +618,13 @@ struct 📂FileImportSheet: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !🚛ImportProcess.ⓞutputNotes.isEmpty {
+                    if !🚛importProcess.ⓞutputNotes.isEmpty {
                         Button {
-                            📱.🚩showImportSheet = false
+                            📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.📚notes.insert(contentsOf: 🚛ImportProcess.ⓞutputNotes, at: 0)
-                                🚛ImportProcess.ⓞutputNotes = []
+                                📱.📚notes.insert(contentsOf: 🚛importProcess.ⓞutputNotes, at: 0)
+                                🚛importProcess.ⓞutputNotes = []
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -634,7 +634,7 @@ struct 📂FileImportSheet: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Button {
-                        📱.🚩showImportSheet = false
+                        📱.🚩showNotesImportSheet = false
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
@@ -647,12 +647,12 @@ struct 📂FileImportSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: 🚛ImportProcess.ⓞutputNotes)
+        .animation(.default, value: 🚛importProcess.ⓞutputNotes)
         .animation(.default, value: ⓘnputMode)
         .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦Result in
             do {
-                try 🚛ImportProcess.🄸mportFile(📦Result)
-                🚛ImportProcess.convertTextToNotes()
+                try 🚛importProcess.🄸mportFile(📦Result)
+                🚛importProcess.convertTextToNotes()
             } catch {
                 print(error.localizedDescription)
             }
@@ -675,7 +675,7 @@ struct 📂FileImportSheet: View {
 struct 📗SystemDictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showSystemDictionary: Bool = false
-    var 🔢NoteIndex: Int
+    var 🔢noteIndex: Int
     var body: some View {
         Button {
             🚩showSystemDictionary = true
@@ -685,11 +685,11 @@ struct 📗SystemDictionaryButton: View {
                 .labelStyle(.iconOnly)
         }
         .sheet(isPresented: $🚩showSystemDictionary) {
-            📗SystemDictionarySheet(term: 📱.📚notes[🔢NoteIndex].title)
+            📗SystemDictionarySheet(term: 📱.📚notes[🔢noteIndex].title)
         }
     }
-    init(_ 🔢NoteIndex: Int) {
-        self.🔢NoteIndex = 🔢NoteIndex
+    init(_ 🔢noteIndex: Int) {
+        self.🔢noteIndex = 🔢noteIndex
     }
     struct 📗SystemDictionarySheet: View {
         var ⓣerm: String
@@ -719,11 +719,11 @@ struct 🔍SearchButton: View {
     @AppStorage("SearchLeadingText") var 🔗leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
     @Environment(\.openURL) var ⓞpenURL: OpenURLAction
-    var 🔢NoteIndex: Int
+    var 🔢noteIndex: Int
     var body: some View {
         Button {
             let ⓛeading = 🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗leading
-            let ⓣext = ⓛeading + 📱.📚notes[🔢NoteIndex].title + 🔗trailing
+            let ⓣext = ⓛeading + 📱.📚notes[🔢noteIndex].title + 🔗trailing
             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -733,8 +733,8 @@ struct 🔍SearchButton: View {
                 .labelStyle(.iconOnly)
         }
     }
-    init(_ 🔢NoteIndex: Int) {
-        self.🔢NoteIndex = 🔢NoteIndex
+    init(_ 🔢noteIndex: Int) {
+        self.🔢noteIndex = 🔢noteIndex
     }
 }
 
