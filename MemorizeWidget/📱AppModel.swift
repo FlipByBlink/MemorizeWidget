@@ -21,24 +21,6 @@ class 📱AppModel: ObservableObject {
 }
 
 
-class 🚛ImportProcessModel: ObservableObject {//TODO: リファクタリング
-    @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
-    @Published var ⓘnputText: String = ""
-    @Published var ⓞutputNotes: [📗Note] = []
-    
-    func 🄸mportFile(_ 📦Result: Result<URL, Error>) throws {
-        let 📦 = try 📦Result.get()
-        if 📦.startAccessingSecurityScopedResource() {
-            ⓘnputText = try String(contentsOf: 📦)
-            📦.stopAccessingSecurityScopedResource()
-        }
-    }
-    func convertTextToNotes() {
-        ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
-    }
-}
-
-
 
 
 let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes("""

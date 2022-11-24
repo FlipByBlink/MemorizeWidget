@@ -462,16 +462,18 @@ struct ℹ️AboutAppTab: View {
 }
 
 
-struct 📥NotesImportSheet: View {
+struct 📥NotesImportSheet: View {//TODO: リファクタリング
     @EnvironmentObject var 📱: 📱AppModel
-    @ObservedObject private var 🚛importProcess = 🚛ImportProcessModel()//TODO: リファクタリング
-    @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
     @State private var 🚩showFileImporter: Bool = false
+    @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
+    @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
+    @State private var ⓘnputText: String = ""
+    @State private var ⓞutputNotes: [📗Note] = []
     @FocusState private var 🔍textFieldFocus: Bool
     var body: some View {
         NavigationView {
             List {
-                if 🚛importProcess.ⓞutputNotes.isEmpty {
+                if ⓞutputNotes.isEmpty {
                     Picker(selection: $ⓘnputMode) {
                         Label("File", systemImage: "doc").tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
@@ -492,13 +494,13 @@ struct 📥NotesImportSheet: View {
                             🄴xampleSection()
                         case .text:
                             Section {
-                                TextEditor(text: $🚛importProcess.ⓘnputText)
+                                TextEditor(text: $ⓘnputText)
                                     .focused($🔍textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
                                     .overlay {
-                                        if 🚛importProcess.ⓘnputText.isEmpty {
+                                        if ⓘnputText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
@@ -518,19 +520,19 @@ struct 📥NotesImportSheet: View {
                                         }
                                     }
                                 Button {
-                                    🚛importProcess.convertTextToNotes()
+                                    ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
                                 }
-                                .disabled(🚛importProcess.ⓘnputText.isEmpty)
+                                .disabled(ⓘnputText.isEmpty)
                             }
-                            .animation(.default, value: 🚛importProcess.ⓘnputText.isEmpty)
+                            .animation(.default, value: ⓘnputText.isEmpty)
                             🄴xampleSection()
                     }
                     🄽otSupportMultiLineTextInNote()
                 } else {
-                    ForEach(🚛importProcess.ⓞutputNotes) { ⓝote in
+                    ForEach(ⓞutputNotes) { ⓝote in
                         VStack(alignment: .leading) {
                             Text(ⓝote.title)
                             Text(ⓝote.comment)
@@ -543,10 +545,10 @@ struct 📥NotesImportSheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !🚛importProcess.ⓞutputNotes.isEmpty {
+                    if !ⓞutputNotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            🚛importProcess.ⓞutputNotes = []
+                            ⓞutputNotes = []
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -555,13 +557,13 @@ struct 📥NotesImportSheet: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !🚛importProcess.ⓞutputNotes.isEmpty {
+                    if !ⓞutputNotes.isEmpty {
                         Button {
                             📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.📚notes.insert(contentsOf: 🚛importProcess.ⓞutputNotes, at: 0)
-                                🚛importProcess.ⓞutputNotes = []
+                                📱.📚notes.insert(contentsOf: ⓞutputNotes, at: 0)
+                                ⓞutputNotes = []
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -584,19 +586,23 @@ struct 📥NotesImportSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: 🚛importProcess.ⓞutputNotes)
+        .animation(.default, value: ⓞutputNotes)
         .animation(.default, value: ⓘnputMode)
-        .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦Result in
+        .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦result in
             do {
-                try 🚛importProcess.🄸mportFile(📦Result)
-                🚛importProcess.convertTextToNotes()
+                let 📦 = try 📦result.get()
+                if 📦.startAccessingSecurityScopedResource() {
+                    ⓘnputText = try String(contentsOf: 📦)
+                    📦.stopAccessingSecurityScopedResource()
+                }
+                ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
     func 🅂eparatorPicker() -> some View {
-        Picker(selection: $🚛importProcess.ⓢeparator) {
+        Picker(selection: $ⓢeparator) {
             Text("Tab ␣ ").tag(🅂eparator.tab)
                 .accessibilityLabel("Tab")
             Text("Comma , ").tag(🅂eparator.comma)
