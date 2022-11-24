@@ -105,10 +105,14 @@ struct 📚NotesListTab: View {
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
+        @Environment(\.scenePhase) var scenePhase: ScenePhase
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
         @FocusState private var 🔍focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
         var 🎨thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
+        var 🚩focusDisable: Bool {
+            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || scenePhase != .active
+        }
         var body: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
@@ -153,6 +157,11 @@ struct 📚NotesListTab: View {
                     if ⓝote.title == "" {
                         🔍focus = .title
                     }
+                }
+            }
+            .onChange(of: 🚩focusDisable) {
+                if $0 == true {
+                    🔍focus = nil
                 }
             }
             // ==== Temporary comment out bacause of clash ====
