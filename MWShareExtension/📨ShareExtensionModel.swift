@@ -13,12 +13,10 @@ class 📨ShareExtensionModel: ObservableObject {
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
-                💾DataManager.save(ⓝotes)
             case .selectedText:
                 ⓝotes.insert(contentsOf: [📗Note(self.inputTitle, self.inputComment)], at: 0)
-                💾DataManager.save(ⓝotes)
             default:
-                💾DataManager.save([📗Note("🐛")])
+                ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
         💾DataManager.save(ⓝotes)
         UserDefaults(suiteName: 🆔AppGroupID)?.set(true, forKey: "savedDataByShareExtension")
