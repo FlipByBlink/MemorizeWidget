@@ -79,7 +79,7 @@ struct 📚NotesListTab: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
     struct 🚩RandomModeSection: View {
-        @AppStorage("RandomMode") var 🚩randomMode: Bool = false
+        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
         var body: some View {
             Section {
                 Toggle(isOn: $🚩randomMode) {
@@ -105,7 +105,7 @@ struct 📚NotesListTab: View {
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
-        @AppStorage("RandomMode") var 🚩randomMode: Bool = false
+        @AppStorage("RandomMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩randomMode: Bool = false
         @FocusState private var 🔍focus: 🄵ocusPattern?
         @Binding var ⓝote: 📗Note
         var 🎨thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
@@ -304,7 +304,7 @@ struct 🔩OptionTab: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
     struct 💬CommentOnWidgetSection: View {
-        @AppStorage("ShowComment") var 🚩showComment: Bool = false
+        @AppStorage("ShowComment", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩showComment: Bool = false
         var body: some View {
             Section {
                 Toggle(isOn: $🚩showComment) {
@@ -464,8 +464,8 @@ struct ℹ️AboutAppTab: View {
 struct 📥NotesImportSheet: View {//TODO: リファクタリング
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showFileImporter: Bool = false
-    @AppStorage("InputMode") var ⓘnputMode: 🄸nputMode = .file
-    @AppStorage("separator") var ⓢeparator: 🅂eparator = .tab
+    @AppStorage("InputMode", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓘnputMode: 🄸nputMode = .file
+    @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var ⓢeparator: 🅂eparator = .tab
     @State private var ⓘnputText: String = ""
     @State private var ⓞutputNotes: [📗Note] = []
     @FocusState private var 🔍textFieldFocus: Bool
@@ -753,7 +753,7 @@ struct 🔍SearchButton: View {
 
 struct 💾OperateData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("savedDataByShareExtension") private var 🚩savedDataByShareExtension: Bool = false
+    @AppStorage("savedDataByShareExtension", store: UserDefaults(suiteName: 🆔AppGroupID)) private var 🚩savedDataByShareExtension: Bool = false
     func body(content: Content) -> some View {
         content
             .onChange(of: 📱.📚notes) { _ in
@@ -770,3 +770,9 @@ struct 💾OperateData: ViewModifier {
             }
     }
 }
+
+
+
+
+//==== REJECT .defaultAppStorage(UserDefaults(suiteName: 🆔AppGroupID)!) ====
+//reason: buggy list-animation on iOS15.x
