@@ -103,13 +103,6 @@ struct 📚NotesListTab: View {
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
         }
-        .onOpenURL { 🔗 in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                if 🔗.description == "NewNoteShortcut" {
-                    📱.🆕addNewNote()
-                }
-            }
-        }
     }
     struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
@@ -748,6 +741,8 @@ struct 🔍SearchButton: View {
 struct 💾OperateData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var 🚥phase: ScenePhase
+    @State private var 🚩editable: Bool = false
+    @State private var 🚩queuedNewNoteShortcut: Bool = false
     @State private var ⓛoadedNotes: [📗Note]? = 💾DataManager.notes
     private let 🕒timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     func body(content: Content) -> some View {
@@ -758,8 +753,25 @@ struct 💾OperateData: ViewModifier {
                         📱.📚notes = ⓝotes
                         ⓛoadedNotes = ⓝotes
                     }
+                    🚩editable = true
                 } else if 🚥phase == .active && ⓝewValue != .active {
                     💾DataManager.save(📱.📚notes)
+                    🚩editable = false
+                }
+            }
+            .onOpenURL { 🔗 in
+                if 🚩editable {
+                    if 🔗.description == "NewNoteShortcut" {
+                        📱.🆕addNewNote()
+                    }
+                } else {
+                    🚩queuedNewNoteShortcut = true
+                }
+            }
+            .onChange(of: 🚩editable) {
+                if $0 && 🚩queuedNewNoteShortcut {
+                    📱.🆕addNewNote()
+                    🚩queuedNewNoteShortcut = false
                 }
             }
             .onReceive(🕒timer) { _ in
