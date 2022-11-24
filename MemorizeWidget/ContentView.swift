@@ -40,7 +40,6 @@ struct ContentView: View {
         .sheet(isPresented: $📱.🚩showNotesImportSheet) {
             📥NotesImportSheet()
         }
-        .modifier(🪄ReloadWidgetOnSceneChange())
         .modifier(💾OperateData())
     }
     enum 🔖Tab {
@@ -796,17 +795,6 @@ struct 💾OperateData: ViewModifier {
                         ⓛoadedNotes = ⓛatestDataNotes
                     }
                 }
-            }
-    }
-}
-
-
-struct 🪄ReloadWidgetOnSceneChange: ViewModifier {
-    @Environment(\.scenePhase) var scenePhase: ScenePhase
-    func body(content: Content) -> some View {
-        content
-            .onChange(of: scenePhase) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
             }
     }
 }

@@ -1,5 +1,6 @@
 
 import Foundation
+import WidgetKit
 
 let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
 
@@ -21,6 +22,7 @@ struct 💾DataManager {
         do {
             let ⓓata = try JSONEncoder().encode(ⓝotes)
             ⓤd?.set(ⓓata, forKey: "Notes")
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("🚨:", error)
         }
