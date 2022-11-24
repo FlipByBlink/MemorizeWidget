@@ -24,7 +24,7 @@ struct ContentView: View {
             📱.🚩showNotesImportSheet = false
             📱.🚩showNoteSheet = false
             if 🔗.description == "NewNoteShortcut" {
-                📱.🆕addNewNote()
+                📱.addNewNote()
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else if 📱.📚notes.contains(where: { $0.id.description == 🔗.description }) {
                 📱.🚩showNoteSheet = true
@@ -96,7 +96,7 @@ struct 📚NotesListTab: View {
     }
     func 🆕NewNoteButton() -> some View {
         Button {
-            📱.🆕addNewNote()
+            📱.addNewNote()
         } label: {
             Label("New note", systemImage: "plus")
                 .font(.title3.weight(.semibold))
@@ -136,7 +136,7 @@ struct 📚NotesListTab: View {
                     }
                     Button {
                         guard let ⓘndex = 📱.📚notes.firstIndex(of: ⓝote) else { return }
-                        📱.🆕addNewNote(ⓘndex + 1)
+                        📱.addNewNote(ⓘndex + 1)
                     } label: {
                         Label("New note", systemImage: "text.append")
                     }

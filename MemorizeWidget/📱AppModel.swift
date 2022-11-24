@@ -10,7 +10,7 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
-    func 🆕addNewNote(_ ⓘndex: Int = 0) {
+    func addNewNote(_ ⓘndex: Int = 0) {
         📚notes.insert(📗Note(""), at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
