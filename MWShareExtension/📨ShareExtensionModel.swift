@@ -2,11 +2,15 @@ import SwiftUI
 
 class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
-    @Published var type: 🅃ype? = nil
-    @Published var importedText: String = "" //TODO: リファクタリング
-    @Published var singleNote = 📗Note("")
+    
     @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
-    var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedText, self.separator) }
+    @Published var type: 🅃ype? = nil
+    
+    @Published var importedFileText: String = ""
+    @Published var singleNote = 📗Note("")
+    
+    var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedFileText, self.separator) }
+    
     func storeNotes() {
         var ⓝotes = 💾DataManager.notes ?? []
         switch self.type {
@@ -20,6 +24,7 @@ class 📨ShareExtensionModel: ObservableObject {
         💾DataManager.save(ⓝotes)
         UserDefaults(suiteName: 🆔AppGroupID)?.set(true, forKey: "savedDataByShareExtension")
     }
+    
     @MainActor
     func setUp(_ extensionContext: NSExtensionContext?) {
         self.extensionContext = extensionContext
@@ -29,7 +34,7 @@ class 📨ShareExtensionModel: ObservableObject {
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
-                                self.importedText = try String(contentsOf: ⓤrl)
+                                self.importedFileText = try String(contentsOf: ⓤrl)
                                 self.type = .textFile
                             }
                         } catch {
