@@ -478,16 +478,7 @@ struct 📥NotesImportSheet: View {
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
-                    Picker(selection: $🚛importProcess.ⓢeparator) {
-                        Text("Tab ␣ ").tag(🅂eparator.tab)
-                            .accessibilityLabel("Tab")
-                        Text("Comma , ").tag(🅂eparator.comma)
-                            .accessibilityLabel("Comma")
-                        Text("(Title only)").tag(🅂eparator.titleOnly)
-                            .accessibilityLabel("Title only")
-                    } label: {
-                        Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
-                    }
+                    🅂eparatorPicker()
                     switch ⓘnputMode {
                         case .file:
                             Section {
@@ -498,41 +489,7 @@ struct 📥NotesImportSheet: View {
                                         .padding(.vertical, 8)
                                 }
                             }
-                            Section {
-                                HStack {
-                                    Image("sample_numbers")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(12)
-                                        .shadow(radius: 2)
-                                    Image(systemName: "arrow.right")
-                                        .font(.title2.weight(.semibold))
-                                    Image("sample_importedNotes")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(12)
-                                        .shadow(radius: 2)
-                                }
-                                .frame(maxHeight: 220)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical)
-                                Image("numbers_csv_tsv_export")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(12)
-                                    .frame(maxHeight: 200)
-                                    .shadow(radius: 2)
-                                    .padding()
-                                Image("sample_txt_macTextEdit")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(12)
-                                    .frame(maxHeight: 200)
-                                    .shadow(radius: 2)
-                                    .padding()
-                            } header: {
-                                Text("Example")
-                            }
+                            🄴xampleSection()
                         case .text:
                             Section {
                                 TextEditor(text: $🚛importProcess.ⓘnputText)
@@ -569,27 +526,7 @@ struct 📥NotesImportSheet: View {
                                 .disabled(🚛importProcess.ⓘnputText.isEmpty)
                             }
                             .animation(.default, value: 🚛importProcess.ⓘnputText.isEmpty)
-                            Section {
-                                HStack {
-                                    Image("sample_appleNotes")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(12)
-                                        .shadow(radius: 2)
-                                    Image(systemName: "arrow.right")
-                                        .font(.title2.weight(.semibold))
-                                    Image("sample_importedNotes")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(12)
-                                        .shadow(radius: 2)
-                                }
-                                .frame(maxHeight: 200)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical)
-                            } header: {
-                                Text("Example")
-                            }
+                            🄴xampleSection()
                     }
                     🄽otSupportMultiLineTextInNote()
                 } else {
@@ -656,6 +593,76 @@ struct 📥NotesImportSheet: View {
             } catch {
                 print(error.localizedDescription)
             }
+        }
+    }
+    func 🅂eparatorPicker() -> some View {
+        Picker(selection: $🚛importProcess.ⓢeparator) {
+            Text("Tab ␣ ").tag(🅂eparator.tab)
+                .accessibilityLabel("Tab")
+            Text("Comma , ").tag(🅂eparator.comma)
+                .accessibilityLabel("Comma")
+            Text("(Title only)").tag(🅂eparator.titleOnly)
+                .accessibilityLabel("Title only")
+        } label: {
+            Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
+        }
+    }
+    func 🄴xampleSection() -> some View {
+        Section {
+            switch ⓘnputMode {
+                case .file:
+                    HStack {
+                        Image("sample_numbers")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                        Image(systemName: "arrow.right")
+                            .font(.title2.weight(.semibold))
+                        Image("sample_importedNotes")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                    }
+                    .frame(maxHeight: 220)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical)
+                    Image("numbers_csv_tsv_export")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .frame(maxHeight: 200)
+                        .shadow(radius: 2)
+                        .padding()
+                    Image("sample_txt_macTextEdit")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .frame(maxHeight: 200)
+                        .shadow(radius: 2)
+                        .padding()
+                case .text:
+                    HStack {
+                        Image("sample_appleNotes")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                        Image(systemName: "arrow.right")
+                            .font(.title2.weight(.semibold))
+                        Image("sample_importedNotes")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                    }
+                    .frame(maxHeight: 200)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical)
+            }
+        } header: {
+            Text("Example")
         }
     }
     func 🄽otSupportMultiLineTextInNote() -> some View {
