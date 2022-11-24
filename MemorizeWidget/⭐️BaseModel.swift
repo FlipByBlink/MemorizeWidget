@@ -14,21 +14,20 @@ struct 📗Note: Codable, Identifiable, Hashable {
     }
 }
 
-let 🆔AppGroupID = "group.net.aaaakkkkssssttttnnnn.MemorizeWidget"
+let 💾AppGroupUD = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
 
 struct 💾DataManager {
-    static let ⓤd = UserDefaults(suiteName: 🆔AppGroupID)
     static func save(_ ⓝotes: [📗Note]) {
         do {
             let ⓓata = try JSONEncoder().encode(ⓝotes)
-            ⓤd?.set(ⓓata, forKey: "Notes")
+            💾AppGroupUD?.set(ⓓata, forKey: "Notes")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("🚨:", error)
         }
     }
     static var notes: [📗Note]? {//TODO: Optionalを再検討
-        guard let ⓓata = ⓤd?.data(forKey: "Notes") else { return nil }
+        guard let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode([📗Note].self, from: ⓓata)
         } catch {

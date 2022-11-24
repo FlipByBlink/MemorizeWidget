@@ -54,22 +54,33 @@ struct 🤖NotesProvider: TimelineProvider {
             if ⓝotes.isEmpty {
                 completion(🕒Entry(.now, nil))
             } else {
-                completion(🕒Entry(.now, ⓝotes.randomElement()!))
+                if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+                    completion(🕒Entry(.now, ⓝotes.randomElement()!))
+                } else {
+                    completion(🕒Entry(.now, ⓝotes.first))
+                }
             }
         }
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         if let ⓝotes = 💾DataManager.notes {
             if ⓝotes.isEmpty {
-                completion(Timeline(entries: [🕒Entry(.now, nil)], policy: .after(.now.advanced(by: 3600))))
+                completion(Timeline(entries: [🕒Entry(.now, nil)],
+                                    policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
             } else {
-                var ⓔntries: [🕒Entry] = []
-                for ⓒount in 0 ..< 12 {
-                    let ⓞffset = ⓒount * 5
-                    let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-                    ⓔntries.append(🕒Entry(ⓓate, ⓝotes.randomElement()!))
+                if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+                    var ⓔntries: [🕒Entry] = []
+                    for ⓒount in 0 ..< 12 {
+                        let ⓞffset = ⓒount * 5
+                        let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
+                        let ⓝote = ⓝotes.randomElement()!
+                        ⓔntries.append(🕒Entry(ⓓate, ⓝote))
+                    }
+                    completion(Timeline(entries: ⓔntries, policy: .atEnd))
+                } else {
+                    completion(Timeline(entries: [🕒Entry(.now, ⓝotes.first)],
+                                        policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
                 }
-                completion(Timeline(entries: ⓔntries, policy: .atEnd))
             }
         }
     }
@@ -87,7 +98,7 @@ struct 🕒Entry: TimelineEntry {
 struct 🅆idgetEntryView : View {
     var ⓔntry: 🤖NotesProvider.Entry
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
-    @AppStorage("ShowComment", store: UserDefaults(suiteName: 🆔AppGroupID)) var 🚩showComment: Bool = false
+    @AppStorage("ShowComment", store: 💾AppGroupUD) var 🚩showComment: Bool = false
     
     @ViewBuilder
     var body: some View {

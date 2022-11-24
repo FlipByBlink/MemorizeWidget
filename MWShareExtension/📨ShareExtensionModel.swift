@@ -3,7 +3,7 @@ import SwiftUI
 class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     
-    @AppStorage("separator", store: UserDefaults(suiteName: 🆔AppGroupID)) var separator: 🅂eparator = .tab
+    @AppStorage("separator", store: 💾AppGroupUD) var separator: 🅂eparator = .tab
     @Published var type: 🅃ype? = nil
     
     @Published var importedFileText: String = ""
@@ -22,7 +22,7 @@ class 📨ShareExtensionModel: ObservableObject {
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
         💾DataManager.save(ⓝotes)
-        UserDefaults(suiteName: 🆔AppGroupID)?.set(true, forKey: "savedDataByShareExtension")
+        💾AppGroupUD?.set(true, forKey: "savedDataByShareExtension")
     }
     
     @MainActor
