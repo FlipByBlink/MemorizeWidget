@@ -12,7 +12,7 @@ class 📨ShareExtensionModel: ObservableObject {
     var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedFileText, self.separator) }
     
     func storeNotes() {
-        var ⓝotes = 💾DataManager.notes ?? []
+        var ⓝotes = 💾DataManager.notes
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)

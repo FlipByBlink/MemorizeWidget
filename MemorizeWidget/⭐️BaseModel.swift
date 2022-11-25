@@ -26,20 +26,22 @@ struct 💾DataManager {
             print("🚨:", error)
         }
     }
-    static var notes: [📗Note]? {//TODO: Optionalを再検討
-        guard let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") else { return nil }
-        do {
-            return try JSONDecoder().decode([📗Note].self, from: ⓓata)
-        } catch {
-            print("🚨:", error)
-            return nil
+    static var notes: [📗Note] {
+        if let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") {
+            do {
+                return try JSONDecoder().decode([📗Note].self, from: ⓓata)
+            } catch {
+                print("🚨:", error)
+                return []
+            }
+        } else {
+            return 📚SampleNotes
         }
     }
     static func cleanEmptyTitleNotes() {
-        if var ⓝotes = Self.notes {
-            ⓝotes.removeAll { $0.title == "" }
-            Self.save(ⓝotes)
-        }
+        var ⓝotes = Self.notes
+        ⓝotes.removeAll { $0.title == "" }
+        Self.save(ⓝotes)
     }
 }
 
@@ -69,3 +71,12 @@ enum 🅂eparator: String {
     case comma = ","
     case titleOnly = ""
 }
+
+
+
+
+let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
+Lemon,yellow sour
+Strawberry,jam red sweet
+Grape,seedless wine white black
+""", .comma)//TODO: 再検討

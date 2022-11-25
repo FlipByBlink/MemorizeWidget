@@ -25,21 +25,11 @@ class 📱AppModel: ObservableObject {
     }
     
     func loadNotes() {
-        guard let ⓝotes = 💾DataManager.notes else { return }
-        📚notes = ⓝotes
+        📚notes = 💾DataManager.notes
     }
     
     init() {
         💾DataManager.cleanEmptyTitleNotes()
-        📚notes = 💾DataManager.notes ?? 📚SampleNotes
+        📚notes = 💾DataManager.notes
     }
 }
-
-
-
-
-let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes("""
-Lemon,yellow sour
-Strawberry,jam red sweet
-Grape,seedless wine white black
-""", .comma)//TODO: 再検討

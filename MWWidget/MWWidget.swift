@@ -50,37 +50,35 @@ struct 🤖NotesProvider: TimelineProvider {
         🕒Entry(.now, 📗Note("title", "comment"))
     }
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        if let ⓝotes = 💾DataManager.notes {
-            if ⓝotes.isEmpty {
-                completion(🕒Entry(.now, nil))
+        let ⓝotes = 💾DataManager.notes
+        if ⓝotes.isEmpty {
+            completion(🕒Entry(.now, nil))
+        } else {
+            if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+                completion(🕒Entry(.now, ⓝotes.randomElement()!))
             } else {
-                if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
-                    completion(🕒Entry(.now, ⓝotes.randomElement()!))
-                } else {
-                    completion(🕒Entry(.now, ⓝotes.first))
-                }
+                completion(🕒Entry(.now, ⓝotes.first))
             }
         }
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        if let ⓝotes = 💾DataManager.notes {
-            if ⓝotes.isEmpty {
-                completion(Timeline(entries: [🕒Entry(.now, nil)],
-                                    policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
-            } else {
-                if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
-                    var ⓔntries: [🕒Entry] = []
-                    for ⓒount in 0 ..< 12 {
-                        let ⓞffset = ⓒount * 5
-                        let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-                        let ⓝote = ⓝotes.randomElement()!
-                        ⓔntries.append(🕒Entry(ⓓate, ⓝote))
-                    }
-                    completion(Timeline(entries: ⓔntries, policy: .atEnd))
-                } else {
-                    completion(Timeline(entries: [🕒Entry(.now, ⓝotes.first)],
-                                        policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
+        let ⓝotes = 💾DataManager.notes
+        if ⓝotes.isEmpty {
+            completion(Timeline(entries: [🕒Entry(.now, nil)],
+                                policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
+        } else {
+            if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+                var ⓔntries: [🕒Entry] = []
+                for ⓒount in 0 ..< 12 {
+                    let ⓞffset = ⓒount * 5
+                    let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
+                    let ⓝote = ⓝotes.randomElement()!
+                    ⓔntries.append(🕒Entry(ⓓate, ⓝote))
                 }
+                completion(Timeline(entries: ⓔntries, policy: .atEnd))
+            } else {
+                completion(Timeline(entries: [🕒Entry(.now, ⓝotes.first)],
+                                    policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
             }
         }
     }
