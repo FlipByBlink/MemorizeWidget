@@ -46,6 +46,12 @@
 "New note shortcut" = "新規ノートショートカット";
 "Shortcut to add new note." = "新規ノートを追加するためのショートカットです。";
 
+"可愛い,cute, pretty, kawaii
+おやすみなさい,good night.
+苺,strawberry, red, jam" = "Cute,可愛い、魅力的
+Good night.,おやすみなさい。
+Strawberry,苺、ストロベリー";
+
 
 // =======================================================
 // ====================== Template =======================
