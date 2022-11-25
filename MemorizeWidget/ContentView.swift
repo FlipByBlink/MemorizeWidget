@@ -162,14 +162,6 @@ struct 📚NotesListTab: View {
                     📱.🆕newNoteID = nil
                 }
             }
-            // ==== Temporary comment out bacause of clash ====
-            //.onChange(of: 🔍focus) { ⓝewValue in
-            //    if ⓝewValue == nil {
-            //        if ⓝote.title == "" {
-            //            📱.📚notes.removeAll(where: { $0 == ⓝote })
-            //        }
-            //    }
-            //}
         }
         enum 🄵ocusPattern {
             case title, comment
@@ -468,7 +460,7 @@ struct ℹ️AboutAppTab: View {
 }
 
 
-struct 📥NotesImportSheet: View {//TODO: リファクタリング
+struct 📥NotesImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showFileImporter: Bool = false
     @AppStorage("InputMode", store: 💾AppGroupUD) var ⓘnputMode: 🄸nputMode = .file
@@ -781,5 +773,5 @@ struct 💾OperateData: ViewModifier {
 
 
 
-//==== REJECT .defaultAppStorage(UserDefaults(suiteName: 🆔AppGroupID)!) ====
+//MARK: - REJECT .defaultAppStorage(UserDefaults(suiteName: `AppGroupID`)!)
 //reason: buggy list-animation on iOS15.x

@@ -1,5 +1,5 @@
 
-let 📜VersionsInfo: [(ⓝumber: String, ⓓate: String)] = [("1.1.1", "2022-11-17"),
+let 📜VersionsInfo: [(ⓝumber: String, ⓓate: String)] = [("1.1.1", "2022-11-25"),
                                                         ("1.1", "2022-10-30"),
                                                         ("1.0.2", "2022-09-16"),
                                                         ("1.0.1", "2022-09-11"),
@@ -21,6 +21,8 @@ let 🔗WebRepositoryURL_Mirror = URL(string: "https://gitlab.com/FlipByBlink/Me
 enum 📁SourceFolder: String, CaseIterable, Identifiable {
     case main
     case 🧰Others
+    case WidgetExtension
+    case ShareExtension
     var id: String { self.rawValue }
 }
 

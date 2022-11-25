@@ -23,9 +23,9 @@
 		F59EEFF128F3FCEB002D9AD7 /* ℹ️AboutAppMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift */; };
 		F59EEFF328F3FCEB002D9AD7 /* 📣AD.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFF428F3FCEB002D9AD7 /* 🛒InAppPurchase.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
-		F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
-		F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
-		F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
+		F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in Copy Files */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
+		F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in Copy Files */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
+		F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in Copy Files */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
 		F5AAE666292B741B00FB8406 /* ⭐️BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
 		F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
@@ -35,10 +35,10 @@
 		F5B5A46628C6EDA3005B6E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
 		F5B6FED228C99B930045D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */; };
 		F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */; };
-		F5C27B5F292D08D50089F957 /* ⭐️BaseModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
-		F5C27B60292D08EA0089F957 /* MWWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
-		F5C27B61292D08EA0089F957 /* 📨ShareExtensionModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
-		F5C27B62292D08EA0089F957 /* 🄷ostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
+		F5C27B5F292D08D50089F957 /* ⭐️BaseModel.swift in Copy Files */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */; };
+		F5C3A1FA29303D2C00AA9C66 /* 📨ShareExtensionModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
+		F5C3A1FB29303D2C00AA9C66 /* 🄷ostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
+		F5C3A1FC29303D3800AA9C66 /* MWWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
 		F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
 		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
 		F5CEA5FB2924AAAC00752277 /* MWShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -76,25 +76,44 @@
 			dstPath = "🧰Others";
 			dstSubfolderSpec = 7;
 			files = (
-				F5C27B60292D08EA0089F957 /* MWWidget.swift in CopyFiles */,
-				F5C27B61292D08EA0089F957 /* 📨ShareExtensionModel.swift in CopyFiles */,
-				F5C27B62292D08EA0089F957 /* 🄷ostingViewController.swift in CopyFiles */,
 				F59EEFF128F3FCEB002D9AD7 /* ℹ️AboutAppMenu.swift in CopyFiles */,
 				F59EEFF328F3FCEB002D9AD7 /* 📣AD.swift in CopyFiles */,
 				F59EEFF428F3FCEB002D9AD7 /* 🛒InAppPurchase.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F59EEFF528F3FDD7002D9AD7 /* CopyFiles */ = {
+		F59EEFF528F3FDD7002D9AD7 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = main;
 			dstSubfolderSpec = 7;
 			files = (
-				F5C27B5F292D08D50089F957 /* ⭐️BaseModel.swift in CopyFiles */,
-				F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in CopyFiles */,
-				F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in CopyFiles */,
-				F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in CopyFiles */,
+				F5C27B5F292D08D50089F957 /* ⭐️BaseModel.swift in Copy Files */,
+				F59EEFF628F3FDDE002D9AD7 /* MemorizeWidgetApp.swift in Copy Files */,
+				F59EEFF728F3FDDE002D9AD7 /* ContentView.swift in Copy Files */,
+				F59EEFF828F3FDDE002D9AD7 /* 📱AppModel.swift in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5C3A1F829303D1100AA9C66 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = WidgetExtension;
+			dstSubfolderSpec = 7;
+			files = (
+				F5C3A1FC29303D3800AA9C66 /* MWWidget.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5C3A1F929303D1D00AA9C66 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ShareExtension;
+			dstSubfolderSpec = 7;
+			files = (
+				F5C3A1FA29303D2C00AA9C66 /* 📨ShareExtensionModel.swift in CopyFiles */,
+				F5C3A1FB29303D2C00AA9C66 /* 🄷ostingViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +302,9 @@
 				F5B5A45C28C6EDA1005B6E0F /* Resources */,
 				F5D30CD428C6F6C9001198AF /* Embed Foundation Extensions */,
 				F59EEFF028F3FCDF002D9AD7 /* CopyFiles */,
-				F59EEFF528F3FDD7002D9AD7 /* CopyFiles */,
+				F59EEFF528F3FDD7002D9AD7 /* Copy Files */,
+				F5C3A1F829303D1100AA9C66 /* CopyFiles */,
+				F5C3A1F929303D1D00AA9C66 /* CopyFiles */,
 			);
 			buildRules = (
 			);
