@@ -78,5 +78,5 @@ enum 🅂eparator: String {
 let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes(String(localized: """
 可愛い,cute, pretty, kawaii
 おやすみなさい,good night.
-苺,strawberry, red, jam
+苺,strawberry
 """), .comma)
