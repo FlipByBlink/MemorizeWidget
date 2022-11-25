@@ -1,6 +1,5 @@
 
 import SwiftUI
-import WidgetKit
 
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: [📗Note]

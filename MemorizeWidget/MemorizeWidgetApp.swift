@@ -1,6 +1,5 @@
 
 import SwiftUI
-import WidgetKit
 
 @main
 struct MemorizeWidgetApp: App {
