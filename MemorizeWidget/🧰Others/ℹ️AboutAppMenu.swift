@@ -1,5 +1,5 @@
 
-let 📜VersionsInfo: [(ⓝumber: String, ⓓate: String)] = [("1.1.1", "2022-11-25"),
+let 📜VersionsInfo: [(ⓝumber: String, ⓓate: String)] = [("1.1.1", "2022-11-26"),
                                                         ("1.1", "2022-10-30"),
                                                         ("1.0.2", "2022-09-16"),
                                                         ("1.0.1", "2022-09-11"),
@@ -28,6 +28,8 @@ enum 📁SourceFolder: String, CaseIterable, Identifiable {
 
 
 
+
+//MARK: - Template
 
 import SwiftUI
 
