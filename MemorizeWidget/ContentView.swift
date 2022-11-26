@@ -52,12 +52,17 @@ struct 📚NotesListTab: View {
         NavigationView {
             List {
                 🚩RandomModeSection()
-                🆕NewNoteButton()
-                ForEach($📱.📚notes) { ⓝote in
-                    📓NoteRow(ⓝote)
+                Section {
+                    🆕NewNoteButton()
+                    ForEach($📱.📚notes) { ⓝote in
+                        📓NoteRow(ⓝote)
+                    }
+                    .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                    .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
+                } footer: {
+                    Text("Notes count: \(📱.📚notes.count.description)")
+                        .opacity(📱.📚notes.count < 4 ? 0 : 1)
                 }
-                .onDelete { 📱.📚notes.remove(atOffsets: $0) }
-                .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
             }
             .navigationBarTitleDisplayMode(.inline)
             .animation(.default, value: 📱.📚notes)

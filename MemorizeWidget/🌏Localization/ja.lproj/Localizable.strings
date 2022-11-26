@@ -8,6 +8,7 @@
 "New note" = "新規ノート";
 "Detail" = "詳細";
 "comment" = "コメント";
+"Notes count: %@" = "ノート数: %@";
 "No title" = "タイトルなし";
 "No comment" = "コメントなし";
 "Deleted." = "削除完了";
