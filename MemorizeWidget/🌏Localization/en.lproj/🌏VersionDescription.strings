@@ -1,6 +1,7 @@
 
 "1.1.1" = "- Support to import notes from other app directly with share-sheet.
-- Show notes count on footer.";
+- Show notes count on footer.
+- Widely refactoring.";
 "1.1" = "・Bigly improve importability.
 ・Comma-style and title-only-style import option.
 ・Text-encoded file format(e.g. csv, txt) widely support.
