@@ -557,6 +557,8 @@ struct 📥NotesImportSheet: View {
                             }
                             .padding(.vertical, 8)
                         }
+                    } header: {
+                        Text("Notes count: \(ⓝotes.count.description)")
                     }
                 }
             }
