@@ -50,33 +50,41 @@ struct 📚NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationView {
-            List {
-                🚩RandomModeSection()
-                Section {
-                    🆕NewNoteButton()
-                    ForEach($📱.📚notes) { ⓝote in
-                        📓NoteRow(ⓝote)
+            ScrollViewReader { 🚡 in
+                List {
+                    🚩RandomModeSection()
+                    Section {
+                        🆕NewNoteButton()
+                            .id("NewNoteButton")
+                            .onOpenURL {
+                                if $0.description == "NewNoteShortcut" {
+                                    🚡.scrollTo("NewNoteButton")
+                                }
+                            }
+                        ForEach($📱.📚notes) { ⓝote in
+                            📓NoteRow(ⓝote)
+                        }
+                        .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                        .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
+                    } footer: {
+                        Text("Notes count: \(📱.📚notes.count.description)")
+                            .opacity(📱.📚notes.count < 4 ? 0 : 1)
                     }
-                    .onDelete { 📱.📚notes.remove(atOffsets: $0) }
-                    .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
-                } footer: {
-                    Text("Notes count: \(📱.📚notes.count.description)")
-                        .opacity(📱.📚notes.count < 4 ? 0 : 1)
                 }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .animation(.default, value: 📱.📚notes)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                        .disabled(📱.📚notes.isEmpty)
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        UISelectionFeedbackGenerator().selectionChanged()
-                        📱.🚩showNotesImportSheet.toggle()
-                    } label: {
-                        Label("Import notes", systemImage: "tray.and.arrow.down")
+                .navigationBarTitleDisplayMode(.inline)
+                .animation(.default, value: 📱.📚notes)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                            .disabled(📱.📚notes.isEmpty)
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            UISelectionFeedbackGenerator().selectionChanged()
+                            📱.🚩showNotesImportSheet.toggle()
+                        } label: {
+                            Label("Import notes", systemImage: "tray.and.arrow.down")
+                        }
                     }
                 }
             }
