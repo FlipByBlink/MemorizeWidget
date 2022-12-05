@@ -370,6 +370,7 @@ struct 🔩OptionTab: View {
                         .padding(8)
                         .frame(minHeight: 100)
                         .animation(.default, value: 🔗leading.isEmpty)
+                        .foregroundStyle(🔗leading.isEmpty ? .secondary : .primary)
                     TextField("URL scheme", text: $🔗leading)
                     TextField("Trailing component", text: $🔗trailing)
                         .font(.caption)
@@ -378,6 +379,8 @@ struct 🔩OptionTab: View {
                 .textFieldStyle(.roundedBorder)
             } header: {
                 Label("Customize search", systemImage: "magnifyingglass")
+            } footer: {
+                Text("Pre-installed shortcut to search in DuckDuckGo.")
             }
             .headerProminence(.increased)
         }
