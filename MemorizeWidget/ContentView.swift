@@ -484,6 +484,8 @@ struct 📥NotesImportSheet: View {
         🄲onvertTextToNotes(ⓘmportedText, ⓢeparator)
     }
     @FocusState private var 🔍textFieldFocus: Bool
+    @State private var 🚨showErrorAlert: Bool = false
+    @State private var 🚨errorMessage: String = ""
     var body: some View {
         NavigationView {
             List {
@@ -615,9 +617,17 @@ struct 📥NotesImportSheet: View {
                     📦.stopAccessingSecurityScopedResource()
                 }
             } catch {
-                print(error.localizedDescription)
-                //TODO: エンコードエラー発生した場合、その旨を表示する
+                🚨errorMessage = error.localizedDescription
+                🚨showErrorAlert = true
             }
+        }
+        .alert("⚠️", isPresented: $🚨showErrorAlert) {
+            Button("OK") {
+                🚨showErrorAlert = false
+                🚨errorMessage = ""
+            }
+        } message: {
+            Text(🚨errorMessage)
         }
     }
     func 🅂eparatorPicker() -> some View {
