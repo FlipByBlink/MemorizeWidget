@@ -68,7 +68,7 @@ struct 📚NotesListTab: View {
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")
-                            .opacity(📱.📚notes.count < 4 ? 0 : 1)
+                            .opacity(📱.📚notes.count < 6  ? 0 : 1)
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
