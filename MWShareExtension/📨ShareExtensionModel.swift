@@ -7,9 +7,20 @@ class 📨ShareExtensionModel: ObservableObject {
     @Published var type: 🅃ype? = nil
     
     @Published var importedFileText: String = ""
-    @Published var singleNote = 📗Note("")
     
-    var convertedNotes: [📗Note] { 🄲onvertTextToNotes(self.importedFileText, self.separator) }
+    @Published var singleNote = 📗Note("")
+    @Published var importSelectedTextAsSingleNote: Bool = true
+    
+    var convertedNotes: [📗Note] {
+        switch self.type {
+            case .textFile:
+                return 🄲onvertTextToNotes(self.importedFileText, self.separator)
+            case .selectedText:
+                return 🄲onvertTextToNotes(self.singleNote.title, self.separator)
+            default:
+                return []
+        }
+    }
     
     func storeNotes() {
         var ⓝotes = 💾DataManager.notes
@@ -17,7 +28,11 @@ class 📨ShareExtensionModel: ObservableObject {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
             case .selectedText:
-                ⓝotes.insert(contentsOf: [self.singleNote], at: 0)
+                if self.importSelectedTextAsSingleNote {
+                    ⓝotes.insert(contentsOf: [self.singleNote], at: 0)
+                } else {
+                    ⓝotes.insert(contentsOf: convertedNotes, at: 0)
+                }
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }

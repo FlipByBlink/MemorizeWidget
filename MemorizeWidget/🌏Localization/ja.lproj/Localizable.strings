@@ -40,6 +40,7 @@
 "Example" = "例";
 "Not support multi line text in note." = "「ノート内での改行」はサポート対象外です。";
 "Not text file(UTF-8)." = "テキストファイル(UTF-8)ではありません。";
+"Import as some notes." = "複数個のノートとして取り込む。";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";

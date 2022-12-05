@@ -22,22 +22,37 @@ struct 🄼ainView: View {
                 switch 📨.type {
                     case .textFile:
                         🅂eparatorPicker()
-                        ForEach(📨.convertedNotes) { ⓝote in
-                            VStack(alignment: .leading) {
-                                Text(ⓝote.title)
-                                Text(ⓝote.comment)
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(.vertical, 8)
-                        }
+                        🄽otesListView()
                     case .improperFile:
                         Label("Not text file(UTF-8).", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
                     case .selectedText:
-                        TextField("No title", text: $📨.singleNote.title)
-                        TextField("No comment", text: $📨.singleNote.comment)
-                            .foregroundStyle(.secondary)
+                        if 📨.importSelectedTextAsSingleNote {
+                            TextField("No title", text: $📨.singleNote.title)
+                            TextField("No comment", text: $📨.singleNote.comment)
+                                .foregroundStyle(.secondary)
+                            if 📨.singleNote.title.contains("\n") {
+                                Section {
+                                    Button {
+                                        withAnimation {
+                                            📨.importSelectedTextAsSingleNote = false
+                                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                        }
+                                    } label: {
+                                        ZStack {
+                                            Color.clear
+                                            Label("Import as some notes.", systemImage: "books.vertical")
+                                                .font(.subheadline)
+                                        }
+                                    }
+                                    .listRowBackground(Color.clear)
+                                    .foregroundStyle(.secondary)
+                                }
+                            }
+                        } else {
+                            🅂eparatorPicker()
+                            🄽otesListView()
+                        }
                     case .none:
                         Text("🐛")
                 }
@@ -79,6 +94,17 @@ struct 🄼ainView: View {
             } label: {
                 Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
             }
+        }
+    }
+    func 🄽otesListView() -> some View {
+        ForEach(📨.convertedNotes) { ⓝote in
+            VStack(alignment: .leading) {
+                Text(ⓝote.title)
+                Text(ⓝote.comment)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.vertical, 8)
         }
     }
     init(_ 📨: 📨ShareExtensionModel) {
