@@ -478,13 +478,16 @@ struct 📥NotesImportSheet: View {
     @State private var 🚩showFileImporter: Bool = false
     @AppStorage("InputMode", store: 💾AppGroupUD) var ⓘnputMode: 🄸nputMode = .file
     @AppStorage("separator", store: 💾AppGroupUD) var ⓢeparator: 🅂eparator = .tab
-    @State private var ⓘnputText: String = ""
-    @State private var ⓞutputNotes: [📗Note] = []
+    @State private var ⓟastedText: String = ""
+    @State private var ⓘmportedText: String = ""
+    var ⓝotes: [📗Note] {
+        🄲onvertTextToNotes(ⓘmportedText, ⓢeparator)
+    }
     @FocusState private var 🔍textFieldFocus: Bool
     var body: some View {
         NavigationView {
             List {
-                if ⓞutputNotes.isEmpty {
+                if ⓝotes.isEmpty {
                     Picker(selection: $ⓘnputMode) {
                         Label("File", systemImage: "doc").tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
@@ -505,13 +508,13 @@ struct 📥NotesImportSheet: View {
                             🄴xampleSection()
                         case .text:
                             Section {
-                                TextEditor(text: $ⓘnputText)
+                                TextEditor(text: $ⓟastedText)
                                     .focused($🔍textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
                                     .overlay {
-                                        if ⓘnputText.isEmpty {
+                                        if ⓟastedText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
@@ -531,35 +534,38 @@ struct 📥NotesImportSheet: View {
                                         }
                                     }
                                 Button {
-                                    ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
+                                    ⓘmportedText = ⓟastedText
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
                                 }
-                                .disabled(ⓘnputText.isEmpty)
+                                .disabled(ⓟastedText.isEmpty)
                             }
-                            .animation(.default, value: ⓘnputText.isEmpty)
+                            .animation(.default, value: ⓟastedText.isEmpty)
                             🄴xampleSection()
                     }
                     🄽otSupportMultiLineTextInNote()
                 } else {
-                    ForEach(ⓞutputNotes) { ⓝote in
-                        VStack(alignment: .leading) {
-                            Text(ⓝote.title)
-                            Text(ⓝote.comment)
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
+                    🅂eparatorPicker()
+                    Section {
+                        ForEach(ⓝotes) { ⓝote in
+                            VStack(alignment: .leading) {
+                                Text(ⓝote.title)
+                                Text(ⓝote.comment)
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(.vertical, 8)
                         }
-                        .padding(.vertical, 8)
                     }
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !ⓞutputNotes.isEmpty {
+                    if !ⓝotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            ⓞutputNotes = []
+                            ⓘmportedText = ""
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -568,13 +574,13 @@ struct 📥NotesImportSheet: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !ⓞutputNotes.isEmpty {
+                    if !ⓝotes.isEmpty {
                         Button {
                             📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.📚notes.insert(contentsOf: ⓞutputNotes, at: 0)
-                                ⓞutputNotes = []
+                                📱.📚notes.insert(contentsOf: ⓝotes, at: 0)
+                                ⓘmportedText = ""
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -597,18 +603,18 @@ struct 📥NotesImportSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: ⓞutputNotes)
+        .animation(.default, value: ⓝotes)
         .animation(.default, value: ⓘnputMode)
         .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦result in
             do {
                 let 📦 = try 📦result.get()
                 if 📦.startAccessingSecurityScopedResource() {
-                    ⓘnputText = try String(contentsOf: 📦)
+                    ⓘmportedText = try String(contentsOf: 📦)
                     📦.stopAccessingSecurityScopedResource()
                 }
-                ⓞutputNotes = 🄲onvertTextToNotes(ⓘnputText, ⓢeparator)
             } catch {
                 print(error.localizedDescription)
+                //TODO: エンコードエラー発生した場合、その旨を表示する
             }
         }
     }
