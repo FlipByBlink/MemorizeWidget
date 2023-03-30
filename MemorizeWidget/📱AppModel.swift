@@ -22,17 +22,19 @@ class 📱AppModel: ObservableObject {
     }
     
     func handleWidgetURL(_ ⓤrl: URL) {
-        self.🚩showNotesImportSheet = false
-        self.🚩showNoteSheet = false
-        if ⓤrl.description == "NewNoteShortcut" {
-            self.addNewNote()
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
-            self.🚩showNoteSheet = true
-            self.🆔openedNoteID = ⓤrl.description
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        Task { @MainActor in
+            self.🚩showNotesImportSheet = false
+            self.🚩showNoteSheet = false
+            if ⓤrl.description == "NewNoteShortcut" {
+                self.addNewNote()
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
+                self.🚩showNoteSheet = true
+                self.🆔openedNoteID = ⓤrl.description
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            }
+            self.🔖tab = .notesList
         }
-        self.🔖tab = .notesList
     }
     
     init() {

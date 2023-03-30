@@ -30,7 +30,7 @@ extension 📚Notes {
         self.save()
     }
     static func load() -> Self? {
-        guard let ⓓata = 💾AppGroupDefaults?.data(forKey: "Notes") else { return .sample }
+        guard let ⓓata = 💾AppGroupDefaults?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode(Self.self, from: ⓓata)
         } catch {
