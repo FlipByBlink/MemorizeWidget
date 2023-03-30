@@ -4,7 +4,7 @@ class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     
     @AppStorage("separator", store: 💾AppGroupDefaults) var separator: 🅂eparator = .tab
-    @Published var type: 🅃ype? = nil
+    @Published var type: 🄸nputType? = nil
     
     @Published var importedFileText: String = ""
     
@@ -71,6 +71,6 @@ class 📨ShareExtensionModel: ObservableObject {
     }
 }
 
-enum 🅃ype {
+enum 🄸nputType {
     case textFile, selectedText, improperFile
 }

@@ -11,40 +11,40 @@ struct MWWidgetBundle: WidgetBundle {
 }
 
 struct 🖼MWWidget: Widget {
-    private var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium]
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "main", provider: 🤖NotesProvider()) { ⓔntry in
+        StaticConfiguration(kind: "main", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
-        .supportedFamilies(self.ⓕamilys)
+        .supportedFamilies(self.ⓕamilies)
     }
     init() {
         if #available(iOS 16.0, *) {
-            self.ⓕamilys.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
+            self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
         }
     }
 }
 
 struct 🖼MWWidgetSub: Widget {
-    private var ⓕamilys: [WidgetFamily] = [.systemSmall, .systemMedium]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium]
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "sub", provider: 🤖NotesProvider()) { ⓔntry in
+        StaticConfiguration(kind: "sub", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("Sub widget")
         .description("This is spare widget for the purpose of second widget and random-mode")
-        .supportedFamilies(self.ⓕamilys)
+        .supportedFamilies(self.ⓕamilies)
     }
     init() {
         if #available(iOS 16.0, *) {
-            self.ⓕamilys.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
+            self.ⓕamilies.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
         }
     }
 }
 
-struct 🤖NotesProvider: TimelineProvider {
+struct 🤖TimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒Entry {
         🕒Entry(.now, 📗Note("title", "comment"))
     }
@@ -94,11 +94,11 @@ struct 🕒Entry: TimelineEntry {
 
 struct 🅆idgetEntryView: View {
     private var ⓝote: 📗Note?
-    @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
+    @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: 💾AppGroupDefaults) var 🚩showComment: Bool = false
     var body: some View {
         if let ⓝote {
-            switch self.ⓕamily {
+            switch self.widgetFamily {
                 case .systemSmall:
                     ZStack {
                         Color.clear
@@ -187,14 +187,14 @@ struct 🅆idgetEntryView: View {
                 .foregroundStyle(.tertiary)
         }
     }
-    init(_ ⓔntry: 🤖NotesProvider.Entry) {
+    init(_ ⓔntry: 🤖TimelineProvider.Entry) {
         self.ⓝote = ⓔntry.ⓝote
     }
 }
 
 //MARK: - ➕NewNoteShortcut
 struct 📝NewNoteShortcutWidget: Widget {
-    private var ⓕamilys: [WidgetFamily] {
+    private var ⓕamilies: [WidgetFamily] {
         guard #available(iOS 16.0, *) else { return [] }
         return [.accessoryInline, .accessoryCircular]
     }
@@ -204,7 +204,7 @@ struct 📝NewNoteShortcutWidget: Widget {
         }
         .configurationDisplayName("New note shortcut")
         .description("Shortcut to add new note.")
-        .supportedFamilies(self.ⓕamilys)
+        .supportedFamilies(self.ⓕamilies)
     }
 }
 
@@ -225,9 +225,9 @@ struct 🕒NewNoteShortcutEntry: TimelineEntry {
 }
 
 struct 🄽ewNoteShortcutView: View {
-    @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
+    @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
-        switch self.ⓕamily {
+        switch self.widgetFamily {
             case .accessoryInline:
                 if #available(iOS 16.0, *) {
                     Image(systemName: "plus.rectangle.on.rectangle")
