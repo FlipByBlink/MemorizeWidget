@@ -59,11 +59,14 @@ struct 🔩OptionTab: View {
     private struct 🔍CustomizeSearchSection: View {
         @AppStorage("SearchLeadingText") var 🔗leading: String = ""
         @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
+        private var ⓔntireText: String {
+            let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
+            return ⓛeading + "NOTETITLE" + self.🔗trailing
+        }
         var body: some View {
             Section {
                 VStack {
-                    let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
-                    Text(ⓛeading + "NOTETITLE" + self.🔗trailing)
+                    Text(self.ⓔntireText)
                         .italic()
                         .font(.system(.footnote, design: .monospaced))
                         .multilineTextAlignment(.center)

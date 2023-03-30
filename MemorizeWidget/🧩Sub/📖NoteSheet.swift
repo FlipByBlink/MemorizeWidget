@@ -3,7 +3,7 @@ import SwiftUI
 struct 📖NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
-    @Environment(\.dismiss) var ﹀dismiss
+    @Environment(\.dismiss) var dismiss
     @State private var 🚩showADMenuSheet: Bool = false
     @FocusState private var 🔍commentFocus: Bool
     private var 🔢noteIndex: Int? {
@@ -93,7 +93,7 @@ struct 📖NoteSheet: View {
                 .padding(24)
                 .toolbar {
                     Button {
-                        self.﹀dismiss()
+                        self.dismiss()
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")

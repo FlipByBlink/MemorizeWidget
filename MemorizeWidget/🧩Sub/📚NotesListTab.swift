@@ -78,9 +78,9 @@ struct 📚NotesListTab: View {
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
         @FocusState private var 🔍focus: 🄵ocusPattern?
         @Binding private var ⓝote: 📗Note
-        private var 🎨thin: Bool { !self.🚩randomMode && 📱.📚notes.first != self.ⓝote }
+        private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
         private var 🚩focusDisable: Bool {
-            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || self.scenePhase != .active
+            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
         }
         var body: some View {
             HStack {
