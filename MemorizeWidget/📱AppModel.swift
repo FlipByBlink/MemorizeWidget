@@ -3,6 +3,8 @@ import SwiftUI
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: [📗Note]
     
+    @Published var 🔖tab: 🔖Tab = .notesList
+    
     @Published var 🚩showNoteSheet: Bool = false
     @Published var 🆔openedNoteID: String? = nil
     
@@ -17,6 +19,20 @@ class 📱AppModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             self.🆕newNoteID = ⓝewNote.id
         }
+    }
+    
+    func handleWidgetURL(_ ⓤrl: URL) {
+        self.🚩showNotesImportSheet = false
+        self.🚩showNoteSheet = false
+        if ⓤrl.description == "NewNoteShortcut" {
+            self.addNewNote()
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
+            self.🚩showNoteSheet = true
+            self.🆔openedNoteID = ⓤrl.description
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        }
+        self.🔖tab = .notesList
     }
     
     func saveNotes() {

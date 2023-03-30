@@ -8,6 +8,7 @@ struct MemorizeWidgetApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modifier(💾OperateData())
                 .environmentObject(📱)
                 .environmentObject(🛒)
         }

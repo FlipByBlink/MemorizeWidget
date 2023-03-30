@@ -44,7 +44,7 @@ struct 📚NotesListTab: View {
                 }
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
     }
     private struct 🚩RandomModeSection: View {
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
