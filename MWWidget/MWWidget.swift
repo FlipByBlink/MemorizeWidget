@@ -92,12 +92,12 @@ struct 🕒Entry: TimelineEntry {
     }
 }
 
-struct 🅆idgetEntryView : View {
-    private var ⓔntry: 🤖NotesProvider.Entry
+struct 🅆idgetEntryView: View {
+    private var ⓝote: 📗Note?
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
     @AppStorage("ShowComment", store: 💾AppGroupUD) var 🚩showComment: Bool = false
     var body: some View {
-        if let ⓝote = self.ⓔntry.ⓝote {
+        if let ⓝote {
             switch self.ⓕamily {
                 case .systemSmall:
                     ZStack {
@@ -188,7 +188,7 @@ struct 🅆idgetEntryView : View {
         }
     }
     init(_ ⓔntry: 🤖NotesProvider.Entry) {
-        self.ⓔntry = ⓔntry
+        self.ⓝote = ⓔntry.ⓝote
     }
 }
 

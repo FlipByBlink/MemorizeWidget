@@ -23,6 +23,7 @@ struct 💾DataManager {
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("🚨:", error)
+            assertionFailure()
         }
     }
     static var notes: [📗Note] {
@@ -31,6 +32,7 @@ struct 💾DataManager {
                 return try JSONDecoder().decode([📗Note].self, from: ⓓata)
             } catch {
                 print("🚨:", error)
+                assertionFailure()
                 return []
             }
         } else {

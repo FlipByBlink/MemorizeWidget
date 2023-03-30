@@ -184,7 +184,6 @@ struct 📚NotesListTab: View {
     }
 }
 
-
 struct 📖NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
@@ -290,7 +289,6 @@ struct 📖NoteSheet: View {
         }
     }
 }
-
 
 struct 🔩OptionTab: View {
     @EnvironmentObject var 📱: 📱AppModel
@@ -401,7 +399,6 @@ struct 🔩OptionTab: View {
     }
 }
 
-
 struct 🛒PurchaseTab: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
@@ -409,7 +406,6 @@ struct 🛒PurchaseTab: View {
             .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
 
 struct ℹ️AboutAppTab: View {
     var body: some View {
@@ -471,7 +467,6 @@ struct ℹ️AboutAppTab: View {
         }
     }
 }
-
 
 struct 📥NotesImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
@@ -718,7 +713,6 @@ struct 📥NotesImportSheet: View {
     }
 }
 
-
 struct 📗SystemDictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showSystemDictionary: Bool = false
@@ -760,7 +754,6 @@ struct 📗SystemDictionaryButton: View {
     }
 }
 
-
 struct 🔍SearchButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @AppStorage("SearchLeadingText") var 🔗leading: String = ""
@@ -785,7 +778,6 @@ struct 🔍SearchButton: View {
     }
 }
 
-
 struct 💾OperateData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @AppStorage("savedDataByShareExtension", store: 💾AppGroupUD) private var 🚩savedDataByShareExtension: Bool = false
@@ -805,9 +797,6 @@ struct 💾OperateData: ViewModifier {
             }
     }
 }
-
-
-
 
 //MARK: - REJECT .defaultAppStorage(UserDefaults(suiteName: `AppGroupID`)!)
 //reason: buggy list-animation on iOS15.x
