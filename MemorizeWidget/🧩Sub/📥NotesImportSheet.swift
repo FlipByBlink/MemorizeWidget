@@ -3,8 +3,8 @@ import SwiftUI
 struct 📥NotesImportSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showFileImporter: Bool = false
-    @AppStorage("InputMode", store: 💾AppGroupDefaults) var ⓘnputMode: 🄸nputMode = .file
-    @AppStorage("separator", store: 💾AppGroupDefaults) var ⓢeparator: 🅂eparator = .tab
+    @AppStorage("InputMode", store: 💾appGroupDefaults) var ⓘnputMode: 🄸nputMode = .file
+    @AppStorage("separator", store: 💾appGroupDefaults) var ⓢeparator: 🅂eparator = .tab
     @State private var ⓟastedText: String = ""
     @State private var ⓘmportedText: String = ""
     private var ⓝotes: 📚Notes { .convert(self.ⓘmportedText, self.ⓢeparator) }

@@ -19,7 +19,7 @@ extension 📚Notes {
     func save() {
         do {
             let ⓓata = try JSONEncoder().encode(self)
-            💾AppGroupDefaults?.set(ⓓata, forKey: "Notes")
+            💾appGroupDefaults?.set(ⓓata, forKey: "Notes")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("🚨", error); assertionFailure()
@@ -30,7 +30,7 @@ extension 📚Notes {
         self.save()
     }
     static func load() -> Self? {
-        guard let ⓓata = 💾AppGroupDefaults?.data(forKey: "Notes") else { return nil }
+        guard let ⓓata = 💾appGroupDefaults?.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode(Self.self, from: ⓓata)
         } catch {
