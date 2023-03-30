@@ -43,9 +43,15 @@ struct 💾DataManager {
     }
 }
 
-struct 🄿lainText {
-    static func convert(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📗Note] {
-        var ⓝotes: [📗Note] = []
+enum 🅂eparator: String {
+    case tab = "\t"
+    case comma = ","
+    case titleOnly = ""
+}
+
+extension [📗Note] {
+    static func convert(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> Self {
+        var ⓝotes: Self = []
         let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
         ⓞneLineTexts.forEach { ⓞneLine in
             if !ⓞneLine.isEmpty {
@@ -64,21 +70,14 @@ struct 🄿lainText {
         }
         return ⓝotes
     }
-    enum Separator: String {
-        case tab = "\t"
-        case comma = ","
-        case titleOnly = ""
-    }
 }
-
-typealias 🅂eparator = 🄿lainText.Separator
 
 extension [📗Note] {
     static var sample: Self {
-        🄿lainText.convert(String(localized: """
-                            可愛い,cute, pretty, kawaii
-                            おやすみなさい,good night.
-                            苺,strawberry
-                            """), 🅂eparator.comma)
+        .convert(String(localized: """
+                    可愛い,cute, pretty, kawaii
+                    おやすみなさい,good night.
+                    苺,strawberry
+                    """), 🅂eparator.comma)
     }
 }
