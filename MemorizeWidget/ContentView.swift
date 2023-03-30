@@ -1,5 +1,4 @@
 import SwiftUI
-import WidgetKit
 
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel

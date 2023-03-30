@@ -24,6 +24,9 @@
 		F527F47B29D5424C00E9FB97 /* 🗄️Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */; };
 		F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */; };
 		F527F47F29D555A700E9FB97 /* 📗SystemDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47E29D555A700E9FB97 /* 📗SystemDictionaryButton.swift */; };
+		F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
+		F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
+		F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift */; };
@@ -158,6 +161,7 @@
 		F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗄️Rest.swift"; sourceTree = "<group>"; };
 		F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
 		F527F47E29D555A700E9FB97 /* 📗SystemDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗SystemDictionaryButton.swift"; sourceTree = "<group>"; };
+		F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗NoteModel.swift"; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
 		F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchase.swift"; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 				F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
 				F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */,
+				F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */,
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
 				F527F46F29D53E4C00E9FB97 /* 🧩Sub */,
 				F507EA9728CA145000ECF06A /* 🌏Localization */,
@@ -471,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */,
+				F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F527F47329D53FA500E9FB97 /* 📖NoteSheet.swift in Sources */,
 				F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */,
 				F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */,
@@ -493,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AAE668292B754000FB8406 /* ⭐️BaseModel.swift in Sources */,
+				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
 				F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */,
 			);
@@ -503,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */,
+				F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
