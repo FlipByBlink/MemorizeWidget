@@ -17,7 +17,7 @@ Description
 ------------
 Flashcard on widget. Memorize a note in everyday life.
 
-- Two mode. \"One note mode\" or \"Random note mode\".
+- Two mode. "One note mode" or "Random note mode".
 
 - In Random note mode, widget changes the note per 5 minutes.
 

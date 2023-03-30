@@ -30,7 +30,7 @@ struct ContentView: View {
                 📱.🆔openedNoteID = 🔗.description
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
-            🔖tab = .notesList
+            self.🔖tab = .notesList
         }
         .sheet(isPresented: $📱.🚩showNoteSheet) {
             📖NoteSheet()
@@ -122,7 +122,7 @@ struct 📚NotesListTab: View {
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
         @FocusState private var 🔍focus: 🄵ocusPattern?
         @Binding private var ⓝote: 📗Note
-        private var 🎨thin: Bool { !self.🚩randomMode && 📱.📚notes.first != ⓝote }
+        private var 🎨thin: Bool { !self.🚩randomMode && 📱.📚notes.first != self.ⓝote }
         private var 🚩focusDisable: Bool {
             📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || self.scenePhase != .active
         }
@@ -178,8 +178,8 @@ struct 📚NotesListTab: View {
         enum 🄵ocusPattern {
             case title, comment
         }
-        init(_ ⓝote: Binding<📗Note>) {
-            self._ⓝote = ⓝote
+        init(_ note: Binding<📗Note>) {
+            self._ⓝote = note
         }
     }
 }
@@ -278,7 +278,7 @@ struct 📖NoteSheet: View {
                 .padding(24)
                 .toolbar {
                     Button {
-                        self.﹀dismiss.callAsFunction()
+                        self.﹀dismiss()
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
@@ -491,8 +491,10 @@ struct 📥NotesImportSheet: View {
             List {
                 if self.ⓝotes.isEmpty {
                     Picker(selection: self.$ⓘnputMode) {
-                        Label("File", systemImage: "doc").tag(🄸nputMode.file)
-                        Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
+                        Label("File", systemImage: "doc")
+                            .tag(🄸nputMode.file)
+                        Label("Text", systemImage: "text.justify.left")
+                            .tag(🄸nputMode.text)
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
