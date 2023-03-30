@@ -49,7 +49,7 @@ struct 🤖NotesProvider: TimelineProvider {
         🕒Entry(.now, 📗Note("title", "comment"))
     }
     func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        let ⓝotes = 💾DataManager.notes
+        let ⓝotes: 📚Notes = .load() ?? []
         if ⓝotes.isEmpty {
             completion(🕒Entry(.now, nil))
         } else {
@@ -61,7 +61,7 @@ struct 🤖NotesProvider: TimelineProvider {
         }
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let ⓝotes = 💾DataManager.notes
+        let ⓝotes: 📚Notes = .load() ?? []
         if ⓝotes.isEmpty {
             completion(Timeline(entries: [🕒Entry(.now, nil)],
                                 policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))

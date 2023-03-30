@@ -11,7 +11,7 @@ class 📨ShareExtensionModel: ObservableObject {
     @Published var singleNote = 📗Note("")
     @Published var importSelectedTextAsSingleNote: Bool = true
     
-    var convertedNotes: [📗Note] {
+    var convertedNotes: 📚Notes {
         switch self.type {
             case .textFile: return .convert(self.importedFileText, self.separator)
             case .selectedText: return .convert(self.singleNote.title, self.separator)
@@ -20,7 +20,7 @@ class 📨ShareExtensionModel: ObservableObject {
     }
     
     func storeNotes() {
-        var ⓝotes = 💾DataManager.notes
+        var ⓝotes: 📚Notes = .load() ?? []
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
@@ -33,7 +33,7 @@ class 📨ShareExtensionModel: ObservableObject {
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
-        💾DataManager.save(ⓝotes)
+        ⓝotes.save()
         💾AppGroupUD?.set(true, forKey: "savedDataByShareExtension")
     }
     
@@ -50,7 +50,7 @@ class 📨ShareExtensionModel: ObservableObject {
                                 self.type = .textFile
                             }
                         } catch {
-                            print("🚨:", error)
+                            print("🚨", error)
                             self.type = .improperFile
                         }
                     }
@@ -62,7 +62,7 @@ class 📨ShareExtensionModel: ObservableObject {
                                 self.singleNote.title = ⓢtring
                             }
                         } catch {
-                            print("🚨:", error)
+                            print("🚨", error)
                         }
                     }
                 }

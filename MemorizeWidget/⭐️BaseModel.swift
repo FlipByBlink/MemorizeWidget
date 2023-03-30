@@ -13,43 +13,36 @@ struct 📗Note: Codable, Identifiable, Hashable {
     }
 }
 
+typealias 📚Notes = [📗Note]
+
 let 💾AppGroupUD = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
 
-struct 💾DataManager {
-    static func save(_ ⓝotes: [📗Note]) {
+extension 📚Notes {
+    func save() {
         do {
-            let ⓓata = try JSONEncoder().encode(ⓝotes)
+            let ⓓata = try JSONEncoder().encode(self)
             💾AppGroupUD?.set(ⓓata, forKey: "Notes")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
-            print("🚨:", error)
-            assertionFailure()
+            print("🚨", error); assertionFailure()
         }
     }
-    static var notes: [📗Note] {
+    mutating func cleanEmptyTitleNotes() {
+        self.removeAll { $0.title == "" }
+        self.save()
+    }
+    static func load() -> Self? {
         guard let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") else { return .sample }
         do {
-            return try JSONDecoder().decode([📗Note].self, from: ⓓata)
+            return try JSONDecoder().decode(Self.self, from: ⓓata)
         } catch {
-            print("🚨:", error)
-            assertionFailure()
+            print("🚨", error); assertionFailure()
             return []
         }
     }
-    static func cleanEmptyTitleNotes() {
-        var ⓝotes = Self.notes
-        ⓝotes.removeAll { $0.title == "" }
-        Self.save(ⓝotes)
-    }
 }
 
-enum 🅂eparator: String {
-    case tab = "\t"
-    case comma = ","
-    case titleOnly = ""
-}
-
-extension [📗Note] {
+extension 📚Notes {
     static func convert(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> Self {
         var ⓝotes: Self = []
         let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
@@ -72,7 +65,13 @@ extension [📗Note] {
     }
 }
 
-extension [📗Note] {
+enum 🅂eparator: String {
+    case tab = "\t"
+    case comma = ","
+    case titleOnly = ""
+}
+
+extension 📚Notes {
     static var sample: Self {
         .convert(String(localized: """
                     可愛い,cute, pretty, kawaii

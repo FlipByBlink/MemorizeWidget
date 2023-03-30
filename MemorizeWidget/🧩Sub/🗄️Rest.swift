@@ -8,20 +8,18 @@ struct 🛒PurchaseTab: View {
     }
 }
 
-struct 💾OperateData: ViewModifier {
+struct 💾HandleShareExtensionData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @AppStorage("savedDataByShareExtension", store: 💾AppGroupUD) private var 🚩savedDataByShareExtension: Bool = false
     func body(content: Content) -> some View {
         content
-            .onChange(of: 📱.📚notes) { _ in
-                📱.saveNotes()
-            }
             .onAppear {
                 self.🚩savedDataByShareExtension = false
             }
             .onChange(of: self.🚩savedDataByShareExtension) {
                 if $0 == true {
-                    📱.loadNotes()
+                    guard let ⓝotes = 📚Notes.load() else { return }
+                    📱.📚notes = ⓝotes
                     self.🚩savedDataByShareExtension = false
                 }
             }

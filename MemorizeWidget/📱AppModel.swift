@@ -1,7 +1,7 @@
 import SwiftUI
 
 class 📱AppModel: ObservableObject {
-    @Published var 📚notes: [📗Note]
+    @Published var 📚notes: 📚Notes = .load() ?? .sample
     
     @Published var 🔖tab: 🔖Tab = .notesList
     
@@ -35,16 +35,7 @@ class 📱AppModel: ObservableObject {
         self.🔖tab = .notesList
     }
     
-    func saveNotes() {
-        💾DataManager.save(self.📚notes)
-    }
-    
-    func loadNotes() {
-        self.📚notes = 💾DataManager.notes
-    }
-    
     init() {
-        💾DataManager.cleanEmptyTitleNotes()
-        self.📚notes = 💾DataManager.notes
+        self.📚notes.cleanEmptyTitleNotes()
     }
 }
