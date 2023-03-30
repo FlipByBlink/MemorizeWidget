@@ -27,16 +27,13 @@ struct 💾DataManager {
         }
     }
     static var notes: [📗Note] {
-        if let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") {
-            do {
-                return try JSONDecoder().decode([📗Note].self, from: ⓓata)
-            } catch {
-                print("🚨:", error)
-                assertionFailure()
-                return []
-            }
-        } else {
-            return 📚SampleNotes
+        guard let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") else { return .sample }
+        do {
+            return try JSONDecoder().decode([📗Note].self, from: ⓓata)
+        } catch {
+            print("🚨:", error)
+            assertionFailure()
+            return []
         }
     }
     static func cleanEmptyTitleNotes() {
@@ -46,38 +43,42 @@ struct 💾DataManager {
     }
 }
 
-func 🄲onvertTextToNotes(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📗Note] {
-    var ⓝotes: [📗Note] = []
-    let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
-    ⓞneLineTexts.forEach { ⓞneLine in
-        if !ⓞneLine.isEmpty {
-            if ⓢeparator == .titleOnly {
-                ⓝotes.append(📗Note(ⓞneLine))
-            } else {
-                let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
-                if let ⓣitle = ⓣexts.first {
-                    if !ⓣitle.isEmpty {
-                        let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
-                        ⓝotes.append(📗Note(ⓣitle, ⓒomment))
+struct 🄿lainText {
+    static func convert(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> [📗Note] {
+        var ⓝotes: [📗Note] = []
+        let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
+        ⓞneLineTexts.forEach { ⓞneLine in
+            if !ⓞneLine.isEmpty {
+                if ⓢeparator == .titleOnly {
+                    ⓝotes.append(📗Note(ⓞneLine))
+                } else {
+                    let ⓣexts = ⓞneLine.components(separatedBy: ⓢeparator.rawValue)
+                    if let ⓣitle = ⓣexts.first {
+                        if !ⓣitle.isEmpty {
+                            let ⓒomment = ⓞneLine.dropFirst(ⓣitle.count + 1).description
+                            ⓝotes.append(📗Note(ⓣitle, ⓒomment))
+                        }
                     }
                 }
             }
         }
+        return ⓝotes
     }
-    return ⓝotes
+    enum Separator: String {
+        case tab = "\t"
+        case comma = ","
+        case titleOnly = ""
+    }
 }
 
-enum 🅂eparator: String {
-    case tab = "\t"
-    case comma = ","
-    case titleOnly = ""
+typealias 🅂eparator = 🄿lainText.Separator
+
+extension [📗Note] {
+    static var sample: Self {
+        🄿lainText.convert(String(localized: """
+                            可愛い,cute, pretty, kawaii
+                            おやすみなさい,good night.
+                            苺,strawberry
+                            """), 🅂eparator.comma)
+    }
 }
-
-
-
-
-let 📚SampleNotes: [📗Note] = 🄲onvertTextToNotes(String(localized: """
-可愛い,cute, pretty, kawaii
-おやすみなさい,good night.
-苺,strawberry
-"""), .comma)

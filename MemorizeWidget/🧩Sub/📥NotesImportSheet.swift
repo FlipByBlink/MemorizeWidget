@@ -7,9 +7,7 @@ struct 📥NotesImportSheet: View {
     @AppStorage("separator", store: 💾AppGroupUD) var ⓢeparator: 🅂eparator = .tab
     @State private var ⓟastedText: String = ""
     @State private var ⓘmportedText: String = ""
-    private var ⓝotes: [📗Note] {
-        🄲onvertTextToNotes(self.ⓘmportedText, self.ⓢeparator)
-    }
+    private var ⓝotes: [📗Note] { 🄿lainText.convert(self.ⓘmportedText, self.ⓢeparator) }
     @FocusState private var 🔍textFieldFocus: Bool
     @State private var 🚨showErrorAlert: Bool = false
     @State private var 🚨errorMessage: String = ""

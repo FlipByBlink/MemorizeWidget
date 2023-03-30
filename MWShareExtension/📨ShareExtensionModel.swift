@@ -13,8 +13,8 @@ class 📨ShareExtensionModel: ObservableObject {
     
     var convertedNotes: [📗Note] {
         switch self.type {
-            case .textFile: return 🄲onvertTextToNotes(self.importedFileText, self.separator)
-            case .selectedText: return 🄲onvertTextToNotes(self.singleNote.title, self.separator)
+            case .textFile: return 🄿lainText.convert(self.importedFileText, self.separator)
+            case .selectedText: return 🄿lainText.convert(self.singleNote.title, self.separator)
             default: return []
         }
     }
