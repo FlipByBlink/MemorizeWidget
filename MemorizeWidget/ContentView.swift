@@ -1,4 +1,3 @@
-
 import SwiftUI
 import WidgetKit
 
@@ -6,7 +5,7 @@ struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🔖tab: 🔖Tab = .notesList
     var body: some View {
-        TabView(selection: $🔖tab) {
+        TabView(selection: self.$🔖tab) {
             📚NotesListTab()
                 .tag(🔖Tab.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
@@ -52,9 +51,9 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    🚩RandomModeSection()
+                    Self.🚩RandomModeSection()
                     Section {
-                        🆕NewNoteButton()
+                        self.🆕newNoteButton()
                             .id("NewNoteButton")
                             .onOpenURL {
                                 if $0.description == "NewNoteShortcut" {
@@ -62,7 +61,7 @@ struct 📚NotesListTab: View {
                                 }
                             }
                         ForEach($📱.📚notes) { ⓝote in
-                            📓NoteRow(ⓝote)
+                            Self.📓NoteRow(ⓝote)
                         }
                         .onDelete { 📱.📚notes.remove(atOffsets: $0) }
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
@@ -91,15 +90,15 @@ struct 📚NotesListTab: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    struct 🚩RandomModeSection: View {
+    private struct 🚩RandomModeSection: View {
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
         var body: some View {
             Section {
-                Toggle(isOn: $🚩randomMode) {
+                Toggle(isOn: self.$🚩randomMode) {
                     Label("Random mode", systemImage: "shuffle")
                         .padding(.vertical, 8)
                 }
-                .onChange(of: 🚩randomMode) { _ in
+                .onChange(of: self.🚩randomMode) { _ in
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             } footer: {
@@ -107,7 +106,7 @@ struct 📚NotesListTab: View {
             }
         }
     }
-    func 🆕NewNoteButton() -> some View {
+    private func 🆕newNoteButton() -> some View {
         Button {
             📱.addNewNote()
         } label: {
@@ -117,43 +116,43 @@ struct 📚NotesListTab: View {
         }
         .disabled(📱.📚notes.first?.title == "")
     }
-    struct 📓NoteRow: View {
+    private struct 📓NoteRow: View {
         @EnvironmentObject var 📱: 📱AppModel
-        @Environment(\.scenePhase) var scenePhase: ScenePhase
+        @Environment(\.scenePhase) var scenePhase
         @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
         @FocusState private var 🔍focus: 🄵ocusPattern?
-        @Binding var ⓝote: 📗Note
-        var 🎨thin: Bool { !🚩randomMode && 📱.📚notes.first != ⓝote }
-        var 🚩focusDisable: Bool {
-            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || scenePhase != .active
+        @Binding private var ⓝote: 📗Note
+        private var 🎨thin: Bool { !self.🚩randomMode && 📱.📚notes.first != ⓝote }
+        private var 🚩focusDisable: Bool {
+            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || self.scenePhase != .active
         }
         var body: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
-                    TextField("+ title", text: $ⓝote.title)
-                        .focused($🔍focus, equals: .title)
+                    TextField("+ title", text: self.$ⓝote.title)
+                        .focused(self.$🔍focus, equals: .title)
                         .font(.title2.weight(.semibold))
-                        .foregroundStyle(🎨thin ? .tertiary : .primary)
-                    TextField("+ comment", text: $ⓝote.comment)
-                        .focused($🔍focus, equals: .comment)
+                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                    TextField("+ comment", text: self.$ⓝote.comment)
+                        .focused(self.$🔍focus, equals: .comment)
                         .font(.title3.weight(.light))
-                        .foregroundStyle(🎨thin ? .tertiary : .secondary)
+                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
                 .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
                 .padding(.vertical, 6)
-                .accessibilityHidden(!ⓝote.title.isEmpty)
+                .accessibilityHidden(!self.ⓝote.title.isEmpty)
                 Menu {
                     Button {
-                        📱.🆔openedNoteID = ⓝote.id.description
+                        📱.🆔openedNoteID = self.ⓝote.id.description
                         📱.🚩showNoteSheet = true
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Label("Detail", systemImage: "doc.plaintext")
                     }
                     Button {
-                        guard let ⓘndex = 📱.📚notes.firstIndex(of: ⓝote) else { return }
+                        guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
                         📱.addNewNote(ⓘndex + 1)
                     } label: {
                         Label("New note", systemImage: "text.append")
@@ -166,12 +165,12 @@ struct 📚NotesListTab: View {
                 }
                 .foregroundStyle(.secondary)
             }
-            .onChange(of: 🚩focusDisable) {
-                if $0 { 🔍focus = nil }
+            .onChange(of: self.🚩focusDisable) {
+                if $0 { self.🔍focus = nil }
             }
             .onChange(of: 📱.🆕newNoteID) {
-                if $0 == ⓝote.id {
-                    🔍focus = .title
+                if $0 == self.ⓝote.id {
+                    self.🔍focus = .title
                     📱.🆕newNoteID = nil
                 }
             }
@@ -189,10 +188,10 @@ struct 📚NotesListTab: View {
 struct 📖NoteSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     @EnvironmentObject var 🛒: 🛒StoreModel
-    @Environment(\.dismiss) var ﹀dismiss: DismissAction
+    @Environment(\.dismiss) var ﹀dismiss
     @State private var 🚩showADMenuSheet: Bool = false
     @FocusState private var 🔍commentFocus: Bool
-    var 🔢noteIndex: Int? {
+    private var 🔢noteIndex: Int? {
         📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
     }
     var body: some View {
@@ -206,7 +205,7 @@ struct 📖NoteSheet: View {
                             .multilineTextAlignment(.center)
                             .accessibilityHidden(true)
                         TextEditor(text: $📱.📚notes[🔢noteIndex].comment)
-                            .focused($🔍commentFocus)
+                            .focused(self.$🔍commentFocus)
                             .multilineTextAlignment(.center)
                             .font(.title3.weight(.light))
                             .foregroundStyle(.secondary)
@@ -221,9 +220,9 @@ struct 📖NoteSheet: View {
                                 }
                             }
                             .overlay(alignment: .bottomTrailing) {
-                                if 🔍commentFocus {
+                                if self.🔍commentFocus {
                                     Button {
-                                        🔍commentFocus = false
+                                        self.🔍commentFocus = false
                                         UISelectionFeedbackGenerator().selectionChanged()
                                     } label: {
                                         Label("Done", systemImage: "checkmark.circle.fill")
@@ -270,16 +269,16 @@ struct 📖NoteSheet: View {
                     }
                     Spacer()
                     if 📐.size.height > 500 {
-                        📣ADView(without: .MemorizeWidget, $🚩showADMenuSheet)
+                        📣ADView(without: .MemorizeWidget, self.$🚩showADMenuSheet)
                             .frame(height: 160)
                     }
                 }
-                .modifier(📣ADMenuSheet($🚩showADMenuSheet))
-                .animation(.default.speed(1.5), value: 🔢noteIndex)
+                .modifier(📣ADMenuSheet(self.$🚩showADMenuSheet))
+                .animation(.default.speed(1.5), value: self.🔢noteIndex)
                 .padding(24)
                 .toolbar {
                     Button {
-                        ﹀dismiss.callAsFunction()
+                        self.﹀dismiss.callAsFunction()
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
@@ -298,9 +297,8 @@ struct 🔩OptionTab: View {
     var body: some View {
         NavigationView {
             List {
-                💬CommentOnWidgetSection()
-                🔍CustomizeSearchSection()
-                
+                Self.💬CommentOnWidgetSection()
+                Self.🔍CustomizeSearchSection()
                 if #available(iOS 16.0, *) {
                     Section {
                         Text("If lock screen widgets don't update, please close this app or switch to another app.")
@@ -308,35 +306,34 @@ struct 🔩OptionTab: View {
                         Text("Directions")
                     }
                 }
-                
-                💣DeleteAllNotesButton()
+                self.💣deleteAllNotesButton()
             }
             .navigationTitle("Option")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    struct 💬CommentOnWidgetSection: View {
+    private struct 💬CommentOnWidgetSection: View {
         @AppStorage("ShowComment", store: 💾AppGroupUD) var 🚩showComment: Bool = false
         var body: some View {
             Section {
-                Toggle(isOn: $🚩showComment) {
+                Toggle(isOn: self.$🚩showComment) {
                     Label("Show comment on widget", systemImage: "text.append")
                         .padding(.vertical, 8)
                 }
-                .onChange(of: 🚩showComment) { _ in
+                .onChange(of: self.🚩showComment) { _ in
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 VStack(spacing: 16) {
-                    🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
+                    self.🏞beforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
                     if #available(iOS 16.0, *) {
-                        🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                        self.🏞beforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
                     }
                 }
                 .padding()
                 .frame(maxHeight: 500)
             }
         }
-        func 🏞BeforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
+        private func 🏞beforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
             HStack {
                 Image(ⓑefore)
                     .resizable()
@@ -356,23 +353,23 @@ struct 🔩OptionTab: View {
             }
         }
     }
-    struct 🔍CustomizeSearchSection: View {
+    private struct 🔍CustomizeSearchSection: View {
         @AppStorage("SearchLeadingText") var 🔗leading: String = ""
         @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
         var body: some View {
             Section {
                 VStack {
-                    let ⓛeading = 🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗leading
-                    Text(ⓛeading + "NOTETITLE" + 🔗trailing)
+                    let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
+                    Text(ⓛeading + "NOTETITLE" + self.🔗trailing)
                         .italic()
                         .font(.system(.footnote, design: .monospaced))
                         .multilineTextAlignment(.center)
                         .padding(8)
                         .frame(minHeight: 100)
-                        .animation(.default, value: 🔗leading.isEmpty)
-                        .foregroundStyle(🔗leading.isEmpty ? .secondary : .primary)
-                    TextField("URL scheme", text: $🔗leading)
-                    TextField("Trailing component", text: $🔗trailing)
+                        .animation(.default, value: self.🔗leading.isEmpty)
+                        .foregroundStyle(self.🔗leading.isEmpty ? .secondary : .primary)
+                    TextField("URL scheme", text: self.$🔗leading)
+                    TextField("Trailing component", text: self.$🔗trailing)
                         .font(.caption)
                         .padding(.bottom, 4)
                 }
@@ -385,7 +382,7 @@ struct 🔩OptionTab: View {
             .headerProminence(.increased)
         }
     }
-    func 💣DeleteAllNotesButton() -> some View {
+    private func 💣deleteAllNotesButton() -> some View {
         Menu {
             Button(role: .destructive) {
                 📱.📚notes.removeAll()
@@ -418,15 +415,15 @@ struct ℹ️AboutAppTab: View {
     var body: some View {
         if #available(iOS 16.0, *) {
             NavigationStack {
-                🄻istView()
+                self.ⓛistView()
                     .toolbar(.visible, for: .navigationBar)
             }
         } else {
-            NavigationView { 🄻istView() }
+            NavigationView { self.ⓛistView() }
                 .navigationViewStyle(StackNavigationViewStyle())
         }
     }
-    func 🄻istView() -> some View {
+    private func ⓛistView() -> some View {
         List {
             Section {
                 ZStack {
@@ -483,8 +480,8 @@ struct 📥NotesImportSheet: View {
     @AppStorage("separator", store: 💾AppGroupUD) var ⓢeparator: 🅂eparator = .tab
     @State private var ⓟastedText: String = ""
     @State private var ⓘmportedText: String = ""
-    var ⓝotes: [📗Note] {
-        🄲onvertTextToNotes(ⓘmportedText, ⓢeparator)
+    private var ⓝotes: [📗Note] {
+        🄲onvertTextToNotes(self.ⓘmportedText, self.ⓢeparator)
     }
     @FocusState private var 🔍textFieldFocus: Bool
     @State private var 🚨showErrorAlert: Bool = false
@@ -492,34 +489,34 @@ struct 📥NotesImportSheet: View {
     var body: some View {
         NavigationView {
             List {
-                if ⓝotes.isEmpty {
-                    Picker(selection: $ⓘnputMode) {
+                if self.ⓝotes.isEmpty {
+                    Picker(selection: self.$ⓘnputMode) {
                         Label("File", systemImage: "doc").tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left").tag(🄸nputMode.text)
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
-                    🅂eparatorPicker()
-                    switch ⓘnputMode {
+                    self.ⓢeparatorPicker()
+                    switch self.ⓘnputMode {
                         case .file:
                             Section {
                                 Button {
-                                    🚩showFileImporter.toggle()
+                                    self.🚩showFileImporter.toggle()
                                 } label: {
                                     Label("Import a text-encoded file", systemImage: "folder.badge.plus")
                                         .padding(.vertical, 8)
                                 }
                             }
-                            🄴xampleSection()
+                            self.ⓔxampleSection()
                         case .text:
                             Section {
-                                TextEditor(text: $ⓟastedText)
-                                    .focused($🔍textFieldFocus)
+                                TextEditor(text: self.$ⓟastedText)
+                                    .focused(self.$🔍textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
                                     .overlay {
-                                        if ⓟastedText.isEmpty {
+                                        if self.ⓟastedText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
@@ -532,28 +529,28 @@ struct 📥NotesImportSheet: View {
                                     .toolbar {
                                         ToolbarItem(placement: .keyboard) {
                                             Button {
-                                                🔍textFieldFocus = false
+                                                self.🔍textFieldFocus = false
                                             } label: {
                                                 Label("Done", systemImage: "keyboard.chevron.compact.down")
                                             }
                                         }
                                     }
                                 Button {
-                                    ⓘmportedText = ⓟastedText
+                                    self.ⓘmportedText = self.ⓟastedText
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
                                 }
-                                .disabled(ⓟastedText.isEmpty)
+                                .disabled(self.ⓟastedText.isEmpty)
                             }
-                            .animation(.default, value: ⓟastedText.isEmpty)
-                            🄴xampleSection()
+                            .animation(.default, value: self.ⓟastedText.isEmpty)
+                            self.ⓔxampleSection()
                     }
-                    🄽otSupportMultiLineTextInNote()
+                    self.ⓝotSupportMultiLineTextInNote()
                 } else {
-                    🅂eparatorPicker()
+                    self.ⓢeparatorPicker()
                     Section {
-                        ForEach(ⓝotes) { ⓝote in
+                        ForEach(self.ⓝotes) { ⓝote in
                             VStack(alignment: .leading) {
                                 Text(ⓝote.title)
                                 Text(ⓝote.comment)
@@ -563,16 +560,16 @@ struct 📥NotesImportSheet: View {
                             .padding(.vertical, 8)
                         }
                     } header: {
-                        Text("Notes count: \(ⓝotes.count.description)")
+                        Text("Notes count: \(self.ⓝotes.count.description)")
                     }
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !ⓝotes.isEmpty {
+                    if !self.ⓝotes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            ⓘmportedText = ""
+                            self.ⓘmportedText = ""
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -581,13 +578,13 @@ struct 📥NotesImportSheet: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !ⓝotes.isEmpty {
+                    if !self.ⓝotes.isEmpty {
                         Button {
                             📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.📚notes.insert(contentsOf: ⓝotes, at: 0)
-                                ⓘmportedText = ""
+                                📱.📚notes.insert(contentsOf: self.ⓝotes, at: 0)
+                                self.ⓘmportedText = ""
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -610,44 +607,47 @@ struct 📥NotesImportSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: ⓝotes)
-        .animation(.default, value: ⓘnputMode)
-        .fileImporter(isPresented: $🚩showFileImporter, allowedContentTypes: [.text]) { 📦result in
+        .animation(.default, value: self.ⓝotes)
+        .animation(.default, value: self.ⓘnputMode)
+        .fileImporter(isPresented: self.$🚩showFileImporter, allowedContentTypes: [.text]) { 📦result in
             do {
                 let 📦 = try 📦result.get()
                 if 📦.startAccessingSecurityScopedResource() {
-                    ⓘmportedText = try String(contentsOf: 📦)
+                    self.ⓘmportedText = try String(contentsOf: 📦)
                     📦.stopAccessingSecurityScopedResource()
                 }
             } catch {
-                🚨errorMessage = error.localizedDescription
-                🚨showErrorAlert = true
+                self.🚨errorMessage = error.localizedDescription
+                self.🚨showErrorAlert = true
             }
         }
-        .alert("⚠️", isPresented: $🚨showErrorAlert) {
+        .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
             Button("OK") {
-                🚨showErrorAlert = false
-                🚨errorMessage = ""
+                self.🚨showErrorAlert = false
+                self.🚨errorMessage = ""
             }
         } message: {
-            Text(🚨errorMessage)
+            Text(self.🚨errorMessage)
         }
     }
-    func 🅂eparatorPicker() -> some View {
-        Picker(selection: $ⓢeparator) {
-            Text("Tab ␣ ").tag(🅂eparator.tab)
+    private func ⓢeparatorPicker() -> some View {
+        Picker(selection: self.$ⓢeparator) {
+            Text("Tab ␣ ")
+                .tag(🅂eparator.tab)
                 .accessibilityLabel("Tab")
-            Text("Comma , ").tag(🅂eparator.comma)
+            Text("Comma , ")
+                .tag(🅂eparator.comma)
                 .accessibilityLabel("Comma")
-            Text("(Title only)").tag(🅂eparator.titleOnly)
+            Text("(Title only)")
+                .tag(🅂eparator.titleOnly)
                 .accessibilityLabel("Title only")
         } label: {
             Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
         }
     }
-    func 🄴xampleSection() -> some View {
+    private func ⓔxampleSection() -> some View {
         Section {
-            switch ⓘnputMode {
+            switch self.ⓘnputMode {
                 case .file:
                     HStack {
                         Image("sample_numbers")
@@ -703,7 +703,7 @@ struct 📥NotesImportSheet: View {
             Text("Example")
         }
     }
-    func 🄽otSupportMultiLineTextInNote() -> some View {
+    private func ⓝotSupportMultiLineTextInNote() -> some View {
         Section {
             Text("Not support multi line text in note.")
                 .foregroundStyle(.secondary)
@@ -720,40 +720,40 @@ struct 📥NotesImportSheet: View {
 struct 📗SystemDictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showSystemDictionary: Bool = false
-    var 🔢noteIndex: Int
+    private var 🔢noteIndex: Int
     var body: some View {
         Button {
-            🚩showSystemDictionary = true
+            self.🚩showSystemDictionary = true
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
                 .labelStyle(.iconOnly)
         }
-        .sheet(isPresented: $🚩showSystemDictionary) {
-            📗SystemDictionarySheet(term: 📱.📚notes[🔢noteIndex].title)
+        .sheet(isPresented: self.$🚩showSystemDictionary) {
+            Self.📗SystemDictionarySheet(term: 📱.📚notes[self.🔢noteIndex].title)
         }
     }
-    init(_ 🔢noteIndex: Int) {
-        self.🔢noteIndex = 🔢noteIndex
+    init(_ noteIndex: Int) {
+        self.🔢noteIndex = noteIndex
     }
-    struct 📗SystemDictionarySheet: View {
-        var ⓣerm: String
+    private struct 📗SystemDictionarySheet: View {
+        private var ⓣerm: String
         var body: some View {
-            🄳ictinaryView(term: ⓣerm)
+            Self.🄳ictinaryView(term: self.ⓣerm)
                 .ignoresSafeArea()
         }
-        struct 🄳ictinaryView: UIViewControllerRepresentable {
-            var ⓣerm: String
-            func makeUIViewController(context: Context) ->  UIReferenceLibraryViewController {
-                UIReferenceLibraryViewController(term: ⓣerm)
+        private struct 🄳ictinaryView: UIViewControllerRepresentable {
+            private var ⓣerm: String
+            func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
+                UIReferenceLibraryViewController(term: self.ⓣerm)
             }
             func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
             init(term: String) {
-                ⓣerm = term
+                self.ⓣerm = term
             }
         }
         init(term: String) {
-            ⓣerm = term
+            self.ⓣerm = term
         }
     }
 }
@@ -763,23 +763,23 @@ struct 🔍SearchButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @AppStorage("SearchLeadingText") var 🔗leading: String = ""
     @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
-    @Environment(\.openURL) var ⓞpenURL: OpenURLAction
-    var 🔢noteIndex: Int
+    @Environment(\.openURL) var openURL
+    private var 🔢noteIndex: Int
     var body: some View {
         Button {
-            let ⓛeading = 🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : 🔗leading
-            let ⓣext = ⓛeading + 📱.📚notes[🔢noteIndex].title + 🔗trailing
+            let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
+            let ⓣext = ⓛeading + 📱.📚notes[self.🔢noteIndex].title + self.🔗trailing
             guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
             guard let ⓤrl = URL(string: ⓔncodedText) else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            ⓞpenURL.callAsFunction(ⓤrl)
+            self.openURL(ⓤrl)
         } label: {
             Label("Search", systemImage: "magnifyingglass")
                 .labelStyle(.iconOnly)
         }
     }
-    init(_ 🔢noteIndex: Int) {
-        self.🔢noteIndex = 🔢noteIndex
+    init(_ noteIndex: Int) {
+        self.🔢noteIndex = noteIndex
     }
 }
 
@@ -793,12 +793,12 @@ struct 💾OperateData: ViewModifier {
                 📱.saveNotes()
             }
             .onAppear {
-                🚩savedDataByShareExtension = false
+                self.🚩savedDataByShareExtension = false
             }
-            .onChange(of: 🚩savedDataByShareExtension) {
+            .onChange(of: self.🚩savedDataByShareExtension) {
                 if $0 == true {
                     📱.loadNotes()
-                    🚩savedDataByShareExtension = false
+                    self.🚩savedDataByShareExtension = false
                 }
             }
     }

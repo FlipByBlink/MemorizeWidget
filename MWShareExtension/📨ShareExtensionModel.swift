@@ -13,12 +13,9 @@ class 📨ShareExtensionModel: ObservableObject {
     
     var convertedNotes: [📗Note] {
         switch self.type {
-            case .textFile:
-                return 🄲onvertTextToNotes(self.importedFileText, self.separator)
-            case .selectedText:
-                return 🄲onvertTextToNotes(self.singleNote.title, self.separator)
-            default:
-                return []
+            case .textFile: return 🄲onvertTextToNotes(self.importedFileText, self.separator)
+            case .selectedText: return 🄲onvertTextToNotes(self.singleNote.title, self.separator)
+            default: return []
         }
     }
     
@@ -31,7 +28,7 @@ class 📨ShareExtensionModel: ObservableObject {
                 if self.importSelectedTextAsSingleNote {
                     ⓝotes.insert(contentsOf: [self.singleNote], at: 0)
                 } else {
-                    ⓝotes.insert(contentsOf: convertedNotes, at: 0)
+                    ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
                 }
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)

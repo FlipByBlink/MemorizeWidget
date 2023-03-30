@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 class 📱AppModel: ObservableObject {
@@ -13,7 +12,7 @@ class 📱AppModel: ObservableObject {
     
     func addNewNote(_ ⓘndex: Int = 0) {
         let ⓝewNote = 📗Note("")
-        📚notes.insert(ⓝewNote, at: ⓘndex)
+        self.📚notes.insert(ⓝewNote, at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             self.🆕newNoteID = ⓝewNote.id
@@ -21,15 +20,15 @@ class 📱AppModel: ObservableObject {
     }
     
     func saveNotes() {
-        💾DataManager.save(📚notes)
+        💾DataManager.save(self.📚notes)
     }
     
     func loadNotes() {
-        📚notes = 💾DataManager.notes
+        self.📚notes = 💾DataManager.notes
     }
     
     init() {
         💾DataManager.cleanEmptyTitleNotes()
-        📚notes = 💾DataManager.notes
+        self.📚notes = 💾DataManager.notes
     }
 }

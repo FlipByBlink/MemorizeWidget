@@ -2,15 +2,15 @@ import UIKit
 import SwiftUI
 
 class 🄷ostingViewController: UIHostingController<🄼ainView> {
-    let 📨 = 📨ShareExtensionModel()
+    private let 📨 = 📨ShareExtensionModel()
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: 🄼ainView(📨))
+        super.init(coder: aDecoder, rootView: 🄼ainView(self.📨))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        📨.setUp(extensionContext)
+        self.📨.setUp(extensionContext)
     }
 }
 
@@ -21,8 +21,8 @@ struct 🄼ainView: View {
             List {
                 switch 📨.type {
                     case .textFile:
-                        🅂eparatorPicker()
-                        🄽otesListView()
+                        self.ⓢeparatorPicker()
+                        self.ⓝotesListView()
                     case .improperFile:
                         Label("Not text file(UTF-8).", systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.secondary)
@@ -50,8 +50,8 @@ struct 🄼ainView: View {
                                 }
                             }
                         } else {
-                            🅂eparatorPicker()
-                            🄽otesListView()
+                            self.ⓢeparatorPicker()
+                            self.ⓝotesListView()
                         }
                     case .none:
                         Text("🐛")
@@ -82,21 +82,24 @@ struct 🄼ainView: View {
         .animation(.default, value: 📨.separator)
         .navigationViewStyle(.stack)
     }
-    func 🅂eparatorPicker() -> some View {
+    private func ⓢeparatorPicker() -> some View {
         Section {
             Picker(selection: $📨.separator) {
-                Text("Tab ␣ ").tag(🅂eparator.tab)
+                Text("Tab ␣ ")
+                    .tag(🅂eparator.tab)
                     .accessibilityLabel("Tab")
-                Text("Comma , ").tag(🅂eparator.comma)
+                Text("Comma , ")
+                    .tag(🅂eparator.comma)
                     .accessibilityLabel("Comma")
-                Text("(Title only)").tag(🅂eparator.titleOnly)
+                Text("(Title only)")
+                    .tag(🅂eparator.titleOnly)
                     .accessibilityLabel("Title only")
             } label: {
                 Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
             }
         }
     }
-    func 🄽otesListView() -> some View {
+    private func ⓝotesListView() -> some View {
         ForEach(📨.convertedNotes) { ⓝote in
             VStack(alignment: .leading) {
                 Text(ⓝote.title)
