@@ -6,10 +6,10 @@ struct 📗Note: Codable, Identifiable, Hashable {
     var comment: String
     var id: UUID
     
-    init(_ title: String, _ comment: String = "", _ id: UUID? = nil) {
+    init(_ title: String, _ comment: String = "") {
         self.title = title
         self.comment = comment
-        self.id = id ?? UUID()
+        self.id = UUID()
     }
 }
 
