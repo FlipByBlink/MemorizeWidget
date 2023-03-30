@@ -7,20 +7,18 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    Self.🚩RandomModeSection()
+                    🚩RandomModeSection()
                     Section {
-                        self.🆕newNoteButton()
+                        🆕NewNoteButton()
                             .id("NewNoteButton")
                             .onOpenURL {
                                 if $0.description == "NewNoteShortcut" {
                                     🚡.scrollTo("NewNoteButton")
                                 }
                             }
-                        ForEach($📱.📚notes) { ⓝote in
-                            Self.📓NoteRow(ⓝote)
-                        }
-                        .onDelete { 📱.📚notes.remove(atOffsets: $0) }
-                        .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
+                        ForEach($📱.📚notes) { 📓NoteRow($0) }
+                            .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                            .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")
                             .opacity(📱.📚notes.count < 6  ? 0 : 1)
@@ -46,23 +44,28 @@ struct 📚NotesListTab: View {
         }
         .navigationViewStyle(.stack)
     }
-    private struct 🚩RandomModeSection: View {
-        @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
-        var body: some View {
-            Section {
-                Toggle(isOn: self.$🚩randomMode) {
-                    Label("Random mode", systemImage: "shuffle")
-                        .padding(.vertical, 8)
-                }
-                .onChange(of: self.🚩randomMode) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-            } footer: {
-                Text("Change the note per 5 minutes.")
+}
+
+private struct 🚩RandomModeSection: View {
+    @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩value: Bool = false
+    var body: some View {
+        Section {
+            Toggle(isOn: self.$🚩value) {
+                Label("Random mode", systemImage: "shuffle")
+                    .padding(.vertical, 8)
             }
+            .onChange(of: self.🚩value) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+        } footer: {
+            Text("Change the note per 5 minutes.")
         }
     }
-    private func 🆕newNoteButton() -> some View {
+}
+
+private struct 🆕NewNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
         Button {
             📱.addNewNote()
         } label: {
@@ -72,70 +75,71 @@ struct 📚NotesListTab: View {
         }
         .disabled(📱.📚notes.first?.title == "")
     }
-    private struct 📓NoteRow: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        @Environment(\.scenePhase) var scenePhase
-        @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
-        @FocusState private var 🔍focus: 🄵ocusPattern?
-        @Binding private var ⓝote: 📗Note
-        private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
-        private var 🚩focusDisable: Bool {
-            📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
-        }
-        var body: some View {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    TextField("+ title", text: self.$ⓝote.title)
-                        .focused(self.$🔍focus, equals: .title)
-                        .font(.title2.weight(.semibold))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
-                    TextField("+ comment", text: self.$ⓝote.comment)
-                        .focused(self.$🔍focus, equals: .comment)
-                        .font(.title3.weight(.light))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
-                        .opacity(0.8)
-                }
-                .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
-                .padding(8)
-                .padding(.vertical, 6)
-                .accessibilityHidden(!self.ⓝote.title.isEmpty)
-                Menu {
-                    Button {
-                        📱.🆔openedNoteID = self.ⓝote.id.description
-                        📱.🚩showNoteSheet = true
-                        UISelectionFeedbackGenerator().selectionChanged()
-                    } label: {
-                        Label("Detail", systemImage: "doc.plaintext")
-                    }
-                    Button {
-                        guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
-                        📱.addNewNote(ⓘndex + 1)
-                    } label: {
-                        Label("New note", systemImage: "text.append")
-                    }
+}
+
+private struct 📓NoteRow: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    @Environment(\.scenePhase) var scenePhase
+    @AppStorage("RandomMode", store: 💾AppGroupUD) var 🚩randomMode: Bool = false
+    @FocusState private var 🔍focus: 🄵ocusPattern?
+    @Binding private var ⓝote: 📗Note
+    private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
+    private var 🚩focusDisable: Bool {
+        📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
+    }
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 8) {
+                TextField("+ title", text: self.$ⓝote.title)
+                    .focused(self.$🔍focus, equals: .title)
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                TextField("+ comment", text: self.$ⓝote.comment)
+                    .focused(self.$🔍focus, equals: .comment)
+                    .font(.title3.weight(.light))
+                    .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
+                    .opacity(0.8)
+            }
+            .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
+            .padding(8)
+            .padding(.vertical, 6)
+            .accessibilityHidden(!self.ⓝote.title.isEmpty)
+            Menu {
+                Button {
+                    📱.🆔openedNoteID = self.ⓝote.id.description
+                    📱.🚩showNoteSheet = true
+                    UISelectionFeedbackGenerator().selectionChanged()
                 } label: {
-                    Label("Menu", systemImage: "ellipsis.circle")
-                        .labelStyle(.iconOnly)
-                        .padding(.vertical, 8)
-                        .padding(.trailing, 8)
+                    Label("Detail", systemImage: "doc.plaintext")
                 }
-                .foregroundStyle(.secondary)
-            }
-            .onChange(of: self.🚩focusDisable) {
-                if $0 { self.🔍focus = nil }
-            }
-            .onChange(of: 📱.🆕newNoteID) {
-                if $0 == self.ⓝote.id {
-                    self.🔍focus = .title
-                    📱.🆕newNoteID = nil
+                Button {
+                    guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+                    📱.addNewNote(ⓘndex + 1)
+                } label: {
+                    Label("New note", systemImage: "text.append")
                 }
+            } label: {
+                Label("Menu", systemImage: "ellipsis.circle")
+                    .labelStyle(.iconOnly)
+                    .padding(.vertical, 8)
+                    .padding(.trailing, 8)
+            }
+            .foregroundStyle(.secondary)
+        }
+        .onChange(of: self.🚩focusDisable) {
+            if $0 { self.🔍focus = nil }
+        }
+        .onChange(of: 📱.🆕newNoteID) {
+            if $0 == self.ⓝote.id {
+                self.🔍focus = .title
+                📱.🆕newNoteID = nil
             }
         }
-        enum 🄵ocusPattern {
-            case title, comment
-        }
-        init(_ note: Binding<📗Note>) {
-            self._ⓝote = note
-        }
+    }
+    enum 🄵ocusPattern {
+        case title, comment
+    }
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
     }
 }
