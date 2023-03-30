@@ -208,6 +208,17 @@
 			path = "🌏Localization";
 			sourceTree = "<group>";
 		};
+		F527F46F29D53E4C00E9FB97 /* 🧩Sub */ = {
+			isa = PBXGroup;
+			children = (
+				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
+				F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */,
+				F59EEFE528F3FA36002D9AD7 /* Info.plist */,
+				F5D30CDB28C707F2001198AF /* MemorizeWidget.entitlements */,
+			);
+			path = "🧩Sub";
+			sourceTree = "<group>";
+		};
 		F5B5A45528C6EDA1005B6E0F = {
 			isa = PBXGroup;
 			children = (
@@ -237,10 +248,9 @@
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
 				F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */,
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
-				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
+				F527F46F29D53E4C00E9FB97 /* 🧩Sub */,
 				F507EA9728CA145000ECF06A /* 🌏Localization */,
 				F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */,
-				F5D30CDB28C707F2001198AF /* MemorizeWidget.entitlements */,
 			);
 			path = MemorizeWidget;
 			sourceTree = "<group>";
@@ -252,8 +262,6 @@
 				F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */,
 				F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */,
 				F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */,
-				F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */,
-				F59EEFE528F3FA36002D9AD7 /* Info.plist */,
 			);
 			path = "🧰Others";
 			sourceTree = "<group>";
@@ -652,14 +660,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MemorizeWidget/MemorizeWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "MemorizeWidget/🧩Sub/MemorizeWidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MemorizeWidget/🧰Others/Info.plist";
+				INFOPLIST_FILE = "MemorizeWidget/🧩Sub/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -691,14 +699,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MemorizeWidget/MemorizeWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "MemorizeWidget/🧩Sub/MemorizeWidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MemorizeWidget/🧰Others/Info.plist";
+				INFOPLIST_FILE = "MemorizeWidget/🧩Sub/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
