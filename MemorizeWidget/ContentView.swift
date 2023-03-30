@@ -19,12 +19,8 @@ struct ContentView: View {
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
         .onOpenURL { 📱.handleWidgetURL($0) }
-        .sheet(isPresented: $📱.🚩showNoteSheet) {
-            📖NoteSheet()
-        }
-        .sheet(isPresented: $📱.🚩showNotesImportSheet) {
-            📥NotesImportSheet()
-        }
+        .sheet(isPresented: $📱.🚩showNoteSheet) { 📖NoteSheet() }
+        .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
     }
 }
 

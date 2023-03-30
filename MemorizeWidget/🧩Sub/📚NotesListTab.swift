@@ -47,14 +47,14 @@ struct 📚NotesListTab: View {
 }
 
 private struct 🚩RandomModeSection: View {
-    @AppStorage("RandomMode", store: 💾AppGroupDefaults) var 🚩value: Bool = false
+    @AppStorage("RandomMode", store: 💾AppGroupDefaults) var ⓥalue: Bool = false
     var body: some View {
         Section {
-            Toggle(isOn: self.$🚩value) {
+            Toggle(isOn: self.$ⓥalue) {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .onChange(of: self.🚩value) { _ in
+            .onChange(of: self.ⓥalue) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
@@ -81,7 +81,7 @@ private struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var scenePhase
     @AppStorage("RandomMode", store: 💾AppGroupDefaults) var 🚩randomMode: Bool = false
-    @FocusState private var 🔍focus: 🄵ocusPattern?
+    @FocusState private var 🔍focus: 🄵ocusArea?
     @Binding private var ⓝote: 📗Note
     private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
@@ -136,7 +136,7 @@ private struct 📓NoteRow: View {
             }
         }
     }
-    enum 🄵ocusPattern {
+    enum 🄵ocusArea {
         case title, comment
     }
     init(_ note: Binding<📗Note>) {
