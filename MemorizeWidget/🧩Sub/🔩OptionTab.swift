@@ -8,18 +8,12 @@ struct 🔩OptionTab: View {
             List {
                 Self.💬CommentOnWidgetSection()
                 Self.🔍CustomizeSearchSection()
-                if #available(iOS 16.0, *) {
-                    Section {
-                        Text("If lock screen widgets don't update, please close this app or switch to another app.")
-                    } header: {
-                        Text("Directions")
-                    }
-                }
+                if #available(iOS 16.0, *) { self.ⓓirectionsSection() }
                 self.💣deleteAllNotesButton()
             }
             .navigationTitle("Option")
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
     }
     private struct 💬CommentOnWidgetSection: View {
         @AppStorage("ShowComment", store: 💾AppGroupUD) var 🚩showComment: Bool = false
@@ -89,6 +83,13 @@ struct 🔩OptionTab: View {
                 Text("Pre-installed shortcut to search in DuckDuckGo.")
             }
             .headerProminence(.increased)
+        }
+    }
+    private func ⓓirectionsSection() -> some View {
+        Section {
+            Text("If lock screen widgets don't update, please close this app or switch to another app.")
+        } header: {
+            Text("Directions")
         }
     }
     private func 💣deleteAllNotesButton() -> some View {

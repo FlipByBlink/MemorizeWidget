@@ -4,7 +4,7 @@ struct 🛒PurchaseTab: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
         NavigationView { 📣ADMenu() }
-            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationViewStyle(.stack)
     }
 }
 

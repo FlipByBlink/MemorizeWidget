@@ -9,7 +9,7 @@ struct ℹ️AboutAppTab: View {
             }
         } else {
             NavigationView { self.ⓛistView() }
-                .navigationViewStyle(StackNavigationViewStyle())
+                .navigationViewStyle(.stack)
         }
     }
     private func ⓛistView() -> some View {

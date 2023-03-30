@@ -127,9 +127,7 @@ struct 📥NotesImportSheet: View {
                         UISelectionFeedbackGenerator().selectionChanged()
                     } label: {
                         Image(systemName: "chevron.down")
-                            .foregroundStyle(.quaternary)
-                            .grayscale(1.0)
-                            .padding(8)
+                            .foregroundColor(.secondary)
                     }
                     .accessibilityLabel("Dismiss")
                 }
@@ -138,12 +136,12 @@ struct 📥NotesImportSheet: View {
         }
         .animation(.default, value: self.ⓝotes)
         .animation(.default, value: self.ⓘnputMode)
-        .fileImporter(isPresented: self.$🚩showFileImporter, allowedContentTypes: [.text]) { 📦result in
+        .fileImporter(isPresented: self.$🚩showFileImporter, allowedContentTypes: [.text]) { ⓡesult in
             do {
-                let 📦 = try 📦result.get()
-                if 📦.startAccessingSecurityScopedResource() {
-                    self.ⓘmportedText = try String(contentsOf: 📦)
-                    📦.stopAccessingSecurityScopedResource()
+                let ⓤrl = try ⓡesult.get()
+                if ⓤrl.startAccessingSecurityScopedResource() {
+                    self.ⓘmportedText = try String(contentsOf: ⓤrl)
+                    ⓤrl.stopAccessingSecurityScopedResource()
                 }
             } catch {
                 self.🚨errorMessage = error.localizedDescription
