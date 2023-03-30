@@ -53,7 +53,7 @@ struct 🤖NotesProvider: TimelineProvider {
         if ⓝotes.isEmpty {
             completion(🕒Entry(.now, nil))
         } else {
-            if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+            if 💾AppGroupDefaults?.bool(forKey: "RandomMode") == true {
                 completion(🕒Entry(.now, ⓝotes.randomElement()!))
             } else {
                 completion(🕒Entry(.now, ⓝotes.first))
@@ -66,7 +66,7 @@ struct 🤖NotesProvider: TimelineProvider {
             completion(Timeline(entries: [🕒Entry(.now, nil)],
                                 policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
         } else {
-            if 💾AppGroupUD?.bool(forKey: "RandomMode") == true {
+            if 💾AppGroupDefaults?.bool(forKey: "RandomMode") == true {
                 var ⓔntries: [🕒Entry] = []
                 for ⓒount in 0 ..< 12 {
                     let ⓞffset = ⓒount * 5
@@ -95,7 +95,7 @@ struct 🕒Entry: TimelineEntry {
 struct 🅆idgetEntryView: View {
     private var ⓝote: 📗Note?
     @Environment(\.widgetFamily) var ⓕamily: WidgetFamily
-    @AppStorage("ShowComment", store: 💾AppGroupUD) var 🚩showComment: Bool = false
+    @AppStorage("ShowComment", store: 💾AppGroupDefaults) var 🚩showComment: Bool = false
     var body: some View {
         if let ⓝote {
             switch self.ⓕamily {

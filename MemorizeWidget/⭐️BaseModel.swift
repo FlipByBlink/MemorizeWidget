@@ -15,13 +15,13 @@ struct 📗Note: Codable, Identifiable, Hashable {
 
 typealias 📚Notes = [📗Note]
 
-let 💾AppGroupUD = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
+let 💾AppGroupDefaults = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget")
 
 extension 📚Notes {
     func save() {
         do {
             let ⓓata = try JSONEncoder().encode(self)
-            💾AppGroupUD?.set(ⓓata, forKey: "Notes")
+            💾AppGroupDefaults?.set(ⓓata, forKey: "Notes")
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("🚨", error); assertionFailure()
@@ -32,7 +32,7 @@ extension 📚Notes {
         self.save()
     }
     static func load() -> Self? {
-        guard let ⓓata = 💾AppGroupUD?.data(forKey: "Notes") else { return .sample }
+        guard let ⓓata = 💾AppGroupDefaults?.data(forKey: "Notes") else { return .sample }
         do {
             return try JSONDecoder().decode(Self.self, from: ⓓata)
         } catch {

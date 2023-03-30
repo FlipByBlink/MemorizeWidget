@@ -10,7 +10,7 @@ struct 🛒PurchaseTab: View {
 
 struct 💾HandleShareExtensionData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("savedDataByShareExtension", store: 💾AppGroupUD) private var 🚩savedDataByShareExtension: Bool = false
+    @AppStorage("savedDataByShareExtension", store: 💾AppGroupDefaults) private var 🚩savedDataByShareExtension: Bool = false
     func body(content: Content) -> some View {
         content
             .onAppear {
