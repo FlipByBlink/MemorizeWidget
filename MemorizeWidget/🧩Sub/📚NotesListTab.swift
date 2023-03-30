@@ -47,7 +47,7 @@ struct 📚NotesListTab: View {
 }
 
 private struct 🚩RandomModeSection: View {
-    @AppStorage("RandomMode", store: 💾appGroupDefaults) var ⓥalue: Bool = false
+    @AppStorage("RandomMode", store: .ⓐppGroup) var ⓥalue: Bool = false
     var body: some View {
         Section {
             Toggle(isOn: self.$ⓥalue) {
@@ -80,7 +80,7 @@ private struct 🆕NewNoteButton: View {
 private struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var scenePhase
-    @AppStorage("RandomMode", store: 💾appGroupDefaults) var 🚩randomMode: Bool = false
+    @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     @FocusState private var 🔍focus: 🄵ocusArea?
     @Binding private var ⓝote: 📗Note
     private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }

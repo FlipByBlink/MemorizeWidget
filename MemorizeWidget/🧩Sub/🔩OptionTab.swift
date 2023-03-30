@@ -16,7 +16,7 @@ struct 🔩OptionTab: View {
         .navigationViewStyle(.stack)
     }
     private struct 💬CommentOnWidgetSection: View {
-        @AppStorage("ShowComment", store: 💾appGroupDefaults) var 🚩showComment: Bool = false
+        @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
         var body: some View {
             Section {
                 Toggle(isOn: self.$🚩showComment) {

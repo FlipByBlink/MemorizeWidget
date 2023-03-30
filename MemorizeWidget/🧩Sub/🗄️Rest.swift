@@ -10,17 +10,17 @@ struct 🛒PurchaseTab: View {
 
 struct 💾HandleShareExtensionData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("savedDataByShareExtension", store: 💾appGroupDefaults) private var 🚩savedDataByShareExtension: Bool = false
+    @AppStorage("savedByExtension", store: .ⓐppGroup) private var 🚩savedByExtension: Bool = false
     func body(content: Content) -> some View {
         content
             .onAppear {
-                self.🚩savedDataByShareExtension = false
+                self.🚩savedByExtension = false
             }
-            .onChange(of: self.🚩savedDataByShareExtension) {
+            .onChange(of: self.🚩savedByExtension) {
                 if $0 == true {
                     guard let ⓝotes = 📚Notes.load() else { return }
                     📱.📚notes = ⓝotes
-                    self.🚩savedDataByShareExtension = false
+                    self.🚩savedByExtension = false
                 }
             }
     }
