@@ -73,7 +73,7 @@ private struct 🆕NewNoteButton: View {
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
         }
-        .disabled(📱.📚notes.first?.title == "")
+        .disabled(📱.📚notes.first?.isEmpty == true)
     }
 }
 
@@ -101,7 +101,7 @@ private struct 📓NoteRow: View {
                         .foregroundStyle(self.🎨thin ? .tertiary : .primary)
                     TextField("+ comment", text: self.$ⓝote.comment)
                         .focused(self.$🔍focusState, equals: .comment)
-                        .font(.title3.weight(.light))
+                        .font(.title3.weight(.medium))
                         .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
@@ -129,7 +129,7 @@ private struct 📓NoteRow: View {
                     Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                         .font(.title3.weight(.light))
                         .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
-                        .opacity(0.8)
+                        .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
                 }
                 .padding(8)
                 .padding(.vertical, 6)
