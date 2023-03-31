@@ -11,12 +11,10 @@ struct 📓NoteRow: View {
     private var 🚩focusDisable: Bool {
         📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
     }
-    private var ⓘnputting: Bool {
-        self.ⓝote.isEmpty || (self.🔍preferredFocus != nil)
-    }
+    private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
     var body: some View {
         HStack {
-            if self.ⓘnputting {
+            if self.🚩userInputting {
                 VStack(alignment: .leading, spacing: 8) {
                     TextField("+ title", text: self.$ⓝote.title)
                         .focused(self.$🔍focusState, equals: .title)
@@ -28,17 +26,7 @@ struct 📓NoteRow: View {
                         .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
                         .opacity(0.8)
                 }
-                .onAppear {
-                    if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
-                }
-                .onChange(of: self.🔍focusState) {
-                    if $0 == nil {
-                        self.🔍preferredFocus = nil
-                        if self.ⓝote.isEmpty {
-                            self.📱.📚notes.removeAll { $0 == self.ⓝote }
-                        }
-                    }
-                }
+                .onChange(of: self.🔍focusState) { self.ⓗandleFocusState($0) }
                 .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
                 .padding(.vertical, 6)
@@ -58,18 +46,31 @@ struct 📓NoteRow: View {
                 Spacer()
             }
             🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
-                .onChange(of: self.🔍preferredFocus) {
-                    if let ⓟreferredFocus = $0 {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            self.🔍focusState = ⓟreferredFocus
-                        }
-                    }
-                }
+                .onChange(of: self.🔍preferredFocus) { self.ⓗandlePreferredFocus($0) }
         }
-        .animation(.default, value: self.ⓘnputting)
+        .onAppear { self.ⓢetFocusForEmptyNote() }
+        .animation(.default, value: self.🚩userInputting)
         .onChange(of: self.🚩focusDisable) {
             if $0 { self.🔍focusState = nil }
         }
+    }
+    private func ⓗandleFocusState(_ ⓕocusState: 🄵ocusArea?) {
+        if ⓕocusState == nil {
+            self.🔍preferredFocus = nil
+            if self.ⓝote.isEmpty {
+                self.📱.📚notes.removeAll { $0 == self.ⓝote }
+            }
+        }
+    }
+    private func ⓗandlePreferredFocus(_ ⓟreferredFocus: 🄵ocusArea?) {
+        if let ⓟreferredFocus {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.🔍focusState = ⓟreferredFocus
+            }
+        }
+    }
+    private func ⓢetFocusForEmptyNote() {
+        if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
