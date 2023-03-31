@@ -21,6 +21,7 @@ class 📱AppModel: ObservableObject {
     
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
+            🩹Workaround.closeMenuPopup()
             self.🚩showNotesImportSheet = false
             self.🚩showNoteSheet = false
             if ⓤrl.description == "NewNoteShortcut" {

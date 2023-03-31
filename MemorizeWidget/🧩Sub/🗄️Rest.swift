@@ -26,5 +26,16 @@ struct 💾HandleShareExtensionData: ViewModifier {
     }
 }
 
-//MARK: - REJECT .defaultAppStorage(UserDefaults(suiteName: `AppGroupID`)!)
+enum 🩹Workaround {
+    static func closeMenuPopup() {
+        //Conflict error Menu-popup / sheetPresentation
+        //> [Presentation]
+        //> Attempt to present <_> on <_> (from <_>)
+        //> which is already presenting <_UIContextMenuActionsOnlyViewController: _>.
+        let ⓦindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        ⓦindowScene?.windows.first?.rootViewController?.dismiss(animated: true)
+    }
+}
+
+//MARK: REJECT .defaultAppStorage(UserDefaults(suiteName: `AppGroupID`)!)
 //reason: buggy list-animation on iOS15.x
