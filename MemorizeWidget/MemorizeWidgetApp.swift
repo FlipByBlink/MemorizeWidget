@@ -8,8 +8,6 @@ struct MemorizeWidgetApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onChange(of: 📱.📚notes) { $0.save() }
-                .modifier(💾HandleShareExtensionData())
                 .environmentObject(📱)
                 .environmentObject(🛒)
         }

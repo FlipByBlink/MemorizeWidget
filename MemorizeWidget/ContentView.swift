@@ -3,6 +3,14 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
+        self.ⓣabView()
+            .onOpenURL { 📱.handleWidgetURL($0) }
+            .sheet(isPresented: $📱.🚩showNoteSheet) { 📖NoteSheet() }
+            .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
+            .modifier(💾HandleShareExtensionData())
+            .onChange(of: 📱.📚notes) { $0.save() }
+    }
+    private func ⓣabView() -> some View {
         TabView(selection: $📱.🔖tab) {
             📚NotesListTab()
                 .tag(🔖Tab.notesList)
@@ -17,9 +25,6 @@ struct ContentView: View {
                 .tag(🔖Tab.about)
                 .tabItem { Label("About App", systemImage: "questionmark") }
         }
-        .onOpenURL { 📱.handleWidgetURL($0) }
-        .sheet(isPresented: $📱.🚩showNoteSheet) { 📖NoteSheet() }
-        .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
     }
 }
 
