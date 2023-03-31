@@ -42,7 +42,6 @@ struct 📓NoteRow: View {
                 .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
                 .padding(.vertical, 6)
-                .accessibilityHidden(!self.ⓝote.title.isEmpty)
             } else {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
