@@ -2,46 +2,87 @@ import SwiftUI
 
 struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @Binding private var ⓝote: 📗Note
+    private let ⓛayout: 🄻ayout
     @Environment(\.scenePhase) var scenePhase
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
-    @Binding private var ⓝote: 📗Note
+    @State private var 🚩showDictionarySheetOnNotesSheet: Bool = false
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
         📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
     }
     private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
     var body: some View {
-        HStack {
+        switch self.ⓛayout {
+            case .onListTab:
+                HStack {
+                    self.ⓓynamicNoteView()
+                    🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
+                }
+                .onAppear { self.ⓢetFocusForEmptyNote() }
+                .animation(.default, value: self.🚩userInputting)
+                //.onChange(of: self.🚩focusDisable) {
+                //    if $0 { self.🔍focusState = nil }
+                //}
+            case .onNotesSheet:
+                VStack(spacing: 16) {
+                    self.ⓓynamicNoteView()
+                    HStack {
+                        Spacer()
+                        📗DictionaryButton(self.$🚩showDictionarySheetOnNotesSheet)
+                            .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheetOnNotesSheet))
+                        Spacer()
+                        🔍SearchButton(self.ⓝote)
+                        Spacer()
+                        Button(role: .destructive) {
+                            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+                            📱.📚notes.remove(at: ⓘndex)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        Spacer()
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.plain)
+                }
+                .padding(.vertical, 24)
+        }
+    }
+    private func ⓓynamicNoteView() -> some View {
+        Group {
             if self.🚩userInputting {
                 📝InputNoteView(self.$🔍preferredFocus, self.$ⓝote)
             } else {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
-                        .font(.title2.weight(.semibold))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
-                        .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
-                    Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
-                        .font(.title3.weight(.light))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
-                        .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
-                }
-                .padding(8)
-                .padding(.vertical, 6)
-                Spacer()
+                self.ⓢtaticNoteView()
             }
-            🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
         }
-        .onAppear { self.ⓢetFocusForEmptyNote() }
-        .animation(.default, value: self.🚩userInputting)
-        //.onChange(of: self.🚩focusDisable) {
-        //    if $0 { self.🔍focusState = nil }
-        //}
+    }
+    private func ⓢtaticNoteView() -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                    .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
+                Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
+                    .font(.title3.weight(.light))
+                    .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
+                    .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
+            }
+            .padding(8)
+            .padding(.vertical, 6)
+            Spacer()
+        }
     }
     private func ⓢetFocusForEmptyNote() {
         if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
     }
-    init(_ note: Binding<📗Note>) {
+    enum 🄻ayout {
+        case onListTab, onNotesSheet
+    }
+    init(_ note: Binding<📗Note>, _ layout: Self.🄻ayout) {
         self._ⓝote = note
+        self.ⓛayout = layout
     }
 }
 

@@ -16,9 +16,11 @@ struct 📚NotesListTab: View {
                                     🚡.scrollTo("NewNoteButton")
                                 }
                             }
-                        ForEach($📱.📚notes) { 📓NoteRow($0) }
-                            .onDelete { 📱.📚notes.remove(atOffsets: $0) }
-                            .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
+                        ForEach($📱.📚notes) {
+                            📓NoteRow($0, .onListTab)
+                        }
+                        .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                        .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")
                             .opacity(📱.📚notes.count < 6  ? 0 : 1)
