@@ -10,15 +10,11 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
-    @Published var 🆕newNoteID: UUID? = nil
-    
     func addNewNote(_ ⓘndex: Int = 0) {
-        let ⓝewNote = 📗Note("")
-        self.📚notes.insert(ⓝewNote, at: ⓘndex)
-        UISelectionFeedbackGenerator().selectionChanged()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            self.🆕newNoteID = ⓝewNote.id
+        withAnimation {
+            self.📚notes.insert(📗Note(""), at: ⓘndex)
         }
+        UISelectionFeedbackGenerator().selectionChanged()
     }
     
     func handleWidgetURL(_ ⓤrl: URL) {

@@ -108,10 +108,15 @@ private struct 📓NoteRow: View {
                 .onAppear {
                     if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
                 }
-                .onSubmit {
-                    self.🔍preferredFocus = nil
-                    UISelectionFeedbackGenerator().selectionChanged()
+                .onChange(of: self.🔍focusState) {
+                    if $0 == nil {
+                        self.🔍preferredFocus = nil
+                        if self.ⓝote.isEmpty {
+                            self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                        }
+                    }
                 }
+                .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
                 .padding(8)
                 .padding(.vertical, 6)
                 .accessibilityHidden(!self.ⓝote.title.isEmpty)
@@ -120,6 +125,7 @@ private struct 📓NoteRow: View {
                     Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
                         .font(.title2.weight(.semibold))
                         .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                        .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
                     Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                         .font(.title3.weight(.light))
                         .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
@@ -130,16 +136,15 @@ private struct 📓NoteRow: View {
                 Spacer()
             }
             🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
-                .onChange(of: self.🔍preferredFocus) { self.🔍focusState = $0 }
+                .onChange(of: self.🔍preferredFocus) {
+                    if let ⓟreferredFocus = $0 {
+                        self.🔍focusState = ⓟreferredFocus
+                    }
+                }
         }
+        .animation(.default, value: self.ⓘnputting)
         .onChange(of: self.🚩focusDisable) {
             if $0 { self.🔍focusState = nil }
-        }
-        .onChange(of: 📱.🆕newNoteID) {
-            if $0 == self.ⓝote.id {
-                self.🔍focusState = .title
-                📱.🆕newNoteID = nil
-            }
         }
     }
     init(_ note: Binding<📗Note>) {
