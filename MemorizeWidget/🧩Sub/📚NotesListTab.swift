@@ -104,27 +104,7 @@ private struct 📓NoteRow: View {
             .padding(8)
             .padding(.vertical, 6)
             .accessibilityHidden(!self.ⓝote.title.isEmpty)
-            Menu {
-                Button {
-                    📱.🆔openedNoteID = self.ⓝote.id.description
-                    📱.🚩showNoteSheet = true
-                    UISelectionFeedbackGenerator().selectionChanged()
-                } label: {
-                    Label("Detail", systemImage: "doc.plaintext")
-                }
-                Button {
-                    guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
-                    📱.addNewNote(ⓘndex + 1)
-                } label: {
-                    Label("New note", systemImage: "text.append")
-                }
-            } label: {
-                Label("Menu", systemImage: "ellipsis.circle")
-                    .labelStyle(.iconOnly)
-                    .padding(.vertical, 8)
-                    .padding(.trailing, 8)
-            }
-            .foregroundStyle(.secondary)
+            🎛️NoteMenuButton(self.$ⓝote)
         }
         .onChange(of: self.🚩focusDisable) {
             if $0 { self.🔍focus = nil }
@@ -138,6 +118,63 @@ private struct 📓NoteRow: View {
     }
     enum 🄵ocusArea {
         case title, comment
+    }
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
+    }
+}
+
+struct 🎛️NoteMenuButton: View { //MARK: Work in progress
+    @EnvironmentObject var 📱: 📱AppModel
+    @Binding var ⓝote: 📗Note
+    private var ⓝoteIndex: Int? { 📱.📚notes.firstIndex(of: self.ⓝote) }
+    var body: some View {
+        Menu {
+            if let ⓝoteIndex {
+                Section {
+                    Button {
+                    } label: {
+                        Label("Edit title", systemImage: "pencil")
+                    }
+                    Button {
+                    } label: {
+                        Label("Edit comment", systemImage: "pencil")
+                    }
+                }
+                📗SystemDictionaryButton(ⓝoteIndex)
+                🔍SearchButton(ⓝoteIndex)
+                Button {
+                    📱.addNewNote(ⓝoteIndex + 1)
+                } label: {
+                    Label("New note", systemImage: "text.append")
+                }
+                Section {
+                    Button {
+                    } label: {
+                        Label("Move top", systemImage: "arrow.up.to.line")
+                    }
+                    Button {
+                    } label: {
+                        Label("Move end", systemImage: "arrow.down.to.line")
+                    }
+                }
+                Section {
+                    Button(role: .destructive) {
+                        📱.📚notes.remove(at: ⓝoteIndex)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
+            } else {
+                Text("🐛")
+            }
+        } label: {
+            Label("Menu", systemImage: "ellipsis.circle")
+                .labelStyle(.iconOnly)
+                .padding(.vertical, 8)
+                .padding(.trailing, 8)
+        }
+        .foregroundStyle(.secondary)
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
