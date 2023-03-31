@@ -5,6 +5,7 @@ struct 📖NoteSheet: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     @Environment(\.dismiss) var dismiss
     @State private var 🚩showADMenuSheet: Bool = false
+    @State private var 🚩showDictionarySheet: Bool = false
     @FocusState private var 🔍commentFocus: Bool
     private var 🔢noteIndex: Int? {
         📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
@@ -61,7 +62,8 @@ struct 📖NoteSheet: View {
                                     .labelStyle(.iconOnly)
                             }
                             .tint(.red)
-                            📗SystemDictionaryButton(📱.📚notes[🔢noteIndex])
+                            📗DictionaryButton(self.$🚩showDictionarySheet)
+                                .modifier(📗DictionarySheet(📱.📚notes[🔢noteIndex], self.$🚩showDictionarySheet))
                                 .labelStyle(.iconOnly)
                                 .font(.title3.weight(.semibold))
                                 .foregroundStyle(.tertiary)

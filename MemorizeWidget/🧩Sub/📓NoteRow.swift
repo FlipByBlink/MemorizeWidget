@@ -96,6 +96,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
     @Binding var ⓟreferredFocus: 🄵ocusArea?
+    @State private var 🚩showDictionarySheet: Bool = false
     private var ⓝoteIndex: Int? { 📱.📚notes.firstIndex(of: self.ⓝote) }
     var body: some View {
         Menu {
@@ -112,7 +113,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
                         Label("Edit comment", systemImage: "pencil")
                     }
                 }
-                📗SystemDictionaryButton(ⓝote)
+                📗DictionaryButton(self.$🚩showDictionarySheet)
                 🔍SearchButton(ⓝote)
                 Button {
                     📱.addNewNote(ⓝoteIndex + 1)
@@ -146,6 +147,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
                 .padding(.trailing, 8)
         }
         .foregroundStyle(.secondary)
+        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
     }
     init(_ note: Binding<📗Note>, _ preferredFocus: Binding<🄵ocusArea?>) {
         self._ⓝote = note

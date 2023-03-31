@@ -1,30 +1,30 @@
 import SwiftUI
 
-struct 📗SystemDictionaryButton: View {
+struct 📗DictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩showSystemDictionary: Bool = false
-    private var ⓣerm: String
+    @Binding private var 🚩showDictionarySheet: Bool
     var body: some View {
         Button {
-            self.🚩showSystemDictionary = true
+            self.🚩showDictionarySheet = true
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
-        .sheet(isPresented: self.$🚩showSystemDictionary) {
-            📗SystemDictionarySheet(self.ⓣerm)
-        }
     }
-    init(_ note: 📗Note) {
-        self.ⓣerm = note.title
+    init(_ showSheet: Binding<Bool>) {
+        self._🚩showDictionarySheet = showSheet
     }
 }
 
-private struct 📗SystemDictionarySheet: View {
+struct 📗DictionarySheet: ViewModifier {
     private var ⓣerm: String
-    var body: some View {
-        Self.🄳ictinaryView(term: self.ⓣerm)
-            .ignoresSafeArea()
+    @Binding private var 🚩showSheet: Bool
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: self.$🚩showSheet) {
+                Self.🄳ictinaryView(term: self.ⓣerm)
+                    .ignoresSafeArea()
+            }
     }
     private struct 🄳ictinaryView: UIViewControllerRepresentable {
         private var ⓣerm: String
@@ -36,7 +36,8 @@ private struct 📗SystemDictionarySheet: View {
             self.ⓣerm = term
         }
     }
-    init(_ term: String) {
-        self.ⓣerm = term
+    init(_ note: 📗Note, _ showSheet: Binding<Bool>) {
+        self.ⓣerm = note.title
+        self._🚩showSheet = showSheet
     }
 }
