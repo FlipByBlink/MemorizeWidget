@@ -2,17 +2,17 @@ import SwiftUI
 
 struct 📗DictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Binding private var 🚩showDictionarySheet: Bool
+    @Binding private var 🚩showSheet: Bool
     var body: some View {
         Button {
-            self.🚩showDictionarySheet = true
+            self.🚩showSheet = true
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
     }
     init(_ showSheet: Binding<Bool>) {
-        self._🚩showDictionarySheet = showSheet
+        self._🚩showSheet = showSheet
     }
 }
 
