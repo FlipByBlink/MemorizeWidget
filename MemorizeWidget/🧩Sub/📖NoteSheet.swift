@@ -61,10 +61,12 @@ struct 📖NoteSheet: View {
                                     .labelStyle(.iconOnly)
                             }
                             .tint(.red)
-                            📗SystemDictionaryButton(🔢noteIndex)
+                            📗SystemDictionaryButton(📱.📚notes[🔢noteIndex])
+                                .labelStyle(.iconOnly)
                                 .font(.title3.weight(.semibold))
                                 .foregroundStyle(.tertiary)
-                            🔍SearchButton(🔢noteIndex)
+                            🔍SearchButton(📱.📚notes[🔢noteIndex])
+                                .labelStyle(.iconOnly)
                                 .font(.title3.weight(.semibold))
                                 .foregroundStyle(.tertiary)
                         }

@@ -3,21 +3,20 @@ import SwiftUI
 struct 📗SystemDictionaryButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showSystemDictionary: Bool = false
-    private var 🔢noteIndex: Int
+    private var ⓣerm: String
     var body: some View {
         Button {
             self.🚩showSystemDictionary = true
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
-                .labelStyle(.iconOnly)
         }
         .sheet(isPresented: self.$🚩showSystemDictionary) {
-            📗SystemDictionarySheet(term: 📱.📚notes[self.🔢noteIndex].title)
+            📗SystemDictionarySheet(self.ⓣerm)
         }
     }
-    init(_ noteIndex: Int) {
-        self.🔢noteIndex = noteIndex
+    init(_ note: 📗Note) {
+        self.ⓣerm = note.title
     }
 }
 
@@ -37,7 +36,7 @@ private struct 📗SystemDictionarySheet: View {
             self.ⓣerm = term
         }
     }
-    init(term: String) {
+    init(_ term: String) {
         self.ⓣerm = term
     }
 }

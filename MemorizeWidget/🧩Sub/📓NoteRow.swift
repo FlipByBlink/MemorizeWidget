@@ -112,8 +112,8 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
                         Label("Edit comment", systemImage: "pencil")
                     }
                 }
-                📗SystemDictionaryButton(ⓝoteIndex)
-                🔍SearchButton(ⓝoteIndex)
+                📗SystemDictionaryButton(ⓝote)
+                🔍SearchButton(ⓝote)
                 Button {
                     📱.addNewNote(ⓝoteIndex + 1)
                 } label: {
