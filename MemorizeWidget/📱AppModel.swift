@@ -10,6 +10,8 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
+    @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
+    
     func addNewNote(_ ⓘndex: Int = 0) {
         withAnimation {
             self.📚notes.insert(📗Note(""), at: ⓘndex)

@@ -7,9 +7,9 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    🚩RandomModeSection()
+                    self.🚩randomModeSection()
                     Section {
-                        🆕NewNoteButton()
+                        self.🆕newNoteButton()
                             .id("NewNoteButton")
                             .onOpenURL {
                                 if $0.description == "NewNoteShortcut" {
@@ -44,28 +44,20 @@ struct 📚NotesListTab: View {
         }
         .navigationViewStyle(.stack)
     }
-}
-
-private struct 🚩RandomModeSection: View {
-    @AppStorage("RandomMode", store: .ⓐppGroup) var ⓥalue: Bool = false
-    var body: some View {
+    private func 🚩randomModeSection() -> some View {
         Section {
-            Toggle(isOn: self.$ⓥalue) {
+            Toggle(isOn: self.$📱.🚩randomMode) {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .onChange(of: self.ⓥalue) { _ in
+            .onChange(of: 📱.🚩randomMode) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
             Text("Change the note per 5 minutes.")
         }
     }
-}
-
-private struct 🆕NewNoteButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    var body: some View {
+    private func 🆕newNoteButton() -> some View {
         Button {
             📱.addNewNote()
         } label: {

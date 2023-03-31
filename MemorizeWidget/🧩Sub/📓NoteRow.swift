@@ -3,10 +3,9 @@ import SwiftUI
 struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var scenePhase
-    @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
     @Binding private var ⓝote: 📗Note
-    private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
+    private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
         📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
     }
