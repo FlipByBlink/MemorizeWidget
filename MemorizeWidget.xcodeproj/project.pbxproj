@@ -16,6 +16,7 @@
 		F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
 		F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
+		F51CAF6529D6AEFA0065EF30 /* 📓NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51CAF6429D6AEFA0065EF30 /* 📓NoteRow.swift */; };
 		F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */; };
 		F527F47329D53FA500E9FB97 /* 📖NoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47229D53FA500E9FB97 /* 📖NoteSheet.swift */; };
 		F527F47529D53FDF00E9FB97 /* 🔩OptionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47429D53FDF00E9FB97 /* 🔩OptionTab.swift */; };
@@ -153,6 +154,7 @@
 		F507EAA128CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F507EAA228CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F507EAA328CA145000ECF06A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
+		F51CAF6429D6AEFA0065EF30 /* 📓NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📓NoteRow.swift"; sourceTree = "<group>"; };
 		F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesListTab.swift"; sourceTree = "<group>"; };
 		F527F47229D53FA500E9FB97 /* 📖NoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖NoteSheet.swift"; sourceTree = "<group>"; };
 		F527F47429D53FDF00E9FB97 /* 🔩OptionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩OptionTab.swift"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
+				F51CAF6429D6AEFA0065EF30 /* 📓NoteRow.swift */,
 				F527F47229D53FA500E9FB97 /* 📖NoteSheet.swift */,
 				F527F47429D53FDF00E9FB97 /* 🔩OptionTab.swift */,
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
@@ -485,6 +488,7 @@
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* ⭐️BaseModel.swift in Sources */,
+				F51CAF6529D6AEFA0065EF30 /* 📓NoteRow.swift in Sources */,
 				F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */,
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
 				F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */,
