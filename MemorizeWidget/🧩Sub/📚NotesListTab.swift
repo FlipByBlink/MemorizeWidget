@@ -81,62 +81,92 @@ private struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.scenePhase) var scenePhase
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
-    @FocusState private var 🔍focus: 🄵ocusArea?
+    @State private var 🔍preferredFocus: 🄵ocusArea? = nil
+    @FocusState private var 🔍focusState: 🄵ocusArea?
     @Binding private var ⓝote: 📗Note
     private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
         📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
     }
+    private var ⓘnputting: Bool {
+        self.ⓝote.isEmpty || (self.🔍preferredFocus != nil)
+    }
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 8) {
-                TextField("+ title", text: self.$ⓝote.title)
-                    .focused(self.$🔍focus, equals: .title)
-                    .font(.title2.weight(.semibold))
-                    .foregroundStyle(self.🎨thin ? .tertiary : .primary)
-                TextField("+ comment", text: self.$ⓝote.comment)
-                    .focused(self.$🔍focus, equals: .comment)
-                    .font(.title3.weight(.light))
-                    .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
-                    .opacity(0.8)
+            if self.ⓘnputting {
+                VStack(alignment: .leading, spacing: 8) {
+                    TextField("+ title", text: self.$ⓝote.title)
+                        .focused(self.$🔍focusState, equals: .title)
+                        .font(.title2.weight(.semibold))
+                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                    TextField("+ comment", text: self.$ⓝote.comment)
+                        .focused(self.$🔍focusState, equals: .comment)
+                        .font(.title3.weight(.light))
+                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
+                        .opacity(0.8)
+                }
+                .onAppear {
+                    if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
+                }
+                .onSubmit {
+                    self.🔍preferredFocus = nil
+                    UISelectionFeedbackGenerator().selectionChanged()
+                }
+                .padding(8)
+                .padding(.vertical, 6)
+                .accessibilityHidden(!self.ⓝote.title.isEmpty)
+            } else {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
+                        .font(.title2.weight(.semibold))
+                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
+                    Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
+                        .font(.title3.weight(.light))
+                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
+                        .opacity(0.8)
+                }
+                .padding(8)
+                .padding(.vertical, 6)
+                Spacer()
             }
-            .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
-            .padding(8)
-            .padding(.vertical, 6)
-            .accessibilityHidden(!self.ⓝote.title.isEmpty)
-            🎛️NoteMenuButton(self.$ⓝote)
+            🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
+                .onChange(of: self.🔍preferredFocus) { self.🔍focusState = $0 }
         }
         .onChange(of: self.🚩focusDisable) {
-            if $0 { self.🔍focus = nil }
+            if $0 { self.🔍focusState = nil }
         }
         .onChange(of: 📱.🆕newNoteID) {
             if $0 == self.ⓝote.id {
-                self.🔍focus = .title
+                self.🔍focusState = .title
                 📱.🆕newNoteID = nil
             }
         }
-    }
-    enum 🄵ocusArea {
-        case title, comment
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
     }
 }
 
+enum 🄵ocusArea {
+    case title, comment
+}
+
 struct 🎛️NoteMenuButton: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
+    @Binding var ⓟreferredFocus: 🄵ocusArea?
     private var ⓝoteIndex: Int? { 📱.📚notes.firstIndex(of: self.ⓝote) }
     var body: some View {
         Menu {
             if let ⓝoteIndex {
                 Section {
                     Button {
+                        self.ⓟreferredFocus = .title
                     } label: {
                         Label("Edit title", systemImage: "pencil")
                     }
                     Button {
+                        self.ⓟreferredFocus = .comment
                     } label: {
                         Label("Edit comment", systemImage: "pencil")
                     }
@@ -176,7 +206,8 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
         }
         .foregroundStyle(.secondary)
     }
-    init(_ note: Binding<📗Note>) {
+    init(_ note: Binding<📗Note>, _ preferredFocus: Binding<🄵ocusArea?>) {
         self._ⓝote = note
+        self._ⓟreferredFocus = preferredFocus
     }
 }

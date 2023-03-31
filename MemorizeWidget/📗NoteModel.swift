@@ -6,6 +6,10 @@ struct 📗Note: Codable, Identifiable, Hashable {
     var comment: String
     var id: UUID
     
+    var isEmpty: Bool {
+        self.title.isEmpty && self.comment.isEmpty
+    }
+    
     init(_ title: String, _ comment: String = "") {
         self.title = title
         self.comment = comment
