@@ -5,7 +5,6 @@ struct 📓NoteRow: View {
     @Environment(\.scenePhase) var scenePhase
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
-    @FocusState private var 🔍focusState: 🄵ocusArea?
     @Binding private var ⓝote: 📗Note
     private var 🎨thin: Bool { !self.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
@@ -15,21 +14,7 @@ struct 📓NoteRow: View {
     var body: some View {
         HStack {
             if self.🚩userInputting {
-                VStack(alignment: .leading, spacing: 8) {
-                    TextField("+ title", text: self.$ⓝote.title)
-                        .focused(self.$🔍focusState, equals: .title)
-                        .font(.title2.weight(.semibold))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .primary)
-                    TextField("+ comment", text: self.$ⓝote.comment)
-                        .focused(self.$🔍focusState, equals: .comment)
-                        .font(.title3.weight(.medium))
-                        .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
-                        .opacity(0.8)
-                }
-                .onChange(of: self.🔍focusState) { self.ⓗandleFocusState($0) }
-                .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
-                .padding(8)
-                .padding(.vertical, 6)
+                📝InputNoteView(self.$🔍preferredFocus, self.$ⓝote)
             } else {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
@@ -46,13 +31,42 @@ struct 📓NoteRow: View {
                 Spacer()
             }
             🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
-                .onChange(of: self.🔍preferredFocus) { self.ⓗandlePreferredFocus($0) }
         }
         .onAppear { self.ⓢetFocusForEmptyNote() }
         .animation(.default, value: self.🚩userInputting)
-        .onChange(of: self.🚩focusDisable) {
-            if $0 { self.🔍focusState = nil }
+        //.onChange(of: self.🚩focusDisable) {
+        //    if $0 { self.🔍focusState = nil }
+        //}
+    }
+    private func ⓢetFocusForEmptyNote() {
+        if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
+    }
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
+    }
+}
+
+struct 📝InputNoteView: View {
+    @Binding var 🔍preferredFocus: 🄵ocusArea?
+    @Binding var ⓝote: 📗Note
+    @FocusState private var 🔍focusState: 🄵ocusArea?
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            TextField("+ title", text: self.$ⓝote.title)
+                .focused(self.$🔍focusState, equals: .title)
+                .font(.title2.weight(.semibold))
+            TextField("+ comment", text: self.$ⓝote.comment)
+                .focused(self.$🔍focusState, equals: .comment)
+                .font(.title3.weight(.medium))
+                .foregroundStyle(.secondary)
+                .opacity(0.8)
         }
+        .onChange(of: self.🔍focusState) { self.ⓗandleFocusState($0) }
+        .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
+        .padding(8)
+        .padding(.vertical, 6)
+        .onAppear { self.ⓗandlePreferredFocus() }
     }
     private func ⓗandleFocusState(_ ⓕocusState: 🄵ocusArea?) {
         if ⓕocusState == nil {
@@ -62,18 +76,16 @@ struct 📓NoteRow: View {
             }
         }
     }
-    private func ⓗandlePreferredFocus(_ ⓟreferredFocus: 🄵ocusArea?) {
-        if let ⓟreferredFocus {
+    private func ⓗandlePreferredFocus() {
+        if let 🔍preferredFocus {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.🔍focusState = ⓟreferredFocus
+                self.🔍focusState = 🔍preferredFocus
             }
         }
     }
-    private func ⓢetFocusForEmptyNote() {
-        if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
-    }
-    init(_ note: Binding<📗Note>) {
-        self._ⓝote = note
+    init(_ 🔍preferredFocus: Binding<🄵ocusArea?>, _ ⓝote: Binding<📗Note>) {
+        self._🔍preferredFocus = 🔍preferredFocus
+        self._ⓝote = ⓝote
     }
 }
 
