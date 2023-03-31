@@ -60,7 +60,9 @@ struct 📓NoteRow: View {
             🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
                 .onChange(of: self.🔍preferredFocus) {
                     if let ⓟreferredFocus = $0 {
-                        self.🔍focusState = ⓟreferredFocus
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            self.🔍focusState = ⓟreferredFocus
+                        }
                     }
                 }
         }
