@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct 📗DictionaryButton: View {
-    @Binding private var 🚩showSheet: Bool
+    private let ⓝote: 📗Note
+    @State private var 🚩showSheet: Bool = false
     var body: some View {
         Button {
             self.🚩showSheet = true
@@ -10,18 +11,7 @@ struct 📗DictionaryButton: View {
             Label("Dictionary", systemImage: "character.book.closed")
                 .padding(8)
         }
-    }
-    init(_ showSheet: Binding<Bool>) {
-        self._🚩showSheet = showSheet
-    }
-}
-
-struct 📗DictionaryButtonOnNotesSheet: View {
-    private let ⓝote: 📗Note
-    @State private var 🚩showSheet: Bool = false
-    var body: some View {
-        📗DictionaryButton(self.$🚩showSheet)
-            .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showSheet))
+        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showSheet))
     }
     init(_ note: 📗Note) {
         self.ⓝote = note

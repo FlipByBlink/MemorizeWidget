@@ -56,7 +56,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
     private func ⓑuttons() -> some View {
         HStack {
             Spacer()
-            📗DictionaryButtonOnNotesSheet(self.ⓝote)
+            📗DictionaryButton(self.ⓝote)
             Spacer()
             🔍SearchButton(self.ⓝote)
             Spacer()
@@ -138,7 +138,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
                         Label("Edit comment", systemImage: "pencil")
                     }
                 }
-                📗DictionaryButton(self.$🚩showDictionarySheet)
+                //📗DictionaryButton(self.$🚩showDictionarySheet)
                 🔍SearchButton(ⓝote)
                 Button {
                     📱.addNewNote(ⓝoteIndex + 1)
@@ -172,7 +172,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
                 .padding(.trailing, 8)
         }
         .foregroundStyle(.secondary)
-        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        //.modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
         .modifier(🩹Workaround.closeMenePopup())
     }
     init(_ note: Binding<📗Note>, _ preferredFocus: Binding<🄵ocusArea?>) {
