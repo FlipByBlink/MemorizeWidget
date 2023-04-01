@@ -4,16 +4,16 @@ struct 📖NotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var dismiss
     @FocusState private var 🔍commentFocus: Bool
-    private var 🔢noteIndex: Int? {
+    private var ⓝoteIndex: Int? {
         📱.📚notes.firstIndex { $0.id == 📱.🆔openedNoteID }
     }
     var body: some View {
         NavigationView {
             List {
-                if let 🔢noteIndex {
-                    📓NoteRow($📱.📚notes[🔢noteIndex], .onNotesSheet)
+                if let ⓝoteIndex {
+                    📓NoteRow($📱.📚notes[ⓝoteIndex], .onNotesSheet)
                 } else {
-                    self.ⓝoNotesView()
+                    self.ⓓeletedNoteView()
                 }
             }
             .toolbar {
@@ -28,7 +28,7 @@ struct 📖NotesSheet: View { //MARK: Work in progress
         }
         .navigationViewStyle(.stack)
     }
-    private func ⓝoNotesView() -> some View {
+    private func ⓓeletedNoteView() -> some View {
         HStack {
             Spacer()
             VStack(spacing: 24) {

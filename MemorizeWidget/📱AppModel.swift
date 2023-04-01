@@ -19,11 +19,6 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    var ⓞpenedNote: 📗Note? {
-        guard let 🆔openedNoteID else { return nil }
-        return self.📚notes.first { $0.id == 🆔openedNoteID }
-    }
-    
     func addNewNote(_ ⓘndex: Int = 0) {
         withAnimation {
             self.📚notes.insert(📗Note(""), at: ⓘndex)

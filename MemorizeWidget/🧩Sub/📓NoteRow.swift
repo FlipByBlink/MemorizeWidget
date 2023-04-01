@@ -35,7 +35,9 @@ struct 📓NoteRow: View {
                         🔍SearchButton(self.ⓝote)
                         Spacer()
                         Button(role: .destructive) {
-                            📱.📚notes.removeAll { $0 == self.ⓝote }
+                            withAnimation {
+                                📱.📚notes.removeAll { $0 == self.ⓝote }
+                            }
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
