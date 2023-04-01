@@ -15,6 +15,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
             }
             self.ⓑuttons()
         }
+        .opacity(self.🎨thin ? 0.5 : 1)
         .padding(.top, 12)
         .padding(.horizontal, 8)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
@@ -39,13 +40,12 @@ struct 📓NoteRow: View { //MARK: Work in progress
             VStack(alignment: .leading, spacing: 8) {
                 Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
                     .font(.title2.weight(.semibold))
-                    .foregroundStyle(self.🎨thin ? .tertiary : .primary)
                     .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                     .font(.body.weight(.light))
-                    .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
+                    .foregroundStyle(.secondary)
                     .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
