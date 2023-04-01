@@ -7,7 +7,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: 0) {
             if self.🚩inputting {
                 self.ⓘnputNoteView()
             } else {
@@ -15,7 +15,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
             }
             self.ⓑuttons()
         }
-        .padding(.top, 8)
+        .padding(.top, 12)
         .padding(.horizontal, 8)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
         .onAppear { self.ⓢetFocusForEmptyNote() }
@@ -28,7 +28,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 .font(.title2.weight(.semibold))
             TextField("+ comment", text: self.$ⓝote.comment)
                 .focused(self.$🔍focusState, equals: .comment)
-                .font(.title3.weight(.light))
+                .font(.body.weight(.light))
                 .foregroundStyle(.secondary)
                 .opacity(0.8)
         }
@@ -44,7 +44,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
-                    .font(.title3.weight(.light))
+                    .font(.body.weight(.light))
                     .foregroundStyle(.secondary)
                     .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
                     .padding(.bottom, 1)
@@ -65,7 +65,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 📱.addNewNote(ⓘndex + 1)
             } label: {
                 Label("New note", systemImage: "text.append")
-                    .padding(8)
+                    .padding(12)
             }
             Spacer()
             Menu {
@@ -78,7 +78,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 }
             } label: {
                 Label("Delete", systemImage: "trash")
-                    .padding(8)
+                    .padding(12)
             }
             Spacer()
         }

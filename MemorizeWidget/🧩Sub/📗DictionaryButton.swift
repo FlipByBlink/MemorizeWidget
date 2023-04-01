@@ -9,7 +9,7 @@ struct 📗DictionaryButton: View {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
-                .padding(8)
+                .padding(12)
         }
         .popover(isPresented: self.$🚩showSheet) {
             🄳ictinaryView(term: self.ⓣerm)
