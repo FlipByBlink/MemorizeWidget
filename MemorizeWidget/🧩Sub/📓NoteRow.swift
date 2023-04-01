@@ -7,17 +7,16 @@ struct 📓NoteRow: View { //MARK: Work in progress
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     var body: some View {
-        VStack(spacing: 0) {
+        HStack(spacing: 0) {
             if self.🚩inputting {
                 self.ⓘnputNoteView()
             } else {
                 self.ⓢtaticNoteView()
             }
-            self.ⓑuttons()
+            🎛️NoteMenuButton(self.$ⓝote)
         }
         .opacity(self.🎨thin ? 0.5 : 1)
-        .padding(.top, 12)
-        .padding(.horizontal, 8)
+        .padding(12)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
         .onAppear { self.ⓢetFocusForEmptyNote() }
         .animation(.default, value: self.🚩inputting)
@@ -52,23 +51,6 @@ struct 📓NoteRow: View { //MARK: Work in progress
             }
             Spacer()
         }
-    }
-    private func ⓑuttons() -> some View {
-        HStack {
-            Spacer()
-            📗DictionaryButton(self.ⓝote)
-            Spacer()
-            🔍SearchButton(self.ⓝote)
-            Spacer()
-            🆕InsertNewNoteButton(self.ⓝote)
-            Spacer()
-            🗑DeleteNoteButton(self.ⓝote)
-            Spacer()
-        }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.plain)
-        .foregroundStyle(.secondary)
-        .imageScale(.small)
     }
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
         withAnimation { self.🚩inputting = true }
@@ -109,7 +91,6 @@ struct 🆕InsertNewNoteButton: View {
             📱.addNewNote(ⓘndex + 1)
         } label: {
             Label("New note", systemImage: "text.append")
-                .padding(12)
         }
     }
     init(_ ⓝote: 📗Note) {
@@ -121,17 +102,10 @@ struct 🗑DeleteNoteButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     private var ⓝote: 📗Note
     var body: some View {
-        Menu {
-            Button(role: .destructive) {
-                withAnimation {
-                    📱.📚notes.removeAll { $0 == self.ⓝote }
-                }
-            } label: {
-                Label("Delete", systemImage: "trash")
-            }
+        Button(role: .destructive) {
+            📱.📚notes.removeAll { $0 == self.ⓝote }
         } label: {
             Label("Delete", systemImage: "trash")
-                .padding(12)
         }
     }
     init(_ ⓝote: 📗Note) {
@@ -143,47 +117,22 @@ struct 🗑DeleteNoteButton: View {
 struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
-    @Binding var ⓟreferredFocus: 🄵ocusArea?
     @State private var 🚩showDictionarySheet: Bool = false
     private var ⓝoteIndex: Int? { 📱.📚notes.firstIndex(of: self.ⓝote) }
     var body: some View {
         Menu {
             if let ⓝoteIndex {
+                📗DictionaryButton(self.$🚩showDictionarySheet)
+                🔍SearchButton(self.ⓝote)
+                🆕InsertNewNoteButton(self.ⓝote)
                 Section {
                     Button {
-                        self.ⓟreferredFocus = .title
-                    } label: {
-                        Label("Edit title", systemImage: "pencil")
-                    }
+                    } label: { Label("Move top", systemImage: "arrow.up.to.line") }
                     Button {
-                        self.ⓟreferredFocus = .comment
-                    } label: {
-                        Label("Edit comment", systemImage: "pencil")
-                    }
-                }
-                //📗DictionaryButton(self.$🚩showDictionarySheet)
-                🔍SearchButton(ⓝote)
-                Button {
-                    📱.addNewNote(ⓝoteIndex + 1)
-                } label: {
-                    Label("New note", systemImage: "text.append")
+                    } label: { Label("Move end", systemImage: "arrow.down.to.line") }
                 }
                 Section {
-                    Button {
-                    } label: {
-                        Label("Move top", systemImage: "arrow.up.to.line")
-                    }
-                    Button {
-                    } label: {
-                        Label("Move end", systemImage: "arrow.down.to.line")
-                    }
-                }
-                Section {
-                    Button(role: .destructive) {
-                        📱.📚notes.remove(at: ⓝoteIndex)
-                    } label: {
-                        Label("Delete", systemImage: "trash")
-                    }
+                    🗑DeleteNoteButton(self.ⓝote)
                 }
             } else {
                 Text("🐛")
@@ -191,15 +140,13 @@ struct 🎛️NoteMenuButton: View {
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
                 .labelStyle(.iconOnly)
-                .padding(.vertical, 8)
-                .padding(.trailing, 8)
+                .padding(8)
         }
         .foregroundStyle(.secondary)
-        //.modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
         .modifier(🩹Workaround.closeMenePopup())
     }
-    init(_ note: Binding<📗Note>, _ preferredFocus: Binding<🄵ocusArea?>) {
+    init(_ note: Binding<📗Note>) {
         self._ⓝote = note
-        self._ⓟreferredFocus = preferredFocus
     }
 }
