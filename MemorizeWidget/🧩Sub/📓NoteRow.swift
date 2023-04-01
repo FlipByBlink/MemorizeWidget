@@ -55,15 +55,16 @@ struct 📓NoteRow: View { //MARK: Work in progress
     private func ⓑuttons() -> some View {
         HStack {
             Spacer()
-            Button {
-                self.ⓢtartToInput(.title)
-            } label: {
-                Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
-            }
-            Spacer()
             📗DictionaryButtonOnNotesSheet(self.ⓝote)
             Spacer()
             🔍SearchButton(self.ⓝote)
+            Spacer()
+            Button {
+                guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+                📱.addNewNote(ⓘndex + 1)
+            } label: {
+                Label("New note", systemImage: "text.append")
+            }
             Spacer()
             Menu {
                 Button(role: .destructive) {
