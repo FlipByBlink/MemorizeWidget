@@ -1,17 +1,14 @@
 import SwiftUI
 
-struct 📖NotesSheet: View { //MARK: Work in progress
+struct 📖PickedNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var dismiss
     @FocusState private var 🔍commentFocus: Bool
-    private var ⓝoteIndex: Int? {
-        📱.📚notes.firstIndex { $0.id == 📱.🆔openedNoteID }
-    }
     var body: some View {
         NavigationView {
             List {
-                if let ⓝoteIndex {
-                    📓NoteRow($📱.📚notes[ⓝoteIndex], .onNotesSheet)
+                if let ⓘndex = 📱.pickedNoteIndex {
+                    📓NoteRow($📱.📚notes[ⓘndex], .onNotesSheet)
                 } else {
                     self.ⓓeletedNoteView()
                 }
