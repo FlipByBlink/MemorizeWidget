@@ -2,30 +2,23 @@ import SwiftUI
 
 struct 📖PickedNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.dismiss) var dismiss
-    @FocusState private var 🔍commentFocus: Bool
     var body: some View {
         NavigationView {
             List {
                 if let ⓘndex = 📱.pickedNoteIndex {
                     📓NoteRow($📱.📚notes[ⓘndex], .onNotesSheet)
                 } else {
-                    self.ⓓeletedNoteView()
+                    🗑️DeletedNoteView()
                 }
             }
-            .toolbar {
-                Button {
-                    self.dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                }
-                .foregroundColor(.secondary)
-            }
+            .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
     }
-    private func ⓓeletedNoteView() -> some View {
+}
+
+private struct 🗑️DeletedNoteView: View {
+    var body: some View {
         HStack {
             Spacer()
             VStack(spacing: 24) {
@@ -38,5 +31,18 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
             Spacer()
         }
         .padding(24)
+    }
+}
+
+private struct 🅧DismissButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        Button {
+            📱.🚩showNoteSheet = false
+        } label: {
+            Image(systemName: "xmark.circle.fill")
+                .symbolRenderingMode(.hierarchical)
+        }
+        .foregroundColor(.secondary)
     }
 }
