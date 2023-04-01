@@ -4,12 +4,8 @@ struct 📓NoteRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
     private let ⓛayout: 🄻ayout
-    @Environment(\.scenePhase) var scenePhase
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
-    private var 🚩focusDisable: Bool {
-        📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
-    }
     private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
     var body: some View {
         switch self.ⓛayout {
@@ -20,9 +16,6 @@ struct 📓NoteRow: View {
                 }
                 .onAppear { self.ⓢetFocusForEmptyNote() }
                 .animation(.default, value: self.🚩userInputting)
-                //.onChange(of: self.🚩focusDisable) {
-                //    if $0 { self.🔍focusState = nil }
-                //}
             case .onNotesSheet:
                 VStack(spacing: 16) {
                     self.ⓓynamicNoteView()
@@ -86,10 +79,10 @@ struct 📓NoteRow: View {
 }
 
 struct 📝InputNoteView: View {
+    @EnvironmentObject var 📱: 📱AppModel
     @Binding var 🔍preferredFocus: 🄵ocusArea?
     @Binding var ⓝote: 📗Note
     @FocusState private var 🔍focusState: 🄵ocusArea?
-    @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             TextField("+ title", text: self.$ⓝote.title)
