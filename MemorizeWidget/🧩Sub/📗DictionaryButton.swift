@@ -32,7 +32,7 @@ struct 📗DictionarySheet: ViewModifier {
     @Binding private var 🚩showSheet: Bool
     func body(content: Content) -> some View {
         content
-            .sheet(isPresented: self.$🚩showSheet) {
+            .popover(isPresented: self.$🚩showSheet) {
                 Self.🄳ictinaryView(term: self.ⓣerm)
                     .ignoresSafeArea()
             }
