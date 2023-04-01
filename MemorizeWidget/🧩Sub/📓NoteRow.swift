@@ -1,59 +1,22 @@
 import SwiftUI
 
-struct 📓NoteRow: View {
+struct 📓NoteRowOnListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
-    private let ⓛayout: 🄻ayout
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
     var body: some View {
-        switch self.ⓛayout {
-            case .onListTab:
-                HStack {
-                    self.ⓓynamicNoteView()
-                    🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
-                }
-                .onAppear { self.ⓢetFocusForEmptyNote() }
-                .animation(.default, value: self.🚩userInputting)
-            case .onNotesSheet:
-                VStack(spacing: 16) {
-                    self.ⓓynamicNoteView()
-                    HStack {
-                        Spacer()
-                        Button {
-                            self.🔍preferredFocus = .title
-                        } label: {
-                            Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
-                        }
-                        Spacer()
-                        📗DictionaryButtonOnNotesSheet(self.ⓝote)
-                        Spacer()
-                        🔍SearchButton(self.ⓝote)
-                        Spacer()
-                        Button(role: .destructive) {
-                            withAnimation {
-                                📱.📚notes.removeAll { $0 == self.ⓝote }
-                            }
-                        } label: {
-                            Label("Delete", systemImage: "trash")
-                        }
-                        Spacer()
-                    }
-                    .labelStyle(.iconOnly)
-                    .buttonStyle(.plain)
-                }
-                .padding(.vertical, 24)
-        }
-    }
-    private func ⓓynamicNoteView() -> some View {
-        Group {
+        HStack {
             if self.🚩userInputting {
                 📝InputNoteView(self.$🔍preferredFocus, self.$ⓝote)
             } else {
                 self.ⓢtaticNoteView()
             }
+            🎛️NoteMenuButton(self.$ⓝote, self.$🔍preferredFocus)
         }
+        .onAppear { self.ⓢetFocusForEmptyNote() }
+        .animation(.default, value: self.🚩userInputting)
     }
     private func ⓢtaticNoteView() -> some View {
         HStack {
@@ -75,12 +38,69 @@ struct 📓NoteRow: View {
     private func ⓢetFocusForEmptyNote() {
         if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
     }
-    enum 🄻ayout {
-        case onListTab, onNotesSheet
-    }
-    init(_ note: Binding<📗Note>, _ layout: Self.🄻ayout) {
+    init(_ note: Binding<📗Note>) {
         self._ⓝote = note
-        self.ⓛayout = layout
+    }
+}
+
+struct 📓NoteRowOnPickedNotesSheet: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    @Binding private var ⓝote: 📗Note
+    @State private var 🔍preferredFocus: 🄵ocusArea? = nil
+    private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
+    var body: some View {
+        VStack(spacing: 16) {
+            if self.🚩userInputting {
+                📝InputNoteView(self.$🔍preferredFocus, self.$ⓝote)
+            } else {
+                self.ⓢtaticNoteView()
+            }
+            HStack {
+                Spacer()
+                Button {
+                    self.🔍preferredFocus = .title
+                } label: {
+                    Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
+                }
+                Spacer()
+                📗DictionaryButtonOnNotesSheet(self.ⓝote)
+                Spacer()
+                🔍SearchButton(self.ⓝote)
+                Spacer()
+                Button(role: .destructive) {
+                    withAnimation {
+                        📱.📚notes.removeAll { $0 == self.ⓝote }
+                    }
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+                Spacer()
+            }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.plain)
+        }
+        .padding(.vertical, 24)
+        .animation(.default, value: self.🚩userInputting)
+    }
+    private func ⓢtaticNoteView() -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(.primary)
+                    .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
+                Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
+                    .font(.title3.weight(.light))
+                    .foregroundStyle(.secondary)
+                    .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
+            }
+            .padding(8)
+            .padding(.vertical, 6)
+            Spacer()
+        }
+    }
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
     }
 }
 
