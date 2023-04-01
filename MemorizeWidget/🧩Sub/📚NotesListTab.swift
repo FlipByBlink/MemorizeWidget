@@ -10,12 +10,7 @@ struct 📚NotesListTab: View {
                     self.🚩randomModeSection()
                     Section {
                         self.🆕newNoteButton()
-                            .id("NewNoteButton")
-                            .onOpenURL {
-                                if $0.description == "NewNoteShortcut" {
-                                    🚡.scrollTo("NewNoteButton")
-                                }
-                            }
+                            .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
                         ForEach($📱.📚notes) {
                             📓NoteRow($0, .onListTab)
                         }
@@ -68,5 +63,11 @@ struct 📚NotesListTab: View {
                 .padding(.vertical, 7)
         }
         .disabled(📱.📚notes.first?.isEmpty == true)
+        .id("NewNoteButton")
+    }
+    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
+        if ⓤrl.description == "NewNoteShortcut" {
+            🚡.scrollTo("NewNoteButton")
+        }
     }
 }
