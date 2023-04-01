@@ -3,20 +3,20 @@ import SwiftUI
 struct 📓NoteRow: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
-    @State private var 🔍preferredFocus: 🄵ocusArea? = nil
+    @State private var 🚩inputting: Bool = false
+    @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
-    private var 🚩userInputting: Bool { self.🔍preferredFocus != nil }
     var body: some View {
-        VStack(spacing: 16) {
-            if self.🚩userInputting {
-                📝InputNoteView(self.$🔍preferredFocus, self.$ⓝote)
+        VStack(spacing: 12) {
+            if self.🚩inputting {
+                self.ⓘnputNoteView()
             } else {
                 self.ⓢtaticNoteView()
             }
             HStack {
                 Spacer()
                 Button {
-                    self.🔍preferredFocus = .title
+                    self.ⓢtartToInput(.title)
                 } label: {
                     Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
@@ -45,7 +45,29 @@ struct 📓NoteRow: View { //MARK: Work in progress
         }
         .padding(8)
         .onAppear { self.ⓢetFocusForEmptyNote() }
-        .animation(.default, value: self.🚩userInputting)
+        .animation(.default, value: self.🚩inputting)
+        .animation(.default, value: self.🔍focusState)
+    }
+    private func ⓘnputNoteView() -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            TextField("+ title", text: self.$ⓝote.title)
+                .focused(self.$🔍focusState, equals: .title)
+                .font(.title2.weight(.semibold))
+            TextField("+ comment", text: self.$ⓝote.comment)
+                .focused(self.$🔍focusState, equals: .comment)
+                .font(.title3.weight(.light))
+                .foregroundStyle(.secondary)
+                .opacity(0.8)
+        }
+        .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
+        .onChange(of: self.🔍focusState) {
+            if $0 == nil {
+                self.🚩inputting = false
+                if self.ⓝote.isEmpty {
+                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                }
+            }
+        }
     }
     private func ⓢtaticNoteView() -> some View {
         HStack {
@@ -54,62 +76,29 @@ struct 📓NoteRow: View { //MARK: Work in progress
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.primary)
                     .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
+                    .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                     .font(.title3.weight(.light))
                     .foregroundStyle(.secondary)
                     .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
+                    .onTapGesture { self.ⓢtartToInput(.comment) }
             }
             Spacer()
         }
     }
+    private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
+        self.🚩inputting = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            self.🔍focusState = ⓐrea
+        }
+    }
     private func ⓢetFocusForEmptyNote() {
-        if self.ⓝote.isEmpty { self.🔍preferredFocus = .title }
+        if self.ⓝote.isEmpty {
+            self.ⓢtartToInput(.title)
+        }
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
-    }
-}
-
-struct 📝InputNoteView: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @Binding var 🔍preferredFocus: 🄵ocusArea?
-    @Binding var ⓝote: 📗Note
-    @FocusState private var 🔍focusState: 🄵ocusArea?
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            TextField("+ title", text: self.$ⓝote.title)
-                .focused(self.$🔍focusState, equals: .title)
-                .font(.title2.weight(.semibold))
-            TextField("+ comment", text: self.$ⓝote.comment)
-                .focused(self.$🔍focusState, equals: .comment)
-                .font(.title3.weight(.medium))
-                .foregroundStyle(.secondary)
-                .opacity(0.8)
-        }
-        .onChange(of: self.🔍focusState) { self.ⓗandleFocusState($0) }
-        .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
-        .padding(8)
-        .padding(.vertical, 6)
-        .onAppear { self.ⓗandlePreferredFocus() }
-    }
-    private func ⓗandleFocusState(_ ⓕocusState: 🄵ocusArea?) {
-        if ⓕocusState == nil {
-            self.🔍preferredFocus = nil
-            if self.ⓝote.isEmpty {
-                self.📱.📚notes.removeAll { $0 == self.ⓝote }
-            }
-        }
-    }
-    private func ⓗandlePreferredFocus() {
-        if let 🔍preferredFocus {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.🔍focusState = 🔍preferredFocus
-            }
-        }
-    }
-    init(_ 🔍preferredFocus: Binding<🄵ocusArea?>, _ ⓝote: Binding<📗Note>) {
-        self._🔍preferredFocus = 🔍preferredFocus
-        self._ⓝote = ⓝote
     }
 }
 
