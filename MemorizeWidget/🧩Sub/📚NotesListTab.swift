@@ -12,7 +12,7 @@ struct 📚NotesListTab: View {
                         self.🆕newNoteButton()
                             .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
                         ForEach($📱.📚notes) {
-                            📓NoteRowOnListTab($0)
+                            📓NoteRow($0)
                         }
                         .onDelete { 📱.📚notes.remove(atOffsets: $0) }
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }

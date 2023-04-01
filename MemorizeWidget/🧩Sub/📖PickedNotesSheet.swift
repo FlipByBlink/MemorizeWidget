@@ -6,9 +6,9 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
         NavigationView {
             List {
                 if let ⓘndex = 📱.pickedNoteIndex {
-                    Section { 📓NoteRowOnPickedNotesSheet($📱.📚notes[ⓘndex]) }
-                    Section { 📓NoteRowOnPickedNotesSheet($📱.📚notes[ⓘndex]) }
-                    Section { 📓NoteRowOnPickedNotesSheet($📱.📚notes[ⓘndex]) }
+                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
+                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
+                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
                 } else {
                     🗑️DeletedNoteView()
                 }
