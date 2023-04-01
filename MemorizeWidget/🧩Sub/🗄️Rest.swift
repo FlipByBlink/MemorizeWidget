@@ -13,9 +13,7 @@ struct 💾HandleShareExtensionData: ViewModifier {
     @AppStorage("savedByExtension", store: .ⓐppGroup) private var 🚩savedByExtension: Bool = false
     func body(content: Content) -> some View {
         content
-            .onAppear {
-                self.🚩savedByExtension = false
-            }
+            .onAppear { self.🚩savedByExtension = false }
             .onChange(of: self.🚩savedByExtension) {
                 if $0 == true {
                     guard let ⓝotes = 📚Notes.load() else { return }

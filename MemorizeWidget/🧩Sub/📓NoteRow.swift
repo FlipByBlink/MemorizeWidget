@@ -18,8 +18,8 @@ struct 📓NoteRow: View { //MARK: Work in progress
         .opacity(self.🎨thin ? 0.5 : 1)
         .padding(.leading, 12)
         .padding(.vertical, 12)
-        .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
-        .onAppear { self.ⓢetFocusForEmptyNote() }
+        .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
+        .onAppear(perform: self.ⓢetFocusForEmptyNote)
         .animation(.default, value: self.🚩inputting)
     }
     private func ⓘnputNoteView() -> some View {
