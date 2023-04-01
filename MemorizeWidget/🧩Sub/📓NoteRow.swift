@@ -189,6 +189,7 @@ struct 🎛️NoteMenuButton: View { //MARK: Work in progress
         }
         .foregroundStyle(.secondary)
         .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        .modifier(🩹Workaround.closeMenePopup())
     }
     init(_ note: Binding<📗Note>, _ preferredFocus: Binding<🄵ocusArea?>) {
         self._ⓝote = note
