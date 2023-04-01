@@ -21,6 +21,12 @@ struct 📓NoteRow: View {
                     self.ⓓynamicNoteView()
                     HStack {
                         Spacer()
+                        Button {
+                            self.🔍preferredFocus = .title
+                        } label: {
+                            Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
+                        }
+                        Spacer()
                         📗DictionaryButtonOnNotesSheet(self.ⓝote)
                         Spacer()
                         🔍SearchButton(self.ⓝote)
