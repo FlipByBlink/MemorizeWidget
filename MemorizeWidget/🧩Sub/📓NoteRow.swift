@@ -39,13 +39,13 @@ struct 📓NoteRow: View { //MARK: Work in progress
             VStack(alignment: .leading, spacing: 8) {
                 Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
                     .font(.title2.weight(.semibold))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(self.🎨thin ? .tertiary : .primary)
                     .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                     .font(.body.weight(.light))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(self.🎨thin ? .tertiary : .secondary)
                     .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
@@ -60,26 +60,9 @@ struct 📓NoteRow: View { //MARK: Work in progress
             Spacer()
             🔍SearchButton(self.ⓝote)
             Spacer()
-            Button {
-                guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
-                📱.addNewNote(ⓘndex + 1)
-            } label: {
-                Label("New note", systemImage: "text.append")
-                    .padding(12)
-            }
+            🆕InsertNewNoteButton(self.ⓝote)
             Spacer()
-            Menu {
-                Button(role: .destructive) {
-                    withAnimation {
-                        📱.📚notes.removeAll { $0 == self.ⓝote }
-                    }
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
-            } label: {
-                Label("Delete", systemImage: "trash")
-                    .padding(12)
-            }
+            🗑DeleteNoteButton(self.ⓝote)
             Spacer()
         }
         .labelStyle(.iconOnly)
@@ -117,7 +100,47 @@ enum 🄵ocusArea {
     case title, comment
 }
 
-struct 🎛️NoteMenuButton: View { //MARK: Work in progress
+struct 🆕InsertNewNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Button {
+            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+            📱.addNewNote(ⓘndex + 1)
+        } label: {
+            Label("New note", systemImage: "text.append")
+                .padding(12)
+        }
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
+    }
+}
+
+struct 🗑DeleteNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Menu {
+            Button(role: .destructive) {
+                withAnimation {
+                    📱.📚notes.removeAll { $0 == self.ⓝote }
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        } label: {
+            Label("Delete", systemImage: "trash")
+                .padding(12)
+        }
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
+    }
+}
+
+//MARK: Pending
+struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
     @Binding var ⓟreferredFocus: 🄵ocusArea?
