@@ -5,7 +5,7 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🔖tab: 🔖Tab = .notesList
     
-    @Published var 🚩showNoteSheet: Bool = false
+    @Published var 🚩showPickedNoteSheet: Bool = false
     @Published var 🆔pickedNoteID: UUID? = nil
     
     @Published var 🚩showNotesImportSheet: Bool = false
@@ -33,12 +33,12 @@ extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
-            self.🚩showNoteSheet = false
+            self.🚩showPickedNoteSheet = false
             if ⓤrl.description == "NewNoteShortcut" {
                 self.addNewNote()
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
-                self.🚩showNoteSheet = true
+                self.🚩showPickedNoteSheet = true
                 self.🆔pickedNoteID = UUID(uuidString: ⓤrl.description)
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }

@@ -40,7 +40,7 @@ private struct 🅧DismissButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Button {
-            📱.🚩showNoteSheet = false
+            📱.🚩showPickedNoteSheet = false
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
