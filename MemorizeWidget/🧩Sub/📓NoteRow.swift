@@ -44,9 +44,9 @@ struct 📓NoteRow: View { //MARK: Work in progress
             .imageScale(.small)
         }
         .padding(8)
+        .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
         .onAppear { self.ⓢetFocusForEmptyNote() }
         .animation(.default, value: self.🚩inputting)
-        .animation(.default, value: self.🔍focusState)
     }
     private func ⓘnputNoteView() -> some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -60,14 +60,6 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 .opacity(0.8)
         }
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
-        .onChange(of: self.🔍focusState) {
-            if $0 == nil {
-                self.🚩inputting = false
-                if self.ⓝote.isEmpty {
-                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
-                }
-            }
-        }
     }
     private func ⓢtaticNoteView() -> some View {
         HStack {
@@ -76,20 +68,32 @@ struct 📓NoteRow: View { //MARK: Work in progress
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.primary)
                     .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
+                    .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                     .font(.title3.weight(.light))
                     .foregroundStyle(.secondary)
                     .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
+                    .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
             }
             Spacer()
         }
     }
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
-        self.🚩inputting = true
+        withAnimation { self.🚩inputting = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            self.🔍focusState = ⓐrea
+            withAnimation { self.🔍focusState = ⓐrea }
+        }
+    }
+    private func ⓗandleUnfocus(_ ⓕocus: 🄵ocusArea?) {
+        if ⓕocus == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                withAnimation { self.🚩inputting = false }
+                if self.ⓝote.isEmpty {
+                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                }
+            }
         }
     }
     private func ⓢetFocusForEmptyNote() {
