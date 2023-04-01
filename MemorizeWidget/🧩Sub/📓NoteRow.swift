@@ -94,15 +94,7 @@ struct 🎛️NoteMenuButton: View {
                 📗DictionaryButton(self.$🚩showDictionarySheet)
                 🔍SearchButton(self.ⓝote)
                 🆕InsertNewNoteButton(self.ⓝote)
-                Section {
-                    Button {
-                    } label: { Label("Move top", systemImage: "arrow.up.to.line") }
-                    Button {
-                    } label: { Label("Move end", systemImage: "arrow.down.to.line") }
-                }
-                Section {
-                    🗑DeleteNoteButton(self.ⓝote)
-                }
+                Section { 🗑DeleteNoteButton(self.ⓝote) }
             } else {
                 Text("🐛")
             }
