@@ -2,13 +2,17 @@ import SwiftUI
 
 struct 📖PickedNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🚩showDictionarySheet: Bool = false
+    private var ⓝoteIndex: Int? { 📱.pickedNoteIndex }
+    private var ⓝote: 📗Note? {
+        guard let ⓝoteIndex else { return nil }
+        return 📱.📚notes[ⓝoteIndex]
+    }
     var body: some View {
         NavigationView {
             List {
                 if let ⓘndex = 📱.pickedNoteIndex {
-                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
-                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
-                    Section { 📓NoteRow($📱.📚notes[ⓘndex]) }
+                    self.ⓟickedNoteRow()
                 } else {
                     🗑️DeletedNoteView()
                 }
@@ -16,6 +20,31 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
             .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
+    }
+    func ⓟickedNoteRow() -> some View {
+        Section {
+            VStack(spacing: 0) {
+                if let ⓝoteIndex, let ⓝote {
+                    📓NoteView($📱.📚notes[ⓝoteIndex])
+                    HStack {
+                        Spacer()
+                        📗DictionaryButton(self.$🚩showDictionarySheet)
+                            .modifier(📗DictionarySheet(ⓝote, self.$🚩showDictionarySheet))
+                            .padding()
+                        Spacer()
+                        🔍SearchButton(ⓝote)
+                            .padding()
+                        Spacer()
+                        🗑DeleteNoteButton(ⓝote)
+                            .padding()
+                        Spacer()
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.plain)
+                    .foregroundColor(.primary)
+                }
+            }
+        }
     }
 }
 

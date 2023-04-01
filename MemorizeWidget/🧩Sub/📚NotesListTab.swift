@@ -11,8 +11,11 @@ struct 📚NotesListTab: View {
                     Section {
                         self.🆕newNoteButton()
                             .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
-                        ForEach($📱.📚notes) {
-                            📓NoteRow($0)
+                        ForEach($📱.📚notes) { ⓝote in
+                            HStack(spacing: 0) {
+                                📓NoteView(ⓝote)
+                                🎛️NoteMenuButton(ⓝote)
+                            }
                         }
                         .onDelete { 📱.📚notes.remove(atOffsets: $0) }
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }

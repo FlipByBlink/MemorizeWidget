@@ -1,19 +1,18 @@
 import SwiftUI
 
-struct 📓NoteRow: View { //MARK: Work in progress
+struct 📓NoteView: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
     @State private var 🚩inputting: Bool = false
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     var body: some View {
-        HStack(spacing: 0) {
+        Group {
             if self.🚩inputting {
                 self.ⓘnputNoteView()
             } else {
                 self.ⓢtaticNoteView()
             }
-            🎛️NoteMenuButton(self.$ⓝote)
         }
         .opacity(self.🎨thin ? 0.5 : 1)
         .padding(.leading, 12)
