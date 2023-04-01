@@ -82,38 +82,7 @@ enum 🄵ocusArea {
     case title, comment
 }
 
-struct 🆕InsertNewNoteButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
-    var body: some View {
-        Button {
-            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
-            📱.addNewNote(ⓘndex + 1)
-        } label: {
-            Label("New note", systemImage: "text.append")
-        }
-    }
-    init(_ ⓝote: 📗Note) {
-        self.ⓝote = ⓝote
-    }
-}
-
-struct 🗑DeleteNoteButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
-    var body: some View {
-        Button(role: .destructive) {
-            📱.📚notes.removeAll { $0 == self.ⓝote }
-        } label: {
-            Label("Delete", systemImage: "trash")
-        }
-    }
-    init(_ ⓝote: 📗Note) {
-        self.ⓝote = ⓝote
-    }
-}
-
-//MARK: Pending
+//MARK: Work in progress
 struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
@@ -148,5 +117,37 @@ struct 🎛️NoteMenuButton: View {
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
+    }
+}
+
+struct 🆕InsertNewNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Button {
+            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+            📱.addNewNote(ⓘndex + 1)
+        } label: {
+            Label("New note", systemImage: "text.append")
+        }
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
+    }
+}
+
+struct 🗑DeleteNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Button(role: .destructive) {
+            📱.📚notes.removeAll { $0 == self.ⓝote }
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+        } label: {
+            Label("Delete", systemImage: "trash")
+        }
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
     }
 }

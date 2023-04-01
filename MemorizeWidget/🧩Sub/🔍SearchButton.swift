@@ -10,7 +10,6 @@ struct 🔍SearchButton: View {
             self.ⓐction()
         } label: {
             Label("Search", systemImage: "magnifyingglass")
-                .padding(12)
         }
     }
     private func ⓐction() {
