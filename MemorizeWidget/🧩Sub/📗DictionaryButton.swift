@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 📗DictionaryButton: View {
-    private let ⓝote: 📗Note
+    private let ⓣerm: String
     @State private var 🚩showSheet: Bool = false
     var body: some View {
         Button {
@@ -11,35 +11,23 @@ struct 📗DictionaryButton: View {
             Label("Dictionary", systemImage: "character.book.closed")
                 .padding(8)
         }
-        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showSheet))
+        .popover(isPresented: self.$🚩showSheet) {
+            🄳ictinaryView(term: self.ⓣerm)
+                .ignoresSafeArea()
+        }
     }
     init(_ note: 📗Note) {
-        self.ⓝote = note
+        self.ⓣerm = note.title
     }
 }
 
-struct 📗DictionarySheet: ViewModifier {
+private struct 🄳ictinaryView: UIViewControllerRepresentable {
     private var ⓣerm: String
-    @Binding private var 🚩showSheet: Bool
-    func body(content: Content) -> some View {
-        content
-            .popover(isPresented: self.$🚩showSheet) {
-                Self.🄳ictinaryView(term: self.ⓣerm)
-                    .ignoresSafeArea()
-            }
+    func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
+        UIReferenceLibraryViewController(term: self.ⓣerm)
     }
-    private struct 🄳ictinaryView: UIViewControllerRepresentable {
-        private var ⓣerm: String
-        func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
-            UIReferenceLibraryViewController(term: self.ⓣerm)
-        }
-        func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
-        init(term: String) {
-            self.ⓣerm = term
-        }
-    }
-    init(_ note: 📗Note, _ showSheet: Binding<Bool>) {
-        self.ⓣerm = note.title
-        self._🚩showSheet = showSheet
+    func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
+    init(term: String) {
+        self.ⓣerm = term
     }
 }
