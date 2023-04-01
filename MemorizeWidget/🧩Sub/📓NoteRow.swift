@@ -16,7 +16,8 @@ struct 📓NoteRow: View { //MARK: Work in progress
             🎛️NoteMenuButton(self.$ⓝote)
         }
         .opacity(self.🎨thin ? 0.5 : 1)
-        .padding(12)
+        .padding(.leading, 12)
+        .padding(.vertical, 12)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
         .onAppear { self.ⓢetFocusForEmptyNote() }
         .animation(.default, value: self.🚩inputting)
@@ -39,13 +40,12 @@ struct 📓NoteRow: View { //MARK: Work in progress
             VStack(alignment: .leading, spacing: 8) {
                 Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
                     .font(.title2.weight(.semibold))
-                    .opacity(self.ⓝote.title.isEmpty ? 0.25 : 1)
+                    .foregroundStyle(self.ⓝote.title.isEmpty ? .secondary : .primary)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
                     .font(.body.weight(.light))
-                    .foregroundStyle(.secondary)
-                    .opacity(self.ⓝote.comment.isEmpty ? 0.5 : 0.8)
+                    .foregroundStyle(self.ⓝote.comment.isEmpty ? .tertiary : .secondary)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
             }
@@ -87,23 +87,18 @@ struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding var ⓝote: 📗Note
     @State private var 🚩showDictionarySheet: Bool = false
-    private var ⓝoteIndex: Int? { 📱.📚notes.firstIndex(of: self.ⓝote) }
     var body: some View {
         Menu {
-            if let ⓝoteIndex {
-                📗DictionaryButton(self.$🚩showDictionarySheet)
-                🔍SearchButton(self.ⓝote)
-                🆕InsertNewNoteButton(self.ⓝote)
-                Section { 🗑DeleteNoteButton(self.ⓝote) }
-            } else {
-                Text("🐛")
-            }
+            📗DictionaryButton(self.$🚩showDictionarySheet)
+            🔍SearchButton(self.ⓝote)
+            🆕InsertNewNoteButton(self.ⓝote)
+            Section { 🗑DeleteNoteButton(self.ⓝote) }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
+                .foregroundColor(.secondary)
                 .labelStyle(.iconOnly)
-                .padding(8)
+                .padding(12)
         }
-        .foregroundStyle(.secondary)
         .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
         .modifier(🩹Workaround.closeMenePopup())
     }
