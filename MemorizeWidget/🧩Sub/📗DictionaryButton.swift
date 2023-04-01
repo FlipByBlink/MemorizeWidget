@@ -8,6 +8,7 @@ struct 📗DictionaryButton: View {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
+                .padding(8)
         }
     }
     init(_ showSheet: Binding<Bool>) {

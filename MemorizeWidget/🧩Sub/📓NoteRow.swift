@@ -7,7 +7,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 4) {
             if self.🚩inputting {
                 self.ⓘnputNoteView()
             } else {
@@ -15,7 +15,8 @@ struct 📓NoteRow: View { //MARK: Work in progress
             }
             self.ⓑuttons()
         }
-        .padding(8)
+        .padding(.top, 8)
+        .padding(.horizontal, 8)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
         .onAppear { self.ⓢetFocusForEmptyNote() }
         .animation(.default, value: self.🚩inputting)
@@ -64,6 +65,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 📱.addNewNote(ⓘndex + 1)
             } label: {
                 Label("New note", systemImage: "text.append")
+                    .padding(8)
             }
             Spacer()
             Menu {
@@ -76,6 +78,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
                 }
             } label: {
                 Label("Delete", systemImage: "trash")
+                    .padding(8)
             }
             Spacer()
         }
