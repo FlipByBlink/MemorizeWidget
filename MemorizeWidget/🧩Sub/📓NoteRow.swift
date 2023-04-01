@@ -13,35 +13,7 @@ struct 📓NoteRow: View { //MARK: Work in progress
             } else {
                 self.ⓢtaticNoteView()
             }
-            HStack {
-                Spacer()
-                Button {
-                    self.ⓢtartToInput(.title)
-                } label: {
-                    Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
-                }
-                Spacer()
-                📗DictionaryButtonOnNotesSheet(self.ⓝote)
-                Spacer()
-                🔍SearchButton(self.ⓝote)
-                Spacer()
-                Menu {
-                    Button(role: .destructive) {
-                        withAnimation {
-                            📱.📚notes.removeAll { $0 == self.ⓝote }
-                        }
-                    } label: {
-                        Label("Delete", systemImage: "trash")
-                    }
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
-                Spacer()
-            }
-            .labelStyle(.iconOnly)
-            .buttonStyle(.plain)
-            .foregroundStyle(.secondary)
-            .imageScale(.small)
+            self.ⓑuttons()
         }
         .padding(8)
         .onChange(of: self.🔍focusState) { self.ⓗandleUnfocus($0) }
@@ -79,6 +51,37 @@ struct 📓NoteRow: View { //MARK: Work in progress
             }
             Spacer()
         }
+    }
+    private func ⓑuttons() -> some View {
+        HStack {
+            Spacer()
+            Button {
+                self.ⓢtartToInput(.title)
+            } label: {
+                Label("Edit note", systemImage: "rectangle.and.pencil.and.ellipsis")
+            }
+            Spacer()
+            📗DictionaryButtonOnNotesSheet(self.ⓝote)
+            Spacer()
+            🔍SearchButton(self.ⓝote)
+            Spacer()
+            Menu {
+                Button(role: .destructive) {
+                    withAnimation {
+                        📱.📚notes.removeAll { $0 == self.ⓝote }
+                    }
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            Spacer()
+        }
+        .labelStyle(.iconOnly)
+        .buttonStyle(.plain)
+        .foregroundStyle(.secondary)
+        .imageScale(.small)
     }
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
         withAnimation { self.🚩inputting = true }
