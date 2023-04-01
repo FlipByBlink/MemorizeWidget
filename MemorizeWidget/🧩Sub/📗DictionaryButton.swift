@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct 📗DictionaryButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
     @Binding private var 🚩showSheet: Bool
     var body: some View {
         Button {
@@ -13,6 +12,18 @@ struct 📗DictionaryButton: View {
     }
     init(_ showSheet: Binding<Bool>) {
         self._🚩showSheet = showSheet
+    }
+}
+
+struct 📗DictionaryButtonOnNotesSheet: View {
+    private let ⓝote: 📗Note
+    @State private var 🚩showSheet: Bool = false
+    var body: some View {
+        📗DictionaryButton(self.$🚩showSheet)
+            .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showSheet))
+    }
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }
 

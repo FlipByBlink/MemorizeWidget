@@ -6,7 +6,6 @@ struct 📓NoteRow: View {
     private let ⓛayout: 🄻ayout
     @Environment(\.scenePhase) var scenePhase
     @State private var 🔍preferredFocus: 🄵ocusArea? = nil
-    @State private var 🚩showDictionarySheetOnNotesSheet: Bool = false
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
     private var 🚩focusDisable: Bool {
         📱.🚩showNotesImportSheet || 📱.🚩showNoteSheet || (self.scenePhase != .active)
@@ -29,8 +28,7 @@ struct 📓NoteRow: View {
                     self.ⓓynamicNoteView()
                     HStack {
                         Spacer()
-                        📗DictionaryButton(self.$🚩showDictionarySheetOnNotesSheet)
-                            .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheetOnNotesSheet))
+                        📗DictionaryButtonOnNotesSheet(self.ⓝote)
                         Spacer()
                         🔍SearchButton(self.ⓝote)
                         Spacer()
