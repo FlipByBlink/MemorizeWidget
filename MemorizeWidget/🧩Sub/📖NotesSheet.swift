@@ -5,7 +5,7 @@ struct 📖NotesSheet: View { //MARK: Work in progress
     @Environment(\.dismiss) var dismiss
     @FocusState private var 🔍commentFocus: Bool
     private var 🔢noteIndex: Int? {
-        📱.📚notes.firstIndex { $0.id.uuidString == 📱.🆔openedNoteID }
+        📱.📚notes.firstIndex { $0.id == 📱.🆔openedNoteID }
     }
     var body: some View {
         NavigationView {
@@ -35,10 +35,11 @@ struct 📖NotesSheet: View { //MARK: Work in progress
                 Label("Deleted.", systemImage: "checkmark")
                 Image(systemName: "trash")
             }
+            .foregroundColor(.primary)
             .imageScale(.small)
             .font(.largeTitle)
-            .padding(.bottom, 48)
             Spacer()
         }
+        .padding(24)
     }
 }
