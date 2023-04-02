@@ -23,7 +23,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     📓NoteView($📱.📚notes[ⓝoteIndex])
                     HStack {
                         Spacer()
-                        📗DictionaryButton(ⓝote)
+                        📘DictionaryButton(ⓝote)
                             .padding()
                         Spacer()
                         🔍SearchButton(ⓝote)
@@ -44,7 +44,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
 }
 
-private struct 📗DictionaryButton: View {
+private struct 📘DictionaryButton: View {
     private var ⓝote: 📗Note
     @State private var 🚩showSheet: Bool = false
     var body: some View {
@@ -54,10 +54,10 @@ private struct 📗DictionaryButton: View {
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
-        .modifier(📗DictionarySheet(ⓝote, self.$🚩showSheet))
+        .modifier(📘DictionarySheet(ⓝote, self.$🚩showSheet))
     }
-    init(_ ⓝote: 📗Note) {
-        self.ⓝote = ⓝote
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }
 

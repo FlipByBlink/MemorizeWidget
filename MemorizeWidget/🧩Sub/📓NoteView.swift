@@ -94,7 +94,7 @@ struct 🗑DeleteNoteButton: View {
             Label("Delete", systemImage: "trash")
         }
     }
-    init(_ ⓝote: 📗Note) {
-        self.ⓝote = ⓝote
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }

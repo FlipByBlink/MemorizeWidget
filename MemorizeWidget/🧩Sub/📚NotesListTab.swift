@@ -81,7 +81,7 @@ private struct 🎛️NoteMenuButton: View {
     @State private var 🚩showDictionarySheet: Bool = false
     var body: some View {
         Menu {
-            📗DictionaryItem(self.$🚩showDictionarySheet)
+            📘DictionaryItem(self.$🚩showDictionarySheet)
             🔍SearchButton(self.ⓝote)
             🆕InsertNewNoteButton(self.ⓝote)
             Section { 🗑DeleteNoteButton(self.ⓝote) }
@@ -91,7 +91,7 @@ private struct 🎛️NoteMenuButton: View {
                 .labelStyle(.iconOnly)
                 .padding(12)
         }
-        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        .modifier(📘DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
         .modifier(🩹Workaround.closeMenePopup())
     }
     init(_ note: Binding<📗Note>) {
@@ -99,7 +99,7 @@ private struct 🎛️NoteMenuButton: View {
     }
 }
 
-private struct 📗DictionaryItem: View {
+private struct 📘DictionaryItem: View {
     @Binding private var 🚩showSheet: Bool
     var body: some View {
         Button {
@@ -125,7 +125,7 @@ private struct 🆕InsertNewNoteButton: View {
             Label("New note", systemImage: "text.append")
         }
     }
-    init(_ ⓝote: 📗Note) {
-        self.ⓝote = ⓝote
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }

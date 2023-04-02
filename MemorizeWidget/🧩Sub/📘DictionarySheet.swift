@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📗DictionarySheet: ViewModifier {
+struct 📘DictionarySheet: ViewModifier {
     private let ⓣerm: String
     @Binding private var 🚩showSheet: Bool
     func body(content: Content) -> some View {
