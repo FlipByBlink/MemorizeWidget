@@ -5,8 +5,8 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🔖tab: 🔖Tab = .notesList
     
-    @Published var 🚩showPickedNoteSheet: Bool = false
-    @Published var 🆔pickedNoteID: UUID? = nil
+    @Published var 🚩showWidgetNoteSheet: Bool = false
+    @Published var 🆔widgetNoteID: UUID? = nil
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
@@ -19,8 +19,8 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    var pickedNoteIndex: Int? {
-        self.📚notes.firstIndex { $0.id == self.🆔pickedNoteID }
+    var widgetNoteIndex: Int? {
+        self.📚notes.firstIndex { $0.id == self.🆔widgetNoteID }
     }
     
     func addNewNote(_ ⓘndex: Int = 0) {
@@ -33,13 +33,13 @@ extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
-            self.🚩showPickedNoteSheet = false
+            self.🚩showWidgetNoteSheet = false
             if ⓤrl.description == "NewNoteShortcut" {
                 self.addNewNote()
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
-                self.🚩showPickedNoteSheet = true
-                self.🆔pickedNoteID = UUID(uuidString: ⓤrl.description)
+                self.🚩showWidgetNoteSheet = true
+                self.🆔widgetNoteID = UUID(uuidString: ⓤrl.description)
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
             self.🔖tab = .notesList

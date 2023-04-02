@@ -5,7 +5,7 @@ struct ContentView: View {
     var body: some View {
         self.ⓣabView()
             .onOpenURL { 📱.handleWidgetURL($0) }
-            .sheet(isPresented: $📱.🚩showPickedNoteSheet) { 📖PickedNotesSheet() }
+            .sheet(isPresented: $📱.🚩showWidgetNoteSheet) { 📖WidgetNotesSheet() }
             .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
             .modifier(💾HandleShareExtensionData())
             .onChange(of: 📱.📚notes) { $0.save() }

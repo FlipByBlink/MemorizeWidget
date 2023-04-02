@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct 📖PickedNotesSheet: View { //MARK: Work in progress
+struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showDictionarySheet: Bool = false
-    private var ⓝoteIndex: Int? { 📱.pickedNoteIndex }
+    private var ⓝoteIndex: Int? { 📱.widgetNoteIndex }
     private var ⓝote: 📗Note? {
         guard let ⓝoteIndex else { return nil }
         return 📱.📚notes[ⓝoteIndex]
@@ -11,13 +11,13 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
     var body: some View {
         NavigationView {
             List {
-                self.ⓟickedNoteRow()
+                self.ⓝoteRow()
             }
             .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
     }
-    private func ⓟickedNoteRow() -> some View {
+    private func ⓝoteRow() -> some View {
         Section {
             if let ⓝoteIndex, let ⓝote {
                 VStack(spacing: 0) {
@@ -67,7 +67,7 @@ private struct 🅧DismissButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Button {
-            📱.🚩showPickedNoteSheet = false
+            📱.🚩showWidgetNoteSheet = false
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
