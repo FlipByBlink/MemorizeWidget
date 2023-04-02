@@ -11,17 +11,13 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
     var body: some View {
         NavigationView {
             List {
-                if let ⓘndex = 📱.pickedNoteIndex {
-                    self.ⓟickedNoteRow()
-                } else {
-                    🗑️DeletedNoteView()
-                }
+                self.ⓟickedNoteRow()
             }
             .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
     }
-    func ⓟickedNoteRow() -> some View {
+    private func ⓟickedNoteRow() -> some View {
         Section {
             VStack(spacing: 0) {
                 if let ⓝoteIndex, let ⓝote {
@@ -42,6 +38,8 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
                     .labelStyle(.iconOnly)
                     .buttonStyle(.plain)
                     .foregroundColor(.primary)
+                } else {
+                    🗑️DeletedNoteView()
                 }
             }
         }
