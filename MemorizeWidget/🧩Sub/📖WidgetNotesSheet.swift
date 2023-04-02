@@ -2,7 +2,6 @@ import SwiftUI
 
 struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩showDictionarySheet: Bool = false
     private var ⓝoteIndex: Int? { 📱.widgetNoteIndex }
     private var ⓝote: 📗Note? {
         guard let ⓝoteIndex else { return nil }
@@ -24,8 +23,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     📓NoteView($📱.📚notes[ⓝoteIndex])
                     HStack {
                         Spacer()
-                        📗DictionaryButton(self.$🚩showDictionarySheet)
-                            .modifier(📗DictionarySheet(ⓝote, self.$🚩showDictionarySheet))
+                        📗DictionaryButton(ⓝote)
                             .padding()
                         Spacer()
                         🔍SearchButton(ⓝote)
@@ -43,6 +41,23 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                 🗑️DeletedNoteView()
             }
         }
+    }
+}
+
+private struct 📗DictionaryButton: View {
+    private var ⓝote: 📗Note
+    @State private var 🚩showSheet: Bool = false
+    var body: some View {
+        Button {
+            self.🚩showSheet = true
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+        }
+        .modifier(📗DictionarySheet(ⓝote, self.$🚩showSheet))
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
     }
 }
 

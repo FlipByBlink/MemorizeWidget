@@ -1,27 +1,12 @@
 import SwiftUI
 
-struct 📗DictionaryButton: View {
-    @Binding private var 🚩showSheet: Bool
-    var body: some View {
-        Button {
-            self.🚩showSheet = true
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        } label: {
-            Label("Dictionary", systemImage: "character.book.closed")
-        }
-    }
-    init(_ showSheet: Binding<Bool>) {
-        self._🚩showSheet = showSheet
-    }
-}
-
 struct 📗DictionarySheet: ViewModifier {
     private let ⓣerm: String
     @Binding private var 🚩showSheet: Bool
     func body(content: Content) -> some View {
         content
             .popover(isPresented: self.$🚩showSheet) {
-                🄳ictinaryView(term: self.ⓣerm)
+                🄳ictinaryView(self.ⓣerm)
                     .ignoresSafeArea()
             }
     }
@@ -36,8 +21,10 @@ private struct 🄳ictinaryView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
         UIReferenceLibraryViewController(term: self.ⓣerm)
     }
-    func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {}
-    init(term: String) {
+    func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {
+        //Nothing to do
+    }
+    init(_ term: String) {
         self.ⓣerm = term
     }
 }

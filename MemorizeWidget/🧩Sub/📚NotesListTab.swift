@@ -77,11 +77,11 @@ struct 📚NotesListTab: View {
 
 private struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @Binding var ⓝote: 📗Note
+    @Binding private var ⓝote: 📗Note
     @State private var 🚩showDictionarySheet: Bool = false
     var body: some View {
         Menu {
-            📗DictionaryButton(self.$🚩showDictionarySheet)
+            📗DictionaryItem(self.$🚩showDictionarySheet)
             🔍SearchButton(self.ⓝote)
             🆕InsertNewNoteButton(self.ⓝote)
             Section { 🗑DeleteNoteButton(self.ⓝote) }
@@ -96,6 +96,21 @@ private struct 🎛️NoteMenuButton: View {
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
+    }
+}
+
+private struct 📗DictionaryItem: View {
+    @Binding private var 🚩showSheet: Bool
+    var body: some View {
+        Button {
+            self.🚩showSheet = true
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+        }
+    }
+    init(_ showSheet: Binding<Bool>) {
+        self._🚩showSheet = showSheet
     }
 }
 
