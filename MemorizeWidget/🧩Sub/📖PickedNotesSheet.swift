@@ -19,8 +19,8 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
     }
     private func ⓟickedNoteRow() -> some View {
         Section {
-            VStack(spacing: 0) {
-                if let ⓝoteIndex, let ⓝote {
+            if let ⓝoteIndex, let ⓝote {
+                VStack(spacing: 0) {
                     📓NoteView($📱.📚notes[ⓝoteIndex])
                     HStack {
                         Spacer()
@@ -38,9 +38,9 @@ struct 📖PickedNotesSheet: View { //MARK: Work in progress
                     .labelStyle(.iconOnly)
                     .buttonStyle(.plain)
                     .foregroundColor(.primary)
-                } else {
-                    🗑️DeletedNoteView()
                 }
+            } else {
+                🗑️DeletedNoteView()
             }
         }
     }

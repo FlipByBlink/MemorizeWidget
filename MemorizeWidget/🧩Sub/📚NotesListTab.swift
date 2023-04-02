@@ -74,3 +74,43 @@ struct 📚NotesListTab: View {
         }
     }
 }
+
+private struct 🎛️NoteMenuButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    @Binding var ⓝote: 📗Note
+    @State private var 🚩showDictionarySheet: Bool = false
+    var body: some View {
+        Menu {
+            📗DictionaryButton(self.$🚩showDictionarySheet)
+            🔍SearchButton(self.ⓝote)
+            🆕InsertNewNoteButton(self.ⓝote)
+            Section { 🗑DeleteNoteButton(self.ⓝote) }
+        } label: {
+            Label("Menu", systemImage: "ellipsis.circle")
+                .foregroundColor(.secondary)
+                .labelStyle(.iconOnly)
+                .padding(12)
+        }
+        .modifier(📗DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        .modifier(🩹Workaround.closeMenePopup())
+    }
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
+    }
+}
+
+private struct 🆕InsertNewNoteButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Button {
+            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
+            📱.addNewNote(ⓘndex + 1)
+        } label: {
+            Label("New note", systemImage: "text.append")
+        }
+    }
+    init(_ ⓝote: 📗Note) {
+        self.ⓝote = ⓝote
+    }
+}
