@@ -5,34 +5,34 @@ struct 🪧WidgetState {
     var type: 🅃ype? = nil
     enum 🅃ype {
         case singleNote(UUID), multiNotes([UUID]), newNoteShortcut
-        var path: String {
+        var description: String {
             switch self {
                 case .singleNote(let ⓘd):
-                    return "example://\(ⓘd.uuidString)"
+                    return "example://singleNote/\(ⓘd.uuidString)"
                 case .multiNotes(let ⓘds):
-                    var ⓓescription: String = ""
+                    var ⓟath: String = ""
                     for ⓘd in ⓘds {
-                        ⓓescription += ⓘd.uuidString
+                        ⓟath += ⓘd.uuidString
                         if ⓘd == ⓘds.last { break }
-                        ⓓescription += "/"
+                        ⓟath += "/"
                     }
-                    print(ⓓescription)
-                    return "example://\(ⓓescription)"
+                    return "example://multiNotes/\(ⓟath)"
                 case .newNoteShortcut:
-                    return "example://NewNoteShortcut"
+                    return "example://NewNoteShortcut/"
             }
         }
-        var url: URL { URL(string: self.path)! }
+        var url: URL { URL(string: self.description)! }
         static func load(_ ⓤrl: URL) -> Self? {
-            if ⓤrl.pathComponents.count == 1 {
-                if ⓤrl.path == "NewNoteShortcut" {
-                    return Self.newNoteShortcut
-                } else {
+            switch ⓤrl.host {
+                case "singleNote":
                     guard let ⓘd = UUID(uuidString: ⓤrl.path) else { return nil }
                     return Self.singleNote(ⓘd)
-                }
-            } else {
-                return Self.multiNotes(ⓤrl.pathComponents.compactMap { UUID(uuidString: $0) })
+                case "multiNotes":
+                    return Self.multiNotes(ⓤrl.pathComponents.compactMap { UUID(uuidString: $0) })
+                case "NewNoteShortcut":
+                    return Self.newNoteShortcut
+                default:
+                    assertionFailure(); return nil
             }
         }
     }
