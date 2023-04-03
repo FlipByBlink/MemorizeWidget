@@ -62,6 +62,9 @@
 		F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* MWWidget.swift */; };
 		F5D30CD328C6F6C9001198AF /* MWWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5D30CC528C6F6C8001198AF /* MWWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
+		F5FE2D7B29DAF650008C728B /* 🔗WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🔗WidgetLink.swift */; };
+		F5FE2D7E29DB062B008C728B /* 🔗WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🔗WidgetLink.swift */; };
+		F5FE2D7F29DB062C008C728B /* 🔗WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🔗WidgetLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +192,7 @@
 		F5D30CD828C70546001198AF /* 📱AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📱AppModel.swift"; sourceTree = "<group>"; };
 		F5D30CDB28C707F2001198AF /* MemorizeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemorizeWidget.entitlements; sourceTree = "<group>"; };
 		F5D30CDC28C709D2001198AF /* MWWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F5FE2D7A29DAF650008C728B /* 🔗WidgetLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔗WidgetLink.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,7 @@
 			children = (
 				F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
+				F5FE2D7A29DAF650008C728B /* 🔗WidgetLink.swift */,
 				F5AAE665292B741B00FB8406 /* ⭐️BaseModel.swift */,
 				F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */,
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
@@ -479,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */,
+				F5FE2D7B29DAF650008C728B /* 🔗WidgetLink.swift in Sources */,
 				F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F527F47329D53FA500E9FB97 /* 📖WidgetNotesSheet.swift in Sources */,
 				F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */,
@@ -505,6 +511,7 @@
 				F5AAE668292B754000FB8406 /* ⭐️BaseModel.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
+				F5FE2D7F29DB062C008C728B /* 🔗WidgetLink.swift in Sources */,
 				F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +523,7 @@
 				F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */,
 				F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */,
+				F5FE2D7E29DB062B008C728B /* 🔗WidgetLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

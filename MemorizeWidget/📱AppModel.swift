@@ -30,14 +30,16 @@ extension 📱AppModel {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
             self.🚩showWidgetNoteSheet = false
-            if ⓤrl.description == "NewNoteShortcut" {
-                self.addNewNote()
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
-                self.🚩showWidgetNoteSheet = true
-                guard let ⓤuid = UUID(uuidString: ⓤrl.description) else { assertionFailure(); return }
-                self.🆔widgetNotesID = [ⓤuid]
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            switch 🔗WidgetLink.load(ⓤrl) {
+                case .notes(let ⓘds):
+                    self.🆔widgetNotesID = ⓘds
+                    self.🚩showWidgetNoteSheet = true
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                case .newNoteShortcut:
+                    self.addNewNote()
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                case .none:
+                    assertionFailure()
             }
             self.🔖tab = .notesList
         }
