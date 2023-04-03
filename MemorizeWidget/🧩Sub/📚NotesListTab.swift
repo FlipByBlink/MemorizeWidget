@@ -78,10 +78,10 @@ struct 📚NotesListTab: View {
 private struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
-    @State private var 🚩showDictionarySheet: Bool = false
+    @State private var 📘dictionaryState: 📘DictionaryState = .init()
     var body: some View {
         Menu {
-            📘DictionaryItem(self.$🚩showDictionarySheet)
+            📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
             🔍SearchButton(self.ⓝote)
             🆕InsertNewNoteButton(self.ⓝote)
             Section { 🗑DeleteNoteButton(self.ⓝote) }
@@ -91,7 +91,7 @@ private struct 🎛️NoteMenuButton: View {
                 .labelStyle(.iconOnly)
                 .padding(12)
         }
-        .modifier(📘DictionarySheet(self.ⓝote, self.$🚩showDictionarySheet))
+        .modifier(📘DictionarySheet(self.$📘dictionaryState))
         .modifier(🩹Workaround.closeMenePopup())
     }
     init(_ note: Binding<📗Note>) {
@@ -100,17 +100,19 @@ private struct 🎛️NoteMenuButton: View {
 }
 
 private struct 📘DictionaryItem: View {
-    @Binding private var 🚩showSheet: Bool
+    private var ⓝote: 📗Note
+    @Binding private var ⓢtate: 📘DictionaryState
     var body: some View {
         Button {
-            self.🚩showSheet = true
+            self.ⓢtate.request(self.ⓝote.title)
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
     }
-    init(_ showSheet: Binding<Bool>) {
-        self._🚩showSheet = showSheet
+    init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
+        self.ⓝote = note
+        self._ⓢtate = state
     }
 }
 

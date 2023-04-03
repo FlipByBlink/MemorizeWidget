@@ -23,7 +23,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     📓NoteView($📱.📚notes[ⓝoteIndex])
                     HStack {
                         Spacer()
-                        📘DictionaryButton(ⓝote)
+                        📘DictionaryButton($📱.📚notes[ⓝoteIndex])
                             .padding()
                         Spacer()
                         🔍SearchButton(ⓝote)
@@ -45,19 +45,19 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
 }
 
 private struct 📘DictionaryButton: View {
-    private var ⓝote: 📗Note
-    @State private var 🚩showSheet: Bool = false
+    @Binding private var ⓝote: 📗Note
+    @State private var ⓢtate: 📘DictionaryState = .init()
     var body: some View {
         Button {
-            self.🚩showSheet = true
+            self.ⓢtate.request(self.ⓝote.title)
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
-        .modifier(📘DictionarySheet(ⓝote, self.$🚩showSheet))
+        .modifier(📘DictionarySheet(self.$ⓢtate))
     }
-    init(_ note: 📗Note) {
-        self.ⓝote = note
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
     }
 }
 

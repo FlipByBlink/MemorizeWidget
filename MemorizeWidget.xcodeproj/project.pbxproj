@@ -24,7 +24,7 @@
 		F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */; };
 		F527F47B29D5424C00E9FB97 /* 🗄️Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */; };
 		F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */; };
-		F527F47F29D555A700E9FB97 /* 📘DictionarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47E29D555A700E9FB97 /* 📘DictionarySheet.swift */; };
+		F527F47F29D555A700E9FB97 /* 📘Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */; };
 		F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
@@ -162,7 +162,7 @@
 		F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportSheet.swift"; sourceTree = "<group>"; };
 		F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗄️Rest.swift"; sourceTree = "<group>"; };
 		F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
-		F527F47E29D555A700E9FB97 /* 📘DictionarySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘DictionarySheet.swift"; sourceTree = "<group>"; };
+		F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘Dictionary.swift"; sourceTree = "<group>"; };
 		F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗NoteModel.swift"; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */,
 				F527F47429D53FDF00E9FB97 /* 🔩OptionTab.swift */,
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
-				F527F47E29D555A700E9FB97 /* 📘DictionarySheet.swift */,
+				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
 				F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */,
 				F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */,
@@ -493,7 +493,7 @@
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
 				F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */,
 				F527F47B29D5424C00E9FB97 /* 🗄️Rest.swift in Sources */,
-				F527F47F29D555A700E9FB97 /* 📘DictionarySheet.swift in Sources */,
+				F527F47F29D555A700E9FB97 /* 📘Dictionary.swift in Sources */,
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutAppMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
