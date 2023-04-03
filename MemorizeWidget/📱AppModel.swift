@@ -5,8 +5,6 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🔖tab: 🔖Tab = .notesList
     
-    @Published var 🚩showWidgetNoteSheet: Bool = false
-    @Published var 🆔widgetNotesID: [UUID] = []
     @Published var 🪧widgetState: 🪧WidgetState = .default
     
     @Published var 🚩showNotesImportSheet: Bool = false
@@ -30,18 +28,13 @@ extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
-            self.🚩showWidgetNoteSheet = false
-//            switch 🔗WidgetLink.load(ⓤrl) {
-//                case .notes(let ⓘds):
-//                    self.🆔widgetNotesID = ⓘds
-//                    self.🚩showWidgetNoteSheet = true
-//                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-//                case .newNoteShortcut:
-//                    self.addNewNote()
-//                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-//                case .none:
-//                    assertionFailure()
-//            }
+            self.🪧widgetState.showSheet = false
+            if let ⓣype = 🪧WidgetState.🅃ype.load(ⓤrl) {
+                self.🪧widgetState = 🪧WidgetState(showSheet: true, type: ⓣype)
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            } else {
+                assertionFailure()
+            }
             self.🔖tab = .notesList
         }
     }

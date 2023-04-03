@@ -5,19 +5,22 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     var body: some View {
         NavigationView {
             Group {
-                if 📱.🆔widgetNotesID.count == 1 {
-                    self.ⓢigleNoteLayout()
-                } else {
-                    self.ⓜultiNotesLayout()
+                switch 📱.🪧widgetState.type {
+                    case .singleNote(let ⓘd):
+                        self.ⓢigleNoteLayout(ⓘd)
+                    case .multiNotes(let ⓘds):
+                        self.ⓜultiNotesLayout(ⓘds)
+                    default:
+                        Text("🐛")
                 }
             }
             .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
     }
-    private func ⓢigleNoteLayout() -> some View {
+    private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
         Group {
-            if let ⓝote = 📱.📚notes.first(where: { $0.id == 📱.🆔widgetNotesID.first }),
+            if let ⓝote = 📱.📚notes.first(where: { $0.id == ⓘd }),
                let ⓘndex = 📱.📚notes.firstIndex(where: { $0 == ⓝote }) {
                 VStack {
                     Spacer()
@@ -47,9 +50,9 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
             }
         }
     }
-    private func ⓜultiNotesLayout() -> some View {
+    private func ⓜultiNotesLayout(_ ⓘds: [UUID]) -> some View {
         List {
-            ForEach(📱.🆔widgetNotesID, id: \.self) {
+            ForEach(ⓘds, id: \.self) {
                 self.ⓝoteRow($0)
             }
         }
@@ -122,7 +125,7 @@ private struct 🅧DismissButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Button {
-            📱.🚩showWidgetNoteSheet = false
+            📱.🪧widgetState.showSheet = false
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
