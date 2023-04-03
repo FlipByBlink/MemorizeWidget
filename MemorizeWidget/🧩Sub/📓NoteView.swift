@@ -3,6 +3,8 @@ import SwiftUI
 struct 📓NoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
+    private var ⓣitleFont: Font = .title2
+    private var ⓒommnetFont: Font = .body
     @State private var 🚩inputting: Bool = false
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
@@ -25,10 +27,10 @@ struct 📓NoteView: View {
         VStack(alignment: .leading, spacing: 8) {
             TextField("+ title", text: self.$ⓝote.title)
                 .focused(self.$🔍focusState, equals: .title)
-                .font(.title2.weight(.semibold))
+                .font(self.ⓣitleFont.weight(.semibold))
             TextField("+ comment", text: self.$ⓝote.comment)
                 .focused(self.$🔍focusState, equals: .comment)
-                .font(.body.weight(.light))
+                .font(self.ⓒommnetFont.weight(.light))
                 .foregroundStyle(.secondary)
                 .opacity(0.8)
         }
@@ -38,12 +40,12 @@ struct 📓NoteView: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
-                    .font(.title2.weight(.semibold))
+                    .font(self.ⓣitleFont.weight(.semibold))
                     .foregroundStyle(self.ⓝote.title.isEmpty ? .secondary : .primary)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.title) }
                 Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
-                    .font(.body.weight(.light))
+                    .font(self.ⓒommnetFont.weight(.light))
                     .foregroundStyle(self.ⓝote.comment.isEmpty ? .tertiary : .secondary)
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
@@ -74,6 +76,11 @@ struct 📓NoteView: View {
     }
     init(_ note: Binding<📗Note>) {
         self._ⓝote = note
+    }
+    init(_ note: Binding<📗Note>, titleFont: Font, commentFont: Font) {
+        self._ⓝote = note
+        self.ⓣitleFont = titleFont
+        self.ⓒommnetFont = commentFont
     }
 }
 

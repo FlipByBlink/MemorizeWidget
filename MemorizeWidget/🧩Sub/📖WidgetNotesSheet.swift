@@ -9,34 +9,76 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
     var body: some View {
         NavigationView {
-            List {
-                self.ⓝoteRow()
+            Group {
+                if .random() {
+                    self.ⓢigleNoteLayout()
+                } else {
+                    self.ⓜultiNotesLayout()
+                }
             }
             .toolbar { 🅧DismissButton() }
         }
         .navigationViewStyle(.stack)
     }
-    private func ⓝoteRow() -> some View {
-        Section {
+    private func ⓢigleNoteLayout() -> some View {
+        Group {
             if let ⓝoteIndex, let ⓝote {
-                VStack(spacing: 0) {
-                    📓NoteView($📱.📚notes[ⓝoteIndex])
+                VStack {
+                    Spacer()
+                    📓NoteView($📱.📚notes[ⓝoteIndex],
+                               titleFont: .largeTitle,
+                               commentFont: .title)
+                    .padding(.horizontal, 32)
+                    Spacer()
                     HStack {
                         Spacer()
                         📘DictionaryButton($📱.📚notes[ⓝoteIndex])
-                            .padding()
                         Spacer()
                         🔍SearchButton(ⓝote)
-                            .padding()
                         Spacer()
                         🗑DeleteNoteButton(ⓝote)
-                            .padding()
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
                     .buttonStyle(.plain)
                     .foregroundColor(.primary)
+                    .font(.title)
+                    .padding(.horizontal, 24)
+                    Spacer()
                 }
+            } else {
+                🗑️DeletedNoteView()
+            }
+        }
+    }
+    private func ⓜultiNotesLayout() -> some View {
+        List {
+            self.ⓝoteRow()
+        }
+    }
+    private func ⓝoteRow() -> some View {
+        Section {
+            if let ⓝoteIndex, let ⓝote {
+                VStack(spacing: 0) {
+                    📓NoteView($📱.📚notes[ⓝoteIndex],
+                               titleFont: .title,
+                               commentFont: .title3)
+                    HStack {
+                        Spacer()
+                        📘DictionaryButton($📱.📚notes[ⓝoteIndex])
+                        Spacer()
+                        🔍SearchButton(ⓝote)
+                        Spacer()
+                        🗑DeleteNoteButton(ⓝote)
+                        Spacer()
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.plain)
+                    .foregroundColor(.primary)
+                    .font(.title3)
+                    .padding()
+                }
+                .padding(8)
             } else {
                 🗑️DeletedNoteView()
             }
