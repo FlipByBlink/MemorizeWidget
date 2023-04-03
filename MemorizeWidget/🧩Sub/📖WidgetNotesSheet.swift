@@ -2,15 +2,10 @@ import SwiftUI
 
 struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝoteIndex: Int? { 📱.widgetNoteIndex }
-    private var ⓝote: 📗Note? {
-        guard let ⓝoteIndex else { return nil }
-        return 📱.📚notes[ⓝoteIndex]
-    }
     var body: some View {
         NavigationView {
             Group {
-                if .random() {
+                if 📱.🆔widgetNotesID.count == 1 {
                     self.ⓢigleNoteLayout()
                 } else {
                     self.ⓜultiNotesLayout()
@@ -22,17 +17,18 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
     private func ⓢigleNoteLayout() -> some View {
         Group {
-            if let ⓝoteIndex, let ⓝote {
+            if let ⓝote = 📱.📚notes.first(where: { $0.id == 📱.🆔widgetNotesID.first }),
+               let ⓘndex = 📱.📚notes.firstIndex(where: { $0 == ⓝote }) {
                 VStack {
                     Spacer()
-                    📓NoteView($📱.📚notes[ⓝoteIndex],
+                    📓NoteView($📱.📚notes[ⓘndex],
                                titleFont: .largeTitle,
                                commentFont: .title)
                     .padding(.horizontal, 32)
                     Spacer()
                     HStack {
                         Spacer()
-                        📘DictionaryButton($📱.📚notes[ⓝoteIndex])
+                        📘DictionaryButton($📱.📚notes[ⓘndex])
                         Spacer()
                         🔍SearchButton(ⓝote)
                         Spacer()
@@ -53,19 +49,22 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
     private func ⓜultiNotesLayout() -> some View {
         List {
-            self.ⓝoteRow()
+            ForEach(📱.🆔widgetNotesID, id: \.self) {
+                self.ⓝoteRow($0)
+            }
         }
     }
-    private func ⓝoteRow() -> some View {
+    private func ⓝoteRow(_ ⓘd: UUID) -> some View {
         Section {
-            if let ⓝoteIndex, let ⓝote {
+            if let ⓝote = 📱.📚notes.first(where: { $0.id == ⓘd }),
+               let ⓘndex = 📱.📚notes.firstIndex(where: { $0 == ⓝote }) {
                 VStack(spacing: 0) {
-                    📓NoteView($📱.📚notes[ⓝoteIndex],
+                    📓NoteView($📱.📚notes[ⓘndex],
                                titleFont: .title,
                                commentFont: .title3)
                     HStack {
                         Spacer()
-                        📘DictionaryButton($📱.📚notes[ⓝoteIndex])
+                        📘DictionaryButton($📱.📚notes[ⓘndex])
                         Spacer()
                         🔍SearchButton(ⓝote)
                         Spacer()

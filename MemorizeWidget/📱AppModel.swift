@@ -6,7 +6,7 @@ class 📱AppModel: ObservableObject {
     @Published var 🔖tab: 🔖Tab = .notesList
     
     @Published var 🚩showWidgetNoteSheet: Bool = false
-    @Published var 🆔widgetNoteID: UUID? = nil
+    @Published var 🆔widgetNotesID: [UUID] = []
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
@@ -19,10 +19,6 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    var widgetNoteIndex: Int? {
-        self.📚notes.firstIndex { $0.id == self.🆔widgetNoteID }
-    }
-    
     func addNewNote(_ ⓘndex: Int = 0) {
         withAnimation {
             self.📚notes.insert(📗Note(""), at: ⓘndex)
@@ -39,7 +35,8 @@ extension 📱AppModel {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else if self.📚notes.contains(where: { $0.id.description == ⓤrl.description }) {
                 self.🚩showWidgetNoteSheet = true
-                self.🆔widgetNoteID = UUID(uuidString: ⓤrl.description)
+                guard let ⓤuid = UUID(uuidString: ⓤrl.description) else { assertionFailure(); return }
+                self.🆔widgetNotesID = [ⓤuid]
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
             self.🔖tab = .notesList
