@@ -36,4 +36,5 @@ struct 🪧WidgetState {
             }
         }
     }
+    static var `default`: Self { Self(showSheet: false, type: nil) }
 }
