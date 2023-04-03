@@ -45,18 +45,18 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
 }
 
 private struct 📘DictionaryButton: View {
-    @Binding private var ⓝote: 📗Note
+    @Binding private var ⓣerm: String
     @State private var ⓢtate: 📘DictionaryState = .default
     var body: some View {
         Button {
-            self.ⓢtate.request(self.ⓝote.title)
+            self.ⓢtate.request(self.ⓣerm)
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
         .modifier(📘DictionarySheet(self.$ⓢtate))
     }
     init(_ note: Binding<📗Note>) {
-        self._ⓝote = note
+        self._ⓣerm = note.title
     }
 }
 

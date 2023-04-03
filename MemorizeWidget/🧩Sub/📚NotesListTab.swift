@@ -100,17 +100,17 @@ private struct 🎛️NoteMenuButton: View {
 }
 
 private struct 📘DictionaryItem: View {
-    private var ⓝote: 📗Note
+    private var ⓣerm: String
     @Binding private var ⓢtate: 📘DictionaryState
     var body: some View {
         Button {
-            self.ⓢtate.request(self.ⓝote.title)
+            self.ⓢtate.request(self.ⓣerm)
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
     }
     init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
-        self.ⓝote = note
+        self.ⓣerm = note.title
         self._ⓢtate = state
     }
 }
