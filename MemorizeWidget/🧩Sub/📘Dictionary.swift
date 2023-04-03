@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct 📘DictionaryState {
-    var showSheet: Bool = false
+    var showSheet: Bool
     var viewController: UIReferenceLibraryViewController?
+    static var `default`: Self { Self(showSheet: false, viewController: nil) }
     mutating func request(_ ⓣerm: String) {
         self.viewController = UIReferenceLibraryViewController(term: ⓣerm)
         self.showSheet = true
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }
 

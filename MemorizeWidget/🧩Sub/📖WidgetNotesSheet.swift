@@ -46,11 +46,10 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
 
 private struct 📘DictionaryButton: View {
     @Binding private var ⓝote: 📗Note
-    @State private var ⓢtate: 📘DictionaryState = .init()
+    @State private var ⓢtate: 📘DictionaryState = .default
     var body: some View {
         Button {
             self.ⓢtate.request(self.ⓝote.title)
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }

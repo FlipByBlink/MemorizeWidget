@@ -78,7 +78,7 @@ struct 📚NotesListTab: View {
 private struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
-    @State private var 📘dictionaryState: 📘DictionaryState = .init()
+    @State private var 📘dictionaryState: 📘DictionaryState = .default
     var body: some View {
         Menu {
             📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
@@ -105,7 +105,6 @@ private struct 📘DictionaryItem: View {
     var body: some View {
         Button {
             self.ⓢtate.request(self.ⓝote.title)
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
