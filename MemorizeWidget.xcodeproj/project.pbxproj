@@ -71,6 +71,7 @@
 		F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
+		F5FE2D8929DCDF12008C728B /* 🗑DeleteNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8829DCDF12008C728B /* 🗑DeleteNoteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧WidgetState.swift"; sourceTree = "<group>"; };
 		F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒EntryView.swift"; sourceTree = "<group>"; };
 		F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🆕NewNoteShortcutWidget.swift"; sourceTree = "<group>"; };
+		F5FE2D8829DCDF12008C728B /* 🗑DeleteNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑DeleteNoteButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
 				F51CAF6429D6AEFA0065EF30 /* 📓NoteView.swift */,
 				F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */,
+				F5FE2D8829DCDF12008C728B /* 🗑DeleteNoteButton.swift */,
 				F527F47429D53FDF00E9FB97 /* 🔩OptionTab.swift */,
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
 				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
@@ -496,6 +499,7 @@
 				F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */,
 				F5FE2D7B29DAF650008C728B /* 🪧WidgetState.swift in Sources */,
 				F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
+				F5FE2D8929DCDF12008C728B /* 🗑DeleteNoteButton.swift in Sources */,
 				F527F47329D53FA500E9FB97 /* 📖WidgetNotesSheet.swift in Sources */,
 				F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */,
 				F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */,
