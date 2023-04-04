@@ -108,7 +108,7 @@ private struct 🄷omeScreenWidgetView: View {
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.8)
                         .multilineTextAlignment(.center)
                     }
                 }
@@ -153,13 +153,15 @@ private struct 🄰ccessaryWidgetView: View {
             if #available(iOS 16.0, *) {
                 ZStack {
                     AccessoryWidgetBackground()
-                    VStack {
+                    VStack(spacing: 2) {
                         ForEach(self.ⓝotes) { ⓝote in
+                            if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
                             Text(ⓝote.title)
                                 .multilineTextAlignment(.center)
-                                .font(.caption)
                                 .fontWeight(.medium)
-                                .padding(.horizontal, 2)
+                                .padding(.horizontal, 1)
+                                .lineSpacing(0)
+                                .minimumScaleFactor(0.8)
                         }
                     }
                 }

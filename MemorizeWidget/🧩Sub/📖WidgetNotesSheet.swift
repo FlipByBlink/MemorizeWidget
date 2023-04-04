@@ -78,7 +78,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     .buttonStyle(.plain)
                     .foregroundColor(.primary)
                     .font(.title3)
-                    .padding()
+                    .padding(12)
                 }
                 .padding(8)
             } else {
