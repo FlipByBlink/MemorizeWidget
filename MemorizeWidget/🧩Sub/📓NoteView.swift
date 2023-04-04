@@ -6,6 +6,7 @@ struct 📓NoteView: View {
     private var ⓣitleFont: Font = .title2
     private var ⓒommnetFont: Font = .body
     @State private var 🚩inputting: Bool = false
+    @State private var ⓘnputtingNote: 📗Note = .init("")
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool {
         !📱.🪧widgetState.showSheet
@@ -32,10 +33,10 @@ struct 📓NoteView: View {
     }
     private func ⓘnputNoteView() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            TextField("+ title", text: self.$ⓝote.title)
+            TextField("+ title", text: self.$ⓘnputtingNote.title)
                 .focused(self.$🔍focusState, equals: .title)
                 .font(self.ⓣitleFont.weight(.semibold))
-            TextField("+ comment", text: self.$ⓝote.comment)
+            TextField("+ comment", text: self.$ⓘnputtingNote.comment)
                 .focused(self.$🔍focusState, equals: .comment)
                 .font(self.ⓒommnetFont.weight(.light))
                 .foregroundStyle(.secondary)
@@ -61,6 +62,7 @@ struct 📓NoteView: View {
         }
     }
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
+        self.ⓘnputtingNote = self.ⓝote
         withAnimation { self.🚩inputting = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             withAnimation { self.🔍focusState = ⓐrea }
@@ -68,6 +70,7 @@ struct 📓NoteView: View {
     }
     private func ⓗandleUnfocus(_ ⓕocus: 🄵ocusArea?) {
         if ⓕocus == nil {
+            self.ⓝote = self.ⓘnputtingNote
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 withAnimation { self.🚩inputting = false }
                 if self.ⓝote.isEmpty {

@@ -65,7 +65,6 @@ struct 📚NotesListTab: View {
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
         }
-        .disabled(📱.📚notes.first?.isEmpty == true)
         .id("NewNoteButton")
     }
     private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
