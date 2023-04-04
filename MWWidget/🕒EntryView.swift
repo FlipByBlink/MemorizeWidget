@@ -10,8 +10,12 @@ struct 🅆idgetEntryView: View {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🄷omeScreenWidgetView(self.ⓘnfo)
-                    case .accessoryCorner, .accessoryInline, .accessoryCircular, .accessoryRectangular:
+                    case .accessoryInline, .accessoryCircular, .accessoryRectangular:
                         🄰ccessaryWidgetView(self.ⓘnfo)
+#if os(watchOS)
+                    case .accessoryCorner:
+                        🄰ccessaryWidgetView(self.ⓘnfo)
+#endif
                     default:
                         Text("🐛")
                 }
@@ -126,14 +130,13 @@ private struct 🄰ccessaryWidgetView: View {
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
         switch self.widgetFamily {
-            case .accessoryCorner, .accessoryInline:
-                self.ⓞneLineView()
-            case .accessoryCircular:
-                self.ⓒircleView()
-            case .accessoryRectangular:
-                self.ⓡectangularView()
-            default:
-                Text("🐛")
+            case .accessoryInline: self.ⓞneLineView()
+            case .accessoryCircular: self.ⓒircleView()
+            case .accessoryRectangular: self.ⓡectangularView()
+#if os(watchOS)
+            case .accessoryCorner: self.ⓞneLineView()
+#endif
+            default: Text("🐛")
         }
     }
     private func ⓞneLineView() -> some View {

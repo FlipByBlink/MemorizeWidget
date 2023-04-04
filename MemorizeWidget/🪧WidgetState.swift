@@ -119,10 +119,12 @@ extension WidgetFamily {
             case .systemSmall: return 3
             case .systemMedium: return 3
             case .systemLarge: return 7
-            case .accessoryCorner: return 1
             case .accessoryCircular: return 2
             case .accessoryRectangular: return 3
             case .accessoryInline: return 1
+#if os(watchOS)
+            case .accessoryCorner: return 1
+#endif
             default: return 1
         }
     }
