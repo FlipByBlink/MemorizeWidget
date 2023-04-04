@@ -73,76 +73,17 @@ struct 🅆idgetEntryView: View {
         self.ⓘnfo.notes
     }
     var body: some View {
-        if let ⓝote = self.ⓝotes.first {
+        if !self.ⓝotes.isEmpty {
             switch self.widgetFamily {
-                case .systemSmall:
-                    self.ⓢystemSmallView()
-                case .systemMedium:
-                    ZStack {
-                        Color.clear
-                        VStack(spacing: 0) {
-                            Spacer(minLength: 0)
-                            Text(ⓝote.title)
-                                .font(.title.bold())
-                            if self.🚩showComment {
-                                if ⓝote.comment != "" {
-                                    Text(ⓝote.comment)
-                                        .font(.title2)
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                            Spacer(minLength: 0)
-                        }
-                        .padding()
-                        .minimumScaleFactor(0.5)
-                        .multilineTextAlignment(.center)
-                    }
-                    .widgetURL(self.ⓘnfo.url)
-                case .accessoryRectangular:
-                    if #available(iOS 16.0, *) {
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Text(ⓝote.title)
-                                    .font(.headline)
-                                if self.🚩showComment {
-                                    if ⓝote.comment != "" {
-                                        Text(ⓝote.comment)
-                                            .font(.subheadline)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                            }
-                            .widgetAccentable()
-                            .minimumScaleFactor(0.8)
-                            .multilineTextAlignment(.center)
-                        }
-                        .widgetURL(self.ⓘnfo.url)
-                    }
-                case .accessoryInline:
-                    if #available(iOS 16.0, *) {
-                        Text(ⓝote.title)
-                            .widgetURL(self.ⓘnfo.url)
-                    }
-                case .accessoryCircular:
-                    if #available(iOS 16.0, *) {
-                        ZStack {
-                            AccessoryWidgetBackground()
-                            Text(ⓝote.title)
-                                .multilineTextAlignment(.center)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                                .padding(.horizontal, 2)
-                        }
-                        .widgetURL(self.ⓘnfo.url)
-                    }
-                default:
-                    Text("🐛")
+                case .systemSmall: self.ⓢystemSmallView()
+                case .systemMedium: self.ⓢystemMediumView()
+                case .accessoryRectangular: self.ⓐccessoryRectangularView()
+                case .accessoryInline: self.ⓐccessoryInlineView()
+                case .accessoryCircular: self.ⓐccessoryCircleView()
+                default: Text("🐛")
             }
         } else {
-            Image(systemName: "books.vertical")
-                .font(.title.weight(.medium))
-                .foregroundStyle(.tertiary)
-                .widgetURL(self.ⓘnfo.url)
+            self.ⓝoNoteView()
         }
     }
     private func ⓢystemSmallView() -> some View {
@@ -168,6 +109,99 @@ struct 🅆idgetEntryView: View {
             .multilineTextAlignment(.center)
         }
         .widgetURL(self.ⓘnfo.url)
+    }
+    private func ⓢystemMediumView() -> some View {
+        ZStack {
+            Color.clear
+            VStack(spacing: 0) {
+                Spacer(minLength: 0)
+                ForEach(self.ⓝotes) { ⓝote in
+                    Text(ⓝote.title)
+                        .font(.title.bold())
+                    if self.🚩showComment {
+                        if ⓝote.comment != "" {
+                            Text(ⓝote.comment)
+                                .font(.title2)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .padding()
+            .minimumScaleFactor(0.5)
+            .multilineTextAlignment(.center)
+        }
+        .widgetURL(self.ⓘnfo.url)
+    }
+    private func ⓢystemLargeView() -> some View {
+        EmptyView()
+    }
+    private func ⓢystemExtraLargeView() -> some View {
+        EmptyView()
+    }
+    private func ⓐccessoryInlineView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                if let ⓝote = self.ⓝotes.first {
+                    Text(ⓝote.title)
+                        .widgetURL(self.ⓘnfo.url)
+                }
+            }
+        }
+    }
+    private func ⓐccessoryCircleView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                ZStack {
+                    AccessoryWidgetBackground()
+                    if let ⓝote = self.ⓝotes.first {
+                        Text(ⓝote.title)
+                            .multilineTextAlignment(.center)
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .padding(.horizontal, 2)
+                    } else {
+                        Text("🐛")
+                    }
+                }
+                .widgetURL(self.ⓘnfo.url)
+            }
+        }
+    }
+    private func ⓐccessoryRectangularView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                ZStack {
+                    VStack(spacing: 0) {
+                        ForEach(self.ⓝotes) { ⓝote in
+                            Text(ⓝote.title)
+                                .font(.headline)
+                            if self.🚩showComment {
+                                if ⓝote.comment != "" {
+                                    Text(ⓝote.comment)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                    .widgetAccentable()
+                    .minimumScaleFactor(0.8)
+                    .multilineTextAlignment(.center)
+                }
+                .widgetURL(self.ⓘnfo.url)
+            }
+        }
+    }
+    private func ⓐccessoryCornerView() -> some View {
+        EmptyView()
+    }
+    private func ⓝoNoteView() -> some View {
+        Image(systemName: "books.vertical")
+            .font(.title.weight(.medium))
+            .foregroundStyle(.tertiary)
+            .widgetURL(self.ⓘnfo.url)
     }
     init(_ ⓔntry: 🤖TimelineProvider.Entry) {
         self.ⓘnfo = ⓔntry.info
