@@ -118,7 +118,7 @@ extension WidgetFamily {
         switch self {
             case .systemSmall: return 3
             case .systemMedium: return 3
-            case .systemLarge: return 6
+            case .systemLarge: return 7
             case .accessoryCorner: return 1
             case .accessoryCircular: return 2
             case .accessoryRectangular: return 3

@@ -103,7 +103,7 @@ struct 🗑DeleteNoteButton: View {
             withAnimation {
                 📱.📚notes.removeAll { $0 == self.ⓝote }
             }
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
         } label: {
             Label("Delete", systemImage: "trash")
         }
