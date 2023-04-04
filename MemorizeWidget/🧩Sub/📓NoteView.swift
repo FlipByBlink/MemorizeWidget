@@ -7,7 +7,13 @@ struct 📓NoteView: View {
     private var ⓒommnetFont: Font = .body
     @State private var 🚩inputting: Bool = false
     @FocusState private var 🔍focusState: 🄵ocusArea?
-    private var 🎨thin: Bool { !📱.🚩randomMode && (📱.📚notes.first != self.ⓝote) }
+    private var 🎨thin: Bool {
+        !📱.🪧widgetState.showSheet
+        &&
+        !📱.🚩randomMode
+        &&
+        📱.📚notes.first != self.ⓝote
+    }
     var body: some View {
         Group {
             if self.🚩inputting {
@@ -16,12 +22,13 @@ struct 📓NoteView: View {
                 self.ⓢtaticNoteView()
             }
         }
-        .opacity(self.🎨thin ? 0.5 : 1)
+        .opacity(self.🎨thin ? 0.4 : 1)
         .padding(.leading, 12)
         .padding(.vertical, 12)
         .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
         .onAppear(perform: self.ⓢetFocusForEmptyNote)
         .animation(.default, value: self.🚩inputting)
+        .animation(.default.speed(1.5), value: self.🎨thin)
     }
     private func ⓘnputNoteView() -> some View {
         VStack(alignment: .leading, spacing: 8) {

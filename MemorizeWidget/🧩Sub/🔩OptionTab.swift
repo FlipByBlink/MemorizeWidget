@@ -24,18 +24,21 @@ struct 🔩OptionTab: View {
                     Label("Show multi notes on widget", systemImage: "doc.on.doc")
                         .padding(.vertical, 8)
                 }
+                .onChange(of: self.🚩value) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
             }
         }
     }
     private struct 💬CommentOnWidgetSection: View {
-        @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+        @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩value: Bool = false
         var body: some View {
             Section {
-                Toggle(isOn: self.$🚩showComment) {
+                Toggle(isOn: self.$🚩value) {
                     Label("Show comment on widget", systemImage: "text.append")
                         .padding(.vertical, 8)
                 }
-                .onChange(of: self.🚩showComment) { _ in
+                .onChange(of: self.🚩value) { _ in
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 VStack(spacing: 16) {

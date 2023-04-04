@@ -101,9 +101,6 @@ private struct 🄷omeScreenWidgetView: View {
                                     Text(ⓝote.comment)
                                         .font(self.ⓒommentFont.weight(.light))
                                         .foregroundStyle(.secondary)
-                                } else {
-                                    Color.clear
-                                        .frame(height: 6)
                                 }
                             }
                         }
@@ -158,12 +155,14 @@ private struct 🄰ccessaryWidgetView: View {
                             if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
                             Text(ⓝote.title)
                                 .multilineTextAlignment(.center)
+                                .font(.caption)
                                 .fontWeight(.medium)
-                                .padding(.horizontal, 1)
                                 .lineSpacing(0)
                                 .minimumScaleFactor(0.8)
+                                .padding(.horizontal, 1)
                         }
                     }
+                    .padding(.vertical, 1)
                 }
             }
         }
