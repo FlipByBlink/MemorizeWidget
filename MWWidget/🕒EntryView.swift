@@ -75,12 +75,12 @@ private struct 🄷omeScreenWidgetView: View {
     private var ⓝotesSpace: CGFloat {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.🚩showComment ? 4 : 10
+                return self.🚩showComment ? 6 : 10
             case .systemLarge:
-                if self.ⓝotes.count < 4 {
-                    return self.🚩showComment ? 8 : 16
+                if self.ⓝotes.count < 5 {
+                    return self.🚩showComment ? 12 : 16
                 } else {
-                    return self.🚩showComment ? 4 : 10
+                    return self.🚩showComment ? 8 : 12
                 }
             default:
                 assertionFailure(); return 8
@@ -159,7 +159,7 @@ private struct 🄰ccessaryWidgetView: View {
                                 .fontWeight(.medium)
                                 .lineSpacing(0)
                                 .minimumScaleFactor(0.8)
-                                .padding(.horizontal, 1)
+                                .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
                         }
                     }
                     .padding(.vertical, 1)

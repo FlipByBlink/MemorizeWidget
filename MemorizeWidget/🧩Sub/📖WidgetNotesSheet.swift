@@ -9,7 +9,11 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     case .singleNote(let ⓘd):
                         self.ⓢigleNoteLayout(ⓘd)
                     case .multiNotes(let ⓘds):
-                        self.ⓜultiNotesLayout(ⓘds)
+                        if ⓘds.count == 1 {
+                            self.ⓢigleNoteLayout(ⓘds[0])
+                        } else {
+                            self.ⓜultiNotesLayout(ⓘds)
+                        }
                     default:
                         Text("🐛")
                 }
