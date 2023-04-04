@@ -75,12 +75,12 @@ private struct 🄷omeScreenWidgetView: View {
     private var ⓝotesSpace: CGFloat {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.🚩showComment ? 6 : 10
+                return self.🚩showComment ? 6 : 12
             case .systemLarge:
-                if self.ⓝotes.count < 5 {
+                if self.ⓝotes.count < 6 {
                     return self.🚩showComment ? 12 : 16
                 } else {
-                    return self.🚩showComment ? 8 : 12
+                    return self.🚩showComment ? 10 : 12
                 }
             default:
                 assertionFailure(); return 8
@@ -139,9 +139,7 @@ private struct 🄰ccessaryWidgetView: View {
     private func ⓞneLineView() -> some View {
         Group {
             if #available(iOS 16.0, *) {
-                if let ⓝote = self.ⓝotes.first {
-                    Text(ⓝote.title)
-                }
+                Text(self.ⓝotes.first?.title ?? "🐛")
             }
         }
     }
