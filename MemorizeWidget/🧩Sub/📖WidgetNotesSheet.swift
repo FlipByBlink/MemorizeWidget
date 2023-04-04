@@ -63,8 +63,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
     private func ⓝoteRow(_ ⓘd: UUID) -> some View {
         Section {
-            if let ⓝote = 📱.📚notes.first(where: { $0.id == ⓘd }),
-               let ⓘndex = 📱.📚notes.firstIndex(where: { $0 == ⓝote }) {
+            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
                 VStack(spacing: 0) {
                     📓NoteView($📱.📚notes[ⓘndex],
                                titleFont: .title,
@@ -73,9 +72,9 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                         Spacer()
                         📘DictionaryButton($📱.📚notes[ⓘndex])
                         Spacer()
-                        🔍SearchButton(ⓝote)
+                        🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
-                        🗑DeleteNoteButton(ⓝote)
+                        🗑DeleteNoteButton(📱.📚notes[ⓘndex])
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
@@ -85,7 +84,8 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     .padding(12)
                 }
                 .padding(8)
-            } else {
+            }
+            if !📱.📚notes.contains(where: { $0.id == ⓘd }) { //Workaround: iOS15.5
                 🗑️DeletedNoteView()
             }
         }
