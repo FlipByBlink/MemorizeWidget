@@ -10,15 +10,16 @@ struct 🅆idgetEntryView: View {
         if !self.ⓝotes.isEmpty {
             Group {
                 switch self.widgetFamily {
-                    case .systemSmall: self.ⓢystemSmallView()
-                    case .systemMedium: self.ⓢystemMediumView()
-                    case .systemLarge: self.ⓢystemLargeView()
-                    case .systemExtraLarge: self.ⓢystemExtraLargeView()
-                    case .accessoryCorner: self.ⓐccessoryCornerView()
-                    case .accessoryCircular: self.ⓐccessoryCircleView()
-                    case .accessoryRectangular: self.ⓐccessoryRectangularView()
-                    case .accessoryInline: self.ⓐccessoryInlineView()
-                    default: Text("🐛")
+                    case .systemSmall, .systemMedium, .systemLarge:
+                        self.ⓗomeScreenWidgetView()
+                    case .accessoryCorner, .accessoryInline:
+                        self.ⓐccessoryOneLineView()
+                    case .accessoryCircular:
+                        self.ⓐccessoryCircleView()
+                    case .accessoryRectangular:
+                        self.ⓐccessoryRectangularView()
+                    default:
+                        Text("🐛")
                 }
             }
             .widgetURL(self.ⓘnfo.url)
@@ -26,23 +27,39 @@ struct 🅆idgetEntryView: View {
             self.ⓝoNoteView()
         }
     }
-    private func ⓢystemSmallView() -> some View {
+    private func ⓗomeScreenWidgetView() -> some View {
         ZStack {
             Color.clear
             VStack(spacing: 4) {
                 Spacer(minLength: 0)
                 ForEach(self.ⓝotes) { ⓝote in
                     VStack(spacing: 2) {
+                        var ⓣitleFont: Font {
+                            switch self.widgetFamily {
+                                case .systemSmall: return .headline
+                                case .systemMedium: return .title3.bold()
+                                case .systemLarge: return .title.bold()
+                                default: return .headline
+                            }
+                        }
                         Text(ⓝote.title)
-                            .font(.headline)
+                            .font(ⓣitleFont)
                         if self.🚩showComment {
                             if !ⓝote.comment.isEmpty {
+                                var ⓒommentFont: Font {
+                                    switch self.widgetFamily {
+                                        case .systemSmall: return .caption
+                                        case .systemMedium: return .subheadline
+                                        case .systemLarge: return .body
+                                        default: return .subheadline
+                                    }
+                                }
                                 Text(ⓝote.comment)
-                                    .font(.subheadline.weight(.light))
+                                    .font(ⓒommentFont.weight(.light))
                                     .foregroundStyle(.secondary)
                             } else {
                                 Color.clear
-                                    .frame(height: 4)
+                                    .frame(height: 6)
                             }
                         }
                     }
@@ -54,42 +71,14 @@ struct 🅆idgetEntryView: View {
             .multilineTextAlignment(.center)
         }
     }
-    private func ⓢystemMediumView() -> some View {
-        ZStack {
-            Color.clear
-            VStack(spacing: 4) {
-                Spacer(minLength: 0)
-                ForEach(self.ⓝotes) { ⓝote in
-                    VStack(spacing: 2) {
-                        Text(ⓝote.title)
-                            .font(.title3.bold())
-                        if self.🚩showComment {
-                            if !ⓝote.comment.isEmpty {
-                                Text(ⓝote.comment)
-                                    .font(.body.weight(.light))
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Color.clear
-                                    .frame(height: 4)
-                            }
-                        }
-                    }
+    private func ⓐccessoryOneLineView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                if let ⓝote = self.ⓝotes.first {
+                    Text(ⓝote.title)
                 }
-                Spacer(minLength: 0)
             }
-            .padding()
-            .minimumScaleFactor(0.5)
-            .multilineTextAlignment(.center)
         }
-    }
-    private func ⓢystemLargeView() -> some View {
-        EmptyView()
-    }
-    private func ⓢystemExtraLargeView() -> some View {
-        EmptyView()
-    }
-    private func ⓐccessoryCornerView() -> some View {
-        EmptyView()
     }
     private func ⓐccessoryCircleView() -> some View {
         Group {
@@ -130,15 +119,6 @@ struct 🅆idgetEntryView: View {
                     .widgetAccentable()
                     .minimumScaleFactor(0.8)
                     .multilineTextAlignment(.center)
-                }
-            }
-        }
-    }
-    private func ⓐccessoryInlineView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                if let ⓝote = self.ⓝotes.first {
-                    Text(ⓝote.title)
                 }
             }
         }

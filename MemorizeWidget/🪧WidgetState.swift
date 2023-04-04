@@ -119,12 +119,11 @@ extension WidgetFamily {
             case .systemSmall: return 3
             case .systemMedium: return 3
             case .systemLarge: return 6
-            case .systemExtraLarge: return 12
             case .accessoryCorner: return 1
             case .accessoryCircular: return 2
             case .accessoryRectangular: return 3
             case .accessoryInline: return 1
-            @unknown default: return 1
+            default: return 1
         }
     }
 }

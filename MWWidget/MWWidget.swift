@@ -11,7 +11,7 @@ struct MWWidgetBundle: WidgetBundle {
 }
 
 struct 🖼MWWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
@@ -28,7 +28,7 @@ struct 🖼MWWidget: Widget {
 }
 
 struct 🖼MWWidgetSub: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
