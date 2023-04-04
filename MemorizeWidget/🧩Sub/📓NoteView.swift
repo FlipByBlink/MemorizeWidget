@@ -23,13 +23,11 @@ struct 📓NoteView: View {
                 self.ⓢtaticNoteView()
             }
         }
-        .opacity(self.🎨thin ? 0.4 : 1)
         .padding(.leading, 12)
         .padding(.vertical, 12)
         .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
         .onAppear(perform: self.ⓢetFocusForEmptyNote)
         .animation(.default, value: self.🚩inputting)
-        .animation(.default.speed(1.5), value: self.🎨thin)
     }
     private func ⓘnputNoteView() -> some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -58,6 +56,8 @@ struct 📓NoteView: View {
                     .padding(.bottom, 1)
                     .onTapGesture { self.ⓢtartToInput(.comment) }
             }
+            .opacity(self.🎨thin ? 0.4 : 1)
+            .animation(.default.speed(1.5), value: self.🎨thin)
             Spacer()
         }
     }
@@ -96,22 +96,4 @@ struct 📓NoteView: View {
 
 enum 🄵ocusArea {
     case title, comment
-}
-
-struct 🗑DeleteNoteButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
-    var body: some View {
-        Button(role: .destructive) {
-            withAnimation {
-                📱.📚notes.removeAll { $0 == self.ⓝote }
-            }
-            UINotificationFeedbackGenerator().notificationOccurred(.warning)
-        } label: {
-            Label("Delete", systemImage: "trash")
-        }
-    }
-    init(_ note: 📗Note) {
-        self.ⓝote = note
-    }
 }
