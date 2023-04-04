@@ -29,16 +29,21 @@ struct 🅆idgetEntryView: View {
     private func ⓢystemSmallView() -> some View {
         ZStack {
             Color.clear
-            VStack(spacing: 2) {
+            VStack(spacing: 4) {
                 Spacer(minLength: 0)
                 ForEach(self.ⓝotes) { ⓝote in
-                    Text(ⓝote.title)
-                        .font(.headline)
-                    if self.🚩showComment {
-                        if ⓝote.comment != "" {
-                            Text(ⓝote.comment)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
+                    VStack(spacing: 2) {
+                        Text(ⓝote.title)
+                            .font(.headline)
+                        if self.🚩showComment {
+                            if !ⓝote.comment.isEmpty {
+                                Text(ⓝote.comment)
+                                    .font(.subheadline.weight(.light))
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Color.clear
+                                    .frame(height: 4)
+                            }
                         }
                     }
                 }
@@ -52,16 +57,21 @@ struct 🅆idgetEntryView: View {
     private func ⓢystemMediumView() -> some View {
         ZStack {
             Color.clear
-            VStack(spacing: 0) {
+            VStack(spacing: 4) {
                 Spacer(minLength: 0)
                 ForEach(self.ⓝotes) { ⓝote in
-                    Text(ⓝote.title)
-                        .font(.title.bold())
-                    if self.🚩showComment {
-                        if ⓝote.comment != "" {
-                            Text(ⓝote.comment)
-                                .font(.title2)
-                                .foregroundStyle(.secondary)
+                    VStack(spacing: 2) {
+                        Text(ⓝote.title)
+                            .font(.title3.bold())
+                        if self.🚩showComment {
+                            if !ⓝote.comment.isEmpty {
+                                Text(ⓝote.comment)
+                                    .font(.body.weight(.light))
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Color.clear
+                                    .frame(height: 4)
+                            }
                         }
                     }
                 }
@@ -86,14 +96,14 @@ struct 🅆idgetEntryView: View {
             if #available(iOS 16.0, *) {
                 ZStack {
                     AccessoryWidgetBackground()
-                    if let ⓝote = self.ⓝotes.first {
-                        Text(ⓝote.title)
-                            .multilineTextAlignment(.center)
-                            .font(.caption)
-                            .fontWeight(.medium)
-                            .padding(.horizontal, 2)
-                    } else {
-                        Text("🐛")
+                    VStack {
+                        ForEach(self.ⓝotes) { ⓝote in
+                            Text(ⓝote.title)
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .padding(.horizontal, 2)
+                        }
                     }
                 }
             }
@@ -107,8 +117,9 @@ struct 🅆idgetEntryView: View {
                         ForEach(self.ⓝotes) { ⓝote in
                             Text(ⓝote.title)
                                 .font(.headline)
-                            if self.🚩showComment {
-                                if ⓝote.comment != "" {
+                                .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                            if case .singleNote(_) = self.ⓘnfo {
+                                if self.🚩showComment, !ⓝote.comment.isEmpty {
                                     Text(ⓝote.comment)
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
