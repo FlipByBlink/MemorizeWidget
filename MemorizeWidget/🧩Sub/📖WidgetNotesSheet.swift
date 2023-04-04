@@ -24,8 +24,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     }
     private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
         Group {
-            if let ⓝote = 📱.📚notes.first(where: { $0.id == ⓘd }),
-               let ⓘndex = 📱.📚notes.firstIndex(where: { $0 == ⓝote }) {
+            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
                 VStack {
                     Spacer()
                     📓NoteView($📱.📚notes[ⓘndex],
@@ -37,9 +36,9 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                         Spacer()
                         📘DictionaryButton($📱.📚notes[ⓘndex])
                         Spacer()
-                        🔍SearchButton(ⓝote)
+                        🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
-                        🗑DeleteNoteButton(ⓝote)
+                        🗑DeleteNoteButton(📱.📚notes[ⓘndex])
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
