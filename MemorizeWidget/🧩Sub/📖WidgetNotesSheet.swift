@@ -5,7 +5,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
     var body: some View {
         NavigationView {
             Group {
-                switch 📱.🪧widgetState.type {
+                switch 📱.🪧widgetState.info {
                     case .singleNote(let ⓘd):
                         self.ⓢigleNoteLayout(ⓘd)
                     case .multiNotes(let ⓘds):

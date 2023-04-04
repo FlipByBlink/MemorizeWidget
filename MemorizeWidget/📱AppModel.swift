@@ -29,8 +29,8 @@ extension 📱AppModel {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
             self.🪧widgetState.showSheet = false
-            if let ⓣype = 🪧WidgetState.🅃ype.load(ⓤrl) {
-                self.🪧widgetState = 🪧WidgetState(showSheet: true, type: ⓣype)
+            if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
+                self.🪧widgetState = 🪧WidgetState(showSheet: true, info: ⓘnfo)
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else {
                 assertionFailure()

@@ -45,41 +45,14 @@ struct 🖼MWWidgetSub: Widget {
 }
 
 struct 🤖TimelineProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒Entry {
-        🕒Entry(.now, 📗Note("title", "comment"))
+    func placeholder(in context: Context) -> 🕒WidgetEntry {
+        🕒WidgetEntry(.now, .singleNote(📚Notes.sample.first!.id))
     }
-    func getSnapshot(in context: Context, completion: @escaping (🕒Entry) -> ()) {
-        let ⓝotes: 📚Notes = .load() ?? []
-        if ⓝotes.isEmpty {
-            completion(🕒Entry(.now, nil))
-        } else {
-            if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") == true {
-                completion(🕒Entry(.now, ⓝotes.randomElement()!))
-            } else {
-                completion(🕒Entry(.now, ⓝotes.first))
-            }
-        }
+    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
+        completion(.generateEntry(.now, context.family))
     }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let ⓝotes: 📚Notes = .load() ?? []
-        if ⓝotes.isEmpty {
-            completion(Timeline(entries: [🕒Entry(.now, nil)],
-                                policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
-        } else {
-            if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") == true {
-                var ⓔntries: [🕒Entry] = []
-                for ⓒount in 0 ..< 12 {
-                    let ⓞffset = ⓒount * 5
-                    let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
-                    let ⓝote = ⓝotes.randomElement()!
-                    ⓔntries.append(🕒Entry(ⓓate, ⓝote))
-                }
-                completion(Timeline(entries: ⓔntries, policy: .atEnd))
-            } else {
-                completion(Timeline(entries: [🕒Entry(.now, ⓝotes.first)],
-                                    policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!)))
-            }
-        }
+    func getTimeline(in context: Context, completion: @escaping (Timeline<🕒WidgetEntry>) -> ()) {
+        completion(🕒WidgetEntry.generateTimeline(context.family))
     }
 }
 
@@ -93,9 +66,12 @@ struct 🕒Entry: TimelineEntry {
 }
 
 struct 🅆idgetEntryView: View {
-    private var ⓝote: 📗Note?
+    private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+    private var ⓝote: 📗Note? {
+        self.ⓘnfo.notes.first
+    }
     var body: some View {
         if let ⓝote {
             switch self.widgetFamily {
@@ -119,7 +95,7 @@ struct 🅆idgetEntryView: View {
                         .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                     }
-                    .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                    .widgetURL(self.ⓘnfo.url)
                 case .systemMedium:
                     ZStack {
                         Color.clear
@@ -140,7 +116,7 @@ struct 🅆idgetEntryView: View {
                         .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                     }
-                    .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                    .widgetURL(self.ⓘnfo.url)
                 case .accessoryRectangular:
                     if #available(iOS 16.0, *) {
                         ZStack {
@@ -159,12 +135,12 @@ struct 🅆idgetEntryView: View {
                             .minimumScaleFactor(0.8)
                             .multilineTextAlignment(.center)
                         }
-                        .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                        .widgetURL(self.ⓘnfo.url)
                     }
                 case .accessoryInline:
                     if #available(iOS 16.0, *) {
                         Text(ⓝote.title)
-                            .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                            .widgetURL(self.ⓘnfo.url)
                     }
                 case .accessoryCircular:
                     if #available(iOS 16.0, *) {
@@ -176,7 +152,7 @@ struct 🅆idgetEntryView: View {
                                 .fontWeight(.medium)
                                 .padding(.horizontal, 2)
                         }
-                        .widgetURL(URL(string: ⓝote.id.uuidString)!)
+                        .widgetURL(self.ⓘnfo.url)
                     }
                 default:
                     Text("🐛")
@@ -185,10 +161,11 @@ struct 🅆idgetEntryView: View {
             Image(systemName: "books.vertical")
                 .font(.title.weight(.medium))
                 .foregroundStyle(.tertiary)
+                .widgetURL(self.ⓘnfo.url)
         }
     }
     init(_ ⓔntry: 🤖TimelineProvider.Entry) {
-        self.ⓝote = ⓔntry.ⓝote
+        self.ⓘnfo = ⓔntry.info
     }
 }
 
