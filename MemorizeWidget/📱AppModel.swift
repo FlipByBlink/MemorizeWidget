@@ -20,7 +20,7 @@ class 📱AppModel: ObservableObject {
 extension 📱AppModel {
     func addNewNote(_ ⓘndex: Int = 0) {
         withAnimation {
-            self.📚notes.insert(📗Note(""), at: ⓘndex)
+            self.📚notes.insert(.empty, at: ⓘndex)
         }
         UISelectionFeedbackGenerator().selectionChanged()
     }

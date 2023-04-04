@@ -10,6 +10,8 @@ struct 📗Note: Codable, Identifiable, Hashable {
         self.title.isEmpty && self.comment.isEmpty
     }
     
+    static var empty: Self { Self("") }
+    
     init(_ title: String, _ comment: String = "") {
         self.title = title
         self.comment = comment

@@ -110,18 +110,39 @@ private struct 📘DictionaryButton: View {
 
 private struct 🗑️DeletedNoteView: View {
     var body: some View {
-        HStack {
-            Spacer()
-            VStack(spacing: 24) {
-                Label("Deleted.", systemImage: "checkmark")
-                Image(systemName: "trash")
+        VStack(spacing: 0) {
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("placeholder")
+                        .font(.title.weight(.semibold))
+                        .padding(.bottom, 1)
+                    Text("placeholder")
+                        .font(.title3.weight(.light))
+                        .padding(.bottom, 1)
+                }
+                Spacer()
             }
-            .foregroundColor(.primary)
-            .imageScale(.small)
-            .font(.largeTitle)
-            Spacer()
+            .padding(.leading, 12)
+            .padding(.vertical, 12)
+            Image(systemName: "trash")
+                .font(.title3)
+                .padding(12)
         }
-        .padding(24)
+        .padding(8)
+        .opacity(0)
+        .overlay {
+            HStack {
+                Spacer()
+                VStack(spacing: 24) {
+                    Label("Deleted.", systemImage: "checkmark")
+                    Image(systemName: "trash")
+                }
+                .foregroundColor(.primary)
+                .imageScale(.small)
+                .font(.largeTitle)
+                Spacer()
+            }
+        }
     }
 }
 

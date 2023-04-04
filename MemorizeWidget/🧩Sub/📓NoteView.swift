@@ -6,7 +6,7 @@ struct 📓NoteView: View {
     private var ⓣitleFont: Font = .title2
     private var ⓒommnetFont: Font = .body
     @State private var 🚩inputting: Bool = false
-    @State private var ⓘnputtingNote: 📗Note = .init("")
+    @State private var ⓘnputtingNote: 📗Note = .empty
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool {
         !📱.🪧widgetState.showSheet
