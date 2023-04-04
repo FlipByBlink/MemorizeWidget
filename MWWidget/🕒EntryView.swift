@@ -4,10 +4,8 @@ import WidgetKit
 struct 🅆idgetEntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
-    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
-        if !self.ⓝotes.isEmpty {
+        if !self.ⓘnfo.notes.isEmpty {
             Group {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
@@ -40,10 +38,16 @@ private struct 🄷omeScreenWidgetView: View {
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     private var ⓣitleFont: Font {
         switch self.widgetFamily {
-            case .systemSmall, .systemMedium:
+            case .systemSmall:
                 return self.ⓝotes.count == 1 ? .title3 : .headline
+            case .systemMedium:
+                return self.ⓝotes.count == 1 ? .title2 : .title3
             case .systemLarge:
-                return self.ⓝotes.count == 1 ? .largeTitle : .title2
+                if self.ⓝotes.count == 1 {
+                    return .largeTitle
+                } else {
+                    return self.🚩showComment ? .title2 : .title
+                }
             default:
                 return .largeTitle
         }
@@ -68,33 +72,45 @@ private struct 🄷omeScreenWidgetView: View {
                 return 1
         }
     }
+    private var ⓝotesSpace: Int {
+        switch self.widgetFamily {
+            case .systemSmall, .systemMedium:
+                return self.🚩showComment ? 8 : 12
+            case .systemLarge:
+                return self.🚩showComment ? 8 : 16
+            default:
+                assertionFailure(); return 8
+        }
+    }
     var body: some View {
         ZStack {
             Color.clear
-            VStack(spacing: 8) {
+            VStack(spacing: 0) {
                 Spacer(minLength: 0)
-                ForEach(self.ⓝotes) { ⓝote in
-                    VStack(spacing: self.ⓝotes.count == 1 ? 8 : 2) {
-                        Text(ⓝote.title)
-                            .font(self.ⓣitleFont.bold())
-                        if self.🚩showComment {
-                            if !ⓝote.comment.isEmpty {
-                                Text(ⓝote.comment)
-                                    .font(self.ⓒommentFont.weight(.light))
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Color.clear
-                                    .frame(height: 6)
+                VStack(spacing: self.🚩showComment ? 8 : 12) {
+                    ForEach(self.ⓝotes) { ⓝote in
+                        VStack(spacing: self.ⓝotes.count == 1 ? 8 : 2) {
+                            Text(ⓝote.title)
+                                .font(self.ⓣitleFont.bold())
+                            if self.🚩showComment {
+                                if !ⓝote.comment.isEmpty {
+                                    Text(ⓝote.comment)
+                                        .font(self.ⓒommentFont.weight(.light))
+                                        .foregroundStyle(.secondary)
+                                } else {
+                                    Color.clear
+                                        .frame(height: 6)
+                                }
                             }
                         }
+                        .lineLimit(self.ⓛineLimit)
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
                     }
-                    .lineLimit(self.ⓛineLimit)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
                 }
                 Spacer(minLength: 0)
             }
-            .padding()
+            .padding(self.widgetFamily == .systemLarge ? 20 : 16)
         }
     }
     init(_ info: 🪧WidgetInfo) {
