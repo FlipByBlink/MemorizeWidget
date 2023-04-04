@@ -12,12 +12,8 @@ struct 🅆idgetEntryView: View {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🄷omeScreenWidgetView(self.ⓘnfo)
-                    case .accessoryCorner, .accessoryInline:
-                        self.ⓐccessoryOneLineView()
-                    case .accessoryCircular:
-                        self.ⓐccessoryCircleView()
-                    case .accessoryRectangular:
-                        self.ⓐccessoryRectangularView()
+                    case .accessoryCorner, .accessoryInline, .accessoryCircular, .accessoryRectangular:
+                        🄰ccessaryWidgetView(self.ⓘnfo)
                     default:
                         Text("🐛")
                 }
@@ -25,58 +21,6 @@ struct 🅆idgetEntryView: View {
             .widgetURL(self.ⓘnfo.url)
         } else {
             self.ⓝoNoteView()
-        }
-    }
-    private func ⓐccessoryOneLineView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                if let ⓝote = self.ⓝotes.first {
-                    Text(ⓝote.title)
-                }
-            }
-        }
-    }
-    private func ⓐccessoryCircleView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                ZStack {
-                    AccessoryWidgetBackground()
-                    VStack {
-                        ForEach(self.ⓝotes) { ⓝote in
-                            Text(ⓝote.title)
-                                .multilineTextAlignment(.center)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                                .padding(.horizontal, 2)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    private func ⓐccessoryRectangularView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                ZStack {
-                    VStack(spacing: 0) {
-                        ForEach(self.ⓝotes) { ⓝote in
-                            Text(ⓝote.title)
-                                .font(.headline)
-                                .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                            if case .singleNote(_) = self.ⓘnfo {
-                                if self.🚩showComment, !ⓝote.comment.isEmpty {
-                                    Text(ⓝote.comment)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                        }
-                    }
-                    .widgetAccentable()
-                    .minimumScaleFactor(0.8)
-                    .multilineTextAlignment(.center)
-                }
-            }
         }
     }
     private func ⓝoNoteView() -> some View {
@@ -151,6 +95,80 @@ private struct 🄷omeScreenWidgetView: View {
                 Spacer(minLength: 0)
             }
             .padding()
+        }
+    }
+    init(_ info: 🪧WidgetInfo) {
+        self.ⓘnfo = info
+    }
+}
+
+private struct 🄰ccessaryWidgetView: View {
+    private var ⓘnfo: 🪧WidgetInfo
+    @Environment(\.widgetFamily) var widgetFamily
+    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
+    var body: some View {
+        switch self.widgetFamily {
+            case .accessoryCorner, .accessoryInline:
+                self.ⓞneLineView()
+            case .accessoryCircular:
+                self.ⓒircleView()
+            case .accessoryRectangular:
+                self.ⓡectangularView()
+            default:
+                Text("🐛")
+        }
+    }
+    private func ⓞneLineView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                if let ⓝote = self.ⓝotes.first {
+                    Text(ⓝote.title)
+                }
+            }
+        }
+    }
+    private func ⓒircleView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                ZStack {
+                    AccessoryWidgetBackground()
+                    VStack {
+                        ForEach(self.ⓝotes) { ⓝote in
+                            Text(ⓝote.title)
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .padding(.horizontal, 2)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    private func ⓡectangularView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                ZStack {
+                    VStack(spacing: 0) {
+                        ForEach(self.ⓝotes) { ⓝote in
+                            Text(ⓝote.title)
+                                .font(.headline)
+                                .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                            if case .singleNote(_) = self.ⓘnfo {
+                                if self.🚩showComment, !ⓝote.comment.isEmpty {
+                                    Text(ⓝote.comment)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                    .widgetAccentable()
+                    .minimumScaleFactor(0.8)
+                    .multilineTextAlignment(.center)
+                }
+            }
         }
     }
     init(_ info: 🪧WidgetInfo) {
