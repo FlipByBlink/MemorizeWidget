@@ -15,6 +15,7 @@
 "Delete" = "削除";
 "Dictionary" = "辞書";
 "Search" = "検索";
+"Show multi notes on widget" = "ウィジェット上で複数のノートを表示する";
 "Show comment on widget" = "ウィジェット上にコメントを表示する";
 "Directions" = "注記";
 "If lock screen widgets don't update, please close this app or switch to another app." = "ロック画面ウィジェットが更新されない場合は、アプリを閉じたりアプリを切り替えたりすると変更が反映されます。";

@@ -27,6 +27,16 @@ struct 🔩OptionTab: View {
                 .onChange(of: self.🚩value) { _ in
                     WidgetCenter.shared.reloadAllTimelines()
                 }
+                VStack(spacing: 16) {
+                    🏞BeforeAfterImage("home_multiNotes_before",
+                                       "home_multiNotes_after")
+                    if #available(iOS 16.0, *) {
+                        🏞BeforeAfterImage("lockscreen_multiNotes_before",
+                                           "lockscreen_multiNotes_after")
+                    }
+                }
+                .padding()
+                .frame(maxHeight: 400)
             }
         }
     }
@@ -42,32 +52,13 @@ struct 🔩OptionTab: View {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 VStack(spacing: 16) {
-                    self.🏞beforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
+                    🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
                     if #available(iOS 16.0, *) {
-                        self.🏞beforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                        🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
                     }
                 }
                 .padding()
-                .frame(maxHeight: 500)
-            }
-        }
-        private func 🏞beforeAfterImage(_ ⓑefore: String, _ ⓐfter: String) -> some View {
-            HStack {
-                Image(ⓑefore)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(16)
-                    .shadow(radius: 2)
-                    .rotationEffect(.degrees(1))
-                Image(systemName: "arrow.right")
-                    .font(.title2.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Image(ⓐfter)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(16)
-                    .shadow(radius: 2)
-                    .rotationEffect(.degrees(1))
+                .frame(maxHeight: 400)
             }
         }
     }
@@ -126,5 +117,31 @@ struct 🔩OptionTab: View {
             }
         }
         .disabled(📱.📚notes.isEmpty)
+    }
+}
+
+private struct 🏞BeforeAfterImage: View {
+    private var ⓑefore: String
+    private var ⓐfter: String
+    var body: some View {
+        HStack {
+            Image(self.ⓑefore)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+            Image(systemName: "arrow.right")
+                .font(.title2.weight(.semibold))
+                .foregroundStyle(.secondary)
+            Image(self.ⓐfter)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+        }
+    }
+    init(_ before: String, _ after: String) {
+        self.ⓑefore = before
+        self.ⓐfter = after
     }
 }
