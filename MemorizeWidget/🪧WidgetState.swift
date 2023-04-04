@@ -2,8 +2,8 @@ import Foundation
 import WidgetKit
 
 struct 🪧WidgetState {
-    var showSheet: Bool = false
-    var info: 🪧WidgetInfo? = nil
+    var showSheet: Bool
+    var info: 🪧WidgetInfo?
     static var `default`: Self { Self(showSheet: false, info: nil) }
 }
 

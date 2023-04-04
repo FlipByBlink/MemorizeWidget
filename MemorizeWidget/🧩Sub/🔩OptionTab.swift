@@ -6,6 +6,7 @@ struct 🔩OptionTab: View {
     var body: some View {
         NavigationView {
             List {
+                Self.📑MultiNotesOption()
                 Self.💬CommentOnWidgetSection()
                 Self.🔍CustomizeSearchSection()
                 if #available(iOS 16.0, *) { self.ⓓirectionsSection() }
@@ -14,6 +15,17 @@ struct 🔩OptionTab: View {
             .navigationTitle("Option")
         }
         .navigationViewStyle(.stack)
+    }
+    private struct 📑MultiNotesOption: View {
+        @AppStorage("multiNotes", store: .ⓐppGroup) var 🚩value: Bool = false
+        var body: some View {
+            Section {
+                Toggle(isOn: self.$🚩value) {
+                    Label("Show multi notes on widget", systemImage: "doc.on.doc")
+                        .padding(.vertical, 8)
+                }
+            }
+        }
     }
     private struct 💬CommentOnWidgetSection: View {
         @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false

@@ -69,33 +69,14 @@ struct 🅆idgetEntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝote: 📗Note? {
-        self.ⓘnfo.notes.first
+    private var ⓝotes: [📗Note] {
+        self.ⓘnfo.notes
     }
     var body: some View {
-        if let ⓝote {
+        if let ⓝote = self.ⓝotes.first {
             switch self.widgetFamily {
                 case .systemSmall:
-                    ZStack {
-                        Color.clear
-                        VStack(spacing: 0) {
-                            Spacer(minLength: 0)
-                            Text(ⓝote.title)
-                                .font(.headline)
-                            if self.🚩showComment {
-                                if ⓝote.comment != "" {
-                                    Text(ⓝote.comment)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                            Spacer(minLength: 0)
-                        }
-                        .padding()
-                        .minimumScaleFactor(0.5)
-                        .multilineTextAlignment(.center)
-                    }
-                    .widgetURL(self.ⓘnfo.url)
+                    self.ⓢystemSmallView()
                 case .systemMedium:
                     ZStack {
                         Color.clear
@@ -163,6 +144,30 @@ struct 🅆idgetEntryView: View {
                 .foregroundStyle(.tertiary)
                 .widgetURL(self.ⓘnfo.url)
         }
+    }
+    private func ⓢystemSmallView() -> some View {
+        ZStack {
+            Color.clear
+            VStack(spacing: 2) {
+                Spacer(minLength: 0)
+                ForEach(self.ⓝotes) { ⓝote in
+                    Text(ⓝote.title)
+                        .font(.headline)
+                    if self.🚩showComment {
+                        if ⓝote.comment != "" {
+                            Text(ⓝote.comment)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .padding()
+            .minimumScaleFactor(0.5)
+            .multilineTextAlignment(.center)
+        }
+        .widgetURL(self.ⓘnfo.url)
     }
     init(_ ⓔntry: 🤖TimelineProvider.Entry) {
         self.ⓘnfo = ⓔntry.info
