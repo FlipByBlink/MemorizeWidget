@@ -28,47 +28,57 @@ struct 🅆idgetEntryView: View {
         }
     }
     private func ⓗomeScreenWidgetView() -> some View {
-        ZStack {
-            Color.clear
-            VStack(spacing: 4) {
-                Spacer(minLength: 0)
-                ForEach(self.ⓝotes) { ⓝote in
-                    VStack(spacing: 2) {
-                        var ⓣitleFont: Font {
-                            switch self.widgetFamily {
-                                case .systemSmall: return .headline
-                                case .systemMedium: return .title3.bold()
-                                case .systemLarge: return .title.bold()
-                                default: return .headline
-                            }
-                        }
-                        Text(ⓝote.title)
-                            .font(ⓣitleFont)
-                        if self.🚩showComment {
-                            if !ⓝote.comment.isEmpty {
-                                var ⓒommentFont: Font {
-                                    switch self.widgetFamily {
-                                        case .systemSmall: return .caption
-                                        case .systemMedium: return .subheadline
-                                        case .systemLarge: return .body
-                                        default: return .subheadline
-                                    }
-                                }
-                                Text(ⓝote.comment)
-                                    .font(ⓒommentFont.weight(.light))
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Color.clear
-                                    .frame(height: 6)
-                            }
-                        }
-                    }
+        Group {
+            var ⓣitleFont: Font {
+                switch self.widgetFamily {
+                    case .systemSmall: return .headline
+                    case .systemMedium: return .title3.bold()
+                    case .systemLarge: return .title2.bold()
+                    default: return .headline
                 }
-                Spacer(minLength: 0)
             }
-            .padding()
-            .minimumScaleFactor(0.5)
-            .multilineTextAlignment(.center)
+            var ⓒommentFont: Font {
+                switch self.widgetFamily {
+                    case .systemSmall: return .caption
+                    case .systemMedium: return .subheadline
+                    case .systemLarge: return .body
+                    default: return .subheadline
+                }
+            }
+            var ⓛineLimit: Int {
+                switch self.widgetFamily {
+                    case .systemSmall, .systemMedium: return self.ⓝotes.count > 1 ? 1 : 3
+                    case .systemLarge: return self.ⓝotes.count > 3 ? 1 : 3
+                    default: return 1
+                }
+            }
+            ZStack {
+                Color.clear
+                VStack(spacing: 4) {
+                    Spacer(minLength: 0)
+                    ForEach(self.ⓝotes) { ⓝote in
+                        VStack(spacing: 2) {
+                            Text(ⓝote.title)
+                                .font(ⓣitleFont)
+                            if self.🚩showComment {
+                                if !ⓝote.comment.isEmpty {
+                                    Text(ⓝote.comment)
+                                        .font(ⓒommentFont.weight(.light))
+                                        .foregroundStyle(.secondary)
+                                } else {
+                                    Color.clear
+                                        .frame(height: 6)
+                                }
+                            }
+                        }
+                        .lineLimit(ⓛineLimit)
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding()
+            }
         }
     }
     private func ⓐccessoryOneLineView() -> some View {
