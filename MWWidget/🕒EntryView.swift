@@ -41,7 +41,7 @@ private struct 🄷omeScreenWidgetView: View {
             case .systemSmall:
                 return self.ⓝotes.count == 1 ? .title3 : .headline
             case .systemMedium:
-                return self.ⓝotes.count == 1 ? .title2 : .title3
+                return self.ⓝotes.count == 1 ? .title : .title3
             case .systemLarge:
                 if self.ⓝotes.count == 1 {
                     return .largeTitle
@@ -49,17 +49,17 @@ private struct 🄷omeScreenWidgetView: View {
                     return self.🚩showComment ? .title2 : .title
                 }
             default:
-                return .largeTitle
+                assertionFailure(); return .largeTitle
         }
     }
     private var ⓒommentFont: Font {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.ⓝotes.count == 1 ? .subheadline : .caption
+                return self.ⓝotes.count == 1 ? .body : .caption
             case .systemLarge:
                 return self.ⓝotes.count == 1 ? .title2 : .body
             default:
-                return .body
+                assertionFailure(); return .body
         }
     }
     private var ⓛineLimit: Int {
@@ -69,15 +69,19 @@ private struct 🄷omeScreenWidgetView: View {
             case .systemLarge:
                 return self.ⓝotes.count < 4 ? 3 : 1
             default:
-                return 1
+                assertionFailure(); return 1
         }
     }
-    private var ⓝotesSpace: Int {
+    private var ⓝotesSpace: CGFloat {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.🚩showComment ? 8 : 12
+                return self.🚩showComment ? 4 : 10
             case .systemLarge:
-                return self.🚩showComment ? 8 : 16
+                if self.ⓝotes.count < 4 {
+                    return self.🚩showComment ? 8 : 16
+                } else {
+                    return self.🚩showComment ? 4 : 10
+                }
             default:
                 assertionFailure(); return 8
         }
@@ -87,9 +91,9 @@ private struct 🄷omeScreenWidgetView: View {
             Color.clear
             VStack(spacing: 0) {
                 Spacer(minLength: 0)
-                VStack(spacing: self.🚩showComment ? 8 : 12) {
+                VStack(spacing: self.ⓝotesSpace) {
                     ForEach(self.ⓝotes) { ⓝote in
-                        VStack(spacing: self.ⓝotes.count == 1 ? 8 : 2) {
+                        VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
                             Text(ⓝote.title)
                                 .font(self.ⓣitleFont.bold())
                             if self.🚩showComment {
