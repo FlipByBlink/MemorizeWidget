@@ -30,7 +30,12 @@ extension 📱AppModel {
             self.🚩showNotesImportSheet = false
             self.🪧widgetState.showSheet = false
             if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
-                self.🪧widgetState = 🪧WidgetState(showSheet: true, info: ⓘnfo)
+                switch ⓘnfo {
+                    case .singleNote(_), .multiNotes(_):
+                        self.🪧widgetState = 🪧WidgetState(showSheet: true, info: ⓘnfo)
+                    case .newNoteShortcut, .noNote:
+                        break
+                }
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else {
                 assertionFailure()

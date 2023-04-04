@@ -69,8 +69,9 @@ struct 📚NotesListTab: View {
         .id("NewNoteButton")
     }
     private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
-        if ⓤrl.description == "NewNoteShortcut" {
+        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
             🚡.scrollTo("NewNoteButton")
+            📱.addNewNote()
         }
     }
 }
