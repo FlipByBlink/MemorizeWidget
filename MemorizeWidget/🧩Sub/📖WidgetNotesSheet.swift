@@ -34,7 +34,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     Spacer()
                     HStack {
                         Spacer()
-                        📘DictionaryButton($📱.📚notes[ⓘndex])
+                        📘DictionaryButton(📱.📚notes[ⓘndex])
                         Spacer()
                         🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
@@ -69,7 +69,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                                commentFont: .title3)
                     HStack {
                         Spacer()
-                        📘DictionaryButton($📱.📚notes[ⓘndex])
+                        📘DictionaryButton(📱.📚notes[ⓘndex])
                         Spacer()
                         🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
@@ -92,7 +92,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
 }
 
 private struct 📘DictionaryButton: View {
-    @Binding private var ⓣerm: String
+    private var ⓣerm: String
     @State private var ⓢtate: 📘DictionaryState = .default
     var body: some View {
         Button {
@@ -102,8 +102,8 @@ private struct 📘DictionaryButton: View {
         }
         .modifier(📘DictionarySheet(self.$ⓢtate))
     }
-    init(_ note: Binding<📗Note>) {
-        self._ⓣerm = note.title
+    init(_ note: 📗Note) {
+        self.ⓣerm = note.title
     }
 }
 
