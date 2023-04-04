@@ -5,7 +5,7 @@ import SwiftUI
 struct MWWidgetBundle: WidgetBundle {
     var body: some Widget {
         🖼MWWidget()
-        📝NewNoteShortcutWidget()
+        🆕NewNoteShortcutWidget()
         🖼MWWidgetSub()
     }
 }
@@ -54,37 +54,4 @@ struct 🤖TimelineProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<🕒WidgetEntry>) -> ()) {
         completion(🕒WidgetEntry.generateTimeline(context.family))
     }
-}
-
-
-//MARK: - ➕NewNoteShortcut
-struct 📝NewNoteShortcutWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] {
-        guard #available(iOS 16.0, *) else { return [] }
-        return [.accessoryInline, .accessoryCircular]
-    }
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖NewNoteShortcutProvider()) { _ in
-            🄽ewNoteShortcutView()
-        }
-        .configurationDisplayName("New note shortcut")
-        .description("Shortcut to add new note.")
-        .supportedFamilies(self.ⓕamilies)
-    }
-}
-
-struct 🤖NewNoteShortcutProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒NewNoteShortcutEntry {
-        🕒NewNoteShortcutEntry()
-    }
-    func getSnapshot(in context: Context, completion: @escaping (🕒NewNoteShortcutEntry) -> ()) {
-        completion(🕒NewNoteShortcutEntry())
-    }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        completion(Timeline(entries: [🕒NewNoteShortcutEntry()], policy: .never))
-    }
-}
-
-struct 🕒NewNoteShortcutEntry: TimelineEntry {
-    let date: Date = .now
 }

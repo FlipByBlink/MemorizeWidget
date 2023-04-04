@@ -5,9 +5,7 @@ struct 🅆idgetEntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝotes: [📗Note] {
-        self.ⓘnfo.notes
-    }
+    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
         if !self.ⓝotes.isEmpty {
             switch self.widgetFamily {
@@ -144,32 +142,5 @@ struct 🅆idgetEntryView: View {
     }
     init(_ ⓔntry: 🕒WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
-    }
-}
-
-
-//MARK: - ➕NewNoteShortcut
-struct 🄽ewNoteShortcutView: View {
-    @Environment(\.widgetFamily) var widgetFamily
-    var body: some View {
-        switch self.widgetFamily {
-            case .accessoryInline:
-                if #available(iOS 16.0, *) {
-                    Image(systemName: "plus.rectangle.on.rectangle")
-                        .widgetURL(URL(string: "NewNoteShortcut")!)
-                }
-            case .accessoryCircular:
-                if #available(iOS 16.0, *) {
-                    ZStack {
-                        AccessoryWidgetBackground()
-                        Image(systemName: "plus")
-                            .imageScale(.large)
-                            .fontWeight(.medium)
-                    }
-                    .widgetURL(URL(string: "NewNoteShortcut")!)
-                }
-            default:
-                Text("🐛")
-        }
     }
 }
