@@ -31,35 +31,42 @@ struct 🅆idgetEntryView: View {
         Group {
             var ⓣitleFont: Font {
                 switch self.widgetFamily {
-                    case .systemSmall: return .headline
-                    case .systemMedium: return .title3.bold()
-                    case .systemLarge: return .title2.bold()
-                    default: return .headline
+                    case .systemSmall, .systemMedium:
+                        return self.ⓝotes.count == 1 ? .title3 : .headline
+                    case .systemLarge:
+                        return self.ⓝotes.count == 1 ? .largeTitle : .title2
+                    default:
+                        return .largeTitle
                 }
             }
             var ⓒommentFont: Font {
                 switch self.widgetFamily {
-                    case .systemSmall: return .caption
-                    case .systemMedium: return .subheadline
-                    case .systemLarge: return .body
-                    default: return .subheadline
+                    case .systemSmall, .systemMedium:
+                        return self.ⓝotes.count == 1 ? .subheadline : .caption
+                    case .systemLarge:
+                        return self.ⓝotes.count == 1 ? .title2 : .body
+                    default:
+                        return .body
                 }
             }
             var ⓛineLimit: Int {
                 switch self.widgetFamily {
-                    case .systemSmall, .systemMedium: return self.ⓝotes.count > 1 ? 1 : 3
-                    case .systemLarge: return self.ⓝotes.count > 3 ? 1 : 3
-                    default: return 1
+                    case .systemSmall, .systemMedium:
+                        return self.ⓝotes.count == 1 ? 3 : 1
+                    case .systemLarge:
+                        return self.ⓝotes.count < 4 ? 3 : 1
+                    default:
+                        return 1
                 }
             }
             ZStack {
                 Color.clear
-                VStack(spacing: 4) {
+                VStack(spacing: 8) {
                     Spacer(minLength: 0)
                     ForEach(self.ⓝotes) { ⓝote in
-                        VStack(spacing: 2) {
+                        VStack(spacing: self.ⓝotes.count == 1 ? 8 : 2) {
                             Text(ⓝote.title)
-                                .font(ⓣitleFont)
+                                .font(ⓣitleFont.bold())
                             if self.🚩showComment {
                                 if !ⓝote.comment.isEmpty {
                                     Text(ⓝote.comment)
