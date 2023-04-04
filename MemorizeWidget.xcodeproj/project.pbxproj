@@ -65,6 +65,9 @@
 		F5FE2D7B29DAF650008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F5FE2D7E29DB062B008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
+		F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
+		F5FE2D8229DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
+		F5FE2D8329DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +196,7 @@
 		F5D30CDB28C707F2001198AF /* MemorizeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemorizeWidget.entitlements; sourceTree = "<group>"; };
 		F5D30CDC28C709D2001198AF /* MWWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWWidgetExtension.entitlements; sourceTree = "<group>"; };
 		F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧WidgetState.swift"; sourceTree = "<group>"; };
+		F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒EntryView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				F5D30CCC28C6F6C8001198AF /* MWWidget.swift */,
+				F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */,
 				F5D30CDC28C709D2001198AF /* MWWidgetExtension.entitlements */,
 				F5D30CD028C6F6C9001198AF /* Info.plist */,
 			);
@@ -494,6 +499,7 @@
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* ⭐️BaseModel.swift in Sources */,
+				F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */,
 				F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */,
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
@@ -509,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5AAE668292B754000FB8406 /* ⭐️BaseModel.swift in Sources */,
+				F5FE2D8329DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
 				F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */,
@@ -524,6 +531,7 @@
 				F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5AAE667292B753F00FB8406 /* ⭐️BaseModel.swift in Sources */,
 				F5FE2D7E29DB062B008C728B /* 🪧WidgetState.swift in Sources */,
+				F5FE2D8229DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
