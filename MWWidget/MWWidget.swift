@@ -11,7 +11,7 @@ struct MWWidgetBundle: WidgetBundle {
 }
 
 struct 🖼MWWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
@@ -28,7 +28,7 @@ struct 🖼MWWidget: Widget {
 }
 
 struct 🖼MWWidgetSub: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium]
+    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🤖TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
@@ -51,7 +51,7 @@ struct 🤖TimelineProvider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
         completion(.generateEntry(.now, context.family))
     }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<🕒WidgetEntry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         completion(🕒WidgetEntry.generateTimeline(context.family))
     }
 }

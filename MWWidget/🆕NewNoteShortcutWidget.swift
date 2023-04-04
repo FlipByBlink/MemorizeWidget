@@ -35,24 +35,25 @@ private struct 🕒NewNoteShortcutEntry: TimelineEntry {
 private struct 🄽ewNoteShortcutView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
-        switch self.widgetFamily {
-            case .accessoryInline:
-                if #available(iOS 16.0, *) {
-                    Image(systemName: "plus.rectangle.on.rectangle")
-                        .widgetURL(URL(string: "NewNoteShortcut")!)
-                }
-            case .accessoryCircular:
-                if #available(iOS 16.0, *) {
-                    ZStack {
-                        AccessoryWidgetBackground()
-                        Image(systemName: "plus")
-                            .imageScale(.large)
-                            .fontWeight(.medium)
+        Group {
+            switch self.widgetFamily {
+                case .accessoryInline:
+                    if #available(iOS 16.0, *) {
+                        Image(systemName: "plus.rectangle.on.rectangle")
                     }
-                    .widgetURL(URL(string: "NewNoteShortcut")!)
-                }
-            default:
-                Text("🐛")
+                case .accessoryCircular:
+                    if #available(iOS 16.0, *) {
+                        ZStack {
+                            AccessoryWidgetBackground()
+                            Image(systemName: "plus")
+                                .imageScale(.large)
+                                .fontWeight(.medium)
+                        }
+                    }
+                default:
+                    Text("🐛")
+            }
         }
+        .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
     }
 }
