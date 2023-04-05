@@ -140,56 +140,47 @@ private struct 🄰ccessaryWidgetView: View {
         }
     }
     private func ⓞneLineView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                Text(self.ⓝotes.first?.title ?? "🐛")
-            }
-        }
+        Text(self.ⓝotes.first?.title ?? "no note")
     }
     private func ⓒircleView() -> some View {
-        Group {
+        ZStack {
             if #available(iOS 16.0, *) {
-                ZStack {
-                    AccessoryWidgetBackground()
-                    VStack(spacing: 2) {
-                        ForEach(self.ⓝotes) { ⓝote in
-                            if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
-                            Text(ⓝote.title)
-                                .multilineTextAlignment(.center)
-                                .font(.caption)
-                                .fontWeight(.medium)
-                                .lineSpacing(0)
-                                .minimumScaleFactor(0.8)
-                                .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
-                        }
-                    }
-                    .padding(.vertical, 1)
+                AccessoryWidgetBackground()
+            }
+            VStack(spacing: 2) {
+                ForEach(self.ⓝotes) { ⓝote in
+                    if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
+                    Text(ⓝote.title)
+                        .multilineTextAlignment(.center)
+                        .font(.caption.weight(.medium))
+                        .lineSpacing(0)
+                        .minimumScaleFactor(0.8)
+                        .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
                 }
             }
+            .padding(.vertical, 1)
         }
     }
     private func ⓡectangularView() -> some View {
         Group {
             if #available(iOS 16.0, *) {
-                ZStack {
-                    VStack(spacing: 0) {
-                        ForEach(self.ⓝotes) { ⓝote in
-                            Text(ⓝote.title)
-                                .font(.headline)
-                                .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                            if case .singleNote(_) = self.ⓘnfo {
-                                if self.🚩showComment, !ⓝote.comment.isEmpty {
-                                    Text(ⓝote.comment)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
+                VStack(spacing: 0) {
+                    ForEach(self.ⓝotes) { ⓝote in
+                        Text(ⓝote.title)
+                            .font(.headline)
+                            .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                        if case .singleNote(_) = self.ⓘnfo {
+                            if self.🚩showComment, !ⓝote.comment.isEmpty {
+                                Text(ⓝote.comment)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
-                    .widgetAccentable()
-                    .minimumScaleFactor(0.8)
-                    .multilineTextAlignment(.center)
                 }
+                .widgetAccentable()
+                .minimumScaleFactor(0.8)
+                .multilineTextAlignment(.center)
             }
         }
     }
