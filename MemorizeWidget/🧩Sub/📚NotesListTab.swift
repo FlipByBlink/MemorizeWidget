@@ -17,8 +17,8 @@ struct 📚NotesListTab: View {
                                 🎛️NoteMenuButton(ⓝote)
                             }
                         }
-                        .onDelete(perform: 📱.delete(_:))
-                        .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
+                        .onDelete(perform: 📱.deleteNote(_:))
+                        .onMove(perform: 📱.moveNote(_:_:))
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")
                             .opacity(📱.📚notes.count < 6  ? 0 : 1)

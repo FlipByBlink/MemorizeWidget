@@ -51,7 +51,7 @@ struct 🗑TrashMenu: View {
     }
     private func ⓝoteView(_ ⓝote: 📗Note) -> some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(ⓝote.title)
                     .font(.headline)
                 Text(ⓝote.comment)
@@ -87,11 +87,14 @@ struct 🗑TrashMenu: View {
     private func ⓔmptyTrashView() -> some View {
         Group {
             if 📱.🗑trash.deletedContents.isEmpty {
-                Text("Empty")
-                    .font(.title2)
-                    .foregroundStyle(.secondary)
-                    .padding()
-                    .listRowBackground(Color.clear)
+                ZStack {
+                    Color.clear
+                    Text("Empty")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                }
+                .padding()
+                .listRowBackground(Color.clear)
             }
         }
     }
