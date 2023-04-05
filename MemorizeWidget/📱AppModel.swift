@@ -20,12 +20,14 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    func addNewNote(_ ⓘndex: Int = 0) {
+    func addNewNote(_ ⓘndex: Int) {
         withAnimation {
             self.📚notes.insert(.empty, at: ⓘndex)
         }
         UISelectionFeedbackGenerator().selectionChanged()
     }
+    
+    func addNewNoteOnTop() { self.addNewNote(0) }
     
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {

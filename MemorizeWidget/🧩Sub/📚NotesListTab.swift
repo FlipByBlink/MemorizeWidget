@@ -7,10 +7,9 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    self.🚩randomModeSection()
+                    🚩RandomModeSection()
                     Section {
-                        self.🆕newNoteButton()
-                            .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
+                        🆕NewNoteOnTopButton()
                         ForEach($📱.📚notes) { ⓝote in
                             HStack(spacing: 0) {
                                 📓NoteView(ⓝote)
@@ -45,9 +44,19 @@ struct 📚NotesListTab: View {
         }
         .navigationViewStyle(.stack)
     }
-    private func 🚩randomModeSection() -> some View {
+    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
+        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
+            🚡.scrollTo("NewNoteButton")
+            📱.addNewNoteOnTop()
+        }
+    }
+}
+
+private struct 🚩RandomModeSection: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
         Section {
-            Toggle(isOn: self.$📱.🚩randomMode) {
+            Toggle(isOn: $📱.🚩randomMode) {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
@@ -56,21 +65,17 @@ struct 📚NotesListTab: View {
             Text("Change the note per 5 minutes.")
         }
     }
-    private func 🆕newNoteButton() -> some View {
-        Button {
-            📱.addNewNote()
-        } label: {
+}
+
+private struct 🆕NewNoteOnTopButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        Button(action: 📱.addNewNoteOnTop) {
             Label("New note", systemImage: "plus")
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
         }
         .id("NewNoteButton")
-    }
-    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
-        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            🚡.scrollTo("NewNoteButton")
-            📱.addNewNote()
-        }
     }
 }
 
@@ -82,7 +87,7 @@ private struct 🎛️NoteMenuButton: View {
         Menu {
             📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
             🔍SearchButton(self.ⓝote)
-            🆕InsertNewNoteButton(self.ⓝote)
+            🆕InsertNewNoteBelowButton(self.ⓝote)
             Section { 🗑DeleteNoteButton(self.ⓝote) }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
@@ -114,7 +119,7 @@ private struct 📘DictionaryItem: View {
     }
 }
 
-private struct 🆕InsertNewNoteButton: View {
+private struct 🆕InsertNewNoteBelowButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     private var ⓝote: 📗Note
     var body: some View {
