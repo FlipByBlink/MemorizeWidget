@@ -7,7 +7,7 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    🗑TrashBoxMenu()
+                    🗑TrashMenu()
                     🚩RandomModeSection()
                     Section {
                         🆕NewNoteOnTopButton()
@@ -17,7 +17,11 @@ struct 📚NotesListTab: View {
                                 🎛️NoteMenuButton(ⓝote)
                             }
                         }
-                        .onDelete { 📱.📚notes.remove(atOffsets: $0) }
+                        .onDelete {
+                            guard let ⓘndex = $0.first else { return }
+                            📱.🗑trash.storeDeletedNotes([📱.📚notes[ⓘndex]])
+                            📱.📚notes.remove(atOffsets: $0)
+                        }
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")

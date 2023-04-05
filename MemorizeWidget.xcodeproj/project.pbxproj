@@ -72,7 +72,7 @@
 		F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8929DCDF12008C728B /* 🗑DeleteNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8829DCDF12008C728B /* 🗑DeleteNoteButton.swift */; };
-		F5FE2D8C29DD585E008C728B /* 🗑TrashBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑TrashBox.swift */; };
+		F5FE2D8C29DD585E008C728B /* 🗑Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,7 +204,7 @@
 		F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒EntryView.swift"; sourceTree = "<group>"; };
 		F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🆕NewNoteShortcutWidget.swift"; sourceTree = "<group>"; };
 		F5FE2D8829DCDF12008C728B /* 🗑DeleteNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑DeleteNoteButton.swift"; sourceTree = "<group>"; };
-		F5FE2D8B29DD585E008C728B /* 🗑TrashBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashBox.swift"; sourceTree = "<group>"; };
+		F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑Trash.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,7 +257,7 @@
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
 				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
-				F5FE2D8B29DD585E008C728B /* 🗑TrashBox.swift */,
+				F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */,
 				F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */,
 				F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */,
 				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
@@ -511,7 +511,7 @@
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
 				F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
-				F5FE2D8C29DD585E008C728B /* 🗑TrashBox.swift in Sources */,
+				F5FE2D8C29DD585E008C728B /* 🗑Trash.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* 💾UserDefaults.swift in Sources */,
 				F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */,

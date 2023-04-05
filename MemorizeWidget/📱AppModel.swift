@@ -10,8 +10,7 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
-    
-    @Published var 🗑trashBox: 🗑TrashBoxModel = .load()
+    @Published var 🗑trash: 🗑TrashModel = .load()
     
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     
@@ -35,7 +34,7 @@ extension 📱AppModel {
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
             💾UserDefaults.save(self.📚notes)
-            self.🗑trashBox.save()
+            self.🗑trash.save()
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
