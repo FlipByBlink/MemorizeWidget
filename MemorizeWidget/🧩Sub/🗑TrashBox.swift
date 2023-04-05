@@ -17,6 +17,7 @@ struct 🗑TrashBoxMenu: View {
             .animation(.default, value: 📱.🗑trashBox.deletedNotes)
         } label: {
             Label("Trash box", systemImage: "trash")
+                .badge(📱.🗑trashBox.deletedNotes.count)
         }
     }
     private func ⓝoteRow(_ ⓝote: 📗Note) -> some View {
@@ -32,7 +33,8 @@ struct 🗑TrashBoxMenu: View {
             .padding(8)
             Spacer()
             Button {
-                📱.📚notes.insert(ⓝote, at: 0)
+                let ⓡestoredNote = 📗Note(ⓝote.title, ⓝote.comment)
+                📱.📚notes.insert(ⓡestoredNote, at: 0)
                 📱.🗑trashBox.remove(ⓝote)
                 UISelectionFeedbackGenerator().selectionChanged()
             } label: {
@@ -42,6 +44,7 @@ struct 🗑TrashBoxMenu: View {
                     .foregroundColor(.secondary)
                     .padding(4)
             }
+            .buttonStyle(.plain)
         }
     }
     private func ⓒlearButton() -> some View {
@@ -55,6 +58,7 @@ struct 🗑TrashBoxMenu: View {
             Label("Clear trash", systemImage: "trash.slash")
         }
         .foregroundColor(.red)
+        .disabled(📱.🗑trashBox.deletedNotes.isEmpty)
     }
 }
 
@@ -89,6 +93,7 @@ struct 🗑TrashBoxModel: Codable {
     
     mutating func clearDeletedNotes() {
         self.deletedNotes = []
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
     
     func save() {
