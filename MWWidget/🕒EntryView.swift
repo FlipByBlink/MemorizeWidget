@@ -22,13 +22,10 @@ struct 🅆idgetEntryView: View {
             }
             .widgetURL(self.ⓘnfo.url)
         } else {
-            self.ⓝoNoteView()
+            Label("No note", systemImage: "book.closed")
+                .font(.largeTitle)
+                .foregroundStyle(.tertiary)
         }
-    }
-    private func ⓝoNoteView() -> some View {
-        Image(systemName: "books.vertical")
-            .font(.title.weight(.medium))
-            .foregroundStyle(.tertiary)
     }
     init(_ ⓔntry: 🕒WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
@@ -140,7 +137,7 @@ private struct 🄰ccessaryWidgetView: View {
         }
     }
     private func ⓞneLineView() -> some View {
-        Text(self.ⓝotes.first?.title ?? "no note")
+        Text(self.ⓝotes.first?.title ?? "No note")
     }
     private func ⓒircleView() -> some View {
         ZStack {
