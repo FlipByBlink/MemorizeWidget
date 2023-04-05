@@ -38,7 +38,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                         Spacer()
                         🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
-                        🗑DeleteNoteButton(📱.📚notes[ⓘndex])
+                        🚮DeleteNoteButton(📱.📚notes[ⓘndex])
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
@@ -49,7 +49,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                     Spacer()
                 }
             } else {
-                🗑️DeletedNoteView()
+                🚮DeletedNoteView()
             }
         }
     }
@@ -73,7 +73,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                         Spacer()
                         🔍SearchButton(📱.📚notes[ⓘndex])
                         Spacer()
-                        🗑DeleteNoteButton(📱.📚notes[ⓘndex])
+                        🚮DeleteNoteButton(📱.📚notes[ⓘndex])
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
@@ -85,7 +85,7 @@ struct 📖WidgetNotesSheet: View { //MARK: Work in progress
                 .padding(8)
             }
             if !📱.📚notes.contains(where: { $0.id == ⓘd }) { //Workaround: iOS15.5
-                🗑️DeletedNoteView()
+                🚮DeletedNoteView()
             }
         }
     }
@@ -107,7 +107,7 @@ private struct 📘DictionaryButton: View {
     }
 }
 
-private struct 🗑️DeletedNoteView: View {
+private struct 🚮DeletedNoteView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {

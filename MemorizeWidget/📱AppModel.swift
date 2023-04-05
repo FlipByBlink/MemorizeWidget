@@ -42,6 +42,18 @@ extension 📱AppModel {
     
     func addNewNoteOnTop() { self.addNewNote(0) }
     
+    func removeNote(_ ⓝote: 📗Note) {
+        self.🗑trash.storeDeletedNotes([ⓝote])
+        withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+    }
+    
+    func removeAllNotes() {
+        self.🗑trash.storeDeletedNotes(self.📚notes)
+        self.📚notes.removeAll()
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
+    }
+    
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
             💾UserDefaults.save(self.📚notes)

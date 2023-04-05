@@ -1,14 +1,11 @@
 import SwiftUI
 
-struct 🗑DeleteNoteButton: View {
+struct 🚮DeleteNoteButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     private var ⓝote: 📗Note
     var body: some View {
         Button(role: .destructive) {
-            withAnimation {
-                📱.📚notes.removeAll { $0 == self.ⓝote }
-            }
-            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            📱.removeNote(self.ⓝote)
         } label: {
             Label("Delete", systemImage: "trash")
         }

@@ -89,7 +89,7 @@ private struct 🎛️NoteMenuButton: View {
             📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
             🔍SearchButton(self.ⓝote)
             🆕InsertNewNoteBelowButton(self.ⓝote)
-            Section { 🗑DeleteNoteButton(self.ⓝote) }
+            Section { 🚮DeleteNoteButton(self.ⓝote) }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
                 .foregroundColor(.secondary)

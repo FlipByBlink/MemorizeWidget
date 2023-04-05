@@ -9,7 +9,7 @@ struct 🔩OptionTab: View {
                 💬CommentOnWidgetSection()
                 🔍CustomizeSearchSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
-                💣DeleteAllNotesButton()
+                🚮DeleteAllNotesButton()
             }
             .navigationTitle("Option")
         }
@@ -133,14 +133,11 @@ private struct 🄳irectionsSection: View {
     }
 }
 
-private struct 💣DeleteAllNotesButton: View {
+private struct 🚮DeleteAllNotesButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Menu {
-            Button(role: .destructive) {
-                📱.📚notes.removeAll()
-                UINotificationFeedbackGenerator().notificationOccurred(.error)
-            } label: {
+            Button(role: .destructive, action: 📱.removeAllNotes) {
                 Label("OK, delete all notes.", systemImage: "trash")
             }
         } label: {
