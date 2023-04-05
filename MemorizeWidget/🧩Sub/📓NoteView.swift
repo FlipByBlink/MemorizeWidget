@@ -66,7 +66,7 @@ struct 📓NoteView: View {
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
         self.ⓘnputtingNote = self.ⓝote
         withAnimation { self.🚩inputting = true }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             withAnimation { self.🔍focusState = ⓐrea }
         }
     }

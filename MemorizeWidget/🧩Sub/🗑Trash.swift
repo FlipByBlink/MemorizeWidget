@@ -36,7 +36,7 @@ private struct 🗑TrashMenu: View {
         } header: {
             Text(ⓒontent.date, style: .offset)
             +
-            Text(" (\(ⓒontent.date.formatted()))")
+            Text(" (\(ⓒontent.date.formatted(.dateTime.month().day().hour().minute())))")
         }
     }
     private func ⓢingleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
