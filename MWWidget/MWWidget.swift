@@ -24,6 +24,9 @@ struct 🖼MWWidget: Widget {
         if #available(iOS 16.0, *) {
             self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
         }
+#if os(watchOS)
+        self.ⓕamilies.append(contentsOf: [.accessoryCorner])
+#endif
     }
 }
 
@@ -54,8 +57,10 @@ struct 🖼MWWidgetSub: Widget {
         if UIDevice.current.userInterfaceIdiom == .pad {
             self.ⓕamilies.append(contentsOf: [.systemLarge])
         }
-        if #available(iOS 16.0, *) {
-            self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if #available(iOS 16.0, *) {
+                self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
+            }
         }
     }
 }

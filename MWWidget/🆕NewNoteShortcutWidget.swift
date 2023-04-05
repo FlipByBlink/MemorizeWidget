@@ -2,10 +2,7 @@ import SwiftUI
 import WidgetKit
 
 struct 🆕NewNoteShortcutWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] {
-        guard #available(iOS 16.0, *) else { return [] }
-        return [.accessoryInline, .accessoryCircular]
-    }
+    private var ⓕamilies: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "NewNoteShortcut", provider: 🤖NewNoteShortcutProvider()) { _ in
             🄽ewNoteShortcutView()
@@ -13,6 +10,16 @@ struct 🆕NewNoteShortcutWidget: Widget {
         .configurationDisplayName("New note shortcut")
         .description("Shortcut to add new note.")
         .supportedFamilies(self.ⓕamilies)
+    }
+    init() {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if #available(iOS 16.0, *) {
+                self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular])
+            }
+        }
+#if os(watchOS)
+        self.ⓕamilies.append(contentsOf: [.accessoryCorner])
+#endif
     }
 }
 
@@ -38,9 +45,7 @@ private struct 🄽ewNoteShortcutView: View {
         Group {
             switch self.widgetFamily {
                 case .accessoryInline:
-                    if #available(iOS 16.0, *) {
-                        Image(systemName: "plus.rectangle.on.rectangle")
-                    }
+                    Image(systemName: "plus.rectangle.on.rectangle")
                 case .accessoryCircular:
                     if #available(iOS 16.0, *) {
                         ZStack {
