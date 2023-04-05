@@ -44,7 +44,7 @@ enum 🪧WidgetInfo {
         }
     }
     var notes: 📚Notes {
-        guard let ⓝotes = 📚Notes.load() else { return [] }
+        guard let ⓝotes = 💾UserDefaults.loadNotes() else { return [] }
         switch self {
             case .singleNote(let ⓘd):
                 guard let ⓝote = ⓝotes.first(where: { $0.id == ⓘd }) else { return [] }
@@ -69,7 +69,7 @@ struct 🕒WidgetEntry: TimelineEntry {
     }
     
     static func generateEntry(_ ⓓate: Date, _ ⓦidgetFamily: WidgetFamily) -> Self {
-        let ⓝotes: 📚Notes = .load() ?? []
+        let ⓝotes: 📚Notes = 💾UserDefaults.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Self(.now, .noNote) }
         if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") {
@@ -96,7 +96,7 @@ struct 🕒WidgetEntry: TimelineEntry {
     }
     
     static func generateTimeline(_ ⓦidgetFamily: WidgetFamily) -> Timeline<Self> {
-        let ⓝotes: 📚Notes = .load() ?? []
+        let ⓝotes: 📚Notes = 💾UserDefaults.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Timeline(entries: [Self(.now, .noNote)], policy: .never) }
         if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             var ⓔntries: [Self] = []

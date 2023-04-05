@@ -22,27 +22,8 @@ struct 📗Note: Codable, Identifiable, Hashable {
 typealias 📚Notes = [📗Note]
 
 extension 📚Notes {
-    func save() {
-        do {
-            let ⓓata = try JSONEncoder().encode(self)
-            💾UserDefaults.appGroup.set(ⓓata, forKey: "Notes")
-            WidgetCenter.shared.reloadAllTimelines()
-        } catch {
-            print("🚨", error); assertionFailure()
-        }
-    }
     mutating func cleanEmptyTitleNotes() {
         self.removeAll { $0.title == "" }
-        self.save()
-    }
-    static func load() -> Self? {
-        guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "Notes") else { return nil }
-        do {
-            return try JSONDecoder().decode(Self.self, from: ⓓata)
-        } catch {
-            print("🚨", error); assertionFailure()
-            return []
-        }
     }
 }
 

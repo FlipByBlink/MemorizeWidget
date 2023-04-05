@@ -1,7 +1,8 @@
 import SwiftUI
+import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 📚notes: 📚Notes = .load() ?? .sample
+    @Published var 📚notes: 📚Notes
     
     @Published var 🔖tab: 🔖Tab = .notesList
     
@@ -12,6 +13,7 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     
     init() {
+        self.📚notes = 💾UserDefaults.loadNotes() ?? .sample
         self.📚notes.cleanEmptyTitleNotes()
     }
 }
@@ -23,6 +25,13 @@ extension 📱AppModel {
             self.📚notes.insert(.empty, at: ⓘndex)
         }
         UISelectionFeedbackGenerator().selectionChanged()
+    }
+    
+    func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
+        if ⓞldPhase == .active, ⓝewPhase == .inactive {
+            💾UserDefaults.save(self.📚notes)
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
     
     func handleWidgetURL(_ ⓤrl: URL) {

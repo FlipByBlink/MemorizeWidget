@@ -1,10 +1,13 @@
 import SwiftUI
 
-struct 🛒PurchaseTab: View {
-    @EnvironmentObject var 🛒: 🛒StoreModel
-    var body: some View {
-        NavigationView { 📣ADMenu() }
-            .navigationViewStyle(.stack)
+struct 🚥HandleScenePhase: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    @Environment(\.scenePhase) var scenePhase
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: self.scenePhase) { [scenePhase] ⓝewValue in
+                📱.handleLeavingApp(scenePhase, ⓝewValue)
+            }
     }
 }
 
@@ -16,11 +19,19 @@ struct 💾HandleShareExtensionData: ViewModifier {
             .onAppear { self.🚩savedByExtension = false }
             .onChange(of: self.🚩savedByExtension) {
                 if $0 == true {
-                    guard let ⓝotes = 📚Notes.load() else { return }
+                    guard let ⓝotes = 💾UserDefaults.loadNotes() else { return }
                     📱.📚notes = ⓝotes
                     self.🚩savedByExtension = false
                 }
             }
+    }
+}
+
+struct 🛒PurchaseTab: View {
+    @EnvironmentObject var 🛒: 🛒StoreModel
+    var body: some View {
+        NavigationView { 📣ADMenu() }
+            .navigationViewStyle(.stack)
     }
 }
 
