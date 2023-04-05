@@ -45,16 +45,20 @@ struct 📓NoteView: View {
     private func ⓢtaticNoteView() -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text(self.ⓝote.title.isEmpty ? "no title" : self.ⓝote.title)
-                    .font(self.ⓣitleFont.weight(.semibold))
-                    .foregroundStyle(self.ⓝote.title.isEmpty ? .secondary : .primary)
-                    .padding(.bottom, 1)
-                    .onTapGesture { self.ⓢtartToInput(.title) }
-                Text(self.ⓝote.comment.isEmpty ? "no comment" : self.ⓝote.comment)
-                    .font(self.ⓒommnetFont.weight(.light))
-                    .foregroundStyle(self.ⓝote.comment.isEmpty ? .tertiary : .secondary)
-                    .padding(.bottom, 1)
-                    .onTapGesture { self.ⓢtartToInput(.comment) }
+                Group {
+                    self.ⓝote.title.isEmpty ? Text("+ title") : Text(self.ⓝote.title)
+                }
+                .font(self.ⓣitleFont.weight(.semibold))
+                .foregroundStyle(self.ⓝote.title.isEmpty ? .secondary : .primary)
+                .padding(.bottom, 1)
+                .onTapGesture { self.ⓢtartToInput(.title) }
+                Group {
+                    self.ⓝote.comment.isEmpty ? Text("no comment") : Text(self.ⓝote.comment)
+                }
+                .font(self.ⓒommnetFont.weight(.light))
+                .foregroundStyle(self.ⓝote.comment.isEmpty ? .tertiary : .secondary)
+                .padding(.bottom, 1)
+                .onTapGesture { self.ⓢtartToInput(.comment) }
             }
             .opacity(self.🎨thin ? 0.4 : 1)
             .animation(.default.speed(1.5), value: self.🎨thin)
@@ -64,7 +68,7 @@ struct 📓NoteView: View {
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
         self.ⓘnputtingNote = self.ⓝote
         withAnimation { self.🚩inputting = true }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation { self.🔍focusState = ⓐrea }
         }
     }
