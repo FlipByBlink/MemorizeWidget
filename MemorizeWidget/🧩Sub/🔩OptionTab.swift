@@ -8,9 +8,9 @@ struct 🔩OptionTab: View {
                 📑MultiNotesOption()
                 💬CommentOnWidgetSection()
                 🔍CustomizeSearchSection()
-                if #available(iOS 16.0, *) { 🄳irectionsSection() }
                 🚮DeleteAllNotesButton()
                 🗑TrashMenuLink()
+                if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
             .navigationTitle("Option")
         }
@@ -124,16 +124,6 @@ private struct 🔍CustomizeSearchSection: View {
     }
 }
 
-private struct 🄳irectionsSection: View {
-    var body: some View {
-        Section {
-            Text("If lock screen widgets don't update, please close this app or switch to another app.")
-        } header: {
-            Text("Directions")
-        }
-    }
-}
-
 private struct 🚮DeleteAllNotesButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
@@ -143,13 +133,12 @@ private struct 🚮DeleteAllNotesButton: View {
                     Label("OK, delete all notes.", systemImage: "trash")
                 }
             } label: {
-                ZStack {
-                    Color.clear
-                    Label("Delete all notes.", systemImage: "trash")
-                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
-                }
+                Label("Delete all notes.", systemImage: "trash")
+                    .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
             }
             .disabled(📱.📚notes.isEmpty)
+        } header: {
+            Text("Delete")
         }
     }
 }
@@ -160,7 +149,7 @@ private struct 🗑TrashMenuLink: View {
         NavigationLink {
             🗑TrashMenu()
         } label: {
-            Label("Trash", systemImage: "trash")
+            Label("Trash", systemImage: "trash.square")
                 .badge(📱.🗑trash.deletedContents.count)
         }
     }
@@ -253,6 +242,7 @@ private struct 🗑TrashMenu: View {
                         .foregroundStyle(.secondary)
                 }
                 .padding(32)
+                .listRowBackground(Color.clear)
             }
         }
     }
@@ -265,5 +255,15 @@ private struct 🗑TrashMenu: View {
         .font(.subheadline)
         .foregroundStyle(.secondary)
         .listRowBackground(Color.clear)
+    }
+}
+
+private struct 🄳irectionsSection: View {
+    var body: some View {
+        Section {
+            Text("If lock screen widgets don't update, please close this app or switch to another app.")
+        } header: {
+            Text("Directions")
+        }
     }
 }
