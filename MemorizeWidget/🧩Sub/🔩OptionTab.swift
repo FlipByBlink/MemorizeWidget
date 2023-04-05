@@ -24,9 +24,7 @@ struct 🔩OptionTab: View {
                     Label("Show multi notes on widget", systemImage: "doc.on.doc")
                         .padding(.vertical, 8)
                 }
-                .onChange(of: self.🚩value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
+                .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
                 VStack(spacing: 16) {
                     🏞BeforeAfterImage("home_multiNotes_before",
                                        "home_multiNotes_after")
@@ -48,9 +46,7 @@ struct 🔩OptionTab: View {
                     Label("Show comment on widget", systemImage: "text.append")
                         .padding(.vertical, 8)
                 }
-                .onChange(of: self.🚩value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
+                .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
                 VStack(spacing: 16) {
                     🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
                     if #available(iOS 16.0, *) {

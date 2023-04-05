@@ -50,7 +50,7 @@ struct 📚NotesListTab: View {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .onChange(of: 📱.🚩randomMode) { _ in
+            .task(id: 📱.🚩randomMode) {
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
