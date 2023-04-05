@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         self.ⓣabView()
-            .onOpenURL { 📱.handleWidgetURL($0) }
+            .onOpenURL(perform: 📱.handleWidgetURL)
             .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
             .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
             .modifier(💾HandleShareExtensionData())

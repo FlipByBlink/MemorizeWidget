@@ -34,7 +34,7 @@ struct 📥NotesImportSheet: View {
                                         .padding(.vertical, 8)
                                 }
                             }
-                            self.ⓔxampleSection()
+                            🄸nputExample(mode: self.$ⓘnputMode)
                         case .text:
                             Section {
                                 TextEditor(text: self.$ⓟastedText)
@@ -71,9 +71,9 @@ struct 📥NotesImportSheet: View {
                                 .disabled(self.ⓟastedText.isEmpty)
                             }
                             .animation(.default, value: self.ⓟastedText.isEmpty)
-                            self.ⓔxampleSection()
+                            🄸nputExample(mode: self.$ⓘnputMode)
                     }
-                    self.ⓝotSupportMultiLineTextInNote()
+                    🄽otSupportMultiLineTextInNoteSection()
                 } else {
                     self.ⓢeparatorPicker()
                     Section {
@@ -134,18 +134,6 @@ struct 📥NotesImportSheet: View {
         }
         .animation(.default, value: self.ⓝotes)
         .animation(.default, value: self.ⓘnputMode)
-        .fileImporter(isPresented: self.$🚩showFileImporter, allowedContentTypes: [.text]) { ⓡesult in
-            do {
-                let ⓤrl = try ⓡesult.get()
-                if ⓤrl.startAccessingSecurityScopedResource() {
-                    self.ⓘmportedText = try String(contentsOf: ⓤrl)
-                    ⓤrl.stopAccessingSecurityScopedResource()
-                }
-            } catch {
-                self.🚨errorMessage = error.localizedDescription
-                self.🚨showErrorAlert = true
-            }
-        }
         .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
             Button("OK") {
                 self.🚨showErrorAlert = false
@@ -154,6 +142,9 @@ struct 📥NotesImportSheet: View {
         } message: {
             Text(self.🚨errorMessage)
         }
+        .fileImporter(isPresented: self.$🚩showFileImporter,
+                      allowedContentTypes: [.text],
+                      onCompletion: self.ⓕileImportAction)
     }
     private func ⓢeparatorPicker() -> some View {
         Picker(selection: self.$ⓢeparator) {
@@ -170,9 +161,29 @@ struct 📥NotesImportSheet: View {
             Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
         }
     }
-    private func ⓔxampleSection() -> some View {
+    private func ⓕileImportAction(_ ⓡesult: Result<URL, Error>) {
+        do {
+            let ⓤrl = try ⓡesult.get()
+            if ⓤrl.startAccessingSecurityScopedResource() {
+                self.ⓘmportedText = try String(contentsOf: ⓤrl)
+                ⓤrl.stopAccessingSecurityScopedResource()
+            }
+        } catch {
+            self.🚨errorMessage = error.localizedDescription
+            self.🚨showErrorAlert = true
+        }
+    }
+}
+
+enum 🄸nputMode: String {
+    case file, text
+}
+
+private struct 🄸nputExample: View {
+    @Binding var mode: 🄸nputMode
+    var body: some View {
         Section {
-            switch self.ⓘnputMode {
+            switch self.mode {
                 case .file:
                     HStack {
                         Image("sample_numbers")
@@ -228,15 +239,15 @@ struct 📥NotesImportSheet: View {
             Text("Example")
         }
     }
-    private func ⓝotSupportMultiLineTextInNote() -> some View {
+}
+
+private struct 🄽otSupportMultiLineTextInNoteSection: View {
+    var body: some View {
         Section {
             Text("Not support multi line text in note.")
                 .foregroundStyle(.secondary)
         } header: {
             Text("Directions")
         }
-    }
-    enum 🄸nputMode: String {
-        case file, text
     }
 }

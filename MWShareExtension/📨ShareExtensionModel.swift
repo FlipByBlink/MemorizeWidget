@@ -8,7 +8,7 @@ class 📨ShareExtensionModel: ObservableObject {
     
     @Published var importedFileText: String = ""
     
-    @Published var singleNote = 📗Note("")
+    @Published var singleNote: 📗Note = .empty
     @Published var importSelectedTextAsSingleNote: Bool = true
     
     var convertedNotes: 📚Notes {

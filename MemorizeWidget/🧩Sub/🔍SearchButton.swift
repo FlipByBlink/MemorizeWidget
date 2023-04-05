@@ -6,9 +6,7 @@ struct 🔍SearchButton: View {
     @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
     private var ⓠuery: String
     var body: some View {
-        Button {
-            self.ⓐction()
-        } label: {
+        Button(action: self.ⓐction) {
             Label("Search", systemImage: "magnifyingglass")
         }
     }
