@@ -7,6 +7,7 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
+                    🗑TrashBoxMenu()
                     🚩RandomModeSection()
                     Section {
                         🆕NewNoteOnTopButton()

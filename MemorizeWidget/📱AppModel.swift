@@ -10,6 +10,9 @@ class 📱AppModel: ObservableObject {
     
     @Published var 🚩showNotesImportSheet: Bool = false
     
+    
+    @Published var 🗑trashBox: 🗑TrashBoxModel = .load()
+    
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     
     init() {
