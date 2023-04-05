@@ -10,6 +10,7 @@ struct 🔩OptionTab: View {
                 🔍CustomizeSearchSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
                 🚮DeleteAllNotesButton()
+                🗑TrashMenuLink()
             }
             .navigationTitle("Option")
         }
@@ -136,17 +137,133 @@ private struct 🄳irectionsSection: View {
 private struct 🚮DeleteAllNotesButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
+        Section {
+            Menu {
+                Button(role: .destructive, action: 📱.removeAllNotes) {
+                    Label("OK, delete all notes.", systemImage: "trash")
+                }
+            } label: {
+                ZStack {
+                    Color.clear
+                    Label("Delete all notes.", systemImage: "trash")
+                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+                }
+            }
+            .disabled(📱.📚notes.isEmpty)
+        }
+    }
+}
+
+private struct 🗑TrashMenuLink: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        NavigationLink {
+            🗑TrashMenu()
+        } label: {
+            Label("Trash", systemImage: "trash")
+                .badge(📱.🗑trash.deletedContents.count)
+        }
+    }
+}
+
+private struct 🗑TrashMenu: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        List {
+            ForEach(📱.🗑trash.deletedContents) {
+                self.ⓒontentSection($0)
+            }
+            self.ⓔmptyTrashView()
+            self.ⓐboutTrashSection()
+        }
+        .navigationTitle("Trash")
+        .toolbar { self.ⓒlearButton() }
+        .animation(.default, value: 📱.🗑trash.deletedContents)
+    }
+    private func ⓒontentSection(_ ⓒontent: 🄳eletedContent) -> some View {
+        Section {
+            if ⓒontent.notes.count == 1 {
+                self.ⓢingleNoteRow(ⓒontent)
+            } else {
+                self.ⓜultiNotesRows(ⓒontent)
+            }
+        } header: {
+            Text(ⓒontent.date, style: .offset)
+            +
+            Text(" (\(ⓒontent.date.formatted(.dateTime.month().day().hour().minute())))")
+        }
+    }
+    private func ⓢingleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
+        HStack {
+            self.ⓝoteView(ⓒontent.notes.first ?? .init("🐛"))
+            Spacer()
+            self.ⓡestoreButton(ⓒontent)
+                .labelStyle(.iconOnly)
+                .font(.title)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.secondary)
+                .padding(4)
+        }
+    }
+    private func ⓜultiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
+        Group {
+            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
+            self.ⓡestoreButton(ⓒontent)
+        }
+    }
+    private func ⓝoteView(_ ⓝote: 📗Note) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(ⓝote.title)
+                    .font(.headline)
+                Text(ⓝote.comment)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(8)
+        }
+    }
+    private func ⓡestoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
+        Button {
+            📱.restore(ⓒontent)
+        } label: {
+            Label("Restore", systemImage: "arrow.uturn.backward.circle.fill")
+        }
+    }
+    private func ⓒlearButton() -> some View {
         Menu {
-            Button(role: .destructive, action: 📱.removeAllNotes) {
-                Label("OK, delete all notes.", systemImage: "trash")
+            Button(role: .destructive) {
+                📱.🗑trash.clearDeletedContents()
+            } label: {
+                Label("Clear trash", systemImage: "trash.slash")
             }
         } label: {
-            ZStack {
-                Color.clear
-                Label("Delete all notes.", systemImage: "trash")
-                    .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+            Label("Clear trash", systemImage: "trash.slash")
+        }
+        .tint(.red)
+        .disabled(📱.🗑trash.deletedContents.isEmpty)
+    }
+    private func ⓔmptyTrashView() -> some View {
+        Group {
+            if 📱.🗑trash.deletedContents.isEmpty {
+                ZStack {
+                    Color.clear
+                    Label("Empty", systemImage: "xmark.bin")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(32)
             }
         }
-        .disabled(📱.📚notes.isEmpty)
+    }
+    private func ⓐboutTrashSection() -> some View {
+        Section {
+            Label("After 7 days, the notes will be permanently deleted.",
+                  systemImage: "clock.badge.exclamationmark")
+            Label("Trash do not sync with iCloud.", systemImage: "xmark.icloud")
+        }
+        .font(.subheadline)
+        .foregroundStyle(.secondary)
+        .listRowBackground(Color.clear)
     }
 }
