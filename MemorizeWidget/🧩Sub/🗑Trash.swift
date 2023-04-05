@@ -1,22 +1,29 @@
 import SwiftUI
 
-struct 🗑TrashMenu: View {
+struct 🗑TrashMenuLink: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationLink {
-            List {
-                ForEach(📱.🗑trash.deletedContents) {
-                    self.ⓒontentSection($0)
-                }
-                self.ⓔmptyTrashView()
-            }
-            .navigationTitle("Trash")
-            .toolbar { self.ⓒlearButton() }
-            .animation(.default, value: 📱.🗑trash.deletedContents)
+            🗑TrashMenu()
         } label: {
             Label("Trash", systemImage: "trash")
                 .badge(📱.🗑trash.deletedContents.count)
         }
+    }
+}
+
+private struct 🗑TrashMenu: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        List {
+            ForEach(📱.🗑trash.deletedContents) {
+                self.ⓒontentSection($0)
+            }
+            self.ⓔmptyTrashView()
+        }
+        .navigationTitle("Trash")
+        .toolbar { self.ⓒlearButton() }
+        .animation(.default, value: 📱.🗑trash.deletedContents)
     }
     private func ⓒontentSection(_ ⓒontent: 🄳eletedContent) -> some View {
         Section {
@@ -123,7 +130,7 @@ struct 🗑TrashModel: Codable {
     }
     
     mutating func clearDeletedContents() {
-        self.deletedContents = []
+        self.deletedContents.removeAll()
         UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
     
