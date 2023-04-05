@@ -35,6 +35,7 @@ extension 📱AppModel {
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
             💾UserDefaults.save(self.📚notes)
+            self.🗑trashBox.save()
             WidgetCenter.shared.reloadAllTimelines()
         }
     }

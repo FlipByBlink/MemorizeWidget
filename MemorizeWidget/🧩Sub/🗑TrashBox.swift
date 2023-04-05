@@ -20,13 +20,29 @@ struct 🗑TrashBoxMenu: View {
         }
     }
     private func ⓝoteRow(_ ⓝote: 📗Note) -> some View {
-        VStack(alignment: .leading) {
-            Text(ⓝote.title)
-                .font(.headline)
-            Text(ⓝote.comment)
-                .font(.subheadline)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(ⓝote.title)
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                Text(ⓝote.comment)
+                    .font(.subheadline)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(8)
+            Spacer()
+            Button {
+                📱.📚notes.insert(ⓝote, at: 0)
+                📱.🗑trashBox.remove(ⓝote)
+                UISelectionFeedbackGenerator().selectionChanged()
+            } label: {
+                Image(systemName: "arrow.uturn.backward.circle.fill")
+                    .font(.title)
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundColor(.secondary)
+                    .padding(4)
+            }
         }
-        .padding(8)
     }
     private func ⓒlearButton() -> some View {
         Menu {
@@ -38,6 +54,7 @@ struct 🗑TrashBoxMenu: View {
         } label: {
             Label("Clear trash", systemImage: "trash.slash")
         }
+        .foregroundColor(.red)
     }
 }
 
@@ -64,30 +81,24 @@ struct 🗑TrashBoxModel: Codable {
         ⓝewDeletedNotes.removeAll { $0.isEmpty }
         self.deletedNotes.insert(contentsOf: ⓝewDeletedNotes, at: 0)
         self.activeNotesCache = ⓐctiveNotes
-        self.save()
+    }
+    
+    mutating func remove(_ ⓝote: 📗Note) {
+        self.deletedNotes.removeAll { $0 == ⓝote }
     }
     
     mutating func clearDeletedNotes() {
         self.deletedNotes = []
-        self.save()
     }
     
     func save() {
-        do {
-            let ⓓata = try JSONEncoder().encode(self)
-            💾UserDefaults.appGroup.set(ⓓata, forKey: "TrashBox")
-        } catch {
-            print("🚨", error); assertionFailure()
-        }
+        guard let ⓓata = try? JSONEncoder().encode(self) else { return }
+        💾UserDefaults.appGroup.set(ⓓata, forKey: "TrashBox")
     }
     
     static func load() -> Self {
-        guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "TrashBox") else { return .empty }
-        do {
-            return try JSONDecoder().decode(Self.self, from: ⓓata)
-        } catch {
-            print("🚨", error); assertionFailure()
-            return .empty
-        }
+        guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "TrashBox"),
+              let ⓜodel = try? JSONDecoder().decode(Self.self, from: ⓓata) else { return .empty }
+        return ⓜodel
     }
 }
