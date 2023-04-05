@@ -11,10 +11,10 @@ struct 🅆idgetEntryView: View {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🄷omeScreenWidgetView(self.ⓘnfo)
                     case .accessoryInline, .accessoryCircular, .accessoryRectangular:
-                        🄰ccessaryWidgetView(self.ⓘnfo)
+                        🄰ccessoryWidgetView(self.ⓘnfo)
 #if os(watchOS)
                     case .accessoryCorner:
-                        🄰ccessaryWidgetView(self.ⓘnfo)
+                        🄰ccessoryWidgetView(self.ⓘnfo)
 #endif
                     default:
                         Text("🐛")
@@ -120,7 +120,7 @@ private struct 🄷omeScreenWidgetView: View {
     }
 }
 
-private struct 🄰ccessaryWidgetView: View {
+private struct 🄰ccessoryWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
