@@ -22,44 +22,43 @@ extension 📱AppModel {
         self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])
         self.📚notes.remove(atOffsets: ⓘndexSet)
     }
-    
     func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
     }
-    
     private func addNewNote(_ ⓘndex: Int) {
         self.📚notes.insert(.empty, at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
-    
     func addNewNoteBelow(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.addNewNote(ⓘndex + 1)
     }
-    
-    func addNewNoteOnTop() { self.addNewNote(0) }
-    
+    func addNewNoteOnTop() {
+        self.addNewNote(0)
+    }
     func removeNote(_ ⓝote: 📗Note) {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
         UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
-    
     func removeAllNotes() {
         self.🗑trash.storeDeletedNotes(self.📚notes)
         self.📚notes.removeAll()
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
-    
     func insertOnTop(_ ⓝotes: 📚Notes) {
         self.📚notes.insert(contentsOf: ⓝotes, at: 0)
     }
-    
+    func restore(_ ⓒontent: 🄳eletedContent) {
+        let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
+        self.insertOnTop(ⓡestoredNotes)
+        self.🗑trash.remove(ⓒontent)
+        UISelectionFeedbackGenerator().selectionChanged()
+    }
     func reloadNotes() {
         guard let ⓝotes = 💾UserDefaults.loadNotes() else { return }
         self.📚notes = ⓝotes
     }
-    
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
             💾UserDefaults.save(self.📚notes)
@@ -67,7 +66,6 @@ extension 📱AppModel {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
-    
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
