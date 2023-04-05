@@ -6,22 +6,37 @@ struct 🗑TrashBoxMenu: View {
         NavigationLink {
             List {
                 ForEach(📱.🗑trashBox.deletedNotes) {
-                    Text($0.title)
+                    self.ⓝoteRow($0)
                 }
                 if 📱.🗑trashBox.deletedNotes.isEmpty {
                     Text("No deleted notes.")
                 }
             }
             .navigationTitle("Trash box")
-            .toolbar {
-                Button(role: .destructive) {
-                    📱.🗑trashBox.clearDeletedNotes()
-                } label: {
-                    Label("Clear trash", systemImage: "trash.slash")
-                }
-            }
+            .toolbar { self.ⓒlearButton() }
+            .animation(.default, value: 📱.🗑trashBox.deletedNotes)
         } label: {
             Label("Trash box", systemImage: "trash")
+        }
+    }
+    private func ⓝoteRow(_ ⓝote: 📗Note) -> some View {
+        VStack(alignment: .leading) {
+            Text(ⓝote.title)
+                .font(.headline)
+            Text(ⓝote.comment)
+                .font(.subheadline)
+        }
+        .padding(8)
+    }
+    private func ⓒlearButton() -> some View {
+        Menu {
+            Button(role: .destructive) {
+                📱.🗑trashBox.clearDeletedNotes()
+            } label: {
+                Label("Clear trash", systemImage: "trash.slash")
+            }
+        } label: {
+            Label("Clear trash", systemImage: "trash.slash")
         }
     }
 }
@@ -43,9 +58,10 @@ struct 🗑TrashBoxModel: Codable {
     static var empty: Self { Self(deletedNotes: [], activeNotesCache: []) }
     
     mutating func classifyDeletedNotes(_ ⓐctiveNotes: 📚Notes) {
-        let ⓝewDeletedNotes = self.activeNotesCache.filter { ⓒachedNote in
+        var ⓝewDeletedNotes = self.activeNotesCache.filter { ⓒachedNote in
             !ⓐctiveNotes.contains { $0.id == ⓒachedNote.id }
         }
+        ⓝewDeletedNotes.removeAll { $0.isEmpty }
         self.deletedNotes.insert(contentsOf: ⓝewDeletedNotes, at: 0)
         self.activeNotesCache = ⓐctiveNotes
         self.save()
