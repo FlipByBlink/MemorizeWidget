@@ -126,6 +126,14 @@ struct 🗑TrashModel: Codable {
         self.deletedContents = []
         UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
+    
+    mutating func cleanExceededContent() {
+        self.deletedContents.forEach { ⓒontent in
+            if ⓒontent.date.distance(to: .now) > (60 * 60 * 24 * 7) {
+                self.remove(ⓒontent)
+            }
+        }
+    }
 }
 
 extension 🗑TrashModel {

@@ -17,6 +17,7 @@ class 📱AppModel: ObservableObject {
     init() {
         self.📚notes = 💾UserDefaults.loadNotes() ?? .sample
         self.📚notes.cleanEmptyTitleNotes()
+        self.🗑trash.cleanExceededContent()
     }
 }
 
