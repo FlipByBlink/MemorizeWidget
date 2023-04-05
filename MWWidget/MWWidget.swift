@@ -27,23 +27,6 @@ struct 🖼MWWidget: Widget {
     }
 }
 
-struct 🖼MWWidgetSub: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "sub", provider: 🤖TimelineProvider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
-        }
-        .configurationDisplayName("Sub widget")
-        .description("This is spare widget for the purpose of second widget and random-mode")
-        .supportedFamilies(self.ⓕamilies)
-    }
-    init() {
-        if #available(iOS 16.0, *) {
-            self.ⓕamilies.append(contentsOf: [.accessoryRectangular, .accessoryCircular])
-        }
-    }
-}
-
 struct 🤖TimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒WidgetEntry {
         🕒WidgetEntry(.now, .singleNote(📚Notes.sample.first!.id))
@@ -53,5 +36,26 @@ struct 🤖TimelineProvider: TimelineProvider {
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         completion(🕒WidgetEntry.generateTimeline(context.family))
+    }
+}
+
+//SubWidget
+struct 🖼MWWidgetSub: Widget {
+    private var ⓕamilies: [WidgetFamily] = []
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "sub", provider: 🤖TimelineProvider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("Sub widget")
+        .description("This is spare widget for the purpose of second widget and random-mode")
+        .supportedFamilies(self.ⓕamilies)
+    }
+    init() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.ⓕamilies.append(contentsOf: [.systemLarge])
+        }
+        if #available(iOS 16.0, *) {
+            self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
+        }
     }
 }

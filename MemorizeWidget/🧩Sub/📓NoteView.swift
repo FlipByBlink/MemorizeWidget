@@ -10,10 +10,8 @@ struct 📓NoteView: View {
     @FocusState private var 🔍focusState: 🄵ocusArea?
     private var 🎨thin: Bool {
         !📱.🪧widgetState.showSheet
-        &&
-        !📱.🚩randomMode
-        &&
-        📱.📚notes.first != self.ⓝote
+        && !📱.🚩randomMode
+        && 📱.📚notes.first != self.ⓝote
     }
     var body: some View {
         Group {
