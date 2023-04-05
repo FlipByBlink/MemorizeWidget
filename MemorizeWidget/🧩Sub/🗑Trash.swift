@@ -20,6 +20,7 @@ private struct 🗑TrashMenu: View {
                 self.ⓒontentSection($0)
             }
             self.ⓔmptyTrashView()
+            self.ⓐboutExceedContentsSection()
         }
         .navigationTitle("Trash")
         .toolbar { self.ⓒlearButton() }
@@ -93,13 +94,21 @@ private struct 🗑TrashMenu: View {
             if 📱.🗑trash.deletedContents.isEmpty {
                 ZStack {
                     Color.clear
-                    Text("Empty")
+                    Label("Empty", systemImage: "xmark.bin")
                         .font(.title2)
                         .foregroundStyle(.secondary)
                 }
-                .padding()
-                .listRowBackground(Color.clear)
+                .padding(32)
             }
+        }
+    }
+    private func ⓐboutExceedContentsSection() -> some View {
+        Section {
+            Label("After 7 days, the notes will be permanently deleted.",
+                  systemImage: "clock.badge.exclamationmark")
+            .padding(.vertical)
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
         }
     }
 }

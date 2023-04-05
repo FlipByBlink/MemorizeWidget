@@ -25,16 +25,16 @@ extension 📱AppModel {
     func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
     }
-    private func addNewNote(_ ⓘndex: Int) {
+    private func addNewNote(index ⓘndex: Int) {
         self.📚notes.insert(.empty, at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
+    func addNewNoteOnTop() {
+        self.addNewNote(index: 0)
+    }
     func addNewNoteBelow(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
-        self.addNewNote(ⓘndex + 1)
-    }
-    func addNewNoteOnTop() {
-        self.addNewNote(0)
+        self.addNewNote(index: ⓘndex + 1)
     }
     func removeNote(_ ⓝote: 📗Note) {
         self.🗑trash.storeDeletedNotes([ⓝote])
