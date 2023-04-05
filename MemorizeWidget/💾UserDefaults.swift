@@ -8,6 +8,13 @@ enum 💾UserDefaults {
             assertionFailure(); return .standard
         }
     }
+}
+
+extension UserDefaults {
+    static var ⓐppGroup: UserDefaults { 💾UserDefaults.appGroup }
+}
+
+extension 💾UserDefaults {
     static func save(_ ⓝotes: 📚Notes) {
         do {
             let ⓓata = try JSONEncoder().encode(ⓝotes)
@@ -16,7 +23,6 @@ enum 💾UserDefaults {
             print("🚨", error); assertionFailure()
         }
     }
-    
     static func loadNotes() -> 📚Notes? {
         guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "Notes") else { return nil }
         do {
@@ -26,8 +32,4 @@ enum 💾UserDefaults {
             return []
         }
     }
-}
-
-extension UserDefaults {
-    static var ⓐppGroup: UserDefaults { 💾UserDefaults.appGroup }
 }
