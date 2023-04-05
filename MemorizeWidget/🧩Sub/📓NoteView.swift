@@ -72,9 +72,13 @@ struct 📓NoteView: View {
     }
     private func ⓗandleUnfocus(_ ⓕocus: 🄵ocusArea?) {
         if ⓕocus == nil {
-            self.ⓝote = self.ⓘnputtingNote
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                withAnimation { self.🚩inputting = false }
+            if self.ⓘnputtingNote.isEmpty {
+                self.📱.📚notes.removeAll { $0 == self.ⓝote }
+            } else {
+                self.ⓝote = self.ⓘnputtingNote
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation { self.🚩inputting = false }
+                }
             }
         }
     }
