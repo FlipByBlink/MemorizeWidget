@@ -26,16 +26,17 @@ private struct 📑MultiNotesOption: View {
                     .padding(.vertical, 8)
             }
             .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 🏞BeforeAfterImage("home_multiNotes_before",
                                    "home_multiNotes_after")
-                if #available(iOS 16.0, *) {
-                    🏞BeforeAfterImage("lockscreen_multiNotes_before",
-                                       "lockscreen_multiNotes_after")
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    if #available(iOS 16.0, *) {
+                        🏞BeforeAfterImage("lockscreen_multiNotes_before",
+                                           "lockscreen_multiNotes_after")
+                    }
                 }
             }
             .padding()
-            .frame(maxHeight: 400)
         }
     }
 }
@@ -49,14 +50,15 @@ private struct 💬CommentOnWidgetSection: View {
                     .padding(.vertical, 8)
             }
             .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
-                if #available(iOS 16.0, *) {
-                    🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    if #available(iOS 16.0, *) {
+                        🏞BeforeAfterImage("lockscreen_commentOff", "lockscreen_commentOn")
+                    }
                 }
             }
             .padding()
-            .frame(maxHeight: 400)
         }
     }
 }
@@ -80,6 +82,7 @@ private struct 🏞BeforeAfterImage: View {
                 .cornerRadius(16)
                 .shadow(radius: 2)
         }
+        .frame(maxHeight: 200)
     }
     init(_ before: String, _ after: String) {
         self.ⓑefore = before
