@@ -8,9 +8,7 @@ struct 🗑TrashBoxMenu: View {
                 ForEach(📱.🗑trashBox.deletedNotes) {
                     self.ⓝoteRow($0)
                 }
-                if 📱.🗑trashBox.deletedNotes.isEmpty {
-                    Text("No deleted notes.")
-                }
+                self.ⓔmptyTrashView()
             }
             .navigationTitle("Trash box")
             .toolbar { self.ⓒlearButton() }
@@ -57,8 +55,19 @@ struct 🗑TrashBoxMenu: View {
         } label: {
             Label("Clear trash", systemImage: "trash.slash")
         }
-        .foregroundColor(.red)
+        .tint(.red)
         .disabled(📱.🗑trashBox.deletedNotes.isEmpty)
+    }
+    private func ⓔmptyTrashView() -> some View {
+        Group {
+            if 📱.🗑trashBox.deletedNotes.isEmpty {
+                Text("Empty")
+                    .font(.title2)
+                    .foregroundStyle(.secondary)
+                    .padding()
+                    .listRowBackground(Color.clear)
+            }
+        }
     }
 }
 
