@@ -106,9 +106,9 @@ private struct 🗑TrashMenu: View {
         Section {
             Label("After 7 days, the notes will be permanently deleted.",
                   systemImage: "clock.badge.exclamationmark")
-            .padding(.vertical)
             .font(.subheadline)
             .foregroundStyle(.secondary)
+            .listRowBackground(Color.clear)
         }
     }
 }
@@ -125,8 +125,9 @@ struct 🗑TrashModel: Codable {
     private(set) var deletedContents: 🄳eletedContents
     static var empty: Self { Self(deletedContents: []) }
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
-        guard !ⓝotes.isEmpty else { return }
-        let ⓒontent = 🄳eletedContent(date: .now, notes: ⓝotes)
+        let ⓓeletedNotes = ⓝotes.filter { !$0.isEmpty }
+        guard !ⓓeletedNotes.isEmpty else { return }
+        let ⓒontent = 🄳eletedContent(date: .now, notes: ⓓeletedNotes)
         self.deletedContents.insert(ⓒontent, at: 0)
     }
     mutating func remove(_ ⓒontent: 🄳eletedContent) {

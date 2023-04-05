@@ -28,7 +28,7 @@ struct 📓NoteView: View {
         .animation(.default, value: self.🚩inputting)
     }
     private func ⓘnputNoteView() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 6) {
             TextField("+ title", text: self.$ⓘnputtingNote.title)
                 .focused(self.$🔍focusState, equals: .title)
                 .font(self.ⓣitleFont.weight(.semibold))
@@ -42,7 +42,7 @@ struct 📓NoteView: View {
     }
     private func ⓢtaticNoteView() -> some View {
         HStack {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 6) {
                 Group {
                     self.ⓝote.title.isEmpty ? Text("+ title") : Text(self.ⓝote.title)
                 }
@@ -60,7 +60,7 @@ struct 📓NoteView: View {
             }
             .opacity(self.🎨thin ? 0.4 : 1)
             .animation(.default.speed(1.5), value: self.🎨thin)
-            Spacer()
+            Spacer(minLength: 0)
         }
     }
     private func ⓢtartToInput(_ ⓐrea: 🄵ocusArea) {
