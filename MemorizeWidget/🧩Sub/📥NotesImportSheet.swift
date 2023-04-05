@@ -110,7 +110,7 @@ struct 📥NotesImportSheet: View {
                             📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.📚notes.insert(contentsOf: self.ⓝotes, at: 0)
+                                📱.insertOnTop(self.ⓝotes)
                                 self.ⓘmportedText = ""
                             }
                         } label: {

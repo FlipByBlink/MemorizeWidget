@@ -33,9 +33,14 @@ extension 📱AppModel {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
     }
     
-    func addNewNote(_ ⓘndex: Int) {
+    private func addNewNote(_ ⓘndex: Int) {
         self.📚notes.insert(.empty, at: ⓘndex)
         UISelectionFeedbackGenerator().selectionChanged()
+    }
+    
+    func addNewNoteBelow(_ ⓝote: 📗Note) {
+        guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
+        self.addNewNote(ⓘndex + 1)
     }
     
     func addNewNoteOnTop() { self.addNewNote(0) }
@@ -50,6 +55,10 @@ extension 📱AppModel {
         self.🗑trash.storeDeletedNotes(self.📚notes)
         self.📚notes.removeAll()
         UINotificationFeedbackGenerator().notificationOccurred(.error)
+    }
+    
+    func insertOnTop(_ ⓝotes: 📚Notes) {
+        self.📚notes.insert(contentsOf: ⓝotes, at: 0)
     }
     
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {

@@ -125,8 +125,7 @@ private struct 🆕InsertNewNoteBelowButton: View {
     private var ⓝote: 📗Note
     var body: some View {
         Button {
-            guard let ⓘndex = 📱.📚notes.firstIndex(of: self.ⓝote) else { return }
-            📱.addNewNote(ⓘndex + 1)
+            📱.addNewNoteBelow(self.ⓝote)
         } label: {
             Label("New note", systemImage: "text.append")
         }

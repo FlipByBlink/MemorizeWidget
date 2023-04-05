@@ -71,7 +71,7 @@ private struct 🗑TrashMenu: View {
     private func ⓡestoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
         Button {
             let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
-            📱.📚notes.insert(contentsOf: ⓡestoredNotes, at: 0)
+            📱.insertOnTop(ⓡestoredNotes)
             📱.🗑trash.remove(ⓒontent)
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
