@@ -25,6 +25,7 @@ struct 📚NotesListTab: View {
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
+                .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
                 .animation(.default, value: 📱.📚notes)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -50,9 +51,7 @@ struct 📚NotesListTab: View {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .task(id: 📱.🚩randomMode) {
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            .task(id: 📱.🚩randomMode) { WidgetCenter.shared.reloadAllTimelines() }
         } footer: {
             Text("Change the note per 5 minutes.")
         }
