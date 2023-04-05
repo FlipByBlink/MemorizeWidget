@@ -20,33 +20,55 @@ struct 🗑TrashMenu: View {
     }
     private func ⓒontentSection(_ ⓒontent: 🄳eletedContent) -> some View {
         Section {
-            ForEach(ⓒontent.notes) { ⓝote in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(ⓝote.title)
-                            .font(.headline)
-                            .foregroundStyle(.secondary)
-                        Text(ⓝote.comment)
-                            .font(.subheadline)
-                            .foregroundStyle(.tertiary)
-                    }
-                    .padding(8)
-                }
-            }
-            Button {
-                let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
-                📱.📚notes.insert(contentsOf: ⓡestoredNotes, at: 0)
-                📱.🗑trash.remove(ⓒontent)
-                UISelectionFeedbackGenerator().selectionChanged()
-            } label: {
-                Image(systemName: "arrow.uturn.backward.circle.fill")
-                    .font(.title)
-                    .symbolRenderingMode(.hierarchical)
-                    .foregroundColor(.secondary)
-                    .padding(4)
+            if ⓒontent.notes.count == 1 {
+                self.ⓢingleNoteRow(ⓒontent)
+            } else {
+                self.ⓜultiNotesRows(ⓒontent)
             }
         } header: {
-            Text(ⓒontent.date.formatted())
+            Text(ⓒontent.date, style: .offset)
+            +
+            Text(" (\(ⓒontent.date.formatted()))")
+        }
+    }
+    private func ⓢingleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
+        HStack {
+            self.ⓝoteView(ⓒontent.notes.first ?? .init("🐛"))
+            Spacer()
+            self.ⓡestoreButton(ⓒontent)
+                .labelStyle(.iconOnly)
+                .font(.title)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.secondary)
+                .padding(4)
+        }
+    }
+    private func ⓜultiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
+        Group {
+            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
+            self.ⓡestoreButton(ⓒontent)
+        }
+    }
+    private func ⓝoteView(_ ⓝote: 📗Note) -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(ⓝote.title)
+                    .font(.headline)
+                Text(ⓝote.comment)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(8)
+        }
+    }
+    private func ⓡestoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
+        Button {
+            let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
+            📱.📚notes.insert(contentsOf: ⓡestoredNotes, at: 0)
+            📱.🗑trash.remove(ⓒontent)
+            UISelectionFeedbackGenerator().selectionChanged()
+        } label: {
+            Label("Restore", systemImage: "arrow.uturn.backward.circle.fill")
         }
     }
     private func ⓒlearButton() -> some View {
@@ -90,7 +112,7 @@ struct 🗑TrashModel: Codable {
     
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
         let ⓒontent = 🄳eletedContent(date: .now, notes: ⓝotes)
-        self.deletedContents.append(ⓒontent)
+        self.deletedContents.insert(ⓒontent, at: 0)
     }
     
     mutating func remove(_ ⓒontent: 🄳eletedContent) {

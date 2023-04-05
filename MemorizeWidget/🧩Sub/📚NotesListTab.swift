@@ -17,11 +17,7 @@ struct 📚NotesListTab: View {
                                 🎛️NoteMenuButton(ⓝote)
                             }
                         }
-                        .onDelete {
-                            guard let ⓘndex = $0.first else { return }
-                            📱.🗑trash.storeDeletedNotes([📱.📚notes[ⓘndex]])
-                            📱.📚notes.remove(atOffsets: $0)
-                        }
+                        .onDelete(perform: 📱.delete(_:))
                         .onMove { 📱.📚notes.move(fromOffsets: $0, toOffset: $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")

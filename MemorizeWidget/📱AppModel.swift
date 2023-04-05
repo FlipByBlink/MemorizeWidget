@@ -22,6 +22,12 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
+    func delete(_ ⓘndexSet: IndexSet) {
+        guard let ⓘndex = ⓘndexSet.first else { return }
+        self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])
+        self.📚notes.remove(atOffsets: ⓘndexSet)
+    }
+    
     func addNewNote(_ ⓘndex: Int) {
         withAnimation {
             self.📚notes.insert(.empty, at: ⓘndex)
