@@ -19,8 +19,7 @@ struct 💾HandleShareExtensionData: ViewModifier {
             .onAppear { self.🚩savedByExtension = false }
             .onChange(of: self.🚩savedByExtension) {
                 if $0 == true {
-                    guard let ⓝotes = 💾UserDefaults.loadNotes() else { return }
-                    📱.📚notes = ⓝotes
+                    📱.reloadNotes()
                     self.🚩savedByExtension = false
                 }
             }

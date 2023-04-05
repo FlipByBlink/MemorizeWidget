@@ -3,17 +3,11 @@ import WidgetKit
 
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: 📚Notes
-    
     @Published var 🔖tab: 🔖Tab = .notesList
-    
     @Published var 🪧widgetState: 🪧WidgetState = .default
-    
     @Published var 🚩showNotesImportSheet: Bool = false
-    
     @Published var 🗑trash: 🗑TrashModel = .load()
-    
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
-    
     init() {
         self.📚notes = 💾UserDefaults.loadNotes() ?? .sample
         self.📚notes.cleanEmptyTitleNotes()
@@ -59,6 +53,11 @@ extension 📱AppModel {
     
     func insertOnTop(_ ⓝotes: 📚Notes) {
         self.📚notes.insert(contentsOf: ⓝotes, at: 0)
+    }
+    
+    func reloadNotes() {
+        guard let ⓝotes = 💾UserDefaults.loadNotes() else { return }
+        self.📚notes = ⓝotes
     }
     
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
