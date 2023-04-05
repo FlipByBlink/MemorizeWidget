@@ -121,6 +121,7 @@ struct 🗑TrashModel: Codable {
     static var empty: Self { Self(deletedContents: []) }
     
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
+        guard !ⓝotes.isEmpty else { return }
         let ⓒontent = 🄳eletedContent(date: .now, notes: ⓝotes)
         self.deletedContents.insert(ⓒontent, at: 0)
     }
@@ -134,7 +135,7 @@ struct 🗑TrashModel: Codable {
         UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
     
-    mutating func cleanExceededContent() {
+    mutating func cleanExceededContents() {
         self.deletedContents.forEach { ⓒontent in
             if ⓒontent.date.distance(to: .now) > (60 * 60 * 24 * 7) {
                 self.remove(ⓒontent)

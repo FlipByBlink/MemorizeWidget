@@ -75,9 +75,6 @@ struct 📓NoteView: View {
             self.ⓝote = self.ⓘnputtingNote
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 withAnimation { self.🚩inputting = false }
-                if self.ⓝote.isEmpty {
-                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
-                }
             }
         }
     }
