@@ -13,7 +13,6 @@ struct 🔩MenuTab: View {
                     🗑TrashRow()
                 }
                 🚮DeleteAllNotesButton()
-                if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
             .navigationTitle("Menu")
         }
@@ -299,16 +298,6 @@ private struct 🚮DeleteAllNotesButton: View {
                 }
             }
             .disabled(📱.📚notes.isEmpty)
-        }
-    }
-}
-
-private struct 🄳irectionsSection: View {
-    var body: some View {
-        Section {
-            Text("If lock screen widgets don't update, please close this app or switch to another app.")
-        } header: {
-            Text("Directions")
         }
     }
 }

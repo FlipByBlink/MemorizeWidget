@@ -18,16 +18,16 @@ struct ContentView: View {
             🔩MenuTab()
                 .tag(🔖Tab.menu)
                 .tabItem { Label("Menu", systemImage: "gearshape") }
-            🛒PurchaseTab()
-                .tag(🔖Tab.purchase)
-                .tabItem { Label("Purchase", systemImage: "cart") }
+            💁GuideTab()
+                .tag(🔖Tab.guide)
+                .tabItem { Label("Guide", systemImage: "questionmark") }
             ℹ️AboutAppTab()
                 .tag(🔖Tab.about)
-                .tabItem { Label("About App", systemImage: "questionmark") }
+                .tabItem { Label("About App", systemImage: "app.badge") }
         }
     }
 }
 
 enum 🔖Tab {
-    case notesList, menu, purchase, about
+    case notesList, menu, guide, about
 }

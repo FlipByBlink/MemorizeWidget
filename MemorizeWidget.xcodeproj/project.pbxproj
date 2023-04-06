@@ -90,6 +90,8 @@
 		F5FE2DA329DE8AB3008C728B /* 🆕NewNoteShortcutWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2DA429DE8AB3008C728B /* 📨ShareExtensionModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
 		F5FE2DA529DE8AB3008C728B /* 🄷ostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
+		F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */; };
+		F5FE2DA829DEB1F7008C728B /* 💁GuideTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				F5FE2DA829DEB1F7008C728B /* 💁GuideTab.swift in CopyFiles */,
 				F5FE2D8F29DE8AB3008C728B /* MemorizeWidgetApp.swift in CopyFiles */,
 				F5FE2D9029DE8AB3008C728B /* ContentView.swift in CopyFiles */,
 				F5FE2D9129DE8AB3008C728B /* 📱AppModel.swift in CopyFiles */,
@@ -211,6 +214,7 @@
 		F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚮DeleteNoteButton.swift"; sourceTree = "<group>"; };
 		F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑Trash.swift"; sourceTree = "<group>"; };
 		F5FE2D8D29DE88E8008C728B /* 🧰MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🧰MetaData.swift"; sourceTree = "<group>"; };
+		F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideTab.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
 				F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */,
 				F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */,
+				F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */,
 				F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */,
 				F5B6FED328C9BDDC0045D44A /* 🧰Others */,
 				F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */,
@@ -517,6 +522,7 @@
 				F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
 				F5FE2D8C29DD585E008C728B /* 🗑Trash.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* 💾UserDefaults.swift in Sources */,
+				F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */,
 				F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */,
 				F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */,

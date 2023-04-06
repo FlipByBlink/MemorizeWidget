@@ -26,16 +26,6 @@ struct 💾HandleShareExtensionData: ViewModifier {
     }
 }
 
-struct 🛒PurchaseTab: View {
-    @EnvironmentObject var 🛒: 🛒StoreModel
-    var body: some View {
-        NavigationView {
-            📣ADMenu()
-        }
-        .navigationViewStyle(.stack)
-    }
-}
-
 enum 🩹Workaround {
     struct closeMenePopup: ViewModifier {
         @Environment(\.scenePhase) var scenePhase

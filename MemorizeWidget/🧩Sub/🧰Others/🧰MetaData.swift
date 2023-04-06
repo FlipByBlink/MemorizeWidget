@@ -46,6 +46,7 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "🔍SearchButton.swift",
                         "🗑Trash.swift",
                         "🗄️Rest.swift",
+                        "💁GuideTab.swift",
                         "ℹ️AboutAppTab.swift"]
             case .Others:
                 return ["🧰MetaData.swift",
