@@ -5,7 +5,7 @@ struct 💁GuideTab: View {
         NavigationView {
             List {
                 🄸mportNotesSection()
-                🄸CloudSection()
+                🄳ataSection()
                 🄳eleteNoteBySwipingSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
@@ -15,13 +15,16 @@ struct 💁GuideTab: View {
     }
 }
 
-private struct 🄸CloudSection: View {
+private struct 🄳ataSection: View {
+    @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Section {
-            Text("Sync notes between devices by iCloud.")
-            Text("Data limitation is 1 mega byte.")
+            Label("Sync notes between devices by iCloud.", systemImage: "icloud")
+            Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
+            Label("Notes data count", systemImage: "books.vertical")
+                .badge(💾UserDefaults.dataCount(📱.📚notes).formatted(.byteCount(style: .file)))
         } header: {
-            Text("iCloud")
+            Text("Data")
         }
     }
 }

@@ -108,12 +108,9 @@ struct 📥NotesImportSheet: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if !self.ⓝotes.isEmpty {
                         Button {
+                            📱.insertOnTop(self.ⓝotes)
                             📱.🚩showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                📱.insertOnTop(self.ⓝotes)
-                                self.ⓘmportedText = ""
-                            }
                         } label: {
                             Label("Done", systemImage: "checkmark")
                                 .font(.body.weight(.semibold))
@@ -176,7 +173,7 @@ struct 📥NotesImportSheet: View {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                guard let ⓓata = ⓣext.data(using: .utf8), ⓓata.count < 300000 else {
+                guard try Data(contentsOf: ⓤrl).count < 300000 else {
                     self.🚨alertDataSizeLimitExceeded = true
                     return
                 }
