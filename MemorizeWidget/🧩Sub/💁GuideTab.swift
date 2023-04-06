@@ -17,12 +17,21 @@ struct 💁GuideTab: View {
 
 private struct 🄳ataSection: View {
     @EnvironmentObject var 📱: 📱AppModel
+    private var ⓓataCount: Int { 💾UserDefaults.dataCount(📱.📚notes) }
     var body: some View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
             Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
-            Label("Notes data count", systemImage: "books.vertical")
-                .badge(💾UserDefaults.dataCount(📱.📚notes).formatted(.byteCount(style: .file)))
+            VStack {
+                Label("Notes data count", systemImage: "books.vertical")
+                    .badge(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                if self.ⓓataCount > 800000 {
+                    Text("⚠️ EXCEED LIMITATION")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                        .padding(4)
+                }
+            }
         } header: {
             Text("Data")
         }
@@ -43,13 +52,17 @@ private struct 🄸mportNotesSection: View {
 private struct 🄳eleteNoteBySwipingSection: View {
     var body: some View {
         Section {
+            Text("Delete a note by swiping the row.")
             VStack {
-                Text("Delete a note by swiping the row.")
+                Image(systemName: "photo")
+                    .font(.largeTitle)
                 HStack {
                     Image(systemName: "hand.point.up.left")
-                    Image(systemName: "arrowshape.left")
+                    Image(systemName: "arrow.left")
                 }
+                .environment(\.layoutDirection, .leftToRight)
             }
+            .padding()
         } header: {
             Text("Tips")
         }
