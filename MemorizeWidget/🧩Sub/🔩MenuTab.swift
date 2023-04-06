@@ -139,7 +139,10 @@ private struct 📤ExportNotesRow: View {
         @EnvironmentObject var 📱: 📱AppModel
         private var ⓣext: String {
             📱.📚notes.reduce(into: "") { ⓟartialResult, ⓝote in
-                ⓟartialResult += ⓝote.title + "\t" + ⓝote.comment
+                var ⓣempNote = ⓝote
+                ⓣempNote.title.removeAll(where: { $0 == "\n" })
+                ⓣempNote.comment.removeAll(where: { $0 == "\n" })
+                ⓟartialResult += ⓣempNote.title + "\t" + ⓣempNote.comment
                 if ⓝote != 📱.📚notes.last { ⓟartialResult += "\n" }
             }
         }
