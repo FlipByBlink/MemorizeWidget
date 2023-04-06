@@ -26,6 +26,20 @@ struct 💾HandleShareExtensionData: ViewModifier {
     }
 }
 
+struct 💬RequestUserReview: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    @State private var ⓒheckToRequest: Bool = false
+    func body(content: Content) -> some View {
+        content
+            .modifier(💬PrepareToRequestUserReview(self.$ⓒheckToRequest))
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 120) {
+                    self.ⓒheckToRequest = true
+                }
+            }
+    }
+}
+
 enum 🩹Workaround {
     struct closeMenePopup: ViewModifier {
         @Environment(\.scenePhase) var scenePhase

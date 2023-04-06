@@ -20,6 +20,7 @@ struct 📖WidgetNotesSheet: View {
             }
             .toolbar { 🅧DismissButton() }
         }
+        .modifier(📣ADSheet())
         .navigationViewStyle(.stack)
     }
     private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
@@ -156,5 +157,21 @@ private struct 🅧DismissButton: View {
                 .symbolRenderingMode(.hierarchical)
         }
         .foregroundColor(.secondary)
+    }
+}
+
+private struct 📣ADSheet: ViewModifier {
+    @EnvironmentObject var 🛒: 🛒StoreModel
+    @State private var ⓐpp: 📣MyApp = .pickUpAppWithout(.MemorizeWidget)
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: $🛒.🚩showADSheet) {
+                📣ADView(self.ⓐpp, second: 10)
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    🛒.checkToShowADSheet()
+                }
+            }
     }
 }
