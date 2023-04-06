@@ -32,4 +32,13 @@ extension 💾UserDefaults {
             return []
         }
     }
+    static func dataCount(_ ⓝotes: 📚Notes) -> Int {
+        do {
+            let ⓓata = try JSONEncoder().encode(ⓝotes)
+            return ⓓata.count
+        } catch {
+            print("🚨", error); assertionFailure()
+            return 0
+        }
+    }
 }

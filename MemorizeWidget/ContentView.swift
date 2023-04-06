@@ -10,6 +10,7 @@ struct ContentView: View {
             .modifier(💾HandleShareExtensionData())
             .modifier(🚥HandleScenePhase())
             .modifier(💬RequestUserReview())
+            .modifier(🚨SizeLimitAlert())
     }
     private func ⓣabView() -> some View {
         TabView(selection: $📱.🔖tab) {

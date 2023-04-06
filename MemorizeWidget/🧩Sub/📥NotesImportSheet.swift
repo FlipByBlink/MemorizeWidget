@@ -112,6 +112,9 @@ struct 📥NotesImportSheet: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 📱.insertOnTop(self.ⓝotes)
                                 self.ⓘmportedText = ""
+                                if 💾UserDefaults.dataCount(📱.📚notes) > 500000 {
+                                    📱.🚩alertDataSizeLimitExceeded = true
+                                }
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
