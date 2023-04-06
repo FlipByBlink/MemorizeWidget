@@ -210,7 +210,7 @@ struct 📣ADMenuLink: View {
     }
 }
 
-private struct 📣ADMenu: View {
+struct 📣ADMenu: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
         List {
