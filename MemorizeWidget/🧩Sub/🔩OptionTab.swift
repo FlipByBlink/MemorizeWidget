@@ -133,8 +133,11 @@ private struct 🚮DeleteAllNotesButton: View {
                     Label("OK, delete all notes.", systemImage: "trash")
                 }
             } label: {
-                Label("Delete all notes.", systemImage: "delete.backward.fill")
-                    .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+                ZStack(alignment: .leading) {
+                    Color.clear
+                    Label("Delete all notes.", systemImage: "delete.backward.fill")
+                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+                }
             }
             .disabled(📱.📚notes.isEmpty)
         } header: {
@@ -188,6 +191,7 @@ private struct 🗑TrashMenu: View {
             Spacer()
             self.ⓡestoreButton(ⓒontent)
                 .labelStyle(.iconOnly)
+                .buttonStyle(.plain)
                 .font(.title)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundColor(.secondary)
