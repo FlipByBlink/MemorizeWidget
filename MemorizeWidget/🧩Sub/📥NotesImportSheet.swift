@@ -120,7 +120,7 @@ struct 📥NotesImportSheet: View {
                 ToolbarItem(placement: .principal) {
                     if self.ⓝotes.isEmpty {
                         Button {
-                            self.🚨alertDataSizeLimitExceeded = false
+                            📱.🚩showNotesImportSheet = false
                             UISelectionFeedbackGenerator().selectionChanged()
                         } label: {
                             Image(systemName: "chevron.down")
@@ -135,9 +135,7 @@ struct 📥NotesImportSheet: View {
         .animation(.default, value: self.ⓝotes)
         .animation(.default, value: self.ⓘnputMode)
         .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
-            Button("Yes") {
-                self.🚨alertDataSizeLimitExceeded = false
-            }
+            Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
         } message: {
             Text("Notes data over 300kb. The data may exceed size limitation(1mb). Please decrease notes.")
         }

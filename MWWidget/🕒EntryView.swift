@@ -112,8 +112,8 @@ private struct 🄷omeScreenWidgetView: View {
                 }
                 Spacer(minLength: 0)
             }
-            .padding(self.widgetFamily == .systemLarge ? 20 : 16)
         }
+        .padding(self.widgetFamily == .systemLarge ? 24 : 16)
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
