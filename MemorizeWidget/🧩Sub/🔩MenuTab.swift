@@ -146,10 +146,15 @@ private struct 📤ExportNotesRow: View {
         var body: some View {
             List {
                 Section {
-                    Text(self.ⓣext)
-                        .font(.subheadline.monospaced().italic())
-                        .textSelection(.enabled)
-                        .padding()
+                    Label("Notes count", systemImage: "books.vertical")
+                        .badge(📱.📚notes.count)
+                    ScrollView(.horizontal) {
+                        Text(self.ⓣext)
+                            .font(.subheadline.monospaced().italic())
+                            .textSelection(.enabled)
+                            .lineLimit(50)
+                            .padding()
+                    }
                     if #available(iOS 16.0, *) {
                         ShareLink(item: self.ⓣext)
                     } else {

@@ -41,8 +41,27 @@ private struct 🄳ataSection: View {
 private struct 🄸mportNotesSection: View {
     var body: some View {
         Section {
-            Text("Import notes from plain text or text base file(csv, tsv, txt).")
-            Image(systemName: "photo")
+            HStack(spacing: 8) {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 140, height: 140)
+                    .padding(8)
+                Text("Import notes from plain text or text base file(csv, tsv, txt).")
+            }
+            HStack(spacing: 8) {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 140, height: 140)
+                    .padding(8)
+                Text("Import selected text as notes from other app.")
+            }
+            HStack(spacing: 8) {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 140, height: 140)
+                    .padding(8)
+                Text("Import a text-base file as notes from other app.")
+            }
         } header: {
             Text("Import notes")
         }
@@ -55,7 +74,8 @@ private struct 🄳eleteNoteBySwipingSection: View {
             Text("Delete a note by swiping the row.")
             VStack {
                 Image(systemName: "photo")
-                    .font(.largeTitle)
+                    .resizable()
+                    .frame(width: 160, height: 160)
                 HStack {
                     Image(systemName: "hand.point.up.left")
                     Image(systemName: "arrow.left")
