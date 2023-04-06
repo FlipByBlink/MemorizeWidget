@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📖WidgetNotesSheet: View { //MARK: Work in progress
+struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationView {
@@ -150,6 +150,7 @@ private struct 🅧DismissButton: View {
     var body: some View {
         Button {
             📱.🪧widgetState.showSheet = false
+            UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
