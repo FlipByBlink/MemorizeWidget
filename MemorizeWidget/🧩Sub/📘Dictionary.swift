@@ -11,7 +11,7 @@ struct 📘DictionaryState {
     }
 }
 
-struct 📘DictionarySheet: ViewModifier {
+struct 📘DictionaryPopover: ViewModifier {
     @Binding private var ⓢtate: 📘DictionaryState
     func body(content: Content) -> some View {
         let ⓥiewController = self.ⓢtate.viewController
