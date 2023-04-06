@@ -36,6 +36,14 @@ extension 📱AppModel {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.addNewNote(index: ⓘndex + 1)
     }
+    func moveTop(_ ⓝote: 📗Note) {
+        guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
+        self.📚notes.move(fromOffsets: [ⓘndex], toOffset: 0)
+    }
+    func moveEnd(_ ⓝote: 📗Note) {
+        guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
+        self.📚notes.move(fromOffsets: [ⓘndex], toOffset: self.📚notes.endIndex)
+    }
     func removeNote(_ ⓝote: 📗Note) {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }

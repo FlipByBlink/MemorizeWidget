@@ -88,6 +88,7 @@ private struct 🎛️NoteMenuButton: View {
             📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
             🔍SearchButton(self.ⓝote)
             🆕InsertNewNoteBelowButton(self.ⓝote)
+            🚠MoveSection(self.ⓝote)
             Section { 🚮DeleteNoteButton(self.ⓝote) }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
@@ -116,6 +117,30 @@ private struct 📘DictionaryItem: View {
     init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
         self.ⓣerm = note.title
         self._ⓢtate = state
+    }
+}
+
+private struct 🚠MoveSection: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    var body: some View {
+        Section {
+            Button {
+                📱.moveTop(self.ⓝote)
+            } label: {
+                Label("Move top", systemImage: "arrow.up.to.line")
+            }
+            .disabled(📱.📚notes.first == self.ⓝote)
+            Button {
+                📱.moveEnd(self.ⓝote)
+            } label: {
+                Label("Move end", systemImage: "arrow.down.to.line")
+            }
+            .disabled(📱.📚notes.last == self.ⓝote)
+        }
+    }
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }
 
