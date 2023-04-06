@@ -26,7 +26,7 @@ private struct 🄳ataSection: View {
                 Label("Notes data count", systemImage: "books.vertical")
                     .badge(self.ⓓataCount.formatted(.byteCount(style: .file)))
                 if self.ⓓataCount > 800000 {
-                    Text("⚠️ EXCEED LIMITATION")
+                    Text("⚠️ NOTICE DATA LIMITATION")
                         .font(.headline)
                         .foregroundColor(.red)
                         .padding(4)
