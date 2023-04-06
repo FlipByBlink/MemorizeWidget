@@ -10,6 +10,7 @@ struct 🔩OptionTab: View {
                 🔍CustomizeSearchSection()
                 🚮DeleteAllNotesButton()
                 🗑TrashMenuLink()
+                📤ExportNotesSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
             .navigationTitle("Option")
@@ -259,6 +260,50 @@ private struct 🗑TrashMenu: View {
         .font(.subheadline)
         .foregroundStyle(.secondary)
         .listRowBackground(Color.clear)
+    }
+}
+
+private struct 📤ExportNotesSection: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        Section {
+            NavigationLink {
+                Self.🄼enu()
+            } label: {
+                Label("Export notes as text", systemImage: "square.and.arrow.up")
+            }
+            .disabled(📱.📚notes.isEmpty)
+            .animation(.default, value: 📱.📚notes.isEmpty)
+        }
+    }
+    private struct 🄼enu: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        private var ⓣext: String {
+            📱.📚notes.reduce(into: "") { ⓟartialResult, ⓝote in
+                ⓟartialResult += ⓝote.title + "\t" + ⓝote.comment
+                if ⓝote != 📱.📚notes.last { ⓟartialResult += "\n" }
+            }
+        }
+        var body: some View {
+            List {
+                Section {
+                    Text(self.ⓣext)
+                        .font(.subheadline.monospaced())
+                        .textSelection(.enabled)
+                        .padding()
+                    if #available(iOS 16.0, *) {
+                        ShareLink(item: self.ⓣext)
+                    } else {
+                        Label("Copy the above text", systemImage: "hand.point.up.left")
+                            .foregroundStyle(.secondary)
+                    }
+                } header: {
+                    Text("TSV Format")
+                }
+                .headerProminence(.increased)
+            }
+            .navigationTitle("Export notes")
+        }
     }
 }
 
