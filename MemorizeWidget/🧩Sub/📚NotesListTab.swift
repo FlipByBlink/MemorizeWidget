@@ -15,6 +15,7 @@ struct 📚NotesListTab: View {
                                 📓NoteView(ⓝote)
                                 🎛️NoteMenuButton(ⓝote)
                             }
+                            .id(ⓝote.id)
                         }
                         .onDelete(perform: 📱.deleteNote(_:))
                         .onMove(perform: 📱.moveNote(_:_:))
@@ -24,6 +25,7 @@ struct 📚NotesListTab: View {
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
+                .onChange(of: self.📱.🆕newNoteID) { 🚡.scrollTo($0) }
                 .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
                 .animation(.default, value: 📱.📚notes)
                 .toolbar {

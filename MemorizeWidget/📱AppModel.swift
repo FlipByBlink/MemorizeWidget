@@ -4,6 +4,7 @@ import WidgetKit
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: 📚Notes
     @Published var 🔖tab: 🔖Tab = .notesList
+    @Published var 🆕newNoteID: UUID? = nil
     @Published var 🪧widgetState: 🪧WidgetState = .default
     @Published var 🚩showNotesImportSheet: Bool = false
     @Published var 🗑trash: 🗑TrashModel = .load()
@@ -26,7 +27,9 @@ extension 📱AppModel {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
     }
     private func addNewNote(index ⓘndex: Int) {
-        self.📚notes.insert(.empty, at: ⓘndex)
+        let ⓝewNote: 📗Note = .empty
+        self.📚notes.insert(ⓝewNote, at: ⓘndex)
+        self.🆕newNoteID = ⓝewNote.id
         UISelectionFeedbackGenerator().selectionChanged()
     }
     func addNewNoteOnTop() {

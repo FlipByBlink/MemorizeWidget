@@ -13,9 +13,10 @@ struct 📓NoteView: View {
         && !📱.🚩randomMode
         && 📱.📚notes.first != self.ⓝote
     }
+    private var ⓘsNewNote: Bool { self.ⓝote.id == 📱.🆕newNoteID }
     var body: some View {
         Group {
-            if self.🚩inputting {
+            if self.🚩inputting || self.ⓘsNewNote {
                 self.ⓘnputNoteView()
             } else {
                 self.ⓢtaticNoteView()
@@ -24,7 +25,6 @@ struct 📓NoteView: View {
         .padding(.leading, 12)
         .padding(.vertical, 12)
         .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
-        .onAppear(perform: self.ⓢetFocusForEmptyNote)
         .animation(.default, value: self.🚩inputting)
     }
     private func ⓘnputNoteView() -> some View {
@@ -39,6 +39,9 @@ struct 📓NoteView: View {
                 .opacity(0.8)
         }
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
+        .onAppear {
+            if self.ⓘsNewNote { self.ⓢtartToInput(.title) }
+        }
     }
     private func ⓢtaticNoteView() -> some View {
         HStack {
@@ -76,15 +79,11 @@ struct 📓NoteView: View {
                 self.📱.📚notes.removeAll { $0 == self.ⓝote }
             } else {
                 self.ⓝote = self.ⓘnputtingNote
+                self.📱.🆕newNoteID = nil
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     withAnimation { self.🚩inputting = false }
                 }
             }
-        }
-    }
-    private func ⓢetFocusForEmptyNote() {
-        if self.ⓝote.isEmpty {
-            self.ⓢtartToInput(.title)
         }
     }
     init(_ note: Binding<📗Note>) {
