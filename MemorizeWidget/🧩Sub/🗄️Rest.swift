@@ -29,8 +29,13 @@ struct 💾HandleShareExtensionData: ViewModifier {
 struct 🛒PurchaseTab: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
     var body: some View {
-        NavigationView { 📣ADMenu() }
-            .navigationViewStyle(.stack)
+        NavigationView {
+            List {
+                📣ADMenuLink()
+            }
+            .navigationTitle("AD")
+        }
+        .navigationViewStyle(.stack)
     }
 }
 

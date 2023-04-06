@@ -74,6 +74,8 @@ Good night.,おやすみなさい。
 Strawberry,苺、ストロベリー";
 
 
+"App for iPhone / iPad / Apple Watch" = "iPhone/iPad/Apple Watch向けアプリ";
+
 // =======================================================
 // ====================== Template =======================
 "Menu" = "メニュー";
@@ -93,6 +95,7 @@ Strawberry,苺、ストロベリー";
 "released on %@" = "%@ にリリースしました";
 "Version History" = "バージョン履歴";
 "Open AppStore page" = "AppStoreページを開く";
+"Review on AppStore" = "AppStoreでレビューを書く";
 "Privacy Policy" = "プライバシーポリシー";
 "Source code" = "ソースコード";
 "Web Repository" = "Web リポジトリー";
@@ -102,18 +105,27 @@ Strawberry,苺、ストロベリー";
 "AD" = "広告";
 "AD / Purchase" = "広告/課金";
 "About AD / Purchase" = "広告/課金について";
+"About AD" = "広告について";
 "In-App Purchase" = "アプリ内課金";
 "Purchase" = "アプリ内課金";
+"Buy" = "支払う";
 "Hide AD banner" = "広告を非表示にする";
 "Restore Purchases" = "購入情報を復元する";
 "Restored transactions" = "購入情報を確認しました";
 "Open AD link" = "広告のリンクを開く";
-"This App shows banner advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times." = "広告としてAppStoreアプリケーションに関するバナーを表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告バナーはアプリを5回起動すると有効になります。";
-"Simple and normal ebook reader (for fixed-layout). Only a special feature. Turn a page with slightly longish voluntary blink." = "シンプルで一般的な電子書籍リーダー(固定レイアウト向け)。特殊な機能は1つだけ。目を閉じる時間を意識的にわずかに長くさせた瞬きでページめくりができます。";
+"FlipByBlink" = "FlipByBlink";
+"FadeInAlarm" = "FadeInAlarm";
+"PlainShogiBoard" = "Plain将棋盤";
+"TapWeight" = "体重登録";
+"TapTemperature" = "体温登録";
+"MemorizeWidget" = "暗記ウィジェット";
+"LockInNote" = "ロックノート";
+"This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times." = "AppStoreアプリケーションに関する広告を表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告はアプリを5回起動すると有効になります。";
+"E-book reader that can turn a page with slightly longish voluntary blink." = "目を閉じる時間を意識的にわずかに長くさせた瞬きでページめくりができる電子書籍リーダー。";
 "Alarm clock with taking a long time from small volume to max volume." = "時間をかけて少しずつ音量が大きくなるアラームアプリ。";
-"Simple Shogi board App. Based on iOS system UI design." = "ただの将棋盤。iOSの標準デザインに沿ったシンプルなアプリです。";
-"Register weight data to the Apple \"Health\" application pre-installed on iPhone in the fastest possible way (as manual)." = "「ヘルスケア」アプリに体重データを(手動としては)最速で登録するためのアプリ。";
-"Register body temperature data to the \"Health\" app pre-installed on iPhone in the fastest possible way (as manual)." = "「ヘルスケア」アプリに体温データを(手動としては)最速で登録するためのアプリ。";
+"Simplest Shogi board App. Supported SharePlay." = "ただの将棋盤。SharePlayも出来ます。";
+"Register weight data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)." = "「ヘルスケア」アプリに体重データを(手動としては)最速で登録するためのアプリ。";
+"Register body temperature data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)." = "「ヘルスケア」アプリに体温データを(手動としては)最速で登録するためのアプリ。";
 "Flashcard on widget. Memorize a note in everyday life." = "ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリです。";
 "Notes widget on lock screen." = "ロック画面ウィジェットをメモ帳にしよう。";
 

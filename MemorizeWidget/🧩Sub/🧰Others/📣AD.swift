@@ -1,128 +1,196 @@
-
 import SwiftUI
 import StoreKit
 
-///#Example
-///struct ParentView: View {
-/// @State private var 🚩ShowADMenuSheet: Bool = false
-/// var body: some View {
-///     ... 📣ADView($🚩ShowADMenuSheet) ...
-///     .modifier(📣ADMenuSheet($🚩ShowADMenuSheet))
-///} }
+//struct 📣ADSheet: ViewModifier {
+//    @EnvironmentObject var 🛒: 🛒StoreModel
+//    @State private var ⓐpp: 📣MyApp = .pickUpAppWithout(.ONESELF)
+//    func body(content: Content) -> some View {
+//        content
+//            .sheet(isPresented: $🛒.🚩showADSheet) { 📣ADView(self.ⓐpp) }
+//            .onAppear { 🛒.checkToShowADSheet() }
+//    }
+//}
 
 struct 📣ADView: View {
     @EnvironmentObject var 🛒: 🛒StoreModel
-    @State private var ⓐppName: 📣AppName
-    @Binding var 🚩ShowADMenuSheet: Bool
+    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @State private var 🚩disableDismiss: Bool = true
+    private let 🕒timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    @State private var 🕒countdown: Int
+    private var ⓐpp: 📣MyApp
     var body: some View {
-        if 🛒.🚩ADIsActive {
-            HStack {
-                🔗LinkButton()
-                Spacer()
-                Button {
-                    🚩ShowADMenuSheet = true
-                    UISelectionFeedbackGenerator().selectionChanged()
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                        .padding(.vertical)
-                        .padding(.leading, 8)
-                }
-                .foregroundStyle(.secondary)
-                .accessibilityLabel("Purchase")
+        Group {
+            if #available(iOS 16.0, *) {
+                NavigationStack { self.ⓒontent() }
+                    .presentationDetents([.height(640)])
+            } else {
+                NavigationView { self.ⓒontent() }
+                    .navigationViewStyle(.stack)
             }
-            .overlay(alignment: .topLeading) {
-                Text("AD")
-                    .scaleEffect(x: 1.2)
-                    .font(.subheadline.weight(.black))
-                    .frame(maxHeight: 32)
-                    .minimumScaleFactor(0.1)
-                    .padding(.top, 8)
-                    .padding(.leading, 3)
-                    .foregroundStyle(.tertiary)
+        }
+        .onChange(of: self.scenePhase) {
+            if $0 == .background { 🛒.🚩showADSheet = false }
+        }
+        .interactiveDismissDisabled(self.🚩disableDismiss)
+        .onReceive(self.🕒timer) { _ in
+            if self.🕒countdown > 1 {
+                self.🕒countdown -= 1
+            } else {
+                self.🚩disableDismiss = false
             }
-            .padding(.leading, 4)
-            .buttonStyle(.borderless)
-        } else {
-            EmptyView()
         }
     }
-    func 🔗LinkButton() -> some View {
-        Link(destination: ⓐppName.🔗URL) {
-            HStack(spacing: 12) {
-                Image(ⓐppName.rawValue)
+    private func ⓒontent() -> some View {
+        Group {
+            if self.verticalSizeClass == .regular {
+                self.ⓥerticalLayout()
+            } else {
+                self.ⓗorizontalLayout()
+            }
+        }
+        .modifier(Self.ⓟurchasedEffect())
+        .navigationTitle("AD")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                self.ⓓismissButton()
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                self.ⓐdMenuLink()
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    private func ⓥerticalLayout() -> some View {
+        VStack(spacing: 16) {
+            Spacer(minLength: 0)
+            self.ⓜockImage()
+            Spacer(minLength: 0)
+            self.ⓘcon()
+            self.ⓝame()
+            Spacer(minLength: 0)
+            self.ⓓescription()
+            Spacer(minLength: 0)
+            self.ⓐppStoreBadge()
+            Spacer(minLength: 0)
+        }
+        .padding()
+    }
+    private func ⓗorizontalLayout() -> some View {
+        HStack(spacing: 16) {
+            self.ⓜockImage()
+            VStack(spacing: 12) {
+                Spacer()
+                self.ⓘcon()
+                self.ⓝame()
+                self.ⓓescription()
+                Spacer()
+                self.ⓐppStoreBadge()
+                Spacer()
+            }
+            .padding(.horizontal)
+        }
+        .padding()
+    }
+    private func ⓜockImage() -> some View {
+        Link(destination: self.ⓐpp.url) {
+            Image(self.ⓐpp.mockImageName)
+                .resizable()
+                .scaledToFit()
+        }
+        .accessibilityHidden(true)
+        .disabled(🛒.🚩purchased)
+    }
+    private func ⓘcon() -> some View {
+        Link(destination: self.ⓐpp.url) {
+            HStack(spacing: 16) {
+                Image(self.ⓐpp.iconImageName)
                     .resizable()
                     .frame(width: 60, height: 60)
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .shadow(radius: 1.5, y: 0.5)
-                    .padding(.vertical, 40)
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack {
-                        Text(ⓐppName.rawValue)
-                            .font(.headline)
-                            .lineLimit(1)
-                        Image(systemName: "arrow.up.forward.app")
+                if self.ⓐpp.isHealthKitApp {
+                    Image("apple_health_badge")
+                }
+            }
+        }
+        .accessibilityHidden(true)
+        .disabled(🛒.🚩purchased)
+    }
+    private func ⓝame() -> some View {
+        Link(destination: self.ⓐpp.url) {
+            Text(self.ⓐpp.name)
+                .font(.headline)
+        }
+        .buttonStyle(.plain)
+        .accessibilityHidden(true)
+        .disabled(🛒.🚩purchased)
+    }
+    private func ⓓescription() -> some View {
+        Text(self.ⓐpp.description)
+            .font(.subheadline)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, 8)
+    }
+    private func ⓐppStoreBadge() -> some View {
+        Link(destination: self.ⓐpp.url) {
+            HStack(spacing: 6) {
+                Image("appstore_badge")
+                Image(systemName: "hand.point.up.left")
+            }
+            .foregroundColor(.primary)
+        }
+        .accessibilityLabel("Open AppStore page")
+        .disabled(🛒.🚩purchased)
+    }
+    private func ⓐdMenuLink() -> some View {
+        NavigationLink {
+            📣ADMenu()
+                .navigationBarTitleDisplayMode(.large)
+        } label: {
+            Image(systemName: "questionmark.circle")
+                .foregroundColor(.primary)
+        }
+        .accessibilityLabel("About AD")
+    }
+    private func ⓓismissButton() -> some View {
+        Button {
+            🛒.🚩showADSheet = false
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            if self.🚩disableDismiss {
+                Image(systemName: "\(self.🕒countdown.description).circle")
+            } else {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.body.weight(.medium))
+            }
+        }
+        .foregroundStyle(self.🚩disableDismiss ? .tertiary : .primary)
+        .disabled(self.🚩disableDismiss)
+        .animation(.default, value: self.🚩disableDismiss)
+        .accessibilityLabel("Dismiss")
+    }
+    private struct ⓟurchasedEffect: ViewModifier {
+        @EnvironmentObject var 🛒: 🛒StoreModel
+        func body(content: Content) -> some View {
+            if 🛒.🚩purchased {
+                content
+                    .blur(radius: 6)
+                    .overlay {
+                        Image(systemName: "trash.square.fill")
                             .resizable()
-                            .frame(width: 15, height: 15)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.white, .red)
+                            .frame(width: 160, height: 160)
+                            .rotationEffect(.degrees(5))
+                            .shadow(radius: 8)
                     }
-                    .minimumScaleFactor(0.1)
-                    .padding(.trailing, 32)
-                    Text(ⓐppName.📄About)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
-                        .minimumScaleFactor(0.1)
-                }
-                .padding(.vertical)
+            } else {
+                content
             }
         }
-        .accessibilityLabel("Open AD link")
     }
-    init(without: 📣AppName, _ 🚩ShowADMenuSheet: Binding<Bool>) {
-        let ⓐpps = 📣AppName.allCases.filter { $0 != without }
-        ⓐppName = ⓐpps.randomElement()!
-        self._🚩ShowADMenuSheet = 🚩ShowADMenuSheet
-    }
-}
-
-struct 📣ADMenu: View {
-    @EnvironmentObject var 🛒: 🛒StoreModel
-    var body: some View {
-        List {
-            Section {
-                Text("This App shows banner advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times.")
-                    .padding()
-                    .textSelection(.enabled)
-            } header: {
-                Text("Description")
-            }
-            🛒IAPSection()
-        }
-        .navigationTitle("AD / Purchase")
-    }
-}
-
-struct 📣ADMenuSheet: ViewModifier {
-    @Binding var 🚩ShowSheet: Bool
-    func body(content: Content) -> some View {
-        content
-            .sheet(isPresented: $🚩ShowSheet) {
-                NavigationView {
-                    📣ADMenu()
-                        .toolbar {
-                            Button {
-                                🚩ShowSheet = false
-                                UISelectionFeedbackGenerator().selectionChanged()
-                            } label: {
-                                Image(systemName: "chevron.down")
-                            }
-                            .tint(.secondary)
-                            .accessibilityLabel("Dismiss")
-                        }
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
-            }
-    }
-    init(_ 🚩ShowSheet: Binding<Bool>) {
-        self._🚩ShowSheet = 🚩ShowSheet
+    init(_ app: 📣MyApp, second: Int) {
+        self.ⓐpp = app
+        self._🕒countdown = State(initialValue: second)
     }
 }
 
@@ -142,20 +210,38 @@ struct 📣ADMenuLink: View {
     }
 }
 
-enum 📣AppName: String, CaseIterable {
+private struct 📣ADMenu: View {
+    @EnvironmentObject var 🛒: 🛒StoreModel
+    var body: some View {
+        List {
+            Section {
+                Text("This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times.")
+                    .padding()
+            } header: {
+                Text("Description")
+            }
+            🛒IAPSection()
+        }
+        .navigationTitle("About AD")
+    }
+}
+
+enum 📣MyApp: String, CaseIterable {
     case FlipByBlink
     case FadeInAlarm
-    case Plain将棋盤
+    case PlainShogiBoard
     case TapWeight
     case TapTemperature
     case MemorizeWidget
     case LockInNote
     
-    var 🔗URL: URL {
+    var name: LocalizedStringKey { LocalizedStringKey(self.rawValue) }
+    
+    var url: URL {
         switch self {
             case .FlipByBlink: return URL(string: "https://apps.apple.com/app/id1444571751")!
             case .FadeInAlarm: return URL(string: "https://apps.apple.com/app/id1465336070")!
-            case .Plain将棋盤: return URL(string: "https://apps.apple.com/app/id1620268476")!
+            case .PlainShogiBoard: return URL(string: "https://apps.apple.com/app/id1620268476")!
             case .TapWeight: return URL(string: "https://apps.apple.com/app/id1624159721")!
             case .TapTemperature: return URL(string: "https://apps.apple.com/app/id1626760566")!
             case .MemorizeWidget: return URL(string: "https://apps.apple.com/app/id1644276262")!
@@ -163,15 +249,28 @@ enum 📣AppName: String, CaseIterable {
         }
     }
     
-    var 📄About: LocalizedStringKey {
+    var description: LocalizedStringKey {
         switch self {
-            case .FlipByBlink: return "Simple and normal ebook reader (for fixed-layout). Only a special feature. Turn a page with slightly longish voluntary blink."
+            case .FlipByBlink: return "E-book reader that can turn a page with slightly longish voluntary blink."
             case .FadeInAlarm: return "Alarm clock with taking a long time from small volume to max volume."
-            case .Plain将棋盤: return "Simple Shogi board App. Based on iOS system UI design."
-            case .TapWeight: return "Register weight data to the Apple \"Health\" application pre-installed on iPhone in the fastest possible way (as manual)."
-            case .TapTemperature: return "Register body temperature data to the \"Health\" app pre-installed on iPhone in the fastest possible way (as manual)."
+            case .PlainShogiBoard: return "Simplest Shogi board App. Supported SharePlay."
+            case .TapWeight: return "Register weight data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)."
+            case .TapTemperature: return "Register body temperature data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)."
             case .MemorizeWidget: return "Flashcard on widget. Memorize a note in everyday life."
             case .LockInNote: return "Notes widget on lock screen."
         }
+    }
+    
+    var mockImageName: String { "mock/" + self.rawValue }
+    
+    var iconImageName: String { "icon/" + self.rawValue }
+    
+    static func pickUpAppWithout(_ ⓜySelf: Self) -> Self {
+        let ⓐpps = 📣MyApp.allCases.filter { $0 != ⓜySelf }
+        return ⓐpps.randomElement()!
+    }
+    
+    var isHealthKitApp: Bool {
+        self == .TapTemperature || self == .TapWeight
     }
 }

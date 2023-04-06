@@ -1,7 +1,7 @@
 MemorizeWidget: for iPhone, iPad, Apple Watch
 ---------------------------------------------
 
-<img src="MemorizeWidget/Assets.xcassets/ClipedIcon.imageset/ClipedIcon360.png" width="120">
+<img src="MemorizeWidget/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
 
 <a href="https://apps.apple.com/app/id1644276262" target="blank">
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">

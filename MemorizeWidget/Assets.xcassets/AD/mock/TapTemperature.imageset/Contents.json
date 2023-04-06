@@ -1,0 +1,20 @@
+{
+  "images" : [
+    {
+      "filename" : "TTtop1200wEN.heic",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "TTtop1200wJA.heic",
+      "idiom" : "universal",
+      "locale" : "ja"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
+  }
+}
