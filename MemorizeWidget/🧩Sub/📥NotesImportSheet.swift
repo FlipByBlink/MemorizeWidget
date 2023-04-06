@@ -9,6 +9,7 @@ struct 📥NotesImportSheet: View {
     @State private var ⓘmportedText: String = ""
     private var ⓝotes: 📚Notes { .convert(self.ⓘmportedText, self.ⓢeparator) }
     @FocusState private var 🔍textFieldFocus: Bool
+    @State private var 🚨alertDataSizeLimitExceeded: Bool = false
     @State private var 🚨showErrorAlert: Bool = false
     @State private var 🚨errorMessage: String = ""
     var body: some View {
@@ -112,9 +113,6 @@ struct 📥NotesImportSheet: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 📱.insertOnTop(self.ⓝotes)
                                 self.ⓘmportedText = ""
-                                if 💾UserDefaults.dataCount(📱.📚notes) > 500000 {
-                                    📱.🚩alertDataSizeLimitExceeded = true
-                                }
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -123,20 +121,29 @@ struct 📥NotesImportSheet: View {
                     }
                 }
                 ToolbarItem(placement: .principal) {
-                    Button {
-                        📱.🚩showNotesImportSheet = false
-                        UISelectionFeedbackGenerator().selectionChanged()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.secondary)
+                    if self.ⓝotes.isEmpty {
+                        Button {
+                            self.🚨alertDataSizeLimitExceeded = false
+                            UISelectionFeedbackGenerator().selectionChanged()
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.secondary)
+                        }
+                        .accessibilityLabel("Dismiss")
                     }
-                    .accessibilityLabel("Dismiss")
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
         }
         .animation(.default, value: self.ⓝotes)
         .animation(.default, value: self.ⓘnputMode)
+        .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
+            Button("Yes") {
+                self.🚨alertDataSizeLimitExceeded = false
+            }
+        } message: {
+            Text("Notes data over 300kb. The data may exceed size limitation(1mb). Please decrease notes.")
+        }
         .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
             Button("OK") {
                 self.🚨showErrorAlert = false
@@ -168,7 +175,12 @@ struct 📥NotesImportSheet: View {
         do {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
-                self.ⓘmportedText = try String(contentsOf: ⓤrl)
+                let ⓣext = try String(contentsOf: ⓤrl)
+                guard let ⓓata = ⓣext.data(using: .utf8), ⓓata.count < 300000 else {
+                    self.🚨alertDataSizeLimitExceeded = true
+                    return
+                }
+                self.ⓘmportedText = ⓣext
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
         } catch {

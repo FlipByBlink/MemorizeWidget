@@ -8,7 +8,6 @@ class 📱AppModel: ObservableObject {
     @Published var 🪧widgetState: 🪧WidgetState = .default
     @Published var 🚩showNotesImportSheet: Bool = false
     @Published var 🗑trash: 🗑TrashModel = .load()
-    @Published var 🚩alertDataSizeLimitExceeded: Bool = false
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
         self.📚notes = 💾UserDefaults.loadNotes() ?? .sample
