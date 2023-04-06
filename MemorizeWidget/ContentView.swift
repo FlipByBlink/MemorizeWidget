@@ -15,9 +15,9 @@ struct ContentView: View {
             📚NotesListTab()
                 .tag(🔖Tab.notesList)
                 .tabItem { Label("Notes", systemImage: "text.justify.leading") }
-            🔩OptionTab()
-                .tag(🔖Tab.option)
-                .tabItem { Label("Option", systemImage: "gearshape") }
+            🔩MenuTab()
+                .tag(🔖Tab.menu)
+                .tabItem { Label("Menu", systemImage: "gearshape") }
             🛒PurchaseTab()
                 .tag(🔖Tab.purchase)
                 .tabItem { Label("Purchase", systemImage: "cart") }
@@ -29,5 +29,5 @@ struct ContentView: View {
 }
 
 enum 🔖Tab {
-    case notesList, option, purchase, about
+    case notesList, menu, purchase, about
 }

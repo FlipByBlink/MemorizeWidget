@@ -1,19 +1,21 @@
 import SwiftUI
 import WidgetKit
 
-struct 🔩OptionTab: View {
+struct 🔩MenuTab: View {
     var body: some View {
         NavigationView {
             List {
                 📑MultiNotesOption()
                 💬CommentOnWidgetSection()
-                🔍CustomizeSearchSection()
+                Section {
+                    🔍CustomizeSearchRow()
+                    📤ExportNotesRow()
+                    🗑TrashRow()
+                }
                 🚮DeleteAllNotesButton()
-                🗑TrashSection()
-                📤ExportNotesSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
-            .navigationTitle("Option")
+            .navigationTitle("Menu")
         }
         .navigationViewStyle(.stack)
     }
@@ -39,6 +41,8 @@ private struct 📑MultiNotesOption: View {
                 }
             }
             .padding()
+        } header: {
+            Text("Option")
         }
     }
 }
@@ -65,41 +69,12 @@ private struct 💬CommentOnWidgetSection: View {
     }
 }
 
-private struct 🏞BeforeAfterImage: View {
-    private var ⓑefore: String
-    private var ⓐfter: String
+private struct 🔍CustomizeSearchRow: View {
     var body: some View {
-        HStack {
-            Image(self.ⓑefore)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(16)
-                .shadow(radius: 2)
-            Image(systemName: "arrow.right")
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Image(self.ⓐfter)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(16)
-                .shadow(radius: 2)
-        }
-        .frame(maxHeight: 200)
-    }
-    init(_ before: String, _ after: String) {
-        self.ⓑefore = before
-        self.ⓐfter = after
-    }
-}
-
-private struct 🔍CustomizeSearchSection: View {
-    var body: some View {
-        Section {
-            NavigationLink {
-                Self.🄼enu()
-            } label: {
-                Label("Customize search button", systemImage: "magnifyingglass")
-            }
+        NavigationLink {
+            Self.🄼enu()
+        } label: {
+            Label("Customize search button", systemImage: "magnifyingglass")
         }
     }
     private struct 🄼enu: View {
@@ -124,8 +99,8 @@ private struct 🔍CustomizeSearchSection: View {
                             .foregroundStyle(self.🔗leading.isEmpty ? .secondary : .primary)
                         TextField("Leading component", text: self.$🔗leading)
                         TextField("Trailing component", text: self.$🔗trailing)
-                            .font(.caption)
-                            .padding(.bottom, 4)
+                            .font(.subheadline)
+                            .padding(.bottom, 6)
                     }
                     .textFieldStyle(.roundedBorder)
                 } header: {
@@ -150,29 +125,50 @@ private struct 🔍CustomizeSearchSection: View {
     }
 }
 
-private struct 🚮DeleteAllNotesButton: View {
+private struct 📤ExportNotesRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
-        Section {
-            Menu {
-                Button(role: .destructive, action: 📱.removeAllNotes) {
-                    Label("OK, delete all notes.", systemImage: "trash")
-                }
-            } label: {
-                ZStack(alignment: .leading) {
-                    Color.clear
-                    Label("Delete all notes.", systemImage: "delete.backward.fill")
-                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+        NavigationLink {
+            Self.🄼enu()
+        } label: {
+            Label("Export notes as text", systemImage: "square.and.arrow.up")
+        }
+        .disabled(📱.📚notes.isEmpty)
+        .animation(.default, value: 📱.📚notes.isEmpty)
+    }
+    private struct 🄼enu: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        private var ⓣext: String {
+            📱.📚notes.reduce(into: "") { ⓟartialResult, ⓝote in
+                ⓟartialResult += ⓝote.title + "\t" + ⓝote.comment
+                if ⓝote != 📱.📚notes.last { ⓟartialResult += "\n" }
+            }
+        }
+        var body: some View {
+            List {
+                Section {
+                    Text(self.ⓣext)
+                        .font(.subheadline.monospaced().italic())
+                        .textSelection(.enabled)
+                        .padding()
+                    if #available(iOS 16.0, *) {
+                        ShareLink(item: self.ⓣext)
+                    } else {
+                        Label("Copy the above text", systemImage: "hand.point.up.left")
+                            .foregroundStyle(.secondary)
+                    }
+                } header: {
+                    Text("Plain text")
+                } footer: {
+                    Text("This text is TSV(tab-separated values) format.")
                 }
             }
-            .disabled(📱.📚notes.isEmpty)
-        } header: {
-            Text("Delete")
+            .navigationTitle("Export notes")
         }
     }
 }
 
-private struct 🗑TrashSection: View {
+private struct 🗑TrashRow: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationLink {
@@ -287,46 +283,22 @@ private struct 🗑TrashSection: View {
     }
 }
 
-private struct 📤ExportNotesSection: View {
+private struct 🚮DeleteAllNotesButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Section {
-            NavigationLink {
-                Self.🄼enu()
+            Menu {
+                Button(role: .destructive, action: 📱.removeAllNotes) {
+                    Label("OK, delete all notes.", systemImage: "trash")
+                }
             } label: {
-                Label("Export notes as text", systemImage: "square.and.arrow.up")
+                ZStack(alignment: .leading) {
+                    Color.clear
+                    Label("Delete all notes.", systemImage: "delete.backward.fill")
+                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+                }
             }
             .disabled(📱.📚notes.isEmpty)
-            .animation(.default, value: 📱.📚notes.isEmpty)
-        }
-    }
-    private struct 🄼enu: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        private var ⓣext: String {
-            📱.📚notes.reduce(into: "") { ⓟartialResult, ⓝote in
-                ⓟartialResult += ⓝote.title + "\t" + ⓝote.comment
-                if ⓝote != 📱.📚notes.last { ⓟartialResult += "\n" }
-            }
-        }
-        var body: some View {
-            List {
-                Section {
-                    Text(self.ⓣext)
-                        .font(.subheadline.monospaced().italic())
-                        .textSelection(.enabled)
-                        .padding()
-                    if #available(iOS 16.0, *) {
-                        ShareLink(item: self.ⓣext)
-                    } else {
-                        Label("Copy the above text", systemImage: "hand.point.up.left")
-                            .foregroundStyle(.secondary)
-                    }
-                } header: {
-                    Text("TSV Format")
-                }
-                .headerProminence(.increased)
-            }
-            .navigationTitle("Export notes")
         }
     }
 }
@@ -338,5 +310,32 @@ private struct 🄳irectionsSection: View {
         } header: {
             Text("Directions")
         }
+    }
+}
+
+private struct 🏞BeforeAfterImage: View {
+    private var ⓑefore: String
+    private var ⓐfter: String
+    var body: some View {
+        HStack {
+            Image(self.ⓑefore)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+            Image(systemName: "arrow.right")
+                .font(.title2.weight(.semibold))
+                .foregroundStyle(.secondary)
+            Image(self.ⓐfter)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(16)
+                .shadow(radius: 2)
+        }
+        .frame(maxHeight: 200)
+    }
+    init(_ before: String, _ after: String) {
+        self.ⓑefore = before
+        self.ⓐfter = after
     }
 }
