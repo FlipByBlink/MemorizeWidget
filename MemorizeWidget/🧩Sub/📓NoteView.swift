@@ -24,7 +24,6 @@ struct 📓NoteView: View {
         }
         .padding(.leading, 12)
         .padding(.vertical, 12)
-        .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
         .animation(.default, value: self.🚩inputting)
     }
     private func ⓘnputNoteView() -> some View {
@@ -39,8 +38,12 @@ struct 📓NoteView: View {
                 .opacity(0.8)
         }
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
+        .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
         .onAppear {
-            if self.ⓘsNewNote { self.ⓢtartToInput(.title) }
+            if self.ⓘsNewNote {
+                self.ⓢtartToInput(.title)
+                self.📱.🆕newNoteID = nil
+            }
         }
     }
     private func ⓢtaticNoteView() -> some View {
@@ -76,11 +79,12 @@ struct 📓NoteView: View {
     private func ⓗandleUnfocus(_ ⓕocus: 🄵ocusArea?) {
         if ⓕocus == nil {
             if self.ⓘnputtingNote.isEmpty {
-                self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.66) {
+                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                }
             } else {
                 self.ⓝote = self.ⓘnputtingNote
-                self.📱.🆕newNoteID = nil
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     withAnimation { self.🚩inputting = false }
                 }
             }
