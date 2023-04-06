@@ -133,7 +133,7 @@ private struct 🚮DeleteAllNotesButton: View {
                     Label("OK, delete all notes.", systemImage: "trash")
                 }
             } label: {
-                Label("Delete all notes.", systemImage: "trash")
+                Label("Delete all notes.", systemImage: "delete.backward.fill")
                     .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
             }
             .disabled(📱.📚notes.isEmpty)
@@ -149,7 +149,7 @@ private struct 🗑TrashMenuLink: View {
         NavigationLink {
             🗑TrashMenu()
         } label: {
-            Label("Trash", systemImage: "trash.square")
+            Label("Trash", systemImage: "trash")
                 .badge(📱.🗑trash.deletedContents.count)
         }
     }
