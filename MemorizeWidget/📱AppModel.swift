@@ -42,10 +42,12 @@ extension 📱AppModel {
     func moveTop(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: 0)
+        UISelectionFeedbackGenerator().selectionChanged()
     }
     func moveEnd(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: self.📚notes.endIndex)
+        UISelectionFeedbackGenerator().selectionChanged()
     }
     func removeNote(_ ⓝote: 📗Note) {
         self.🗑trash.storeDeletedNotes([ⓝote])

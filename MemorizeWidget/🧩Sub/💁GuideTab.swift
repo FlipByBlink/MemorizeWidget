@@ -4,8 +4,8 @@ struct 💁GuideTab: View {
     var body: some View {
         NavigationView {
             List {
-                🄸mportNotesSection()
                 🄳ataSection()
+                🄸mportNotesSection()
                 🄳eleteNoteBySwipingSection()
                 if #available(iOS 16.0, *) { 🄳irectionsSection() }
             }
