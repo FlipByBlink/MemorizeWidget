@@ -20,7 +20,7 @@ class 📨ShareExtensionModel: ObservableObject {
     }
     
     func storeNotes() {
-        var ⓝotes: 📚Notes = 💾UserDefaults.loadNotes() ?? []
+        var ⓝotes: 📚Notes = 💾UserDefaults_1_1_2.loadNotes() ?? []
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
@@ -33,8 +33,8 @@ class 📨ShareExtensionModel: ObservableObject {
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
-        💾UserDefaults.save(ⓝotes)
-        💾UserDefaults.appGroup.set(true, forKey: "savedByExtension")
+        💾UserDefaults_1_1_2.save(ⓝotes)
+        💾UserDefaults_1_1_2.appGroup.set(true, forKey: "savedByExtension")
     }
     
     @MainActor

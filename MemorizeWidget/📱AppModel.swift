@@ -10,7 +10,7 @@ class 📱AppModel: ObservableObject {
     @Published var 🗑trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
-        self.📚notes = 💾UserDefaults.loadNotes() ?? .sample
+        self.📚notes = 💾UserDefaults_1_1_2.loadNotes() ?? .sample
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
     }
@@ -69,12 +69,12 @@ extension 📱AppModel {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     func reloadNotes() {
-        guard let ⓝotes = 💾UserDefaults.loadNotes() else { return }
+        guard let ⓝotes = 💾UserDefaults_1_1_2.loadNotes() else { return }
         self.📚notes = ⓝotes
     }
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
-            💾UserDefaults.save(self.📚notes)
+            💾UserDefaults_1_1_2.save(self.📚notes)
             self.🗑trash.save()
             WidgetCenter.shared.reloadAllTimelines()
         }

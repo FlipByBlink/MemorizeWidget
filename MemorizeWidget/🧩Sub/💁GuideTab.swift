@@ -18,7 +18,7 @@ struct 💁GuideTab: View {
 
 private struct 🄳ataSection: View {
     @EnvironmentObject var 📱: 📱AppModel
-    private var ⓓataCount: Int { 💾UserDefaults.dataCount(📱.📚notes) }
+    private var ⓓataCount: Int { 💾UserDefaults_1_1_2.dataCount(📱.📚notes) }
     var body: some View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
@@ -92,7 +92,7 @@ private struct 🄰ppleSupportLinkSection: View {
             Link(destination: URL(string: self.ⓤrl)!) {
                 VStack(alignment: .leading, spacing: 6) {
                     if UIDevice.current.userInterfaceIdiom == .pad {
-                        Label("Use widgets on your iPad", systemImage: "link")//iPad でウィジェットを使う
+                        Label("Use widgets on your iPad", systemImage: "link")
                     } else {
                         Label("How to add and edit widgets on your iPhone", systemImage: "link")
                     }

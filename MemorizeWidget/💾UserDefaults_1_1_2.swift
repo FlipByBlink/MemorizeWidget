@@ -1,6 +1,6 @@
 import Foundation
 
-enum 💾UserDefaults {
+enum 💾UserDefaults_1_1_2 {
     static var appGroup: UserDefaults {
         if let ⓥalue = UserDefaults(suiteName: "group.net.aaaakkkkssssttttnnnn.MemorizeWidget") {
             return ⓥalue
@@ -11,10 +11,10 @@ enum 💾UserDefaults {
 }
 
 extension UserDefaults {
-    static var ⓐppGroup: UserDefaults { 💾UserDefaults.appGroup }
+    static var ⓐppGroup: UserDefaults { 💾UserDefaults_1_1_2.appGroup }
 }
 
-extension 💾UserDefaults {
+extension 💾UserDefaults_1_1_2 {
     static func save(_ ⓝotes: 📚Notes) {
         do {
             let ⓓata = try JSONEncoder().encode(ⓝotes)
@@ -24,7 +24,7 @@ extension 💾UserDefaults {
         }
     }
     static func loadNotes() -> 📚Notes? {
-        guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "Notes") else { return nil }
+        guard let ⓓata = 💾UserDefaults_1_1_2.appGroup.data(forKey: "Notes") else { return nil }
         do {
             return try JSONDecoder().decode(📚Notes.self, from: ⓓata)
         } catch {
