@@ -18,19 +18,29 @@ struct 💁GuideTab: View {
 
 private struct 🄳ataSection: View {
     @EnvironmentObject var 📱: 📱AppModel
-    private var ⓓataCount: Int { 💾UserDefaults_1_1_2.dataCount(📱.📚notes) }
+    private var ⓓataCount: Int? {
+        do {
+            let ⓓata = try JSONEncoder().encode(📱.📚notes)
+            return ⓓata.count
+        } catch {
+            print("🚨", error); assertionFailure()
+            return nil
+        }
+    }
     var body: some View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
             Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
-            VStack {
-                Label("Notes data count", systemImage: "books.vertical")
-                    .badge(self.ⓓataCount.formatted(.byteCount(style: .file)))
-                if self.ⓓataCount > 800000 {
-                    Text("⚠️ NOTICE DATA LIMITATION")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                        .padding(4)
+            if let ⓓataCount {
+                VStack {
+                    Label("Notes data count", systemImage: "books.vertical")
+                        .badge(ⓓataCount.formatted(.byteCount(style: .file)))
+                    if ⓓataCount > 800000 {
+                        Text("⚠️ NOTICE DATA LIMITATION")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .padding(4)
+                    }
                 }
             }
         } header: {

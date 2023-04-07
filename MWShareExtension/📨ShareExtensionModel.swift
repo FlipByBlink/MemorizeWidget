@@ -20,7 +20,7 @@ class 📨ShareExtensionModel: ObservableObject {
     }
     
     func storeNotes() {
-        var ⓝotes: 📚Notes = 💾UserDefaults_1_1_2.loadNotes() ?? []
+        var ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         switch self.type {
             case .textFile:
                 ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
@@ -33,7 +33,7 @@ class 📨ShareExtensionModel: ObservableObject {
             default:
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
-        💾UserDefaults_1_1_2.save(ⓝotes)
+        💾ICloud.save(ⓝotes)
         💾UserDefaults_1_1_2.appGroup.set(true, forKey: "savedByExtension")
     }
     

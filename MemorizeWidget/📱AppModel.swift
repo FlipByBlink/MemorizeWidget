@@ -10,9 +10,11 @@ class 📱AppModel: ObservableObject {
     @Published var 🗑trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
-        self.📚notes = 💾UserDefaults_1_1_2.loadNotes() ?? .sample
+        💾ICloud.api.synchronize()
+        self.📚notes = 💾ICloud.loadNotes() ?? .sample
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
+        💾ICloud.addObserver(self, #selector(self.iCloudDidChange(_:)))
     }
 }
 
@@ -69,12 +71,12 @@ extension 📱AppModel {
         UISelectionFeedbackGenerator().selectionChanged()
     }
     func reloadNotes() {
-        guard let ⓝotes = 💾UserDefaults_1_1_2.loadNotes() else { return }
+        guard let ⓝotes = 💾ICloud.loadNotes() else { return }
         self.📚notes = ⓝotes
     }
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
-            💾UserDefaults_1_1_2.save(self.📚notes)
+            💾ICloud.save(self.📚notes)
             self.🗑trash.save()
             WidgetCenter.shared.reloadAllTimelines()
         }
@@ -95,6 +97,17 @@ extension 📱AppModel {
                 assertionFailure()
             }
             self.🔖tab = .notesList
+        }
+    }
+    @objc
+    @MainActor
+    func iCloudDidChange(_ notification: Notification) {
+        Task { @MainActor in
+            if let ⓝewNotes = 💾ICloud.loadNotes() {
+                self.📚notes = ⓝewNotes
+            }
+            print("🖨️", notification.description)
+            print("🖨️ notification.object:", notification.object as Any)
         }
     }
 }
