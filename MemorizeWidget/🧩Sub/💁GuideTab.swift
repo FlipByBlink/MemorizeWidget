@@ -7,7 +7,7 @@ struct 💁GuideTab: View {
                 🄳ataSection()
                 🄸mportNotesSection()
                 🄳eleteNoteBySwipingSection()
-                if #available(iOS 16.0, *) { 🄳irectionsSection() }
+                🄳irectionsSection()
             }
             .navigationTitle("Guide")
         }
@@ -41,24 +41,19 @@ private struct 🄳ataSection: View {
 private struct 🄸mportNotesSection: View {
     var body: some View {
         Section {
-            HStack(spacing: 8) {
-                Image(systemName: "photo")
-                    .resizable()
-                    .frame(width: 140, height: 140)
-                    .padding(8)
+            VStack(spacing: 8) {
+                Image("importNotesButton")
+                    .shadow(radius: 2, y: 1)
                 Text("Import notes from plain text or text base file(csv, tsv, txt).")
             }
+            .padding(8)
             HStack(spacing: 8) {
-                Image(systemName: "photo")
-                    .resizable()
-                    .frame(width: 140, height: 140)
+                Image("shareSheetText")
                     .padding(8)
                 Text("Import selected text as notes from other app.")
             }
             HStack(spacing: 8) {
-                Image(systemName: "photo")
-                    .resizable()
-                    .frame(width: 140, height: 140)
+                Image("shareSheetFile")
                     .padding(8)
                 Text("Import a text-base file as notes from other app.")
             }
@@ -71,18 +66,15 @@ private struct 🄸mportNotesSection: View {
 private struct 🄳eleteNoteBySwipingSection: View {
     var body: some View {
         Section {
-            Text("Delete a note by swiping the row.")
-            VStack {
-                Image(systemName: "photo")
-                    .resizable()
-                    .frame(width: 160, height: 160)
-                HStack {
-                    Image(systemName: "hand.point.up.left")
-                    Image(systemName: "arrow.left")
+            HStack(spacing: 12) {
+                HStack(spacing: 4) {
+                    Image("deleteBySwiping")
+                    Image(systemName: "cursorarrow.motionlines")
                 }
-                .environment(\.layoutDirection, .leftToRight)
+                Text("Delete a note by swiping the row.")
             }
-            .padding()
+            .environment(\.layoutDirection, .leftToRight)
+            .padding(8)
         } header: {
             Text("Tips")
         }
@@ -91,10 +83,12 @@ private struct 🄳eleteNoteBySwipingSection: View {
 
 private struct 🄳irectionsSection: View {
     var body: some View {
-        Section {
-            Text("If lock screen widgets don't update, please close this app or switch to another app.")
-        } header: {
-            Text("Directions")
+        if #available(iOS 16.0, *) {
+            Section {
+                Text("If lock screen widgets don't update, please close this app or switch to another app.")
+            } header: {
+                Text("Directions")
+            }
         }
     }
 }
