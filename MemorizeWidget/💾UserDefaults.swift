@@ -15,7 +15,7 @@ extension UserDefaults {
 }
 
 extension 💾UserDefaults {
-    //static func save(_ ⓝotes: 📚Notes) {
+    //static func save(_ ⓝotes: 📚Notes) { //Ver 1.1.2
     //    do {
     //        let ⓓata = try JSONEncoder().encode(ⓝotes)
     //        Self.appGroup.set(ⓓata, forKey: "Notes")

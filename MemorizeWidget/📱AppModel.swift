@@ -117,14 +117,15 @@ extension 📱AppModel {
             if let ⓝewNotes = 💾ICloud.loadNotes() {
                 self.📚notes = ⓝewNotes
             }
-            print("🖨️", notification.description)
-            print("🖨️ notification.object:", notification.object as Any)
+            print("🖨️ notification: ", notification.debugDescription)
         }
     }
     func forwardFromUserDefaults_1_1_2() {
         guard let ⓝotesVer_1_1_2: 📚Notes = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
-        💾ICloud.insertLocalNotes(ⓝotesVer_1_1_2)
+        self.📚notes.insert(contentsOf: ⓝotesVer_1_1_2.filter { !self.📚notes.contains($0) },
+                            at: 0)
         🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
         💾UserDefaults.clearNotesOfVer_1_1_2()
+        💾ICloud.save(self.📚notes)
     }
 }

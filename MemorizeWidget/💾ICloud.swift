@@ -17,7 +17,7 @@ enum 💾ICloud {
             case NSUbiquitousKeyValueStoreInitialSyncChange: return "NSUbiquitousKeyValueStoreInitialSyncChange"
             case NSUbiquitousKeyValueStoreQuotaViolationChange: return "NSUbiquitousKeyValueStoreQuotaViolationChange"
             case NSUbiquitousKeyValueStoreAccountChange: return "NSUbiquitousKeyValueStoreAccountChange"
-            default: return "🐛"
+            default: assertionFailure(); return "🐛"
         }
     }
 }
@@ -39,17 +39,5 @@ extension 💾ICloud {
             print("🚨", error); assertionFailure()
             return []
         }
-    }
-}
-
-extension 💾ICloud {
-    static func insertLocalNotes(_ ⓛocalNotes: 📚Notes) {
-        var ⓝewNotesSet: [📗Note] = Self.loadNotes() ?? []
-        ⓛocalNotes.forEach { ⓝote in
-            if !ⓝewNotesSet.contains(ⓝote) {
-                ⓝewNotesSet.insert(ⓝote, at: 0)
-            }
-        }
-        Self.save(ⓝewNotesSet)
     }
 }
