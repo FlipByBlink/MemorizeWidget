@@ -23,12 +23,12 @@ struct ContentView: View {
                 .tag(🔖Tab.guide)
                 .tabItem { Label("Guide", systemImage: "questionmark") }
             ℹ️AboutAppTab()
-                .tag(🔖Tab.about)
-                .tabItem { Label("About App", systemImage: "app.badge") }
+                .tag(🔖Tab.app)
+                .tabItem { Label("App", systemImage: "app.badge") }
         }
     }
 }
 
 enum 🔖Tab {
-    case notesList, menu, guide, about
+    case notesList, menu, guide, app
 }
