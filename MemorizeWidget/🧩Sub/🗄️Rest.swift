@@ -33,7 +33,7 @@ struct 💬RequestUserReview: ViewModifier {
         content
             .modifier(💬PrepareToRequestUserReview(self.$ⓒheckToRequest))
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 120) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
                     self.ⓒheckToRequest = true
                 }
             }

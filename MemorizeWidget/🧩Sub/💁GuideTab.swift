@@ -129,11 +129,13 @@ private struct 🄰ppleSupportLinkSection: View {
 
 private struct 🄳irectionsSection: View {
     var body: some View {
-        if #available(iOS 16.0, *) {
-            Section {
-                Text("If lock screen widgets don't update, please close this app or switch to another app.")
-            } header: {
-                Text("Directions")
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if #available(iOS 16.0, *) {
+                Section {
+                    Text("If lock screen widgets don't update, please close this app or switch to another app.")
+                } header: {
+                    Text("Directions")
+                }
             }
         }
     }
