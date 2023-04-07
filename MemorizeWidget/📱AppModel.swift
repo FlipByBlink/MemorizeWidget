@@ -25,9 +25,11 @@ extension 📱AppModel {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])
         self.📚notes.remove(atOffsets: ⓘndexSet)
+        self.saveNotes()
     }
     func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
+        self.saveNotes()
     }
     private func addNewNote(index ⓘndex: Int) {
         let ⓝewNote: 📗Note = .empty
@@ -45,16 +47,19 @@ extension 📱AppModel {
     func moveTop(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: 0)
+        self.saveNotes()
         UISelectionFeedbackGenerator().selectionChanged()
     }
     func moveEnd(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: self.📚notes.endIndex)
+        self.saveNotes()
         UISelectionFeedbackGenerator().selectionChanged()
     }
     func removeNote(_ ⓝote: 📗Note, feedback ⓕeedback: Bool = true) {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
+        self.saveNotes()
         if ⓕeedback {
             UINotificationFeedbackGenerator().notificationOccurred(.warning)
         }
@@ -63,20 +68,28 @@ extension 📱AppModel {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓣargetNote) else { return }
         self.📚notes[ⓘndex].title = ⓘnputtedNote.title
         self.📚notes[ⓘndex].comment = ⓘnputtedNote.comment
+        self.saveNotes()
     }
     func removeAllNotes() {
         self.🗑trash.storeDeletedNotes(self.📚notes)
         self.📚notes.removeAll()
+        self.saveNotes()
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
     func insertOnTop(_ ⓝotes: 📚Notes) {
         self.📚notes.insert(contentsOf: ⓝotes, at: 0)
+        self.saveNotes()
     }
     func restore(_ ⓒontent: 🄳eletedContent) {
         let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
         self.insertOnTop(ⓡestoredNotes)
         self.🗑trash.remove(ⓒontent)
+        self.saveNotes()
         UISelectionFeedbackGenerator().selectionChanged()
+    }
+    func saveNotes() {
+        💾ICloud.save(self.📚notes)
+        self.🗑trash.save()
     }
     func reloadNotes() {
         guard let ⓝotes = 💾ICloud.loadNotes() else { return }
@@ -84,8 +97,6 @@ extension 📱AppModel {
     }
     func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
         if ⓞldPhase == .active, ⓝewPhase == .inactive {
-            💾ICloud.save(self.📚notes)
-            self.🗑trash.save()
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
