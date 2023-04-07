@@ -7,6 +7,7 @@ struct 💁GuideTab: View {
                 🄳ataSection()
                 🄸mportNotesSection()
                 🄳eleteNoteBySwipingSection()
+                🄰ppleSupportLinkSection()
                 🄳irectionsSection()
             }
             .navigationTitle("Guide")
@@ -41,12 +42,12 @@ private struct 🄳ataSection: View {
 private struct 🄸mportNotesSection: View {
     var body: some View {
         Section {
-            VStack(spacing: 8) {
+            VStack(spacing: 12) {
                 Image("importNotesButton")
                     .shadow(radius: 2, y: 1)
                 Text("Import notes from plain text or text base file(csv, tsv, txt).")
             }
-            .padding(8)
+            .padding(12)
             HStack(spacing: 8) {
                 Image("shareSheetText")
                     .padding(8)
@@ -70,6 +71,7 @@ private struct 🄳eleteNoteBySwipingSection: View {
                 HStack(spacing: 4) {
                     Image("deleteBySwiping")
                     Image(systemName: "cursorarrow.motionlines")
+                        .font(.body.weight(.light))
                 }
                 Text("Delete a note by swiping the row.")
             }
@@ -77,6 +79,50 @@ private struct 🄳eleteNoteBySwipingSection: View {
             .padding(8)
         } header: {
             Text("Tips")
+        }
+    }
+}
+
+private struct 🄰ppleSupportLinkSection: View {
+    private var ⓤrl: String {
+        UIDevice.current.userInterfaceIdiom == .pad ? "https://support.apple.com/HT211328" : "https://support.apple.com/HT207122"
+    }
+    var body: some View {
+        Section {
+            Link(destination: URL(string: self.ⓤrl)!) {
+                VStack(alignment: .leading, spacing: 6) {
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        Label("Use widgets on your iPad", systemImage: "link")//iPad でウィジェットを使う
+                    } else {
+                        Label("How to add and edit widgets on your iPhone", systemImage: "link")
+                    }
+                    HStack {
+                        Spacer()
+                        Text(self.ⓤrl)
+                            .font(.caption2.italic())
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                }
+                .padding(.vertical, 4)
+            }
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                Link(destination: URL(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label("Create a custom iPhone Lock Screen", systemImage: "link")
+                        HStack {
+                            Spacer()
+                            Text("https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")
+                                .font(.caption2.italic())
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                        }
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+        } header: {
+            Text("Apple Support Page Link")
         }
     }
 }
