@@ -71,8 +71,8 @@ struct 🕒WidgetEntry: TimelineEntry {
     static func generateEntry(_ ⓓate: Date, _ ⓦidgetFamily: WidgetFamily) -> Self {
         let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Self(.now, .noNote) }
-        if 💾UserDefaults_1_1_2.appGroup.bool(forKey: "multiNotes") {
-            if 💾UserDefaults_1_1_2.appGroup.bool(forKey: "RandomMode") {
+        if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
+            if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") {
                 let ⓟickedShuffleNotes = ⓝotes.shuffled().prefix(ⓦidgetFamily.ⓜultiNotesCount).map { $0.id }
                 let ⓘnfo = 🪧WidgetInfo.multiNotes(ⓟickedShuffleNotes)
                 return Self(ⓓate, ⓘnfo)
@@ -81,7 +81,7 @@ struct 🕒WidgetEntry: TimelineEntry {
                 return Self(ⓓate, ⓘnfo)
             }
         } else {
-            if 💾UserDefaults_1_1_2.appGroup.bool(forKey: "RandomMode") {
+            if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") {
                 guard let ⓝote = ⓝotes.randomElement() else {
                     assertionFailure(); return  Self(ⓓate, .noNote)
                 }
@@ -98,7 +98,7 @@ struct 🕒WidgetEntry: TimelineEntry {
     static func generateTimeline(_ ⓦidgetFamily: WidgetFamily) -> Timeline<Self> {
         let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Timeline(entries: [Self(.now, .noNote)], policy: .never) }
-        if 💾UserDefaults_1_1_2.appGroup.bool(forKey: "multiNotes") {
+        if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             var ⓔntries: [Self] = []
             for ⓒount in 0 ..< 12 {
                 let ⓞffset = ⓒount * 5

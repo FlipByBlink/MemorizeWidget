@@ -36,10 +36,10 @@ struct 🗑TrashModel: Codable {
 extension 🗑TrashModel {
     func save() {
         guard let ⓓata = try? JSONEncoder().encode(self) else { assertionFailure(); return }
-        💾UserDefaults_1_1_2.appGroup.set(ⓓata, forKey: "DeletedContents")
+        💾UserDefaults.appGroup.set(ⓓata, forKey: "DeletedContents")
     }
     static func load() -> Self {
-        guard let ⓓata = 💾UserDefaults_1_1_2.appGroup.data(forKey: "DeletedContents") else { return .empty }
+        guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "DeletedContents") else { return .empty }
         guard let ⓜodel = try? JSONDecoder().decode(Self.self, from: ⓓata) else { assertionFailure(); return .empty }
         return ⓜodel
     }

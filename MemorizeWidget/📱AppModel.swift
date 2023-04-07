@@ -15,6 +15,7 @@ class 📱AppModel: ObservableObject {
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
         💾ICloud.addObserver(self, #selector(self.iCloudDidChange(_:)))
+        self.forwardFromUserDefaults_1_1_2()
     }
 }
 
@@ -109,5 +110,11 @@ extension 📱AppModel {
             print("🖨️", notification.description)
             print("🖨️ notification.object:", notification.object as Any)
         }
+    }
+    func forwardFromUserDefaults_1_1_2() {
+        guard let ⓝotesVer_1_1_2: 📚Notes = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
+        💾ICloud.insertLocalNotes(ⓝotesVer_1_1_2)
+        🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
+        💾UserDefaults.clearNotesOfVer_1_1_2()
     }
 }

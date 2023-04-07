@@ -9,6 +9,17 @@ enum 💾ICloud {
                                                name: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
                                                object: NSUbiquitousKeyValueStore.default)
     }
+    
+    static func changeReason(ⓤserInfo: [AnyHashable : Any]) -> String {
+        guard let ⓥalue = ⓤserInfo[NSUbiquitousKeyValueStoreChangeReasonKey] as? Int else { return "🐛" }
+        switch ⓥalue {
+            case NSUbiquitousKeyValueStoreServerChange: return "NSUbiquitousKeyValueStoreServerChange"
+            case NSUbiquitousKeyValueStoreInitialSyncChange: return "NSUbiquitousKeyValueStoreInitialSyncChange"
+            case NSUbiquitousKeyValueStoreQuotaViolationChange: return "NSUbiquitousKeyValueStoreQuotaViolationChange"
+            case NSUbiquitousKeyValueStoreAccountChange: return "NSUbiquitousKeyValueStoreAccountChange"
+            default: return "🐛"
+        }
+    }
 }
 
 extension 💾ICloud {
@@ -29,10 +40,12 @@ extension 💾ICloud {
             return []
         }
     }
-    static func forwardFromUserDefaults_1_1_2(_ ⓝotes: 📗Note) {
-        let ⓥer_1_1_2_notes: 📚Notes = [] //💾UserDefaults_1_1_2.loadNotes()
+}
+
+extension 💾ICloud {
+    static func insertLocalNotes(_ ⓛocalNotes: 📚Notes) {
         var ⓝewNotesSet: [📗Note] = Self.loadNotes() ?? []
-        ⓥer_1_1_2_notes.forEach { ⓝote in
+        ⓛocalNotes.forEach { ⓝote in
             if !ⓝewNotesSet.contains(ⓝote) {
                 ⓝewNotesSet.insert(ⓝote, at: 0)
             }
