@@ -5,8 +5,8 @@ struct 🅆idgetEntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
-        if !self.ⓘnfo.notes.isEmpty {
-            Group {
+        Group {
+            if !self.ⓘnfo.notes.isEmpty {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🄷omeScreenWidgetView(self.ⓘnfo)
@@ -19,13 +19,20 @@ struct 🅆idgetEntryView: View {
                     default:
                         Text("🐛")
                 }
+            } else {
+                switch self.widgetFamily {
+                    case .systemSmall, .systemMedium, .systemLarge:
+                        Label("No note", systemImage: "book.closed")
+                            .font(.largeTitle)
+                            .foregroundStyle(.tertiary)
+                    default:
+                        Image(systemName: "book.closed")
+                            .font(.title3)
+                            .foregroundStyle(.tertiary)
+                }
             }
-            .widgetURL(self.ⓘnfo.url)
-        } else {
-            Label("No note", systemImage: "book.closed")
-                .font(.largeTitle)
-                .foregroundStyle(.tertiary)
         }
+        .widgetURL(self.ⓘnfo.url)
     }
     init(_ ⓔntry: 🕒WidgetEntry) {
         self.ⓘnfo = ⓔntry.info

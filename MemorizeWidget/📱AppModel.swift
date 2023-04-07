@@ -100,6 +100,9 @@ extension 📱AppModel {
             self.🔖tab = .notesList
         }
     }
+}
+
+extension 📱AppModel {
     @objc
     @MainActor
     func iCloudDidChange(_ notification: Notification) {
