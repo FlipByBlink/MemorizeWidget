@@ -80,10 +80,10 @@ struct 📓NoteView: View {
         if ⓕocus == nil {
             if self.ⓘnputtingNote.isEmpty {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.66) {
-                    self.📱.📚notes.removeAll { $0 == self.ⓝote }
+                    📱.removeNote(self.ⓝote, feedback: false)
                 }
             } else {
-                self.ⓝote = self.ⓘnputtingNote
+                📱.apply(self.ⓘnputtingNote, target: self.ⓝote)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     withAnimation { self.🚩inputting = false }
                 }

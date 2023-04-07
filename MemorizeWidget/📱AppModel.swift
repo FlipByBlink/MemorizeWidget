@@ -52,10 +52,17 @@ extension 📱AppModel {
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: self.📚notes.endIndex)
         UISelectionFeedbackGenerator().selectionChanged()
     }
-    func removeNote(_ ⓝote: 📗Note) {
+    func removeNote(_ ⓝote: 📗Note, feedback ⓕeedback: Bool = true) {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
-        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        if ⓕeedback {
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        }
+    }
+    func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
+        guard let ⓘndex = self.📚notes.firstIndex(of: ⓣargetNote) else { return }
+        self.📚notes[ⓘndex].title = ⓘnputtedNote.title
+        self.📚notes[ⓘndex].comment = ⓘnputtedNote.comment
     }
     func removeAllNotes() {
         self.🗑trash.storeDeletedNotes(self.📚notes)
