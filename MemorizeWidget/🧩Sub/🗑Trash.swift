@@ -26,7 +26,7 @@ struct 🗑TrashModel: Codable {
     }
     mutating func cleanExceededContents() {
         self.deletedContents.forEach { ⓒontent in
-            if ⓒontent.date.distance(to: .now) > (60 * 60 * 24 * 7) {
+            if ⓒontent.date.distance(to: .now) > (60 * 60 * 24 * 1) {//TODO: Restore 7
                 self.remove(ⓒontent)
             }
         }
