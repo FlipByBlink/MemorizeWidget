@@ -33,6 +33,7 @@
 "Plain text" = "プレーンテキスト";
 "This text is TSV(tab-separated values) format." = "このテキストはTSVフォーマットです。";
 "Export notes" = "ノートを書き出す";
+"Notes count" = "ノート数";
 "Trash" = "ゴミ箱";
 "Restore" = "復元";
 "Clear trash" = "ゴミ箱を空にする";
@@ -58,6 +59,24 @@
 "Not support multi line text in note." = "「ノート内での改行」はサポート対象外です。";
 "Not text file(UTF-8)." = "テキストファイル(UTF-8)ではありません。";
 "Import as some notes." = "複数個のノートとして取り込む。";
+
+"Guide" = "ガイド";
+"Sync notes between devices by iCloud." = "iCloudによって端末間でノートが同期されます。";
+"Data limitation is 1 mega byte." = "最大1メガバイトのデータ制限があります。";
+"Notes data count" = "現在のデータサイズ";
+"⚠️ NOTICE DATA LIMITATION" = "⚠️ データサイズ制限に注意";
+"Data" = "データ";
+"Import notes from plain text or text base file(csv, tsv, txt)." = "テキストやファイル(csv, tsv, txt)からノートをインポート出来ます。";
+"Import selected text as notes from other app." = "他のアプリで選択したテキストからノートを作成出来ます。";
+"Import a text-base file as notes from other app." = "他のアプリで選択したファイルからノートを作成出来ます。";
+"Import notes" = "ノートを取り込む";
+"Delete a note by swiping the row." = "スワイプしてノートを削除する。";
+"Apple Support Page Link" = "Apple公式サポートサイトリンク";
+"How to add and edit widgets on your iPhone" = "iPhone でウィジェットを追加・編集する方法";
+"Create a custom iPhone Lock Screen" = "iPhoneのロック画面をパーソナライズする";
+"Use widgets on your iPad" = "iPad でウィジェットを使う";
+"Tips" = "小ネタ";
+"App" = "アプリ";
 
 "MemorizeWidget" = "暗記ウィジェット";
 "Show a note." = "ノートを表示します。";
