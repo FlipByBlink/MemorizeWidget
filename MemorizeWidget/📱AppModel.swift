@@ -126,6 +126,7 @@ extension 📱AppModel {
     func iCloudDidChange(_ notification: Notification) {
         Task { @MainActor in
             if let ⓝewNotes = 💾ICloud.loadNotes() {
+                self.🗑trash.storeDeletedNotes(self.📚notes.filter { !ⓝewNotes.contains($0) })
                 self.📚notes = ⓝewNotes
             }
             print("🖨️ notification: ", notification.debugDescription)
