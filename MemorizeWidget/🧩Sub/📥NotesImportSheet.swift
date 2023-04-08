@@ -171,7 +171,7 @@ struct 📥NotesImportSheet: View {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                let ⓓataCount = 📚Notes.decode(try Data(contentsOf: ⓤrl)).dataCount
+                let ⓓataCount = 📚Notes.convert(ⓣext, self.ⓢeparator).dataCount
                 guard (ⓓataCount + 📱.📚notes.dataCount) < 800000 else {
                     self.🚨alertDataSizeLimitExceeded = true
                     return
