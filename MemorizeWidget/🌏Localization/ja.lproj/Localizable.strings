@@ -55,6 +55,8 @@
 "Import a text-encoded file" = "テキストベースのファイルを取り込む";
 "Convert this text to notes" = "このテキストをノートに変換する";
 "Paste the text here." = "ここにテキストを貼り付け。";
+"⚠️ Data size limitation" = "⚠️ データサイズ制限";
+"Total notes data over 800kb. Please decrease notes." = "ノートのデータサイズの合計が800kbを超えてます。ノートの数を減らしてください。";
 "Example" = "例";
 "Not support multi line text in note." = "「ノート内での改行」はサポート対象外です。";
 "Not text file(UTF-8)." = "テキストファイル(UTF-8)ではありません。";

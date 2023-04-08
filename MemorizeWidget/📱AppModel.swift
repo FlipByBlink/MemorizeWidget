@@ -21,7 +21,7 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    var exceedDataSizePerhaps: Bool { self.📚notes.dataCount > 750000 }
+    var exceedDataSizePerhaps: Bool { self.📚notes.dataCount > 800000 }
     func deleteNote(_ ⓘndexSet: IndexSet) {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])

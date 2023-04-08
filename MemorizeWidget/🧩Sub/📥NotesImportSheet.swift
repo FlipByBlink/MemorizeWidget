@@ -137,7 +137,7 @@ struct 📥NotesImportSheet: View {
         .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
             Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
         } message: {
-            Text("Notes data over 300kb. The data may exceed size limitation(1mb). Please decrease notes.")
+            Text("Total notes data over 800kb. Please decrease notes.")
         }
         .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
             Button("OK") {
@@ -171,7 +171,8 @@ struct 📥NotesImportSheet: View {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                guard try Data(contentsOf: ⓤrl).count < 300000 else {
+                let ⓓataCount = 📚Notes.decode(try Data(contentsOf: ⓤrl)).dataCount
+                guard (ⓓataCount + 📱.📚notes.dataCount) < 800000 else {
                     self.🚨alertDataSizeLimitExceeded = true
                     return
                 }
