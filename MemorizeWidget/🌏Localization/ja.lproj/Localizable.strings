@@ -38,7 +38,7 @@
 "Restore" = "復元";
 "Clear trash" = "ゴミ箱を空にする";
 "Empty" = "ノートなし";
-"After 7 days, the notes will be permanently deleted." = "7日経過すると、完全に削除されます。";
+"After 3 days, the notes will be permanently deleted." = "3日経過すると、完全に削除されます。";
 "Trash do not sync with iCloud." = "ゴミ箱はiCloudで同期されません。";
 "Delete all notes." = "全てのノートを削除";
 "OK, delete all notes." = "はい、全てのノートを削除します。";

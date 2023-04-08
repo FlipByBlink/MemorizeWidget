@@ -279,7 +279,7 @@ private struct 🗑TrashRow: View {
         }
         private func ⓐboutTrashSection() -> some View {
             Section {
-                Label("After 7 days, the notes will be permanently deleted.",
+                Label("After 3 days, the notes will be permanently deleted.",
                       systemImage: "clock.badge.exclamationmark")
                 Label("Trash do not sync with iCloud.", systemImage: "xmark.icloud")
             }
