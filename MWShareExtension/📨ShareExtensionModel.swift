@@ -46,7 +46,14 @@ class 📨ShareExtensionModel: ObservableObject {
                     Task { @MainActor in
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
-                                self.importedFileText = try String(contentsOf: ⓤrl)
+                                let ⓣext = try String(contentsOf: ⓤrl)
+                                let ⓓataCount = 📚Notes.convert(ⓣext, self.separator).dataCount
+                                let ⓐctiveNotes = 💾ICloud.loadNotes() ?? []
+                                guard (ⓓataCount + ⓐctiveNotes.dataCount) < 800000 else {
+                                    self.type = .exceedDataLimitation
+                                    return
+                                }
+                                self.importedFileText = ⓣext
                                 self.type = .textFile
                             }
                         } catch {
@@ -72,5 +79,5 @@ class 📨ShareExtensionModel: ObservableObject {
 }
 
 enum 🄸nputType {
-    case textFile, selectedText, improperFile
+    case textFile, selectedText, improperFile, exceedDataLimitation
 }

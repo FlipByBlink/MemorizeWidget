@@ -137,7 +137,7 @@ struct 📥NotesImportSheet: View {
         .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
             Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
         } message: {
-            Text("Total notes data over 800kb. Please decrease notes.")
+            Text("Total notes data over 800kB. Please decrease notes.")
         }
         .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
             Button("OK") {

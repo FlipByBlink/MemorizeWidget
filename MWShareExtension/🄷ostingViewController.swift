@@ -53,6 +53,14 @@ struct 🄼ainView: View {
                             self.ⓢeparatorPicker()
                             self.ⓝotesListView()
                         }
+                    case .exceedDataLimitation:
+                        VStack {
+                            Text("⚠️ Data size limitation")
+                                .font(.headline)
+                            Text("Total notes data over 800kB. Please decrease notes.")
+                                .font(.subheadline)
+                        }
+                        .padding(.vertical, 8)
                     case .none:
                         Text("🐛")
                 }
@@ -67,6 +75,7 @@ struct 🄼ainView: View {
                         Image(systemName: "checkmark")
                     }
                     .disabled(📨.type == .improperFile)
+                    .disabled(📨.type == .exceedDataLimitation)
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
