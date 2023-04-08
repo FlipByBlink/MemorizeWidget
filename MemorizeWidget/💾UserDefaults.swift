@@ -25,12 +25,7 @@ extension 💾UserDefaults {
     //}
     static func loadNotesOfVer_1_1_2() -> 📚Notes? {
         guard let ⓓata = Self.appGroup.data(forKey: "Notes") else { return nil }
-        do {
-            return try JSONDecoder().decode(📚Notes.self, from: ⓓata)
-        } catch {
-            print("🚨", error); assertionFailure()
-            return []
-        }
+        return 📚Notes.decode(ⓓata)
     }
 }
 
