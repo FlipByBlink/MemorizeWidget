@@ -11,12 +11,12 @@ struct 📘DictionaryState {
     }
 }
 
-struct 📘DictionaryPopover: ViewModifier {
+struct 📘DictionarySheet: ViewModifier {
     @Binding private var ⓢtate: 📘DictionaryState
     func body(content: Content) -> some View {
         let ⓥiewController = self.ⓢtate.viewController
         content
-            .popover(isPresented: self.$ⓢtate.showSheet) {
+            .sheet(isPresented: self.$ⓢtate.showSheet) {
                 if let ⓥiewController {
                     🄳ictinaryView(ⓥiewController)
                         .ignoresSafeArea()

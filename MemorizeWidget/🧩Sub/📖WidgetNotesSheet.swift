@@ -101,7 +101,7 @@ private struct 📘DictionaryButton: View {
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
-        .modifier(📘DictionaryPopover(self.$ⓢtate))
+        .modifier(📘DictionarySheet(self.$ⓢtate))
     }
     init(_ note: 📗Note) {
         self.ⓣerm = note.title
