@@ -21,6 +21,7 @@ struct ContentView: View {
                 .tabItem { Label("Menu", systemImage: "gearshape") }
             💁GuideTab()
                 .tag(🔖Tab.guide)
+                .badge(📱.exceedDataSizePerhaps ? "!" : nil)
                 .tabItem { Label("Guide", systemImage: "questionmark") }
             ℹ️AboutAppTab()
                 .tag(🔖Tab.app)

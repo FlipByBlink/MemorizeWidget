@@ -1,12 +1,15 @@
 import SwiftUI
 
 struct 💁GuideTab: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓔxceedDataSize: Bool { 📱.exceedDataSizePerhaps }
     var body: some View {
         NavigationView {
             List {
-                🄳ataSection()
+                if self.ⓔxceedDataSize { 🄳ataSection() }
                 🄸mportNotesSection()
                 🄳eleteNoteBySwipingSection()
+                if !self.ⓔxceedDataSize { 🄳ataSection() }
                 🄰ppleSupportLinkSection()
                 🄳irectionsSection()
             }
