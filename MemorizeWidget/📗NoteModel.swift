@@ -28,6 +28,24 @@ extension 📚Notes {
 }
 
 extension 📚Notes {
+    func encode() -> Data {
+        do {
+            return try JSONEncoder().encode(self)
+        } catch {
+            assertionFailure(); return Data()
+        }
+    }
+    static func decode(_ ⓓata: Data) -> Self {
+        do {
+            return try JSONDecoder().decode(Self.self, from: ⓓata)
+        } catch {
+            assertionFailure(); return []
+        }
+    }
+    var dataCount: Int { self.encode().count }
+}
+
+extension 📚Notes {
     static func convert(_ ⓘnputText: String, _ ⓢeparator: 🅂eparator) -> Self {
         var ⓝotes: Self = []
         let ⓞneLineTexts: [String] = ⓘnputText.components(separatedBy: .newlines)
