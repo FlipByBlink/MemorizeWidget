@@ -87,7 +87,6 @@ extension 📱AppModel {
     }
     func saveNotes() {
         💾ICloud.save(self.📚notes)
-        self.🗑trash.save()
         WidgetCenter.shared.reloadAllTimelines()
     }
     func handleWidgetURL(_ ⓤrl: URL) {
@@ -130,7 +129,6 @@ extension 📱AppModel {
         Task { @MainActor in
             if let ⓝewNotes = 💾ICloud.loadNotes() {
                 self.🗑trash.storeDeletedNotes(self.📚notes.filter { !ⓝewNotes.contains($0) })
-                self.🗑trash.save()
                 self.📚notes = ⓝewNotes
                 WidgetCenter.shared.reloadAllTimelines()
             }
