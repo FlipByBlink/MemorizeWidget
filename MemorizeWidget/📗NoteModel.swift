@@ -22,6 +22,13 @@ struct 📗Note: Codable, Identifiable, Hashable {
 typealias 📚Notes = [📗Note]
 
 extension 📚Notes {
+    static func load() -> Self {
+        💾ICloud.api.synchronize()
+        return 💾ICloud.loadNotes() ?? .placeholder
+    }
+}
+
+extension 📚Notes {
     mutating func cleanEmptyTitleNotes() {
         self.removeAll { $0.title == "" }
     }
@@ -75,7 +82,7 @@ enum 🅂eparator: String {
 }
 
 extension 📚Notes {
-    static var sample: Self {
+    static var placeholder: Self {
         .convert(String(localized: """
                     可愛い,cute, pretty, kawaii
                     おやすみなさい,good night.

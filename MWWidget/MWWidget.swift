@@ -32,7 +32,7 @@ struct 🖼MWWidget: Widget {
 
 struct 🤖TimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒WidgetEntry {
-        🕒WidgetEntry(.now, .singleNote(📚Notes.sample.first!.id))
+        🕒WidgetEntry(.now, .singleNote(📚Notes.placeholder.first!.id))
     }
     func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
         completion(.generateEntry(.now, context.family))

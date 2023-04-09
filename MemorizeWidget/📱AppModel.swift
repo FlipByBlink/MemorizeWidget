@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 📚notes: 📚Notes
+    @Published var 📚notes: 📚Notes = .load()
     @Published var 🔖tab: 🔖Tab = .notesList
     @Published var 🆕newNoteID: UUID? = nil
     @Published var 🪧widgetState: 🪧WidgetState = .default
@@ -10,8 +10,6 @@ class 📱AppModel: ObservableObject {
     @Published var 🗑trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
-        💾ICloud.api.synchronize()
-        self.📚notes = Self.loadNotes()
         self.forwardFromUserDefaults_1_1_2()
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
@@ -116,12 +114,13 @@ extension 📱AppModel {
 }
 
 extension 📱AppModel {
-    static func loadNotes() -> 📚Notes {
-        💾ICloud.loadNotes() ?? 💾UserDefaults.loadNotesOfVer_1_1_2() ?? .sample
-    }
     func forwardFromUserDefaults_1_1_2() {
         guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
-        self.insertOnTop(ⓝotesVer_1_1_2)
+        if self.📚notes == .placeholder {
+            self.📚notes = ⓝotesVer_1_1_2
+        } else {
+            self.insertOnTop(ⓝotesVer_1_1_2)
+        }
         🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
         💾UserDefaults.clearNotesOfVer_1_1_2()
     }
