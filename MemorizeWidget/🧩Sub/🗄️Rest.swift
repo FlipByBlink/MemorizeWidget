@@ -1,20 +1,5 @@
 import SwiftUI
 
-struct 💾HandleShareExtensionData: ViewModifier {
-    @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("savedByExtension", store: .ⓐppGroup) private var 🚩savedByExtension: Bool = false
-    func body(content: Content) -> some View {
-        content
-            .onAppear { self.🚩savedByExtension = false }
-            .onChange(of: self.🚩savedByExtension) {
-                if $0 == true {
-                    📱.reloadNotes()
-                    self.🚩savedByExtension = false
-                }
-            }
-    }
-}
-
 struct 💬RequestUserReview: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var ⓒheckToRequest: Bool = false

@@ -89,10 +89,6 @@ extension 📱AppModel {
         💾ICloud.save(self.📚notes)
         self.🗑trash.save()
     }
-    func reloadNotes() {
-        guard let ⓝotes = 💾ICloud.loadNotes() else { return }
-        self.📚notes = ⓝotes
-    }
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
