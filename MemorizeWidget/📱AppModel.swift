@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 class 📱AppModel: ObservableObject {
-    @Published var 📚notes: 📚Notes = .load()
+    @Published var 📚notes: 📚Notes = .load() ?? []
     @Published var 🔖tab: 🔖Tab = .notesList
     @Published var 🆕newNoteID: UUID? = nil
     @Published var 🪧widgetState: 🪧WidgetState = .default
@@ -11,6 +11,7 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
         self.forwardFromUserDefaults_1_1_2()
+        self.setPlaceholder()
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
         💾ICloud.addObserver(self, #selector(self.iCloudDidChangeExternally(_:)))
@@ -129,12 +130,13 @@ extension 📱AppModel {
 extension 📱AppModel {
     func forwardFromUserDefaults_1_1_2() {
         guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
-        if self.📚notes == .placeholder {//TODO: 再検討
-            self.📚notes = ⓝotesVer_1_1_2
-        } else {
-            self.insertOnTop(ⓝotesVer_1_1_2)
-        }
+        self.insertOnTop(ⓝotesVer_1_1_2)
         🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
         💾UserDefaults.clearNotesOfVer_1_1_2()
+    }
+    func setPlaceholder() {
+        if self.📚notes.isEmpty, 💾ICloud.noNotes, 💾UserDefaults.noNotesVer_1_1_2 {
+            self.📚notes = .placeholder
+        }
     }
 }

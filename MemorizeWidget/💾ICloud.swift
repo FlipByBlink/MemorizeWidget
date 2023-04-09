@@ -30,4 +30,7 @@ extension 💾ICloud {
         guard let ⓓata = Self.api.data(forKey: "Notes") else { return nil }
         return 📚Notes.decode(ⓓata)
     }
+    static var noNotes: Bool {
+        Self.loadNotes() == nil
+    }
 }

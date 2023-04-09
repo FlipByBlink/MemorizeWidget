@@ -22,9 +22,9 @@ struct 📗Note: Codable, Identifiable, Hashable {
 typealias 📚Notes = [📗Note]
 
 extension 📚Notes {
-    static func load() -> Self {
+    static func load() -> Self? {
         💾ICloud.api.synchronize()
-        return 💾ICloud.loadNotes() ?? .placeholder
+        return 💾ICloud.loadNotes()
     }
 }
 
