@@ -11,17 +11,16 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: .ⓐppGroup) var 🚩randomMode: Bool = false
     init() {
         💾ICloud.api.synchronize()
-        self.📚notes = 💾ICloud.loadNotes() ?? .sample
+        self.📚notes = Self.loadNotes()
+        self.forwardFromUserDefaults_1_1_2()
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
-        💾ICloud.addObserver(self, #selector(self.iCloudDidChange(_:)))
-        self.forwardFromUserDefaults_1_1_2()
+        💾ICloud.addObserver(self, #selector(self.iCloudDidChangeExternally(_:)))
     }
 }
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    var exceedDataSizePerhaps: Bool { self.📚notes.dataCount > 800000 }
     func deleteNote(_ ⓘndexSet: IndexSet) {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])
@@ -122,9 +121,21 @@ extension 📱AppModel {
 }
 
 extension 📱AppModel {
+    static func loadNotes() -> 📚Notes {
+        💾ICloud.loadNotes() ?? 💾UserDefaults.loadNotesOfVer_1_1_2() ?? .sample
+    }
+    func forwardFromUserDefaults_1_1_2() {
+        guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
+        self.insertOnTop(ⓝotesVer_1_1_2)
+        🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
+        💾UserDefaults.clearNotesOfVer_1_1_2()
+    }
+    var exceedDataSizePerhaps: Bool {
+        self.📚notes.dataCount > 800000
+    }
     @objc
     @MainActor
-    func iCloudDidChange(_ notification: Notification) {
+    func iCloudDidChangeExternally(_ notification: Notification) {
         Task { @MainActor in
             if let ⓝewNotes = 💾ICloud.loadNotes() {
                 self.🗑trash.storeDeletedNotes(self.📚notes.filter { !ⓝewNotes.contains($0) })
@@ -132,13 +143,5 @@ extension 📱AppModel {
             }
             print("🖨️ notification: ", notification.debugDescription)
         }
-    }
-    func forwardFromUserDefaults_1_1_2() {
-        guard let ⓝotesVer_1_1_2: 📚Notes = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
-        self.📚notes.insert(contentsOf: ⓝotesVer_1_1_2.filter { !self.📚notes.contains($0) },
-                            at: 0)
-        🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
-        💾UserDefaults.clearNotesOfVer_1_1_2()
-        💾ICloud.save(self.📚notes)
     }
 }
