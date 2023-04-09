@@ -107,24 +107,13 @@ extension 📱AppModel {
             self.🔖tab = .notesList
         }
     }
-}
-
-extension 📱AppModel {
-    func forwardFromUserDefaults_1_1_2() {
-        guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
-        if self.📚notes == .placeholder {
-            self.📚notes = ⓝotesVer_1_1_2
-        } else {
-            self.insertOnTop(ⓝotesVer_1_1_2)
-        }
-        🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
-        💾UserDefaults.clearNotesOfVer_1_1_2()
-    }
     var exceedDataSizePerhaps: Bool {
         self.📚notes.dataCount > 800000
     }
-    @objc
-    @MainActor
+}
+
+extension 📱AppModel {
+    @objc @MainActor
     func iCloudDidChangeExternally(_ notification: Notification) {
         Task { @MainActor in
             if let ⓝewNotes = 💾ICloud.loadNotes() {
@@ -134,5 +123,18 @@ extension 📱AppModel {
             }
             print("🖨️ notification: ", notification.debugDescription)
         }
+    }
+}
+
+extension 📱AppModel {
+    func forwardFromUserDefaults_1_1_2() {
+        guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
+        if self.📚notes == .placeholder {//TODO: 再検討
+            self.📚notes = ⓝotesVer_1_1_2
+        } else {
+            self.insertOnTop(ⓝotesVer_1_1_2)
+        }
+        🗑trash.storeDeletedNotes(ⓝotesVer_1_1_2)
+        💾UserDefaults.clearNotesOfVer_1_1_2()
     }
 }
