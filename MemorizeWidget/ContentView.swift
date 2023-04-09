@@ -17,6 +17,9 @@ struct ContentView: View {
             🔩MenuTab()
                 .tag(🔖Tab.menu)
                 .tabItem { Label("Menu", systemImage: "gearshape") }
+            🗑TrashTab()
+                .tag(🔖Tab.trash)
+                .tabItem { Label("Trash", systemImage: "trash") }
             💁GuideTab()
                 .tag(🔖Tab.guide)
                 .badge(📱.exceedDataSizePerhaps ? "!" : nil)
@@ -29,5 +32,5 @@ struct ContentView: View {
 }
 
 enum 🔖Tab {
-    case notesList, menu, guide, app
+    case notesList, menu, trash, guide, app
 }
