@@ -90,6 +90,9 @@ extension 📱AppModel {
         💾ICloud.save(self.📚notes)
         WidgetCenter.shared.reloadAllTimelines()
     }
+}
+
+extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
@@ -108,6 +111,9 @@ extension 📱AppModel {
             self.🔖tab = .notesList
         }
     }
+}
+
+extension 📱AppModel {
     var exceedDataSizePerhaps: Bool {
         self.📚notes.dataCount > 800000
     }
