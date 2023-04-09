@@ -1,6 +1,6 @@
 import Foundation
 
-let 📜versionInfos = 📜VersionInfo.history(("1.2", "2023-04-06"),
+let 📜versionInfos = 📜VersionInfo.history(("1.2", "2023-04-10"),
                                            ("1.1.2", "2022-12-05"),
                                            ("1.1.1", "2022-12-01"),
                                            ("1.1", "2022-10-30"),
@@ -33,7 +33,7 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "📗NoteModel.swift",
                         "🪧WidgetState.swift",
                         "💾ICloud.swift",
-                        "💾UserDefaults_1_1_2.swift"]
+                        "💾UserDefaults.swift"]
             case .Shared:
                 return []
             case .Sub:

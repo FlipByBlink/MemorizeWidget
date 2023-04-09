@@ -23,7 +23,7 @@ struct ContentView: View {
                 .tabItem { Label("Guide", systemImage: "questionmark") }
             ℹ️AboutAppTab()
                 .tag(🔖Tab.app)
-                .tabItem { Label("App", systemImage: "app.badge") }
+                .tabItem { Label("App", systemImage: "info") }
         }
     }
 }
