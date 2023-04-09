@@ -1,16 +1,5 @@
 import SwiftUI
 
-struct 🚥HandleScenePhase: ViewModifier {
-    @EnvironmentObject var 📱: 📱AppModel
-    @Environment(\.scenePhase) var scenePhase
-    func body(content: Content) -> some View {
-        content
-            .onChange(of: self.scenePhase) { [scenePhase] ⓝewValue in
-                📱.handleLeavingApp(scenePhase, ⓝewValue)
-            }
-    }
-}
-
 struct 💾HandleShareExtensionData: ViewModifier {
     @EnvironmentObject var 📱: 📱AppModel
     @AppStorage("savedByExtension", store: .ⓐppGroup) private var 🚩savedByExtension: Bool = false

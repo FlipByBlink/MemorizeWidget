@@ -8,7 +8,6 @@ struct ContentView: View {
             .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
             .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
             .modifier(💾HandleShareExtensionData())
-            .modifier(🚥HandleScenePhase())
             .modifier(💬RequestUserReview())
     }
     private func ⓣabView() -> some View {

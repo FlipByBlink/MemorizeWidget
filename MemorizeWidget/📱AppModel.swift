@@ -95,11 +95,6 @@ extension 📱AppModel {
         guard let ⓝotes = 💾ICloud.loadNotes() else { return }
         self.📚notes = ⓝotes
     }
-    func handleLeavingApp(_ ⓞldPhase: ScenePhase, _ ⓝewPhase: ScenePhase) {
-        if ⓞldPhase == .active, ⓝewPhase == .inactive {
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-    }
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
             self.🚩showNotesImportSheet = false
