@@ -48,6 +48,15 @@
 		F568F1AF29E3AB9A005A1D1A /* 🗑TrashTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */; };
 		F568F1B029E3AB9A005A1D1A /* MW_Watch_App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */; };
 		F568F1B129E3AB9A005A1D1A /* ContentView_WatchOSApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */; };
+		F568F1F529E3C565005A1D1A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
+		F568F1F629E3C565005A1D1A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
+		F568F1F929E3C565005A1D1A /* MWComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* MWComplication.swift */; };
+		F568F1FB29E3C567005A1D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F568F1FA29E3C567005A1D1A /* Assets.xcassets */; };
+		F568F1FF29E3C567005A1D1A /* MWComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* MWComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
+		F568F20629E3C697005A1D1A /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
+		F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
+		F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */; };
@@ -126,6 +135,13 @@
 			remoteGlobalIDString = F568F18C29E3A5DA005A1D1A;
 			remoteInfo = "MW Watch App";
 		};
+		F568F1FD29E3C567005A1D1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F568F1F329E3C565005A1D1A;
+			remoteInfo = MWComplicationExtension;
+		};
 		F5CEA5F92924AAAC00752277 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
@@ -152,6 +168,17 @@
 				F568F19A29E3A5DC005A1D1A /* MemorizeW.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F568F20029E3C567005A1D1A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F568F1FF29E3C567005A1D1A /* MWComplicationExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F59EEFF028F3FCDF002D9AD7 /* CopyFiles */ = {
@@ -238,6 +265,11 @@
 		F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashTab.swift"; sourceTree = "<group>"; };
 		F568F1A829E3A703005A1D1A /* 💥Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💥Feedback.swift"; sourceTree = "<group>"; };
 		F568F1AB29E3A91C005A1D1A /* MW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MW Watch App.entitlements"; sourceTree = "<group>"; };
+		F568F1F429E3C565005A1D1A /* MWComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MWComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F568F1F829E3C565005A1D1A /* MWComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWComplication.swift; sourceTree = "<group>"; };
+		F568F1FA29E3C567005A1D1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F568F20429E3C56D005A1D1A /* MWComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWComplicationExtension.entitlements; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
 		F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchase.swift"; sourceTree = "<group>"; };
@@ -278,6 +310,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F568F1F129E3C565005A1D1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568F1F629E3C565005A1D1A /* SwiftUI.framework in Frameworks */,
+				F568F1F529E3C565005A1D1A /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +417,17 @@
 			path = "♻️Shared";
 			sourceTree = "<group>";
 		};
+		F568F1F729E3C565005A1D1A /* MWComplication */ = {
+			isa = PBXGroup;
+			children = (
+				F568F1F829E3C565005A1D1A /* MWComplication.swift */,
+				F568F1FA29E3C567005A1D1A /* Assets.xcassets */,
+				F568F1FC29E3C567005A1D1A /* Info.plist */,
+				F568F20429E3C56D005A1D1A /* MWComplicationExtension.entitlements */,
+			);
+			path = MWComplication;
+			sourceTree = "<group>";
+		};
 		F5B5A45528C6EDA1005B6E0F = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +437,7 @@
 				F5D30CCB28C6F6C8001198AF /* MWWidget */,
 				F5CEA5F22924AAAC00752277 /* MWShareExtension */,
 				F568F18E29E3A5DA005A1D1A /* MW Watch App */,
+				F568F1F729E3C565005A1D1A /* MWComplication */,
 				F5D30CC628C6F6C8001198AF /* Frameworks */,
 				F5B5A45F28C6EDA1005B6E0F /* Products */,
 			);
@@ -397,6 +450,7 @@
 				F5D30CC528C6F6C8001198AF /* MWWidgetExtension.appex */,
 				F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */,
 				F568F18D29E3A5DA005A1D1A /* MemorizeW.app */,
+				F568F1F429E3C565005A1D1A /* MWComplicationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -469,15 +523,34 @@
 				F568F18929E3A5DA005A1D1A /* Sources */,
 				F568F18A29E3A5DA005A1D1A /* Frameworks */,
 				F568F18B29E3A5DA005A1D1A /* Resources */,
+				F568F20029E3C567005A1D1A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F568F1FE29E3C567005A1D1A /* PBXTargetDependency */,
 			);
 			name = "MW Watch App";
 			productName = "MW Watch App";
 			productReference = F568F18D29E3A5DA005A1D1A /* MemorizeW.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F568F1F329E3C565005A1D1A /* MWComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "MWComplicationExtension" */;
+			buildPhases = (
+				F568F1F029E3C565005A1D1A /* Sources */,
+				F568F1F129E3C565005A1D1A /* Frameworks */,
+				F568F1F229E3C565005A1D1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MWComplicationExtension;
+			productName = MWComplicationExtension;
+			productReference = F568F1F429E3C565005A1D1A /* MWComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		F5B5A45D28C6EDA1005B6E0F /* MemorizeWidget */ = {
 			isa = PBXNativeTarget;
@@ -549,6 +622,9 @@
 					F568F18C29E3A5DA005A1D1A = {
 						CreatedOnToolsVersion = 14.3;
 					};
+					F568F1F329E3C565005A1D1A = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					F5B5A45D28C6EDA1005B6E0F = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -578,6 +654,7 @@
 				F5D30CC428C6F6C8001198AF /* MWWidgetExtension */,
 				F5CEA5F02924AAAC00752277 /* MWShareExtension */,
 				F568F18C29E3A5DA005A1D1A /* MW Watch App */,
+				F568F1F329E3C565005A1D1A /* MWComplicationExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -591,6 +668,14 @@
 				F568F1AD29E3AA85005A1D1A /* InfoPlist.strings in Resources */,
 				F568F1AC29E3AA82005A1D1A /* Localizable.strings in Resources */,
 				F568F19429E3A5DC005A1D1A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F568F1F229E3C565005A1D1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568F1FB29E3C567005A1D1A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +732,18 @@
 				F568F1A329E3A629005A1D1A /* 📱AppModel.swift in Sources */,
 				F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */,
 				F568F19029E3A5DA005A1D1A /* MW_Watch_App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F568F1F029E3C565005A1D1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */,
+				F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */,
+				F568F1F929E3C565005A1D1A /* MWComplication.swift in Sources */,
+				F568F20629E3C697005A1D1A /* 🪧WidgetState.swift in Sources */,
+				F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +818,11 @@
 			target = F568F18C29E3A5DA005A1D1A /* MW Watch App */;
 			targetProxy = F568F19829E3A5DC005A1D1A /* PBXContainerItemProxy */;
 		};
+		F568F1FE29E3C567005A1D1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F568F1F329E3C565005A1D1A /* MWComplicationExtension */;
+			targetProxy = F568F1FD29E3C567005A1D1A /* PBXContainerItemProxy */;
+		};
 		F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F5CEA5F02924AAAC00752277 /* MWShareExtension */;
@@ -784,6 +886,7 @@
 		F568F19C29E3A5DC005A1D1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
@@ -814,6 +917,7 @@
 		F568F19D29E3A5DC005A1D1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
@@ -832,6 +936,68 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp;
 				PRODUCT_NAME = MemorizeW;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		F568F20129E3C567005A1D1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MWComplication/MWComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6696GEY228;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MWComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MWComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp.MWComplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		F568F20229E3C567005A1D1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MWComplication/MWComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6696GEY228;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MWComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MWComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp.MWComplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1155,6 +1321,15 @@
 			buildConfigurations = (
 				F568F19C29E3A5DC005A1D1A /* Debug */,
 				F568F19D29E3A5DC005A1D1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "MWComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F568F20129E3C567005A1D1A /* Debug */,
+				F568F20229E3C567005A1D1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

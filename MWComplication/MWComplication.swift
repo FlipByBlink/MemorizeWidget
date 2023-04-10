@@ -1,0 +1,105 @@
+import WidgetKit
+import SwiftUI
+
+struct 🤖TimelineProvider: TimelineProvider {
+    func placeholder(in context: Context) -> 🕒WidgetEntry {
+        🕒WidgetEntry(.now, .singleNote(📚Notes.placeholder.first!.id))
+    }
+    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
+        completion(.generateEntry(.now, context.family))
+    }
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        completion(🕒WidgetEntry.generateTimeline(context.family))
+    }
+}
+
+struct 🅆idgetEntryView: View {
+    private var ⓘnfo: 🪧WidgetInfo
+    @Environment(\.widgetFamily) var widgetFamily
+    var body: some View {
+        Group {
+            if !self.ⓘnfo.notes.isEmpty {
+                🄰ccessoryWidgetView(self.ⓘnfo)
+            } else {
+                Image(systemName: "book.closed")
+                    .font(.title3)
+                    .foregroundStyle(.tertiary)
+            }
+        }
+        .widgetURL(self.ⓘnfo.url)
+    }
+    init(_ ⓔntry: 🕒WidgetEntry) {
+        self.ⓘnfo = ⓔntry.info
+    }
+}
+
+private struct 🄰ccessoryWidgetView: View {
+    private var ⓘnfo: 🪧WidgetInfo
+    @Environment(\.widgetFamily) var widgetFamily
+    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
+    var body: some View {
+        switch self.widgetFamily {
+            case .accessoryInline: self.ⓞneLineView()
+            case .accessoryCircular: self.ⓒircleView()
+            case .accessoryRectangular: self.ⓡectangularView()
+            case .accessoryCorner: self.ⓞneLineView()
+            default: Text("🐛")
+        }
+    }
+    private func ⓞneLineView() -> some View {
+        Text(self.ⓝotes.first?.title ?? "No note")
+    }
+    private func ⓒircleView() -> some View {
+        ZStack {
+            AccessoryWidgetBackground()
+            VStack(spacing: 2) {
+                ForEach(self.ⓝotes) { ⓝote in
+                    if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
+                    Text(ⓝote.title)
+                        .multilineTextAlignment(.center)
+                        .font(.caption2.weight(.medium))
+                        .lineSpacing(0)
+                        .minimumScaleFactor(0.8)
+                        .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
+                        .widgetAccentable()
+                }
+            }
+            .padding(.vertical, 1)
+        }
+    }
+    private func ⓡectangularView() -> some View {
+        VStack(spacing: 0) {
+            ForEach(self.ⓝotes) { ⓝote in
+                Text(ⓝote.title)
+                    .font(.headline)
+                    .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                if case .singleNote(_) = self.ⓘnfo {
+                    if self.🚩showComment, !ⓝote.comment.isEmpty {
+                        Text(ⓝote.comment)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        }
+        .widgetAccentable()
+        .minimumScaleFactor(0.8)
+        .multilineTextAlignment(.center)
+    }
+    init(_ info: 🪧WidgetInfo) {
+        self.ⓘnfo = info
+    }
+}
+
+@main
+struct MWComplication: Widget {
+    let kind: String = "MWComplication"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: 🤖TimelineProvider()) { entry in
+            🅆idgetEntryView(entry)
+        }
+        .configurationDisplayName("MemorizeWidget")
+        .description("Show a note.")
+    }
+}
