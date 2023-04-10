@@ -78,6 +78,7 @@ private struct 🆕NewNoteOnTopButton: View {
                 .padding(.vertical, 7)
         }
         .id("NewNoteButton")
+        .keyboardShortcut(.return, modifiers: .command)
     }
 }
 
