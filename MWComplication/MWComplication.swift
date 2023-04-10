@@ -2,17 +2,24 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct MWComplication: Widget {
+struct MWWidgetBundle: WidgetBundle {
+    var body: some Widget {
+        🄼WComplication()
+        🆕NewNoteShortcutWidget()
+    }
+}
+
+private struct 🄼WComplication: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "MWComplication", provider: 🕒TimelineProvider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
+            🕒EntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
     }
 }
 
-private struct 🅆idgetEntryView: View {
+private struct 🕒EntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode

@@ -12,13 +12,14 @@ struct 🆕NewNoteShortcutWidget: Widget {
         .supportedFamilies(self.ⓕamilies)
     }
     init() {
+#if os(iOS)
         if UIDevice.current.userInterfaceIdiom == .phone {
             if #available(iOS 16.0, *) {
                 self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular])
             }
         }
-#if os(watchOS)
-        self.ⓕamilies.append(contentsOf: [.accessoryCorner])
+#elseif os(watchOS)
+        self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular, .accessoryCorner])
 #endif
     }
 }
@@ -47,18 +48,28 @@ private struct 🄽ewNoteShortcutView: View {
                 case .accessoryInline:
                     Image(systemName: "plus.rectangle.on.rectangle")
                 case .accessoryCircular:
-                    if #available(iOS 16.0, *) {
-                        ZStack {
-                            AccessoryWidgetBackground()
-                            Image(systemName: "plus")
-                                .imageScale(.large)
-                                .fontWeight(.medium)
-                        }
-                    }
+                    self.ⓒircleView()
+#if os(watchOS)
+                case .accessoryCorner:
+                    self.ⓒircleView()
+#endif
                 default:
                     Text("🐛")
             }
         }
         .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
+    }
+    private func ⓒircleView() -> some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                ZStack {
+                    AccessoryWidgetBackground()
+                    Image(systemName: "plus")
+                        .imageScale(.large)
+                        .fontWeight(.semibold)
+                }
+                .widgetAccentable()
+            }
+        }
     }
 }

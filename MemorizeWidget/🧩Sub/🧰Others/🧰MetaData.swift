@@ -37,7 +37,8 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "💾ICloud.swift",
                         "💾UserDefaults.swift",
                         "🗑TrashModel.swift",
-                        "💥Feedback.swift"]
+                        "💥Feedback.swift",
+                        "🆕NewNoteShortcutWidget.swift"]
             case .Sub:
                 return ["📚NotesListTab.swift",
                         "📓NoteView.swift",
@@ -58,8 +59,7 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "🛒InAppPurchase.swift"]
             case .WidgetExtension:
                 return ["MWWidget.swift",
-                        "🕒EntryView.swift",
-                        "🆕NewNoteShortcutWidget.swift"]
+                        "🕒EntryView.swift"]
             case .ShareExtension:
                 return ["📨ShareExtensionModel.swift",
                         "🄷ostingViewController.swift"]

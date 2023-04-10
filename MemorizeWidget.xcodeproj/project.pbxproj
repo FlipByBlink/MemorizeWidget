@@ -66,6 +66,7 @@
 		F568F21529E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
 		F568F21629E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
 		F568F21829E42BA6005A1D1A /* 🕒WidgetEntry.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
+		F568F21929E43E54005A1D1A /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */; };
@@ -104,7 +105,6 @@
 		F5FE2D8229DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 		F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
-		F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8929DCDF12008C728B /* 🚮DeleteNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */; };
 		F5FE2D8C29DD585E008C728B /* 🗑TrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */; };
 		F5FE2D8E29DE88E8008C728B /* 🧰MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8D29DE88E8008C728B /* 🧰MetaData.swift */; };
@@ -428,6 +428,7 @@
 				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
 				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
+				F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */,
 			);
 			path = "♻️Shared";
 			sourceTree = "<group>";
@@ -521,7 +522,6 @@
 			children = (
 				F5D30CCC28C6F6C8001198AF /* MWWidget.swift */,
 				F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */,
-				F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */,
 				F5D30CDC28C709D2001198AF /* MWWidgetExtension.entitlements */,
 				F5D30CD028C6F6C9001198AF /* Info.plist */,
 			);
@@ -762,6 +762,7 @@
 				F568F1F929E3C565005A1D1A /* MWComplication.swift in Sources */,
 				F568F20629E3C697005A1D1A /* 🪧WidgetState.swift in Sources */,
 				F568F21629E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */,
+				F568F21929E43E54005A1D1A /* 🆕NewNoteShortcutWidget.swift in Sources */,
 				F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,7 +806,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
 				F5AAE668292B754000FB8406 /* 💾UserDefaults.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,

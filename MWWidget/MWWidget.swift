@@ -14,7 +14,7 @@ private struct 🖼MWWidget: Widget {
     private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🕒TimelineProvider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
+            🕒EntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
@@ -32,7 +32,7 @@ private struct 🖼MWWidgetSub: Widget {
     private var ⓕamilies: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🕒TimelineProvider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
+            🕒EntryView(ⓔntry)
         }
         .configurationDisplayName("Sub widget")
         .description("This is spare widget for the purpose of second widget and random-mode")

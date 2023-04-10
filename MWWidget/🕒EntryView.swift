@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🅆idgetEntryView: View {
+struct 🕒EntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {

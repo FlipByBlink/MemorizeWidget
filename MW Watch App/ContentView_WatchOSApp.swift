@@ -24,7 +24,14 @@ struct ContentView_WatchOSApp: View {
             .navigationTitle("MemorizeWidget")
         }
         .onOpenURL(perform: 📱.handleWidgetURL)
+        .onOpenURL(perform: self.ⓗandleNewNoteShortcut(_:))
         .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
+    }
+    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL) {
+        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
+            //📱.addNewNoteOnTop()
+            print("🖨️", #function)
+        }
     }
 }
 
