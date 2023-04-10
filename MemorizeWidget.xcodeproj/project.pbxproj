@@ -62,6 +62,10 @@
 		F568F20F29E3DA8B005A1D1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F568F21129E3E907005A1D1A /* 🔩Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩Menu.swift */; };
 		F568F21229E3E98B005A1D1A /* 🔩Menu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩Menu.swift */; };
+		F568F21429E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
+		F568F21529E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
+		F568F21629E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
+		F568F21829E42BA6005A1D1A /* 🕒WidgetEntry.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */; };
@@ -98,7 +102,6 @@
 		F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 		F5FE2D8229DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
-		F5FE2D8329DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 		F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
@@ -192,6 +195,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				F568F21829E42BA6005A1D1A /* 🕒WidgetEntry.swift in CopyFiles */,
 				F568F21229E3E98B005A1D1A /* 🔩Menu.swift in CopyFiles */,
 				F568F20D29E3D309005A1D1A /* MWComplication.swift in CopyFiles */,
 				F568F1AE29E3AB9A005A1D1A /* 💥Feedback.swift in CopyFiles */,
@@ -278,6 +282,7 @@
 		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F568F20429E3C56D005A1D1A /* MWComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWComplicationExtension.entitlements; sourceTree = "<group>"; };
 		F568F21029E3E907005A1D1A /* 🔩Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩Menu.swift"; sourceTree = "<group>"; };
+		F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒WidgetEntry.swift"; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
 		F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchase.swift"; sourceTree = "<group>"; };
@@ -418,6 +423,7 @@
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
 				F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */,
 				F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */,
+				F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */,
 				F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */,
 				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
 				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
@@ -755,6 +761,7 @@
 				F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */,
 				F568F1F929E3C565005A1D1A /* MWComplication.swift in Sources */,
 				F568F20629E3C697005A1D1A /* 🪧WidgetState.swift in Sources */,
+				F568F21629E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */,
 				F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,6 +780,7 @@
 				F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */,
 				F527F47729D5404800E9FB97 /* ℹ️AboutAppTab.swift in Sources */,
 				F527F47529D53FDF00E9FB97 /* 🔩MenuTab.swift in Sources */,
+				F568F21429E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
 				F568F1A929E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
@@ -799,7 +807,6 @@
 			files = (
 				F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
 				F5AAE668292B754000FB8406 /* 💾UserDefaults.swift in Sources */,
-				F5FE2D8329DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
 				F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */,
@@ -814,6 +821,7 @@
 			files = (
 				F5EE7EBA29DFEEB100012A12 /* 💾ICloud.swift in Sources */,
 				F5D30CCD28C6F6C8001198AF /* MWWidget.swift in Sources */,
+				F568F21529E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */,
 				F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
 				F5AAE667292B753F00FB8406 /* 💾UserDefaults.swift in Sources */,

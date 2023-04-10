@@ -4,7 +4,7 @@ import SwiftUI
 @main
 struct MWComplication: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "MWComplication", provider: 🤖TimelineProvider()) { ⓔntry in
+        StaticConfiguration(kind: "MWComplication", provider: 🕒TimelineProvider()) { ⓔntry in
             🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
@@ -12,40 +12,28 @@ struct MWComplication: Widget {
     }
 }
 
-struct 🅆idgetEntryView: View {
-    private var ⓘnfo: 🪧WidgetInfo
-    @Environment(\.widgetFamily) var widgetFamily
-    var body: some View {
-        Group {
-            if !self.ⓘnfo.notes.isEmpty {
-                🄰ccessoryWidgetView(self.ⓘnfo)
-            } else {
-                Image(systemName: "book.closed")
-                    .font(.headline)
-                    .foregroundStyle(.tertiary)
-            }
-        }
-        .widgetURL(self.ⓘnfo.url)
-    }
-    init(_ ⓔntry: 🕒WidgetEntry) {
-        self.ⓘnfo = ⓔntry.info
-    }
-}
-
-private struct 🄰ccessoryWidgetView: View {
+private struct 🅆idgetEntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
-        switch self.widgetFamily {
-            case .accessoryInline: self.ⓘnlineView()
-            case .accessoryCircular: self.ⓒircleView()
-            case .accessoryRectangular: self.ⓡectangularView()
-            case .accessoryCorner: self.ⓒornerView()
-            default: Text("🐛")
+        Group {
+            if !self.ⓘnfo.notes.isEmpty {
+                switch self.widgetFamily {
+                    case .accessoryInline: self.ⓘnlineView()
+                    case .accessoryCircular: self.ⓒircleView()
+                    case .accessoryRectangular: self.ⓡectangularView()
+                    case .accessoryCorner: self.ⓒornerView()
+                    default: Text("🐛")
+                }
+            } else {
+                Image(systemName: "book.closed")
+                    .foregroundStyle(.tertiary)
+            }
         }
+        .widgetURL(self.ⓘnfo.url)
     }
     private func ⓘnlineView() -> some View {
         Text(self.ⓝotes.first?.title ?? "No note")
@@ -94,7 +82,7 @@ private struct 🄰ccessoryWidgetView: View {
             .widgetAccentable()
             .widgetLabel(self.ⓝotes.first?.title ?? "No note")
     }
-    init(_ info: 🪧WidgetInfo) {
-        self.ⓘnfo = info
+    init(_ ⓔntry: 🕒WidgetEntry) {
+        self.ⓘnfo = ⓔntry.info
     }
 }

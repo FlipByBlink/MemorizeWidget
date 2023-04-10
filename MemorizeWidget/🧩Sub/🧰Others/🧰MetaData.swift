@@ -33,6 +33,7 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                 return ["📱AppModel.swift",
                         "📗NoteModel.swift",
                         "🪧WidgetState.swift",
+                        "🕒WidgetEntry.swift",
                         "💾ICloud.swift",
                         "💾UserDefaults.swift",
                         "🗑TrashModel.swift",
