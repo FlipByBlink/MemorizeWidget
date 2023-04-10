@@ -95,7 +95,7 @@ private struct 🗑TrashMenu: View {
             self.ⓡestoreButton(ⓒontent)
                 .labelStyle(.iconOnly)
                 .buttonStyle(.plain)
-                .font(.title)
+                .font(.title2)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundColor(.secondary)
                 .padding(4)
@@ -105,7 +105,10 @@ private struct 🗑TrashMenu: View {
         Group {
             self.ⓡestoreButton(ⓒontent)
                 .font(.body.weight(.medium))
-            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
+            ForEach(ⓒontent.notes) {
+                self.ⓝoteView($0)
+                    .padding(.leading)
+            }
         }
     }
     private func ⓝoteView(_ ⓝote: 📗Note) -> some View {
