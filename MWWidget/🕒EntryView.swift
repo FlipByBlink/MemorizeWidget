@@ -12,10 +12,6 @@ struct 🅆idgetEntryView: View {
                         🄷omeScreenWidgetView(self.ⓘnfo)
                     case .accessoryInline, .accessoryCircular, .accessoryRectangular:
                         🄰ccessoryWidgetView(self.ⓘnfo)
-#if os(watchOS)
-                    case .accessoryCorner:
-                        🄰ccessoryWidgetView(self.ⓘnfo)
-#endif
                     default:
                         Text("🐛")
                 }
@@ -134,23 +130,18 @@ private struct 🄰ccessoryWidgetView: View {
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
         switch self.widgetFamily {
-            case .accessoryInline: self.ⓞneLineView()
+            case .accessoryInline: self.ⓘnlineView()
             case .accessoryCircular: self.ⓒircleView()
             case .accessoryRectangular: self.ⓡectangularView()
-#if os(watchOS)
-            case .accessoryCorner: self.ⓞneLineView()
-#endif
             default: Text("🐛")
         }
     }
-    private func ⓞneLineView() -> some View {
+    private func ⓘnlineView() -> some View {
         Text(self.ⓝotes.first?.title ?? "No note")
     }
     private func ⓒircleView() -> some View {
         ZStack {
-            if #available(iOS 16.0, *) {
-                AccessoryWidgetBackground()
-            }
+            if #available(iOS 16.0, *) { AccessoryWidgetBackground() }
             VStack(spacing: 2) {
                 ForEach(self.ⓝotes) { ⓝote in
                     if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
@@ -166,27 +157,22 @@ private struct 🄰ccessoryWidgetView: View {
         }
     }
     private func ⓡectangularView() -> some View {
-        Group {
-            if #available(iOS 16.0, *) {
-                VStack(spacing: 0) {
-                    ForEach(self.ⓝotes) { ⓝote in
-                        Text(ⓝote.title)
-                            .font(.headline)
-                            .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                        if case .singleNote(_) = self.ⓘnfo {
-                            if self.🚩showComment, !ⓝote.comment.isEmpty {
-                                Text(ⓝote.comment)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+        VStack(spacing: 0) {
+            ForEach(self.ⓝotes) { ⓝote in
+                Text(ⓝote.title)
+                    .font(.headline)
+                    .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                if case .singleNote(_) = self.ⓘnfo {
+                    if self.🚩showComment, !ⓝote.comment.isEmpty {
+                        Text(ⓝote.comment)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
                     }
                 }
-                .widgetAccentable()
-                .minimumScaleFactor(0.8)
-                .multilineTextAlignment(.center)
             }
         }
+        .minimumScaleFactor(0.8)
+        .multilineTextAlignment(.center)
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
