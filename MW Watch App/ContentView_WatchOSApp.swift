@@ -120,7 +120,6 @@ private struct 📗NoteView: View {
 
 private struct 🔩MenuList: View {
     @EnvironmentObject var 📱: 📱AppModel
-    @AppStorage("multiNotes", store: .ⓐppGroup) var 🚩multiNote: Bool = false
     var body: some View {
         List {
             🔀RandomModeSection()
@@ -159,12 +158,14 @@ private struct 📑MultiNotesOption: View {
 
 private struct 💬CommentOnWidgetSection: View {
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩value: Bool = false
+    @AppStorage("multiNotes", store: .ⓐppGroup) var ⓜultiNotes: Bool = false
     var body: some View {
         Toggle(isOn: self.$🚩value) {
             Label("Show comment on widget", systemImage: "text.append")
                 .padding(.vertical, 8)
         }
         .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
+        .disabled(self.ⓜultiNotes)
     }
 }
 
