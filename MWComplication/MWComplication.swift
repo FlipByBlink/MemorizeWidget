@@ -40,14 +40,14 @@ private struct 🄰ccessoryWidgetView: View {
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
         switch self.widgetFamily {
-            case .accessoryInline: self.ⓞneLineView()
+            case .accessoryInline: self.ⓘnlineView()
             case .accessoryCircular: self.ⓒircleView()
             case .accessoryRectangular: self.ⓡectangularView()
-            case .accessoryCorner: self.ⓞneLineView()
+            case .accessoryCorner: self.ⓒornerView()
             default: Text("🐛")
         }
     }
-    private func ⓞneLineView() -> some View {
+    private func ⓘnlineView() -> some View {
         Text(self.ⓝotes.first?.title ?? "No note")
     }
     private func ⓒircleView() -> some View {
@@ -86,6 +86,12 @@ private struct 🄰ccessoryWidgetView: View {
         .widgetAccentable()
         .minimumScaleFactor(0.8)
         .multilineTextAlignment(.center)
+    }
+    private func ⓒornerView() -> some View {
+        Image(systemName: "tag")
+            .font(.title.weight(.medium))
+            .widgetAccentable()
+            .widgetLabel(self.ⓝotes.first?.title ?? "No note")
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
