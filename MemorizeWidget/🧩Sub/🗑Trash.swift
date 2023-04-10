@@ -47,7 +47,6 @@ struct 🗑TrashTab: View {
         Group {
             self.ⓡestoreButton(ⓒontent)
                 .font(.body.weight(.medium))
-                .badge(ⓒontent.notes.count)
             ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
         }
     }
@@ -67,8 +66,9 @@ struct 🗑TrashTab: View {
         Button {
             📱.restore(ⓒontent)
         } label: {
-            Label("Restore", systemImage: "arrow.uturn.backward.circle.fill")
+            Label("Restore \(ⓒontent.notes.count) notes", systemImage: "arrow.uturn.backward.circle.fill")
         }
+        .accessibilityLabel("Restore")
     }
     private func ⓒlearButton() -> some View {
         Menu {

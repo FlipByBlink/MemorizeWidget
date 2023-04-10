@@ -36,6 +36,7 @@
 "Notes count" = "ノート数";
 "Trash" = "ゴミ箱";
 "Restore" = "復元";
+"Restore %@ notes" = "%@個のノートを復元";
 "Clear trash" = "ゴミ箱を空にする";
 "Empty" = "ノートなし";
 "After 7 days, the notes will be permanently deleted." = "7日経過すると、完全に削除されます。";
