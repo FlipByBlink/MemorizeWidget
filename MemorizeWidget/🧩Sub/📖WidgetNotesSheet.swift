@@ -1,57 +1,59 @@
 import SwiftUI
 
 struct 📖WidgetNotesSheet: View {
-    @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         NavigationView {
-            Group {
-                switch 📱.🪧widgetState.info {
-                    case .singleNote(let ⓘd):
-                        self.ⓢigleNoteLayout(ⓘd)
-                    case .multiNotes(let ⓘds):
-                        if ⓘds.count == 1 {
-                            self.ⓢigleNoteLayout(ⓘds[0])
-                        } else {
-                            self.ⓜultiNotesLayout(ⓘds)
-                        }
-                    default:
-                        Text("🐛")
-                }
-            }
-            .toolbar { 🅧DismissButton() }
+            📖WidgetNotesView()
+                .toolbar { 🅧DismissButton() }
         }
         .modifier(📣ADSheet())
         .navigationViewStyle(.stack)
     }
+}
+
+private struct 📖WidgetNotesView: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        switch 📱.🪧widgetState.info {
+            case .singleNote(let ⓘd):
+                self.ⓢigleNoteLayout(ⓘd)
+            case .multiNotes(let ⓘds):
+                if ⓘds.count == 1 {
+                    self.ⓢigleNoteLayout(ⓘds[0])
+                } else {
+                    self.ⓜultiNotesLayout(ⓘds)
+                }
+            default:
+                Text("🐛")
+        }
+    }
     private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
-        Group {
+        VStack {
+            Spacer()
             if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
-                VStack {
+                📓NoteView($📱.📚notes[ⓘndex],
+                           titleFont: .largeTitle,
+                           commentFont: .title)
+                .padding(.horizontal, 32)
+                Spacer()
+                HStack {
                     Spacer()
-                    📓NoteView($📱.📚notes[ⓘndex],
-                               titleFont: .largeTitle,
-                               commentFont: .title)
-                    .padding(.horizontal, 32)
+                    📘DictionaryButton(📱.📚notes[ⓘndex])
                     Spacer()
-                    HStack {
-                        Spacer()
-                        📘DictionaryButton(📱.📚notes[ⓘndex])
-                        Spacer()
-                        🔍SearchButton(📱.📚notes[ⓘndex])
-                        Spacer()
-                        🚮DeleteNoteButton(📱.📚notes[ⓘndex])
-                        Spacer()
-                    }
-                    .labelStyle(.iconOnly)
-                    .buttonStyle(.plain)
-                    .foregroundColor(.primary)
-                    .font(.title)
-                    .padding(.horizontal, 24)
+                    🔍SearchButton(📱.📚notes[ⓘndex])
+                    Spacer()
+                    🚮DeleteNoteButton(📱.📚notes[ⓘndex])
                     Spacer()
                 }
+                .labelStyle(.iconOnly)
+                .buttonStyle(.plain)
+                .foregroundColor(.primary)
+                .font(.title)
+                .padding(.horizontal, 24)
             } else {
                 🚮DeletedNoteView()
             }
+            Spacer()
         }
     }
     private func ⓜultiNotesLayout(_ ⓘds: [UUID]) -> some View {
