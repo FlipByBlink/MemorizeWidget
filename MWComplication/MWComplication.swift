@@ -36,6 +36,7 @@ struct 🅆idgetEntryView: View {
 private struct 🄰ccessoryWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
     private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
     var body: some View {
@@ -79,6 +80,7 @@ private struct 🄰ccessoryWidgetView: View {
                         Text(ⓝote.comment)
                             .font(.caption2)
                             .foregroundStyle(.secondary)
+                            .opacity(self.widgetRenderingMode == .accented ? 0.6 : 1)
                     }
                 }
             }
