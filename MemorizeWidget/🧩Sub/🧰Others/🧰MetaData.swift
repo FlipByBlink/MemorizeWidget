@@ -64,7 +64,8 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "🄷ostingViewController.swift"]
             case .WatchApp:
                 return ["MW_Watch_App.swift",
-                        "ContentView_WatchOSApp.swift"]
+                        "ContentView_WatchOSApp.swift",
+                        "🔩Menu.swift"]
             case .WatchComplication:
                 return ["MWComplication.swift"]
         }

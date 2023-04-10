@@ -16,7 +16,7 @@ struct ContentView_WatchOSApp: View {
                     }
                 }
                 NavigationLink {
-                    🔩MenuList()
+                    🔩Menu()
                 } label: {
                     Label("Menu", systemImage: "gearshape")
                 }
@@ -51,6 +51,8 @@ private struct 📚NotesMenu: View {
                     }
                 }
             }
+            .onDelete(perform: 📱.deleteNote(_:))
+            .onMove(perform: 📱.moveNote(_:_:))
         }
         .navigationTitle("Notes")
     }
@@ -115,75 +117,6 @@ private struct 📗NoteView: View {
     }
     init(_ index: Int) {
         self.ⓘndex = index
-    }
-}
-
-private struct 🔩MenuList: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    var body: some View {
-        List {
-            🔀RandomModeSection()
-            📑MultiNotesOption()
-            💬CommentOnWidgetSection()
-            Section { 🚮DeleteAllNotesButton() }
-        }
-        .navigationTitle("Menu")
-    }
-}
-
-private struct 🔀RandomModeSection: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    var body: some View {
-        Section {
-            Toggle(isOn: $📱.🚩randomMode) {
-                Label("Random mode", systemImage: "shuffle")
-            }
-            .task(id: 📱.🚩randomMode) { WidgetCenter.shared.reloadAllTimelines() }
-        } footer: {
-            Text("Change the note per 5 minutes.")
-        }
-    }
-}
-
-private struct 📑MultiNotesOption: View {
-    @AppStorage("multiNotes", store: .ⓐppGroup) var 🚩value: Bool = false
-    var body: some View {
-        Toggle(isOn: self.$🚩value) {
-            Label("Show multi notes on widget", systemImage: "doc.on.doc")
-        }
-        .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
-    }
-}
-
-private struct 💬CommentOnWidgetSection: View {
-    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩value: Bool = false
-    @AppStorage("multiNotes", store: .ⓐppGroup) var ⓜultiNotes: Bool = false
-    var body: some View {
-        Toggle(isOn: self.$🚩value) {
-            Label("Show comment on widget", systemImage: "text.append")
-        }
-        .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
-        .disabled(self.ⓜultiNotes)
-    }
-}
-
-private struct 🚮DeleteAllNotesButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩showDialog: Bool = false
-    var body: some View {
-        Section {
-            Button(role: .destructive) {
-                self.🚩showDialog = true
-            } label: {
-                Label("Delete all notes.", systemImage: "delete.backward.fill")
-            }
-            .disabled(📱.📚notes.isEmpty)
-            .confirmationDialog("Delete all notes.", isPresented: self.$🚩showDialog) {
-                Button(role: .destructive, action: 📱.removeAllNotes) {
-                    Label("Delete", systemImage: "trash")
-                }
-            }
-        }
     }
 }
 
