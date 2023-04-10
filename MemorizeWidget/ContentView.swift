@@ -5,7 +5,7 @@ struct ContentView: View {
     var body: some View {
         self.ⓣabView()
             .onOpenURL(perform: 📱.handleWidgetURL)
-            .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
+            .modifier(📖WidgetNotesSheet())
             .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportSheet() }
             .modifier(💬RequestUserReview())
     }

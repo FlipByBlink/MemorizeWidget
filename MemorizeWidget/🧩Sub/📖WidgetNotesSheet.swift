@@ -1,31 +1,40 @@
 import SwiftUI
 
-struct 📖WidgetNotesSheet: View {
-    var body: some View {
-        NavigationView {
-            📖WidgetNotesView()
-                .toolbar { 🅧DismissButton() }
-        }
-        .modifier(📣ADSheet())
-        .navigationViewStyle(.stack)
+struct 📖WidgetNotesSheet: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var 🛒: 🛒StoreModel
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: $📱.🪧widgetState.showSheet) {
+                📖WidgetNotesView()
+                    .environmentObject(📱)
+                    .environmentObject(🛒)
+            }
     }
 }
 
 private struct 📖WidgetNotesView: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
-        switch 📱.🪧widgetState.info {
-            case .singleNote(let ⓘd):
-                self.ⓢigleNoteLayout(ⓘd)
-            case .multiNotes(let ⓘds):
-                if ⓘds.count == 1 {
-                    self.ⓢigleNoteLayout(ⓘds[0])
-                } else {
-                    self.ⓜultiNotesLayout(ⓘds)
+        NavigationView {
+            Group {
+                switch 📱.🪧widgetState.info {
+                    case .singleNote(let ⓘd):
+                        self.ⓢigleNoteLayout(ⓘd)
+                    case .multiNotes(let ⓘds):
+                        if ⓘds.count == 1 {
+                            self.ⓢigleNoteLayout(ⓘds[0])
+                        } else {
+                            self.ⓜultiNotesLayout(ⓘds)
+                        }
+                    default:
+                        Text("🐛")
                 }
-            default:
-                Text("🐛")
+            }
+            .toolbar { 🅧DismissButton() }
         }
+        .modifier(📣ADSheet())
+        .navigationViewStyle(.stack)
     }
     private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
         VStack {
@@ -98,12 +107,16 @@ private struct 📘DictionaryButton: View {
     private var ⓣerm: String
     @State private var ⓢtate: 📘DictionaryState = .default
     var body: some View {
-        Button {
-            self.ⓢtate.request(self.ⓣerm)
-        } label: {
-            Label("Dictionary", systemImage: "character.book.closed")
+        if !ProcessInfo().isiOSAppOnMac {
+            Button {
+                self.ⓢtate.request(self.ⓣerm)
+            } label: {
+                Label("Dictionary", systemImage: "character.book.closed")
+            }
+            .modifier(📘DictionarySheet(self.$ⓢtate))
+        } else {
+            📘DictionaryButtonOnMac(term: self.ⓣerm)
         }
-        .modifier(📘DictionarySheet(self.$ⓢtate))
     }
     init(_ note: 📗Note) {
         self.ⓣerm = note.title

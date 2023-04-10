@@ -40,3 +40,24 @@ private struct 🄳ictinaryView: UIViewControllerRepresentable {
         self.ⓥiewController = viewController
     }
 }
+
+struct 📘DictionaryButtonOnMac: View {
+    @Environment(\.openURL) private var openURL
+    var term: String
+    private var ⓤrl: URL? {
+        if let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) {
+            return URL(string: "dict://" + ⓟath)
+        } else {
+            return nil
+        }
+    }
+    var body: some View {
+        Button {
+            if let ⓤrl {
+                self.openURL(ⓤrl)
+            }
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+        }
+    }
+}
