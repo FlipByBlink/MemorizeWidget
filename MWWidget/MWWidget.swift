@@ -24,21 +24,6 @@ struct 🖼MWWidget: Widget {
         if #available(iOS 16.0, *) {
             self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
         }
-#if os(watchOS)
-        self.ⓕamilies.append(contentsOf: [.accessoryCorner])
-#endif
-    }
-}
-
-struct 🤖TimelineProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒WidgetEntry {
-        🕒WidgetEntry(.now, .singleNote(📚Notes.placeholder.first!.id))
-    }
-    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
-        completion(.generateEntry(.now, context.family))
-    }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        completion(🕒WidgetEntry.generateTimeline(context.family))
     }
 }
 

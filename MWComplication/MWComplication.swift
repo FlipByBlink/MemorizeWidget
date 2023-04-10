@@ -1,15 +1,14 @@
 import WidgetKit
 import SwiftUI
 
-struct 🤖TimelineProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒WidgetEntry {
-        🕒WidgetEntry(.now, .singleNote(📚Notes.placeholder.first!.id))
-    }
-    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
-        completion(.generateEntry(.now, context.family))
-    }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        completion(🕒WidgetEntry.generateTimeline(context.family))
+@main
+struct MWComplication: Widget {
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: "MWComplication", provider: 🤖TimelineProvider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
+        }
+        .configurationDisplayName("MemorizeWidget")
+        .description("Show a note.")
     }
 }
 
@@ -97,16 +96,5 @@ private struct 🄰ccessoryWidgetView: View {
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
-    }
-}
-
-@main
-struct MWComplication: Widget {
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "MWComplication", provider: 🤖TimelineProvider()) { ⓔntry in
-            🅆idgetEntryView(ⓔntry)
-        }
-        .configurationDisplayName("MemorizeWidget")
-        .description("Show a note.")
     }
 }

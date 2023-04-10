@@ -62,12 +62,9 @@ enum 🪧WidgetInfo {
 struct 🕒WidgetEntry: TimelineEntry {
     let date: Date
     let info: 🪧WidgetInfo
-    
     init(_ date: Date, _ info: 🪧WidgetInfo) {
-        self.date = date
-        self.info = info
+        self.date = date; self.info = info
     }
-    
     static func generateEntry(_ ⓓate: Date, _ ⓦidgetFamily: WidgetFamily) -> Self {
         let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Self(.now, .noNote) }
@@ -94,7 +91,6 @@ struct 🕒WidgetEntry: TimelineEntry {
             }
         }
     }
-    
     static func generateTimeline(_ ⓦidgetFamily: WidgetFamily) -> Timeline<Self> {
         let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         guard !ⓝotes.isEmpty else { return Timeline(entries: [Self(.now, .noNote)], policy: .never) }
@@ -110,6 +106,18 @@ struct 🕒WidgetEntry: TimelineEntry {
             return Timeline(entries: [Self.generateEntry(.now, ⓦidgetFamily)],
                             policy: .after(Calendar.current.date(byAdding: .minute, value: 20, to: .now)!))
         }
+    }
+}
+
+struct 🤖TimelineProvider: TimelineProvider {
+    func placeholder(in context: Context) -> 🕒WidgetEntry {
+        🕒WidgetEntry(.now, .singleNote(📚Notes.placeholder.first!.id))
+    }
+    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
+        completion(.generateEntry(.now, context.family))
+    }
+    func getTimeline(in context: Context, completion: @escaping (Timeline<🕒WidgetEntry>) -> ()) {
+        completion(🕒WidgetEntry.generateTimeline(context.family))
     }
 }
 
