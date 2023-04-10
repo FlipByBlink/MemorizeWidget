@@ -22,7 +22,7 @@ struct 🅆idgetEntryView: View {
                 🄰ccessoryWidgetView(self.ⓘnfo)
             } else {
                 Image(systemName: "book.closed")
-                    .font(.title3)
+                    .font(.headline)
                     .foregroundStyle(.tertiary)
             }
         }

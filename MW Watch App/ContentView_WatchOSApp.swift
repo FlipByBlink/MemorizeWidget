@@ -23,6 +23,8 @@ struct ContentView_WatchOSApp: View {
             }
             .navigationTitle("MemorizeWidget")
         }
+        .onOpenURL(perform: 📱.handleWidgetURL)
+        .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
     }
 }
 
@@ -68,21 +70,23 @@ private struct 📗NoteView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            Section {
-                Button {
-                    📱.moveTop(self.ⓝote)
-                    self.dismiss()
-                } label: {
-                    Label("Move top", systemImage: "arrow.up.to.line")
+            if !📱.🪧widgetState.showSheet {
+                Section {
+                    Button {
+                        📱.moveTop(self.ⓝote)
+                        self.dismiss()
+                    } label: {
+                        Label("Move top", systemImage: "arrow.up.to.line")
+                    }
+                    .disabled(📱.📚notes.first == self.ⓝote)
+                    Button {
+                        📱.moveEnd(self.ⓝote)
+                        self.dismiss()
+                    } label: {
+                        Label("Move end", systemImage: "arrow.down.to.line")
+                    }
+                    .disabled(📱.📚notes.last == self.ⓝote)
                 }
-                .disabled(📱.📚notes.first == self.ⓝote)
-                Button {
-                    📱.moveEnd(self.ⓝote)
-                    self.dismiss()
-                } label: {
-                    Label("Move end", systemImage: "arrow.down.to.line")
-                }
-                .disabled(📱.📚notes.last == self.ⓝote)
             }
             Section {
                 Button {
@@ -171,6 +175,44 @@ private struct 🚮DeleteAllNotesButton: View {
                 self.dismiss()
             } label: {
                 Label("OK, delete all notes.", systemImage: "trash")
+            }
+        }
+    }
+}
+
+private struct 📖WidgetNotesSheet: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        NavigationStack {
+            List {
+                switch 📱.🪧widgetState.info {
+                    case .singleNote(let ⓘd):
+                        self.ⓝoteLink(ⓘd)
+                    case .multiNotes(let ⓘds):
+                        ForEach(ⓘds, id: \.self) { self.ⓝoteLink($0) }
+                    default:
+                        Text("🐛")
+                }
+            }
+        }
+    }
+    private func ⓝoteLink(_ ⓘd: UUID) -> some View {
+        Group {
+            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
+                NavigationLink {
+                    📗NoteView(ⓘndex)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(📱.📚notes[ⓘndex].title)
+                            .font(.headline)
+                            .foregroundStyle(!📱.🚩randomMode && ⓘndex != 0 ? .secondary : .primary)
+                        Text(📱.📚notes[ⓘndex].comment)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            } else {
+                Label("Deleted", systemImage: "checkmark")
             }
         }
     }
