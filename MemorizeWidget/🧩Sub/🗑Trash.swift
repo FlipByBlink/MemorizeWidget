@@ -54,19 +54,21 @@ struct 🗑TrashTab: View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 Text(ⓝote.title)
-                    .font(.headline)
+                    .font(.body.weight(.semibold))
                 Text(ⓝote.comment)
-                    .font(.subheadline)
+                    .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            .padding(8)
+            .padding(4)
         }
     }
     private func ⓡestoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
         Button {
             📱.restore(ⓒontent)
         } label: {
-            Label("Restore \(ⓒontent.notes.count) notes", systemImage: "arrow.uturn.backward.circle.fill")
+            Label("Restore \(ⓒontent.notes.count.description) notes",
+                  systemImage: "arrow.uturn.backward.circle.fill")
+            .padding(.vertical, 4)
         }
         .accessibilityLabel("Restore")
     }
