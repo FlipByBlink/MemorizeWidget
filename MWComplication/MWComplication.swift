@@ -94,10 +94,9 @@ private struct 🄰ccessoryWidgetView: View {
 
 @main
 struct MWComplication: Widget {
-    let kind: String = "MWComplication"
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: 🤖TimelineProvider()) { entry in
-            🅆idgetEntryView(entry)
+        StaticConfiguration(kind: "MWComplication", provider: 🤖TimelineProvider()) { ⓔntry in
+            🅆idgetEntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")

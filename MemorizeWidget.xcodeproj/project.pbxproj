@@ -58,6 +58,8 @@
 		F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
 		F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F568F20D29E3D309005A1D1A /* MWComplication.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* MWComplication.swift */; };
+		F568F20E29E3DA83005A1D1A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
+		F568F20F29E3DA8B005A1D1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */; };
@@ -678,6 +680,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F568F1FB29E3C567005A1D1A /* Assets.xcassets in Resources */,
+				F568F20F29E3DA8B005A1D1A /* InfoPlist.strings in Resources */,
+				F568F20E29E3DA83005A1D1A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

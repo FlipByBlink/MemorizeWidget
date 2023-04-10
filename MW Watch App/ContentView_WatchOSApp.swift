@@ -72,7 +72,7 @@ private struct 📗NoteView: View {
             }
             if !📱.🪧widgetState.showSheet { self.ⓜoveButtons() }
             Section {
-                Button {
+                Button(role: .destructive) {
                     📱.removeNote(self.ⓝote)
                     self.dismiss()
                 } label: {
@@ -150,7 +150,6 @@ private struct 📑MultiNotesOption: View {
     var body: some View {
         Toggle(isOn: self.$🚩value) {
             Label("Show multi notes on widget", systemImage: "doc.on.doc")
-                .padding(.vertical, 8)
         }
         .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
     }
@@ -162,7 +161,6 @@ private struct 💬CommentOnWidgetSection: View {
     var body: some View {
         Toggle(isOn: self.$🚩value) {
             Label("Show comment on widget", systemImage: "text.append")
-                .padding(.vertical, 8)
         }
         .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
         .disabled(self.ⓜultiNotes)
@@ -171,26 +169,19 @@ private struct 💬CommentOnWidgetSection: View {
 
 private struct 🚮DeleteAllNotesButton: View {
     @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🚩showDialog: Bool = false
     var body: some View {
         Section {
-            NavigationLink {
-                Self.🄳ialog()
+            Button(role: .destructive) {
+                self.🚩showDialog = true
             } label: {
                 Label("Delete all notes.", systemImage: "delete.backward.fill")
-                    .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
             }
             .disabled(📱.📚notes.isEmpty)
-        }
-    }
-    private struct 🄳ialog: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        @Environment(\.dismiss) var dismiss
-        var body: some View {
-            Button(role: .destructive) {
-                📱.removeAllNotes()
-                self.dismiss()
-            } label: {
-                Label("OK, delete all notes.", systemImage: "trash")
+            .confirmationDialog("Delete all notes.", isPresented: self.$🚩showDialog) {
+                Button(role: .destructive, action: 📱.removeAllNotes) {
+                    Label("Delete", systemImage: "trash")
+                }
             }
         }
     }
@@ -198,7 +189,6 @@ private struct 🚮DeleteAllNotesButton: View {
 
 private struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
-    private var ⓞnSheet: Bool { 📱.🪧widgetState.showSheet }
     var body: some View {
         NavigationStack {
             List {
@@ -221,13 +211,11 @@ private struct 📖WidgetNotesSheet: View {
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓘndex].title)
-                            .font(self.ⓞnSheet ? .title3.bold() : .headline)
-                            .foregroundStyle(!📱.🚩randomMode && ⓘndex != 0 ? .secondary : .primary)
+                            .font(.title3.bold())
                         Text(📱.📚notes[ⓘndex].comment)
-                            .font(self.ⓞnSheet ? .body : .caption)
                             .foregroundStyle(.secondary)
                     }
-                    .padding(.vertical, self.ⓞnSheet ? 8 : 0)
+                    .padding(.vertical, 8)
                 }
             } else {
                 Label("Deleted", systemImage: "checkmark")

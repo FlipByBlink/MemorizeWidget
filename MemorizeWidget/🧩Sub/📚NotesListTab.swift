@@ -7,7 +7,7 @@ struct 📚NotesListTab: View {
         NavigationView {
             ScrollViewReader { 🚡 in
                 List {
-                    🚩RandomModeSection()
+                    🔀RandomModeSection()
                     Section {
                         🆕NewNoteOnTopButton()
                         ForEach($📱.📚notes) { ⓝote in
@@ -54,7 +54,7 @@ struct 📚NotesListTab: View {
     }
 }
 
-private struct 🚩RandomModeSection: View {
+private struct 🔀RandomModeSection: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         Section {
