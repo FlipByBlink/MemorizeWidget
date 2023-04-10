@@ -47,6 +47,7 @@ private struct 📚NotesMenu: View {
             .onDelete(perform: 📱.deleteNote(_:))
             .onMove(perform: 📱.moveNote(_:_:))
         }
+        .animation(.default, value: 📱.📚notes)
         .navigationTitle("Notes")
     }
     private struct 🄽oteLink: View {
@@ -73,6 +74,7 @@ private struct 📗NoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var dismiss
     @Binding var ⓝote: 📗Note
+    private var ⓗideMoveButtons: Bool
     var body: some View {
         List {
             Section {
@@ -83,7 +85,7 @@ private struct 📗NoteView: View {
                     .foregroundStyle(.secondary)
             }
             Section {
-                self.ⓜoveButtons()
+                if !self.ⓗideMoveButtons { self.ⓜoveButtons() }
                 Button(role: .destructive) {
                     📱.removeNote(self.ⓝote)
                     self.dismiss()
@@ -105,10 +107,11 @@ private struct 📗NoteView: View {
                     .font(.title2)
             }
             .buttonStyle(.plain)
-            .disabled(📱.📚notes.first == self.ⓝote)
+            .disabled(self.ⓝote.id == 📱.📚notes.first?.id)
             Spacer()
             Text("Move")
                 .font(.headline)
+                .foregroundStyle(📱.📚notes.count <= 1 ? .tertiary : .primary)
             Spacer()
             Button {
                 📱.moveEnd(self.ⓝote)
@@ -120,11 +123,12 @@ private struct 📗NoteView: View {
                     .font(.title2)
             }
             .buttonStyle(.plain)
-            .disabled(📱.📚notes.last == self.ⓝote)
+            .disabled(self.ⓝote.id == 📱.📚notes.last?.id)
         }
     }
-    init(_ note: Binding<📗Note>) {
+    init(_ note: Binding<📗Note>, hideMoveButtons: Bool = false) {
         self._ⓝote = note
+        self.ⓗideMoveButtons = hideMoveButtons
     }
 }
 
@@ -148,7 +152,7 @@ private struct 📖WidgetNotesSheet: View {
         Group {
             if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
                 NavigationLink {
-                    📗NoteView($📱.📚notes[ⓘndex])
+                    📗NoteView($📱.📚notes[ⓘndex], hideMoveButtons: true)
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓘndex].title)
