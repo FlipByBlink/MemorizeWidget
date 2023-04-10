@@ -59,9 +59,7 @@ extension 📱AppModel {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
         self.saveNotes()
-        if ⓕeedback {
-            💥Feedback.warning()
-        }
+        if ⓕeedback { 💥Feedback.warning() }
     }
     func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓣargetNote) else { return }

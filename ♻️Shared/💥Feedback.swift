@@ -28,7 +28,7 @@ enum 💥Feedback {
         WKInterfaceDevice.current().play(.failure)
     }
     static func warning() {
-//        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        WKInterfaceDevice.current().play(.failure)
     }
 #endif
 }
