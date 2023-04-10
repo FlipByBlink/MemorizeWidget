@@ -34,7 +34,7 @@ extension 📱AppModel {
         let ⓝewNote: 📗Note = .empty
         self.📚notes.insert(ⓝewNote, at: ⓘndex)
         self.🆕newNoteID = ⓝewNote.id
-        UISelectionFeedbackGenerator().selectionChanged()
+        💥Feedback.light()
     }
     func addNewNoteOnTop() {
         self.addNewNote(index: 0)
@@ -47,20 +47,20 @@ extension 📱AppModel {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: 0)
         self.saveNotes()
-        UISelectionFeedbackGenerator().selectionChanged()
+        💥Feedback.light()
     }
     func moveEnd(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓝote) else { return }
         self.📚notes.move(fromOffsets: [ⓘndex], toOffset: self.📚notes.endIndex)
         self.saveNotes()
-        UISelectionFeedbackGenerator().selectionChanged()
+        💥Feedback.light()
     }
     func removeNote(_ ⓝote: 📗Note, feedback ⓕeedback: Bool = true) {
         self.🗑trash.storeDeletedNotes([ⓝote])
         withAnimation { self.📚notes.removeAll(where: { $0 == ⓝote }) }
         self.saveNotes()
         if ⓕeedback {
-            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            💥Feedback.warning()
         }
     }
     func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
@@ -73,7 +73,7 @@ extension 📱AppModel {
         self.🗑trash.storeDeletedNotes(self.📚notes)
         self.📚notes.removeAll()
         self.saveNotes()
-        UINotificationFeedbackGenerator().notificationOccurred(.error)
+        💥Feedback.error()
     }
     func insertOnTop(_ ⓝotes: 📚Notes) {
         self.📚notes.insert(contentsOf: ⓝotes, at: 0)
@@ -84,7 +84,7 @@ extension 📱AppModel {
         self.insertOnTop(ⓡestoredNotes)
         self.🗑trash.remove(ⓒontent)
         self.saveNotes()
-        UISelectionFeedbackGenerator().selectionChanged()
+        💥Feedback.light()
     }
     func saveNotes() {
         💾ICloud.save(self.📚notes)
@@ -104,7 +104,7 @@ extension 📱AppModel {
                     case .newNoteShortcut, .noNote:
                         break
                 }
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                💥Feedback.light()
             } else {
                 assertionFailure()
             }
@@ -145,4 +145,8 @@ extension 📱AppModel {
             self.📚notes = .placeholder
         }
     }
+}
+
+enum 🔖Tab {
+    case notesList, menu, trash, guide, app
 }

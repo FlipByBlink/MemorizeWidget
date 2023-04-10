@@ -28,6 +28,26 @@
 		F527F48129D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F527F48229D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
+		F568F19029E3A5DA005A1D1A /* MW_Watch_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */; };
+		F568F19229E3A5DA005A1D1A /* ContentView_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */; };
+		F568F19429E3A5DC005A1D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F568F19329E3A5DC005A1D1A /* Assets.xcassets */; };
+		F568F19729E3A5DC005A1D1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F568F19629E3A5DC005A1D1A /* Preview Assets.xcassets */; };
+		F568F19A29E3A5DC005A1D1A /* MW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F568F18D29E3A5DA005A1D1A /* MW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F568F1A029E3A629005A1D1A /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
+		F568F1A129E3A629005A1D1A /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
+		F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
+		F568F1A329E3A629005A1D1A /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
+		F568F1A429E3A668005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
+		F568F1A529E3A6A1005A1D1A /* 🗑TrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */; };
+		F568F1A729E3A6C9005A1D1A /* 🗑TrashTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */; };
+		F568F1A929E3A703005A1D1A /* 💥Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1A829E3A703005A1D1A /* 💥Feedback.swift */; };
+		F568F1AA29E3A703005A1D1A /* 💥Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1A829E3A703005A1D1A /* 💥Feedback.swift */; };
+		F568F1AC29E3AA82005A1D1A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
+		F568F1AD29E3AA85005A1D1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
+		F568F1AE29E3AB9A005A1D1A /* 💥Feedback.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1A829E3A703005A1D1A /* 💥Feedback.swift */; };
+		F568F1AF29E3AB9A005A1D1A /* 🗑TrashTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */; };
+		F568F1B029E3AB9A005A1D1A /* MW_Watch_App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */; };
+		F568F1B129E3AB9A005A1D1A /* ContentView_WatchOSApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */; };
 		F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */; };
 		F59EEFEB28F3FACB002D9AD7 /* 🛒InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */; };
 		F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */; };
@@ -69,7 +89,7 @@
 		F5FE2D8629DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8729DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
 		F5FE2D8929DCDF12008C728B /* 🚮DeleteNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */; };
-		F5FE2D8C29DD585E008C728B /* 🗑Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */; };
+		F5FE2D8C29DD585E008C728B /* 🗑TrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */; };
 		F5FE2D8E29DE88E8008C728B /* 🧰MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8D29DE88E8008C728B /* 🧰MetaData.swift */; };
 		F5FE2D8F29DE8AB3008C728B /* MemorizeWidgetApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */; };
 		F5FE2D9029DE8AB3008C728B /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
@@ -85,7 +105,7 @@
 		F5FE2D9A29DE8AB3008C728B /* 📥NotesImportSheet.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */; };
 		F5FE2D9B29DE8AB3008C728B /* 📘Dictionary.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */; };
 		F5FE2D9C29DE8AB3008C728B /* 🔍SearchButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */; };
-		F5FE2D9D29DE8AB3008C728B /* 🗑Trash.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */; };
+		F5FE2D9D29DE8AB3008C728B /* 🗑TrashModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */; };
 		F5FE2D9E29DE8AB3008C728B /* 🗄️Rest.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */; };
 		F5FE2D9F29DE8AB3008C728B /* ℹ️AboutAppTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */; };
 		F5FE2DA029DE8AB3008C728B /* 🧰MetaData.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2D8D29DE88E8008C728B /* 🧰MetaData.swift */; };
@@ -99,6 +119,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F568F19829E3A5DC005A1D1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F568F18C29E3A5DA005A1D1A;
+			remoteInfo = "MW Watch App";
+		};
 		F5CEA5F92924AAAC00752277 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5B5A45628C6EDA1005B6E0F /* Project object */;
@@ -116,12 +143,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F568F19B29E3A5DC005A1D1A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F568F19A29E3A5DC005A1D1A /* MW Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F59EEFF028F3FCDF002D9AD7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				F568F1AE29E3AB9A005A1D1A /* 💥Feedback.swift in CopyFiles */,
+				F568F1AF29E3AB9A005A1D1A /* 🗑TrashTab.swift in CopyFiles */,
+				F568F1B029E3AB9A005A1D1A /* MW_Watch_App.swift in CopyFiles */,
+				F568F1B129E3AB9A005A1D1A /* ContentView_WatchOSApp.swift in CopyFiles */,
 				F5EE7EBC29DFF0B000012A12 /* 💾ICloud.swift in CopyFiles */,
 				F5FE2DA829DEB1F7008C728B /* 💁GuideTab.swift in CopyFiles */,
 				F5FE2D8F29DE8AB3008C728B /* MemorizeWidgetApp.swift in CopyFiles */,
@@ -138,7 +180,7 @@
 				F5FE2D9A29DE8AB3008C728B /* 📥NotesImportSheet.swift in CopyFiles */,
 				F5FE2D9B29DE8AB3008C728B /* 📘Dictionary.swift in CopyFiles */,
 				F5FE2D9C29DE8AB3008C728B /* 🔍SearchButton.swift in CopyFiles */,
-				F5FE2D9D29DE8AB3008C728B /* 🗑Trash.swift in CopyFiles */,
+				F5FE2D9D29DE8AB3008C728B /* 🗑TrashModel.swift in CopyFiles */,
 				F5FE2D9E29DE8AB3008C728B /* 🗄️Rest.swift in CopyFiles */,
 				F5FE2D9F29DE8AB3008C728B /* ℹ️AboutAppTab.swift in CopyFiles */,
 				F5FE2DA029DE8AB3008C728B /* 🧰MetaData.swift in CopyFiles */,
@@ -188,6 +230,14 @@
 		F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
 		F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘Dictionary.swift"; sourceTree = "<group>"; };
 		F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗NoteModel.swift"; sourceTree = "<group>"; };
+		F568F18D29E3A5DA005A1D1A /* MW Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MW Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MW_Watch_App.swift; sourceTree = "<group>"; };
+		F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_WatchOSApp.swift; sourceTree = "<group>"; };
+		F568F19329E3A5DC005A1D1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F568F19629E3A5DC005A1D1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashTab.swift"; sourceTree = "<group>"; };
+		F568F1A829E3A703005A1D1A /* 💥Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💥Feedback.swift"; sourceTree = "<group>"; };
+		F568F1AB29E3A91C005A1D1A /* MW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MW Watch App.entitlements"; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
 		F59EEFE728F3FACB002D9AD7 /* 🛒InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchase.swift"; sourceTree = "<group>"; };
@@ -218,12 +268,19 @@
 		F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒EntryView.swift"; sourceTree = "<group>"; };
 		F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🆕NewNoteShortcutWidget.swift"; sourceTree = "<group>"; };
 		F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚮DeleteNoteButton.swift"; sourceTree = "<group>"; };
-		F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑Trash.swift"; sourceTree = "<group>"; };
+		F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashModel.swift"; sourceTree = "<group>"; };
 		F5FE2D8D29DE88E8008C728B /* 🧰MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🧰MetaData.swift"; sourceTree = "<group>"; };
 		F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideTab.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F568F18A29E3A5DA005A1D1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5B5A45B28C6EDA1005B6E0F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,10 +327,10 @@
 				F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */,
 				F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */,
 				F527F47429D53FDF00E9FB97 /* 🔩MenuTab.swift */,
+				F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */,
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
 				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
-				F5FE2D8B29DD585E008C728B /* 🗑Trash.swift */,
 				F527F47A29D5424C00E9FB97 /* 🗄️Rest.swift */,
 				F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */,
 				F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */,
@@ -285,13 +342,49 @@
 			path = "🧩Sub";
 			sourceTree = "<group>";
 		};
+		F568F18E29E3A5DA005A1D1A /* MW Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */,
+				F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */,
+				F568F19329E3A5DC005A1D1A /* Assets.xcassets */,
+				F568F1AB29E3A91C005A1D1A /* MW Watch App.entitlements */,
+				F568F19529E3A5DC005A1D1A /* Preview Content */,
+			);
+			path = "MW Watch App";
+			sourceTree = "<group>";
+		};
+		F568F19529E3A5DC005A1D1A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F568F19629E3A5DC005A1D1A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F568F19F29E3A602005A1D1A /* ♻️Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
+				F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */,
+				F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */,
+				F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */,
+				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
+				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
+				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
+			);
+			path = "♻️Shared";
+			sourceTree = "<group>";
+		};
 		F5B5A45528C6EDA1005B6E0F = {
 			isa = PBXGroup;
 			children = (
 				F507EA9328C9FCC900ECF06A /* README.md */,
+				F568F19F29E3A602005A1D1A /* ♻️Shared */,
 				F5B5A46028C6EDA1005B6E0F /* MemorizeWidget */,
 				F5D30CCB28C6F6C8001198AF /* MWWidget */,
 				F5CEA5F22924AAAC00752277 /* MWShareExtension */,
+				F568F18E29E3A5DA005A1D1A /* MW Watch App */,
 				F5D30CC628C6F6C8001198AF /* Frameworks */,
 				F5B5A45F28C6EDA1005B6E0F /* Products */,
 			);
@@ -303,6 +396,7 @@
 				F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */,
 				F5D30CC528C6F6C8001198AF /* MWWidgetExtension.appex */,
 				F5CEA5F12924AAAC00752277 /* MWShareExtension.appex */,
+				F568F18D29E3A5DA005A1D1A /* MW Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,11 +406,6 @@
 			children = (
 				F5B5A46128C6EDA1005B6E0F /* MemorizeWidgetApp.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
-				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
-				F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */,
-				F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */,
-				F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */,
-				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
 				F527F46F29D53E4C00E9FB97 /* 🧩Sub */,
 				F507EA9728CA145000ECF06A /* 🌏Localization */,
 				F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */,
@@ -373,6 +462,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F568F18C29E3A5DA005A1D1A /* MW Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F568F19E29E3A5DC005A1D1A /* Build configuration list for PBXNativeTarget "MW Watch App" */;
+			buildPhases = (
+				F568F18929E3A5DA005A1D1A /* Sources */,
+				F568F18A29E3A5DA005A1D1A /* Frameworks */,
+				F568F18B29E3A5DA005A1D1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MW Watch App";
+			productName = "MW Watch App";
+			productReference = F568F18D29E3A5DA005A1D1A /* MW Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F5B5A45D28C6EDA1005B6E0F /* MemorizeWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5B5A46C28C6EDA3005B6E0F /* Build configuration list for PBXNativeTarget "MemorizeWidget" */;
@@ -382,12 +488,14 @@
 				F5B5A45C28C6EDA1005B6E0F /* Resources */,
 				F5D30CD428C6F6C9001198AF /* Embed Foundation Extensions */,
 				F59EEFF028F3FCDF002D9AD7 /* CopyFiles */,
+				F568F19B29E3A5DC005A1D1A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F5D30CD228C6F6C9001198AF /* PBXTargetDependency */,
 				F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */,
+				F568F19929E3A5DC005A1D1A /* PBXTargetDependency */,
 			);
 			name = MemorizeWidget;
 			productName = MemorizeWidget;
@@ -435,9 +543,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					F568F18C29E3A5DA005A1D1A = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					F5B5A45D28C6EDA1005B6E0F = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -466,11 +577,23 @@
 				F5B5A45D28C6EDA1005B6E0F /* MemorizeWidget */,
 				F5D30CC428C6F6C8001198AF /* MWWidgetExtension */,
 				F5CEA5F02924AAAC00752277 /* MWShareExtension */,
+				F568F18C29E3A5DA005A1D1A /* MW Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F568F18B29E3A5DA005A1D1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568F19729E3A5DC005A1D1A /* Preview Assets.xcassets in Resources */,
+				F568F1AD29E3AA85005A1D1A /* InfoPlist.strings in Resources */,
+				F568F1AC29E3AA82005A1D1A /* Localizable.strings in Resources */,
+				F568F19429E3A5DC005A1D1A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5B5A45C28C6EDA1005B6E0F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,6 +634,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F568F18929E3A5DA005A1D1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568F1A529E3A6A1005A1D1A /* 🗑TrashModel.swift in Sources */,
+				F568F1A129E3A629005A1D1A /* 🪧WidgetState.swift in Sources */,
+				F568F1AA29E3A703005A1D1A /* 💥Feedback.swift in Sources */,
+				F568F1A029E3A629005A1D1A /* 📗NoteModel.swift in Sources */,
+				F568F19229E3A5DA005A1D1A /* ContentView_WatchOSApp.swift in Sources */,
+				F568F1A429E3A668005A1D1A /* 💾UserDefaults.swift in Sources */,
+				F568F1A329E3A629005A1D1A /* 📱AppModel.swift in Sources */,
+				F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */,
+				F568F19029E3A5DA005A1D1A /* MW_Watch_App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5B5A45A28C6EDA1005B6E0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,15 +665,17 @@
 				F527F47729D5404800E9FB97 /* ℹ️AboutAppTab.swift in Sources */,
 				F527F47529D53FDF00E9FB97 /* 🔩MenuTab.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
+				F568F1A929E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
 				F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */,
-				F5FE2D8C29DD585E008C728B /* 🗑Trash.swift in Sources */,
+				F5FE2D8C29DD585E008C728B /* 🗑TrashModel.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* 💾UserDefaults.swift in Sources */,
 				F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */,
 				F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */,
 				F59EEFEA28F3FACB002D9AD7 /* 📣AD.swift in Sources */,
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
+				F568F1A729E3A6C9005A1D1A /* 🗑TrashTab.swift in Sources */,
 				F5B5A46228C6EDA1005B6E0F /* MemorizeWidgetApp.swift in Sources */,
 				F527F47B29D5424C00E9FB97 /* 🗄️Rest.swift in Sources */,
 				F5FE2D8E29DE88E8008C728B /* 🧰MetaData.swift in Sources */,
@@ -575,6 +716,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F568F19929E3A5DC005A1D1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F568F18C29E3A5DA005A1D1A /* MW Watch App */;
+			targetProxy = F568F19829E3A5DC005A1D1A /* PBXContainerItemProxy */;
+		};
 		F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F5CEA5F02924AAAC00752277 /* MWShareExtension */;
@@ -635,6 +781,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F568F19C29E3A5DC005A1D1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6696GEY228;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MW;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = net.aaaakkkkssssttttnnnn.MemorizeWidget;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		F568F19D29E3A5DC005A1D1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MW Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6696GEY228;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MW;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = net.aaaakkkkssssttttnnnn.MemorizeWidget;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
 		F5B5A46A28C6EDA3005B6E0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -944,6 +1152,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F568F19E29E3A5DC005A1D1A /* Build configuration list for PBXNativeTarget "MW Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F568F19C29E3A5DC005A1D1A /* Debug */,
+				F568F19D29E3A5DC005A1D1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F5B5A45928C6EDA1005B6E0F /* Build configuration list for PBXProject "MemorizeWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

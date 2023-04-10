@@ -28,14 +28,15 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
         switch self {
             case .main:
                 return ["MemorizeWidgetApp.swift",
-                        "📱AppModel.swift",
-                        "ContentView.swift",
+                        "ContentView.swift"]
+            case .Shared:
+                return ["📱AppModel.swift",
                         "📗NoteModel.swift",
                         "🪧WidgetState.swift",
                         "💾ICloud.swift",
-                        "💾UserDefaults.swift"]
-            case .Shared:
-                return []
+                        "💾UserDefaults.swift",
+                        "🗑TrashModel.swift",
+                        "💥Feedback.swift"]
             case .Sub:
                 return ["📚NotesListTab.swift",
                         "📓NoteView.swift",
@@ -45,7 +46,7 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "📥NotesImportSheet.swift",
                         "📘Dictionary.swift",
                         "🔍SearchButton.swift",
-                        "🗑Trash.swift",
+                        "🗑TrashTab.swift",
                         "🗄️Rest.swift",
                         "💁GuideTab.swift",
                         "ℹ️AboutAppTab.swift"]
@@ -62,7 +63,8 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                 return ["📨ShareExtensionModel.swift",
                         "🄷ostingViewController.swift"]
             case .WatchApp:
-                return []
+                return ["MW_Watch_App.swift",
+                        "ContentView_WatchOSApp.swift"]
             case .WatchComplication:
                 return []
         }

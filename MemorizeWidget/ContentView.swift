@@ -30,7 +30,3 @@ struct ContentView: View {
         }
     }
 }
-
-enum 🔖Tab {
-    case notesList, menu, trash, guide, app
-}
