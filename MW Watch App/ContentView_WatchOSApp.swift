@@ -34,21 +34,14 @@ private struct 📚NotesMenu: View {
         List {
             TextFieldLink {
                 Label("New note", systemImage: "plus")
-            } onSubmit: { ⓣext in
-                📱.insertOnTop([📗Note(ⓣext)])
+            } onSubmit: {
+                📱.insertOnTop([📗Note($0)])
             }
-            ForEach(📱.📚notes.indices, id: \.self) { ⓘndex in
+            ForEach($📱.📚notes) { ⓝote in
                 NavigationLink {
-                    📗NoteView(ⓘndex)
+                    📗NoteView(ⓝote)
                 } label: {
-                    VStack(alignment: .leading) {
-                        Text(📱.📚notes[ⓘndex].title)
-                            .font(.headline)
-                            .foregroundStyle(!📱.🚩randomMode && ⓘndex != 0 ? .secondary : .primary)
-                        Text(📱.📚notes[ⓘndex].comment)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                    Self.🄽oteLink(note: ⓝote)
                 }
             }
             .onDelete(perform: 📱.deleteNote(_:))
@@ -56,24 +49,41 @@ private struct 📚NotesMenu: View {
         }
         .navigationTitle("Notes")
     }
+    private struct 🄽oteLink: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        @Binding var note: 📗Note
+        private var ⓘnactive: Bool {
+            !📱.🚩randomMode
+            && 📱.📚notes.first != self.note
+        }
+        var body: some View {
+            VStack(alignment: .leading) {
+                Text(self.note.title)
+                    .font(.headline)
+                    .foregroundStyle(self.ⓘnactive ? .secondary : .primary)
+                Text(self.note.comment)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
 }
 
 private struct 📗NoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var dismiss
-    private var ⓘndex: Int
-    private var ⓝote: 📗Note { 📱.📚notes[ⓘndex] }
+    @Binding var ⓝote: 📗Note
     var body: some View {
         List {
             Section {
-                TextField("Title", text: self.$📱.📚notes[ⓘndex].title)
+                TextField("Title", text: self.$ⓝote.title)
                     .font(.headline)
-                TextField("Comment", text: self.$📱.📚notes[ⓘndex].comment)
+                TextField("Comment", text: self.$ⓝote.comment)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            if !📱.🪧widgetState.showSheet { self.ⓜoveButtons() }
             Section {
+                self.ⓜoveButtons()
                 Button(role: .destructive) {
                     📱.removeNote(self.ⓝote)
                     self.dismiss()
@@ -84,39 +94,37 @@ private struct 📗NoteView: View {
         }
     }
     private func ⓜoveButtons() -> some View {
-        Section {
-            HStack {
-                Button {
-                    📱.moveTop(self.ⓝote)
-                    self.dismiss()
-                } label: {
-                    Label("Move top", systemImage: "arrow.up.to.line.circle.fill")
-                        .labelStyle(.iconOnly)
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.title2)
-                }
-                .buttonStyle(.plain)
-                .disabled(📱.📚notes.first == self.ⓝote)
-                Spacer()
-                Text("Move")
-                    .font(.headline)
-                Spacer()
-                Button {
-                    📱.moveEnd(self.ⓝote)
-                    self.dismiss()
-                } label: {
-                    Label("Move end", systemImage: "arrow.down.to.line.circle.fill")
-                        .labelStyle(.iconOnly)
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.title2)
-                }
-                .buttonStyle(.plain)
-                .disabled(📱.📚notes.last == self.ⓝote)
+        HStack {
+            Button {
+                📱.moveTop(self.ⓝote)
+                self.dismiss()
+            } label: {
+                Label("Move top", systemImage: "arrow.up.to.line.circle.fill")
+                    .labelStyle(.iconOnly)
+                    .symbolRenderingMode(.hierarchical)
+                    .font(.title2)
             }
+            .buttonStyle(.plain)
+            .disabled(📱.📚notes.first == self.ⓝote)
+            Spacer()
+            Text("Move")
+                .font(.headline)
+            Spacer()
+            Button {
+                📱.moveEnd(self.ⓝote)
+                self.dismiss()
+            } label: {
+                Label("Move end", systemImage: "arrow.down.to.line.circle.fill")
+                    .labelStyle(.iconOnly)
+                    .symbolRenderingMode(.hierarchical)
+                    .font(.title2)
+            }
+            .buttonStyle(.plain)
+            .disabled(📱.📚notes.last == self.ⓝote)
         }
     }
-    init(_ index: Int) {
-        self.ⓘndex = index
+    init(_ note: Binding<📗Note>) {
+        self._ⓝote = note
     }
 }
 
@@ -140,7 +148,7 @@ private struct 📖WidgetNotesSheet: View {
         Group {
             if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
                 NavigationLink {
-                    📗NoteView(ⓘndex)
+                    📗NoteView($📱.📚notes[ⓘndex])
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓘndex].title)
