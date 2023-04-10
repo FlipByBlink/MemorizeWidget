@@ -100,7 +100,7 @@ struct 🕒WidgetEntry: TimelineEntry {
         guard !ⓝotes.isEmpty else { return Timeline(entries: [Self(.now, .noNote)], policy: .never) }
         if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             var ⓔntries: [Self] = []
-            for ⓒount in 0 ..< 12 {
+            for ⓒount in 1 ..< 5 {
                 let ⓞffset = ⓒount * 5
                 let ⓓate = Calendar.current.date(byAdding: .minute, value: ⓞffset, to: .now)!
                 ⓔntries.append(Self.generateEntry(ⓓate, ⓦidgetFamily))
@@ -108,7 +108,7 @@ struct 🕒WidgetEntry: TimelineEntry {
             return Timeline(entries: ⓔntries, policy: .atEnd)
         } else {
             return Timeline(entries: [Self.generateEntry(.now, ⓦidgetFamily)],
-                            policy: .after(Calendar.current.date(byAdding: .minute, value: 60, to: .now)!))
+                            policy: .after(Calendar.current.date(byAdding: .minute, value: 20, to: .now)!))
         }
     }
 }
