@@ -44,8 +44,14 @@ private struct 📚NotesMenu: View {
                     Self.🄽oteLink(note: ⓝote)
                 }
             }
-            .onDelete(perform: 📱.deleteNote(_:))
-            .onMove(perform: 📱.moveNote(_:_:))
+            .onDelete {
+                📱.deleteNote($0)
+                💥Feedback.light()
+            }
+            .onMove {
+                📱.moveNote($0, $1)
+                💥Feedback.light()
+            }
         }
         .animation(.default, value: 📱.📚notes)
         .navigationTitle("Notes")
