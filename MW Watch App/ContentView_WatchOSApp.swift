@@ -70,24 +70,7 @@ private struct 📗NoteView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            if !📱.🪧widgetState.showSheet {
-                Section {
-                    Button {
-                        📱.moveTop(self.ⓝote)
-                        self.dismiss()
-                    } label: {
-                        Label("Move top", systemImage: "arrow.up.to.line")
-                    }
-                    .disabled(📱.📚notes.first == self.ⓝote)
-                    Button {
-                        📱.moveEnd(self.ⓝote)
-                        self.dismiss()
-                    } label: {
-                        Label("Move end", systemImage: "arrow.down.to.line")
-                    }
-                    .disabled(📱.📚notes.last == self.ⓝote)
-                }
-            }
+            if !📱.🪧widgetState.showSheet { self.ⓜoveButtons() }
             Section {
                 Button {
                     📱.removeNote(self.ⓝote)
@@ -95,6 +78,38 @@ private struct 📗NoteView: View {
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
+            }
+        }
+    }
+    private func ⓜoveButtons() -> some View {
+        Section {
+            HStack {
+                Button {
+                    📱.moveTop(self.ⓝote)
+                    self.dismiss()
+                } label: {
+                    Label("Move top", systemImage: "arrow.up.to.line.circle.fill")
+                        .labelStyle(.iconOnly)
+                        .symbolRenderingMode(.hierarchical)
+                        .font(.title2)
+                }
+                .buttonStyle(.plain)
+                .disabled(📱.📚notes.first == self.ⓝote)
+                Spacer()
+                Text("Move")
+                    .font(.headline)
+                Spacer()
+                Button {
+                    📱.moveEnd(self.ⓝote)
+                    self.dismiss()
+                } label: {
+                    Label("Move end", systemImage: "arrow.down.to.line.circle.fill")
+                        .labelStyle(.iconOnly)
+                        .symbolRenderingMode(.hierarchical)
+                        .font(.title2)
+                }
+                .buttonStyle(.plain)
+                .disabled(📱.📚notes.last == self.ⓝote)
             }
         }
     }
@@ -182,6 +197,7 @@ private struct 🚮DeleteAllNotesButton: View {
 
 private struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    private var ⓞnSheet: Bool { 📱.🪧widgetState.showSheet }
     var body: some View {
         NavigationStack {
             List {
@@ -204,12 +220,13 @@ private struct 📖WidgetNotesSheet: View {
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓘndex].title)
-                            .font(.headline)
+                            .font(self.ⓞnSheet ? .title3.bold() : .headline)
                             .foregroundStyle(!📱.🚩randomMode && ⓘndex != 0 ? .secondary : .primary)
                         Text(📱.📚notes[ⓘndex].comment)
-                            .font(.caption)
+                            .font(self.ⓞnSheet ? .body : .caption)
                             .foregroundStyle(.secondary)
                     }
+                    .padding(.vertical, self.ⓞnSheet ? 8 : 0)
                 }
             } else {
                 Label("Deleted", systemImage: "checkmark")
