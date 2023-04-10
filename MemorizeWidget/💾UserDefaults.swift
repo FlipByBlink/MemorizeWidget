@@ -30,7 +30,7 @@ extension 💾UserDefaults {
 }
 
 extension 💾UserDefaults {
-    static var noNotesVer_1_1_2: Bool {
+    static var notesVer_1_1_2_IsNil: Bool {
         Self.loadNotesOfVer_1_1_2() == nil
     }
     static func clearNotesOfVer_1_1_2() {

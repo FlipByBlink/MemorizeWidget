@@ -45,8 +45,10 @@ struct 🗑TrashTab: View {
     }
     private func ⓜultiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
         Group {
-            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
             self.ⓡestoreButton(ⓒontent)
+                .font(.body.weight(.medium))
+                .badge(ⓒontent.notes.count)
+            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
         }
     }
     private func ⓝoteView(_ ⓝote: 📗Note) -> some View {

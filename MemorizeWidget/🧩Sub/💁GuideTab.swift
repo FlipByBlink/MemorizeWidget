@@ -26,6 +26,8 @@ private struct 🄳ataSection: View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
             Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
+            Label("If the data size is exceeded, please reduce the number of notes or clear the trash.",
+                  systemImage: "externaldrive.badge.xmark")
             VStack {
                 Label("Notes data count", systemImage: "books.vertical")
                     .badge(self.ⓓataCount.formatted(.byteCount(style: .file)))

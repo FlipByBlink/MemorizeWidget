@@ -65,6 +65,7 @@
 "Guide" = "ガイド";
 "Sync notes between devices by iCloud." = "iCloudによって端末間でノートが同期されます。";
 "Data limitation is 1 mega byte." = "最大1メガバイトのデータ制限があります。";
+"If the data size is exceeded, please reduce the number of notes or clear the trash." = "もしデータ容量を超過してしまった場合は、ノートを減らしたり、ゴミ箱を空にしてください。";
 "Notes data count" = "現在のデータサイズ";
 "⚠️ NOTICE DATA LIMITATION" = "⚠️ データサイズ制限に注意";
 "Data" = "データ";

@@ -141,7 +141,7 @@ extension 📱AppModel {
         💾UserDefaults.clearNotesOfVer_1_1_2()
     }
     func setPlaceholder() {
-        if self.📚notes.isEmpty, 💾ICloud.noNotes, 💾UserDefaults.noNotesVer_1_1_2 {
+        if self.📚notes.isEmpty, 💾ICloud.notesIsNil, 💾UserDefaults.notesVer_1_1_2_IsNil {
             self.📚notes = .placeholder
         }
     }
