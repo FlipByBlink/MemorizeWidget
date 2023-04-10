@@ -9,10 +9,19 @@
 
 - Import file(e.g. tsv, csv, txt) or text.
 
+- Support Apple Watch.
+
+- Support Mac.
+
+- Sync between devices by iCloud.
+
 - System dictionary support.
 
 - Customizable search function.
 
-【OPTION】
 
-- Show comment on widget. (homescreen-widget/lockscreen-rectangular)";
+OPTION
+
+- Show comment on widget. (homescreen-widget/lockscreen-rectangular)
+
+- Show multi notes.";

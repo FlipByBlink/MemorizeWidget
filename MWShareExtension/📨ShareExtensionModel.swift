@@ -34,7 +34,6 @@ class 📨ShareExtensionModel: ObservableObject {
                 ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
         }
         💾ICloud.save(ⓝotes)
-        💾UserDefaults.appGroup.set(true, forKey: "savedByExtension")
     }
     
     @MainActor

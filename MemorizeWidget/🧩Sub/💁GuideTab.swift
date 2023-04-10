@@ -143,5 +143,26 @@ private struct 🄳irectionsSection: View {
                 }
             }
         }
+        if ProcessInfo().isiOSAppOnMac {
+            Section {
+                HStack {
+                    Label("New note: Command + Return", systemImage: "keyboard")
+                    Spacer()
+                    HStack {
+                        Image(systemName: "command")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                        Image(systemName: "plus")
+                            .font(.subheadline)
+                            .foregroundStyle(.tertiary)
+                        Image(systemName: "return")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            } header: {
+                Text("Keyboard shortcut")
+            }
+        }
     }
 }

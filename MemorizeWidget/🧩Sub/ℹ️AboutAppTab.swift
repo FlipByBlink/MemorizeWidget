@@ -11,7 +11,7 @@ struct ℹ️AboutAppTab: View {
     }
     private func ⓛistView() -> some View {
         List {
-            ℹ️AboutAppLink(name: "MemorizeWidget", subtitle: "App for iPhone / iPad / Apple Watch")
+            ℹ️AboutAppLink(name: "MemorizeWidget", subtitle: "App for iPhone / iPad / Apple Watch / Mac")
             📣ADMenuLink()
         }
         .navigationTitle("App")

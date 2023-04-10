@@ -182,6 +182,7 @@ private struct 📣ADSheet: ViewModifier {
         content
             .sheet(isPresented: $🛒.🚩showADSheet) {
                 📣ADView(self.ⓐpp, second: 10)
+                    .environmentObject(🛒)
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
