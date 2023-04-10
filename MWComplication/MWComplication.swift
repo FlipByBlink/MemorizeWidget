@@ -77,7 +77,7 @@ private struct 🄰ccessoryWidgetView: View {
                 if case .singleNote(_) = self.ⓘnfo {
                     if self.🚩showComment, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
-                            .font(.subheadline)
+                            .font(.footnote)
                             .foregroundStyle(.secondary)
                     }
                 }

@@ -154,6 +154,7 @@ private struct 📖WidgetNotesSheet: View {
                         Text(📱.📚notes[ⓘndex].title)
                             .font(.title3.bold())
                         Text(📱.📚notes[ⓘndex].comment)
+                            .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                     .padding(.vertical, 8)

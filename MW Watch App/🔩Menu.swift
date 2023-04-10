@@ -6,8 +6,12 @@ struct 🔩Menu: View {
     var body: some View {
         List {
             🔀RandomModeSection()
-            📑MultiNotesOption()
-            💬CommentOnWidgetSection()
+            Section {
+                📑MultiNotesOption()
+                💬CommentOnWidgetSection()
+            } header: {
+                Text("Widget")
+            }
             Section { 🗑TrashLink() }
             Section { 🚮DeleteAllNotesButton() }
         }
@@ -33,7 +37,7 @@ private struct 📑MultiNotesOption: View {
     @AppStorage("multiNotes", store: .ⓐppGroup) var 🚩value: Bool = false
     var body: some View {
         Toggle(isOn: self.$🚩value) {
-            Label("Show multi notes on widget", systemImage: "doc.on.doc")
+            Label("Show multi notes", systemImage: "doc.on.doc")
         }
         .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
     }
@@ -44,7 +48,7 @@ private struct 💬CommentOnWidgetSection: View {
     @AppStorage("multiNotes", store: .ⓐppGroup) var ⓜultiNotes: Bool = false
     var body: some View {
         Toggle(isOn: self.$🚩value) {
-            Label("Show comment on widget", systemImage: "text.append")
+            Label("Show comment", systemImage: "text.append")
         }
         .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
         .disabled(self.ⓜultiNotes)

@@ -28,7 +28,7 @@ enum 💥Feedback {
         WKInterfaceDevice.current().play(.failure)
     }
     static func warning() {
-        WKInterfaceDevice.current().play(.failure)
+        WKInterfaceDevice.current().play(.success)
     }
 #endif
 }

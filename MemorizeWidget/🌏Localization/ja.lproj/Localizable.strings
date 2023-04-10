@@ -19,7 +19,10 @@
 "Move top" = "先頭へ移動";
 "Move end" = "末尾へ移動";
 "Show multi notes on widget" = "ウィジェット上で複数のノートを表示する";
-"Show comment on widget" = "ウィジェット上にコメントを表示する";
+"Show multi notes" = "複数のノートを表示";
+"Show comment on widget" = "ウィジェット上にコメントも表示する";
+"Show comment" = "コメントも表示";
+"Widget" = "ウィジェット";
 "Directions" = "注記";
 "If lock screen widgets don't update, please close this app or switch to another app." = "ロック画面ウィジェットが更新されない場合は、アプリを閉じたりアプリを切り替えたりすると変更が反映されます。";
 "Customize search button" = "検索ボタンをカスタマイズ";
