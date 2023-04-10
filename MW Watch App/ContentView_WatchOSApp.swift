@@ -23,15 +23,9 @@ struct ContentView_WatchOSApp: View {
             }
             .navigationTitle("MemorizeWidget")
         }
+        .modifier(🆕NewNoteShortcut())
         .onOpenURL(perform: 📱.handleWidgetURL)
-        .onOpenURL(perform: self.ⓗandleNewNoteShortcut(_:))
         .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
-    }
-    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL) {
-        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            //📱.addNewNoteOnTop()
-            print("🖨️", #function)
-        }
     }
 }
 
@@ -179,6 +173,43 @@ private struct 📖WidgetNotesSheet: View {
             } else {
                 Label("Deleted", systemImage: "checkmark")
             }
+        }
+    }
+}
+
+private struct 🆕NewNoteShortcut: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    @State private var 🚩showSheet: Bool = false
+    @FocusState private var 🚩focus: Bool
+    @State private var ⓣitle: String = ""
+    @State private var ⓒomment: String = ""
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: self.$🚩showSheet) {
+                List {
+                    TextField("Title", text: self.$ⓣitle)
+                        .font(.headline)
+                    TextField("Comment", text: self.$ⓒomment)
+                        .font(.subheadline)
+                    Section {
+                        Button {
+                            📱.insertOnTop([📗Note(self.ⓣitle, self.ⓒomment)])
+                            self.🚩showSheet = false
+                            💥Feedback.light()
+                        } label: {
+                            Label("Done", systemImage: "checkmark")
+                        }
+                        .listItemTint(.blue)
+                        .foregroundStyle(.white)
+                        .fontWeight(.semibold)
+                    }
+                }
+            }
+            .onOpenURL(perform: self.ⓗandleNewNoteShortcut(_:))
+    }
+    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL) {
+        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
+            self.🚩showSheet = true
         }
     }
 }
