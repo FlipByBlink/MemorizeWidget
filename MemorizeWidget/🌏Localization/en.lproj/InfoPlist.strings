@@ -1,2 +1,3 @@
 
 CFBundleDisplayName = "MemorizeW";
+CFBundleName = "MemorizeWidget";
