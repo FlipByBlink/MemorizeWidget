@@ -202,6 +202,7 @@ private struct 🏞BeforeAfterImage: View {
             Image(self.ⓑefore)
                 .resizable()
                 .scaledToFit()
+                .frame(maxWidth: 200)
                 .cornerRadius(16)
                 .shadow(radius: 2)
             Image(systemName: "arrow.right")
@@ -210,6 +211,7 @@ private struct 🏞BeforeAfterImage: View {
             Image(self.ⓐfter)
                 .resizable()
                 .scaledToFit()
+                .frame(maxWidth: 200)
                 .cornerRadius(16)
                 .shadow(radius: 2)
         }
