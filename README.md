@@ -17,7 +17,7 @@ Description
 ------------
 Flashcard on widget. Memorize a note in everyday life.
 
-- Two mode. "One note mode" or "Random note mode".
+- Two mode. \"One note mode\" or \"Random note mode\".
 
 - In Random note mode, widget changes the note per 5 minutes.
 
@@ -29,9 +29,16 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - Customizable search function.
 
+- Sync between devices by iCloud.
 
-### Option
+- Support Apple Watch / Mac.
+
+
+OPTION
+
 - Show comment on widget. (homescreen-widget/lockscreen-rectangular)
+
+- Show multi notes.
 
 
 Localization: All
