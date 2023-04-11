@@ -57,8 +57,8 @@
 		F568F20D29E3D309005A1D1A /* MWComplication.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* MWComplication.swift */; };
 		F568F20E29E3DA83005A1D1A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F568F20F29E3DA8B005A1D1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
-		F568F21129E3E907005A1D1A /* 🔩Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩Menu.swift */; };
-		F568F21229E3E98B005A1D1A /* 🔩Menu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩Menu.swift */; };
+		F568F21129E3E907005A1D1A /* 🔩MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */; };
+		F568F21229E3E98B005A1D1A /* 🔩MainMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */; };
 		F568F21429E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
 		F568F21529E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
 		F568F21629E42A59005A1D1A /* 🕒WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */; };
@@ -195,7 +195,7 @@
 			dstSubfolderSpec = 7;
 			files = (
 				F568F21829E42BA6005A1D1A /* 🕒WidgetEntry.swift in CopyFiles */,
-				F568F21229E3E98B005A1D1A /* 🔩Menu.swift in CopyFiles */,
+				F568F21229E3E98B005A1D1A /* 🔩MainMenu.swift in CopyFiles */,
 				F568F20D29E3D309005A1D1A /* MWComplication.swift in CopyFiles */,
 				F568F1AE29E3AB9A005A1D1A /* 💥Feedback.swift in CopyFiles */,
 				F568F1AF29E3AB9A005A1D1A /* 🗑TrashTab.swift in CopyFiles */,
@@ -277,7 +277,7 @@
 		F568F1F829E3C565005A1D1A /* MWComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWComplication.swift; sourceTree = "<group>"; };
 		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F568F20429E3C56D005A1D1A /* MWComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MWComplicationExtension.entitlements; sourceTree = "<group>"; };
-		F568F21029E3E907005A1D1A /* 🔩Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩Menu.swift"; sourceTree = "<group>"; };
+		F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MainMenu.swift"; sourceTree = "<group>"; };
 		F568F21329E42A59005A1D1A /* 🕒WidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🕒WidgetEntry.swift"; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE628F3FACB002D9AD7 /* 📣AD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣AD.swift"; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 			children = (
 				F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */,
 				F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */,
-				F568F21029E3E907005A1D1A /* 🔩Menu.swift */,
+				F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */,
 				F568F1AB29E3A91C005A1D1A /* MW Watch App.entitlements */,
 			);
 			path = "MW Watch App";
@@ -728,7 +728,7 @@
 				F568F1A129E3A629005A1D1A /* 🪧WidgetState.swift in Sources */,
 				F568F1AA29E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				F568F1A029E3A629005A1D1A /* 📗NoteModel.swift in Sources */,
-				F568F21129E3E907005A1D1A /* 🔩Menu.swift in Sources */,
+				F568F21129E3E907005A1D1A /* 🔩MainMenu.swift in Sources */,
 				F568F19229E3A5DA005A1D1A /* ContentView_WatchOSApp.swift in Sources */,
 				F568F1A429E3A668005A1D1A /* 💾UserDefaults.swift in Sources */,
 				F568F1A329E3A629005A1D1A /* 📱AppModel.swift in Sources */,

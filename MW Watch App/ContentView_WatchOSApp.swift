@@ -16,10 +16,11 @@ struct ContentView_WatchOSApp: View {
                     }
                 }
                 NavigationLink {
-                    🔩Menu()
+                    🔩MainMenu()
                 } label: {
                     Label("Menu", systemImage: "gearshape")
                 }
+                💁GuideMenu()
             }
             .navigationTitle("MemorizeWidget")
         }
@@ -235,6 +236,69 @@ private struct 🆕NewNoteShortcut: ViewModifier {
     private func ⓗandleNewNoteShortcut(_ ⓤrl: URL) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
             self.🚩showSheet = true
+        }
+    }
+}
+
+private struct 💁GuideMenu: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    var body: some View {
+        NavigationLink {
+            List {
+                ZStack {
+                    Color.clear
+                    VStack(spacing: 8) {
+                        Image("RoundedIcon")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                        VStack(spacing: 6) {
+                            Text("MemorizeWidget")
+                                .font(.system(.headline))
+                                .tracking(1.5)
+                                .opacity(0.75)
+                            Text("App for iPhone / iPad / Apple Watch / Mac")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.1)
+                    }
+                    .padding(.vertical)
+                }
+                Link(destination: URL(string: "https://apps.apple.com/app/id1644276262")!) {
+                    Label("Open AppStore page", systemImage: "link")
+                }
+                🄳ataSection()
+            }
+        } label: {
+            Label("About App", systemImage: "questionmark")
+        }
+    }
+}
+
+private struct 🄳ataSection: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓓataCount: Int { 📱.📚notes.dataCount }
+    var body: some View {
+        Section {
+            Label("Sync notes between devices by iCloud.", systemImage: "icloud")
+            Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
+            Label("If the data size is exceeded, please reduce the number of notes or clear the trash.",
+                  systemImage: "externaldrive.badge.xmark")
+            VStack {
+                LabeledContent {
+                    Text(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                } label: {
+                    Label("Notes data count", systemImage: "books.vertical")
+                }
+                if self.ⓓataCount > 800000 {
+                    Text("⚠️ NOTICE DATA LIMITATION")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                }
+            }
+        } header: {
+            Text("Data")
         }
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🔩Menu: View {
+struct 🔩MainMenu: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
         List {
