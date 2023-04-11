@@ -45,8 +45,10 @@ struct 📚NotesListTab: View {
     }
     private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            🚡.scrollTo("NewNoteButton")
-            📱.addNewNoteOnTop()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                🚡.scrollTo("NewNoteButton")
+                📱.addNewNoteOnTop()
+            }
         }
     }
 }
