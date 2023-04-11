@@ -82,6 +82,7 @@
 "Import a text-base file as notes from other app." = "他のアプリで選択したファイルからノートを作成出来ます。";
 "Import notes" = "ノートを取り込む";
 "Delete a note by swiping the row." = "スワイプしてノートを削除する。";
+"Move a note by drag and drop the row." = "ドラッグアンドドロップでノートを移動できます。";
 "Apple Support Page Link" = "Apple公式サポートサイトリンク";
 "How to add and edit widgets on your iPhone" = "iPhone でウィジェットを追加・編集する方法";
 "Create a custom iPhone Lock Screen" = "iPhoneのロック画面をパーソナライズする";

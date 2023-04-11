@@ -130,7 +130,6 @@ extension 📱AppModel {
                 self.📚notes = ⓝewNotes
                 WidgetCenter.shared.reloadAllTimelines()
             }
-            print("🖨️ notification: ", notification.debugDescription)
         }
     }
 }

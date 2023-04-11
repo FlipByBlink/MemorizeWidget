@@ -251,6 +251,7 @@ private struct 💁GuideMenu: View {
                         Image("RoundedIcon")
                             .resizable()
                             .frame(width: 60, height: 60)
+                            .clipShape(Circle())
                         VStack(spacing: 6) {
                             Text("MemorizeWidget")
                                 .font(.system(.headline))
@@ -263,10 +264,17 @@ private struct 💁GuideMenu: View {
                         .lineLimit(2)
                         .minimumScaleFactor(0.1)
                     }
-                    .padding(.vertical)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 16)
                 }
                 Link(destination: URL(string: "https://apps.apple.com/app/id1644276262")!) {
                     Label("Open AppStore page", systemImage: "link")
+                }
+                Section {
+                    Label("Delete a note by swiping the row.", systemImage: "cursorarrow.motionlines")
+                    Label("Move a note by drag and drop the row.", systemImage: "hand.draw")
+                } header: {
+                    Text("Tips")
                 }
                 🄳ataSection()
             }

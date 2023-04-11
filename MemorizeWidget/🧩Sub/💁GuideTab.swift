@@ -8,7 +8,7 @@ struct 💁GuideTab: View {
             List {
                 if self.ⓔxceedDataSize { 🄳ataSection() }
                 🄸mportNotesSection()
-                🄳eleteNoteBySwipingSection()
+                🅃ipsSection()
                 if !self.ⓔxceedDataSize { 🄳ataSection() }
                 🄰ppleSupportLinkSection()
                 🄳irectionsSection()
@@ -69,7 +69,7 @@ private struct 🄸mportNotesSection: View {
     }
 }
 
-private struct 🄳eleteNoteBySwipingSection: View {
+private struct 🅃ipsSection: View {
     var body: some View {
         Section {
             HStack(spacing: 12) {
@@ -81,7 +81,7 @@ private struct 🄳eleteNoteBySwipingSection: View {
                 Text("Delete a note by swiping the row.")
             }
             .environment(\.layoutDirection, .leftToRight)
-            .padding(8)
+            Label("Move a note by drag and drop the row.", systemImage: "hand.draw")
         } header: {
             Text("Tips")
         }
