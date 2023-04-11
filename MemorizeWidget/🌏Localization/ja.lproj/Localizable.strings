@@ -18,9 +18,9 @@
 "Move" = "移動";
 "Move top" = "先頭へ移動";
 "Move end" = "末尾へ移動";
-"Show multi notes on widget" = "ウィジェット上で複数のノートを表示する";
+"Show multi notes on widget" = "ウィジェット上で複数のノートを表示";
 "Show multi notes" = "複数のノートを表示";
-"Show comment on widget" = "ウィジェット上にコメントも表示する";
+"Show comment on widget" = "ウィジェット上にコメントも表示";
 "Show comment" = "コメントも表示";
 "Widget" = "ウィジェット";
 "Directions" = "注記";
@@ -61,7 +61,7 @@
 "Title only" = "タイトルのみ";
 "Import a text-encoded file" = "テキストベースのファイルを取り込む";
 "Convert this text to notes" = "このテキストをノートに変換する";
-"Paste the text here." = "ここにテキストを貼り付け。";
+"Paste the text here." = "ここにテキストを貼り付ける";
 "⚠️ Data size limitation" = "⚠️ データサイズ制限";
 "Total notes data over 800kB. Please decrease notes." = "ノートのデータサイズの合計が800kBを超えてます。ノートの数を減らしてください。";
 "Example" = "例";
@@ -81,8 +81,8 @@
 "Import selected text as notes from other app." = "他のアプリで選択したテキストからノートを作成出来ます。";
 "Import a text-base file as notes from other app." = "他のアプリで選択したファイルからノートを作成出来ます。";
 "Import notes" = "ノートを取り込む";
-"Delete a note by swiping the row." = "スワイプしてノートを削除する。";
-"Move a note by drag and drop the row." = "ドラッグアンドドロップでノートを移動できます。";
+"Delete a note by swiping the row." = "スワイプしてノートを削除できます。";
+"Move a note by drag and drop the row." = "ドラッグ・アンド・ドロップでノートを移動できます。";
 "Apple Support Page Link" = "Apple公式サポートサイトリンク";
 "How to add and edit widgets on your iPhone" = "iPhone でウィジェットを追加・編集する方法";
 "Create a custom iPhone Lock Screen" = "iPhoneのロック画面をパーソナライズする";

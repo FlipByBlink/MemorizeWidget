@@ -124,6 +124,7 @@ private struct 🄰ppleSupportLinkSection: View {
                 }
                 .padding(.vertical, 4)
             }
+            .accessibilityLabel("Use widgets on your iPad")
             if UIDevice.current.userInterfaceIdiom == .phone {
                 Link(destination: URL(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
@@ -138,6 +139,7 @@ private struct 🄰ppleSupportLinkSection: View {
                     }
                     .padding(.vertical, 4)
                 }
+                .accessibilityLabel("Create a custom iPhone Lock Screen")
             }
         } header: {
             Text("Apple Support Page Link")
