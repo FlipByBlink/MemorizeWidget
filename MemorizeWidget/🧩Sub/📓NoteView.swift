@@ -4,6 +4,7 @@ struct 📓NoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
     private var ⓛayout: 🄻ayout
+    @Environment(\.scenePhase) var scenePhase
     @State private var 🚩inputting: Bool = false
     @State private var ⓘnputtingNote: 📗Note = .empty
     @FocusState private var 🔍focusState: 🄵ocusArea?
@@ -43,6 +44,7 @@ struct 📓NoteView: View {
         }
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
         .onChange(of: self.🔍focusState, perform: self.ⓗandleUnfocus)
+        .onChange(of: self.scenePhase, perform: self.ⓢceneHandling(_:))
         .onAppear {
             if self.ⓘsNewNote {
                 self.ⓢtartToInput(.title)
@@ -92,6 +94,11 @@ struct 📓NoteView: View {
                     withAnimation { self.🚩inputting = false }
                 }
             }
+        }
+    }
+    private func ⓢceneHandling(_ ⓟhase: ScenePhase) {
+        if ⓟhase == .background, self.🔍focusState != nil {
+            self.🔍focusState = nil
         }
     }
     init(_ note: Binding<📗Note>, layout: 🄻ayout) {
