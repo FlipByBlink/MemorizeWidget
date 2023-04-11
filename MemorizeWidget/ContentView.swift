@@ -8,6 +8,7 @@ struct ContentView: View {
             .modifier(📖WidgetNotesSheet())
             .modifier(📥NotesImportSheet())
             .modifier(💬RequestUserReview())
+            .modifier(🩹Workaround.hideTitleBarOnMacCatalyst())
     }
     private func ⓣabView() -> some View {
         TabView(selection: $📱.🔖tab) {
