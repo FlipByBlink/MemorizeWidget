@@ -1,4 +1,4 @@
-MemorizeWidget: for iPhone, iPad, Apple Watch, Mac
+MemorizeWidget for iPhone, iPad, Apple Watch, Mac
 ---------------------------------------------------
 
 <img src="MemorizeWidget/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
