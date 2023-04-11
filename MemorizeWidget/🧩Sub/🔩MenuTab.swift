@@ -213,7 +213,6 @@ private struct 🏞BeforeAfterImage: View {
                 .cornerRadius(16)
                 .shadow(radius: 2)
         }
-        .frame(maxHeight: 200)
     }
     init(_ before: String, _ after: String) {
         self.ⓑefore = before
