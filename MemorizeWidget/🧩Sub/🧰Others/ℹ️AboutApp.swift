@@ -202,7 +202,13 @@ private struct 📓SourceCodeLink: View {
     }
     private struct 📓CodeSection: View {
         private var ⓒategory: 📁SourceCodeCategory
-        private var 🔗url: URL { Bundle.main.bundleURL.appendingPathComponent("📁SourceCode") }
+        private var 🔗url: URL {
+#if targetEnvironment(macCatalyst)
+            Bundle.main.bundleURL.appendingPathComponent("Contents/Resources/📁SourceCode")
+#else
+            Bundle.main.bundleURL.appendingPathComponent("📁SourceCode")
+#endif
+        }
         var body: some View {
             Section {
                 ForEach(self.ⓒategory.fileNames, id: \.self) { ⓝame in
