@@ -75,16 +75,29 @@ private struct 🅃ipsSection: View {
             HStack(spacing: 12) {
                 HStack(spacing: 4) {
                     Image("deleteBySwiping")
+                        .shadow(radius: 1, y: -1)
+                        .shadow(radius: 1, y: 1)
                     Image(systemName: "cursorarrow.motionlines")
                         .font(.body.weight(.light))
                 }
+                .padding(.vertical, 4)
                 Text("Delete a note by swiping the row.")
             }
-            .environment(\.layoutDirection, .leftToRight)
-            Label("Move a note by drag and drop the row.", systemImage: "hand.draw")
+            HStack(spacing: 12) {
+                HStack(spacing: 4) {
+                    Image("moveBySwiping")
+                        .shadow(radius: 1, y: -1)
+                        .shadow(radius: 1, y: 1)
+                    Image(systemName: "hand.draw")
+                        .font(.body.weight(.light))
+                }
+                .padding(.vertical, 4)
+                Text("Move a note by drag and drop the row.")
+            }
         } header: {
             Text("Tips")
         }
+        .environment(\.layoutDirection, .leftToRight)
     }
 }
 
