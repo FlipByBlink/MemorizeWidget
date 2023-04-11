@@ -1,6 +1,14 @@
 import SwiftUI
 
-struct 📥NotesImportSheet: View {
+struct 📥NotesImportSheet: ViewModifier {
+    @EnvironmentObject var 📱: 📱AppModel
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportView() }
+    }
+}
+
+private struct 📥NotesImportView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @State private var 🚩showFileImporter: Bool = false
     @AppStorage("InputMode", store: .ⓐppGroup) var ⓘnputMode: 🄸nputMode = .file
