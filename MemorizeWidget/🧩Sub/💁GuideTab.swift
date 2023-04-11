@@ -29,8 +29,13 @@ private struct 🄳ataSection: View {
             Label("If the data size is exceeded, please reduce the number of notes or clear the trash.",
                   systemImage: "externaldrive.badge.xmark")
             VStack {
-                Label("Notes data count", systemImage: "books.vertical")
-                    .badge(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                HStack {
+                    Label("Notes data count", systemImage: "books.vertical")
+                    Spacer()
+                    Text(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
                 if self.ⓓataCount > 800000 {
                     Text("⚠️ NOTICE DATA LIMITATION")
                         .font(.headline)
@@ -125,7 +130,7 @@ private struct 🄰ppleSupportLinkSection: View {
                 .padding(.vertical, 4)
             }
             .accessibilityLabel("Use widgets on your iPad")
-            if UIDevice.current.userInterfaceIdiom == .phone {
+            if UIDevice.current.userInterfaceIdiom == .phone, #available(iOS 16.0, *) {
                 Link(destination: URL(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
                         Label("Create a custom iPhone Lock Screen", systemImage: "link")
@@ -149,13 +154,11 @@ private struct 🄰ppleSupportLinkSection: View {
 
 private struct 🄳irectionsSection: View {
     var body: some View {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            if #available(iOS 16.0, *) {
-                Section {
-                    Text("If lock screen widgets don't update, please close this app or switch to another app.")
-                } header: {
-                    Text("Directions")
-                }
+        if UIDevice.current.userInterfaceIdiom == .phone, #available(iOS 16.0, *) {
+            Section {
+                Text("If lock screen widgets don't update, please close this app or switch to another app.")
+            } header: {
+                Text("Directions")
             }
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
