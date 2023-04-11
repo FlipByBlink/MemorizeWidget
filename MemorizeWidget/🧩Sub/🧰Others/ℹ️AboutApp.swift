@@ -7,7 +7,7 @@ struct ℹ️AboutAppLink: View {
         Section {
             self.ⓘconAndName()
             🔗AppStoreLink()
-            NavigationLink  {
+            NavigationLink {
                 ℹ️AboutAppMenu()
             } label: {
                 Label("About App", systemImage: "doc")
