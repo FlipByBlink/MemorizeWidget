@@ -40,9 +40,9 @@ private struct 🖼MWWidgetSub: Widget {
     }
     init() {
         if UIDevice.current.userInterfaceIdiom == .pad {
-            if !ProcessInfo().isiOSAppOnMac {
-                self.ⓕamilies.append(contentsOf: [.systemLarge])
-            }
+#if !targetEnvironment(macCatalyst)
+            self.ⓕamilies.append(contentsOf: [.systemLarge])
+#endif
         }
         if UIDevice.current.userInterfaceIdiom == .phone {
             if #available(iOS 16.0, *) {

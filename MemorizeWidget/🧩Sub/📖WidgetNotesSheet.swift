@@ -172,6 +172,7 @@ private struct 🅧DismissButton: View {
                 .symbolRenderingMode(.hierarchical)
         }
         .foregroundColor(.secondary)
+        .keyboardShortcut(.cancelAction)
     }
 }
 
