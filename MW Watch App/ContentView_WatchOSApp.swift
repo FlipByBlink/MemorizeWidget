@@ -47,7 +47,7 @@ private struct 📚NotesMenu: View {
             }
             .onDelete {
                 📱.deleteNote($0)
-                💥Feedback.light()
+                💥Feedback.warning()
             }
             .onMove {
                 📱.moveNote($0, $1)
@@ -141,14 +141,30 @@ private struct 📗NoteView: View {
 
 private struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    private var ⓦidgetInfo: 🪧WidgetInfo? { 📱.🪧widgetState.info }
+    private var ⓕont: (title: Font, comment: Font) {
+        switch self.ⓦidgetInfo {
+            case .singleNote(_): return (.title2.bold(), .body)
+            default: return (.title3.bold(), .subheadline)
+        }
+    }
     var body: some View {
         NavigationStack {
             List {
-                switch 📱.🪧widgetState.info {
+                switch self.ⓦidgetInfo {
                     case .singleNote(let ⓘd):
-                        self.ⓝoteLink(ⓘd)
+                        ForEach([ⓘd], id: \.self) {
+                            self.ⓝoteLink($0)
+                        }
+                        .onDelete { _ in 📱.removeNote(ⓘd) }
                     case .multiNotes(let ⓘds):
-                        ForEach(ⓘds, id: \.self) { self.ⓝoteLink($0) }
+                        ForEach(ⓘds, id: \.self) {
+                            self.ⓝoteLink($0)
+                        }
+                        .onDelete {
+                            guard let ⓘndex = $0.first else { return }
+                            📱.removeNote(ⓘds[ⓘndex])
+                        }
                     default:
                         Text("🐛")
                 }
@@ -163,9 +179,9 @@ private struct 📖WidgetNotesSheet: View {
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓘndex].title)
-                            .font(.title3.bold())
+                            .font(self.ⓕont.title)
                         Text(📱.📚notes[ⓘndex].comment)
-                            .font(.subheadline)
+                            .font(self.ⓕont.comment)
                             .foregroundStyle(.secondary)
                     }
                     .padding(.vertical, 8)
@@ -195,12 +211,14 @@ private struct 🆕NewNoteShortcut: ViewModifier {
                         Button {
                             📱.insertOnTop([📗Note(self.ⓣitle, self.ⓒomment)])
                             self.🚩showSheet = false
-                            💥Feedback.light()
+                            💥Feedback.success()
+                            self.ⓣitle = ""
+                            self.ⓒomment = ""
                         } label: {
                             Label("Done", systemImage: "checkmark")
                         }
-                        .listItemTint(.blue)
-                        .foregroundStyle(.white)
+                        .buttonStyle(.bordered)
+                        .listRowBackground(Color.clear)
                         .fontWeight(.semibold)
                     }
                 }

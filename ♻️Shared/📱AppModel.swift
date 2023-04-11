@@ -61,6 +61,10 @@ extension 📱AppModel {
         self.saveNotes()
         if ⓕeedback { 💥Feedback.warning() }
     }
+    func removeNote(_ ⓘd: UUID) {
+        guard let ⓝote = self.📚notes.first(where: { $0.id == ⓘd }) else { return }
+        self.removeNote(ⓝote)
+    }
     func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
         guard let ⓘndex = self.📚notes.firstIndex(of: ⓣargetNote) else { return }
         self.📚notes[ⓘndex].title = ⓘnputtedNote.title
