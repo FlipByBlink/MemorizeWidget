@@ -207,21 +207,28 @@ private struct 🆕NewNoteShortcut: ViewModifier {
                         .font(.headline)
                     TextField("Comment", text: self.$ⓒomment)
                         .font(.subheadline)
+                        .opacity(self.ⓣitle.isEmpty ? 0.33 : 1)
                     Section {
                         Button {
                             📱.insertOnTop([📗Note(self.ⓣitle, self.ⓒomment)])
                             self.🚩showSheet = false
                             💥Feedback.success()
-                            self.ⓣitle = ""
-                            self.ⓒomment = ""
+                            Task { @MainActor in
+                                try? await Task.sleep(for: .seconds(1))
+                                self.ⓣitle = ""
+                                self.ⓒomment = ""
+                            }
                         } label: {
                             Label("Done", systemImage: "checkmark")
                         }
                         .buttonStyle(.bordered)
                         .listRowBackground(Color.clear)
                         .fontWeight(.semibold)
+                        .disabled(self.ⓣitle.isEmpty)
+                        .foregroundStyle(self.ⓣitle.isEmpty ? .tertiary : .primary)
                     }
                 }
+                .animation(.default, value: self.ⓣitle.isEmpty)
             }
             .onOpenURL(perform: self.ⓗandleNewNoteShortcut(_:))
     }
