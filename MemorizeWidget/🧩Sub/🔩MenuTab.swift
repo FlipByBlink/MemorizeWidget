@@ -27,7 +27,9 @@ private struct 📑MultiNotesOption: View {
                 Label("Show multi notes on widget", systemImage: "doc.on.doc")
                     .padding(.vertical, 8)
             }
-            .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
+            .onChange(of: self.🚩value) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
             VStack(spacing: 12) {
                 🏞BeforeAfterImage("home_multiNotes_before",
                                    "home_multiNotes_after")
@@ -53,7 +55,9 @@ private struct 💬CommentOnWidgetSection: View {
                 Label("Show comment on widget", systemImage: "text.append")
                     .padding(.vertical, 8)
             }
-            .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
+            .onChange(of: self.🚩value) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
             VStack(spacing: 12) {
                 🏞BeforeAfterImage("homeSmall_commentOff", "homeSmall_commentOn")
                 if UIDevice.current.userInterfaceIdiom == .phone {

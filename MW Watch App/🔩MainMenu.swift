@@ -26,7 +26,9 @@ private struct 🔀RandomModeSection: View {
             Toggle(isOn: $📱.🚩randomMode) {
                 Label("Random mode", systemImage: "shuffle")
             }
-            .task(id: 📱.🚩randomMode) { WidgetCenter.shared.reloadAllTimelines() }
+            .onChange(of: 📱.🚩randomMode) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
         } footer: {
             Text("Change the note per 5 minutes.")
         }
@@ -39,7 +41,9 @@ private struct 📑MultiNotesOption: View {
         Toggle(isOn: self.$🚩value) {
             Label("Show multi notes", systemImage: "doc.on.doc")
         }
-        .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
+        .onChange(of: self.🚩value) { _ in
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }
 
@@ -50,8 +54,10 @@ private struct 💬CommentOnWidgetSection: View {
         Toggle(isOn: self.$🚩value) {
             Label("Show comment", systemImage: "text.append")
         }
-        .task(id: self.🚩value) { WidgetCenter.shared.reloadAllTimelines() }
         .disabled(self.ⓜultiNotes)
+        .onChange(of: self.🚩value) { _ in
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }
 

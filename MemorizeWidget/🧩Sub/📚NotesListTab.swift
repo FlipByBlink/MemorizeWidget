@@ -59,7 +59,9 @@ private struct 🔀RandomModeSection: View {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .task(id: 📱.🚩randomMode) { WidgetCenter.shared.reloadAllTimelines() }
+            .onChange(of: 📱.🚩randomMode) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
         } footer: {
             Text("Change the note per 5 minutes.")
         }
