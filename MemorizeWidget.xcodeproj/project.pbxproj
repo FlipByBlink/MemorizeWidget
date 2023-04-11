@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F507EAA428CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
-		F507EAA528CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9828CA145000ECF06A /* 🌏AppStoreDescription.strings */; };
 		F507EAA628CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F507EAA728CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F507EAA828CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F507EAAA28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
-		F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9E28CA145000ECF06A /* 🌏VersionDescription.strings */; };
 		F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51CAF6429D6AEFA0065EF30 /* 📓NoteView.swift */; };
 		F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */; };
 		F527F47329D53FA500E9FB97 /* 📖WidgetNotesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */; };
@@ -99,7 +97,6 @@
 		F5EE7EBC29DFF0B000012A12 /* 💾ICloud.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F5FE2D7B29DAF650008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F5FE2D7E29DB062B008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
-		F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F5FE2D8129DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 		F5FE2D8229DBBFA5008C728B /* 🕒EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8029DBBFA5008C728B /* 🕒EntryView.swift */; };
 		F5FE2D8529DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🆕NewNoteShortcutWidget.swift */; };
@@ -709,8 +706,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F507EAA528CA145000ECF06A /* 🌏AppStoreDescription.strings in Resources */,
-				F507EAAB28CA145000ECF06A /* 🌏VersionDescription.strings in Resources */,
 				F507EAA928CA145000ECF06A /* InfoPlist.strings in Resources */,
 				F507EAA728CA145000ECF06A /* Localizable.strings in Resources */,
 				F5B6FED228C99B930045D44A /* Assets.xcassets in Resources */,
@@ -793,7 +788,6 @@
 				F5AAE668292B754000FB8406 /* 💾UserDefaults.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */,
 				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
-				F5FE2D7F29DB062C008C728B /* 🪧WidgetState.swift in Sources */,
 				F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */,
 				F5EE7EBB29DFEEB100012A12 /* 💾ICloud.swift in Sources */,
 			);
@@ -896,7 +890,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -928,7 +922,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MW Watch App/MW Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -959,7 +953,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWComplication/MWComplicationExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWComplication/Info.plist;
@@ -990,7 +984,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWComplication/MWComplicationExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWComplication/Info.plist;
@@ -1140,7 +1134,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MemorizeWidget/🧩Sub/MemorizeWidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -1179,7 +1173,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "MemorizeWidget/🧩Sub/MemorizeWidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
@@ -1215,7 +1209,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWShareExtension/Info.plist;
@@ -1243,7 +1237,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MWShareExtension/MWShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWShareExtension/Info.plist;
@@ -1273,7 +1267,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWWidget/MWWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWWidget/Info.plist;
@@ -1303,7 +1297,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MWWidget/MWWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MWWidget/Info.plist;

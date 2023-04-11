@@ -1,4 +1,3 @@
-
 "AppStoreDescription" = "Flashcard on widget. Memorize a note in everyday life.
 
 - Two mode. \"One note mode\" or \"Random note mode\".
@@ -20,6 +19,6 @@
 
 OPTION
 
-- Show comment on widget. (homescreen-widget/lockscreen-rectangular)
+- Show comment on widget. (homescreen-widget, lockscreen-rectangular)
 
 - Show multi notes.";
