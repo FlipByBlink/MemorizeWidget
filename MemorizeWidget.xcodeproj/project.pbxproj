@@ -30,7 +30,7 @@
 		F527F48329D5699D00E9FB97 /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F568F19029E3A5DA005A1D1A /* MW_Watch_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* MW_Watch_App.swift */; };
 		F568F19229E3A5DA005A1D1A /* ContentView_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView_WatchOSApp.swift */; };
-		F568F19A29E3A5DC005A1D1A /* MemorizeW.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F568F18D29E3A5DA005A1D1A /* MemorizeW.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F568F19A29E3A5DC005A1D1A /* MemorizeW.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F568F18D29E3A5DA005A1D1A /* MemorizeW.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F568F1A029E3A629005A1D1A /* 📗NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗NoteModel.swift */; };
 		F568F1A129E3A629005A1D1A /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
@@ -819,6 +819,7 @@
 /* Begin PBXTargetDependency section */
 		F568F19929E3A5DC005A1D1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = F568F18C29E3A5DA005A1D1A /* MW Watch App */;
 			targetProxy = F568F19829E3A5DC005A1D1A /* PBXContainerItemProxy */;
 		};
@@ -1162,8 +1163,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1201,8 +1202,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1230,6 +1231,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1257,6 +1259,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1286,6 +1289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1315,6 +1319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -111,15 +111,15 @@ private struct 📘DictionaryItem: View {
     private var ⓣerm: String
     @Binding private var ⓢtate: 📘DictionaryState
     var body: some View {
-        if !ProcessInfo().isiOSAppOnMac {
+#if !targetEnvironment(macCatalyst)
             Button {
                 self.ⓢtate.request(self.ⓣerm)
             } label: {
                 Label("Dictionary", systemImage: "character.book.closed")
             }
-        } else {
-            📘DictionaryButtonOnMac(term: self.ⓣerm)
-        }
+#else
+        📘DictionaryButtonOnMac(term: self.ⓣerm)
+#endif
     }
     init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
         self.ⓣerm = note.title
