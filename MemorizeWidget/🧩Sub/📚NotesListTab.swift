@@ -11,11 +11,8 @@ struct 📚NotesListTab: View {
                     Section {
                         🆕NewNoteOnTopButton()
                         ForEach($📱.📚notes) { ⓝote in
-                            HStack(spacing: 0) {
-                                📓NoteView(ⓝote)
-                                🎛️NoteMenuButton(ⓝote)
-                            }
-                            .id(ⓝote.id)
+                            📓NoteView(ⓝote, layout: .notesList)
+                                .id(ⓝote.id)
                         }
                         .onDelete(perform: 📱.deleteNote(_:))
                         .onMove(perform: 📱.moveNote(_:_:))
@@ -82,7 +79,7 @@ private struct 🆕NewNoteOnTopButton: View {
     }
 }
 
-private struct 🎛️NoteMenuButton: View {
+struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Binding private var ⓝote: 📗Note
     @State private var 📘dictionaryState: 📘DictionaryState = .default

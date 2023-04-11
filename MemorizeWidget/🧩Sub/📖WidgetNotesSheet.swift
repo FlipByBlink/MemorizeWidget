@@ -40,9 +40,7 @@ private struct 📖WidgetNotesView: View {
         VStack {
             Spacer()
             if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
-                📓NoteView($📱.📚notes[ⓘndex],
-                           titleFont: .largeTitle,
-                           commentFont: .title)
+                📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_single)
                 .padding(.horizontal, 32)
                 Spacer()
                 HStack {
@@ -76,9 +74,7 @@ private struct 📖WidgetNotesView: View {
         Section {
             if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
                 VStack(spacing: 0) {
-                    📓NoteView($📱.📚notes[ⓘndex],
-                               titleFont: .title,
-                               commentFont: .title3)
+                    📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_multi)
                     HStack {
                         Spacer()
                         📘DictionaryButton(📱.📚notes[ⓘndex])
