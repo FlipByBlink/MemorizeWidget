@@ -62,7 +62,11 @@ struct 🄼ainView: View {
                         }
                         .padding(.vertical, 8)
                     case .none:
-                        Text("🐛")
+                        if ProcessInfo().isiOSAppOnMac {
+                            Text("Selected text import is not supported on macOS.")
+                        } else {
+                            Text("🐛 Bug")
+                        }
                 }
             }
             .toolbar {
