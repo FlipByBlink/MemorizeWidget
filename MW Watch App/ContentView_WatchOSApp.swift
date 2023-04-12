@@ -145,7 +145,7 @@ private struct 📖WidgetNotesSheet: View {
     var body: some View {
         NavigationStack {
             List {
-                if let ⓘds = 📱.🪧widgetState.info?.noteIDs {
+                if let ⓘds = 📱.🪧widgetState.info?.targetedNoteIDs {
                     ForEach(ⓘds, id: \.self) {
                         Self.🄽oteView(id: $0)
                     }
@@ -163,7 +163,7 @@ private struct 📖WidgetNotesSheet: View {
         @EnvironmentObject var 📱: 📱AppModel
         var id: UUID
         private var ⓝoteIndex: Int? { 📱.📚notes.index(self.id) }
-        private var ⓞneNoteLayout: Bool { 📱.🪧widgetState.info?.notesCount == 1 }
+        private var ⓞneNoteLayout: Bool { 📱.🪧widgetState.info?.targetedNotesCount == 1 }
         var body: some View {
             Group {
                 if let ⓝoteIndex {

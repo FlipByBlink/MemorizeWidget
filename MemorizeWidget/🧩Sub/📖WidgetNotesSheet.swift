@@ -18,7 +18,7 @@ private struct 📖WidgetNotesView: View {
     var body: some View {
         NavigationView {
             Group {
-                if 📱.🪧widgetState.info?.notesCount == 1 {
+                if 📱.🪧widgetState.info?.targetedNotesCount == 1 {
                     Self.🅂igleNoteLayout()
                 } else {
                     Self.🄼ultiNotesLayout()
@@ -31,7 +31,7 @@ private struct 📖WidgetNotesView: View {
     }
     private struct 🅂igleNoteLayout: View {
         @EnvironmentObject var 📱: 📱AppModel
-        private var ⓘndex: Int? { 📱.📚notes.index(📱.🪧widgetState.info?.noteIDs?.first) }
+        private var ⓘndex: Int? { 📱.📚notes.index(📱.🪧widgetState.info?.targetedNoteIDs?.first) }
         var body: some View {
             VStack {
                 Spacer()
@@ -55,6 +55,7 @@ private struct 📖WidgetNotesView: View {
                     .padding(.horizontal, 24)
                 } else {
                     🚮DeletedNoteView()
+                        .padding(.bottom, 24)
                 }
                 Spacer()
             }
@@ -62,14 +63,31 @@ private struct 📖WidgetNotesView: View {
     }
     private struct 🄼ultiNotesLayout: View {
         @EnvironmentObject var 📱: 📱AppModel
-        private var ⓘds: [UUID] { 📱.🪧widgetState.info?.noteIDs ?? [] }
+        private var ⓘds: [UUID] { 📱.🪧widgetState.info?.targetedNoteIDs ?? [] }
+        private var ⓣargetNotesCount: Int { 📱.🪧widgetState.info?.targetedNotesCount ?? 0 }
+        private var ⓓeletedAll: Bool {
+            self.ⓘds.allSatisfy { ⓘd in
+                !📱.📚notes.contains { $0.id == ⓘd }
+            }
+        }
         var body: some View {
             List {
-                ForEach(self.ⓘds, id: \.self) { self.ⓝoteRow($0) }
+                if self.ⓣargetNotesCount < 4 {
+                    ForEach(self.ⓘds, id: \.self) { ⓘd in
+                        Section { self.ⓝoteRow(ⓘd) }
+                    }
+                } else {
+                    Section {
+                        ForEach(self.ⓘds, id: \.self) { self.ⓝoteRow($0) }
+                    }
+                }
+                if self.ⓓeletedAll {
+                    Section { 🚮DeletedNoteView() }
+                }
             }
         }
         private func ⓝoteRow(_ ⓘd: UUID) -> some View {
-            Section {
+            Group {
                 if let ⓘndex = 📱.📚notes.index(ⓘd) {
                     VStack(spacing: 0) {
                         📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_multi)
@@ -90,9 +108,6 @@ private struct 📖WidgetNotesView: View {
                     }
                     .padding(8)
                 }
-                if !📱.📚notes.contains(where: { $0.id == ⓘd }) { //Workaround: iOS15.5
-                    🚮DeletedNoteView()
-                }
             }
         }
     }
@@ -103,14 +118,14 @@ private struct 📘DictionaryButton: View {
     @State private var ⓢtate: 📘DictionaryState = .default
     var body: some View {
 #if !targetEnvironment(macCatalyst)
-            Button {
-                self.ⓢtate.request(self.ⓣerm)
-            } label: {
-                Label("Dictionary", systemImage: "character.book.closed")
-            }
-            .modifier(📘DictionarySheet(self.$ⓢtate))
+        Button {
+            self.ⓢtate.request(self.ⓣerm)
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+        }
+        .modifier(📘DictionarySheet(self.$ⓢtate))
 #else
-            📘DictionaryButtonOnMac(term: self.ⓣerm)
+        📘DictionaryButtonOnMac(term: self.ⓣerm)
 #endif
     }
     init(_ note: 📗Note) {
@@ -120,39 +135,18 @@ private struct 📘DictionaryButton: View {
 
 private struct 🚮DeletedNoteView: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("placeholder")
-                        .font(.title.weight(.semibold))
-                        .padding(.bottom, 1)
-                    Text("placeholder")
-                        .font(.title3.weight(.light))
-                        .padding(.bottom, 1)
-                }
-                Spacer()
+        HStack {
+            Spacer()
+            VStack(spacing: 24) {
+                Label("Deleted.", systemImage: "checkmark")
+                Image(systemName: "trash")
             }
-            .padding(.leading, 12)
-            .padding(.vertical, 12)
-            Image(systemName: "trash")
-                .font(.title3)
-                .padding(12)
+            .foregroundColor(.primary)
+            .imageScale(.small)
+            .font(.largeTitle)
+            Spacer()
         }
-        .padding(8)
-        .opacity(0)
-        .overlay {
-            HStack {
-                Spacer()
-                VStack(spacing: 24) {
-                    Label("Deleted.", systemImage: "checkmark")
-                    Image(systemName: "trash")
-                }
-                .foregroundColor(.primary)
-                .imageScale(.small)
-                .font(.largeTitle)
-                Spacer()
-            }
-        }
+        .padding(24)
     }
 }
 

@@ -43,7 +43,7 @@ enum 🪧WidgetInfo {
                 assertionFailure(); return nil
         }
     }
-    var notes: 📚Notes {
+    var targetedNotes: 📚Notes {
         guard let ⓝotes = 💾ICloud.loadNotes() else { return [] }
         switch self {
             case .singleNote(let ⓘd):
@@ -57,14 +57,14 @@ enum 🪧WidgetInfo {
                 return []
         }
     }
-    var notesCount: Int? {
+    var targetedNotesCount: Int? {
         switch self {
             case .singleNote(_): return 1
             case .multiNotes(let ⓘds): return ⓘds.count
             case .newNoteShortcut, .noNote: return nil
         }
     }
-    var noteIDs: [UUID]? {
+    var targetedNoteIDs: [UUID]? {
         switch self {
             case .singleNote(let ⓘd): return [ⓘd]
             case .multiNotes(let ⓘds): return ⓘds

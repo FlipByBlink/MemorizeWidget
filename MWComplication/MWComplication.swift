@@ -24,10 +24,10 @@ private struct 🕒EntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
+    private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
     var body: some View {
         Group {
-            if !self.ⓘnfo.notes.isEmpty {
+            if !self.ⓝotes.isEmpty {
                 switch self.widgetFamily {
                     case .accessoryInline: self.ⓘnlineView()
                     case .accessoryCircular: self.ⓒircleView()

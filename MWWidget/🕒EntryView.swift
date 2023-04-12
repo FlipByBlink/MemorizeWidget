@@ -6,7 +6,7 @@ struct 🕒EntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         Group {
-            if !self.ⓘnfo.notes.isEmpty {
+            if !self.ⓘnfo.targetedNotes.isEmpty {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🄷omeScreenWidgetView(self.ⓘnfo)
@@ -39,7 +39,7 @@ private struct 🄷omeScreenWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
+    private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
     private var ⓣitleFont: Font {
         switch self.widgetFamily {
             case .systemSmall:
@@ -127,7 +127,7 @@ private struct 🄰ccessoryWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
-    private var ⓝotes: [📗Note] { self.ⓘnfo.notes }
+    private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
     var body: some View {
         switch self.widgetFamily {
             case .accessoryInline: self.ⓘnlineView()
