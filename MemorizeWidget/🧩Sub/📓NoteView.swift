@@ -106,20 +106,20 @@ struct 📓NoteView: View {
     }
 }
 
-enum 🄻ayout {
-    case notesList, widgetSheet_single, widgetSheet_multi
+enum 🄻ayout: Equatable {
+    case notesList, widgetSheet_single, widgetSheet_multi(Int)
     var titleFont: Font {
         switch self {
             case .notesList: return .title2
             case .widgetSheet_single: return .largeTitle
-            case .widgetSheet_multi: return .title
+            case .widgetSheet_multi(let ⓒount): return ⓒount < 4 ? .title : .body
         }
     }
     var commentFont: Font {
         switch self {
             case .notesList: return .body
             case .widgetSheet_single: return .title
-            case .widgetSheet_multi: return .title3
+            case .widgetSheet_multi(let ⓒount): return ⓒount < 4 ? .title3 : .subheadline
         }
     }
 }

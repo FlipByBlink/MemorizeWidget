@@ -24,6 +24,7 @@ private struct 📖WidgetNotesView: View {
                     Self.🄼ultiNotesLayout()
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar { 🅧DismissButton() }
         }
         .modifier(📣ADSheet())
@@ -90,7 +91,8 @@ private struct 📖WidgetNotesView: View {
             Group {
                 if let ⓘndex = 📱.📚notes.index(ⓘd) {
                     VStack(spacing: 0) {
-                        📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_multi)
+                        📓NoteView($📱.📚notes[ⓘndex],
+                                   layout: .widgetSheet_multi(self.ⓣargetNotesCount))
                         HStack {
                             Spacer()
                             📘DictionaryButton(📱.📚notes[ⓘndex])
@@ -103,10 +105,10 @@ private struct 📖WidgetNotesView: View {
                         .labelStyle(.iconOnly)
                         .buttonStyle(.plain)
                         .foregroundColor(.primary)
-                        .font(.title3)
-                        .padding(12)
+                        .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
+                        .padding(self.ⓣargetNotesCount < 4 ? 12 : 4)
                     }
-                    .padding(8)
+                    .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
                 }
             }
         }
