@@ -28,6 +28,10 @@ private struct 🄳ataSection: View {
             Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
             Label("If the data size is exceeded, please reduce the number of notes or clear the trash.",
                   systemImage: "externaldrive.badge.xmark")
+            if #unavailable(iOS 16) {
+                Label("Data changed on another device will be synchronized when the app is launched on this device. (iOS15 only)",
+                      systemImage: "exclamationmark.triangle")
+            }
             VStack {
                 HStack {
                     Label("Notes data count", systemImage: "books.vertical")

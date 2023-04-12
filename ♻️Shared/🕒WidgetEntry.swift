@@ -8,7 +8,7 @@ struct 🕒WidgetEntry: TimelineEntry {
         self.date = date; self.info = info
     }
     static func generateEntry(_ ⓓate: Date, _ ⓦidgetFamily: WidgetFamily) -> Self {
-        let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
+        let ⓝotes: 📚Notes = Self.loadNotes()
         guard !ⓝotes.isEmpty else { return Self(.now, .noNote) }
         if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             if 💾UserDefaults.appGroup.bool(forKey: "RandomMode") {
@@ -34,7 +34,7 @@ struct 🕒WidgetEntry: TimelineEntry {
         }
     }
     static func generateTimeline(_ ⓦidgetFamily: WidgetFamily) -> Timeline<Self> {
-        let ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
+        let ⓝotes: 📚Notes = Self.loadNotes()
         guard !ⓝotes.isEmpty else { return Timeline(entries: [Self(.now, .noNote)], policy: .never) }
         if 💾UserDefaults.appGroup.bool(forKey: "multiNotes") {
             var ⓔntries: [Self] = []
@@ -47,6 +47,13 @@ struct 🕒WidgetEntry: TimelineEntry {
         } else {
             return Timeline(entries: [Self.generateEntry(.now, ⓦidgetFamily)],
                             policy: .after(Calendar.current.date(byAdding: .minute, value: 20, to: .now)!))
+        }
+    }
+    private static func loadNotes() -> 📚Notes {
+        if #available(iOS 16, *) {
+            return 💾ICloud.loadNotes() ?? []
+        } else {
+            return 🩹WorkaroundOnIOS15.SyncWidget.loadNotes() ?? []
         }
     }
 }

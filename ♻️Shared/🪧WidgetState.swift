@@ -44,7 +44,12 @@ enum 🪧WidgetInfo {
         }
     }
     var targetedNotes: 📚Notes {
-        guard let ⓝotes = 💾ICloud.loadNotes() else { return [] }
+        let ⓝotes: 📚Notes
+        if #available(iOS 16, *) {
+            ⓝotes = 💾ICloud.loadNotes() ?? []
+        } else {
+            ⓝotes = 🩹WorkaroundOnIOS15.SyncWidget.loadNotes() ?? []
+        }
         switch self {
             case .singleNote(let ⓘd):
                 guard let ⓝote = ⓝotes.first(where: { $0.id == ⓘd }) else { return [] }
