@@ -128,6 +128,7 @@ extension 📱AppModel {
             if let ⓝewNotes = 💾ICloud.loadNotes() {
                 self.🗑trash.storeDeletedNotes(self.📚notes.filter { !ⓝewNotes.contains($0) })
                 self.📚notes = ⓝewNotes
+                🩹WorkaroundOnIOS15.SyncWidget.save(ⓝewNotes)
                 WidgetCenter.shared.reloadAllTimelines()
             }
         }
