@@ -142,54 +142,50 @@ private struct 📗NoteView: View {
 
 private struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
-    private var ⓦidgetInfo: 🪧WidgetInfo? { 📱.🪧widgetState.info }
-    private var ⓕont: (title: Font, comment: Font) {
-        switch self.ⓦidgetInfo {
-            case .singleNote(_): return (.title2.bold(), .body)
-            default: return (.title3.bold(), .subheadline)
-        }
-    }
     var body: some View {
         NavigationStack {
             List {
-                switch self.ⓦidgetInfo {
-                    case .singleNote(let ⓘd):
-                        ForEach([ⓘd], id: \.self) {
-                            self.ⓝoteLink($0)
-                        }
-                        .onDelete { _ in 📱.removeNote(ⓘd) }
-                    case .multiNotes(let ⓘds):
-                        ForEach(ⓘds, id: \.self) {
-                            self.ⓝoteLink($0)
-                        }
-                        .onDelete {
-                            guard let ⓘndex = $0.first else { return }
-                            📱.removeNote(ⓘds[ⓘndex])
-                        }
-                    default:
-                        Text("🐛")
+                if let ⓘds = 📱.🪧widgetState.info?.noteIDs {
+                    ForEach(ⓘds, id: \.self) {
+                        Self.🄽oteView(id: $0)
+                    }
+                    .onDelete {
+                        guard let ⓘndex = $0.first else { return }
+                        📱.removeNote(ⓘds[ⓘndex])
+                    }
+                } else {
+                    Text("🐛")
                 }
             }
         }
     }
-    private func ⓝoteLink(_ ⓘd: UUID) -> some View {
-        Group {
-            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
-                NavigationLink {
-                    📗NoteView($📱.📚notes[ⓘndex], hideMoveButtons: true)
-                } label: {
-                    VStack(alignment: .leading) {
-                        Text(📱.📚notes[ⓘndex].title)
-                            .font(self.ⓕont.title)
-                        Text(📱.📚notes[ⓘndex].comment)
-                            .font(self.ⓕont.comment)
-                            .foregroundStyle(.secondary)
+    private struct 🄽oteView: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        var id: UUID
+        private var ⓝoteIndex: Int? { 📱.📚notes.index(self.id) }
+        private var ⓞneNoteLayout: Bool { 📱.🪧widgetState.info?.notesCount == 1 }
+        var body: some View {
+            Group {
+                if let ⓝoteIndex {
+                    NavigationLink {
+                        📗NoteView($📱.📚notes[ⓝoteIndex], hideMoveButtons: true)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(📱.📚notes[ⓝoteIndex].title)
+                                .font(self.ⓞneNoteLayout ? .title2 : .title3)
+                                .bold()
+                            Text(📱.📚notes[ⓝoteIndex].comment)
+                                .font(self.ⓞneNoteLayout ? .body : .subheadline)
+                                .foregroundStyle(.secondary)
+                        }
                     }
-                    .padding(.vertical, 8)
+                } else {
+                    Label("Deleted", systemImage: "checkmark")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
                 }
-            } else {
-                Label("Deleted", systemImage: "checkmark")
             }
+            .padding(.vertical, self.ⓞneNoteLayout ? 12 : 8)
         }
     }
 }

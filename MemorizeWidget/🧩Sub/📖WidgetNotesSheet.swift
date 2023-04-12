@@ -18,17 +18,10 @@ private struct 📖WidgetNotesView: View {
     var body: some View {
         NavigationView {
             Group {
-                switch 📱.🪧widgetState.info {
-                    case .singleNote(let ⓘd):
-                        self.ⓢigleNoteLayout(ⓘd)
-                    case .multiNotes(let ⓘds):
-                        if ⓘds.count == 1 {
-                            self.ⓢigleNoteLayout(ⓘds[0])
-                        } else {
-                            self.ⓜultiNotesLayout(ⓘds)
-                        }
-                    default:
-                        Text("🐛")
+                if 📱.🪧widgetState.info?.notesCount == 1 {
+                    Self.🅂igleNoteLayout()
+                } else {
+                    Self.🄼ultiNotesLayout()
                 }
             }
             .toolbar { 🅧DismissButton() }
@@ -36,45 +29,16 @@ private struct 📖WidgetNotesView: View {
         .modifier(📣ADSheet())
         .navigationViewStyle(.stack)
     }
-    private func ⓢigleNoteLayout(_ ⓘd: UUID) -> some View {
-        VStack {
-            Spacer()
-            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
-                📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_single)
-                .padding(.horizontal, 32)
+    private struct 🅂igleNoteLayout: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        private var ⓘndex: Int? { 📱.📚notes.index(📱.🪧widgetState.info?.noteIDs?.first) }
+        var body: some View {
+            VStack {
                 Spacer()
-                HStack {
+                if let ⓘndex {
+                    📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_single)
+                        .padding(.horizontal, 32)
                     Spacer()
-                    📘DictionaryButton(📱.📚notes[ⓘndex])
-                    Spacer()
-                    🔍SearchButton(📱.📚notes[ⓘndex])
-                    Spacer()
-                    🚮DeleteNoteButton(📱.📚notes[ⓘndex])
-                    Spacer()
-                }
-                .labelStyle(.iconOnly)
-                .buttonStyle(.plain)
-                .foregroundColor(.primary)
-                .font(.title)
-                .padding(.horizontal, 24)
-            } else {
-                🚮DeletedNoteView()
-            }
-            Spacer()
-        }
-    }
-    private func ⓜultiNotesLayout(_ ⓘds: [UUID]) -> some View {
-        List {
-            ForEach(ⓘds, id: \.self) {
-                self.ⓝoteRow($0)
-            }
-        }
-    }
-    private func ⓝoteRow(_ ⓘd: UUID) -> some View {
-        Section {
-            if let ⓘndex = 📱.📚notes.firstIndex(where: { $0.id == ⓘd }) {
-                VStack(spacing: 0) {
-                    📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_multi)
                     HStack {
                         Spacer()
                         📘DictionaryButton(📱.📚notes[ⓘndex])
@@ -87,13 +51,48 @@ private struct 📖WidgetNotesView: View {
                     .labelStyle(.iconOnly)
                     .buttonStyle(.plain)
                     .foregroundColor(.primary)
-                    .font(.title3)
-                    .padding(12)
+                    .font(.title)
+                    .padding(.horizontal, 24)
+                } else {
+                    🚮DeletedNoteView()
                 }
-                .padding(8)
+                Spacer()
             }
-            if !📱.📚notes.contains(where: { $0.id == ⓘd }) { //Workaround: iOS15.5
-                🚮DeletedNoteView()
+        }
+    }
+    private struct 🄼ultiNotesLayout: View {
+        @EnvironmentObject var 📱: 📱AppModel
+        private var ⓘds: [UUID] { 📱.🪧widgetState.info?.noteIDs ?? [] }
+        var body: some View {
+            List {
+                ForEach(self.ⓘds, id: \.self) { self.ⓝoteRow($0) }
+            }
+        }
+        private func ⓝoteRow(_ ⓘd: UUID) -> some View {
+            Section {
+                if let ⓘndex = 📱.📚notes.index(ⓘd) {
+                    VStack(spacing: 0) {
+                        📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_multi)
+                        HStack {
+                            Spacer()
+                            📘DictionaryButton(📱.📚notes[ⓘndex])
+                            Spacer()
+                            🔍SearchButton(📱.📚notes[ⓘndex])
+                            Spacer()
+                            🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                            Spacer()
+                        }
+                        .labelStyle(.iconOnly)
+                        .buttonStyle(.plain)
+                        .foregroundColor(.primary)
+                        .font(.title3)
+                        .padding(12)
+                    }
+                    .padding(8)
+                }
+                if !📱.📚notes.contains(where: { $0.id == ⓘd }) { //Workaround: iOS15.5
+                    🚮DeletedNoteView()
+                }
             }
         }
     }

@@ -32,6 +32,9 @@ extension 📚Notes {
     mutating func cleanEmptyTitleNotes() {
         self.removeAll { $0.title == "" }
     }
+    func index(_ ⓘd: UUID?) -> Int? {
+        self.firstIndex { $0.id == ⓘd }
+    }
 }
 
 extension 📚Notes {

@@ -57,4 +57,18 @@ enum 🪧WidgetInfo {
                 return []
         }
     }
+    var notesCount: Int? {
+        switch self {
+            case .singleNote(_): return 1
+            case .multiNotes(let ⓘds): return ⓘds.count
+            case .newNoteShortcut, .noNote: return nil
+        }
+    }
+    var noteIDs: [UUID]? {
+        switch self {
+            case .singleNote(let ⓘd): return [ⓘd]
+            case .multiNotes(let ⓘds): return ⓘds
+            case .newNoteShortcut, .noNote: return nil
+        }
+    }
 }
