@@ -114,17 +114,24 @@ private struct 🅃ipsSection: View {
 
 private struct 🄰ppleSupportLinkSection: View {
     private var ⓤrl: String {
+#if targetEnvironment(macCatalyst)
+        "https://support.apple.com/guide/mac-help/add-customize-widgets-notification-center-mchl52be5da5/mac"
+#else
         UIDevice.current.userInterfaceIdiom == .pad ? "https://support.apple.com/HT211328" : "https://support.apple.com/HT207122"
+#endif
+    }
+    private var ⓛabel: LocalizedStringKey {
+#if targetEnvironment(macCatalyst)
+        "Add and customize widgets in Notification Center on Mac"
+#else
+        UIDevice.current.userInterfaceIdiom == .pad ? "Use widgets on your iPad" : "https://support.apple.com/HT207122"
+#endif
     }
     var body: some View {
         Section {
             Link(destination: URL(string: self.ⓤrl)!) {
                 VStack(alignment: .leading, spacing: 6) {
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                        Label("Use widgets on your iPad", systemImage: "link")
-                    } else {
-                        Label("How to add and edit widgets on your iPhone", systemImage: "link")
-                    }
+                    Label(self.ⓛabel, systemImage: "link")
                     HStack {
                         Spacer()
                         Text(self.ⓤrl)
