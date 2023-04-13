@@ -11,5 +11,8 @@ struct MemorizeWidgetApp: App {
                 .environmentObject(📱)
                 .environmentObject(🛒)
         }
+        .commands {
+            🆕NewNoteCommand(📱)
+        }
     }
 }

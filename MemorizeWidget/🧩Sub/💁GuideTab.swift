@@ -165,13 +165,5 @@ private struct 🄳irectionsSection: View {
                 Text("Directions")
             }
         }
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            Section {
-                Label("New note: Command + Return", systemImage: "keyboard")
-                    .badge("⌘ + ⏎")
-            } header: {
-                Text("Keyboard shortcut")
-            }
-        }
     }
 }
