@@ -14,6 +14,7 @@ class 📱AppModel: ObservableObject {
         self.setPlaceholder()
         self.📚notes.cleanEmptyTitleNotes()
         self.🗑trash.cleanExceededContents()
+        🩹WorkaroundOnIOS15.SyncWidget.save(self.📚notes)
         💾ICloud.addObserver(self, #selector(self.iCloudDidChangeExternally(_:)))
     }
 }

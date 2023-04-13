@@ -1,4 +1,5 @@
 import Foundation
+import WidgetKit
 
 enum 💾UserDefaults {
     static var appGroup: UserDefaults {
@@ -45,6 +46,7 @@ enum 🩹WorkaroundOnIOS15 {
                 💾UserDefaults.appGroup.removeObject(forKey: "SyncBetweenWidgetOnIOS15")
             } else {
                 💾UserDefaults.appGroup.set(ⓝotes.encode(), forKey: "SyncBetweenWidgetOnIOS15")
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }
         static func loadNotes() -> 📚Notes? {
