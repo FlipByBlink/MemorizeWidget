@@ -92,16 +92,18 @@ private struct 🅃ipsSection: View {
                 .padding(.vertical, 4)
                 Text("Delete a note by swiping the row.")
             }
-            HStack(spacing: 12) {
-                HStack(spacing: 4) {
-                    Image("moveBySwiping")
-                        .shadow(radius: 1, y: -1)
-                        .shadow(radius: 1, y: 1)
-                    Image(systemName: "hand.draw")
-                        .font(.body.weight(.light))
+            if #available(iOS 16.0, *) {
+                HStack(spacing: 12) {
+                    HStack(spacing: 4) {
+                        Image("moveBySwiping")
+                            .shadow(radius: 1, y: -1)
+                            .shadow(radius: 1, y: 1)
+                        Image(systemName: "hand.draw")
+                            .font(.body.weight(.light))
+                    }
+                    .padding(.vertical, 4)
+                    Text("Move a note by drag and drop the row.")
                 }
-                .padding(.vertical, 4)
-                Text("Move a note by drag and drop the row.")
             }
         } header: {
             Text("Tips")
