@@ -66,11 +66,6 @@ private struct 📖WidgetNotesView: View {
         @EnvironmentObject var 📱: 📱AppModel
         private var ⓘds: [UUID] { 📱.🪧widgetState.info?.targetedNoteIDs ?? [] }
         private var ⓣargetNotesCount: Int { 📱.🪧widgetState.info?.targetedNotesCount ?? 0 }
-        private var ⓓeletedAll: Bool {
-            self.ⓘds.allSatisfy { ⓘd in
-                !📱.📚notes.contains { $0.id == ⓘd }
-            }
-        }
         var body: some View {
             List {
                 if self.ⓣargetNotesCount < 4 {
@@ -82,7 +77,7 @@ private struct 📖WidgetNotesView: View {
                         ForEach(self.ⓘds, id: \.self) { self.ⓝoteRow($0) }
                     }
                 }
-                if self.ⓓeletedAll {
+                if 📱.deletedAllWidgetNotes {
                     Section { 🚮DeletedNoteView() }
                 }
             }

@@ -31,10 +31,10 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - Sync between devices by iCloud.
 
-- Support Apple Watch / Mac.
+- Support iPhone / iPad / Apple Watch / Mac.
 
 
-OPTION
+Options
 
 - Show comment on widget. (homescreen-widget/lockscreen-rectangular)
 

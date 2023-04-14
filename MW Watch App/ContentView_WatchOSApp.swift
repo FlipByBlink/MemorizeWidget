@@ -142,20 +142,20 @@ private struct 📗NoteView: View {
 
 private struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var 📱: 📱AppModel
+    private var ⓘds: [UUID] { 📱.🪧widgetState.info?.targetedNoteIDs ?? [] }
     var body: some View {
         NavigationStack {
             List {
-                if let ⓘds = 📱.🪧widgetState.info?.targetedNoteIDs {
-                    ForEach(ⓘds, id: \.self) {
-                        Self.🄽oteView(id: $0)
-                    }
-                    .onDelete {
-                        guard let ⓘndex = $0.first else { return }
-                        📱.removeNote(ⓘds[ⓘndex])
-                    }
-                } else {
-                    Text("🐛")
+                ForEach(self.ⓘds, id: \.self) {
+                    Self.🄽oteView(id: $0)
                 }
+                .onDelete {
+                    guard let ⓘndex = $0.first else { return }
+                    📱.removeNote(self.ⓘds[ⓘndex])
+                }
+            }
+            .overlay {
+                if 📱.deletedAllWidgetNotes { Self.🄳eletedNoteView() }
             }
         }
     }
@@ -165,27 +165,35 @@ private struct 📖WidgetNotesSheet: View {
         private var ⓝoteIndex: Int? { 📱.📚notes.index(self.id) }
         private var ⓞneNoteLayout: Bool { 📱.🪧widgetState.info?.targetedNotesCount == 1 }
         var body: some View {
-            Group {
-                if let ⓝoteIndex {
-                    NavigationLink {
-                        📗NoteView($📱.📚notes[ⓝoteIndex], hideMoveButtons: true)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(📱.📚notes[ⓝoteIndex].title)
-                                .font(self.ⓞneNoteLayout ? .title2 : .title3)
-                                .bold()
-                            Text(📱.📚notes[ⓝoteIndex].comment)
-                                .font(self.ⓞneNoteLayout ? .body : .subheadline)
-                                .foregroundStyle(.secondary)
-                        }
+            if let ⓝoteIndex {
+                NavigationLink {
+                    📗NoteView($📱.📚notes[ⓝoteIndex], hideMoveButtons: true)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(📱.📚notes[ⓝoteIndex].title)
+                            .font(self.ⓞneNoteLayout ? .title2 : .title3)
+                            .bold()
+                        Text(📱.📚notes[ⓝoteIndex].comment)
+                            .font(self.ⓞneNoteLayout ? .body : .subheadline)
+                            .foregroundStyle(.secondary)
                     }
-                } else {
-                    Label("Deleted", systemImage: "checkmark")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
                 }
+                .padding(.vertical, self.ⓞneNoteLayout ? 12 : 8)
             }
-            .padding(.vertical, self.ⓞneNoteLayout ? 12 : 8)
+        }
+    }
+    private struct 🄳eletedNoteView: View {
+        var body: some View {
+            VStack(spacing: 16) {
+                Label("Deleted.", systemImage: "checkmark")
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                Image(systemName: "trash")
+            }
+            .foregroundColor(.primary)
+            .imageScale(.small)
+            .font(.title2)
+            .padding(24)
         }
     }
 }

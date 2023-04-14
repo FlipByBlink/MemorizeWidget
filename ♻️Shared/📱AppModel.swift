@@ -117,6 +117,12 @@ extension 📱AppModel {
 }
 
 extension 📱AppModel {
+    var deletedAllWidgetNotes: Bool {
+        guard let ⓘds = self.🪧widgetState.info?.targetedNoteIDs else { return false }
+        return ⓘds.allSatisfy { ⓘd in
+            !self.📚notes.contains { $0.id == ⓘd }
+        }
+    }
     var exceedDataSizePerhaps: Bool {
         self.📚notes.dataCount > 800000
     }

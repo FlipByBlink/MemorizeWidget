@@ -124,7 +124,7 @@ private struct 🄰ppleSupportLinkSection: View {
 #if targetEnvironment(macCatalyst)
         "Add and customize widgets in Notification Center on Mac"
 #else
-        UIDevice.current.userInterfaceIdiom == .pad ? "Use widgets on your iPad" : "https://support.apple.com/HT207122"
+        UIDevice.current.userInterfaceIdiom == .pad ? "Use widgets on your iPad" : "How to add and edit widgets on your iPhone"
 #endif
     }
     var body: some View {
@@ -142,7 +142,7 @@ private struct 🄰ppleSupportLinkSection: View {
                 }
                 .padding(.vertical, 4)
             }
-            .accessibilityLabel("Use widgets on your iPad")
+            .accessibilityLabel(self.ⓛabel)
             if UIDevice.current.userInterfaceIdiom == .phone, #available(iOS 16.0, *) {
                 Link(destination: URL(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
