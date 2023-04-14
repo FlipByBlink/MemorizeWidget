@@ -1,6 +1,6 @@
 import Foundation
 
-let 📜versionInfos = 📜VersionInfo.history(("1.2", "2023-04-11"),
+let 📜versionInfos = 📜VersionInfo.history(("1.2", "2023-04-14"),
                                            ("1.1.2", "2022-12-05"),
                                            ("1.1.1", "2022-12-01"),
                                            ("1.1", "2022-10-30"),
@@ -45,10 +45,10 @@ enum 📁SourceCodeCategory: String, CaseIterable, Identifiable {
                         "📖WidgetNotesSheet.swift",
                         "🚮DeleteNoteButton.swift",
                         "🔩MenuTab.swift",
+                        "🗑TrashTab.swift",
                         "📥NotesImportSheet.swift",
                         "📘Dictionary.swift",
                         "🔍SearchButton.swift",
-                        "🗑TrashTab.swift",
                         "🗄️Rest.swift",
                         "💁GuideTab.swift",
                         "ℹ️AboutAppTab.swift"]
