@@ -21,8 +21,6 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - In Random note mode, widget changes the note per 5 minutes.
 
-- Lock screen widget support (iOS 16 only)
-
 - Import file(e.g. tsv, csv, txt) or text.
 
 - System dictionary support.
@@ -31,14 +29,23 @@ Flashcard on widget. Memorize a note in everyday life.
 
 - Sync between devices by iCloud.
 
-- Support iPhone / iPad / Apple Watch / Mac.
-
 
 Options
 
 - Show comment on widget. (homescreen-widget/lockscreen-rectangular)
 
 - Show multi notes.
+
+
+Multi platform support
+
+- iPhone: Lock Screen widget(iOS16 only), Home Screen widget
+
+- iPad: Home Screen widget
+
+- Apple Watch: Complication
+
+- Mac: Notification Center widget
 
 
 Localization: All
