@@ -64,6 +64,7 @@ private struct 📖WidgetNotesView: View {
     }
     private struct 🄼ultiNotesLayout: View {
         @EnvironmentObject var 📱: 📱AppModel
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
         private var ⓘds: [UUID] { 📱.🪧widgetState.info?.targetedNoteIDs ?? [] }
         private var ⓣargetNotesCount: Int { 📱.🪧widgetState.info?.targetedNotesCount ?? 0 }
         var body: some View {
@@ -85,25 +86,43 @@ private struct 📖WidgetNotesView: View {
         private func ⓝoteRow(_ ⓘd: UUID) -> some View {
             Group {
                 if let ⓘndex = 📱.📚notes.index(ⓘd) {
-                    VStack(spacing: 0) {
-                        📓NoteView($📱.📚notes[ⓘndex],
-                                   layout: .widgetSheet_multi(self.ⓣargetNotesCount))
-                        HStack {
-                            Spacer()
-                            📘DictionaryButton(📱.📚notes[ⓘndex])
-                            Spacer()
-                            🔍SearchButton(📱.📚notes[ⓘndex])
-                            Spacer()
-                            🚮DeleteNoteButton(📱.📚notes[ⓘndex])
-                            Spacer()
+                    if self.horizontalSizeClass == .compact {
+                        VStack(spacing: 0) {
+                            📓NoteView($📱.📚notes[ⓘndex],
+                                       layout: .widgetSheet_multi(self.ⓣargetNotesCount))
+                            HStack {
+                                Spacer()
+                                📘DictionaryButton(📱.📚notes[ⓘndex])
+                                Spacer()
+                                🔍SearchButton(📱.📚notes[ⓘndex])
+                                Spacer()
+                                🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                                Spacer()
+                            }
+                            .labelStyle(.iconOnly)
+                            .buttonStyle(.plain)
+                            .foregroundColor(.primary)
+                            .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
+                            .padding(self.ⓣargetNotesCount < 4 ? 12 : 4)
                         }
-                        .labelStyle(.iconOnly)
-                        .buttonStyle(.plain)
-                        .foregroundColor(.primary)
-                        .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
-                        .padding(self.ⓣargetNotesCount < 4 ? 12 : 4)
+                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
+                    } else {
+                        HStack(spacing: 0) {
+                            📓NoteView($📱.📚notes[ⓘndex],
+                                       layout: .widgetSheet_multi(self.ⓣargetNotesCount))
+                            HStack(spacing: 24) {
+                                📘DictionaryButton(📱.📚notes[ⓘndex])
+                                🔍SearchButton(📱.📚notes[ⓘndex])
+                                🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                            }
+                            .labelStyle(.iconOnly)
+                            .buttonStyle(.plain)
+                            .foregroundColor(.primary)
+                            .padding()
+                            .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
+                        }
+                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
                     }
-                    .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
                 }
             }
         }
