@@ -1,6 +1,7 @@
 import Foundation
 
-let 📜versionInfos = 📜VersionInfo.history(("1.2", "2023-04-14"),
+let 📜versionInfos = 📜VersionInfo.history(("1.2.1", "2023-05-24"),
+                                           ("1.2", "2023-04-14"),
                                            ("1.1.2", "2022-12-05"),
                                            ("1.1.1", "2022-12-01"),
                                            ("1.1", "2022-10-30"),

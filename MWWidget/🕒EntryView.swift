@@ -50,7 +50,7 @@ private struct 🄷omeScreenWidgetView: View {
                 if self.ⓝotes.count == 1 {
                     return .largeTitle
                 } else {
-                    return self.🚩showComment ? .title2 : .title
+                    return self.🚩showComment ? .title3 : .title
                 }
             default:
                 assertionFailure(); return .largeTitle
@@ -109,14 +109,14 @@ private struct 🄷omeScreenWidgetView: View {
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.8)
+                        .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                     }
                 }
                 Spacer(minLength: 0)
             }
         }
-        .padding(self.widgetFamily == .systemLarge ? 24 : 16)
+        .padding(self.widgetFamily == .systemLarge ? 20 : 16)
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
