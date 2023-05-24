@@ -60,6 +60,8 @@ struct 📓NoteView: View {
                 }
                 .font(self.ⓛayout.titleFont.weight(.semibold))
                 .foregroundStyle(self.ⓝote.title.isEmpty ? .secondary : .primary)
+                .opacity(self.🎨thin ? 0.4 : 1)
+                .animation(.default.speed(1.5), value: self.🎨thin)
                 .padding(.bottom, 1)
                 .onTapGesture { self.ⓢtartToInput(.title) }
                 Group {
@@ -70,8 +72,6 @@ struct 📓NoteView: View {
                 .padding(.bottom, 1)
                 .onTapGesture { self.ⓢtartToInput(.comment) }
             }
-            .opacity(self.🎨thin ? 0.4 : 1)
-            .animation(.default.speed(1.5), value: self.🎨thin)
             Spacer(minLength: 0)
         }
     }
