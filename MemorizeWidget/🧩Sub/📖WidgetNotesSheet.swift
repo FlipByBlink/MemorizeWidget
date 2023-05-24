@@ -96,6 +96,10 @@ private struct 📖WidgetNotesView: View {
                                 Spacer()
                                 🔍SearchButton(📱.📚notes[ⓘndex])
                                 Spacer()
+                                if !📱.🚩randomMode {
+                                    🔚MoveEndButton(📱.📚notes[ⓘndex])
+                                    Spacer()
+                                }
                                 🚮DeleteNoteButton(📱.📚notes[ⓘndex])
                                 Spacer()
                             }
@@ -113,6 +117,7 @@ private struct 📖WidgetNotesView: View {
                             HStack(spacing: 24) {
                                 📘DictionaryButton(📱.📚notes[ⓘndex])
                                 🔍SearchButton(📱.📚notes[ⓘndex])
+                                if !📱.🚩randomMode { 🔚MoveEndButton(📱.📚notes[ⓘndex]) }
                                 🚮DeleteNoteButton(📱.📚notes[ⓘndex])
                             }
                             .labelStyle(.iconOnly)
@@ -146,6 +151,32 @@ private struct 📘DictionaryButton: View {
     }
     init(_ note: 📗Note) {
         self.ⓣerm = note.title
+    }
+}
+
+private struct 🔚MoveEndButton: View {
+    @EnvironmentObject var 📱: 📱AppModel
+    private var ⓝote: 📗Note
+    @State private var ⓓone: Bool = false
+    var body: some View {
+        Button {
+            📱.moveEnd(self.ⓝote)
+            withAnimation { self.ⓓone = true }
+        } label: {
+            Label("Move end", systemImage: "arrow.down.to.line")
+        }
+        .disabled(📱.📚notes.last == self.ⓝote)
+        .opacity(self.ⓓone ? 0.33 : 1)
+        .overlay {
+            if self.ⓓone {
+                Image(systemName: "checkmark")
+                    .imageScale(.small)
+                    .symbolRenderingMode(.hierarchical)
+            }
+        }
+    }
+    init(_ note: 📗Note) {
+        self.ⓝote = note
     }
 }
 
