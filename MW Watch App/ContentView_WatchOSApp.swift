@@ -41,7 +41,7 @@ private struct 📚NotesMenu: View {
             }
             ForEach($📱.📚notes) { ⓝote in
                 NavigationLink {
-                    📗NoteView(ⓝote)
+                    📗NoteView(ⓝote, .notesMenu)
                 } label: {
                     Self.🄽oteLink(note: ⓝote)
                 }
@@ -82,28 +82,37 @@ private struct 📗NoteView: View {
     @EnvironmentObject var 📱: 📱AppModel
     @Environment(\.dismiss) var dismiss
     @Binding var ⓝote: 📗Note
-    private var ⓗideMoveButtons: Bool
+    private var ⓚind: Self.🄺ind = .notesMenu
     var body: some View {
         List {
-            Section {
-                TextField("Title", text: self.$ⓝote.title)
-                    .font(.headline)
-                TextField("Comment", text: self.$ⓝote.comment)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            Section {
-                if !self.ⓗideMoveButtons { self.ⓜoveButtons() }
-                Button(role: .destructive) {
-                    📱.removeNote(self.ⓝote)
-                    self.dismiss()
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
+            TextField("Title", text: self.$ⓝote.title)
+                .font(.headline)
+            TextField("Comment", text: self.$ⓝote.comment)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            switch self.ⓚind {
+                case .notesMenu:
+                    self.ⓜoveSectionOnNotesMenu()
+                    self.ⓡemoveButton()
+                case .notesSheet:
+                    if 📱.🚩randomMode {
+                        self.ⓡemoveButton()
+                    } else {
+                        self.ⓜoveEndButtonOnNotesSheet()
+                        self.ⓡemoveButton()
+                    }
             }
         }
     }
-    private func ⓜoveButtons() -> some View {
+    private func ⓡemoveButton() -> some View {
+        Button(role: .destructive) {
+            📱.removeNote(self.ⓝote)
+            self.dismiss()
+        } label: {
+            Label("Delete", systemImage: "trash")
+        }
+    }
+    private func ⓜoveSectionOnNotesMenu() -> some View {
         HStack {
             Button {
                 📱.moveTop(self.ⓝote)
@@ -134,9 +143,20 @@ private struct 📗NoteView: View {
             .disabled(self.ⓝote.id == 📱.📚notes.last?.id)
         }
     }
-    init(_ note: Binding<📗Note>, hideMoveButtons: Bool = false) {
+    private func ⓜoveEndButtonOnNotesSheet() -> some View {
+        Button {
+            📱.moveEnd(self.ⓝote)
+        } label: {
+            Label("Move end", systemImage: "arrow.down.to.line")
+        }
+        .disabled(self.ⓝote.id == 📱.📚notes.last?.id)
+    }
+    enum 🄺ind {
+        case notesMenu, notesSheet
+    }
+    init(_ note: Binding<📗Note>, _ kind: Self.🄺ind) {
         self._ⓝote = note
-        self.ⓗideMoveButtons = hideMoveButtons
+        self.ⓚind = kind
     }
 }
 
@@ -167,7 +187,7 @@ private struct 📖WidgetNotesSheet: View {
         var body: some View {
             if let ⓝoteIndex {
                 NavigationLink {
-                    📗NoteView($📱.📚notes[ⓝoteIndex], hideMoveButtons: true)
+                    📗NoteView($📱.📚notes[ⓝoteIndex], .notesSheet)
                 } label: {
                     VStack(alignment: .leading) {
                         Text(📱.📚notes[ⓝoteIndex].title)
