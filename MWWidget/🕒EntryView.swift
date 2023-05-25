@@ -61,7 +61,7 @@ private struct 🄷omeScreenWidgetView: View {
             case .systemSmall, .systemMedium:
                 return self.ⓝotes.count == 1 ? .body : .caption
             case .systemLarge:
-                return self.ⓝotes.count == 1 ? .title2 : .body
+                return self.ⓝotes.count == 1 ? .title2 : .subheadline
             default:
                 assertionFailure(); return .body
         }
@@ -81,13 +81,13 @@ private struct 🄷omeScreenWidgetView: View {
             case .systemSmall, .systemMedium:
                 return self.🚩showComment ? 6 : 12
             case .systemLarge:
-                if self.ⓝotes.count < 6 {
-                    return self.🚩showComment ? 10 : 16
+                if self.ⓝotes.count == 6 {
+                    return self.🚩showComment ? 8 : 12
                 } else {
-                    return self.🚩showComment ? 6 : 12
+                    return self.🚩showComment ? 10 : 16
                 }
             default:
-                assertionFailure(); return 6
+                assertionFailure(); return 8
         }
     }
     var body: some View {
@@ -109,7 +109,7 @@ private struct 🄷omeScreenWidgetView: View {
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.6)
+                        .minimumScaleFactor(0.8)
                         .multilineTextAlignment(.center)
                     }
                 }
@@ -117,6 +117,7 @@ private struct 🄷omeScreenWidgetView: View {
             }
         }
         .padding(self.widgetFamily == .systemLarge ? 20 : 16)
+        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info

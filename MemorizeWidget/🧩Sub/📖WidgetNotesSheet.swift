@@ -126,7 +126,7 @@ private struct 📖WidgetNotesView: View {
                             .padding()
                             .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
                         }
-                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
+                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 0)
                     }
                 }
             }
