@@ -8,7 +8,7 @@ struct 🪧WidgetState {
 }
 
 enum 🪧WidgetInfo {
-    case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote
+    case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
     var description: String {
         switch self {
             case .singleNote(let ⓘd):
@@ -25,6 +25,8 @@ enum 🪧WidgetInfo {
                 return "example://NewNoteShortcut/"
             case .noNote:
                 return "example://noNote/"
+            case .widgetPlaceholder:
+                return "example://"
         }
     }
     var url: URL { URL(string: self.description)! }
@@ -58,6 +60,8 @@ enum 🪧WidgetInfo {
                 return ⓘds.compactMap { ⓘd in
                     ⓝotes.first { $0.id == ⓘd }
                 }
+            case .widgetPlaceholder:
+                return [.init("Palceholder")]
             default:
                 return []
         }
@@ -67,6 +71,7 @@ enum 🪧WidgetInfo {
             case .singleNote(_): return 1
             case .multiNotes(let ⓘds): return ⓘds.count
             case .newNoteShortcut, .noNote: return nil
+            case .widgetPlaceholder: return 1
         }
     }
     var targetedNoteIDs: [UUID]? {
@@ -74,6 +79,7 @@ enum 🪧WidgetInfo {
             case .singleNote(let ⓘd): return [ⓘd]
             case .multiNotes(let ⓘds): return ⓘds
             case .newNoteShortcut, .noNote: return nil
+            case .widgetPlaceholder: return [UUID()]
         }
     }
 }

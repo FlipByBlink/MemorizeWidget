@@ -82,12 +82,12 @@ private struct 🄷omeScreenWidgetView: View {
                 return self.🚩showComment ? 6 : 12
             case .systemLarge:
                 if self.ⓝotes.count < 6 {
-                    return self.🚩showComment ? 12 : 16
+                    return self.🚩showComment ? 10 : 16
                 } else {
-                    return self.🚩showComment ? 10 : 12
+                    return self.🚩showComment ? 6 : 12
                 }
             default:
-                assertionFailure(); return 8
+                assertionFailure(); return 6
         }
     }
     var body: some View {
@@ -109,7 +109,7 @@ private struct 🄷omeScreenWidgetView: View {
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.6)
                         .multilineTextAlignment(.center)
                     }
                 }

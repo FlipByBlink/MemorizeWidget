@@ -104,7 +104,7 @@ extension 📱AppModel {
                 switch ⓘnfo {
                     case .singleNote(_), .multiNotes(_):
                         self.🪧widgetState = 🪧WidgetState(showSheet: true, info: ⓘnfo)
-                    case .newNoteShortcut, .noNote:
+                    case .newNoteShortcut, .noNote, .widgetPlaceholder:
                         break
                 }
                 💥Feedback.light()

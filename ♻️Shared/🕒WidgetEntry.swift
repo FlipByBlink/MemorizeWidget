@@ -60,7 +60,7 @@ struct 🕒WidgetEntry: TimelineEntry {
 
 struct 🕒TimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> 🕒WidgetEntry {
-        🕒WidgetEntry(.now, .noNote)
+        🕒WidgetEntry(.now, .widgetPlaceholder)
     }
     func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
         completion(.generateEntry(.now, context.family))
