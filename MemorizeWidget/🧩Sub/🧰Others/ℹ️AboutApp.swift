@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 struct ℹ️AboutAppLink: View {
     var name: LocalizedStringKey
@@ -196,6 +197,9 @@ private struct 📓SourceCodeLink: View {
                 Self.📓CodeSection($0)
             }
             self.📑bundleMainInfoDictionary()
+            if #available(iOS 16.0, *) {
+                🄰ppTransactionDebugLink()
+            }
             self.🔗repositoryLinks()
         }
         .navigationTitle("Source code")
@@ -408,6 +412,32 @@ struct 💬PrepareToRequestUserReview: ViewModifier {
         }
         init(_ checkToRequest: Binding<Bool>) {
             self._ⓒheckToRequest = checkToRequest
+        }
+    }
+}
+
+@available(iOS 16.0, *)
+private struct 🄰ppTransactionDebugLink: View {
+    @State private var ⓛog: String?
+    var body: some View {
+        NavigationLink {
+            Text(self.ⓛog ?? "🐛")
+                .task { self.ⓛog = await Self.getAppTransactionLog() }
+        } label: {
+            Label("AppTransaction", systemImage: "cart")
+        }
+    }
+    static func getAppTransactionLog() async -> String {
+        do {
+            let ⓡesult = try await AppTransaction.shared
+            switch ⓡesult {
+                case .unverified(let ⓢignedType, let ⓥerificationError):
+                    return "unverified, \(ⓢignedType), \(ⓥerificationError)"
+                case .verified(let ⓢignedType):
+                    return ⓢignedType.debugDescription + "\noriginalPurchaseDate: \(ⓢignedType.originalPurchaseDate)"
+            }
+        } catch {
+            return error.localizedDescription
         }
     }
 }
