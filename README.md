@@ -7,10 +7,7 @@ MemorizeWidget for iPhone, iPad, Apple Watch, Mac
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
 </a>
 
-
-AppStore link
---------------
-https://apps.apple.com/app/id1644276262
+<img src="MemorizeWidget/Assets.xcassets/ConceptImage.imageset/ConceptImage.png" width="600">
 
 
 Description
@@ -66,6 +63,11 @@ https://gitlab.com/FlipByBlink/MemorizeWidget_Mirror
 Contact
 ------------
 sear_pandora_0x@icloud.com
+
+
+AppStore link
+--------------
+https://apps.apple.com/app/id1644276262
 
 
 <br>
