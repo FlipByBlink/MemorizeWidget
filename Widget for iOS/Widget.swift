@@ -2,31 +2,28 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct MWWidgetBundle: WidgetBundle {
+struct WidgetForIOS: WidgetBundle {
     var body: some Widget {
-        🖼MWWidget()
+        🪧MWWidget()
         🆕NewNoteShortcutWidget()
-        🖼MWWidgetSub()
+        🪧MWWidgetSub()
     }
 }
 
-private struct 🖼MWWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
+private struct 🪧MWWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🕒TimelineProvider()) { ⓔntry in
             🕒EntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
-        .supportedFamilies(self.ⓕamilies)
-    }
-    init() {
-        self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryRectangular, .accessoryCircular])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge,
+                            .accessoryInline, .accessoryRectangular, .accessoryCircular])
     }
 }
 
 //SubWidget
-private struct 🖼MWWidgetSub: Widget {
+private struct 🪧MWWidgetSub: Widget {
     private var ⓕamilies: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🕒TimelineProvider()) { ⓔntry in

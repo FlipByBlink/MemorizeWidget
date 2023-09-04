@@ -29,6 +29,7 @@ struct 🕒EntryView: View {
             }
         }
         .widgetURL(self.ⓘnfo.url)
+        .modifier(🎨ContainerBackground())
     }
     init(_ ⓔntry: 🕒WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
