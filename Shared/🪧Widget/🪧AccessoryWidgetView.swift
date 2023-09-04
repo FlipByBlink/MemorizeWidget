@@ -34,7 +34,8 @@ private extension 🪧AccessoryWidgetView {
                     if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
                     Text(ⓝote.title)
                         .multilineTextAlignment(.center)
-                        .font(.caption.weight(.medium))
+                        .font(self.ⓝotes.count == 1 ? .body : .caption)
+                        .fontWeight(.semibold)
                         .lineSpacing(0)
                         .minimumScaleFactor(0.8)
                         .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
@@ -48,13 +49,15 @@ private extension 🪧AccessoryWidgetView {
         VStack(spacing: 0) {
             ForEach(self.ⓝotes) { ⓝote in
                 Text(ⓝote.title)
-                    .font(.headline)
                     .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
+                    .font(.system(size: self.ⓝotes.count > 1 ? 21 : 24,
+                                  weight: .semibold))
                 if case .singleNote(_) = self.ⓘnfo {
                     if self.🚩showComment, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .padding(.top, 4)
                             //.opacity(self.widgetRenderingMode == .accented ? 0.6 : 1) //TODO: watchOS版では実装されてた。要再検討
                     }
                 }
