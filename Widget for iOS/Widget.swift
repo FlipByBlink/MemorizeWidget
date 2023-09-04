@@ -17,12 +17,12 @@ private struct 🪧Widget: Widget {
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
+        .contentMarginsDisabled()
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge,
                             .accessoryInline, .accessoryRectangular, .accessoryCircular])
     }
 }
 
-//SubWidget
 private struct 🪧WidgetSub: Widget {
     private var ⓕamilies: [WidgetFamily] = []
     var body: some WidgetConfiguration {
@@ -31,6 +31,7 @@ private struct 🪧WidgetSub: Widget {
         }
         .configurationDisplayName("Sub widget")
         .description("This is spare widget for the purpose of second widget and random-mode")
+        .contentMarginsDisabled()
         .supportedFamilies(self.ⓕamilies)
     }
     init() {
