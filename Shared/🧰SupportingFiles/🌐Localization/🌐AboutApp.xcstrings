@@ -1,0 +1,515 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "(Mirror)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(ミラー)"
+          }
+        }
+      }
+    },
+    "← Select file" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "← ファイルを選択して下さい"
+          }
+        }
+      }
+    },
+    "about 29" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "約29才"
+          }
+        }
+      }
+    },
+    "About App" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリについて"
+          }
+        }
+      }
+    },
+    "Adopted In-App Purchase model for the first time on TapWeight ver 1.1.1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapWeight、有料課金モデルを初めて採用したver1.1.1をリリース。"
+          }
+        }
+      }
+    },
+    "age" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "年齢"
+          }
+        }
+      }
+    },
+    "As of 2023" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2023年時点"
+          }
+        }
+      }
+    },
+    "background" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バックグラウンド"
+          }
+        }
+      }
+    },
+    "builded on %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ にビルドしました"
+          }
+        }
+      }
+    },
+    "country" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "国"
+          }
+        }
+      }
+    },
+    "Description" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "概要"
+          }
+        }
+      }
+    },
+    "Developer / Publisher" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開発 / パブリッシャー"
+          }
+        }
+      }
+    },
+    "Final year as an undergraduate student. Developed an iOS application(FlipByBlink) as software for the purpose of research experiments." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大学学部生として最終学年。研究実験を目的としたiOSアプリ(FlipByBlink)の開発を行う。"
+          }
+        }
+      }
+    },
+    "Finished from high school in Okayama Prefecture. Entranced into University-of-the-Ryukyus/faculty-of-engineering in Okinawa Prefecture." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "岡山県の高等学校を卒業。沖縄県の琉球大学工学部に入学。"
+          }
+        }
+      }
+    },
+    "Git repository is public on GitHub.com" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitリポジトリをGitHub.comで公開しています"
+          }
+        }
+      }
+    },
+    "Graduated from University-of-the-Ryukyus." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "琉球大学を卒業。"
+          }
+        }
+      }
+    },
+    "If you are interested in hiring or acquiring, please contact me." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もし雇用や買収に興味がある場合は、下記のメールアドレスに連絡してください"
+          }
+        }
+      }
+    },
+    "Image" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真"
+          }
+        }
+      }
+    },
+    "Individual" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "個人系"
+          }
+        }
+      }
+    },
+    "Japan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本"
+          }
+        }
+      }
+    },
+    "Japanese" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本語"
+          }
+        }
+      }
+    },
+    "Job hunting now!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "職探し中！"
+          }
+        }
+      }
+    },
+    "Migrated to Okayama Prefecture." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "岡山に移住。"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
+          }
+        }
+      }
+    },
+    "native language" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ネイティブ言語"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解しました"
+          }
+        }
+      }
+    },
+    "only one person" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1人のみ"
+          }
+        }
+      }
+    },
+    "Open AppStore page" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppStoreページを開く"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "Released alarm clock app with taking a long time \"FadeInAlarm\" ver 1.0. First paid app." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時間をかけて徐々に音が大きくなるアラームアプリ「FadeInAlarm」ver1.0をリリース。初めてとなる有料アプリ。"
+          }
+        }
+      }
+    },
+    "Released Apple TV app version of \"PlainShogiBoard\"." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Plain将棋盤」のApple TV向けアプリをリリース。"
+          }
+        }
+      }
+    },
+    "Released Apple Watch app version of \"TapTemperature\"." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「TapTemperature」のApple Watch向けアプリをリリース。"
+          }
+        }
+      }
+    },
+    "Released body temperature registration app \"TapTemperature\" ver 1.0." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "体温登録アプリ「TapTemperature」ver1.0をリリース。"
+          }
+        }
+      }
+    },
+    "Released body weight registration app \"TapWeight\" ver 1.0." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "体重登録アプリ「TapWeight」ver1.0をリリース。"
+          }
+        }
+      }
+    },
+    "Released ebook reader app \"FlipByBlink\" ver 1.0 on AppStore. Special feature is to turn a page by slightly-longish-voluntary-blink." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特殊なまばたきでページめくりができる電子書籍リーダーアプリ「FlipByBlink」をver1.0としてAppStoreにリリース。"
+          }
+        }
+      }
+    },
+    "Released FadeInAlarm ver 2.0 for the first time in three years since ver 1.0." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FadeInAlarm、ver1.0以来 約3年ぶりとなるver2.0をリリース。"
+          }
+        }
+      }
+    },
+    "Released FlipByBlink ver 3.0 for the first time in three years since ver 2.0." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FlipByBlink、ver2.0以来 約3年ぶりとなるver3.0をリリース。"
+          }
+        }
+      }
+    },
+    "Released LockInNote and MemorizeWidget on iOS16 release occasion." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS16のリリースに合わせて「ロックノート」と「暗記ウィジェット」をリリース。"
+          }
+        }
+      }
+    },
+    "Released Mac app version of \"MemorizeWidget\"." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「暗記ウィジェット」のMac向けアプリをリリース。"
+          }
+        }
+      }
+    },
+    "released on %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ にリリースしました"
+          }
+        }
+      }
+    },
+    "Released simple shogi board app \"PlainShogiBoard\" ver 1.0." : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シンプルな将棋盤アプリ「Plain将棋盤」ver1.0をリリース。"
+          }
+        }
+      }
+    },
+    "Review on AppStore" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppStoreでレビューを書く"
+          }
+        }
+      }
+    },
+    "Source code" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソースコード"
+          }
+        }
+      }
+    },
+    "Taken on 2021-11" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2021年11月に撮影"
+          }
+        }
+      }
+    },
+    "The System" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "組織構成"
+          }
+        }
+      }
+    },
+    "Timeline" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイムライン"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン"
+          }
+        }
+      }
+    },
+    "Version History" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン履歴"
+          }
+        }
+      }
+    },
+    "Web Repository" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web リポジトリー"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

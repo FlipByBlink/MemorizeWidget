@@ -1,0 +1,31 @@
+"current" = "Flashcard on widget. Memorize a note in everyday life.
+
+- Two mode. \"One note mode\" or \"Random note mode\".
+
+- In Random note mode, widget changes the note per 5 minutes.
+
+- Import file(e.g. tsv, csv, txt) or text.
+
+- System dictionary support.
+
+- Customizable search function.
+
+- Sync between devices by iCloud.
+
+
+Options
+
+- Show comment on widget. (homescreen-widget/lockscreen-rectangular)
+
+- Show multi notes.
+
+
+Multi platform support
+
+- iPhone: Lock Screen widget(iOS16 only), Home Screen widget
+
+- iPad: Home Screen widget
+
+- Apple Watch: Complication
+
+- Mac: Notification Center widget";

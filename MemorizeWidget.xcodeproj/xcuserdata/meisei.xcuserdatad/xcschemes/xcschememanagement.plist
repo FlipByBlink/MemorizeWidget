@@ -4,16 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MW Watch App.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>MWComplicationExtension.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
 		<key>MWShareExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -24,14 +14,44 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>MemorizeWidget.xcscheme_^#shared#^_</key>
+		<key>ShareExtension for iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Widget for iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Widget for watchOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>watchOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F568F18C29E3A5DA005A1D1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F568F1F329E3C565005A1D1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F5B5A45D28C6EDA1005B6E0F</key>
 		<dict>
 			<key>primary</key>

@@ -1,0 +1,169 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "About AD" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告について"
+          }
+        }
+      }
+    },
+    "About AD / Purchase" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告/課金について"
+          }
+        }
+      }
+    },
+    "AD" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告"
+          }
+        }
+      }
+    },
+    "AD / Purchase" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告/課金"
+          }
+        }
+      }
+    },
+    "Buy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支払う"
+          }
+        }
+      }
+    },
+    "Description" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "概要"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "In-App Purchase" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ内課金"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解しました"
+          }
+        }
+      }
+    },
+    "Open AD link" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告のリンクを開く"
+          }
+        }
+      }
+    },
+    "Open AppStore page" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppStoreページを開く"
+          }
+        }
+      }
+    },
+    "Purchase" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ内課金"
+          }
+        }
+      }
+    },
+    "Restore Purchases" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入情報を復元する"
+          }
+        }
+      }
+    },
+    "Restored transactions" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入情報を確認しました"
+          }
+        }
+      }
+    },
+    "This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppStoreアプリケーションに関する広告を表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告はアプリを5回起動すると有効になります。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,0 +1,83 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "FadeInAlarm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "FlipByBlink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "LockInNote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロックノート"
+          }
+        }
+      }
+    },
+    "MemorizeWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗記ウィジェット"
+          }
+        }
+      }
+    },
+    "PlainShogiBoard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plain将棋盤"
+          }
+        }
+      }
+    },
+    "TapTemperature" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "体温登録"
+          }
+        }
+      }
+    },
+    "TapWeight" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "体重登録"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

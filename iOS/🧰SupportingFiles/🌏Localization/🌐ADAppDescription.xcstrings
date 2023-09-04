@@ -1,0 +1,125 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "FadeInAlarm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alarm clock with taking a long time from small volume to max volume."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時間をかけて少しずつ音量が大きくなるアラームアプリ。"
+          }
+        }
+      }
+    },
+    "FlipByBlink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-book reader that can turn a page with slightly longish voluntary blink."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目を閉じる時間を意識的にわずかに長くさせた瞬きでページめくりができる電子書籍リーダー。"
+          }
+        }
+      }
+    },
+    "LockInNote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes widget on lock screen."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロック画面ウィジェットをメモ帳にしよう。"
+          }
+        }
+      }
+    },
+    "MemorizeWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flashcard on widget. Memorize a note in everyday life."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリです。"
+          }
+        }
+      }
+    },
+    "PlainShogiBoard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplest Shogi board App. Supported SharePlay."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ただの将棋盤アプリ。SharePlayも出来ます。"
+          }
+        }
+      }
+    },
+    "TapTemperature" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Register body temperature data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「ヘルスケア」アプリに体温データを(手動としては)最速で登録するためのアプリ。"
+          }
+        }
+      }
+    },
+    "TapWeight" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Register weight data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「ヘルスケア」アプリに体重データを(手動としては)最速で登録するためのアプリ。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
