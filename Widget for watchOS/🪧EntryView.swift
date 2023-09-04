@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🕒EntryView: View {
+struct 🪧EntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
@@ -72,7 +72,7 @@ struct 🕒EntryView: View {
             .widgetAccentable()
             .widgetLabel(self.ⓝotes.first?.title ?? "No note")
     }
-    init(_ ⓔntry: 🕒WidgetEntry) {
+    init(_ ⓔntry: 🪧WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
     }
 }

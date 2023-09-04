@@ -4,15 +4,15 @@ import SwiftUI
 @main
 struct WidgetForWatchOS: WidgetBundle {
     var body: some Widget {
-        🄼WComplication()
+        🪧Widget()
         🆕NewNoteShortcutWidget()
     }
 }
 
-private struct 🄼WComplication: Widget {
+private struct 🪧Widget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "MWComplication", provider: 🕒TimelineProvider()) { ⓔntry in
-            🕒EntryView(ⓔntry)
+        StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
+            🪧EntryView(ⓔntry)
         }
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")

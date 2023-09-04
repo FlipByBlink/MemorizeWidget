@@ -1,7 +1,6 @@
-import Foundation
 import WidgetKit
 
-struct 🕒WidgetEntry: TimelineEntry {
+struct 🪧WidgetEntry: TimelineEntry {
     let date: Date
     let info: 🪧WidgetInfo
     init(_ date: Date, _ info: 🪧WidgetInfo) {
@@ -58,31 +57,19 @@ struct 🕒WidgetEntry: TimelineEntry {
     }
 }
 
-struct 🕒TimelineProvider: TimelineProvider {
-    func placeholder(in context: Context) -> 🕒WidgetEntry {
-        🕒WidgetEntry(.now, .widgetPlaceholder)
-    }
-    func getSnapshot(in context: Context, completion: @escaping (🕒WidgetEntry) -> ()) {
-        completion(.generateEntry(.now, context.family))
-    }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<🕒WidgetEntry>) -> ()) {
-        completion(🕒WidgetEntry.generateTimeline(context.family))
-    }
-}
-
 extension WidgetFamily {
     var ⓜultiNotesCount: Int {
         switch self {
-            case .systemSmall: return 3
-            case .systemMedium: return 3
-            case .systemLarge: return 6
-            case .accessoryCircular: return 2
-            case .accessoryRectangular: return 3
-            case .accessoryInline: return 1
+            case .systemSmall: 3
+            case .systemMedium: 3
+            case .systemLarge: 6
+            case .accessoryCircular: 2
+            case .accessoryRectangular: 3
+            case .accessoryInline: 1
 #if os(watchOS)
-            case .accessoryCorner: return 1
+            case .accessoryCorner: 1
 #endif
-            default: return 1
+            default: 1
         }
     }
 }

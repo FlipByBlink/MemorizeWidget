@@ -1,0 +1,159 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1.0" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initial release"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1回目のリリース"
+          }
+        }
+      }
+    },
+    "1.0.1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "small bug fix on ver1.0"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン1.0に存在した小さなバグを修正"
+          }
+        }
+      }
+    },
+    "1.0.2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add circular lock screen widget support."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "円形のロック画面ウィジェットのサポート追加。"
+          }
+        }
+      }
+    },
+    "1.1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・Bigly improve importability.\n・Comma-style and title-only-style import option.\n・Text-encoded file format(e.g. csv, txt) widely support.\n・Function to import text in app directly.\n・Add lock screen widget to add new note.\n・Add system dictionary support.\n・Add customizable search function.\n・Small fix/improve."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・インポート機能の大幅な改善。\n・カンマ区切り(csv形式)やタイトルのみのインポートに対応。\n・tsvだけでなくcsvやtxtといったテキストファイルに対応。\n・テキストをアプリ内で直接貼り付けてインポートする機能の追加。\n・新規ノート作成のためのロック画面ウィジェットを追加。\n・OS内蔵辞書をひく機能を追加。\n・Web検索等をするためのボタンを追加。(カスタマイズ可能)\n・その他、細かな修正や改善。"
+          }
+        }
+      }
+    },
+    "1.1.1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Support to import notes from other app directly with share-sheet.\n- Show notes count on footer.\n- Widely refactoring."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・「共有シート」を用いて他のアプリからノートを直接取り込めるようにしました。\n・ノートリストのフッターにノートの数を表示するようにしました。\n・広くリファクタリング。"
+          }
+        }
+      }
+    },
+    "1.1.2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Small UI fix"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "軽微なUI修正"
+          }
+        }
+      }
+    },
+    "1.2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・Support \"Sync by iCloud\".\n・Add \"Show multi notes option\".\n・Add \"Move top\"/\"Move end\" buttons.\n・Add \"Trash\".\n・Add \"Export data\".\n・Add \"Large\" widget family.\n・Support Apple Watch.\n・Support Mac.\n・Change AD design.\n・Fix system dictionary bug on iOS16.4.\n・Remove \"Sub widget(home screen small, home screen medium, lock screen circle)\".\n・Small fix/improve."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・iCloudによる端末間でのデータ同期をサポート\n・複数個のノートを表示するオプションの追加\n・ノートを先頭や末尾へ移動する機能の追加\n・ゴミ箱機能の追加\n・データのエクスポート機能の追加\n・大きなサイズのウィジェットを追加\n・新たにApple Watchをサポート\n・新たにMacをサポート\n・広告デザインの変更\n・iOS16.4での辞書機能の不具合を修正\n・「予備のウィジェット(ホームスクリーン(小), ホームスクリーン(中), ロックスクリーン(円型))」を削除\n・その他、細かな修正や改善"
+          }
+        }
+      }
+    },
+    "1.2.1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIX small bug"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "軽微なバグ修正"
+          }
+        }
+      }
+    },
+    "1.3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support iOS 17 / watchOS 10"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS 17/watchOS 10に対応しました"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

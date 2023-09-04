@@ -1,11 +1,4 @@
-import Foundation
 import WidgetKit
-
-struct 🪧WidgetState {
-    var showSheet: Bool
-    var info: 🪧WidgetInfo?
-    static var `default`: Self { Self(showSheet: false, info: nil) }
-}
 
 enum 🪧WidgetInfo {
     case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
@@ -68,18 +61,18 @@ enum 🪧WidgetInfo {
     }
     var targetedNotesCount: Int? {
         switch self {
-            case .singleNote(_): return 1
-            case .multiNotes(let ⓘds): return ⓘds.count
-            case .newNoteShortcut, .noNote: return nil
-            case .widgetPlaceholder: return 1
+            case .singleNote(_): 1
+            case .multiNotes(let ⓘds): ⓘds.count
+            case .newNoteShortcut, .noNote: nil
+            case .widgetPlaceholder: 1
         }
     }
     var targetedNoteIDs: [UUID]? {
         switch self {
-            case .singleNote(let ⓘd): return [ⓘd]
-            case .multiNotes(let ⓘds): return ⓘds
-            case .newNoteShortcut, .noNote: return nil
-            case .widgetPlaceholder: return [UUID()]
+            case .singleNote(let ⓘd): [ⓘd]
+            case .multiNotes(let ⓘds): ⓘds
+            case .newNoteShortcut, .noNote: nil
+            case .widgetPlaceholder: [UUID()]
         }
     }
 }

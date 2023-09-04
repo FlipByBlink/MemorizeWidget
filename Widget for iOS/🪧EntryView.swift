@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🕒EntryView: View {
+struct 🪧EntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
@@ -31,7 +31,7 @@ struct 🕒EntryView: View {
         .widgetURL(self.ⓘnfo.url)
         .modifier(🎨ContainerBackground())
     }
-    init(_ ⓔntry: 🕒WidgetEntry) {
+    init(_ ⓔntry: 🪧WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
     }
 }
