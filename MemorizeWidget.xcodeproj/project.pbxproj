@@ -394,8 +394,6 @@
 		F507EA9728CA145000ECF06A /* 🌏Localization */ = {
 			isa = PBXGroup;
 			children = (
-				F507EA9A28CA145000ECF06A /* Localizable.strings */,
-				F507EA9C28CA145000ECF06A /* InfoPlist.strings */,
 				F50C83052AA5CDBD0033A04B /* 🌐ADAppDescription.xcstrings */,
 				F50C83062AA5CDBD0033A04B /* 🌐ADAppName.xcstrings */,
 				F50C83082AA5CDBD0033A04B /* 🌐AD&InAppPurchase.xcstrings */,
@@ -471,6 +469,8 @@
 		F50C83042AA5CDBD0033A04B /* 🌐Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F507EA9A28CA145000ECF06A /* Localizable.strings */,
+				F507EA9C28CA145000ECF06A /* InfoPlist.strings */,
 				F50C83072AA5CDBD0033A04B /* 🌐AboutApp.xcstrings */,
 			);
 			path = "🌐Localization";

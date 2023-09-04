@@ -5,7 +5,9 @@ struct 🪧EntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         Group {
-            if !self.ⓘnfo.targetedNotes.isEmpty {
+            if self.ⓘnfo.targetedNotes.isEmpty {
+                🪧NoNoteView()
+            } else {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
                         🪧SystemWidgetView(self.ⓘnfo)
@@ -14,8 +16,6 @@ struct 🪧EntryView: View {
                     default:
                         Text(verbatim: "🐛")
                 }
-            } else {
-                🪧NoNoteView()
             }
         }
         .widgetURL(self.ⓘnfo.url)

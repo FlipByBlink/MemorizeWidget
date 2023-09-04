@@ -4,6 +4,41 @@ struct 🪧SystemWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+    var body: some View {
+        ZStack {
+            Color.clear
+            VStack(spacing: 0) {
+                Spacer(minLength: 0)
+                VStack(spacing: self.ⓝotesSpace) {
+                    ForEach(self.ⓝotes) { ⓝote in
+                        VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
+                            Text(ⓝote.title)
+                                .font(self.ⓣitleFont.bold())
+                            if self.🚩showComment {
+                                if !ⓝote.comment.isEmpty {
+                                    Text(ⓝote.comment)
+                                        .font(self.ⓒommentFont.weight(.light))
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                        .lineLimit(self.ⓛineLimit)
+                        .minimumScaleFactor(0.8)
+                        .multilineTextAlignment(.center)
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+        }
+        .padding(self.widgetFamily == .systemLarge ? 18 : 14)
+        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+    }
+    init(_ info: 🪧WidgetInfo) {
+        self.ⓘnfo = info
+    }
+}
+
+private extension 🪧SystemWidgetView {
     private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
     private var ⓣitleFont: Font {
         switch self.widgetFamily {
@@ -54,37 +89,5 @@ struct 🪧SystemWidgetView: View {
             default:
                 assertionFailure(); return 8
         }
-    }
-    var body: some View {
-        ZStack {
-            Color.clear
-            VStack(spacing: 0) {
-                Spacer(minLength: 0)
-                VStack(spacing: self.ⓝotesSpace) {
-                    ForEach(self.ⓝotes) { ⓝote in
-                        VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
-                            Text(ⓝote.title)
-                                .font(self.ⓣitleFont.bold())
-                            if self.🚩showComment {
-                                if !ⓝote.comment.isEmpty {
-                                    Text(ⓝote.comment)
-                                        .font(self.ⓒommentFont.weight(.light))
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                        }
-                        .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.8)
-                        .multilineTextAlignment(.center)
-                    }
-                }
-                Spacer(minLength: 0)
-            }
-        }
-        .padding(self.widgetFamily == .systemLarge ? 20 : 16)
-        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
-    }
-    init(_ info: 🪧WidgetInfo) {
-        self.ⓘnfo = info
     }
 }

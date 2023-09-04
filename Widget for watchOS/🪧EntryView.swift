@@ -1,9 +1,7 @@
 import SwiftUI
-import WidgetKit
 
 struct 🪧EntryView: View {
     private var ⓘnfo: 🪧WidgetInfo
-    private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
     var body: some View {
         Group {
             if self.ⓘnfo.targetedNotes.isEmpty {

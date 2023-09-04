@@ -35,13 +35,10 @@ private struct 🪧WidgetSub: Widget {
         .supportedFamilies(self.ⓕamilies)
     }
     init() {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-#if !targetEnvironment(macCatalyst)
-            self.ⓕamilies.append(contentsOf: [.systemLarge])
-#endif
-        }
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
+        switch UIDevice.current.userInterfaceIdiom {
+            case .phone: self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
+            case .pad: self.ⓕamilies.append(contentsOf: [.systemLarge])
+            default: break
         }
     }
 }
