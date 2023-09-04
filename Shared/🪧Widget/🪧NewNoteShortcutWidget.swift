@@ -51,10 +51,11 @@ private extension 🪧NewNoteShortcutWidget {
                         self.ⓒircleView()
 #endif
                     default:
-                        Text("🐛")
+                        Text(verbatim: "🐛")
                 }
             }
             .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
+            .modifier(🪧ContainerBackground())
         }
         private func ⓒircleView() -> some View {
             ZStack {
