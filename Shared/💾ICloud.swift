@@ -6,18 +6,18 @@ enum 💾ICloud {
         NotificationCenter.default.addObserver(ⓞbserver,
                                                selector: ⓢelector,
                                                name: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
-                                               object: NSUbiquitousKeyValueStore.default)
+                                               object: Self.api)
     }
-}
-
-extension 💾ICloud {
     static func save(_ ⓝotes: 📚Notes) {
         Self.api.set(ⓝotes.encode(), forKey: "Notes")
         🩹WorkaroundOnIOS15.SyncWidget.save(ⓝotes)
     }
     static func loadNotes() -> 📚Notes? {
-        guard let ⓓata = Self.api.data(forKey: "Notes") else { return nil }
-        return 📚Notes.decode(ⓓata)
+        if let ⓓata = Self.api.data(forKey: "Notes") {
+            .decode(ⓓata)
+        } else {
+            nil
+        }
     }
     static var notesIsNil: Bool {
         Self.loadNotes() == nil

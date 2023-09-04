@@ -13,7 +13,7 @@ struct 🪧EntryView: View {
                     case .accessoryInline, .accessoryCircular, .accessoryRectangular:
                         🄰ccessoryWidgetView(self.ⓘnfo)
                     default:
-                        Text("🐛")
+                        Text(verbatim: "🐛")
                 }
             } else {
                 switch self.widgetFamily {
@@ -29,7 +29,7 @@ struct 🪧EntryView: View {
             }
         }
         .widgetURL(self.ⓘnfo.url)
-        .modifier(🎨ContainerBackground())
+        .modifier(🪧ContainerBackground())
     }
     init(_ ⓔntry: 🪧WidgetEntry) {
         self.ⓘnfo = ⓔntry.info
@@ -135,7 +135,7 @@ private struct 🄰ccessoryWidgetView: View {
             case .accessoryInline: self.ⓘnlineView()
             case .accessoryCircular: self.ⓒircleView()
             case .accessoryRectangular: self.ⓡectangularView()
-            default: Text("🐛")
+            default: Text(verbatim: "🐛")
         }
     }
     private func ⓘnlineView() -> some View {

@@ -17,6 +17,9 @@ struct 🗑TrashTab: View {
         }
         .navigationViewStyle(.stack)
     }
+}
+
+private extension 🗑TrashTab {
     private func ⓒontentSection(_ ⓒontent: 🄳eletedContent) -> some View {
         Section {
             if ⓒontent.notes.count == 1 {

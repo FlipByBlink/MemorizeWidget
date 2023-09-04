@@ -5,7 +5,7 @@ import SwiftUI
 struct WidgetForWatchOS: WidgetBundle {
     var body: some Widget {
         🪧Widget()
-        🆕NewNoteShortcutWidget()
+        🪧NewNoteShortcutWidget()
     }
 }
 

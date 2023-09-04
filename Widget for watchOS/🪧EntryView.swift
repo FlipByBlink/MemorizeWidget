@@ -23,7 +23,7 @@ struct 🪧EntryView: View {
             }
         }
         .widgetURL(self.ⓘnfo.url)
-        .modifier(🎨ContainerBackground())
+        .modifier(🪧ContainerBackground())
     }
     private func ⓘnlineView() -> some View {
         Text(self.ⓝotes.first?.title ?? "No note")

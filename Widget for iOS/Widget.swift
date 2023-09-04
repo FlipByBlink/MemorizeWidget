@@ -4,13 +4,13 @@ import SwiftUI
 @main
 struct WidgetForIOS: WidgetBundle {
     var body: some Widget {
-        🪧MWWidget()
-        🆕NewNoteShortcutWidget()
-        🪧MWWidgetSub()
+        🪧Widget()
+        🪧NewNoteShortcutWidget()
+        🪧WidgetSub()
     }
 }
 
-private struct 🪧MWWidget: Widget {
+private struct 🪧Widget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main", provider: 🪧Provider()) { ⓔntry in
             🪧EntryView(ⓔntry)
@@ -23,7 +23,7 @@ private struct 🪧MWWidget: Widget {
 }
 
 //SubWidget
-private struct 🪧MWWidgetSub: Widget {
+private struct 🪧WidgetSub: Widget {
     private var ⓕamilies: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🪧Provider()) { ⓔntry in

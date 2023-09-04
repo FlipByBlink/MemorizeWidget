@@ -46,16 +46,14 @@ struct 📘DictionaryButtonOnMac: View {
     var term: String
     private var ⓤrl: URL? {
         if let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) {
-            return URL(string: "dict://" + ⓟath)
+            URL(string: "dict://" + ⓟath)
         } else {
-            return nil
+            nil
         }
     }
     var body: some View {
         Button {
-            if let ⓤrl {
-                self.openURL(ⓤrl)
-            }
+            if let ⓤrl { self.openURL(ⓤrl) }
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
