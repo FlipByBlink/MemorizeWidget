@@ -1,13 +1,13 @@
 MemorizeWidget for iPhone, iPad, Apple Watch, Mac
 ---------------------------------------------------
 
-<img src="MemorizeWidget/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
+<img src="iOS/🧰SupportingFiles/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
 
 <a href="https://apps.apple.com/app/id1644276262" target="blank">
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
 </a>
 
-<img src="MemorizeWidget/Assets.xcassets/ConceptImage.imageset/ConceptImage.png" width="600">
+<img src="iOS/🧰SupportingFiles/Assets.xcassets/ConceptImage.imageset/ConceptImage.png" width="600">
 
 
 Description

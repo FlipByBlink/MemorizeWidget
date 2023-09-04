@@ -763,10 +763,10 @@
 			projectRoot = "";
 			targets = (
 				F5B5A45D28C6EDA1005B6E0F /* iOS */,
-				F5D30CC428C6F6C8001198AF /* Widget for iOS */,
-				F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */,
 				F568F18C29E3A5DA005A1D1A /* watchOS */,
+				F5D30CC428C6F6C8001198AF /* Widget for iOS */,
 				F568F1F329E3C565005A1D1A /* Widget for watchOS */,
+				F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */,
 			);
 		};
 /* End PBXProject section */
