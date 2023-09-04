@@ -14,7 +14,7 @@ Description
 ------------
 Flashcard on widget. Memorize a note in everyday life.
 
-- Two mode. \"One note mode\" or \"Random note mode\".
+- Two mode. "One note mode" or "Random note mode".
 
 - In Random note mode, widget changes the note per 5 minutes.
 
@@ -36,20 +36,13 @@ Options
 
 Multi platform support
 
-- iPhone: Lock Screen widget(iOS16 only), Home Screen widget
+- iPhone: Home Screen, Lock Screen, StandBy
 
-- iPad: Home Screen widget
+- iPad: Home Screen, Lock Screen
 
-- Apple Watch: Complication
+- Apple Watch: Complication, Smart Stack
 
-- Mac: Notification Center widget
-
-
-Localization: All
--------------------
-- English
-
-- Japanese(native)
+- Mac: Notification Center, Desktop
 
 
 Source code link

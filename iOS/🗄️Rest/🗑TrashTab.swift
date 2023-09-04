@@ -3,7 +3,7 @@ import SwiftUI
 struct 🗑TrashTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(📱.🗑trash.deletedContents) {
                     self.ⓒontentSection($0)
@@ -15,7 +15,6 @@ struct 🗑TrashTab: View {
             .toolbar { self.ⓒlearButton() }
             .animation(.default, value: 📱.🗑trash.deletedContents)
         }
-        .navigationViewStyle(.stack)
     }
 }
 

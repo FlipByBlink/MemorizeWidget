@@ -143,13 +143,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Support iOS 17 / watchOS 10"
+            "value" : "Support iOS 17 / watchOS 10\nUnsupport iOS 15.x\nAdjust font size on lock screen widget"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "iOS 17/watchOS 10に対応しました"
+            "value" : "iOS 17/watchOS 10に対応しました\niOS 15.xを非対応にしました\nロック画面ウィジェットのフォントサイズを調整しました"
           }
         }
       }

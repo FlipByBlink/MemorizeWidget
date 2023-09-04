@@ -424,14 +424,6 @@
 			path = "🧰SupportingFiles";
 			sourceTree = "<group>";
 		};
-		F50C82FE2AA5CC560033A04B /* 🧰SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				F50C83042AA5CDBD0033A04B /* 🌐Localization */,
-			);
-			path = "🧰SupportingFiles";
-			sourceTree = "<group>";
-		};
 		F50C82FF2AA5CC5F0033A04B /* 🧰SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,7 +534,7 @@
 				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
 				F50C83312AA5E62A0033A04B /* 🪧Widget */,
 				F50C83012AA5CD360033A04B /* 🗄️Rest */,
-				F50C82FE2AA5CC560033A04B /* 🧰SupportingFiles */,
+				F50C83042AA5CDBD0033A04B /* 🌐Localization */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

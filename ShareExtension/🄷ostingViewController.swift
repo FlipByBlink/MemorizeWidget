@@ -17,7 +17,7 @@ class 🄷ostingViewController: UIHostingController<🄼ainView> {
 struct 🄼ainView: View {
     @ObservedObject var 📨: 📨ShareExtensionModel
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 switch 📨.type {
                     case .textFile:
@@ -65,7 +65,7 @@ struct 🄼ainView: View {
                         if ProcessInfo().isiOSAppOnMac {
                             Text("Selected text import is not supported on macOS.")
                         } else {
-                            Text("🐛 Bug")
+                            Text(verbatim: "🐛 Bug")
                         }
                 }
             }
@@ -93,7 +93,6 @@ struct 🄼ainView: View {
             }
         }
         .animation(.default, value: 📨.separator)
-        .navigationViewStyle(.stack)
     }
     private func ⓢeparatorPicker() -> some View {
         Section {

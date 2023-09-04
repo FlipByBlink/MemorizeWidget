@@ -3,7 +3,7 @@ import WidgetKit
 
 struct 🔩MenuTab: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 📑MultiNotesOption()
                 💬CommentOnWidgetSection()
@@ -15,7 +15,6 @@ struct 🔩MenuTab: View {
             }
             .navigationTitle("Menu")
         }
-        .navigationViewStyle(.stack)
     }
 }
 

@@ -13,9 +13,6 @@ struct 🔍SearchButton: View {
     init(_ note: 📗Note) {
         self.ⓠuery = note.title
     }
-}
-
-private extension 🔍SearchButton {
     private func action() {
         let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
         let ⓣext = ⓛeading + self.ⓠuery + self.🔗trailing

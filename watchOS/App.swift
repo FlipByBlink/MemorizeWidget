@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct watchOSApp: App {
-    private let 📱 = 📱AppModel()
+    @StateObject private var 📱 = 📱AppModel()
     var body: some Scene {
         WindowGroup {
             ContentView()

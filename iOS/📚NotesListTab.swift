@@ -4,7 +4,7 @@ import WidgetKit
 struct 📚NotesListTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollViewReader { 🚡 in
                 List {
                     🔀RandomModeSection()
@@ -41,7 +41,6 @@ struct 📚NotesListTab: View {
                 }
             }
         }
-        .navigationViewStyle(.stack)
     }
     private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {

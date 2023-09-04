@@ -4,7 +4,7 @@ struct 💁GuideTab: View {
     @EnvironmentObject var 📱: 📱AppModel
     private var ⓔxceedDataSize: Bool { 📱.exceedDataSizePerhaps }
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 if self.ⓔxceedDataSize { 🄳ataSection() }
                 🄸mportNotesSection()
@@ -15,7 +15,6 @@ struct 💁GuideTab: View {
             }
             .navigationTitle("Guide")
         }
-        .navigationViewStyle(.stack)
     }
 }
 

@@ -16,7 +16,7 @@ struct 📖WidgetNotesSheet: ViewModifier {
 private struct 📖WidgetNotesView: View {
     @EnvironmentObject var 📱: 📱AppModel
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
                 if 📱.🪧widgetState.info?.targetedNotesCount == 1 {
                     Self.🅂igleNoteLayout()
@@ -28,7 +28,6 @@ private struct 📖WidgetNotesView: View {
             .toolbar { 🅧DismissButton() }
         }
         .modifier(📣ADSheet())
-        .navigationViewStyle(.stack)
     }
     private struct 🅂igleNoteLayout: View {
         @EnvironmentObject var 📱: 📱AppModel
