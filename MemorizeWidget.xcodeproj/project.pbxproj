@@ -52,9 +52,10 @@
 		F50C834A2AA5FF6E0033A04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50C83492AA5FF6E0033A04B /* Assets.xcassets */; };
 		F50C837F2AA600E80033A04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50C837E2AA600E80033A04B /* Assets.xcassets */; };
 		F50C83812AA6010E0033A04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50C83802AA6010E0033A04B /* Assets.xcassets */; };
-		F50C83952AA60A6D0033A04B /* 🪧AccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83942AA60A6D0033A04B /* 🪧AccessoryWidgetView.swift */; };
 		F50C83972AA60A8D0033A04B /* 🪧SystemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
 		F50C83992AA60B050033A04B /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		F50C839B2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */; };
+		F50C839C2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */; };
 		F51CAF6529D6AEFA0065EF30 /* 📓NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51CAF6429D6AEFA0065EF30 /* 📓NoteView.swift */; };
 		F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */; };
 		F527F47329D53FA500E9FB97 /* 📖WidgetNotesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */; };
@@ -289,9 +290,9 @@
 		F50C83492AA5FF6E0033A04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F50C837E2AA600E80033A04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F50C83802AA6010E0033A04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F50C83942AA60A6D0033A04B /* 🪧AccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧AccessoryWidgetView.swift"; sourceTree = "<group>"; };
 		F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧SystemWidgetView.swift"; sourceTree = "<group>"; };
 		F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧NoNoteView.swift"; sourceTree = "<group>"; };
+		F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧AccessoryWidgetView.swift"; sourceTree = "<group>"; };
 		F51CAF6429D6AEFA0065EF30 /* 📓NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📓NoteView.swift"; sourceTree = "<group>"; };
 		F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesListTab.swift"; sourceTree = "<group>"; };
 		F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖WidgetNotesSheet.swift"; sourceTree = "<group>"; };
@@ -482,6 +483,7 @@
 				F50C83322AA5E6470033A04B /* 🪧WidgetInfo.swift */,
 				F568F21329E42A59005A1D1A /* 🪧WidgetEntry.swift */,
 				F50C83372AA5E6E70033A04B /* 🪧Provider.swift */,
+				F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */,
 				F5FE2D8429DBC2D1008C728B /* 🪧NewNoteShortcutWidget.swift */,
 				F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */,
 			);
@@ -620,7 +622,6 @@
 				F5D30CCC28C6F6C8001198AF /* Widget.swift */,
 				F5FE2D8029DBBFA5008C728B /* 🪧EntryView.swift */,
 				F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */,
-				F50C83942AA60A6D0033A04B /* 🪧AccessoryWidgetView.swift */,
 				F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */,
 				F50C82FF2AA5CC5F0033A04B /* 🧰SupportingFiles */,
 			);
@@ -877,6 +878,7 @@
 				F50C83102AA5CE5D0033A04B /* 🪧NewNoteShortcutWidget.swift in Sources */,
 				F568F20829E3C697005A1D1A /* 📗NoteModel.swift in Sources */,
 				F50C833B2AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
+				F50C839C2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,
 				F50C832A2AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,7 +951,7 @@
 				F50C83972AA60A8D0033A04B /* 🪧SystemWidgetView.swift in Sources */,
 				F5FE2D7E29DB062B008C728B /* 🪧WidgetState.swift in Sources */,
 				F50C83392AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
-				F50C83952AA60A6D0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,
+				F50C839B2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,
 				F5FE2D8229DBBFA5008C728B /* 🪧EntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
