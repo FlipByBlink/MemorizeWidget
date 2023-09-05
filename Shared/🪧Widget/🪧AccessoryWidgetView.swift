@@ -43,7 +43,7 @@ private extension 🪧AccessoryWidgetView {
                 }
             }
             .padding(.vertical, 1)
-            .mask { AccessoryWidgetBackground() }
+            .clipShape(Circle())
         }
     }
     private func ⓡectangularView() -> some View {

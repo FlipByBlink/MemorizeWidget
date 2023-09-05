@@ -1,15 +1,14 @@
 import SwiftUI
 
 struct 🪧ContainerBackground: ViewModifier {
+    @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     private var isSmartStask: Bool {
         #if os(watchOS)
-        if self.widgetRenderingMode == .fullColor, self.showsWidgetContainerBackground {
-            true
-        } else {
-            false
-        }
+        self.widgetFamily == .accessoryRectangular
+        && self.widgetRenderingMode == .fullColor
+        && self.showsWidgetContainerBackground
         #else
         false
         #endif
