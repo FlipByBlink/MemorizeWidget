@@ -38,11 +38,12 @@ private extension 🪧AccessoryWidgetView {
                         .fontWeight(.semibold)
                         .lineSpacing(0)
                         .minimumScaleFactor(0.8)
-                        .padding(.horizontal, self.ⓝotes.count == 1 ? 1 : 3)
+                        .padding(.horizontal, 3)
                         .widgetAccentable()
                 }
             }
             .padding(.vertical, 1)
+            .mask { AccessoryWidgetBackground() }
         }
     }
     private func ⓡectangularView() -> some View {
@@ -55,9 +56,10 @@ private extension 🪧AccessoryWidgetView {
                 if case .singleNote(_) = self.ⓘnfo {
                     if self.🚩showComment, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
-                            .font(.subheadline)
+                            .fontWeight(.medium)
                             .foregroundStyle(.secondary)
                             .padding(.top, 4)
+                            .lineLimit(1)
                             //.opacity(self.widgetRenderingMode == .accented ? 0.6 : 1) //TODO: watchOS版では実装されてた。要再検討
                     }
                 }
