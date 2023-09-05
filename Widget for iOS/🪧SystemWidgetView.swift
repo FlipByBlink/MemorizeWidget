@@ -23,15 +23,14 @@ struct 🪧SystemWidgetView: View {
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
-                        .minimumScaleFactor(0.8)
                         .multilineTextAlignment(.center)
                     }
                 }
                 Spacer(minLength: 0)
             }
         }
-        .padding(self.widgetFamily == .systemLarge ? 18 : 14)
-        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+        .padding(self.widgetFamily == .systemLarge ? 20 : 16)
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
     init(_ info: 🪧WidgetInfo) {
         self.ⓘnfo = info
@@ -45,12 +44,13 @@ private extension 🪧SystemWidgetView {
             case .systemSmall:
                 return self.ⓝotes.count == 1 ? .title3 : .headline
             case .systemMedium:
-                return self.ⓝotes.count == 1 ? .title : .title3
+                return self.ⓝotes.count == 1 ? .title : .headline
             case .systemLarge:
-                if self.ⓝotes.count == 1 {
-                    return .largeTitle
-                } else {
-                    return self.🚩showComment ? .title3 : .title
+                switch self.ⓝotes.count {
+                    case 1: return .largeTitle
+                    case 2, 3, 4, 5: return .title
+                    case 6: return self.🚩showComment ? .headline : .title
+                    default: assertionFailure(); return .title
                 }
             default:
                 assertionFailure(); return .largeTitle
@@ -79,12 +79,12 @@ private extension 🪧SystemWidgetView {
     private var ⓝotesSpace: CGFloat {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.🚩showComment ? 6 : 12
+                return self.🚩showComment ? 8 : 12
             case .systemLarge:
                 if self.ⓝotes.count == 6 {
-                    return self.🚩showComment ? 8 : 12
+                    return 12
                 } else {
-                    return self.🚩showComment ? 10 : 16
+                    return self.🚩showComment ? 12 : 16
                 }
             default:
                 assertionFailure(); return 8
