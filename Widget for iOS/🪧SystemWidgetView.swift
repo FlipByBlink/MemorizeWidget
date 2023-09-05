@@ -3,6 +3,7 @@ import SwiftUI
 struct 🪧SystemWidgetView: View {
     private var ⓘnfo: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
     var body: some View {
         ZStack {
@@ -14,12 +15,11 @@ struct 🪧SystemWidgetView: View {
                         VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
                             Text(ⓝote.title)
                                 .font(self.ⓣitleFont.bold())
-                            if self.🚩showComment {
-                                if !ⓝote.comment.isEmpty {
-                                    Text(ⓝote.comment)
-                                        .font(self.ⓒommentFont.weight(.light))
-                                        .foregroundStyle(.secondary)
-                                }
+                            if self.🚩showComment, !ⓝote.comment.isEmpty {
+                                Text(ⓝote.comment)
+                                    .font(self.ⓒommentFontStyle)
+                                    .fontWeight(self.ⓒommentFontWeight)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                         .lineLimit(self.ⓛineLimit)
@@ -29,7 +29,7 @@ struct 🪧SystemWidgetView: View {
                 Spacer(minLength: 0)
             }
         }
-        .padding(self.widgetFamily == .systemLarge ? 20 : 16)
+        .padding(self.ⓟadding)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
     init(_ info: 🪧WidgetInfo) {
@@ -56,7 +56,7 @@ private extension 🪧SystemWidgetView {
                 assertionFailure(); return .largeTitle
         }
     }
-    private var ⓒommentFont: Font {
+    private var ⓒommentFontStyle: Font {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
                 return self.ⓝotes.count == 1 ? .body : .caption
@@ -64,6 +64,13 @@ private extension 🪧SystemWidgetView {
                 return self.ⓝotes.count == 1 ? .title2 : .subheadline
             default:
                 assertionFailure(); return .body
+        }
+    }
+    private var ⓒommentFontWeight: Font.Weight {
+        switch self.widgetRenderingMode {
+            case .fullColor: return .light
+            case .vibrant, .accented: return .medium
+            default: assertionFailure(); return .regular
         }
     }
     private var ⓛineLimit: Int {
@@ -79,15 +86,27 @@ private extension 🪧SystemWidgetView {
     private var ⓝotesSpace: CGFloat {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.🚩showComment ? 8 : 12
-            case .systemLarge:
-                if self.ⓝotes.count == 6 {
-                    return 12
+                if self.ⓝotes.count == 3, self.🚩showComment {
+                    return 7
                 } else {
-                    return self.🚩showComment ? 12 : 16
+                    return 12
+                }
+            case .systemLarge:
+                if self.ⓝotes.count == 6, self.🚩showComment {
+                    return 8
+                } else {
+                    return 16
                 }
             default:
                 assertionFailure(); return 8
+        }
+    }
+    private var ⓟadding: CGFloat {
+        switch self.widgetFamily {
+            case .systemSmall: return 12
+            case .systemMedium: return 16
+            case .systemLarge: return 18
+            default: assertionFailure(); return 12
         }
     }
 }

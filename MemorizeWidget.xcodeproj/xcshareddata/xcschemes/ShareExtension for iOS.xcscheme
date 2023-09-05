@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5B5A45D28C6EDA1005B6E0F"
-               BuildableName = "iOS.app"
+               BuildableName = "MemorizeWidget.app"
                BlueprintName = "iOS"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5B5A45D28C6EDA1005B6E0F"
-            BuildableName = "iOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5B5A45D28C6EDA1005B6E0F"
-            BuildableName = "iOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
