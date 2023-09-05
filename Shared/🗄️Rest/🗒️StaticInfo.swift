@@ -34,21 +34,52 @@ extension 🗒️StaticInfo {
                                                                   ("1.0", "2022-09-09")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
-        case main, Rest, Widget
+        case main, Rest, Widget, ShareExtension
         var id: Self { self }
         var fileNames: [String] {
             switch self {
                 case .main: ["App.swift",
                              "ContentView.swift",
-                             "📱AppModel.swift"]
-                case .Rest: ["💬RequestUserReview.swift",
+                             "📱AppModel.swift",
+                             "📗NoteModel.swift"]
+                case .Rest: ["💾ICloud.swift",
+                             "📓NoteView.swift",
+                             "📚NotesListTab.swift",
+                             "📖WidgetNotesSheet.swift",
+                             "📘Dictionary.swift",
+                             "🔍SearchButton.swift",
+                             "🚮DeleteNoteButton.swift",
+                             "🗑TrashModel.swift",
+                             "🗑TrashTab.swift",
+                             "📥NotesImportSheet.swift",
+                             "🔩MenuTab.swift",
+                             "🆕NewNoteCommand.swift",
+                             "💥Feedback.swift",
+                             "💁GuideTab.swift",
+                             "🩹Workaround.swift",
+                             "💾UserDefaults.swift",
                              "🗒️StaticInfo.swift",
+                             "💬RequestUserReview.swift",
+                             "ℹ️AboutAppTab.swift",
                              "ℹ️AboutApp.swift",
+                             "📣ADSheet.swift",
                              "📣ADModel.swift",
                              "📣ADComponents.swift",
                              "🛒InAppPurchaseModel.swift",
                              "🛒InAppPurchaseView.swift"]
-                case .Widget: ["Widget.swift"]
+                case .Widget: ["Widget.swift",
+                               "🪧WidgetState.swift",
+                               "🪧WidgetInfo.swift",
+                               "🪧WidgetEntry.swift",
+                               "🪧Provider.swift",
+                               "🪧EntryView.swift",
+                               "🪧SystemWidgetView.swift",
+                               "🪧AccessoryWidgetView.swift",
+                               "🪧NoNoteView.swift",
+                               "🪧NewNoteShortcutWidget.swift",
+                               "🪧ContainerBackground.swift"]
+                case .ShareExtension: ["🄷ostingViewController.swift",
+                                       "📨ShareExtensionModel.swift"]
             }
         }
     }
@@ -64,10 +95,29 @@ extension 🗒️StaticInfo {
                 case .main: ["App.swift",
                              "ContentView.swift",
                              "📱AppModel.swift",
-                             "📱AppModel(extension).swift"]
-                case .Rest: ["🗒️StaticInfo.swift",
+                             "📗NoteModel.swift"]
+                case .Rest: ["📖WidgetNotesSheet.swift",
+                             "📗NoteView.swift",
+                             "📚NotesMenu.swift",
+                             "🔩MainMenu.swift",
+                             "🗑TrashMenu.swift",
+                             "💁TipsMenu.swift",
+                             "🆕NewNoteShortcut.swift",
+                             "💥Feedback.swift",
+                             "💾ICloud.swift",
+                             "💾UserDefaults.swift",
+                             "🗑TrashModel.swift",
+                             "🗒️StaticInfo.swift",
                              "ℹ️AboutApp.swift"]
-                case .Widget: ["Widget.swift"]
+                case .Widget: ["Widget.swift",
+                               "🪧WidgetState.swift",
+                               "🪧WidgetInfo.swift",
+                               "🪧WidgetEntry.swift",
+                               "🪧Provider.swift",
+                               "🪧EntryView.swift",
+                               "🪧NewNoteShortcutWidget.swift",
+                               "🪧ContainerBackground.swift",
+                               "🪧AccessoryWidgetView.swift"]
             }
         }
     }
