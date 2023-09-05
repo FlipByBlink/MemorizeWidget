@@ -97,8 +97,8 @@ struct 🎛️NoteMenuButton: View {
                 .foregroundColor(.secondary)
                 .labelStyle(.iconOnly)
                 .padding(12)
+                .modifier(📘DictionarySheet(self.$📘dictionaryState))
         }
-        .modifier(📘DictionarySheet(self.$📘dictionaryState))
         .modifier(🩹Workaround.closeMenePopup())
     }
     init(_ note: Binding<📗Note>) {
