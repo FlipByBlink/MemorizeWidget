@@ -22,12 +22,14 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
+    @MainActor
     func deleteNote(_ ⓘndexSet: IndexSet) {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.🗑trash.storeDeletedNotes([self.📚notes[ⓘndex]])
         self.📚notes.remove(atOffsets: ⓘndexSet)
         self.saveNotes()
     }
+    @MainActor
     func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.📚notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
         self.saveNotes()

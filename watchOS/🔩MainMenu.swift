@@ -68,7 +68,9 @@ private extension 🔩MainMenu {
                 }
                 .disabled(📱.📚notes.isEmpty)
                 .confirmationDialog("Delete all notes.", isPresented: self.$showDialog) {
-                    Button(role: .destructive, action: 📱.removeAllNotes) {
+                    Button(role: .destructive) {
+                        📱.removeAllNotes()
+                    } label: {
                         Label("Delete", systemImage: "trash")
                     }
                 }

@@ -175,7 +175,9 @@ private struct 🚮DeleteAllNotesButton: View {
     var body: some View {
         Section {
             Menu {
-                Button(role: .destructive, action: 📱.removeAllNotes) {
+                Button(role: .destructive) {
+                    📱.removeAllNotes()
+                } label: {
                     Label("OK, delete all notes.", systemImage: "trash")
                 }
             } label: {

@@ -14,8 +14,8 @@ struct 📚NotesListTab: View {
                             📓NoteView(ⓝote, layout: .notesList)
                                 .id(ⓝote.id)
                         }
-                        .onDelete(perform: 📱.deleteNote(_:))
-                        .onMove(perform: 📱.moveNote(_:_:))
+                        .onDelete { 📱.deleteNote($0) }
+                        .onMove { 📱.moveNote($0, $1) }
                     } footer: {
                         Text("Notes count: \(📱.📚notes.count.description)")
                             .opacity(📱.📚notes.count < 6  ? 0 : 1)
