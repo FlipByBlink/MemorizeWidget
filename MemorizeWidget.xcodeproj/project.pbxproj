@@ -422,7 +422,7 @@
 		F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨ShareExtensionModel.swift"; sourceTree = "<group>"; };
 		F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💾UserDefaults.swift"; sourceTree = "<group>"; };
-		F5B5A45E28C6EDA1005B6E0F /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5A46128C6EDA1005B6E0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -674,7 +674,7 @@
 		F5B5A45F28C6EDA1005B6E0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5B5A45E28C6EDA1005B6E0F /* iOS.app */,
+				F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */,
 				F5D30CC528C6F6C8001198AF /* Widget for iOS.appex */,
 				F5CEA5F12924AAAC00752277 /* ShareExtension for iOS.appex */,
 				F568F18D29E3A5DA005A1D1A /* MemorizeW.app */,
@@ -791,7 +791,7 @@
 			);
 			name = iOS;
 			productName = MemorizeWidget;
-			productReference = F5B5A45E28C6EDA1005B6E0F /* iOS.app */;
+			productReference = F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */ = {
@@ -1396,7 +1396,7 @@
 				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1435,7 +1435,7 @@
 				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
