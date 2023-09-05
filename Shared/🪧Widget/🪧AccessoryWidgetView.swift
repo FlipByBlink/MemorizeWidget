@@ -29,20 +29,23 @@ private extension 🪧AccessoryWidgetView {
     private func ⓒircleView() -> some View {
         ZStack {
             AccessoryWidgetBackground()
-            VStack(spacing: 2) {
-                ForEach(self.ⓝotes) { ⓝote in
-                    if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
-                    Text(ⓝote.title)
-                        .multilineTextAlignment(.center)
-                        .font(self.ⓝotes.count == 1 ? .body : .caption)
-                        .fontWeight(.semibold)
-                        .lineSpacing(0)
-                        .minimumScaleFactor(0.8)
-                        .padding(.horizontal, 3)
-                        .widgetAccentable()
+            ZStack {
+                Color.clear
+                VStack(spacing: 2) {
+                    ForEach(self.ⓝotes) { ⓝote in
+                        if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
+                        Text(ⓝote.title)
+                            .multilineTextAlignment(.center)
+                            .font(self.ⓝotes.count == 1 ? .body : .caption)
+                            .fontWeight(.semibold)
+                            .lineSpacing(0)
+                            .minimumScaleFactor(0.8)
+                            .padding(.horizontal, 3)
+                            .widgetAccentable()
+                    }
                 }
+                .padding(.vertical, 1)
             }
-            .padding(.vertical, 1)
             .clipShape(Circle())
         }
     }
