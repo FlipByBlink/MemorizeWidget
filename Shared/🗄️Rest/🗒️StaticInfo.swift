@@ -77,6 +77,7 @@ extension 🗒️StaticInfo {
                                "🪧AccessoryWidgetView.swift",
                                "🪧NoNoteView.swift",
                                "🪧NewNoteShortcutWidget.swift",
+                               "🪧MultiNotesCount.swift",
                                "🪧ContainerBackground.swift"]
                 case .ShareExtension: ["🄷ostingViewController.swift",
                                        "📨ShareExtensionModel.swift"]
@@ -116,6 +117,7 @@ extension 🗒️StaticInfo {
                                "🪧Provider.swift",
                                "🪧EntryView.swift",
                                "🪧NewNoteShortcutWidget.swift",
+                               "🪧MultiNotesCount.swift",
                                "🪧ContainerBackground.swift",
                                "🪧AccessoryWidgetView.swift"]
             }

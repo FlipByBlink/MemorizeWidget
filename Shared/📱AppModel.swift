@@ -1,6 +1,7 @@
 import SwiftUI
 import WidgetKit
 
+@MainActor
 class 📱AppModel: ObservableObject {
     @Published var 📚notes: 📚Notes = .load() ?? []
     @Published var 🔖tab: 🔖Tab = .notesList
@@ -129,7 +130,7 @@ extension 📱AppModel {
 }
 
 extension 📱AppModel {
-    @objc @MainActor
+    @objc
     func iCloudDidChangeExternally(_ notification: Notification) {
         Task { @MainActor in
             if let ⓝewNotes = 💾ICloud.loadNotes() {
