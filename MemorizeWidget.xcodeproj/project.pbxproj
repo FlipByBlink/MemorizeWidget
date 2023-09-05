@@ -493,7 +493,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F507EA9728CA145000ECF06A /* 🌏Localization */ = {
+		F507EA9728CA145000ECF06A /* 🌐Localization */ = {
 			isa = PBXGroup;
 			children = (
 				F50C83052AA5CDBD0033A04B /* 🌐ADAppDescription.xcstrings */,
@@ -502,7 +502,7 @@
 				F50C832F2AA5E56D0033A04B /* 🌐AppStoreDescription.xcstrings */,
 				F50C832D2AA5E56D0033A04B /* 🌐VersionHistory.xcstrings */,
 			);
-			path = "🌏Localization";
+			path = "🌐Localization";
 			sourceTree = "<group>";
 		};
 		F50C82FC2AA5CBC10033A04B /* 🧰SupportingFiles */ = {
@@ -513,7 +513,7 @@
 				F5D30CDB28C707F2001198AF /* iOS.entitlements */,
 				F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */,
 				F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */,
-				F507EA9728CA145000ECF06A /* 🌏Localization */,
+				F507EA9728CA145000ECF06A /* 🌐Localization */,
 			);
 			path = "🧰SupportingFiles";
 			sourceTree = "<group>";
