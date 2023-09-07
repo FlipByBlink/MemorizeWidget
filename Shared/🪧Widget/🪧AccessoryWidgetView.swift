@@ -45,6 +45,7 @@ private extension 🪧AccessoryWidgetView {
                     }
                 }
                 .padding(.vertical, 1)
+                .lineLimit(self.ⓝotes.count == 2 ? 2 : nil)
             }
             .clipShape(Circle())
         }

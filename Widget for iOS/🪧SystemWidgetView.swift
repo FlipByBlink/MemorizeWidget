@@ -61,7 +61,7 @@ private extension 🪧SystemWidgetView {
             case .systemSmall, .systemMedium:
                 return self.ⓝotes.count == 1 ? .body : .caption
             case .systemLarge:
-                return self.ⓝotes.count == 1 ? .title2 : .subheadline
+                return self.ⓝotes.count == 6 ? .caption : .title3
             default:
                 assertionFailure(); return .body
         }
