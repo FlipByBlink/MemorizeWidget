@@ -8,7 +8,7 @@ struct 🪧AccessoryWidgetView: View {
     var body: some View {
         switch self.widgetFamily {
             case .accessoryInline: self.ⓘnlineView()
-            case .accessoryCircular: self.ⓒircleView()
+            case .accessoryCircular: self.ⓒircularView()
             case .accessoryRectangular: self.ⓡectangularView()
             #if os(watchOS)
             case .accessoryCorner: self.ⓒornerView()
@@ -26,7 +26,7 @@ private extension 🪧AccessoryWidgetView {
     private func ⓘnlineView() -> some View {
         Text(self.ⓝotes.first?.title ?? "No note")
     }
-    private func ⓒircleView() -> some View {
+    private func ⓒircularView() -> some View {
         ZStack {
             AccessoryWidgetBackground()
             ZStack {
@@ -55,7 +55,7 @@ private extension 🪧AccessoryWidgetView {
             ForEach(self.ⓝotes) { ⓝote in
                 Text(ⓝote.title)
                     .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                    .font(.system(size: self.ⓝotes.count > 1 ? 21 : 24,
+                    .font(.system(size: self.ⓝotes.count > 1 ? 18 : 24,
                                   weight: .semibold))
                 if case .singleNote(_) = self.ⓘnfo {
                     if self.🚩showComment, !ⓝote.comment.isEmpty {
@@ -64,7 +64,6 @@ private extension 🪧AccessoryWidgetView {
                             .foregroundStyle(.secondary)
                             .padding(.top, 4)
                             .lineLimit(1)
-                            //.opacity(self.widgetRenderingMode == .accented ? 0.6 : 1) //TODO: watchOS版では実装されてた。要再検討
                     }
                 }
             }

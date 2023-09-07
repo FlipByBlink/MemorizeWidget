@@ -45,10 +45,10 @@ private extension 🪧NewNoteShortcutWidget {
                     case .accessoryInline:
                         Image(systemName: "plus.rectangle.on.rectangle")
                     case .accessoryCircular:
-                        self.ⓒircleView()
+                        Self.ⓒircularView()
 #if os(watchOS)
                     case .accessoryCorner:
-                        self.ⓒircleView()
+                        Self.ⓒircularView()
 #endif
                     default:
                         Text(verbatim: "🐛")
@@ -57,7 +57,7 @@ private extension 🪧NewNoteShortcutWidget {
             .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
             .modifier(🪧ContainerBackground())
         }
-        private func ⓒircleView() -> some View {
+        private static func ⓒircularView() -> some View {
             ZStack {
                 AccessoryWidgetBackground()
                 Image(systemName: "plus")
