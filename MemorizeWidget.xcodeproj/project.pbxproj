@@ -417,6 +417,7 @@
 		F568F20429E3C56D005A1D1A /* Widget for watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widget for watchOS.entitlements"; sourceTree = "<group>"; };
 		F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MainMenu.swift"; sourceTree = "<group>"; };
 		F568F21329E42A59005A1D1A /* 🪧WidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧WidgetEntry.swift"; sourceTree = "<group>"; };
+		F592C3332AAA9FF40045960E /* 1200w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1200w.png; sourceTree = "<group>"; };
 		F59EEFE528F3FA36002D9AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️AboutApp.swift"; sourceTree = "<group>"; };
 		F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
@@ -553,6 +554,7 @@
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
 				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
 				F50C83112AA5CE7F0033A04B /* 🗒️StaticInfo.swift */,
+				F592C3322AAA9FE20045960E /* ForREADME */,
 			);
 			path = "🗄️Rest";
 			sourceTree = "<group>";
@@ -654,6 +656,14 @@
 				F50C83002AA5CC6B0033A04B /* 🧰SupportingFiles */,
 			);
 			path = "Widget for watchOS";
+			sourceTree = "<group>";
+		};
+		F592C3322AAA9FE20045960E /* ForREADME */ = {
+			isa = PBXGroup;
+			children = (
+				F592C3332AAA9FF40045960E /* 1200w.png */,
+			);
+			path = ForREADME;
 			sourceTree = "<group>";
 		};
 		F5B5A45528C6EDA1005B6E0F = {
