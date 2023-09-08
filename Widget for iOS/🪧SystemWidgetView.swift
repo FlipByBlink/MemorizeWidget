@@ -6,29 +6,25 @@ struct 🪧SystemWidgetView: View {
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
     var body: some View {
-        ZStack {
-            Color.clear
-            VStack(spacing: 0) {
-                Spacer(minLength: 0)
-                VStack(spacing: self.ⓝotesSpace) {
-                    ForEach(self.ⓝotes) { ⓝote in
-                        VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
-                            Text(ⓝote.title)
-                                .font(self.ⓣitleFont.bold())
-                            if self.🚩showComment, !ⓝote.comment.isEmpty {
-                                Text(ⓝote.comment)
-                                    .font(self.ⓒommentFontStyle)
-                                    .fontWeight(self.ⓒommentFontWeight)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        .lineLimit(self.ⓛineLimit)
-                        .multilineTextAlignment(.center)
+        VStack(spacing: 0) {
+            Spacer(minLength: 0)
+            ForEach(self.ⓝotes) { ⓝote in
+                VStack(spacing: self.ⓝotes.count == 1 ? 6 : 2) {
+                    Text(ⓝote.title)
+                        .font(self.ⓣitleFont.bold())
+                    if self.🚩showComment, !ⓝote.comment.isEmpty {
+                        Text(ⓝote.comment)
+                            .font(self.ⓒommentFontStyle)
+                            .fontWeight(self.ⓒommentFontWeight)
+                            .foregroundStyle(.secondary)
                     }
                 }
+                .lineLimit(self.ⓛineLimit)
+                .multilineTextAlignment(.center)
                 Spacer(minLength: 0)
             }
         }
+        .frame(maxWidth: .infinity)
         .padding(self.ⓟadding)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
@@ -48,7 +44,7 @@ private extension 🪧SystemWidgetView {
             case .systemLarge:
                 switch self.ⓝotes.count {
                     case 1: return .largeTitle
-                    case 2, 3, 4, 5: return .title
+                    case 2, 3, 4, 5: return self.🚩showComment ? .title3 : .title
                     case 6: return self.🚩showComment ? .headline : .title
                     default: assertionFailure(); return .title
                 }
@@ -61,7 +57,12 @@ private extension 🪧SystemWidgetView {
             case .systemSmall, .systemMedium:
                 return self.ⓝotes.count == 1 ? .body : .caption
             case .systemLarge:
-                return self.ⓝotes.count == 6 ? .caption : .title3
+                switch self.ⓝotes.count {
+                    case 1: return .title3
+                    case 2, 3, 4, 5: return .subheadline
+                    case 6: return .caption
+                    default: assertionFailure(); return .title
+                }
             default:
                 assertionFailure(); return .body
         }
@@ -83,30 +84,12 @@ private extension 🪧SystemWidgetView {
                 assertionFailure(); return 1
         }
     }
-    private var ⓝotesSpace: CGFloat {
+    private var ⓟadding: EdgeInsets {
         switch self.widgetFamily {
-            case .systemSmall, .systemMedium:
-                if self.ⓝotes.count == 3, self.🚩showComment {
-                    return 7
-                } else {
-                    return 12
-                }
-            case .systemLarge:
-                if self.ⓝotes.count == 6, self.🚩showComment {
-                    return 8
-                } else {
-                    return 16
-                }
-            default:
-                assertionFailure(); return 8
-        }
-    }
-    private var ⓟadding: CGFloat {
-        switch self.widgetFamily {
-            case .systemSmall: return 12
-            case .systemMedium: return 16
-            case .systemLarge: return 18
-            default: assertionFailure(); return 12
+            case .systemSmall: return .init(top: 8, leading: 16, bottom: 8, trailing: 16)
+            case .systemMedium: return .init(top: 8, leading: 24, bottom: 8, trailing: 24)
+            case .systemLarge: return .init(top: 12, leading: 32, bottom: 12, trailing: 32)
+            default: assertionFailure(); return .init()
         }
     }
 }
