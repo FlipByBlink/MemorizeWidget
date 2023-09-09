@@ -13,9 +13,7 @@ struct 🪧NewNoteShortcutWidget: Widget {
     }
     init() {
 #if os(iOS)
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular])
-        }
+        self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular])
 #elseif os(watchOS)
         self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular, .accessoryCorner])
 #endif
