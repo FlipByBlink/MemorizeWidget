@@ -51,18 +51,17 @@ private extension 🪧AccessoryWidgetView {
         }
     }
     private func ⓡectangularView() -> some View {
-        VStack(spacing: 0) {
+        VStack {
             ForEach(self.ⓝotes) { ⓝote in
                 Text(ⓝote.title)
                     .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                    .font(.system(size: self.ⓝotes.count > 1 ? 18 : 24,
+                    .font(.system(size: self.ⓝotes.count > 1 ? 17 : 24,
                                   weight: .semibold))
                 if case .singleNote(_) = self.ⓘnfo {
                     if self.🚩showComment, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
                             .fontWeight(.medium)
                             .foregroundStyle(.secondary)
-                            .padding(.top, 4)
                             .lineLimit(1)
                     }
                 }
