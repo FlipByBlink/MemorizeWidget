@@ -14,7 +14,7 @@ private struct 🪧Widget: Widget {
         StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
             🪧EntryView(ⓔntry)
         }
-        .configurationDisplayName("MemorizeWidget")
+        .configurationDisplayName("Notes")
         .description("Show a note.")
     }
 }
