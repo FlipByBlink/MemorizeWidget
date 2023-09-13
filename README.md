@@ -29,20 +29,20 @@ Flashcard on widget. Memorize a note in everyday life.
 
 Options
 
-- Show comment on widget. (homescreen-widget/lockscreen-rectangular)
-
 - Show multi notes.
+
+- Show comment on widget.
 
 
 Multi platform support
 
-- iPhone: Home Screen, Lock Screen, StandBy
+iPhone: Home screen, Lock screen, StandBy(iOS 17)
 
-- iPad: Home Screen, Lock Screen
+iPad: Home screen, Lock screen(iPadOS 17)
 
-- Apple Watch: Complication, Smart Stack
+Mac: Notification center, Desktop(macOS 14)
 
-- Mac: Notification Center, Desktop
+Apple Watch: Complication, Smart Stack(watchOS 10)
 
 
 Source code link
