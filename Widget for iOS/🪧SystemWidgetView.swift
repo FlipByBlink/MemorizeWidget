@@ -21,6 +21,7 @@ struct 🪧SystemWidgetView: View {
                 }
                 .lineLimit(self.ⓛineLimit)
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.9)
                 Spacer(minLength: 0)
             }
         }
