@@ -62,7 +62,7 @@ private struct 📰AppStoreDescriptionSection: View {
             NavigationLink {
                 ScrollView {
                     Text("current", tableName: "🌐AppStoreDescription")
-                        .padding()
+                        .padding(UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16)
                         .frame(maxWidth: .infinity)
                 }
                 .navigationBarTitle(Text("Description", tableName: "🌐AboutApp"))
@@ -338,7 +338,7 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
                 ForEach(Self.values, id: \.self.description) { ⓥalue in
                     HStack {
                         Text(verbatim: ⓥalue.date)
-                            .font(.caption2)
+                            .font(.caption2.monospacedDigit())
                             .padding(8)
                         Text(LocalizedStringKey(ⓥalue.description), tableName: "🌐AboutApp")
                             .font(.caption)

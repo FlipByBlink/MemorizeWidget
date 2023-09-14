@@ -33,7 +33,6 @@ struct 🛒InAppPurchaseMenu: View {
             🛒RestoreButton()
         }
         .navigationTitle(Text("About AD", tableName: "🌐AD&InAppPurchase"))
-        .navigationBarTitleDisplayMode(.large)
     }
     private static func aboutADSection() -> some View {
         Section {

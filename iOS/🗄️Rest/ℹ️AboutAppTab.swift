@@ -18,6 +18,8 @@ struct ℹ️AboutAppTab: View {
                 🛒InAppPurchaseMenuLink()
             }
             .navigationTitle("App")
+            .navigationBarTitleDisplayMode(.inline)
+            //MARK: ↑ WorkaroundIOS17Bug(navigationTitleMode/navigationLinkPotision)
         }
     }
 }
