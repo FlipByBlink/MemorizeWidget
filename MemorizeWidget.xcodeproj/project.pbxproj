@@ -496,6 +496,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B595E72AF5F3C4003F3D2A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				F50C83042AA5CDBD0033A04B /* 🌐Localization */,
+				F592C3322AAA9FE20045960E /* README assets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		F507EA9728CA145000ECF06A /* 🌐Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +518,7 @@
 			path = "🌐Localization";
 			sourceTree = "<group>";
 		};
-		F50C82FC2AA5CBC10033A04B /* 🧰SupportingFiles */ = {
+		F50C82FC2AA5CBC10033A04B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */,
@@ -519,51 +528,50 @@
 				F59EEFEE28F3FB76002D9AD7 /* Configuration.storekit */,
 				F507EA9728CA145000ECF06A /* 🌐Localization */,
 			);
-			path = "🧰SupportingFiles";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		F50C82FD2AA5CC490033A04B /* 🧰SupportingFiles */ = {
+		F50C82FD2AA5CC490033A04B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				F50C83492AA5FF6E0033A04B /* Assets.xcassets */,
 				F568F1AB29E3A91C005A1D1A /* watchOS.entitlements */,
 				F59F8D662AB3D41A00B2D455 /* InfoPlist.strings */,
 			);
-			path = "🧰SupportingFiles";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		F50C82FF2AA5CC5F0033A04B /* 🧰SupportingFiles */ = {
+		F50C82FF2AA5CC5F0033A04B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				F50C837E2AA600E80033A04B /* Assets.xcassets */,
 				F5D30CDC28C709D2001198AF /* Widget for iOS.entitlements */,
 				F5D30CD028C6F6C9001198AF /* Info.plist */,
 			);
-			path = "🧰SupportingFiles";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		F50C83002AA5CC6B0033A04B /* 🧰SupportingFiles */ = {
+		F50C83002AA5CC6B0033A04B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				F50C83802AA6010E0033A04B /* Assets.xcassets */,
 				F568F1FC29E3C567005A1D1A /* Info.plist */,
 				F568F20429E3C56D005A1D1A /* Widget for watchOS.entitlements */,
 			);
-			path = "🧰SupportingFiles";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		F50C83012AA5CD360033A04B /* 🗄️Rest */ = {
+		F50C83012AA5CD360033A04B /* Rest */ = {
 			isa = PBXGroup;
 			children = (
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
 				F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */,
 				F50C83112AA5CE7F0033A04B /* 🗒️StaticInfo.swift */,
-				F592C3322AAA9FE20045960E /* ForREADME */,
 			);
-			path = "🗄️Rest";
+			path = Rest;
 			sourceTree = "<group>";
 		};
-		F50C83022AA5CD410033A04B /* 🗄️Rest */ = {
+		F50C83022AA5CD410033A04B /* Rest */ = {
 			isa = PBXGroup;
 			children = (
 				F50C83472AA5F01B0033A04B /* 🗑TrashMenu.swift */,
@@ -571,7 +579,7 @@
 				F50C83262AA5E1090033A04B /* 💁TipsMenu.swift */,
 				F50C830D2AA5CDF80033A04B /* ℹ️AboutApp.swift */,
 			);
-			path = "🗄️Rest";
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		F50C83042AA5CDBD0033A04B /* 🌐Localization */ = {
@@ -598,7 +606,7 @@
 			path = "🪧Widget";
 			sourceTree = "<group>";
 		};
-		F527F46F29D53E4C00E9FB97 /* 🗄️Rest */ = {
+		F527F46F29D53E4C00E9FB97 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
 				F527F47429D53FDF00E9FB97 /* 🔩MenuTab.swift */,
@@ -619,7 +627,7 @@
 				F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */,
 				F50C831C2AA5D0970033A04B /* 🛒InAppPurchaseView.swift */,
 			);
-			path = "🗄️Rest";
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		F568F18E29E3A5DA005A1D1A /* watchOS */ = {
@@ -631,8 +639,8 @@
 				F50C83412AA5EDAF0033A04B /* 📗NoteView.swift */,
 				F50C833F2AA5ED910033A04B /* 📖WidgetNotesSheet.swift */,
 				F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */,
-				F50C83022AA5CD410033A04B /* 🗄️Rest */,
-				F50C82FD2AA5CC490033A04B /* 🧰SupportingFiles */,
+				F50C83022AA5CD410033A04B /* Rest */,
+				F50C82FD2AA5CC490033A04B /* Supporting files */,
 			);
 			path = watchOS;
 			sourceTree = "<group>";
@@ -645,8 +653,8 @@
 				F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */,
 				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
 				F50C83312AA5E62A0033A04B /* 🪧Widget */,
-				F50C83012AA5CD360033A04B /* 🗄️Rest */,
-				F50C83042AA5CDBD0033A04B /* 🌐Localization */,
+				F50C83012AA5CD360033A04B /* Rest */,
+				16B595E72AF5F3C4003F3D2A /* Supporting files */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -656,17 +664,17 @@
 			children = (
 				F568F1F829E3C565005A1D1A /* Widget.swift */,
 				F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */,
-				F50C83002AA5CC6B0033A04B /* 🧰SupportingFiles */,
+				F50C83002AA5CC6B0033A04B /* Supporting files */,
 			);
 			path = "Widget for watchOS";
 			sourceTree = "<group>";
 		};
-		F592C3322AAA9FE20045960E /* ForREADME */ = {
+		F592C3322AAA9FE20045960E /* README assets */ = {
 			isa = PBXGroup;
 			children = (
 				F592C3332AAA9FF40045960E /* 1200w.png */,
 			);
-			path = ForREADME;
+			path = "README assets";
 			sourceTree = "<group>";
 		};
 		F5B5A45528C6EDA1005B6E0F = {
@@ -704,8 +712,8 @@
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
 				F51CAF6429D6AEFA0065EF30 /* 📓NoteView.swift */,
 				F527F47229D53FA500E9FB97 /* 📖WidgetNotesSheet.swift */,
-				F527F46F29D53E4C00E9FB97 /* 🗄️Rest */,
-				F50C82FC2AA5CBC10033A04B /* 🧰SupportingFiles */,
+				F527F46F29D53E4C00E9FB97 /* Rest */,
+				F50C82FC2AA5CBC10033A04B /* Supporting files */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -739,7 +747,7 @@
 				F5FE2D8029DBBFA5008C728B /* 🪧EntryView.swift */,
 				F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */,
 				F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */,
-				F50C82FF2AA5CC5F0033A04B /* 🧰SupportingFiles */,
+				F50C82FF2AA5CC5F0033A04B /* Supporting files */,
 			);
 			path = "Widget for iOS";
 			sourceTree = "<group>";
@@ -1148,7 +1156,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/🧰SupportingFiles/watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "watchOS/Supporting files/watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -1180,7 +1188,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/🧰SupportingFiles/watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "watchOS/Supporting files/watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -1211,12 +1219,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widget for watchOS/🧰SupportingFiles/Widget for watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widget for watchOS/Supporting files/Widget for watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widget for watchOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "Widget for watchOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1242,12 +1250,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widget for watchOS/🧰SupportingFiles/Widget for watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widget for watchOS/Supporting files/Widget for watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widget for watchOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "Widget for watchOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1396,14 +1404,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS/🧰SupportingFiles/iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/Supporting files/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "iOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1435,14 +1443,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS/🧰SupportingFiles/iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/Supporting files/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "iOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1535,12 +1543,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widget for iOS/🧰SupportingFiles/Widget for iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widget for iOS/Supporting files/Widget for iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widget for iOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "Widget for iOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1568,12 +1576,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widget for iOS/🧰SupportingFiles/Widget for iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widget for iOS/Supporting files/Widget for iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widget for iOS/🧰SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "Widget for iOS/Supporting files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
