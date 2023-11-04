@@ -134,7 +134,7 @@
 		F568F1F529E3C565005A1D1A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F568F1F629E3C565005A1D1A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F568F1F929E3C565005A1D1A /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* Widget.swift */; };
-		F568F1FF29E3C567005A1D1A /* Widget for watchOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* Widget for watchOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F568F1FF29E3C567005A1D1A /* Widget(watchOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F568F20629E3C697005A1D1A /* 🪧WidgetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D7A29DAF650008C728B /* 🪧WidgetState.swift */; };
 		F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
@@ -159,13 +159,13 @@
 		F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */; };
 		F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
 		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
-		F5CEA5FB2924AAAC00752277 /* ShareExtension for iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* ShareExtension for iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5CEA5FB2924AAAC00752277 /* ShareExtension(iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5CEA6022925C93E00752277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F5CEA6032925C94200752277 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F5D30CC828C6F6C8001198AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F5D30CCA28C6F6C8001198AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F5D30CCD28C6F6C8001198AF /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* Widget.swift */; };
-		F5D30CD328C6F6C9001198AF /* Widget for iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5D30CC528C6F6C8001198AF /* Widget for iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5D30CD328C6F6C9001198AF /* Widget(iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5EE7EB929DFEEB100012A12 /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F5EE7EBA29DFEEB100012A12 /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
@@ -285,7 +285,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F568F1FF29E3C567005A1D1A /* Widget for watchOS.appex in Embed Foundation Extensions */,
+				F568F1FF29E3C567005A1D1A /* Widget(watchOS).appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,8 +348,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F5CEA5FB2924AAAC00752277 /* ShareExtension for iOS.appex in Embed Foundation Extensions */,
-				F5D30CD328C6F6C9001198AF /* Widget for iOS.appex in Embed Foundation Extensions */,
+				F5CEA5FB2924AAAC00752277 /* ShareExtension(iOS).appex in Embed Foundation Extensions */,
+				F5D30CD328C6F6C9001198AF /* Widget(iOS).appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +411,7 @@
 		F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashTab.swift"; sourceTree = "<group>"; };
 		F568F1A829E3A703005A1D1A /* 💥Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💥Feedback.swift"; sourceTree = "<group>"; };
 		F568F1AB29E3A91C005A1D1A /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
-		F568F1F429E3C565005A1D1A /* Widget for watchOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget for watchOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(watchOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F568F1F829E3C565005A1D1A /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F568F20429E3C56D005A1D1A /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
@@ -430,12 +430,12 @@
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		F5CEA5F12924AAAC00752277 /* ShareExtension for iOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ShareExtension for iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ShareExtension(iOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄷ostingViewController.swift"; sourceTree = "<group>"; };
 		F5CEA5F62924AAAC00752277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F5CEA5F82924AAAC00752277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5CEA5FF2924AB1900752277 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
-		F5D30CC528C6F6C8001198AF /* Widget for iOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget for iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(iOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D30CC728C6F6C8001198AF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F5D30CC928C6F6C8001198AF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F5D30CCC28C6F6C8001198AF /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
@@ -711,10 +711,10 @@
 			isa = PBXGroup;
 			children = (
 				F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */,
-				F5D30CC528C6F6C8001198AF /* Widget for iOS.appex */,
-				F5CEA5F12924AAAC00752277 /* ShareExtension for iOS.appex */,
+				F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */,
+				F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */,
 				F568F18D29E3A5DA005A1D1A /* MemorizeW.app */,
-				F568F1F429E3C565005A1D1A /* Widget for watchOS.appex */,
+				F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -791,9 +791,9 @@
 			productReference = F568F18D29E3A5DA005A1D1A /* MemorizeW.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F568F1F329E3C565005A1D1A /* Widget for watchOS */ = {
+		F568F1F329E3C565005A1D1A /* Widget(watchOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "Widget for watchOS" */;
+			buildConfigurationList = F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "Widget(watchOS)" */;
 			buildPhases = (
 				F568F1F029E3C565005A1D1A /* Sources */,
 				F568F1F129E3C565005A1D1A /* Frameworks */,
@@ -803,9 +803,9 @@
 			);
 			dependencies = (
 			);
-			name = "Widget for watchOS";
+			name = "Widget(watchOS)";
 			productName = MWComplicationExtension;
-			productReference = F568F1F429E3C565005A1D1A /* Widget for watchOS.appex */;
+			productReference = F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F5B5A45D28C6EDA1005B6E0F /* iOS */ = {
@@ -831,9 +831,9 @@
 			productReference = F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */ = {
+		F5CEA5F02924AAAC00752277 /* ShareExtension(iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "ShareExtension for iOS" */;
+			buildConfigurationList = F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "ShareExtension(iOS)" */;
 			buildPhases = (
 				F5CEA5ED2924AAAC00752277 /* Sources */,
 				F5CEA5EE2924AAAC00752277 /* Frameworks */,
@@ -843,14 +843,14 @@
 			);
 			dependencies = (
 			);
-			name = "ShareExtension for iOS";
+			name = "ShareExtension(iOS)";
 			productName = MWShareExtension;
-			productReference = F5CEA5F12924AAAC00752277 /* ShareExtension for iOS.appex */;
+			productReference = F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		F5D30CC428C6F6C8001198AF /* Widget for iOS */ = {
+		F5D30CC428C6F6C8001198AF /* Widget(iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5D30CD728C6F6C9001198AF /* Build configuration list for PBXNativeTarget "Widget for iOS" */;
+			buildConfigurationList = F5D30CD728C6F6C9001198AF /* Build configuration list for PBXNativeTarget "Widget(iOS)" */;
 			buildPhases = (
 				F5D30CC128C6F6C8001198AF /* Sources */,
 				F5D30CC228C6F6C8001198AF /* Frameworks */,
@@ -860,9 +860,9 @@
 			);
 			dependencies = (
 			);
-			name = "Widget for iOS";
+			name = "Widget(iOS)";
 			productName = MWWidgetExtension;
-			productReference = F5D30CC528C6F6C8001198AF /* Widget for iOS.appex */;
+			productReference = F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -907,10 +907,10 @@
 			projectRoot = "";
 			targets = (
 				F5B5A45D28C6EDA1005B6E0F /* iOS */,
-				F5D30CC428C6F6C8001198AF /* Widget for iOS */,
-				F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */,
+				F5D30CC428C6F6C8001198AF /* Widget(iOS) */,
+				F5CEA5F02924AAAC00752277 /* ShareExtension(iOS) */,
 				F568F18C29E3A5DA005A1D1A /* watchOS */,
-				F568F1F329E3C565005A1D1A /* Widget for watchOS */,
+				F568F1F329E3C565005A1D1A /* Widget(watchOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -1112,17 +1112,17 @@
 		};
 		F568F1FE29E3C567005A1D1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F568F1F329E3C565005A1D1A /* Widget for watchOS */;
+			target = F568F1F329E3C565005A1D1A /* Widget(watchOS) */;
 			targetProxy = F568F1FD29E3C567005A1D1A /* PBXContainerItemProxy */;
 		};
 		F5CEA5FA2924AAAC00752277 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F5CEA5F02924AAAC00752277 /* ShareExtension for iOS */;
+			target = F5CEA5F02924AAAC00752277 /* ShareExtension(iOS) */;
 			targetProxy = F5CEA5F92924AAAC00752277 /* PBXContainerItemProxy */;
 		};
 		F5D30CD228C6F6C9001198AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F5D30CC428C6F6C8001198AF /* Widget for iOS */;
+			target = F5D30CC428C6F6C8001198AF /* Widget(iOS) */;
 			targetProxy = F5D30CD128C6F6C9001198AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1632,7 +1632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "Widget for watchOS" */ = {
+		F568F20329E3C567005A1D1A /* Build configuration list for PBXNativeTarget "Widget(watchOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F568F20129E3C567005A1D1A /* Debug */,
@@ -1659,7 +1659,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "ShareExtension for iOS" */ = {
+		F5CEA5FE2924AAAC00752277 /* Build configuration list for PBXNativeTarget "ShareExtension(iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5CEA5FC2924AAAC00752277 /* Debug */,
@@ -1668,7 +1668,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5D30CD728C6F6C9001198AF /* Build configuration list for PBXNativeTarget "Widget for iOS" */ = {
+		F5D30CD728C6F6C9001198AF /* Build configuration list for PBXNativeTarget "Widget(iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5D30CD528C6F6C9001198AF /* Debug */,

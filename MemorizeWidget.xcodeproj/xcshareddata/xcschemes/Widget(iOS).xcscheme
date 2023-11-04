@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1500"
-   wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F5CEA5F02924AAAC00752277"
-               BuildableName = "ShareExtension for iOS.appex"
-               BlueprintName = "ShareExtension for iOS"
+               BlueprintIdentifier = "F5D30CC428C6F6C8001198AF"
+               BuildableName = "Widget(iOS).appex"
+               BlueprintName = "Widget(iOS)"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -66,6 +65,23 @@
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = ""
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetDefaultView"
+            value = "timeline"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetFamily"
+            value = "systemMedium"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

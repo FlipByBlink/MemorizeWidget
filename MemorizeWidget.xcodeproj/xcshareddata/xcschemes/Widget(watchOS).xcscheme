@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F568F1F329E3C565005A1D1A"
-               BuildableName = "Widget for watchOS.appex"
-               BlueprintName = "Widget for watchOS"
+               BuildableName = "Widget(watchOS).appex"
+               BlueprintName = "Widget(watchOS)"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -108,8 +108,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F568F1F329E3C565005A1D1A"
-            BuildableName = "Widget for watchOS.appex"
-            BlueprintName = "Widget for watchOS"
+            BuildableName = "Widget(watchOS).appex"
+            BlueprintName = "Widget(watchOS)"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
