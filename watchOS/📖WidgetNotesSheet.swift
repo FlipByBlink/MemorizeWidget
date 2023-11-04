@@ -2,7 +2,6 @@ import SwiftUI
 
 struct 📖WidgetNotesSheet: View {
     @EnvironmentObject var model: 📱AppModel
-    private var ids: [UUID] { self.model.widgetState.info?.targetedNoteIDs ?? [] }
     var body: some View {
         NavigationStack {
             List {
@@ -22,6 +21,9 @@ struct 📖WidgetNotesSheet: View {
 }
 
 private extension 📖WidgetNotesSheet {
+    private var ids: [UUID] {
+        self.model.widgetState.info?.targetedNoteIDs ?? []
+    }
     private struct NoteDetailLink: View {
         @EnvironmentObject var model: 📱AppModel
         var id: UUID

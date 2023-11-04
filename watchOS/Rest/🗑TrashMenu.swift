@@ -8,7 +8,7 @@ struct 🗑TrashMenu: View {
                 self.contentSection($0)
             }
             self.emptyTrashView()
-            self.aboutTrashSection()
+            Self.aboutTrashSection()
             self.clearButton()
         }
         .navigationTitle("Trash")
@@ -98,7 +98,7 @@ private extension 🗑TrashMenu {
             }
         }
     }
-    private func aboutTrashSection() -> some View {
+    private static func aboutTrashSection() -> some View {
         Section {
             Label("After 7 days, the notes will be permanently deleted.",
                   systemImage: "clock.badge.exclamationmark")

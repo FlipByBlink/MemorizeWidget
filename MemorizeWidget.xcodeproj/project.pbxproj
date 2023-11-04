@@ -28,6 +28,9 @@
 		166BC2B12AF62C4B00729C66 /* 📖MoveEndButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B02AF62C4B00729C66 /* 📖MoveEndButton.swift */; };
 		166BC2B42AF635C700729C66 /* 🄸nputMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B32AF635C700729C66 /* 🄸nputMode.swift */; };
 		166BC2B62AF6361600729C66 /* 📥InputExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B52AF6361600729C66 /* 📥InputExample.swift */; };
+		166BC2B82AF66CC900729C66 /* 📖SigleNoteLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B72AF66CC900729C66 /* 📖SigleNoteLayoutView.swift */; };
+		166BC2BA2AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B92AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift */; };
+		166BC2BC2AF66D3200729C66 /* 📖DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2BB2AF66D3200729C66 /* 📖DismissButton.swift */; };
 		168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -417,6 +420,9 @@
 		166BC2B02AF62C4B00729C66 /* 📖MoveEndButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖MoveEndButton.swift"; sourceTree = "<group>"; };
 		166BC2B32AF635C700729C66 /* 🄸nputMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄸nputMode.swift"; sourceTree = "<group>"; };
 		166BC2B52AF6361600729C66 /* 📥InputExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥InputExample.swift"; sourceTree = "<group>"; };
+		166BC2B72AF66CC900729C66 /* 📖SigleNoteLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SigleNoteLayoutView.swift"; sourceTree = "<group>"; };
+		166BC2B92AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖MultiNotesLayoutView.swift"; sourceTree = "<group>"; };
+		166BC2BB2AF66D3200729C66 /* 📖DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissButton.swift"; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F0E2AF603F800A100A7 /* 🅂eparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🅂eparator.swift"; sourceTree = "<group>"; };
@@ -592,9 +598,12 @@
 			children = (
 				F527F47229D53FA500E9FB97 /* 📖WidgetSheetHandler.swift */,
 				166BC2AA2AF62ACE00729C66 /* 📖WidgetSheetView.swift */,
+				166BC2B72AF66CC900729C66 /* 📖SigleNoteLayoutView.swift */,
+				166BC2B92AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift */,
 				166BC2AC2AF62BB900729C66 /* 📖DeletedNoteView.swift */,
 				166BC2AE2AF62C2100729C66 /* 📖DictionaryButton.swift */,
 				166BC2B02AF62C4B00729C66 /* 📖MoveEndButton.swift */,
+				166BC2BB2AF66D3200729C66 /* 📖DismissButton.swift */,
 			);
 			path = "📖WidgetSheet";
 			sourceTree = "<group>";
@@ -1191,6 +1200,7 @@
 				F50C83252AA5D39A0033A04B /* 🆕NewNoteCommand.swift in Sources */,
 				F50C83332AA5E6470033A04B /* 🪧WidgetInfo.swift in Sources */,
 				166BC2992AF623BC00729C66 /* 🔩ExportNotesLink.swift in Sources */,
+				166BC2BA2AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift in Sources */,
 				F50C831B2AA5D08D0033A04B /* 📣ADComponents.swift in Sources */,
 				168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */,
 				F5FE2D7B29DAF650008C728B /* 🪧WidgetState.swift in Sources */,
@@ -1210,6 +1220,7 @@
 				F568F21429E42A59005A1D1A /* 🪧WidgetEntry.swift in Sources */,
 				F50C83122AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,
+				166BC2BC2AF66D3200729C66 /* 📖DismissButton.swift in Sources */,
 				F568F1A929E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				F527F47D29D5557100E9FB97 /* 🔍SearchButton.swift in Sources */,
 				F5FE2D8C29DD585E008C728B /* 🗑TrashModel.swift in Sources */,
@@ -1233,6 +1244,7 @@
 				166BC2B12AF62C4B00729C66 /* 📖MoveEndButton.swift in Sources */,
 				F527F47F29D555A700E9FB97 /* 📘Dictionary.swift in Sources */,
 				F50C83382AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
+				166BC2B82AF66CC900729C66 /* 📖SigleNoteLayoutView.swift in Sources */,
 				168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */,
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
