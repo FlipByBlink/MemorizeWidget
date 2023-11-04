@@ -4,16 +4,12 @@ struct 📚NotesMenu: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
-            TextFieldLink {
-                Label("New note", systemImage: "plus")
-            } onSubmit: {
-                self.model.insertOnTop([📗Note($0)])
-            }
+            self.newNoteButton()
             ForEach(self.$model.notes) { ⓝote in
                 NavigationLink {
                     📗NoteView(ⓝote, .notesMenu)
                 } label: {
-                    Self.NoteLink(note: ⓝote)
+                    Self.NoteLinkLabel(note: ⓝote)
                 }
             }
             .onDelete {
@@ -28,7 +24,17 @@ struct 📚NotesMenu: View {
         .animation(.default, value: self.model.notes)
         .navigationTitle("Notes")
     }
-    private struct NoteLink: View {
+}
+
+private extension 📚NotesMenu {
+    private func newNoteButton() -> some View {
+        TextFieldLink {
+            Label("New note", systemImage: "plus")
+        } onSubmit: {
+            self.model.insertOnTop([📗Note($0)])
+        }
+    }
+    private struct NoteLinkLabel: View {
         @EnvironmentObject var model: 📱AppModel
         @Binding var note: 📗Note
         private var inactive: Bool {

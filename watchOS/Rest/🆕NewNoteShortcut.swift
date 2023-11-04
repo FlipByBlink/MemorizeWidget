@@ -14,33 +14,39 @@ struct 🆕NewNoteShortcut: ViewModifier {
                     TextField("Comment", text: self.$comment)
                         .font(.subheadline)
                         .opacity(self.title.isEmpty ? 0.33 : 1)
-                    Section {
-                        Button {
-                            self.model.insertOnTop([📗Note(self.title, self.comment)])
-                            self.showSheet = false
-                            💥Feedback.success()
-                            Task { @MainActor in
-                                try? await Task.sleep(for: .seconds(1))
-                                self.title = ""
-                                self.comment = ""
-                            }
-                        } label: {
-                            Label("Done", systemImage: "checkmark")
-                        }
-                        .buttonStyle(.bordered)
-                        .listRowBackground(Color.clear)
-                        .fontWeight(.semibold)
-                        .disabled(self.title.isEmpty)
-                        .foregroundStyle(self.title.isEmpty ? .tertiary : .primary)
-                    }
+                    self.doneButton()
                 }
                 .animation(.default, value: self.title.isEmpty)
             }
             .onOpenURL(perform: self.handleNewNoteShortcut(_:))
     }
+}
+
+private extension 🆕NewNoteShortcut {
     private func handleNewNoteShortcut(_ ⓤrl: URL) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
             self.showSheet = true
+        }
+    }
+    private func doneButton() -> some View {
+        Section {
+            Button {
+                self.model.insertOnTop([📗Note(self.title, self.comment)])
+                self.showSheet = false
+                💥Feedback.success()
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(1))
+                    self.title = ""
+                    self.comment = ""
+                }
+            } label: {
+                Label("Done", systemImage: "checkmark")
+            }
+            .buttonStyle(.bordered)
+            .listRowBackground(Color.clear)
+            .fontWeight(.semibold)
+            .disabled(self.title.isEmpty)
+            .foregroundStyle(self.title.isEmpty ? .tertiary : .primary)
         }
     }
 }

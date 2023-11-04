@@ -12,7 +12,7 @@ struct 🔩MainMenu: View {
             } header: {
                 Text("Widget")
             }
-            Section { 🗑TrashMenuLink() }
+            Section { self.trashMenuLink() }
             Section { Self.DeleteAllNotesButton() }
         }
         .navigationTitle("Menu")
@@ -53,6 +53,17 @@ private extension 🔩MainMenu {
             .disabled(self.multiNotesMode)
             .onChange(of: self.value) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
+            }
+        }
+    }
+    private func trashMenuLink() -> some View {
+        NavigationLink {
+            🗑TrashMenu()
+        } label: {
+            LabeledContent {
+                Text("\(self.model.trash.deletedContents.count)")
+            } label: {
+                Label("Trash", systemImage: "trash")
             }
         }
     }

@@ -13,7 +13,7 @@ struct 🪧AccessoryWidgetView: View {
             #if os(watchOS)
             case .accessoryCorner: self.cornerView()
             #endif
-            default: Text(verbatim: "🐛")
+            default: Text(verbatim: "BUG")
         }
     }
     init(_ info: 🪧WidgetInfo) {

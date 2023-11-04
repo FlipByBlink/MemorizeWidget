@@ -1,19 +1,6 @@
 import SwiftUI
 
-struct 📖WidgetNotesSheet: ViewModifier {
-    @EnvironmentObject var appModel: 📱AppModel
-    @EnvironmentObject var inAppPurchaseModel: 🛒InAppPurchaseModel
-    func body(content: Content) -> some View {
-        content
-            .sheet(isPresented: self.$appModel.widgetState.showSheet) {
-                📖WidgetNotesView()
-                    .environmentObject(self.appModel)
-                    .environmentObject(self.inAppPurchaseModel)
-            }
-    }
-}
-
-private struct 📖WidgetNotesView: View {
+struct 📖WidgetSheetView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
@@ -25,10 +12,13 @@ private struct 📖WidgetNotesView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar { 🅧DismissButton() }
+            .toolbar { Self.DismissButton() }
         }
         .modifier(📣ADSheet())
     }
+}
+
+private extension 📖WidgetSheetView {
     private struct SigleNoteLayoutView: View {
         @EnvironmentObject var model: 📱AppModel
         private var ⓘndex: Int? {
@@ -43,7 +33,7 @@ private struct 📖WidgetNotesView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        📘DictionaryButton(self.model.notes[ⓘndex])
+                        📖DictionaryButton(self.model.notes[ⓘndex])
                         Spacer()
                         🔍SearchButton(self.model.notes[ⓘndex])
                         Spacer()
@@ -56,7 +46,7 @@ private struct 📖WidgetNotesView: View {
                     .font(.title)
                     .padding(.horizontal, 24)
                 } else {
-                    🚮DeletedNoteView()
+                    📖DeletedNoteView()
                         .padding(.bottom, 24)
                 }
                 Spacer()
@@ -80,7 +70,7 @@ private struct 📖WidgetNotesView: View {
                     }
                 }
                 if self.model.deletedAllWidgetNotes {
-                    Section { 🚮DeletedNoteView() }
+                    Section { 📖DeletedNoteView() }
                 }
             }
         }
@@ -93,12 +83,12 @@ private struct 📖WidgetNotesView: View {
                                        layout: .widgetSheet_multi(self.targetNotesCount))
                             HStack {
                                 Spacer()
-                                📘DictionaryButton(self.model.notes[ⓘndex])
+                                📖DictionaryButton(self.model.notes[ⓘndex])
                                 Spacer()
                                 🔍SearchButton(self.model.notes[ⓘndex])
                                 Spacer()
                                 if !self.model.randomMode {
-                                    🔚MoveEndButton(self.model.notes[ⓘndex])
+                                    📖MoveEndButton(self.model.notes[ⓘndex])
                                     Spacer()
                                 }
                                 🚮DeleteNoteButton(self.model.notes[ⓘndex])
@@ -116,9 +106,9 @@ private struct 📖WidgetNotesView: View {
                             📗NoteView(self.$model.notes[ⓘndex],
                                        layout: .widgetSheet_multi(self.targetNotesCount))
                             HStack(spacing: 24) {
-                                📘DictionaryButton(self.model.notes[ⓘndex])
+                                📖DictionaryButton(self.model.notes[ⓘndex])
                                 🔍SearchButton(self.model.notes[ⓘndex])
-                                if !self.model.randomMode { 🔚MoveEndButton(self.model.notes[ⓘndex]) }
+                                if !self.model.randomMode { 📖MoveEndButton(self.model.notes[ⓘndex]) }
                                 🚮DeleteNoteButton(self.model.notes[ⓘndex])
                             }
                             .labelStyle(.iconOnly)
@@ -133,82 +123,18 @@ private struct 📖WidgetNotesView: View {
             }
         }
     }
-}
-
-private struct 📘DictionaryButton: View {
-    private var term: String
-    @State private var dictionaryState: 📘DictionaryState = .default
-    var body: some View {
-#if !targetEnvironment(macCatalyst)
-        Button {
-            self.dictionaryState.request(self.term)
-        } label: {
-            Label("Dictionary", systemImage: "character.book.closed")
-        }
-        .modifier(📘DictionarySheet(self.$dictionaryState))
-#else
-        📘DictionaryButtonOnMac(term: self.term)
-#endif
-    }
-    init(_ note: 📗Note) {
-        self.term = note.title
-    }
-}
-
-private struct 🔚MoveEndButton: View {
-    @EnvironmentObject var model: 📱AppModel
-    private var note: 📗Note
-    @State private var done: Bool = false
-    var body: some View {
-        Button {
-            self.model.moveEnd(self.note)
-            withAnimation { self.done = true }
-        } label: {
-            Label("Move end", systemImage: "arrow.down.to.line")
-        }
-        .disabled(self.model.notes.last == self.note)
-        .opacity(self.done ? 0.33 : 1)
-        .overlay {
-            if self.done {
-                Image(systemName: "checkmark")
-                    .imageScale(.small)
+    private struct DismissButton: View {
+        @EnvironmentObject var model: 📱AppModel
+        var body: some View {
+            Button {
+                self.model.widgetState.showSheet = false
+                UISelectionFeedbackGenerator().selectionChanged()
+            } label: {
+                Image(systemName: "xmark.circle.fill")
                     .symbolRenderingMode(.hierarchical)
             }
+            .foregroundColor(.secondary)
+            .keyboardShortcut(.cancelAction)
         }
-    }
-    init(_ note: 📗Note) {
-        self.note = note
-    }
-}
-
-private struct 🚮DeletedNoteView: View {
-    var body: some View {
-        HStack {
-            Spacer()
-            VStack(spacing: 24) {
-                Label("Deleted.", systemImage: "checkmark")
-                Image(systemName: "trash")
-            }
-            .foregroundColor(.primary)
-            .imageScale(.small)
-            .font(.largeTitle)
-            Spacer()
-        }
-        .padding(24)
-    }
-}
-
-private struct 🅧DismissButton: View {
-    @EnvironmentObject var model: 📱AppModel
-    var body: some View {
-        Button {
-            self.model.widgetState.showSheet = false
-            UISelectionFeedbackGenerator().selectionChanged()
-        } label: {
-            Image(systemName: "xmark.circle.fill")
-                .symbolRenderingMode(.hierarchical)
-        }
-        .foregroundColor(.secondary)
-        .keyboardShortcut(.cancelAction)
     }
 }

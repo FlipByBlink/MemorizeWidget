@@ -56,26 +56,8 @@ struct 🄼ainView: View {
                 }
             }
             .toolbar {
-                ToolbarItem {
-                    Button {
-                        UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        self.model.storeNotes()
-                        self.model.extensionContext?.completeRequest(returningItems: nil)
-                    } label: {
-                        Image(systemName: "checkmark")
-                    }
-                    .disabled(self.model.type == .improperFile)
-                    .disabled(self.model.type == .exceedDataLimitation)
-                }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button {
-                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                        self.model.extensionContext?.completeRequest(returningItems: nil)
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
-                    .tint(.red)
-                }
+                ToolbarItem { self.doneButton() }
+                ToolbarItem(placement: .cancellationAction) { self.closeButton() }
             }
         }
         .animation(.default, value: self.model.separator)
@@ -114,5 +96,25 @@ private extension 🄼ainView {
             }
             .padding(.vertical, 8)
         }
+    }
+    private func doneButton() -> some View {
+        Button {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            self.model.storeNotes()
+            self.model.extensionContext?.completeRequest(returningItems: nil)
+        } label: {
+            Image(systemName: "checkmark")
+        }
+        .disabled(self.model.type == .improperFile)
+        .disabled(self.model.type == .exceedDataLimitation)
+    }
+    private func closeButton() -> some View {
+        Button {
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            self.model.extensionContext?.completeRequest(returningItems: nil)
+        } label: {
+            Image(systemName: "xmark")
+        }
+        .tint(.red)
     }
 }

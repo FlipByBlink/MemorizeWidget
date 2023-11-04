@@ -5,7 +5,7 @@ struct ContentView: View {
     var body: some View {
         🔖TabView()
             .onOpenURL(perform: self.model.handleWidgetURL)
-            .modifier(📖WidgetNotesSheet())
+            .modifier(📖WidgetSheetHandler())
             .modifier(📥NotesImportSheet())
             .modifier(💬RequestUserReview())
             .modifier(🩹Workaround.HideTitleBarOnMacCatalyst())

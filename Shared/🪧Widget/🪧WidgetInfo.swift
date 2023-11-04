@@ -2,6 +2,9 @@ import WidgetKit
 
 enum 🪧WidgetInfo {
     case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
+}
+
+extension 🪧WidgetInfo {
     var urlString: String {
         switch self {
             case .singleNote(let ⓘd):

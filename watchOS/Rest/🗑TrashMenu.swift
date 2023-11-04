@@ -1,21 +1,6 @@
 import SwiftUI
 
-struct 🗑TrashMenuLink: View {
-    @EnvironmentObject var model: 📱AppModel
-    var body: some View {
-        NavigationLink {
-            🗑TrashMenu()
-        } label: {
-            LabeledContent {
-                Text("\(self.model.trash.deletedContents.count)")
-            } label: {
-                Label("Trash", systemImage: "trash")
-            }
-        }
-    }
-}
-
-private struct 🗑TrashMenu: View {
+struct 🗑TrashMenu: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
@@ -29,6 +14,9 @@ private struct 🗑TrashMenu: View {
         .navigationTitle("Trash")
         .animation(.default, value: self.model.trash.deletedContents)
     }
+}
+
+private extension 🗑TrashMenu {
     private func contentSection(_ ⓒontent: 🄳eletedContent) -> some View {
         Section {
             if ⓒontent.notes.count == 1 {

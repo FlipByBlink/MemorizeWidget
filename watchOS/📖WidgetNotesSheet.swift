@@ -7,7 +7,7 @@ struct 📖WidgetNotesSheet: View {
         NavigationStack {
             List {
                 ForEach(self.ids, id: \.self) {
-                    Self.NoteView(id: $0)
+                    Self.NoteDetailLink(id: $0)
                 }
                 .onDelete {
                     guard let ⓘndex = $0.first else { return }
@@ -15,14 +15,14 @@ struct 📖WidgetNotesSheet: View {
                 }
             }
             .overlay {
-                if self.model.deletedAllWidgetNotes { Self.DeletedNoteView() }
+                if self.model.deletedAllWidgetNotes { Self.deletedNoteView() }
             }
         }
     }
 }
 
 private extension 📖WidgetNotesSheet {
-    private struct NoteView: View {
+    private struct NoteDetailLink: View {
         @EnvironmentObject var model: 📱AppModel
         var id: UUID
         private var ⓝoteIndex: Int? { self.model.notes.index(self.id) }
@@ -45,18 +45,16 @@ private extension 📖WidgetNotesSheet {
             }
         }
     }
-    private struct DeletedNoteView: View {
-        var body: some View {
-            VStack(spacing: 16) {
-                Label("Deleted.", systemImage: "checkmark")
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                Image(systemName: "trash")
-            }
-            .foregroundColor(.primary)
-            .imageScale(.small)
-            .font(.title2)
-            .padding(24)
+    private static func deletedNoteView() -> some View {
+        VStack(spacing: 16) {
+            Label("Deleted.", systemImage: "checkmark")
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
+            Image(systemName: "trash")
         }
+        .foregroundColor(.primary)
+        .imageScale(.small)
+        .font(.title2)
+        .padding(24)
     }
 }

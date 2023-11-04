@@ -18,7 +18,7 @@ struct 📘DictionarySheet: ViewModifier {
         content
             .sheet(isPresented: self.$dictionaryState.showSheet) {
                 if let ⓥiewController {
-                    🄳ictinaryView(ⓥiewController)
+                    🅄IReferenceLibraryView(ⓥiewController)
                         .ignoresSafeArea()
                 }
             }
@@ -28,7 +28,7 @@ struct 📘DictionarySheet: ViewModifier {
     }
 }
 
-private struct 🄳ictinaryView: UIViewControllerRepresentable {
+private struct 🅄IReferenceLibraryView: UIViewControllerRepresentable {
     private var viewController: UIReferenceLibraryViewController
     func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
         self.viewController
