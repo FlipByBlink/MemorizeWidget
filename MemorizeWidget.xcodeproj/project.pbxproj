@@ -571,8 +571,8 @@
 			isa = PBXGroup;
 			children = (
 				F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */,
-				F50C831A2AA5D08D0033A04B /* 📣ADComponents.swift */,
 				F50C831E2AA5D0A70033A04B /* 📣ADModel.swift */,
+				F50C831A2AA5D08D0033A04B /* 📣ADComponents.swift */,
 				F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */,
 				F50C831C2AA5D0970033A04B /* 🛒InAppPurchaseView.swift */,
 			);

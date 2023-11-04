@@ -13,7 +13,8 @@ struct ℹ️AboutAppContent: View {
 
 struct ℹ️IconAndName: View {
     var body: some View {
-        VStack(spacing: 0) {
+        HStack {
+            Spacer()
             VStack(spacing: 8) {
                 Image(.roundedIcon)
                     .resizable()
@@ -32,11 +33,9 @@ struct ℹ️IconAndName: View {
                 .minimumScaleFactor(0.6)
             }
             .padding(32)
-            Divider()
-                .padding(.leading)
+            Spacer()
         }
-        .listRowSeparator(.hidden)
-        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
     }
 }
 
@@ -49,7 +48,7 @@ struct ℹ️AppStoreLink: View {
             LabeledContent {
                 Image(systemName: "arrow.up.forward.app")
             } label: {
-                Label(String(localized: "Open AppStore page", table: "🌐AboutApp"),
+                Label(String(localized: "Open App Store page", table: "🌐AboutApp"),
                       systemImage: "link")
             }
         }
@@ -65,7 +64,7 @@ private struct 📰AppStoreDescriptionSection: View {
                         .padding(UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16)
                         .frame(maxWidth: .infinity)
                 }
-                .navigationBarTitle(Text("Description", tableName: "🌐AboutApp"))
+                .navigationBarTitle(.init("Description", tableName: "🌐AboutApp"))
                 .textSelection(.enabled)
             } label: {
                 Text(self.textWithoutEmptyLines)
@@ -73,7 +72,7 @@ private struct 📰AppStoreDescriptionSection: View {
                     .lineSpacing(5)
                     .lineLimit(7)
                     .padding(8)
-                    .accessibilityLabel(Text("Description", tableName: "🌐AboutApp"))
+                    .accessibilityLabel(.init("Description", tableName: "🌐AboutApp"))
             }
         } header: {
             Text("Description", tableName: "🌐AboutApp")
@@ -97,7 +96,7 @@ private struct 🏬AppStoreSection: View {
                 LabeledContent {
                     Image(systemName: "arrow.up.forward.app")
                 } label: {
-                    Label(String(localized: "Review on AppStore", table: "🌐AboutApp"),
+                    Label(String(localized: "Review on App Store", table: "🌐AboutApp"),
                           systemImage: "star.bubble")
                 }
             }
@@ -117,7 +116,7 @@ private struct 👤PrivacyPolicySection: View {
                         .textSelection(.enabled)
                         .frame(maxWidth: .infinity)
                 }
-                .navigationTitle(Text("Privacy Policy", tableName: "🌐AboutApp"))
+                .navigationTitle(.init("Privacy Policy", tableName: "🌐AboutApp"))
             } label: {
                 Label(String(localized: "Privacy Policy", table: "🌐AboutApp"),
                       systemImage: "person.text.rectangle")
@@ -149,13 +148,13 @@ private struct 📜VersionHistoryLink: View {
                         .headerProminence(.increased)
                     }
                 }
-                .navigationBarTitle(Text("Version History", tableName: "🌐AboutApp"))
+                .navigationBarTitle(.init("Version History", tableName: "🌐AboutApp"))
             } label: {
                 Label(String(localized: "Version", table: "🌐AboutApp"),
                       systemImage: "signpost.left")
                 .badge(🗒️StaticInfo.versionInfos.first?.version ?? "🐛")
             }
-            .accessibilityLabel(Text("Version History", tableName: "🌐AboutApp"))
+            .accessibilityLabel(.init("Version History", tableName: "🌐AboutApp"))
         }
     }
 }
@@ -168,7 +167,7 @@ private struct 📓SourceCodeLink: View {
                 self.bundleMainInfoDictionary()
                 self.repositoryLinks()
             }
-            .navigationTitle(Text("Source code", tableName: "🌐AboutApp"))
+            .navigationTitle(.init("Source code", tableName: "🌐AboutApp"))
         } label: {
             Label(String(localized: "Source code", table: "🌐AboutApp"),
                   systemImage: "doc.plaintext")
@@ -208,6 +207,7 @@ private struct 📓SourceCodeLink: View {
                         .padding()
                 }
             }
+            .environment(\.layoutDirection, .leftToRight)
             .navigationBarTitle(LocalizedStringKey(ⓣitle))
             .font(.caption.monospaced())
             .textSelection(.enabled)
@@ -223,7 +223,7 @@ private struct 📓SourceCodeLink: View {
                         }
                     }
                 }
-                .navigationBarTitle(Text(verbatim: "Bundle.main.infoDictionary"))
+                .navigationBarTitle(.init(verbatim: "Bundle.main.infoDictionary"))
                 .textSelection(.enabled)
             }
         }
@@ -308,7 +308,7 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
                 }
                 Self.jobHuntSection()
             }
-            .navigationTitle(Text("Developer / Publisher", tableName: "🌐AboutApp"))
+            .navigationTitle(.init("Developer / Publisher", tableName: "🌐AboutApp"))
         } label: {
             Label(String(localized: "Developer / Publisher", table: "🌐AboutApp"),
                   systemImage: "person")
@@ -318,7 +318,7 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
         private static var values: [(date: String, description: String)] {
             [("2013-04", "Finished from high school in Okayama Prefecture. Entranced into University-of-the-Ryukyus/faculty-of-engineering in Okinawa Prefecture."),
              ("2018-06", "Final year as an undergraduate student. Developed an iOS application(FlipByBlink) as software for the purpose of research experiments."),
-             ("2019-01", "Released ebook reader app \"FlipByBlink\" ver 1.0 on AppStore. Special feature is to turn a page by slightly-longish-voluntary-blink."),
+             ("2019-01", "Released ebook reader app \"FlipByBlink\" ver 1.0 on App Store. Special feature is to turn a page by slightly-longish-voluntary-blink."),
              ("2019-03", "Graduated from University-of-the-Ryukyus."),
              ("2019-05", "Released alarm clock app with taking a long time \"FadeInAlarm\" ver 1.0. First paid app."),
              ("2019-07", "Migrated to Okayama Prefecture."),

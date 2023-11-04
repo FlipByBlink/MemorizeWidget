@@ -2,7 +2,6 @@ import SwiftUI
 import StoreKit
 
 struct 🛒InAppPurchaseMenuLink: View {
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
     var body: some View {
         Section {
             🛒PurchaseView()
@@ -19,7 +18,6 @@ struct 🛒InAppPurchaseMenuLink: View {
 }
 
 struct 🛒InAppPurchaseMenu: View {
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
     var body: some View {
         List {
             Self.aboutADSection()
@@ -32,11 +30,11 @@ struct 🛒InAppPurchaseMenu: View {
             .headerProminence(.increased)
             🛒RestoreButton()
         }
-        .navigationTitle(Text("About AD", tableName: "🌐AD&InAppPurchase"))
+        .navigationTitle(.init("About AD", tableName: "🌐AD&InAppPurchase"))
     }
     private static func aboutADSection() -> some View {
         Section {
-            Text("This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times.",
+            Text("This App shows advertisement about applications on App Store. These are several Apps by this app's developer. It is activated after you launch this app 5 times.",
                  tableName: "🌐AD&InAppPurchase")
             .padding()
         } header: {
@@ -70,25 +68,25 @@ private struct 🛒Preview: View {
 }
 
 private struct 🛒PurchaseView: View {
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+    @EnvironmentObject var model: 🛒InAppPurchaseModel
     @State private var buyingInProgress = false
     @State private var showError = false
     @State private var errorMessage = ""
     var body: some View {
         HStack {
-            Label(🛒.productName, systemImage: "cart")
+            Label(self.model.productName, systemImage: "cart")
             Spacer()
-            if 🛒.purchased {
+            if self.model.purchased {
                 Image(systemName: "checkmark")
                     .imageScale(.small)
                     .foregroundStyle(.tertiary)
                     .transition(.slide)
             }
-            Button(🛒.productPrice) {
+            Button(self.model.productPrice) {
                 Task {
                     do {
                         self.buyingInProgress = true
-                        try await 🛒.purchase()
+                        try await self.model.purchase()
                     } catch 🛒Error.failedVerification {
                         self.errorMessage = "Your purchase could not be verified by the App Store."
                         self.showError = true
@@ -113,14 +111,14 @@ private struct 🛒PurchaseView: View {
             }
         }
         .padding(.vertical)
-        .disabled(🛒.unconnected)
-        .disabled(🛒.purchased)
-        .animation(.default, value: 🛒.purchased)
+        .disabled(self.model.unconnected)
+        .disabled(self.model.purchased)
+        .animation(.default, value: self.model.purchased)
     }
 }
 
 private struct 🛒RestoreButton: View {
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+    @EnvironmentObject var model: 🛒InAppPurchaseModel
     @State private var restoringInProgress = false
     @State private var showAlert = false
     @State private var syncSuccess = false
@@ -147,8 +145,8 @@ private struct 🛒RestoreButton: View {
                     Label(String(localized: "Restore Purchases", table: "🌐AD&InAppPurchase"),
                           systemImage: "arrow.clockwise")
                     .font(.footnote)
-                    .foregroundColor(🛒.unconnected ? .secondary : nil)
-                    .grayscale(🛒.purchased ? 1 : 0)
+                    .foregroundColor(self.model.unconnected ? .secondary : nil)
+                    .grayscale(self.model.purchased ? 1 : 0)
                     if self.restoringInProgress {
                         Spacer()
                         ProgressView()

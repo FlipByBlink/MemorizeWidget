@@ -1,18 +1,18 @@
 import SwiftUI
 
 //struct 📣ADSheet: ViewModifier {
-//    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+//    @EnvironmentObject var model: 🛒InAppPurchaseModel
 //    @State private var app: 📣ADTargetApp = .pickUpAppWithout(.ONESELF)
 //    @State private var showSheet: Bool = false
 //    func body(content: Content) -> some View {
 //        content
 //            .sheet(isPresented: self.$showSheet) { 📣ADView(self.app) }
-//            .onAppear { if 🛒.checkToShowADSheet() { self.showSheet = true } }
+//            .onAppear { if self.model.checkToShowADSheet() { self.showSheet = true } }
 //    }
 //}
 
 struct 📣ADView: View {
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+    @EnvironmentObject var model: 🛒InAppPurchaseModel
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.dismiss) var dismiss
@@ -27,7 +27,7 @@ struct 📣ADView: View {
             .onChange(of: self.scenePhase) {
                 if $0 == .background { self.dismiss() }
             }
-            .onChange(of: 🛒.purchased) { if $0 { self.disableDismiss = false } }
+            .onChange(of: self.model.purchased) { if $0 { self.disableDismiss = false } }
             .interactiveDismissDisabled(self.disableDismiss)
             .onReceive(self.timer) { _ in
                 if self.countDown > 1 {
@@ -67,7 +67,7 @@ private extension 📣ADView {
             }
         }
         .modifier(Self.PurchasedEffect())
-        .navigationTitle(Text("AD", tableName: "🌐AD&InAppPurchase"))
+        .navigationTitle(.init("AD", tableName: "🌐AD&InAppPurchase"))
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: self.$showMenu) { 🛒InAppPurchaseMenu() }
     }
@@ -109,7 +109,7 @@ private extension 📣ADView {
                 .scaledToFit()
         }
         .accessibilityHidden(true)
-        .disabled(🛒.purchased)
+        .disabled(self.model.purchased)
     }
     private func appIcon() -> some View {
         Link(destination: self.targetApp.url) {
@@ -123,7 +123,7 @@ private extension 📣ADView {
             }
         }
         .accessibilityHidden(true)
-        .disabled(🛒.purchased)
+        .disabled(self.model.purchased)
     }
     private func appName() -> some View {
         Link(destination: self.targetApp.url) {
@@ -132,7 +132,7 @@ private extension 📣ADView {
         }
         .buttonStyle(.plain)
         .accessibilityHidden(true)
-        .disabled(🛒.purchased)
+        .disabled(self.model.purchased)
     }
     private func appDescription() -> some View {
         Text(self.targetApp.localizationKey, tableName: "🌐ADAppDescription")
@@ -148,8 +148,8 @@ private extension 📣ADView {
             }
             .foregroundColor(.primary)
         }
-        .accessibilityLabel(Text("Open AppStore page", tableName: "🌐AD&InAppPurchase"))
-        .disabled(🛒.purchased)
+        .accessibilityLabel(Text("Open App Store page", tableName: "🌐AD&InAppPurchase"))
+        .disabled(self.model.purchased)
     }
     private func menuLink() -> some View {
         Button {
@@ -159,7 +159,7 @@ private extension 📣ADView {
                 .padding(12)
         }
         .tint(.primary)
-        .accessibilityLabel(Text("About AD", tableName: "🌐AD&InAppPurchase"))
+        .accessibilityLabel(.init("About AD", tableName: "🌐AD&InAppPurchase"))
     }
     private func dismissButton() -> some View {
         Group {
@@ -178,14 +178,14 @@ private extension 📣ADView {
                 }
                 .keyboardShortcut(.cancelAction)
                 .tint(.primary)
-                .accessibilityLabel(Text("Dismiss", tableName: "🌐AD&InAppPurchase"))
+                .accessibilityLabel(.init("Dismiss", tableName: "🌐AD&InAppPurchase"))
             }
         }
     }
     private struct PurchasedEffect: ViewModifier {
-        @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+        @EnvironmentObject var model: 🛒InAppPurchaseModel
         func body(content: Content) -> some View {
-            if 🛒.purchased {
+            if self.model.purchased {
                 content
                     .blur(radius: 6)
                     .overlay {
