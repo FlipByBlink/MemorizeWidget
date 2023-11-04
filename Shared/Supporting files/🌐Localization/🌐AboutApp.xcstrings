@@ -12,7 +12,7 @@
       }
     },
     "← Select file" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -146,7 +146,7 @@
       }
     },
     "Git repository is public on GitHub.com" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -279,12 +279,12 @@
         }
       }
     },
-    "Open AppStore page" : {
+    "Open App Store page" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AppStoreページを開く"
+            "value" : "App Storeページを開く"
           }
         }
       }
@@ -311,7 +311,6 @@
       }
     },
     "Released Apple TV app version of \"PlainShogiBoard\"." : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -322,7 +321,6 @@
       }
     },
     "Released Apple Watch app version of \"TapTemperature\"." : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -354,13 +352,13 @@
         }
       }
     },
-    "Released ebook reader app \"FlipByBlink\" ver 1.0 on AppStore. Special feature is to turn a page by slightly-longish-voluntary-blink." : {
-      "extractionState" : "migrated",
+    "Released ebook reader app \"FlipByBlink\" ver 1.0 on App Store. Special feature is to turn a page by slightly-longish-voluntary-blink." : {
+      "extractionState" : "manual",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "特殊なまばたきでページめくりができる電子書籍リーダーアプリ「FlipByBlink」をver1.0としてAppStoreにリリース。"
+            "value" : "特殊なまばたきでページめくりができる電子書籍リーダーアプリ「FlipByBlink」をver1.0としてApp Storeにリリース。"
           }
         }
       }
@@ -399,7 +397,6 @@
       }
     },
     "Released Mac app version of \"MemorizeWidget\"." : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -430,12 +427,12 @@
         }
       }
     },
-    "Review on AppStore" : {
+    "Review on App Store" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AppStoreでレビューを書く"
+            "value" : "App Storeでレビューを書く"
           }
         }
       }

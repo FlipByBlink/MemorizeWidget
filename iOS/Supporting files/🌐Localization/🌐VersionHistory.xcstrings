@@ -153,6 +153,23 @@
           }
         }
       }
+    },
+    "1.4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placeholder"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレースホルダー"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

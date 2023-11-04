@@ -112,12 +112,12 @@
         }
       }
     },
-    "Open AppStore page" : {
+    "Open App Store page" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AppStoreページを開く"
+            "value" : "App Storeページを開く"
           }
         }
       }
@@ -154,12 +154,12 @@
         }
       }
     },
-    "This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times." : {
+    "This App shows advertisement about applications on App Store. These are several Apps by this app's developer. It is activated after you launch this app 5 times." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AppStoreアプリケーションに関する広告を表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告はアプリを5回起動すると有効になります。"
+            "value" : "App Storeアプリケーションに関する広告を表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告はアプリを5回起動すると有効になります。"
           }
         }
       }
