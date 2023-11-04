@@ -2,41 +2,41 @@ import SwiftUI
 import WidgetKit
 
 struct 🪧AccessoryWidgetView: View {
-    private var ⓘnfo: 🪧WidgetInfo
+    private var info: 🪧WidgetInfo
     @Environment(\.widgetFamily) var widgetFamily
-    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩showComment: Bool = false
+    @AppStorage("ShowComment", store: .ⓐppGroup) var showComment: Bool = false
     var body: some View {
         switch self.widgetFamily {
-            case .accessoryInline: self.ⓘnlineView()
-            case .accessoryCircular: self.ⓒircularView()
-            case .accessoryRectangular: self.ⓡectangularView()
+            case .accessoryInline: self.inlineView()
+            case .accessoryCircular: self.circularView()
+            case .accessoryRectangular: self.rectangularView()
             #if os(watchOS)
-            case .accessoryCorner: self.ⓒornerView()
+            case .accessoryCorner: self.cornerView()
             #endif
             default: Text(verbatim: "🐛")
         }
     }
     init(_ info: 🪧WidgetInfo) {
-        self.ⓘnfo = info
+        self.info = info
     }
 }
 
 private extension 🪧AccessoryWidgetView {
-    private var ⓝotes: [📗Note] { self.ⓘnfo.targetedNotes }
-    private func ⓘnlineView() -> some View {
-        Text(self.ⓝotes.first?.title ?? "No note")
+    private var notes: [📗Note] { self.info.targetedNotes }
+    private func inlineView() -> some View {
+        Text(self.notes.first?.title ?? "No note")
     }
-    private func ⓒircularView() -> some View {
+    private func circularView() -> some View {
         ZStack {
             AccessoryWidgetBackground()
             ZStack {
                 Color.clear
                 VStack(spacing: 2) {
-                    ForEach(self.ⓝotes) { ⓝote in
-                        if self.ⓝotes.firstIndex(of: ⓝote) == 1 { Divider() }
+                    ForEach(self.notes) { ⓝote in
+                        if self.notes.firstIndex(of: ⓝote) == 1 { Divider() }
                         Text(ⓝote.title)
                             .multilineTextAlignment(.center)
-                            .font(self.ⓝotes.count == 1 ? .body : .caption)
+                            .font(self.notes.count == 1 ? .body : .caption)
                             .fontWeight(.semibold)
                             .lineSpacing(0)
                             .minimumScaleFactor(0.8)
@@ -45,20 +45,20 @@ private extension 🪧AccessoryWidgetView {
                     }
                 }
                 .padding(.vertical, 1)
-                .lineLimit(self.ⓝotes.count == 2 ? 2 : nil)
+                .lineLimit(self.notes.count == 2 ? 2 : nil)
             }
             .clipShape(Circle())
         }
     }
-    private func ⓡectangularView() -> some View {
+    private func rectangularView() -> some View {
         VStack {
-            ForEach(self.ⓝotes) { ⓝote in
+            ForEach(self.notes) { ⓝote in
                 Text(ⓝote.title)
-                    .lineLimit(self.ⓝotes.count > 1 ? 1 : 3)
-                    .font(.system(size: self.ⓝotes.count > 1 ? 17 : 24,
+                    .lineLimit(self.notes.count > 1 ? 1 : 3)
+                    .font(.system(size: self.notes.count > 1 ? 17 : 24,
                                   weight: .semibold))
-                if case .singleNote(_) = self.ⓘnfo {
-                    if self.🚩showComment, !ⓝote.comment.isEmpty {
+                if case .singleNote(_) = self.info {
+                    if self.showComment, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
                             .fontWeight(.medium)
                             .foregroundStyle(.secondary)
@@ -71,10 +71,10 @@ private extension 🪧AccessoryWidgetView {
         .minimumScaleFactor(0.8)
         .multilineTextAlignment(.center)
     }
-    private func ⓒornerView() -> some View {
+    private func cornerView() -> some View {
         Image(systemName: "tag")
             .font(.title.weight(.medium))
             .widgetAccentable()
-            .widgetLabel(self.ⓝotes.first?.title ?? "No note")
+            .widgetLabel(self.notes.first?.title ?? "No note")
     }
 }

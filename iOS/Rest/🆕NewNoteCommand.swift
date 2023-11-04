@@ -1,18 +1,18 @@
 import SwiftUI
 
 struct 🆕NewNoteCommand: Commands {
-    @ObservedObject var 📱: 📱AppModel
+    @ObservedObject var model: 📱AppModel
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
             Button {
-                📱.addNewNoteOnTop()
+                self.model.addNewNoteOnTop()
             } label: {
                 Text("New note")
             }
             .keyboardShortcut("n")
         }
     }
-    init(_ 📱: 📱AppModel) {
-        self.📱 = 📱
+    init(_ model: 📱AppModel) {
+        self.model = model
     }
 }

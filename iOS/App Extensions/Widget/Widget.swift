@@ -2,7 +2,7 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct WidgetForIOS: WidgetBundle {
+struct IOSWidgetBundle: WidgetBundle {
     var body: some Widget {
         🪧Widget()
         🪧NewNoteShortcutWidget()
@@ -24,7 +24,7 @@ private struct 🪧Widget: Widget {
 }
 
 private struct 🪧WidgetSub: Widget {
-    private var ⓕamilies: [WidgetFamily] = []
+    private var families: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🪧Provider()) { ⓔntry in
             🪧EntryView(ⓔntry)
@@ -32,12 +32,12 @@ private struct 🪧WidgetSub: Widget {
         .configurationDisplayName("Sub widget")
         .description("This is spare widget for the purpose of second widget and random-mode")
         .contentMarginsDisabled()
-        .supportedFamilies(self.ⓕamilies)
+        .supportedFamilies(self.families)
     }
     init() {
         switch UIDevice.current.userInterfaceIdiom {
-            case .phone: self.ⓕamilies.append(contentsOf: [.accessoryRectangular])
-            case .pad: self.ⓕamilies.append(contentsOf: [.systemLarge])
+            case .phone: self.families.append(contentsOf: [.accessoryRectangular])
+            case .pad: self.families.append(contentsOf: [.systemLarge])
             default: break
         }
     }

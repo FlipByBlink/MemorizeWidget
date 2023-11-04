@@ -1,17 +1,17 @@
 import SwiftUI
 
 @main
-struct iOSApp: App {
-    @StateObject private var 📱 = 📱AppModel()
-    @StateObject private var 🛒 = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
+struct IOSApp: App {
+    @StateObject private var appModel = 📱AppModel()
+    @StateObject private var inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(📱)
-                .environmentObject(🛒)
+                .environmentObject(self.appModel)
+                .environmentObject(self.inAppPurchaseModel)
         }
         .commands {
-            🆕NewNoteCommand(📱)
+            🆕NewNoteCommand(self.appModel)
         }
     }
 }

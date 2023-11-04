@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct 💁TipsMenu: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓓataCount: Int { 📱.📚notes.dataCount }
+    @EnvironmentObject var model: 📱AppModel
+    private var dataCount: Int { self.model.notes.dataCount }
     var body: some View {
         List {
             Section {
@@ -16,11 +16,11 @@ struct 💁TipsMenu: View {
                       systemImage: "externaldrive.badge.xmark")
                 VStack {
                     LabeledContent {
-                        Text(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                        Text(self.dataCount.formatted(.byteCount(style: .file)))
                     } label: {
                         Label("Notes data count", systemImage: "books.vertical")
                     }
-                    if self.ⓓataCount > 800000 {
+                    if self.dataCount > 800000 {
                         Text("⚠️ NOTICE DATA LIMITATION")
                             .font(.headline)
                             .foregroundColor(.red)

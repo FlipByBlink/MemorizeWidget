@@ -1,30 +1,32 @@
 import SwiftUI
 
 struct 📥NotesImportSheet: ViewModifier {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     func body(content: Content) -> some View {
         content
-            .sheet(isPresented: $📱.🚩showNotesImportSheet) { 📥NotesImportView() }
+            .sheet(isPresented: self.$model.showNotesImportSheet) {
+                📥NotesImportView()
+            }
     }
 }
 
 private struct 📥NotesImportView: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩showFileImporter: Bool = false
-    @AppStorage("InputMode", store: .ⓐppGroup) var ⓘnputMode: 🄸nputMode = .file
-    @AppStorage("separator", store: .ⓐppGroup) var ⓢeparator: 🅂eparator = .tab
-    @State private var ⓟastedText: String = ""
-    @State private var ⓘmportedText: String = ""
-    private var ⓝotes: 📚Notes { .convert(self.ⓘmportedText, self.ⓢeparator) }
-    @FocusState private var 🔍textFieldFocus: Bool
+    @EnvironmentObject var model: 📱AppModel
+    @State private var showFileImporter: Bool = false
+    @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 🄸nputMode = .file
+    @AppStorage("separator", store: .ⓐppGroup) var separator: 🅂eparator = .tab
+    @State private var pastedText: String = ""
+    @State private var importedText: String = ""
+    private var notes: 📚Notes { .convert(self.importedText, self.separator) }
+    @FocusState private var textFieldFocus: Bool
     @State private var 🚨alertDataSizeLimitExceeded: Bool = false
     @State private var 🚨showErrorAlert: Bool = false
     @State private var 🚨errorMessage: String = ""
     var body: some View {
         NavigationStack {
             List {
-                if self.ⓝotes.isEmpty {
-                    Picker(selection: self.$ⓘnputMode) {
+                if self.notes.isEmpty {
+                    Picker(selection: self.$inputMode) {
                         Label("File", systemImage: "doc")
                             .tag(🄸nputMode.file)
                         Label("Text", systemImage: "text.justify.left")
@@ -32,27 +34,27 @@ private struct 📥NotesImportView: View {
                     } label: {
                         Label("Mode", systemImage: "tray.and.arrow.down")
                     }
-                    self.ⓢeparatorPicker()
-                    switch self.ⓘnputMode {
+                    self.separatorPicker()
+                    switch self.inputMode {
                         case .file:
                             Section {
                                 Button {
-                                    self.🚩showFileImporter.toggle()
+                                    self.showFileImporter.toggle()
                                 } label: {
                                     Label("Import a text-encoded file", systemImage: "folder.badge.plus")
                                         .padding(.vertical, 8)
                                 }
                             }
-                            🄸nputExample(mode: self.$ⓘnputMode)
+                            🄸nputExample(mode: self.$inputMode)
                         case .text:
                             Section {
-                                TextEditor(text: self.$ⓟastedText)
-                                    .focused(self.$🔍textFieldFocus)
+                                TextEditor(text: self.$pastedText)
+                                    .focused(self.$textFieldFocus)
                                     .font(.subheadline.monospaced())
                                     .frame(height: 100)
                                     .padding(8)
                                     .overlay {
-                                        if self.ⓟastedText.isEmpty {
+                                        if self.pastedText.isEmpty {
                                             Label("Paste the text here.", systemImage: "square.and.pencil")
                                                 .font(.subheadline)
                                                 .rotationEffect(.degrees(2))
@@ -65,28 +67,28 @@ private struct 📥NotesImportView: View {
                                     .toolbar {
                                         ToolbarItem(placement: .keyboard) {
                                             Button {
-                                                self.🔍textFieldFocus = false
+                                                self.textFieldFocus = false
                                             } label: {
                                                 Label("Done", systemImage: "keyboard.chevron.compact.down")
                                             }
                                         }
                                     }
                                 Button {
-                                    self.ⓘmportedText = self.ⓟastedText
+                                    self.importedText = self.pastedText
                                 } label: {
                                     Label("Convert this text to notes", systemImage: "text.badge.plus")
                                         .padding(.vertical, 8)
                                 }
-                                .disabled(self.ⓟastedText.isEmpty)
+                                .disabled(self.pastedText.isEmpty)
                             }
-                            .animation(.default, value: self.ⓟastedText.isEmpty)
-                            🄸nputExample(mode: self.$ⓘnputMode)
+                            .animation(.default, value: self.pastedText.isEmpty)
+                            🄸nputExample(mode: self.$inputMode)
                     }
                     🄽otSupportMultiLineTextInNoteSection()
                 } else {
-                    self.ⓢeparatorPicker()
+                    self.separatorPicker()
                     Section {
-                        ForEach(self.ⓝotes) { ⓝote in
+                        ForEach(self.notes) { ⓝote in
                             VStack(alignment: .leading) {
                                 Text(ⓝote.title)
                                 Text(ⓝote.comment)
@@ -96,16 +98,16 @@ private struct 📥NotesImportView: View {
                             .padding(.vertical, 8)
                         }
                     } header: {
-                        Text("Notes count: \(self.ⓝotes.count.description)")
+                        Text("Notes count: \(self.notes.count.description)")
                     }
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !self.ⓝotes.isEmpty {
+                    if !self.notes.isEmpty {
                         Button(role: .cancel) {
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            self.ⓘmportedText = ""
+                            self.importedText = ""
                         } label: {
                             Label("Cancel", systemImage: "xmark")
                                 .font(.body.weight(.semibold))
@@ -114,10 +116,10 @@ private struct 📥NotesImportView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !self.ⓝotes.isEmpty {
+                    if !self.notes.isEmpty {
                         Button {
-                            📱.insertOnTop(self.ⓝotes)
-                            📱.🚩showNotesImportSheet = false
+                            self.model.insertOnTop(self.notes)
+                            self.model.showNotesImportSheet = false
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -126,9 +128,9 @@ private struct 📥NotesImportView: View {
                     }
                 }
                 ToolbarItem(placement: .principal) {
-                    if self.ⓝotes.isEmpty {
+                    if self.notes.isEmpty {
                         Button {
-                            📱.🚩showNotesImportSheet = false
+                            self.model.showNotesImportSheet = false
                             UISelectionFeedbackGenerator().selectionChanged()
                         } label: {
                             Image(systemName: "chevron.down")
@@ -140,8 +142,8 @@ private struct 📥NotesImportView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .animation(.default, value: self.ⓝotes)
-        .animation(.default, value: self.ⓘnputMode)
+        .animation(.default, value: self.notes)
+        .animation(.default, value: self.inputMode)
         .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
             Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
         } message: {
@@ -155,12 +157,12 @@ private struct 📥NotesImportView: View {
         } message: {
             Text(self.🚨errorMessage)
         }
-        .fileImporter(isPresented: self.$🚩showFileImporter,
+        .fileImporter(isPresented: self.$showFileImporter,
                       allowedContentTypes: [.text],
-                      onCompletion: self.ⓕileImportAction)
+                      onCompletion: self.fileImportAction)
     }
-    private func ⓢeparatorPicker() -> some View {
-        Picker(selection: self.$ⓢeparator) {
+    private func separatorPicker() -> some View {
+        Picker(selection: self.$separator) {
             Text("Tab ␣ ")
                 .tag(🅂eparator.tab)
                 .accessibilityLabel("Tab")
@@ -174,17 +176,17 @@ private struct 📥NotesImportView: View {
             Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
         }
     }
-    private func ⓕileImportAction(_ ⓡesult: Result<URL, Error>) {
+    private func fileImportAction(_ ⓡesult: Result<URL, Error>) {
         do {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                let ⓓataCount = 📚Notes.convert(ⓣext, self.ⓢeparator).dataCount
-                guard (ⓓataCount + 📱.📚notes.dataCount) < 800000 else {
+                let ⓓataCount = 📚Notes.convert(ⓣext, self.separator).dataCount
+                guard (ⓓataCount + self.model.notes.dataCount) < 800000 else {
                     self.🚨alertDataSizeLimitExceeded = true
                     return
                 }
-                self.ⓘmportedText = ⓣext
+                self.importedText = ⓣext
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
         } catch {

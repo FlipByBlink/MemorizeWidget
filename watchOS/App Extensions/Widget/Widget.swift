@@ -2,7 +2,7 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct WidgetForWatchOS: WidgetBundle {
+struct WatchOSWidgetBundle: WidgetBundle {
     var body: some Widget {
         🪧Widget()
         🪧NewNoteShortcutWidget()

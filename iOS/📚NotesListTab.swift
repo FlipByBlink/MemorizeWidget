@@ -2,38 +2,38 @@ import SwiftUI
 import WidgetKit
 
 struct 📚NotesListTab: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
-            ScrollViewReader { 🚡 in
+            ScrollViewReader { ⓢcrollViewProxy in
                 List {
                     🔀RandomModeSection()
                     Section {
                         🆕NewNoteOnTopButton()
-                        ForEach($📱.📚notes) { ⓝote in
-                            📓NoteView(ⓝote, layout: .notesList)
+                        ForEach(self.$model.notes) { ⓝote in
+                            📗NoteView(ⓝote, layout: .notesList)
                                 .id(ⓝote.id)
                         }
-                        .onDelete { 📱.deleteNote($0) }
-                        .onMove { 📱.moveNote($0, $1) }
+                        .onDelete { self.model.deleteNote($0) }
+                        .onMove { self.model.moveNote($0, $1) }
                     } footer: {
-                        Text("Notes count: \(📱.📚notes.count.description)")
-                            .opacity(📱.📚notes.count < 6  ? 0 : 1)
+                        Text("Notes count: \(self.model.notes.count.description)")
+                            .opacity(self.model.notes.count < 6  ? 0 : 1)
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .onChange(of: self.📱.🆕newNoteID) { 🚡.scrollTo($0) }
-                .onOpenURL { self.ⓗandleNewNoteShortcut($0, 🚡) }
-                .animation(.default, value: 📱.📚notes)
+                .onChange(of: self.self.model.createdNewNoteID) { ⓢcrollViewProxy.scrollTo($0) }
+                .onOpenURL { self.handleNewNoteShortcut($0, ⓢcrollViewProxy) }
+                .animation(.default, value: self.model.notes)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
-                            .disabled(📱.📚notes.isEmpty)
+                            .disabled(self.model.notes.isEmpty)
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
                             UISelectionFeedbackGenerator().selectionChanged()
-                            📱.🚩showNotesImportSheet.toggle()
+                            self.model.showNotesImportSheet.toggle()
                         } label: {
                             Label("Import notes", systemImage: "tray.and.arrow.down")
                         }
@@ -42,25 +42,25 @@ struct 📚NotesListTab: View {
             }
         }
     }
-    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL, _ 🚡: ScrollViewProxy) {
+    private func handleNewNoteShortcut(_ ⓤrl: URL, _ ⓢcrollViewProxy: ScrollViewProxy) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                🚡.scrollTo("NewNoteButton")
-                📱.addNewNoteOnTop()
+                ⓢcrollViewProxy.scrollTo("NewNoteButton")
+                self.model.addNewNoteOnTop()
             }
         }
     }
 }
 
 private struct 🔀RandomModeSection: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Section {
-            Toggle(isOn: $📱.🚩randomMode) {
+            Toggle(isOn: self.$model.randomMode) {
                 Label("Random mode", systemImage: "shuffle")
                     .padding(.vertical, 8)
             }
-            .onChange(of: 📱.🚩randomMode) { _ in
+            .onChange(of: self.model.randomMode) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
@@ -70,9 +70,9 @@ private struct 🔀RandomModeSection: View {
 }
 
 private struct 🆕NewNoteOnTopButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
-        Button(action: 📱.addNewNoteOnTop) {
+        Button(action: self.model.addNewNoteOnTop) {
             Label("New note", systemImage: "plus")
                 .font(.title3.weight(.semibold))
                 .padding(.vertical, 7)
@@ -82,85 +82,84 @@ private struct 🆕NewNoteOnTopButton: View {
 }
 
 struct 🎛️NoteMenuButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    @Binding private var ⓝote: 📗Note
-    @State private var 📘dictionaryState: 📘DictionaryState = .default
+    @Binding private var note: 📗Note
+    @State private var dictionaryState: 📘DictionaryState = .default
     var body: some View {
         Menu {
-            📘DictionaryItem(self.ⓝote, self.$📘dictionaryState)
-            🔍SearchButton(self.ⓝote)
-            🆕InsertNewNoteBelowButton(self.ⓝote)
-            🚠MoveSection(self.ⓝote)
-            Section { 🚮DeleteNoteButton(self.ⓝote) }
+            📘DictionaryItem(self.note, self.$dictionaryState)
+            🔍SearchButton(self.note)
+            🆕InsertNewNoteBelowButton(self.note)
+            🚠MoveSection(self.note)
+            Section { 🚮DeleteNoteButton(self.note) }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")
                 .foregroundColor(.secondary)
                 .labelStyle(.iconOnly)
                 .padding(12)
-                .modifier(📘DictionarySheet(self.$📘dictionaryState))
+                .modifier(📘DictionarySheet(self.$dictionaryState))
         }
-        .modifier(🩹Workaround.closeMenePopup())
+        .modifier(🩹Workaround.CloseMenePopup())
     }
     init(_ note: Binding<📗Note>) {
-        self._ⓝote = note
+        self._note = note
     }
 }
 
 private struct 📘DictionaryItem: View {
-    private var ⓣerm: String
-    @Binding private var ⓢtate: 📘DictionaryState
+    private var term: String
+    @Binding private var dictionaryState: 📘DictionaryState
     var body: some View {
 #if !targetEnvironment(macCatalyst)
             Button {
-                self.ⓢtate.request(self.ⓣerm)
+                self.dictionaryState.request(self.term)
             } label: {
                 Label("Dictionary", systemImage: "character.book.closed")
             }
 #else
-        📘DictionaryButtonOnMac(term: self.ⓣerm)
+        📘DictionaryButtonOnMac(term: self.term)
 #endif
     }
     init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
-        self.ⓣerm = note.title
-        self._ⓢtate = state
+        self.term = note.title
+        self._dictionaryState = state
     }
 }
 
 private struct 🚠MoveSection: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
+    @EnvironmentObject var model: 📱AppModel
+    private var note: 📗Note
     var body: some View {
         Section {
             Button {
-                📱.moveTop(self.ⓝote)
+                self.model.moveTop(self.note)
             } label: {
                 Label("Move top", systemImage: "arrow.up.to.line")
             }
-            .disabled(📱.📚notes.first == self.ⓝote)
+            .disabled(self.model.notes.first == self.note)
             Button {
-                📱.moveEnd(self.ⓝote)
+                self.model.moveEnd(self.note)
             } label: {
                 Label("Move end", systemImage: "arrow.down.to.line")
             }
-            .disabled(📱.📚notes.last == self.ⓝote)
+            .disabled(self.model.notes.last == self.note)
         }
     }
     init(_ note: 📗Note) {
-        self.ⓝote = note
+        self.note = note
     }
 }
 
 private struct 🆕InsertNewNoteBelowButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
+    @EnvironmentObject var model: 📱AppModel
+    private var note: 📗Note
     var body: some View {
         Button {
-            📱.addNewNoteBelow(self.ⓝote)
+            self.model.addNewNoteBelow(self.note)
         } label: {
             Label("New note", systemImage: "text.append")
         }
     }
     init(_ note: 📗Note) {
-        self.ⓝote = note
+        self.note = note
     }
 }

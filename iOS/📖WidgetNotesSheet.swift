@@ -1,27 +1,27 @@
 import SwiftUI
 
 struct 📖WidgetNotesSheet: ViewModifier {
-    @EnvironmentObject var 📱: 📱AppModel
-    @EnvironmentObject var 🛒: 🛒InAppPurchaseModel
+    @EnvironmentObject var appModel: 📱AppModel
+    @EnvironmentObject var inAppPurchaseModel: 🛒InAppPurchaseModel
     func body(content: Content) -> some View {
         content
-            .sheet(isPresented: $📱.🪧widgetState.showSheet) {
+            .sheet(isPresented: self.$appModel.widgetState.showSheet) {
                 📖WidgetNotesView()
-                    .environmentObject(📱)
-                    .environmentObject(🛒)
+                    .environmentObject(self.appModel)
+                    .environmentObject(self.inAppPurchaseModel)
             }
     }
 }
 
 private struct 📖WidgetNotesView: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
             Group {
-                if 📱.🪧widgetState.info?.targetedNotesCount == 1 {
-                    Self.🅂igleNoteLayout()
+                if self.model.widgetState.info?.targetedNotesCount == 1 {
+                    Self.SigleNoteLayoutView()
                 } else {
-                    Self.🄼ultiNotesLayout()
+                    Self.MultiNotesLayoutView()
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -29,23 +29,25 @@ private struct 📖WidgetNotesView: View {
         }
         .modifier(📣ADSheet())
     }
-    private struct 🅂igleNoteLayout: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        private var ⓘndex: Int? { 📱.📚notes.index(📱.🪧widgetState.info?.targetedNoteIDs?.first) }
+    private struct SigleNoteLayoutView: View {
+        @EnvironmentObject var model: 📱AppModel
+        private var ⓘndex: Int? {
+            self.model.notes.index(self.model.widgetState.info?.targetedNoteIDs?.first)
+        }
         var body: some View {
             VStack {
                 Spacer()
                 if let ⓘndex {
-                    📓NoteView($📱.📚notes[ⓘndex], layout: .widgetSheet_single)
+                    📗NoteView(self.$model.notes[ⓘndex], layout: .widgetSheet_single)
                         .padding(.horizontal, 32)
                     Spacer()
                     HStack {
                         Spacer()
-                        📘DictionaryButton(📱.📚notes[ⓘndex])
+                        📘DictionaryButton(self.model.notes[ⓘndex])
                         Spacer()
-                        🔍SearchButton(📱.📚notes[ⓘndex])
+                        🔍SearchButton(self.model.notes[ⓘndex])
                         Spacer()
-                        🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                        🚮DeleteNoteButton(self.model.notes[ⓘndex])
                         Spacer()
                     }
                     .labelStyle(.iconOnly)
@@ -61,71 +63,71 @@ private struct 📖WidgetNotesView: View {
             }
         }
     }
-    private struct 🄼ultiNotesLayout: View {
-        @EnvironmentObject var 📱: 📱AppModel
+    private struct MultiNotesLayoutView: View {
+        @EnvironmentObject var model: 📱AppModel
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
-        private var ⓘds: [UUID] { 📱.🪧widgetState.info?.targetedNoteIDs ?? [] }
-        private var ⓣargetNotesCount: Int { 📱.🪧widgetState.info?.targetedNotesCount ?? 0 }
+        private var ids: [UUID] { self.model.widgetState.info?.targetedNoteIDs ?? [] }
+        private var targetNotesCount: Int { self.model.widgetState.info?.targetedNotesCount ?? 0 }
         var body: some View {
             List {
-                if self.ⓣargetNotesCount < 4 {
-                    ForEach(self.ⓘds, id: \.self) { ⓘd in
-                        Section { self.ⓝoteRow(ⓘd) }
+                if self.targetNotesCount < 4 {
+                    ForEach(self.ids, id: \.self) { ⓘd in
+                        Section { self.noteRow(ⓘd) }
                     }
                 } else {
                     Section {
-                        ForEach(self.ⓘds, id: \.self) { self.ⓝoteRow($0) }
+                        ForEach(self.ids, id: \.self) { self.noteRow($0) }
                     }
                 }
-                if 📱.deletedAllWidgetNotes {
+                if self.model.deletedAllWidgetNotes {
                     Section { 🚮DeletedNoteView() }
                 }
             }
         }
-        private func ⓝoteRow(_ ⓘd: UUID) -> some View {
+        private func noteRow(_ ⓘd: UUID) -> some View {
             Group {
-                if let ⓘndex = 📱.📚notes.index(ⓘd) {
+                if let ⓘndex = self.model.notes.index(ⓘd) {
                     if self.horizontalSizeClass == .compact {
                         VStack(spacing: 0) {
-                            📓NoteView($📱.📚notes[ⓘndex],
-                                       layout: .widgetSheet_multi(self.ⓣargetNotesCount))
+                            📗NoteView(self.$model.notes[ⓘndex],
+                                       layout: .widgetSheet_multi(self.targetNotesCount))
                             HStack {
                                 Spacer()
-                                📘DictionaryButton(📱.📚notes[ⓘndex])
+                                📘DictionaryButton(self.model.notes[ⓘndex])
                                 Spacer()
-                                🔍SearchButton(📱.📚notes[ⓘndex])
+                                🔍SearchButton(self.model.notes[ⓘndex])
                                 Spacer()
-                                if !📱.🚩randomMode {
-                                    🔚MoveEndButton(📱.📚notes[ⓘndex])
+                                if !self.model.randomMode {
+                                    🔚MoveEndButton(self.model.notes[ⓘndex])
                                     Spacer()
                                 }
-                                🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                                🚮DeleteNoteButton(self.model.notes[ⓘndex])
                                 Spacer()
                             }
                             .labelStyle(.iconOnly)
                             .buttonStyle(.plain)
                             .foregroundColor(.primary)
-                            .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
-                            .padding(self.ⓣargetNotesCount < 4 ? 12 : 4)
+                            .font(self.targetNotesCount < 4 ? .title3 : .body)
+                            .padding(self.targetNotesCount < 4 ? 12 : 4)
                         }
-                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 4)
+                        .padding(self.targetNotesCount < 4 ? 8 : 4)
                     } else {
                         HStack(spacing: 0) {
-                            📓NoteView($📱.📚notes[ⓘndex],
-                                       layout: .widgetSheet_multi(self.ⓣargetNotesCount))
+                            📗NoteView(self.$model.notes[ⓘndex],
+                                       layout: .widgetSheet_multi(self.targetNotesCount))
                             HStack(spacing: 24) {
-                                📘DictionaryButton(📱.📚notes[ⓘndex])
-                                🔍SearchButton(📱.📚notes[ⓘndex])
-                                if !📱.🚩randomMode { 🔚MoveEndButton(📱.📚notes[ⓘndex]) }
-                                🚮DeleteNoteButton(📱.📚notes[ⓘndex])
+                                📘DictionaryButton(self.model.notes[ⓘndex])
+                                🔍SearchButton(self.model.notes[ⓘndex])
+                                if !self.model.randomMode { 🔚MoveEndButton(self.model.notes[ⓘndex]) }
+                                🚮DeleteNoteButton(self.model.notes[ⓘndex])
                             }
                             .labelStyle(.iconOnly)
                             .buttonStyle(.plain)
                             .foregroundColor(.primary)
                             .padding()
-                            .font(self.ⓣargetNotesCount < 4 ? .title3 : .body)
+                            .font(self.targetNotesCount < 4 ? .title3 : .body)
                         }
-                        .padding(self.ⓣargetNotesCount < 4 ? 8 : 0)
+                        .padding(self.targetNotesCount < 4 ? 8 : 0)
                     }
                 }
             }
@@ -134,40 +136,40 @@ private struct 📖WidgetNotesView: View {
 }
 
 private struct 📘DictionaryButton: View {
-    private var ⓣerm: String
-    @State private var ⓢtate: 📘DictionaryState = .default
+    private var term: String
+    @State private var dictionaryState: 📘DictionaryState = .default
     var body: some View {
 #if !targetEnvironment(macCatalyst)
         Button {
-            self.ⓢtate.request(self.ⓣerm)
+            self.dictionaryState.request(self.term)
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
-        .modifier(📘DictionarySheet(self.$ⓢtate))
+        .modifier(📘DictionarySheet(self.$dictionaryState))
 #else
-        📘DictionaryButtonOnMac(term: self.ⓣerm)
+        📘DictionaryButtonOnMac(term: self.term)
 #endif
     }
     init(_ note: 📗Note) {
-        self.ⓣerm = note.title
+        self.term = note.title
     }
 }
 
 private struct 🔚MoveEndButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
-    @State private var ⓓone: Bool = false
+    @EnvironmentObject var model: 📱AppModel
+    private var note: 📗Note
+    @State private var done: Bool = false
     var body: some View {
         Button {
-            📱.moveEnd(self.ⓝote)
-            withAnimation { self.ⓓone = true }
+            self.model.moveEnd(self.note)
+            withAnimation { self.done = true }
         } label: {
             Label("Move end", systemImage: "arrow.down.to.line")
         }
-        .disabled(📱.📚notes.last == self.ⓝote)
-        .opacity(self.ⓓone ? 0.33 : 1)
+        .disabled(self.model.notes.last == self.note)
+        .opacity(self.done ? 0.33 : 1)
         .overlay {
-            if self.ⓓone {
+            if self.done {
                 Image(systemName: "checkmark")
                     .imageScale(.small)
                     .symbolRenderingMode(.hierarchical)
@@ -175,7 +177,7 @@ private struct 🔚MoveEndButton: View {
         }
     }
     init(_ note: 📗Note) {
-        self.ⓝote = note
+        self.note = note
     }
 }
 
@@ -197,10 +199,10 @@ private struct 🚮DeletedNoteView: View {
 }
 
 private struct 🅧DismissButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Button {
-            📱.🪧widgetState.showSheet = false
+            self.model.widgetState.showSheet = false
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Image(systemName: "xmark.circle.fill")

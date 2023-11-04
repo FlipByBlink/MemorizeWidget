@@ -6,6 +6,9 @@ struct 🪧WidgetEntry: TimelineEntry {
     init(_ date: Date, _ info: 🪧WidgetInfo) {
         self.date = date; self.info = info
     }
+}
+
+extension 🪧WidgetEntry {
     static func generateEntry(_ ⓓate: Date, _ ⓦidgetFamily: WidgetFamily) -> Self {
         let ⓝotes: 📚Notes = Self.loadNotes()
         guard !ⓝotes.isEmpty else { return Self(.now, .noNote) }
@@ -48,6 +51,9 @@ struct 🪧WidgetEntry: TimelineEntry {
                             policy: .after(Calendar.current.date(byAdding: .minute, value: 20, to: .now)!))
         }
     }
+}
+
+private extension 🪧WidgetEntry {
     private static func loadNotes() -> 📚Notes {
         if #available(iOS 16, *) {
             return 💾ICloud.loadNotes() ?? []

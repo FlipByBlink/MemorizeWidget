@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
             List {
@@ -9,7 +9,7 @@ struct ContentView: View {
                     📚NotesMenu()
                 } label: {
                     LabeledContent {
-                        Text(📱.📚notes.count.description)
+                        Text("\(self.model.notes.count)")
                     } label: {
                         Label("Notes", systemImage: "books.vertical")
                     }
@@ -33,7 +33,7 @@ struct ContentView: View {
             .navigationTitle("MemorizeWidget")
         }
         .modifier(🆕NewNoteShortcut())
-        .onOpenURL(perform: 📱.handleWidgetURL)
-        .sheet(isPresented: $📱.🪧widgetState.showSheet) { 📖WidgetNotesSheet() }
+        .onOpenURL(perform: self.model.handleWidgetURL)
+        .sheet(isPresented: self.$model.widgetState.showSheet) { 📖WidgetNotesSheet() }
     }
 }

@@ -1,29 +1,28 @@
 import SwiftUI
 
 struct 🆕NewNoteShortcut: ViewModifier {
-    @EnvironmentObject var 📱: 📱AppModel
-    @State private var 🚩showSheet: Bool = false
-    @FocusState private var 🚩focus: Bool
-    @State private var ⓣitle: String = ""
-    @State private var ⓒomment: String = ""
+    @EnvironmentObject var model: 📱AppModel
+    @State private var showSheet: Bool = false
+    @State private var title: String = ""
+    @State private var comment: String = ""
     func body(content: Content) -> some View {
         content
-            .sheet(isPresented: self.$🚩showSheet) {
+            .sheet(isPresented: self.$showSheet) {
                 List {
-                    TextField("Title", text: self.$ⓣitle)
+                    TextField("Title", text: self.$title)
                         .font(.headline)
-                    TextField("Comment", text: self.$ⓒomment)
+                    TextField("Comment", text: self.$comment)
                         .font(.subheadline)
-                        .opacity(self.ⓣitle.isEmpty ? 0.33 : 1)
+                        .opacity(self.title.isEmpty ? 0.33 : 1)
                     Section {
                         Button {
-                            📱.insertOnTop([📗Note(self.ⓣitle, self.ⓒomment)])
-                            self.🚩showSheet = false
+                            self.model.insertOnTop([📗Note(self.title, self.comment)])
+                            self.showSheet = false
                             💥Feedback.success()
                             Task { @MainActor in
                                 try? await Task.sleep(for: .seconds(1))
-                                self.ⓣitle = ""
-                                self.ⓒomment = ""
+                                self.title = ""
+                                self.comment = ""
                             }
                         } label: {
                             Label("Done", systemImage: "checkmark")
@@ -31,17 +30,17 @@ struct 🆕NewNoteShortcut: ViewModifier {
                         .buttonStyle(.bordered)
                         .listRowBackground(Color.clear)
                         .fontWeight(.semibold)
-                        .disabled(self.ⓣitle.isEmpty)
-                        .foregroundStyle(self.ⓣitle.isEmpty ? .tertiary : .primary)
+                        .disabled(self.title.isEmpty)
+                        .foregroundStyle(self.title.isEmpty ? .tertiary : .primary)
                     }
                 }
-                .animation(.default, value: self.ⓣitle.isEmpty)
+                .animation(.default, value: self.title.isEmpty)
             }
-            .onOpenURL(perform: self.ⓗandleNewNoteShortcut(_:))
+            .onOpenURL(perform: self.handleNewNoteShortcut(_:))
     }
-    private func ⓗandleNewNoteShortcut(_ ⓤrl: URL) {
+    private func handleNewNoteShortcut(_ ⓤrl: URL) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            self.🚩showSheet = true
+            self.showSheet = true
         }
     }
 }

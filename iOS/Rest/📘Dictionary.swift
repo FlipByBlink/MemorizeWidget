@@ -3,7 +3,7 @@ import SwiftUI
 struct 📘DictionaryState {
     var showSheet: Bool
     var viewController: UIReferenceLibraryViewController?
-    static var `default`: Self { Self(showSheet: false, viewController: nil) }
+    static var `default`: Self { .init(showSheet: false, viewController: nil) }
     mutating func request(_ ⓣerm: String) {
         self.viewController = UIReferenceLibraryViewController(term: ⓣerm)
         self.showSheet = true
@@ -12,11 +12,11 @@ struct 📘DictionaryState {
 }
 
 struct 📘DictionarySheet: ViewModifier {
-    @Binding private var ⓢtate: 📘DictionaryState
+    @Binding private var dictionaryState: 📘DictionaryState
     func body(content: Content) -> some View {
-        let ⓥiewController = self.ⓢtate.viewController
+        let ⓥiewController = self.dictionaryState.viewController
         content
-            .sheet(isPresented: self.$ⓢtate.showSheet) {
+            .sheet(isPresented: self.$dictionaryState.showSheet) {
                 if let ⓥiewController {
                     🄳ictinaryView(ⓥiewController)
                         .ignoresSafeArea()
@@ -24,25 +24,25 @@ struct 📘DictionarySheet: ViewModifier {
             }
     }
     init(_ state: Binding<📘DictionaryState>) {
-        self._ⓢtate = state
+        self._dictionaryState = state
     }
 }
 
 private struct 🄳ictinaryView: UIViewControllerRepresentable {
-    private var ⓥiewController: UIReferenceLibraryViewController
+    private var viewController: UIReferenceLibraryViewController
     func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
-        self.ⓥiewController
+        self.viewController
     }
     func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {
         //Nothing to do
     }
     init(_ viewController: UIReferenceLibraryViewController) {
-        self.ⓥiewController = viewController
+        self.viewController = viewController
     }
 }
 
 struct 📘DictionaryButtonOnMac: View {
-    @Environment(\.openURL) private var openURL
+    @Environment(\.openURL) var openURL
     var term: String
     private var ⓤrl: URL? {
         if let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) {

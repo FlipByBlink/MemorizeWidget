@@ -10,7 +10,9 @@ class 📨ShareExtensionModel: ObservableObject {
     
     @Published var singleNote: 📗Note = .empty
     @Published var importSelectedTextAsSingleNote: Bool = true
-    
+}
+
+extension 📨ShareExtensionModel {
     var convertedNotes: 📚Notes {
         switch self.type {
             case .textFile: .convert(self.importedFileText, self.separator)
@@ -18,7 +20,6 @@ class 📨ShareExtensionModel: ObservableObject {
             default: []
         }
     }
-    
     func storeNotes() {
         var ⓝotes: 📚Notes = 💾ICloud.loadNotes() ?? []
         switch self.type {
@@ -31,11 +32,10 @@ class 📨ShareExtensionModel: ObservableObject {
                     ⓝotes.insert(contentsOf: self.convertedNotes, at: 0)
                 }
             default:
-                ⓝotes.insert(contentsOf: [📗Note("🐛")], at: 0)
+                ⓝotes.insert(contentsOf: [📗Note("BUG")], at: 0)
         }
         💾ICloud.save(ⓝotes)
     }
-    
     @MainActor
     func setUp(_ extensionContext: NSExtensionContext?) {
         self.extensionContext = extensionContext
@@ -75,8 +75,4 @@ class 📨ShareExtensionModel: ObservableObject {
             }
         }
     }
-}
-
-enum 🄸nputType {
-    case textFile, selectedText, improperFile, exceedDataLimitation
 }

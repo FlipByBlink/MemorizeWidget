@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 struct 🔩MainMenu: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
             self.randomModeSection()
@@ -22,10 +22,10 @@ struct 🔩MainMenu: View {
 private extension 🔩MainMenu {
     private func randomModeSection() -> some View {
         Section {
-            Toggle(isOn: $📱.🚩randomMode) {
+            Toggle(isOn: self.$model.randomMode) {
                 Label("Random mode", systemImage: "shuffle")
             }
-            .onChange(of: 📱.🚩randomMode) { _ in
+            .onChange(of: self.model.randomMode) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         } footer: {
@@ -44,20 +44,20 @@ private extension 🔩MainMenu {
         }
     }
     private struct CommentOnWidgetSection: View {
-        @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩value: Bool = false
-        @AppStorage("multiNotes", store: .ⓐppGroup) var ⓜultiNotes: Bool = false
+        @AppStorage("ShowComment", store: .ⓐppGroup) var value: Bool = false
+        @AppStorage("multiNotes", store: .ⓐppGroup) var multiNotesMode: Bool = false
         var body: some View {
-            Toggle(isOn: self.$🚩value) {
+            Toggle(isOn: self.$value) {
                 Label("Show comment", systemImage: "text.append")
             }
-            .disabled(self.ⓜultiNotes)
-            .onChange(of: self.🚩value) { _ in
+            .disabled(self.multiNotesMode)
+            .onChange(of: self.value) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
     private struct DeleteAllNotesButton: View {
-        @EnvironmentObject var 📱: 📱AppModel
+        @EnvironmentObject var model: 📱AppModel
         @State private var showDialog: Bool = false
         var body: some View {
             Section {
@@ -66,10 +66,10 @@ private extension 🔩MainMenu {
                 } label: {
                     Label("Delete all notes.", systemImage: "delete.backward.fill")
                 }
-                .disabled(📱.📚notes.isEmpty)
+                .disabled(self.model.notes.isEmpty)
                 .confirmationDialog("Delete all notes.", isPresented: self.$showDialog) {
                     Button(role: .destructive) {
-                        📱.removeAllNotes()
+                        self.model.removeAllNotes()
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }

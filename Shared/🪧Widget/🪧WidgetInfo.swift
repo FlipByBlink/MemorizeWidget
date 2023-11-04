@@ -2,7 +2,7 @@ import WidgetKit
 
 enum 🪧WidgetInfo {
     case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
-    var description: String {
+    var urlString: String {
         switch self {
             case .singleNote(let ⓘd):
                 return "example://singleNote/\(ⓘd.uuidString)"
@@ -22,7 +22,7 @@ enum 🪧WidgetInfo {
                 return "example://"
         }
     }
-    var url: URL { URL(string: self.description)! }
+    var url: URL { .init(string: self.urlString)! }
     static func load(_ ⓤrl: URL) -> Self? {
         switch ⓤrl.host {
             case "singleNote":

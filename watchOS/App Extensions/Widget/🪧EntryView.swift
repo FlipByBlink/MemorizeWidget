@@ -1,20 +1,20 @@
 import SwiftUI
 
 struct 🪧EntryView: View {
-    private var ⓘnfo: 🪧WidgetInfo
+    private var info: 🪧WidgetInfo
     var body: some View {
         Group {
-            if self.ⓘnfo.targetedNotes.isEmpty {
+            if self.info.targetedNotes.isEmpty {
                 Image(systemName: "book.closed")
                     .foregroundStyle(.tertiary)
             } else {
-                🪧AccessoryWidgetView(self.ⓘnfo)
+                🪧AccessoryWidgetView(self.info)
             }
         }
-        .widgetURL(self.ⓘnfo.url)
+        .widgetURL(self.info.url)
         .modifier(🪧ContainerBackground())
     }
     init(_ ⓔntry: 🪧WidgetEntry) {
-        self.ⓘnfo = ⓔntry.info
+        self.info = ⓔntry.info
     }
 }

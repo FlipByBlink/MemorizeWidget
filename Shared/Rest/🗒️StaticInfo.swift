@@ -43,7 +43,7 @@ extension 🗒️StaticInfo {
                              "📱AppModel.swift",
                              "📗NoteModel.swift"]
                 case .Rest: ["💾ICloud.swift",
-                             "📓NoteView.swift",
+                             "📗NoteView.swift",
                              "📚NotesListTab.swift",
                              "📖WidgetNotesSheet.swift",
                              "📘Dictionary.swift",

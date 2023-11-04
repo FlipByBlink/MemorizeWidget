@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct 🚮DeleteNoteButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓝote: 📗Note
+    @EnvironmentObject var model: 📱AppModel
+    private var note: 📗Note
     var body: some View {
         Button(role: .destructive) {
-            📱.removeNote(self.ⓝote)
+            self.model.removeNote(self.note)
         } label: {
             Label("Delete", systemImage: "trash")
         }
     }
     init(_ note: 📗Note) {
-        self.ⓝote = note
+        self.note = note
     }
 }

@@ -2,20 +2,24 @@ import SwiftUI
 
 struct 🔍SearchButton: View {
     @Environment(\.openURL) var openURL
-    @AppStorage("SearchLeadingText") var 🔗leading: String = ""
-    @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
-    private var ⓠuery: String
+    @AppStorage("SearchLeadingText") var inputtedLeadingText: String = ""
+    @AppStorage("SearchTrailingText") var trailingText: String = ""
+    private var query: String
     var body: some View {
         Button(action: self.action) {
             Label("Search", systemImage: "magnifyingglass")
         }
     }
     init(_ note: 📗Note) {
-        self.ⓠuery = note.title
+        self.query = note.title
     }
     private func action() {
-        let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
-        let ⓣext = ⓛeading + self.ⓠuery + self.🔗trailing
+        let ⓛeadingText = if self.inputtedLeadingText.isEmpty {
+            "https://duckduckgo.com/?q="
+        } else {
+            self.inputtedLeadingText
+        }
+        let ⓣext = ⓛeadingText + self.query + self.trailingText
         guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let ⓤrl = URL(string: ⓔncodedText) else { return }
         UIImpactFeedbackGenerator(style: .light).impactOccurred()

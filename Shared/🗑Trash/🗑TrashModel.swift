@@ -1,15 +1,10 @@
 import SwiftUI
 
-struct 🄳eletedContent: Codable, Equatable, Identifiable {
-    var date: Date
-    var notes: 📚Notes
-    var id: Date { self.date }
-}
-
-typealias 🄳eletedContents = [🄳eletedContent]
-
 struct 🗑TrashModel: Codable {
     private(set) var deletedContents: 🄳eletedContents
+}
+
+extension 🗑TrashModel {
     static var empty: Self { Self(deletedContents: []) }
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
         let ⓓeletedNotes = ⓝotes.filter { !$0.isEmpty }
@@ -34,16 +29,16 @@ struct 🗑TrashModel: Codable {
             }
         }
     }
-}
-
-extension 🗑TrashModel {
-    private func save() {
-        guard let ⓓata = try? JSONEncoder().encode(self) else { assertionFailure(); return }
-        💾UserDefaults.appGroup.set(ⓓata, forKey: "DeletedContents")
-    }
     static func load() -> Self {
         guard let ⓓata = 💾UserDefaults.appGroup.data(forKey: "DeletedContents") else { return .empty }
         guard let ⓜodel = try? JSONDecoder().decode(Self.self, from: ⓓata) else { assertionFailure(); return .empty }
         return ⓜodel
+    }
+}
+
+private extension 🗑TrashModel {
+    private func save() {
+        guard let ⓓata = try? JSONEncoder().encode(self) else { assertionFailure(); return }
+        💾UserDefaults.appGroup.set(ⓓata, forKey: "DeletedContents")
     }
 }

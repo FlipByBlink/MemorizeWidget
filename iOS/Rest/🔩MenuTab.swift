@@ -19,14 +19,14 @@ struct 🔩MenuTab: View {
 }
 
 private struct 📑MultiNotesOption: View {
-    @AppStorage("multiNotes", store: .ⓐppGroup) var 🚩value: Bool = false
+    @AppStorage("multiNotes", store: .ⓐppGroup) var value: Bool = false
     var body: some View {
         Section {
-            Toggle(isOn: self.$🚩value) {
+            Toggle(isOn: self.$value) {
                 Label("Show multi notes on widget", systemImage: "doc.on.doc")
                     .padding(.vertical, 8)
             }
-            .onChange(of: self.🚩value) { _ in
+            .onChange(of: self.value) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
             VStack(spacing: 12) {
@@ -45,14 +45,14 @@ private struct 📑MultiNotesOption: View {
 }
 
 private struct 💬CommentOnWidgetSection: View {
-    @AppStorage("ShowComment", store: .ⓐppGroup) var 🚩value: Bool = false
+    @AppStorage("ShowComment", store: .ⓐppGroup) var value: Bool = false
     var body: some View {
         Section {
-            Toggle(isOn: self.$🚩value) {
+            Toggle(isOn: self.$value) {
                 Label("Show comment on widget", systemImage: "text.append")
                     .padding(.vertical, 8)
             }
-            .onChange(of: self.🚩value) { _ in
+            .onChange(of: self.value) { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }
             VStack(spacing: 12) {
@@ -69,33 +69,36 @@ private struct 💬CommentOnWidgetSection: View {
 private struct 🔍CustomizeSearchRow: View {
     var body: some View {
         NavigationLink {
-            Self.🄼enu()
+            Self.Destination()
         } label: {
             Label("Customize search button", systemImage: "magnifyingglass")
         }
     }
-    private struct 🄼enu: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        @AppStorage("SearchLeadingText") var 🔗leading: String = ""
-        @AppStorage("SearchTrailingText") var 🔗trailing: String = ""
-        private var ⓔntireText: String {
-            let ⓛeading = self.🔗leading.isEmpty ? "https://duckduckgo.com/?q=" : self.🔗leading
-            return ⓛeading + "NOTETITLE" + self.🔗trailing
+    private struct Destination: View {
+        @AppStorage("SearchLeadingText") var inputtedLeadingText: String = ""
+        @AppStorage("SearchTrailingText") var trailingText: String = ""
+        private var entireText: String {
+            let ⓛeadingText = if self.inputtedLeadingText.isEmpty {
+                "https://duckduckgo.com/?q="
+            } else {
+                self.inputtedLeadingText
+            }
+            return ⓛeadingText + "NOTETITLE" + self.trailingText
         }
         var body: some View {
             List {
                 Section {
                     VStack {
-                        Text(self.ⓔntireText)
+                        Text(self.entireText)
                             .italic()
                             .font(.system(.caption, design: .monospaced))
                             .multilineTextAlignment(.center)
                             .padding(8)
                             .frame(minHeight: 100)
-                            .animation(.default, value: self.🔗leading.isEmpty)
-                            .foregroundStyle(self.🔗leading.isEmpty ? .secondary : .primary)
-                        TextField("Leading component", text: self.$🔗leading)
-                        TextField("Trailing component", text: self.$🔗trailing)
+                            .animation(.default, value: self.inputtedLeadingText.isEmpty)
+                            .foregroundStyle(self.inputtedLeadingText.isEmpty ? .secondary : .primary)
+                        TextField("Leading component", text: self.$inputtedLeadingText)
+                        TextField("Trailing component", text: self.$trailingText)
                             .font(.subheadline)
                             .padding(.bottom, 6)
                     }
@@ -123,34 +126,34 @@ private struct 🔍CustomizeSearchRow: View {
 }
 
 private struct 📤ExportNotesRow: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationLink {
-            Self.🄼enu()
+            Self.Destination()
         } label: {
             Label("Export notes as text", systemImage: "square.and.arrow.up")
         }
-        .disabled(📱.📚notes.isEmpty)
-        .animation(.default, value: 📱.📚notes.isEmpty)
+        .disabled(self.model.notes.isEmpty)
+        .animation(.default, value: self.model.notes.isEmpty)
     }
-    private struct 🄼enu: View {
-        @EnvironmentObject var 📱: 📱AppModel
-        private var ⓣext: String {
-            📱.📚notes.reduce(into: "") { ⓟartialResult, ⓝote in
+    private struct Destination: View {
+        @EnvironmentObject var model: 📱AppModel
+        private var text: String {
+            self.model.notes.reduce(into: "") { ⓟartialResult, ⓝote in
                 var ⓣempNote = ⓝote
                 ⓣempNote.title.removeAll(where: { $0 == "\n" })
                 ⓣempNote.comment.removeAll(where: { $0 == "\n" })
                 ⓟartialResult += ⓣempNote.title + "\t" + ⓣempNote.comment
-                if ⓝote != 📱.📚notes.last { ⓟartialResult += "\n" }
+                if ⓝote != self.model.notes.last { ⓟartialResult += "\n" }
             }
         }
         var body: some View {
             List {
                 Section {
                     Label("Notes count", systemImage: "books.vertical")
-                        .badge(📱.📚notes.count)
+                        .badge(self.model.notes.count)
                     ScrollView(.horizontal) {
-                        Text(self.ⓣext)
+                        Text(self.text)
                             .font(.subheadline.monospaced().italic())
                             .textSelection(.enabled)
                             .lineLimit(50)
@@ -158,7 +161,7 @@ private struct 📤ExportNotesRow: View {
                     }
                     Label("Copy the above text", systemImage: "hand.point.up.left")
                         .foregroundStyle(.secondary)
-                    ShareLink(item: self.ⓣext)
+                    ShareLink(item: self.text)
                 } header: {
                     Text("Plain text")
                 } footer: {
@@ -171,12 +174,12 @@ private struct 📤ExportNotesRow: View {
 }
 
 private struct 🚮DeleteAllNotesButton: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Section {
             Menu {
                 Button(role: .destructive) {
-                    📱.removeAllNotes()
+                    self.model.removeAllNotes()
                 } label: {
                     Label("OK, delete all notes.", systemImage: "trash")
                 }
@@ -184,20 +187,20 @@ private struct 🚮DeleteAllNotesButton: View {
                 ZStack(alignment: .leading) {
                     Color.clear
                     Label("Delete all notes.", systemImage: "delete.backward.fill")
-                        .foregroundColor(📱.📚notes.isEmpty ? nil : .red)
+                        .foregroundColor(self.model.notes.isEmpty ? nil : .red)
                 }
             }
-            .disabled(📱.📚notes.isEmpty)
+            .disabled(self.model.notes.isEmpty)
         }
     }
 }
 
 private struct 🏞BeforeAfterImage: View {
-    private var ⓑefore: String
-    private var ⓐfter: String
+    private var before: String
+    private var after: String
     var body: some View {
         HStack {
-            Image(self.ⓑefore)
+            Image(self.before)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 200)
@@ -206,7 +209,7 @@ private struct 🏞BeforeAfterImage: View {
             Image(systemName: "arrow.right")
                 .font(.title2.weight(.semibold))
                 .foregroundStyle(.secondary)
-            Image(self.ⓐfter)
+            Image(self.after)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 200)
@@ -215,7 +218,7 @@ private struct 🏞BeforeAfterImage: View {
         }
     }
     init(_ before: String, _ after: String) {
-        self.ⓑefore = before
-        self.ⓐfter = after
+        self.before = before
+        self.after = after
     }
 }

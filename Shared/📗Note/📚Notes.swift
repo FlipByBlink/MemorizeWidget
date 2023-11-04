@@ -1,22 +1,4 @@
-import WidgetKit
-
-struct 📗Note: Codable, Identifiable, Hashable {
-    var title: String
-    var comment: String
-    var id: UUID
-    
-    var isEmpty: Bool {
-        self.title.isEmpty && self.comment.isEmpty
-    }
-    
-    static var empty: Self { Self("") }
-    
-    init(_ title: String, _ comment: String = "") {
-        self.title = title
-        self.comment = comment
-        self.id = UUID()
-    }
-}
+import Foundation
 
 typealias 📚Notes = [📗Note]
 
@@ -75,12 +57,6 @@ extension 📚Notes {
         }
         return ⓝotes
     }
-}
-
-enum 🅂eparator: String {
-    case tab = "\t"
-    case comma = ","
-    case titleOnly = ""
 }
 
 extension 📚Notes {

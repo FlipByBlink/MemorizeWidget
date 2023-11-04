@@ -2,20 +2,20 @@ import SwiftUI
 import WidgetKit
 
 struct 🪧NewNoteShortcutWidget: Widget {
-    private var ⓕamilies: [WidgetFamily] = []
+    private var families: [WidgetFamily] = []
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "NewNoteShortcut", provider: Self.Provider()) { _ in
             Self.EntryView()
         }
         .configurationDisplayName("New note shortcut")
         .description("Shortcut to add new note.")
-        .supportedFamilies(self.ⓕamilies)
+        .supportedFamilies(self.families)
     }
     init() {
 #if os(iOS)
-        self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular])
+        self.families.append(contentsOf: [.accessoryInline, .accessoryCircular])
 #elseif os(watchOS)
-        self.ⓕamilies.append(contentsOf: [.accessoryInline, .accessoryCircular, .accessoryCorner])
+        self.families.append(contentsOf: [.accessoryInline, .accessoryCircular, .accessoryCorner])
 #endif
     }
 }
@@ -40,22 +40,18 @@ private extension 🪧NewNoteShortcutWidget {
         var body: some View {
             Group {
                 switch self.widgetFamily {
-                    case .accessoryInline:
-                        Image(systemName: "plus.rectangle.on.rectangle")
-                    case .accessoryCircular:
-                        Self.ⓒircularView()
+                    case .accessoryInline: Image(systemName: "plus.rectangle.on.rectangle")
+                    case .accessoryCircular: Self.circularView()
 #if os(watchOS)
-                    case .accessoryCorner:
-                        Self.ⓒircularView()
+                    case .accessoryCorner: Self.circularView()
 #endif
-                    default:
-                        Text(verbatim: "🐛")
+                    default: Text(verbatim: "BUG")
                 }
             }
             .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
             .modifier(🪧ContainerBackground())
         }
-        private static func ⓒircularView() -> some View {
+        private static func circularView() -> some View {
             ZStack {
                 AccessoryWidgetBackground()
                 Image(systemName: "plus")

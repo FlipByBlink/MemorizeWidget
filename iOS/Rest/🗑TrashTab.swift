@@ -1,30 +1,30 @@
 import SwiftUI
 
 struct 🗑TrashTab: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
             List {
-                ForEach(📱.🗑trash.deletedContents) {
-                    self.ⓒontentSection($0)
+                ForEach(self.model.trash.deletedContents) {
+                    self.contentSection($0)
                 }
-                self.ⓔmptyTrashView()
-                self.ⓐboutTrashSection()
+                self.emptyTrashView()
+                self.aboutTrashSection()
             }
             .navigationTitle("Trash")
-            .toolbar { self.ⓒlearButton() }
-            .animation(.default, value: 📱.🗑trash.deletedContents)
+            .toolbar { self.clearButton() }
+            .animation(.default, value: self.model.trash.deletedContents)
         }
     }
 }
 
 private extension 🗑TrashTab {
-    private func ⓒontentSection(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func contentSection(_ ⓒontent: 🄳eletedContent) -> some View {
         Section {
             if ⓒontent.notes.count == 1 {
-                self.ⓢingleNoteRow(ⓒontent)
+                self.singleNoteRow(ⓒontent)
             } else {
-                self.ⓜultiNotesRows(ⓒontent)
+                self.multiNotesRows(ⓒontent)
             }
         } header: {
             Text(ⓒontent.date, style: .offset)
@@ -32,11 +32,11 @@ private extension 🗑TrashTab {
             Text(" (\(ⓒontent.date.formatted(.dateTime.month().day().hour().minute())))")
         }
     }
-    private func ⓢingleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func singleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
         HStack {
-            self.ⓝoteView(ⓒontent.notes.first ?? .init("🐛"))
+            self.noteView(ⓒontent.notes.first ?? .init("🐛"))
             Spacer()
-            self.ⓡestoreButton(ⓒontent)
+            self.restoreButton(ⓒontent)
                 .labelStyle(.iconOnly)
                 .buttonStyle(.plain)
                 .font(.title)
@@ -45,14 +45,14 @@ private extension 🗑TrashTab {
                 .padding(4)
         }
     }
-    private func ⓜultiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func multiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
         Group {
-            self.ⓡestoreButton(ⓒontent)
+            self.restoreButton(ⓒontent)
                 .font(.body.weight(.medium))
-            ForEach(ⓒontent.notes) { self.ⓝoteView($0) }
+            ForEach(ⓒontent.notes) { self.noteView($0) }
         }
     }
-    private func ⓝoteView(_ ⓝote: 📗Note) -> some View {
+    private func noteView(_ ⓝote: 📗Note) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 Text(ⓝote.title)
@@ -64,20 +64,20 @@ private extension 🗑TrashTab {
             .padding(4)
         }
     }
-    private func ⓡestoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func restoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
         Button {
-            📱.restore(ⓒontent)
+            self.model.restore(ⓒontent)
         } label: {
-            Label("Restore \(ⓒontent.notes.count.description) notes",
+            Label("Restore \(ⓒontent.notes.count) notes",
                   systemImage: "arrow.uturn.backward.circle.fill")
             .padding(.vertical, 4)
         }
         .accessibilityLabel("Restore")
     }
-    private func ⓒlearButton() -> some View {
+    private func clearButton() -> some View {
         Menu {
             Button(role: .destructive) {
-                📱.🗑trash.clearDeletedContents()
+                self.model.trash.clearDeletedContents()
             } label: {
                 Label("Clear trash", systemImage: "trash.slash")
             }
@@ -85,11 +85,11 @@ private extension 🗑TrashTab {
             Label("Clear trash", systemImage: "trash.slash")
         }
         .tint(.red)
-        .disabled(📱.🗑trash.deletedContents.isEmpty)
+        .disabled(self.model.trash.deletedContents.isEmpty)
     }
-    private func ⓔmptyTrashView() -> some View {
+    private func emptyTrashView() -> some View {
         Group {
-            if 📱.🗑trash.deletedContents.isEmpty {
+            if self.model.trash.deletedContents.isEmpty {
                 ZStack {
                     Color.clear
                     Label("Empty", systemImage: "xmark.bin")
@@ -101,7 +101,7 @@ private extension 🗑TrashTab {
             }
         }
     }
-    private func ⓐboutTrashSection() -> some View {
+    private func aboutTrashSection() -> some View {
         Section {
             Label("After 7 days, the notes will be permanently deleted.",
                   systemImage: "clock.badge.exclamationmark")

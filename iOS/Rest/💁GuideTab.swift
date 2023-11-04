@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct 💁GuideTab: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓔxceedDataSize: Bool { 📱.exceedDataSizePerhaps }
+    @EnvironmentObject var model: 📱AppModel
+    private var exceedDataSize: Bool { self.model.exceedDataSizePerhaps }
     var body: some View {
         NavigationStack {
             List {
-                if self.ⓔxceedDataSize { 🄳ataSection() }
+                if self.exceedDataSize { 🄳ataSection() }
                 🄸mportNotesSection()
                 🅃ipsSection()
-                if !self.ⓔxceedDataSize { 🄳ataSection() }
+                if !self.exceedDataSize { 🄳ataSection() }
                 🄰ppleSupportLinkSection()
                 🄳irectionsSection()
             }
@@ -19,8 +19,8 @@ struct 💁GuideTab: View {
 }
 
 private struct 🄳ataSection: View {
-    @EnvironmentObject var 📱: 📱AppModel
-    private var ⓓataCount: Int { 📱.📚notes.dataCount }
+    @EnvironmentObject var model: 📱AppModel
+    private var dataCount: Int { self.model.notes.dataCount }
     var body: some View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
@@ -35,11 +35,11 @@ private struct 🄳ataSection: View {
                 HStack {
                     Label("Notes data count", systemImage: "books.vertical")
                     Spacer()
-                    Text(self.ⓓataCount.formatted(.byteCount(style: .file)))
+                    Text(self.dataCount.formatted(.byteCount(style: .file)))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                if self.ⓓataCount > 800000 {
+                if self.dataCount > 800000 {
                     Text("⚠️ NOTICE DATA LIMITATION")
                         .font(.headline)
                         .foregroundColor(.red)
@@ -110,28 +110,36 @@ private struct 🅃ipsSection: View {
 }
 
 private struct 🄰ppleSupportLinkSection: View {
-    private var ⓤrl: String {
+    private var urlString: String {
 #if targetEnvironment(macCatalyst)
         "https://support.apple.com/guide/mac-help/add-customize-widgets-notification-center-mchl52be5da5/mac"
 #else
-        UIDevice.current.userInterfaceIdiom == .pad ? "https://support.apple.com/HT211328" : "https://support.apple.com/HT207122"
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            "https://support.apple.com/HT211328"
+        } else {
+            "https://support.apple.com/HT207122"
+        }
 #endif
     }
-    private var ⓛabel: LocalizedStringKey {
+    private var labelTitle: LocalizedStringKey {
 #if targetEnvironment(macCatalyst)
         "Add and customize widgets in Notification Center on Mac"
 #else
-        UIDevice.current.userInterfaceIdiom == .pad ? "Use widgets on your iPad" : "How to add and edit widgets on your iPhone"
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            "Use widgets on your iPad"
+        } else {
+            "How to add and edit widgets on your iPhone"
+        }
 #endif
     }
     var body: some View {
         Section {
-            Link(destination: URL(string: self.ⓤrl)!) {
+            Link(destination: .init(string: self.urlString)!) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Label(self.ⓛabel, systemImage: "link")
+                    Label(self.labelTitle, systemImage: "link")
                     HStack {
                         Spacer()
-                        Text(self.ⓤrl)
+                        Text(self.urlString)
                             .font(.caption2.italic())
                             .multilineTextAlignment(.center)
                         Spacer()
@@ -139,9 +147,9 @@ private struct 🄰ppleSupportLinkSection: View {
                 }
                 .padding(.vertical, 4)
             }
-            .accessibilityLabel(self.ⓛabel)
+            .accessibilityLabel(self.labelTitle)
             if UIDevice.current.userInterfaceIdiom == .phone, #available(iOS 16.0, *) {
-                Link(destination: URL(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
+                Link(destination: .init(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
                         Label("Create a custom iPhone Lock Screen", systemImage: "link")
                         HStack {

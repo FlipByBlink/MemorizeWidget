@@ -1,45 +1,45 @@
 import SwiftUI
 
 struct 📚NotesMenu: View {
-    @EnvironmentObject var 📱: 📱AppModel
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
             TextFieldLink {
                 Label("New note", systemImage: "plus")
             } onSubmit: {
-                📱.insertOnTop([📗Note($0)])
+                self.model.insertOnTop([📗Note($0)])
             }
-            ForEach($📱.📚notes) { ⓝote in
+            ForEach(self.$model.notes) { ⓝote in
                 NavigationLink {
                     📗NoteView(ⓝote, .notesMenu)
                 } label: {
-                    Self.🄽oteLink(note: ⓝote)
+                    Self.NoteLink(note: ⓝote)
                 }
             }
             .onDelete {
-                📱.deleteNote($0)
+                self.model.deleteNote($0)
                 💥Feedback.warning()
             }
             .onMove {
-                📱.moveNote($0, $1)
+                self.model.moveNote($0, $1)
                 💥Feedback.light()
             }
         }
-        .animation(.default, value: 📱.📚notes)
+        .animation(.default, value: self.model.notes)
         .navigationTitle("Notes")
     }
-    private struct 🄽oteLink: View {
-        @EnvironmentObject var 📱: 📱AppModel
+    private struct NoteLink: View {
+        @EnvironmentObject var model: 📱AppModel
         @Binding var note: 📗Note
-        private var ⓘnactive: Bool {
-            !📱.🚩randomMode
-            && 📱.📚notes.first != self.note
+        private var inactive: Bool {
+            !self.model.randomMode
+            && self.model.notes.first != self.note
         }
         var body: some View {
             VStack(alignment: .leading) {
                 Text(self.note.title)
                     .font(.headline)
-                    .foregroundStyle(self.ⓘnactive ? .secondary : .primary)
+                    .foregroundStyle(self.inactive ? .secondary : .primary)
                 Text(self.note.comment)
                     .font(.caption)
                     .foregroundStyle(.secondary)
