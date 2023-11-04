@@ -7,9 +7,9 @@ struct 📚NotesListTab: View {
         NavigationStack {
             ScrollViewReader { ⓢcrollViewProxy in
                 List {
-                    Self.RandomModeSection()
+                    self.randomModeSection()
                     Section {
-                        Self.NewNoteOnTopButton()
+                        self.newNoteOnTopButton()
                         ForEach(self.$model.notes) { ⓝote in
                             📗NoteView(ⓝote, layout: .notesList)
                                 .id(ⓝote.id)
@@ -48,32 +48,26 @@ private extension 📚NotesListTab {
             }
         }
     }
-    private struct RandomModeSection: View {
-        @EnvironmentObject var model: 📱AppModel
-        var body: some View {
-            Section {
-                Toggle(isOn: self.$model.randomMode) {
-                    Label("Random mode", systemImage: "shuffle")
-                        .padding(.vertical, 8)
-                }
-                .onChange(of: self.model.randomMode) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-            } footer: {
-                Text("Change the note per 5 minutes.")
+    private func randomModeSection() -> some View {
+        Section {
+            Toggle(isOn: self.$model.randomMode) {
+                Label("Random mode", systemImage: "shuffle")
+                    .padding(.vertical, 8)
             }
+            .onChange(of: self.model.randomMode) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+        } footer: {
+            Text("Change the note per 5 minutes.")
         }
     }
-    private struct NewNoteOnTopButton: View {
-        @EnvironmentObject var model: 📱AppModel
-        var body: some View {
-            Button(action: self.model.addNewNoteOnTop) {
-                Label("New note", systemImage: "plus")
-                    .font(.title3.weight(.semibold))
-                    .padding(.vertical, 7)
-            }
-            .id("NewNoteButton")
+    private func newNoteOnTopButton() -> some View {
+        Button(action: self.model.addNewNoteOnTop) {
+            Label("New note", systemImage: "plus")
+                .font(.title3.weight(.semibold))
+                .padding(.vertical, 7)
         }
+        .id("NewNoteButton")
     }
     private func importNotesButton() -> some View {
         Button {

@@ -12,7 +12,7 @@ struct 📖WidgetSheetView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar { Self.DismissButton() }
+            .toolbar { self.dismissButton() }
         }
         .modifier(📣ADSheet())
     }
@@ -123,18 +123,15 @@ private extension 📖WidgetSheetView {
             }
         }
     }
-    private struct DismissButton: View {
-        @EnvironmentObject var model: 📱AppModel
-        var body: some View {
-            Button {
-                self.model.widgetState.showSheet = false
-                UISelectionFeedbackGenerator().selectionChanged()
-            } label: {
-                Image(systemName: "xmark.circle.fill")
-                    .symbolRenderingMode(.hierarchical)
-            }
-            .foregroundColor(.secondary)
-            .keyboardShortcut(.cancelAction)
+    private func dismissButton() -> some View {
+        Button {
+            self.model.widgetState.showSheet = false
+            UISelectionFeedbackGenerator().selectionChanged()
+        } label: {
+            Image(systemName: "xmark.circle.fill")
+                .symbolRenderingMode(.hierarchical)
         }
+        .foregroundColor(.secondary)
+        .keyboardShortcut(.cancelAction)
     }
 }

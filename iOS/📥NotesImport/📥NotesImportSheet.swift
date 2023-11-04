@@ -41,11 +41,12 @@ private struct 📥NotesImportView: View {
                                 Button {
                                     self.showFileImporter.toggle()
                                 } label: {
-                                    Label("Import a text-encoded file", systemImage: "folder.badge.plus")
-                                        .padding(.vertical, 8)
+                                    Label("Import a text-encoded file", 
+                                          systemImage: "folder.badge.plus")
+                                    .padding(.vertical, 8)
                                 }
                             }
-                            🄸nputExample(mode: self.$inputMode)
+                            📥InputExample(mode: self.$inputMode)
                         case .text:
                             Section {
                                 TextEditor(text: self.$pastedText)
@@ -55,13 +56,14 @@ private struct 📥NotesImportView: View {
                                     .padding(8)
                                     .overlay {
                                         if self.pastedText.isEmpty {
-                                            Label("Paste the text here.", systemImage: "square.and.pencil")
-                                                .font(.subheadline)
-                                                .rotationEffect(.degrees(2))
-                                                .multilineTextAlignment(.center)
-                                                .foregroundColor(.accentColor)
-                                                .opacity(0.5)
-                                                .allowsHitTesting(false)
+                                            Label("Paste the text here.",
+                                                  systemImage: "square.and.pencil")
+                                            .font(.subheadline)
+                                            .rotationEffect(.degrees(2))
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(.accentColor)
+                                            .opacity(0.5)
+                                            .allowsHitTesting(false)
                                         }
                                     }
                                     .toolbar {
@@ -82,9 +84,9 @@ private struct 📥NotesImportView: View {
                                 .disabled(self.pastedText.isEmpty)
                             }
                             .animation(.default, value: self.pastedText.isEmpty)
-                            🄸nputExample(mode: self.$inputMode)
+                            📥InputExample(mode: self.$inputMode)
                     }
-                    🄽otSupportMultiLineTextInNoteSection()
+                    Self.notSupportMultiLineTextInNoteSection()
                 } else {
                     self.separatorPicker()
                     Section {
@@ -98,46 +100,19 @@ private struct 📥NotesImportView: View {
                             .padding(.vertical, 8)
                         }
                     } header: {
-                        Text("Notes count: \(self.notes.count.description)")
+                        Text("Notes count: \(self.notes.count)")
                     }
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !self.notes.isEmpty {
-                        Button(role: .cancel) {
-                            UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                            self.importedText = ""
-                        } label: {
-                            Label("Cancel", systemImage: "xmark")
-                                .font(.body.weight(.semibold))
-                        }
-                        .tint(.red)
-                    }
+                    if !self.notes.isEmpty { self.cancelButton() }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !self.notes.isEmpty {
-                        Button {
-                            self.model.insertOnTop(self.notes)
-                            self.model.showNotesImportSheet = false
-                            UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        } label: {
-                            Label("Done", systemImage: "checkmark")
-                                .font(.body.weight(.semibold))
-                        }
-                    }
+                    if !self.notes.isEmpty { self.submitButton() }
                 }
                 ToolbarItem(placement: .principal) {
-                    if self.notes.isEmpty {
-                        Button {
-                            self.model.showNotesImportSheet = false
-                            UISelectionFeedbackGenerator().selectionChanged()
-                        } label: {
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(.secondary)
-                        }
-                        .accessibilityLabel("Dismiss")
-                    }
+                    if self.notes.isEmpty { self.dismissButton() }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -161,6 +136,9 @@ private struct 📥NotesImportView: View {
                       allowedContentTypes: [.text],
                       onCompletion: self.fileImportAction)
     }
+}
+
+private extension 📥NotesImportView {
     private func separatorPicker() -> some View {
         Picker(selection: self.$separator) {
             Text("Tab ␣ ")
@@ -194,81 +172,42 @@ private struct 📥NotesImportView: View {
             self.🚨showErrorAlert = true
         }
     }
-}
-
-enum 🄸nputMode: String {
-    case file, text
-}
-
-private struct 🄸nputExample: View {
-    @Binding var mode: 🄸nputMode
-    var body: some View {
-        Section {
-            switch self.mode {
-                case .file:
-                    HStack {
-                        Image("sample_numbers")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(12)
-                            .shadow(radius: 2)
-                        Image(systemName: "arrow.right")
-                            .font(.title2.weight(.semibold))
-                        Image("sample_importedNotes")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(12)
-                            .shadow(radius: 2)
-                    }
-                    .frame(maxHeight: 220)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical)
-                    Image("numbers_csv_tsv_export")
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(12)
-                        .frame(maxHeight: 200)
-                        .shadow(radius: 2)
-                        .padding()
-                    Image("sample_txt_macTextEdit")
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(12)
-                        .frame(maxHeight: 200)
-                        .shadow(radius: 2)
-                        .padding()
-                case .text:
-                    HStack {
-                        Image("sample_appleNotes")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(12)
-                            .shadow(radius: 2)
-                        Image(systemName: "arrow.right")
-                            .font(.title2.weight(.semibold))
-                        Image("sample_importedNotes")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(12)
-                            .shadow(radius: 2)
-                    }
-                    .frame(maxHeight: 200)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical)
-            }
-        } header: {
-            Text("Example")
-        }
-    }
-}
-
-private struct 🄽otSupportMultiLineTextInNoteSection: View {
-    var body: some View {
+    private static func notSupportMultiLineTextInNoteSection() -> some View {
         Section {
             Text("Not support multi line text in note.")
                 .foregroundStyle(.secondary)
         } header: {
             Text("Directions")
         }
+    }
+    private func cancelButton() -> some View {
+        Button(role: .cancel) {
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            self.importedText = ""
+        } label: {
+            Label("Cancel", systemImage: "xmark")
+                .font(.body.weight(.semibold))
+        }
+        .tint(.red)
+    }
+    private func submitButton() -> some View {
+        Button {
+            self.model.insertOnTop(self.notes)
+            self.model.showNotesImportSheet = false
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        } label: {
+            Label("Done", systemImage: "checkmark")
+                .font(.body.weight(.semibold))
+        }
+    }
+    private func dismissButton() -> some View {
+        Button {
+            self.model.showNotesImportSheet = false
+            UISelectionFeedbackGenerator().selectionChanged()
+        } label: {
+            Image(systemName: "chevron.down")
+                .foregroundColor(.secondary)
+        }
+        .accessibilityLabel("Dismiss")
     }
 }

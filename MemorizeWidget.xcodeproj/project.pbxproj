@@ -26,6 +26,8 @@
 		166BC2AD2AF62BB900729C66 /* 📖DeletedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2AC2AF62BB900729C66 /* 📖DeletedNoteView.swift */; };
 		166BC2AF2AF62C2100729C66 /* 📖DictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2AE2AF62C2100729C66 /* 📖DictionaryButton.swift */; };
 		166BC2B12AF62C4B00729C66 /* 📖MoveEndButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B02AF62C4B00729C66 /* 📖MoveEndButton.swift */; };
+		166BC2B42AF635C700729C66 /* 🄸nputMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B32AF635C700729C66 /* 🄸nputMode.swift */; };
+		166BC2B62AF6361600729C66 /* 📥InputExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2B52AF6361600729C66 /* 📥InputExample.swift */; };
 		168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -413,6 +415,8 @@
 		166BC2AC2AF62BB900729C66 /* 📖DeletedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DeletedNoteView.swift"; sourceTree = "<group>"; };
 		166BC2AE2AF62C2100729C66 /* 📖DictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DictionaryButton.swift"; sourceTree = "<group>"; };
 		166BC2B02AF62C4B00729C66 /* 📖MoveEndButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖MoveEndButton.swift"; sourceTree = "<group>"; };
+		166BC2B32AF635C700729C66 /* 🄸nputMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄸nputMode.swift"; sourceTree = "<group>"; };
+		166BC2B52AF6361600729C66 /* 📥InputExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥InputExample.swift"; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F0E2AF603F800A100A7 /* 🅂eparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🅂eparator.swift"; sourceTree = "<group>"; };
@@ -595,6 +599,16 @@
 			path = "📖WidgetSheet";
 			sourceTree = "<group>";
 		};
+		166BC2B22AF6357500729C66 /* 📥NotesImport */ = {
+			isa = PBXGroup;
+			children = (
+				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
+				166BC2B32AF635C700729C66 /* 🄸nputMode.swift */,
+				166BC2B52AF6361600729C66 /* 📥InputExample.swift */,
+			);
+			path = "📥NotesImport";
+			sourceTree = "<group>";
+		};
 		168D5F012AF5FBC500A100A7 /* App Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,7 +771,6 @@
 			children = (
 				F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */,
 				F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */,
-				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
 				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
 				F50C83242AA5D39A0033A04B /* 🆕NewNoteCommand.swift */,
@@ -854,6 +867,7 @@
 				166BC2A52AF628E300729C66 /* 🎛️NoteMenuButton.swift */,
 				166BC2A92AF62AC100729C66 /* 📖WidgetSheet */,
 				166BC2912AF6206800729C66 /* 🔩Menu */,
+				166BC2B22AF6357500729C66 /* 📥NotesImport */,
 				F527F46F29D53E4C00E9FB97 /* Rest */,
 				F50C82FC2AA5CBC10033A04B /* Supporting files */,
 				168D5F012AF5FBC500A100A7 /* App Extensions */,
@@ -1173,6 +1187,7 @@
 				F50C831D2AA5D0970033A04B /* 🛒InAppPurchaseView.swift in Sources */,
 				166BC2932AF6228900729C66 /* 🔩BeforeAfterImages.swift in Sources */,
 				166BC2972AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift in Sources */,
+				166BC2B62AF6361600729C66 /* 📥InputExample.swift in Sources */,
 				F50C83252AA5D39A0033A04B /* 🆕NewNoteCommand.swift in Sources */,
 				F50C83332AA5E6470033A04B /* 🪧WidgetInfo.swift in Sources */,
 				166BC2992AF623BC00729C66 /* 🔩ExportNotesLink.swift in Sources */,
@@ -1222,6 +1237,7 @@
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				166BC2A62AF628E300729C66 /* 🎛️NoteMenuButton.swift in Sources */,
+				166BC2B42AF635C700729C66 /* 🄸nputMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
