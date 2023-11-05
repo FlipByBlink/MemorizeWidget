@@ -423,6 +423,7 @@
 		166BC2B72AF66CC900729C66 /* 📖SigleNoteLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SigleNoteLayoutView.swift"; sourceTree = "<group>"; };
 		166BC2B92AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖MultiNotesLayoutView.swift"; sourceTree = "<group>"; };
 		166BC2BB2AF66D3200729C66 /* 📖DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissButton.swift"; sourceTree = "<group>"; };
+		166BC2BE2AF763A600729C66 /* memo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = memo.md; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F0E2AF603F800A100A7 /* 🅂eparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🅂eparator.swift"; sourceTree = "<group>"; };
@@ -618,6 +619,14 @@
 			path = "📥NotesImport";
 			sourceTree = "<group>";
 		};
+		166BC2BD2AF7638300729C66 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				166BC2BE2AF763A600729C66 /* memo.md */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
 		168D5F012AF5FBC500A100A7 /* App Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +679,7 @@
 			children = (
 				F50C83042AA5CDBD0033A04B /* 🌐Localization */,
 				F592C3322AAA9FE20045960E /* README assets */,
+				166BC2BD2AF7638300729C66 /* Archive */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";

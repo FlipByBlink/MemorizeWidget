@@ -44,16 +44,13 @@ private struct 🅄IReferenceLibraryView: UIViewControllerRepresentable {
 struct 📘DictionaryButtonOnMac: View {
     @Environment(\.openURL) var openURL
     var term: String
-    private var ⓤrl: URL? {
-        if let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) {
-            URL(string: "dict://" + ⓟath)
-        } else {
-            nil
-        }
-    }
     var body: some View {
         Button {
-            if let ⓤrl { self.openURL(ⓤrl) }
+            guard let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+                  let ⓤrl = URL(string: "dict://" + ⓟath) else {
+                return
+            }
+            self.openURL(ⓤrl)
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }
