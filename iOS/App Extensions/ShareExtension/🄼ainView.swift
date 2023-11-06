@@ -72,13 +72,13 @@ private extension 🄼ainView {
         Section {
             Picker(selection: self.$model.separator) {
                 Text("Tab ␣ ")
-                    .tag(🅂eparator.tab)
+                    .tag(📚TextConvert.Separator.tab)
                     .accessibilityLabel("Tab")
                 Text("Comma , ")
-                    .tag(🅂eparator.comma)
+                    .tag(📚TextConvert.Separator.comma)
                     .accessibilityLabel("Comma")
                 Text("(Title only)")
-                    .tag(🅂eparator.titleOnly)
+                    .tag(📚TextConvert.Separator.titleOnly)
                     .accessibilityLabel("Title only")
             } label: {
                 Label("Separator",

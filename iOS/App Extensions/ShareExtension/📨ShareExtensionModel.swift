@@ -2,7 +2,7 @@ import SwiftUI
 
 class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 🅂eparator = .tab
+    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @Published var type: 🄸nputType? = nil
     @Published var importedFileText: String = ""
     @Published var singleNote: 📗Note = .empty
@@ -12,8 +12,8 @@ class 📨ShareExtensionModel: ObservableObject {
 extension 📨ShareExtensionModel {
     var convertedNotes: 📚Notes {
         switch self.type {
-            case .textFile: .convert(self.importedFileText, self.separator)
-            case .selectedText: .convert(self.singleNote.title, self.separator)
+            case .textFile: 📚TextConvert.decode(self.importedFileText, self.separator)
+            case .selectedText: 📚TextConvert.decode(self.singleNote.title, self.separator)
             default: []
         }
     }
@@ -43,7 +43,7 @@ extension 📨ShareExtensionModel {
                         do {
                             if let ⓤrl = try await ⓟrovider.loadItem(forTypeIdentifier: "public.file-url") as? URL {
                                 let ⓣext = try String(contentsOf: ⓤrl)
-                                let ⓓataCount = 📚Notes.convert(ⓣext, self.separator).dataCount
+                                let ⓓataCount = 📚TextConvert.decode(ⓣext, self.separator).dataCount
                                 let ⓐctiveNotes = 💾ICloud.loadNotes() ?? []
                                 guard (ⓓataCount + ⓐctiveNotes.dataCount) < 800000 else {
                                     self.type = .exceedDataLimitation

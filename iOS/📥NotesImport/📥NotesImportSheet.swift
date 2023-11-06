@@ -14,10 +14,10 @@ private struct 📥NotesImportView: View {
     @EnvironmentObject var model: 📱AppModel
     @State private var showFileImporter: Bool = false
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 🄸nputMode = .file
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 🅂eparator = .tab
+    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @State private var pastedText: String = ""
     @State private var importedText: String = ""
-    private var notes: 📚Notes { .convert(self.importedText, self.separator) }
+    private var notes: 📚Notes { 📚TextConvert.decode(self.importedText, self.separator) }
     @FocusState private var textFieldFocus: Bool
     @State private var 🚨alertDataSizeLimitExceeded: Bool = false
     @State private var 🚨showErrorAlert: Bool = false
@@ -142,13 +142,13 @@ private extension 📥NotesImportView {
     private func separatorPicker() -> some View {
         Picker(selection: self.$separator) {
             Text("Tab ␣ ")
-                .tag(🅂eparator.tab)
+                .tag(📚TextConvert.Separator.tab)
                 .accessibilityLabel("Tab")
             Text("Comma , ")
-                .tag(🅂eparator.comma)
+                .tag(📚TextConvert.Separator.comma)
                 .accessibilityLabel("Comma")
             Text("(Title only)")
-                .tag(🅂eparator.titleOnly)
+                .tag(📚TextConvert.Separator.titleOnly)
                 .accessibilityLabel("Title only")
         } label: {
             Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
@@ -159,7 +159,7 @@ private extension 📥NotesImportView {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                let ⓓataCount = 📚Notes.convert(ⓣext, self.separator).dataCount
+                let ⓓataCount = 📚TextConvert.decode(ⓣext, self.separator).dataCount
                 guard (ⓓataCount + self.model.notes.dataCount) < 800000 else {
                     self.🚨alertDataSizeLimitExceeded = true
                     return

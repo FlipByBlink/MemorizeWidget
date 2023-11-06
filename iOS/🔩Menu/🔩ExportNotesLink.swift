@@ -13,15 +13,7 @@ struct 🔩ExportNotesLink: View {
     }
     private struct Destination: View {
         @EnvironmentObject var model: 📱AppModel
-        private var text: String {
-            self.model.notes.reduce(into: "") { ⓟartialResult, ⓝote in
-                var ⓣempNote = ⓝote
-                ⓣempNote.title.removeAll(where: { $0 == "\n" })
-                ⓣempNote.comment.removeAll(where: { $0 == "\n" })
-                ⓟartialResult += ⓣempNote.title + "\t" + ⓣempNote.comment
-                if ⓝote != self.model.notes.last { ⓟartialResult += "\n" }
-            }
-        }
+        private var text: String { 📚TextConvert.encodeToTSV(self.model.notes) }
         var body: some View {
             List {
                 Section {
