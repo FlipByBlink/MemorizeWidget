@@ -37,11 +37,9 @@ extension 📚Notes {
 }
 
 extension 📚Notes {
-    static var placeholder: Self { //TODO: 実装再検討
-        📚TextConvert.decode(String(localized: """
-                    可愛い,cute, pretty, kawaii
-                    おやすみなさい,good night.
-                    苺,strawberry
-                    """), .comma)
+    static var placeholder: Self {
+        [.init(.init(localized: "可愛い"), .init(localized: "cute, pretty, kawaii")),
+         .init(.init(localized: "おやすみなさい"), .init(localized: "good night.")),
+         .init(.init(localized: "苺"), .init(localized: "strawberry"))]
     }
 }

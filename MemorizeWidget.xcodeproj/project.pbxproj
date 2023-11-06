@@ -53,6 +53,7 @@
 		16DD53092AF88E67008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
 		16DD530A2AF88E67008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
 		16DD530B2AF88E68008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
+		16DD530D2AF89EDF008F555A /* 📰Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD530C2AF89EDF008F555A /* 📰Sheet.swift */; };
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F507EAA628CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F507EAA728CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
@@ -429,6 +430,7 @@
 		168D5F142AF6056300A100A7 /* 🔖Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Tab.swift"; sourceTree = "<group>"; };
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
+		16DD530C2AF89EDF008F555A /* 📰Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰Sheet.swift"; sourceTree = "<group>"; };
 		F507EA9328C9FCC900ECF06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F507EA9528C9FDC500ECF06A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F507EA9B28CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -884,6 +886,7 @@
 				F51CAF6429D6AEFA0065EF30 /* 📗NoteView.swift */,
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
 				166BC2A52AF628E300729C66 /* 🎛️NoteMenuButton.swift */,
+				16DD530C2AF89EDF008F555A /* 📰Sheet.swift */,
 				166BC2A92AF62AC100729C66 /* 📖WidgetSheet */,
 				166BC2912AF6206800729C66 /* 🔩Menu */,
 				166BC2B22AF6357500729C66 /* 📥NotesImport */,
@@ -1248,6 +1251,7 @@
 				166BC2AD2AF62BB900729C66 /* 📖DeletedNoteView.swift in Sources */,
 				166BC2952AF6230000729C66 /* 🔩CustomizeSearchLink.swift in Sources */,
 				F527F47B29D5424C00E9FB97 /* 🩹Workaround.swift in Sources */,
+				16DD530D2AF89EDF008F555A /* 📰Sheet.swift in Sources */,
 				166BC29B2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift in Sources */,
 				F50C83462AA5EE900033A04B /* 📣ADSheet.swift in Sources */,
 				166BC2B12AF62C4B00729C66 /* 📖MoveEndButton.swift in Sources */,
