@@ -1,16 +1,6 @@
 import SwiftUI
 
-struct 📥NotesImportSheet: ViewModifier {
-    @EnvironmentObject var model: 📱AppModel
-    func body(content: Content) -> some View {
-        content
-            .sheet(isPresented: self.$model.showNotesImportSheet) {
-                📥NotesImportView()
-            }
-    }
-}
-
-private struct 📥NotesImportView: View {
+struct 📥NotesImportView: View {
     @EnvironmentObject var model: 📱AppModel
     @State private var showFileImporter: Bool = false
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 🄸nputMode = .file
@@ -193,7 +183,7 @@ private extension 📥NotesImportView {
     private func submitButton() -> some View {
         Button {
             self.model.insertOnTop(self.notes)
-            self.model.showNotesImportSheet = false
+            self.model.presentedSheetOnContentView = nil
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         } label: {
             Label("Done", systemImage: "checkmark")
@@ -202,7 +192,7 @@ private extension 📥NotesImportView {
     }
     private func dismissButton() -> some View {
         Button {
-            self.model.showNotesImportSheet = false
+            self.model.presentedSheetOnContentView = nil
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Image(systemName: "chevron.down")

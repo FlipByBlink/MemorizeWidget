@@ -34,6 +34,6 @@ struct ContentView: View {
         }
         .modifier(🆕NewNoteShortcut())
         .onOpenURL(perform: self.model.handleWidgetURL)
-        .sheet(isPresented: self.$model.widgetState.showSheet) { 📖WidgetNotesSheet() }
+        .modifier(📰SheetOnContentView.Handler())
     }
 }

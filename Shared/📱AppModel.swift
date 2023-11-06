@@ -6,8 +6,10 @@ class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
     @Published var tabSelection: 🔖Tab = .notesList
     @Published var createdNewNoteID: UUID? = nil
-    @Published var widgetState: 🪧WidgetState = .default
-    @Published var showNotesImportSheet: Bool = false
+    @Published var presentedSheetOnContentView: 📰SheetOnContentView?
+#if os(iOS)
+    @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet?
+#endif
     @Published var trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
     init() {
@@ -101,12 +103,14 @@ extension 📱AppModel {
 extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         Task { @MainActor in
-            self.showNotesImportSheet = false
-            self.widgetState.showSheet = false
+            self.presentedSheetOnContentView = nil
+#if os(iOS)
+            self.presentedSheetOnWidgetSheet = nil
+#endif
             if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
                 switch ⓘnfo {
                     case .singleNote(_), .multiNotes(_):
-                        self.widgetState = 🪧WidgetState(showSheet: true, info: ⓘnfo)
+                        self.presentedSheetOnContentView = .widget(ⓘnfo)
                     case .newNoteShortcut, .noNote, .widgetPlaceholder:
                         break
                 }
@@ -121,7 +125,10 @@ extension 📱AppModel {
 
 extension 📱AppModel {
     var deletedAllWidgetNotes: Bool {
-        guard let ⓘds = self.widgetState.info?.targetedNoteIDs else { return false }
+        guard case .widget(let info) = self.presentedSheetOnContentView,
+              let ⓘds = info.targetedNoteIDs else {
+            return false
+        }
         return ⓘds.allSatisfy { ⓘd in
             !self.notes.contains { $0.id == ⓘd }
         }

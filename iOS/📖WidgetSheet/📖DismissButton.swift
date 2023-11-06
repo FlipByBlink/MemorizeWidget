@@ -4,7 +4,7 @@ struct 📖DismissButton: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Button {
-            self.model.widgetState.showSheet = false
+            self.model.presentedSheetOnContentView = nil
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Image(systemName: "xmark.circle.fill")

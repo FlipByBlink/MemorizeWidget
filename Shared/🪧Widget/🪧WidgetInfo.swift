@@ -4,7 +4,7 @@ enum 🪧WidgetInfo {
     case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
 }
 
-extension 🪧WidgetInfo {
+extension 🪧WidgetInfo: Hashable {
     var urlString: String {
         switch self {
             case .singleNote(let ⓘd):

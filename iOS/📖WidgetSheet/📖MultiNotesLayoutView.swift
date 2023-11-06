@@ -22,8 +22,12 @@ struct 📖MultiNotesLayoutView: View {
 }
 
 private extension 📖MultiNotesLayoutView {
-    private var ids: [UUID] { self.model.widgetState.info?.targetedNoteIDs ?? [] }
-    private var targetNotesCount: Int { self.model.widgetState.info?.targetedNotesCount ?? 0 }
+    private var ids: [UUID] {
+        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
+    }
+    private var targetNotesCount: Int {
+        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount ?? 0
+    }
     private func noteRow(_ ⓘd: UUID) -> some View {
         Group {
             if let ⓘndex = self.model.notes.index(ⓘd) {

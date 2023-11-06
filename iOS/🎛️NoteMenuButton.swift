@@ -3,10 +3,9 @@ import SwiftUI
 struct 🎛️NoteMenuButton: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding private var note: 📗Note
-    @State private var dictionaryState: 📘DictionaryState = .default
     var body: some View {
         Menu {
-            Self.DictionaryButton(self.note, self.$dictionaryState)
+            self.dictionaryButton()
             🔍SearchButton(self.note)
             self.insertNewNoteBelowButton()
             self.moveButtons()
@@ -16,7 +15,6 @@ struct 🎛️NoteMenuButton: View {
                 .foregroundColor(.secondary)
                 .labelStyle(.iconOnly)
                 .padding(12)
-                .modifier(📘DictionarySheet(self.$dictionaryState))
         }
         .modifier(🩹Workaround.CloseMenePopup())
     }
@@ -26,24 +24,16 @@ struct 🎛️NoteMenuButton: View {
 }
 
 private extension 🎛️NoteMenuButton {
-    private struct DictionaryButton: View {
-        private var term: String
-        @Binding private var dictionaryState: 📘DictionaryState
-        var body: some View {
+    private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
-            Button {
-                self.dictionaryState.request(self.term)
-            } label: {
-                Label("Dictionary", systemImage: "character.book.closed")
-            }
+        Button {
+            self.model.presentedSheetOnContentView = .dictionary(.init(term: self.note.title))
+        } label: {
+            Label("Dictionary", systemImage: "character.book.closed")
+        }
 #else
-            📘DictionaryButtonOnMac(term: self.term)
+        📘DictionaryButtonOnMac(term: self.term)
 #endif
-        }
-        init(_ note: 📗Note, _ state: Binding<📘DictionaryState>) {
-            self.term = note.title
-            self._dictionaryState = state
-        }
     }
     private func insertNewNoteBelowButton() -> some View {
         Button {

@@ -1,30 +1,14 @@
 import SwiftUI
 
-struct 📘DictionaryState {
-    var showSheet: Bool
-    var viewController: UIReferenceLibraryViewController?
-    static var `default`: Self { .init(showSheet: false, viewController: nil) }
-    mutating func request(_ ⓣerm: String) {
-        self.viewController = UIReferenceLibraryViewController(term: ⓣerm)
-        self.showSheet = true
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+struct 📘DictionaryView: View {
+    var referenceLibraryViewController: UIReferenceLibraryViewController
+    var body: some View {
+        🅄IReferenceLibraryView(self.referenceLibraryViewController)
+            .ignoresSafeArea()
+            .presentationDetents([.medium])
     }
-}
-
-struct 📘DictionarySheet: ViewModifier {
-    @Binding private var dictionaryState: 📘DictionaryState
-    func body(content: Content) -> some View {
-        let ⓥiewController = self.dictionaryState.viewController
-        content
-            .sheet(isPresented: self.$dictionaryState.showSheet) {
-                if let ⓥiewController {
-                    🅄IReferenceLibraryView(ⓥiewController)
-                        .ignoresSafeArea()
-                }
-            }
-    }
-    init(_ state: Binding<📘DictionaryState>) {
-        self._dictionaryState = state
+    init(_ referenceLibraryViewController: UIReferenceLibraryViewController) {
+        self.referenceLibraryViewController = referenceLibraryViewController
     }
 }
 

@@ -55,8 +55,7 @@ private extension 📗NoteView {
         case title, comment
     }
     private var thin: Bool {
-        !self.model.widgetState.showSheet
-        && !self.model.randomMode
+        !self.model.randomMode
         && self.model.notes.first != self.source
     }
     private var isNewNote: Bool {

@@ -72,7 +72,7 @@ private extension 📚NotesListTab {
     private func importNotesButton() -> some View {
         Button {
             UISelectionFeedbackGenerator().selectionChanged()
-            self.model.showNotesImportSheet.toggle()
+            self.model.presentedSheetOnContentView = .notesImport
         } label: {
             Label("Import notes", systemImage: "tray.and.arrow.down")
         }

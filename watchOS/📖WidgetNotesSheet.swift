@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📖WidgetNotesSheet: View {
+struct 📖WidgetSheetView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         NavigationStack {
@@ -20,15 +20,17 @@ struct 📖WidgetNotesSheet: View {
     }
 }
 
-private extension 📖WidgetNotesSheet {
+private extension 📖WidgetSheetView {
     private var ids: [UUID] {
-        self.model.widgetState.info?.targetedNoteIDs ?? []
+        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
     }
     private struct NoteDetailLink: View {
         @EnvironmentObject var model: 📱AppModel
         var id: UUID
         private var ⓝoteIndex: Int? { self.model.notes.index(self.id) }
-        private var singleNoteLayout: Bool { self.model.widgetState.info?.targetedNotesCount == 1 }
+        private var singleNoteLayout: Bool {
+            self.model.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount == 1
+        }
         var body: some View {
             if let ⓝoteIndex {
                 NavigationLink {
