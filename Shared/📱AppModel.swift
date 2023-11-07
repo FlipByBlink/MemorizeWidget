@@ -12,6 +12,7 @@ class 📱AppModel: ObservableObject {
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet? = nil
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
+    let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #endif
     init() {
         self.forwardFromUserDefaults_1_1_2()
@@ -124,6 +125,11 @@ extension 📱AppModel {
         }
 #if os(iOS)
         self.selectedTab = .notesList
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            if self.inAppPurchaseModel.checkToShowADSheet() {
+                self.presentedSheetOnWidgetSheet = .ad
+            }
+        }
 #endif
     }
 }

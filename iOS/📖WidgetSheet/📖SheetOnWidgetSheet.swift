@@ -18,12 +18,6 @@ extension 📖SheetOnWidgetSheet: Identifiable, Hashable {
                         case .ad: 📣ADContentView()
                     }
                 }
-                .task { //TODO: AppModel内に移行
-                    try? await Task.sleep(for: .seconds(0.7))
-                    if self.inAppPurchaseModel.checkToShowADSheet() {
-                        self.appModel.presentedSheetOnWidgetSheet = .ad
-                    }
-                }
         }
     }
 }

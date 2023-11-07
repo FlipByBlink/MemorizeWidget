@@ -8,5 +8,6 @@ struct ContentView: View {
             .modifier(💬RequestUserReview())
             .modifier(🩹Workaround.HideTitleBarOnMacCatalyst())
             .modifier(📰SheetOnContentView.Handler())
+            .environmentObject(self.model.inAppPurchaseModel)
     }
 }
