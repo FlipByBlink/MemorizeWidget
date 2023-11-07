@@ -32,7 +32,6 @@ struct ContentView: View {
             }
             .navigationTitle("MemorizeWidget")
         }
-        .modifier(🆕NewNoteShortcut())
         .onOpenURL(perform: self.model.handleWidgetURL)
         .modifier(📰SheetOnContentView.Handler())
     }

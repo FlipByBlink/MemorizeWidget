@@ -110,7 +110,13 @@ extension 📱AppModel {
                 switch ⓘnfo {
                     case .singleNote(_), .multiNotes(_):
                         self.presentedSheetOnContentView = .widget(ⓘnfo)
-                    case .newNoteShortcut, .noNote, .widgetPlaceholder:
+                    case .newNoteShortcut:
+#if os(iOS)
+                        break
+#elseif os(watchOS)
+                        self.presentedSheetOnContentView = .newNoteShortcut
+#endif
+                    case .noNote, .widgetPlaceholder:
                         break
                 }
                 💥Feedback.light()

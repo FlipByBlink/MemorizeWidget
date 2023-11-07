@@ -1,38 +1,28 @@
 import SwiftUI
 
-struct 🆕NewNoteShortcut: ViewModifier {
+struct 🆕NewNoteShortcutView: View {
     @EnvironmentObject var model: 📱AppModel
-    @State private var showSheet: Bool = false
     @State private var title: String = ""
     @State private var comment: String = ""
-    func body(content: Content) -> some View {
-        content
-            .sheet(isPresented: self.$showSheet) {
-                List {
-                    TextField("Title", text: self.$title)
-                        .font(.headline)
-                    TextField("Comment", text: self.$comment)
-                        .font(.subheadline)
-                        .opacity(self.title.isEmpty ? 0.33 : 1)
-                    self.doneButton()
-                }
-                .animation(.default, value: self.title.isEmpty)
-            }
-            .onOpenURL(perform: self.handleNewNoteShortcut(_:))
+    var body: some View {
+        List {
+            TextField("Title", text: self.$title)
+                .font(.headline)
+            TextField("Comment", text: self.$comment)
+                .font(.subheadline)
+                .opacity(self.title.isEmpty ? 0.33 : 1)
+            self.doneButton()
+        }
+        .animation(.default, value: self.title.isEmpty)
     }
 }
 
-private extension 🆕NewNoteShortcut {
-    private func handleNewNoteShortcut(_ ⓤrl: URL) {
-        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            self.showSheet = true
-        }
-    }
+private extension 🆕NewNoteShortcutView {
     private func doneButton() -> some View {
         Section {
             Button {
                 self.model.insertOnTop([.init(self.title, self.comment)])
-                self.showSheet = false
+                self.model.presentedSheetOnContentView = nil
                 💥Feedback.success()
                 Task { @MainActor in
                     try? await Task.sleep(for: .seconds(1))

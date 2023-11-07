@@ -5,6 +5,8 @@ enum 📰SheetOnContentView {
 #if os(iOS)
     case notesImport
     case dictionary(UIReferenceLibraryViewController)
+#elseif os(watchOS)
+    case newNoteShortcut
 #endif
 }
 
@@ -20,6 +22,8 @@ extension 📰SheetOnContentView: Identifiable, Hashable {
 #if os(iOS)
                         case .notesImport: 📥NotesImportView()
                         case .dictionary(let ⓥiewController): 📘DictionaryView(ⓥiewController)
+#elseif os(watchOS)
+                        case .newNoteShortcut: 🆕NewNoteShortcutView()
 #endif
                     }
                 }
