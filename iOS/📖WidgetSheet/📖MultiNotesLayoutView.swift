@@ -5,13 +5,15 @@ struct 📖MultiNotesLayoutView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         List {
-            if self.targetNotesCount < 4 {
-                ForEach(self.ids, id: \.self) { ⓘd in
+            if self.lessThan4 {
+                ForEach(self.model.openedWidgetNoteIDs, id: \.self) { ⓘd in
                     Section { self.noteRow(ⓘd) }
                 }
             } else {
                 Section {
-                    ForEach(self.ids, id: \.self) { self.noteRow($0) }
+                    ForEach(self.model.openedWidgetNoteIDs, id: \.self) {
+                        self.noteRow($0)
+                    }
                 }
             }
             if self.model.deletedAllWidgetNotes {
@@ -22,19 +24,14 @@ struct 📖MultiNotesLayoutView: View {
 }
 
 private extension 📖MultiNotesLayoutView {
-    private var ids: [UUID] {
-        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
-    }
-    private var targetNotesCount: Int {
-        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount ?? 0
-    }
+    private var lessThan4: Bool { self.model.openedWidgetNotesCount < 4 }
     private func noteRow(_ ⓘd: UUID) -> some View {
         Group {
             if let ⓘndex = self.model.notes.index(ⓘd) {
                 if self.horizontalSizeClass == .compact {
                     VStack(spacing: 0) {
                         📗NoteView(self.$model.notes[ⓘndex],
-                                   layout: .widgetSheet_multi(self.targetNotesCount))
+                                   layout: .widgetSheet_multi(self.model.openedWidgetNotesCount))
                         HStack {
                             Spacer()
                             📖DictionaryButton(self.model.notes[ⓘndex])
@@ -51,14 +48,14 @@ private extension 📖MultiNotesLayoutView {
                         .labelStyle(.iconOnly)
                         .buttonStyle(.plain)
                         .foregroundColor(.primary)
-                        .font(self.targetNotesCount < 4 ? .title3 : .body)
-                        .padding(self.targetNotesCount < 4 ? 12 : 4)
+                        .font(self.lessThan4 ? .title3 : .body)
+                        .padding(self.lessThan4 ? 12 : 4)
                     }
-                    .padding(self.targetNotesCount < 4 ? 8 : 4)
+                    .padding(self.lessThan4 ? 8 : 4)
                 } else {
                     HStack(spacing: 0) {
                         📗NoteView(self.$model.notes[ⓘndex],
-                                   layout: .widgetSheet_multi(self.targetNotesCount))
+                                   layout: .widgetSheet_multi(self.model.openedWidgetNotesCount))
                         HStack(spacing: 24) {
                             📖DictionaryButton(self.model.notes[ⓘndex])
                             🔍SearchButton(self.model.notes[ⓘndex])
@@ -69,9 +66,9 @@ private extension 📖MultiNotesLayoutView {
                         .buttonStyle(.plain)
                         .foregroundColor(.primary)
                         .padding()
-                        .font(self.targetNotesCount < 4 ? .title3 : .body)
+                        .font(self.lessThan4 ? .title3 : .body)
                     }
-                    .padding(self.targetNotesCount < 4 ? 8 : 0)
+                    .padding(self.lessThan4 ? 8 : 0)
                 }
             }
         }

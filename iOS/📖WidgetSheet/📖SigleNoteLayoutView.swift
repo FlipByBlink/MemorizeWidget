@@ -2,15 +2,10 @@ import SwiftUI
 
 struct 📖SigleNoteLayoutView: View {
     @EnvironmentObject var model: 📱AppModel
-    private var ⓘndex: Int? {
-        self.model.notes.index(
-            self.model.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs?.first
-        )
-    }
     var body: some View {
         VStack {
             Spacer()
-            if let ⓘndex {
+            if let ⓘndex = self.model.openedWidgetSingleNoteIndex {
                 📗NoteView(self.$model.notes[ⓘndex], layout: .widgetSheet_single)
                     .padding(.horizontal, 32)
                 Spacer()

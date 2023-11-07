@@ -31,7 +31,7 @@ private extension 🆕NewNoteShortcut {
     private func doneButton() -> some View {
         Section {
             Button {
-                self.model.insertOnTop([📗Note(self.title, self.comment)])
+                self.model.insertOnTop([.init(self.title, self.comment)])
                 self.showSheet = false
                 💥Feedback.success()
                 Task { @MainActor in

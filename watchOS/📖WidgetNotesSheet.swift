@@ -5,13 +5,10 @@ struct 📖WidgetSheetView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(self.ids, id: \.self) {
+                ForEach(self.model.openedWidgetNoteIDs, id: \.self) {
                     Self.NoteDetailLink(id: $0)
                 }
-                .onDelete {
-                    guard let ⓘndex = $0.first else { return }
-                    self.model.removeNote(self.ids[ⓘndex])
-                }
+                .onDelete { self.model.deleteNoteOnWidgetSheet($0) }
             }
             .overlay {
                 if self.model.deletedAllWidgetNotes { Self.deletedNoteView() }
@@ -21,16 +18,11 @@ struct 📖WidgetSheetView: View {
 }
 
 private extension 📖WidgetSheetView {
-    private var ids: [UUID] {
-        self.model.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
-    }
     private struct NoteDetailLink: View {
         @EnvironmentObject var model: 📱AppModel
         var id: UUID
         private var ⓝoteIndex: Int? { self.model.notes.index(self.id) }
-        private var singleNoteLayout: Bool {
-            self.model.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount == 1
-        }
+        private var singleNoteLayout: Bool { self.model.openedWidgetNotesCount == 1 }
         var body: some View {
             if let ⓝoteIndex {
                 NavigationLink {

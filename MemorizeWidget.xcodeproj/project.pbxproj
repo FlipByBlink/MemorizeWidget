@@ -35,6 +35,8 @@
 		168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */; };
 		168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
 		168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743752AF9D14B000F0F79 /* 📥Error.swift */; };
+		168743782AFA25D7000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */; };
+		1687437A2AFA38C3000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */; };
 		168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -420,6 +422,8 @@
 		168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥TextImportSection.swift"; sourceTree = "<group>"; };
 		168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥SeparatorPicker.swift"; sourceTree = "<group>"; };
 		168743752AF9D14B000F0F79 /* 📥Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥Error.swift"; sourceTree = "<group>"; };
+		168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
+		168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F142AF6056300A100A7 /* 🔖TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabModel.swift"; sourceTree = "<group>"; };
@@ -816,6 +820,7 @@
 			children = (
 				F568F18F29E3A5DA005A1D1A /* App.swift */,
 				F568F19129E3A5DA005A1D1A /* ContentView.swift */,
+				168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */,
 				F50C83432AA5EDBE0033A04B /* 📚NotesMenu.swift */,
 				F50C83412AA5EDAF0033A04B /* 📗NoteView.swift */,
 				F50C833F2AA5ED910033A04B /* 📖WidgetNotesSheet.swift */,
@@ -888,6 +893,7 @@
 			children = (
 				F5B5A46128C6EDA1005B6E0F /* App.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
+				168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */,
 				F51CAF6429D6AEFA0065EF30 /* 📗NoteView.swift */,
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
 				166BC2A52AF628E300729C66 /* 🎛️NoteMenuButton.swift */,
@@ -1151,6 +1157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1687437A2AFA38C3000F0F79 /* 📱AppModel(extension).swift in Sources */,
 				F50C83422AA5EDAF0033A04B /* 📗NoteView.swift in Sources */,
 				F50C83482AA5F01B0033A04B /* 🗑TrashMenu.swift in Sources */,
 				F568F1A529E3A6A1005A1D1A /* 🗑TrashModel.swift in Sources */,
@@ -1252,6 +1259,7 @@
 				F5B5A46228C6EDA1005B6E0F /* App.swift in Sources */,
 				F50C83212AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift in Sources */,
 				F50C83232AA5D1A00033A04B /* 💬RequestUserReview.swift in Sources */,
+				168743782AFA25D7000F0F79 /* 📱AppModel(extension).swift in Sources */,
 				166BC2AD2AF62BB900729C66 /* 📖DeletedNoteView.swift in Sources */,
 				166BC2952AF6230000729C66 /* 🔩CustomizeSearchLink.swift in Sources */,
 				F527F47B29D5424C00E9FB97 /* 🩹Workaround.swift in Sources */,

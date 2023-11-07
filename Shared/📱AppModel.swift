@@ -25,14 +25,12 @@ class 📱AppModel: ObservableObject {
 
 //MARK: ComputedProperty, Method
 extension 📱AppModel {
-    @MainActor
-    func deleteNote(_ ⓘndexSet: IndexSet) {
+    func deleteNoteOnNotesList(_ ⓘndexSet: IndexSet) {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.trash.storeDeletedNotes([self.notes[ⓘndex]])
         self.notes.remove(atOffsets: ⓘndexSet)
         self.saveNotes()
     }
-    @MainActor
     func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
         self.saveNotes()
@@ -127,6 +125,15 @@ extension 📱AppModel {
 }
 
 extension 📱AppModel {
+    var openedWidgetNoteIDs: [UUID] {
+        self.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
+    }
+    var openedWidgetSingleNoteIndex: Int? {
+        self.notes.index(self.openedWidgetNoteIDs.first)
+    }
+    var openedWidgetNotesCount: Int {
+        self.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount ?? 0
+    }
     var deletedAllWidgetNotes: Bool {
         guard case .widget(let info) = self.presentedSheetOnContentView,
               let ⓘds = info.targetedNoteIDs else {
@@ -168,12 +175,3 @@ extension 📱AppModel {
         }
     }
 }
-
-#if os(iOS)
-extension 📱AppModel {
-    func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
-        let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
-        return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000
-    }
-}
-#endif

@@ -14,7 +14,7 @@ struct 📚NotesListTab: View {
                             📗NoteView(ⓝote, layout: .notesList)
                                 .id(ⓝote.id)
                         }
-                        .onDelete { self.model.deleteNote($0) }
+                        .onDelete { self.model.deleteNoteOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }
                     } footer: {
                         Text("Notes count: \(self.model.notes.count)")
@@ -23,7 +23,7 @@ struct 📚NotesListTab: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .onChange(of: self.self.model.createdNewNoteID) { ⓢcrollViewProxy.scrollTo($0) }
-                .onOpenURL { self.handleNewNoteShortcut($0, ⓢcrollViewProxy) }
+                .onOpenURL { self.model.handleNewNoteShortcut($0, ⓢcrollViewProxy) } //TODO: 挙動を微調整する必要あり
                 .animation(.default, value: self.model.notes)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -40,14 +40,6 @@ struct 📚NotesListTab: View {
 }
 
 private extension 📚NotesListTab {
-    private func handleNewNoteShortcut(_ ⓤrl: URL, _ ⓢcrollViewProxy: ScrollViewProxy) {
-        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                ⓢcrollViewProxy.scrollTo("NewNoteButton")
-                self.model.addNewNoteOnTop()
-            }
-        }
-    }
     private func randomModeSection() -> some View {
         Section {
             Toggle(isOn: self.$model.randomMode) {

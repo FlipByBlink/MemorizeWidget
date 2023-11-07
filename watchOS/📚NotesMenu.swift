@@ -13,7 +13,7 @@ struct 📚NotesMenu: View {
                 }
             }
             .onDelete {
-                self.model.deleteNote($0)
+                self.model.deleteNoteOnNotesList($0)
                 💥Feedback.warning()
             }
             .onMove {
@@ -31,7 +31,7 @@ private extension 📚NotesMenu {
         TextFieldLink {
             Label("New note", systemImage: "plus")
         } onSubmit: {
-            self.model.insertOnTop([📗Note($0)])
+            self.model.insertOnTop([.init($0)])
         }
     }
     private struct NoteLinkLabel: View {

@@ -2,14 +2,13 @@ import SwiftUI
 
 struct 💁GuideTab: View {
     @EnvironmentObject var model: 📱AppModel
-    private var exceedDataSize: Bool { self.model.exceedDataSizePerhaps }
     var body: some View {
         NavigationStack {
             List {
-                if self.exceedDataSize { 🄳ataSection() }
+                if self.model.exceedDataSizePerhaps { 🄳ataSection() }
                 🄸mportNotesSection()
                 🅃ipsSection()
-                if !self.exceedDataSize { 🄳ataSection() }
+                if !self.model.exceedDataSizePerhaps { 🄳ataSection() }
                 🄰ppleSupportLinkSection()
                 🄳irectionsSection()
             }
@@ -20,7 +19,6 @@ struct 💁GuideTab: View {
 
 private struct 🄳ataSection: View {
     @EnvironmentObject var model: 📱AppModel
-    private var dataCount: Int { self.model.notes.dataCount }
     var body: some View {
         Section {
             Label("Sync notes between devices by iCloud.", systemImage: "icloud")
@@ -35,11 +33,11 @@ private struct 🄳ataSection: View {
                 HStack {
                     Label("Notes data count", systemImage: "books.vertical")
                     Spacer()
-                    Text(self.dataCount.formatted(.byteCount(style: .file)))
+                    Text(self.model.notes.dataCount.formatted(.byteCount(style: .file)))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                if self.dataCount > 800000 {
+                if self.model.exceedDataSizePerhaps {
                     Text("⚠️ NOTICE DATA LIMITATION")
                         .font(.headline)
                         .foregroundColor(.red)
