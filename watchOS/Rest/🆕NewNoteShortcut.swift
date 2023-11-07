@@ -2,41 +2,34 @@ import SwiftUI
 
 struct 🆕NewNoteShortcutView: View {
     @EnvironmentObject var model: 📱AppModel
-    @State private var title: String = ""
-    @State private var comment: String = ""
+    @State private var note: 📗Note = .empty
     var body: some View {
         List {
-            TextField("Title", text: self.$title)
+            TextField("Title", text: self.$note.title)
                 .font(.headline)
-            TextField("Comment", text: self.$comment)
+            TextField("Comment", text: self.$note.comment)
                 .font(.subheadline)
-                .opacity(self.title.isEmpty ? 0.33 : 1)
-            self.doneButton()
+                .opacity(self.note.title.isEmpty ? 0.33 : 1)
+            self.submitButton()
         }
-        .animation(.default, value: self.title.isEmpty)
+        .animation(.default, value: self.note.title.isEmpty)
+        .onDisappear { self.note = .empty }
     }
 }
 
 private extension 🆕NewNoteShortcutView {
-    private func doneButton() -> some View {
+    private func submitButton() -> some View {
         Section {
             Button {
-                self.model.insertOnTop([.init(self.title, self.comment)])
-                self.model.presentedSheetOnContentView = nil
-                💥Feedback.success()
-                Task { @MainActor in
-                    try? await Task.sleep(for: .seconds(1))
-                    self.title = ""
-                    self.comment = ""
-                }
+                self.model.addNewNoteOnShortcutSheet(self.note)
             } label: {
                 Label("Done", systemImage: "checkmark")
             }
             .buttonStyle(.bordered)
             .listRowBackground(Color.clear)
             .fontWeight(.semibold)
-            .disabled(self.title.isEmpty)
-            .foregroundStyle(self.title.isEmpty ? .tertiary : .primary)
+            .disabled(self.note.title.isEmpty)
+            .foregroundStyle(self.note.title.isEmpty ? .tertiary : .primary)
         }
     }
 }

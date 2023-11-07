@@ -5,4 +5,9 @@ extension 📱AppModel {
         guard let ⓘndex = ⓘndexSet.first else { return }
         self.removeNote(self.openedWidgetNoteIDs[ⓘndex])
     }
+    func addNewNoteOnShortcutSheet(_ ⓝote: 📗Note) {
+        self.insertOnTop([ⓝote])
+        self.presentedSheetOnContentView = nil
+        💥Feedback.success()
+    }
 }
