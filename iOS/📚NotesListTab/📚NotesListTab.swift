@@ -10,9 +10,12 @@ struct 📚NotesListTab: View {
                     self.randomModeSection()
                     Section {
                         self.newNoteOnTopButton()
-                        ForEach(self.$model.notes) { ⓝote in
-                            📗NoteView(ⓝote, layout: .notesList)
-                                .id(ⓝote.id)
+                        ForEach(self.$model.notes) {
+                            📗NoteView(source: $0,
+                                       titleFont: .title2,
+                                       commentFont: .body,
+                                       placement: .notesList)
+                            .id($0.id)
                         }
                         .onDelete { self.model.deleteNoteOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }

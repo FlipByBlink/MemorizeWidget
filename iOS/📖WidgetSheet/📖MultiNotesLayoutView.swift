@@ -30,8 +30,10 @@ private extension 📖MultiNotesLayoutView {
             if let ⓘndex = self.model.notes.index(ⓘd) {
                 if self.horizontalSizeClass == .compact {
                     VStack(spacing: 0) {
-                        📗NoteView(self.$model.notes[ⓘndex],
-                                   layout: .widgetSheet_multi(self.model.openedWidgetNotesCount))
+                        📗NoteView(source: self.$model.notes[ⓘndex],
+                                   titleFont: self.lessThan4 ? .title : .body,
+                                   commentFont: self.lessThan4 ? .title3 : .subheadline,
+                                   placement: .widgetSheet)
                         HStack {
                             Spacer()
                             📖DictionaryButton(self.model.notes[ⓘndex])
@@ -54,8 +56,10 @@ private extension 📖MultiNotesLayoutView {
                     .padding(self.lessThan4 ? 8 : 4)
                 } else {
                     HStack(spacing: 0) {
-                        📗NoteView(self.$model.notes[ⓘndex],
-                                   layout: .widgetSheet_multi(self.model.openedWidgetNotesCount))
+                        📗NoteView(source: self.$model.notes[ⓘndex],
+                                   titleFont: self.lessThan4 ? .title : .body,
+                                   commentFont: self.lessThan4 ? .title3 : .subheadline,
+                                   placement: .widgetSheet)
                         HStack(spacing: 24) {
                             📖DictionaryButton(self.model.notes[ⓘndex])
                             🔍SearchButton(self.model.notes[ⓘndex])

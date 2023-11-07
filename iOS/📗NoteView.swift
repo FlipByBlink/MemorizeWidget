@@ -2,8 +2,10 @@ import SwiftUI
 
 struct 📗NoteView: View {
     @EnvironmentObject var model: 📱AppModel
-    @Binding private var source: 📗Note
-    private var layout: Self.Layout
+    @Binding var source: 📗Note
+    var titleFont: Font
+    var commentFont: Font
+    var placement: Self.Placement
     @Environment(\.scenePhase) var scenePhase
     @State private var inputting: Bool = false
     @State private var inputtingNote: 📗Note = .empty
@@ -20,33 +22,13 @@ struct 📗NoteView: View {
             .padding(.leading, 12)
             .padding(.vertical, 12)
             .animation(.default, value: self.inputting)
-            if self.layout == .notesList {
+            if self.placement == .notesList {
                 📚MenuButton(self.inputting ? self.$inputtingNote : self.$source)
             }
         }
     }
-    init(_ note: Binding<📗Note>, layout: Self.Layout) {
-        self._source = note; self.layout = layout
-    }
-}
-
-extension 📗NoteView {
-    enum Layout: Equatable {
-        case notesList, widgetSheet_single, widgetSheet_multi(Int)
-        var titleFont: Font {
-            switch self {
-                case .notesList: .title2
-                case .widgetSheet_single: .largeTitle
-                case .widgetSheet_multi(let ⓒount): ⓒount < 4 ? .title : .body
-            }
-        }
-        var commentFont: Font {
-            switch self {
-                case .notesList: .body
-                case .widgetSheet_single: .title
-                case .widgetSheet_multi(let ⓒount): ⓒount < 4 ? .title3 : .subheadline
-            }
-        }
+    enum Placement {
+        case notesList, widgetSheet
     }
 }
 
@@ -54,8 +36,9 @@ private extension 📗NoteView {
     private enum FocusArea {
         case title, comment
     }
-    private var thin: Bool {
-        !self.model.randomMode
+    private var thinTitleOnNotesList: Bool {
+        (self.placement == .notesList)
+        && !self.model.randomMode
         && (self.source != self.model.notes.first)
     }
     private var isNewNote: Bool {
@@ -65,10 +48,10 @@ private extension 📗NoteView {
         VStack(alignment: .leading, spacing: 6) {
             TextField("+ title", text: self.$inputtingNote.title)
                 .focused(self.$focusArea, equals: .title)
-                .font(self.layout.titleFont.weight(.semibold))
+                .font(self.titleFont.weight(.semibold))
             TextField("+ comment", text: self.$inputtingNote.comment)
                 .focused(self.$focusArea, equals: .comment)
-                .font(self.layout.commentFont.weight(.light))
+                .font(self.commentFont.weight(.light))
                 .foregroundStyle(.secondary)
                 .opacity(0.8)
         }
@@ -88,16 +71,16 @@ private extension 📗NoteView {
                 Group {
                     self.source.title.isEmpty ? Text("+ title") : Text(self.source.title)
                 }
-                .font(self.layout.titleFont.weight(.semibold))
+                .font(self.titleFont.weight(.semibold))
                 .foregroundStyle(self.source.title.isEmpty ? .secondary : .primary)
-                .opacity(self.thin ? 0.4 : 1)
-                .animation(.default.speed(1.5), value: self.thin)
+                .opacity(self.thinTitleOnNotesList ? 0.4 : 1)
+                .animation(.default.speed(1.5), value: self.thinTitleOnNotesList)
                 .padding(.bottom, 1)
                 .onTapGesture { self.startToInput(.title) }
                 Group {
                     self.source.comment.isEmpty ? Text("no comment") : Text(self.source.comment)
                 }
-                .font(self.layout.commentFont.weight(.light))
+                .font(self.commentFont.weight(.light))
                 .foregroundStyle(self.source.comment.isEmpty ? .tertiary : .secondary)
                 .padding(.bottom, 1)
                 .onTapGesture { self.startToInput(.comment) }

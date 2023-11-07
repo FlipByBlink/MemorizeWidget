@@ -6,8 +6,11 @@ struct 📖SigleNoteLayoutView: View {
         VStack {
             Spacer()
             if let ⓘndex = self.model.openedWidgetSingleNoteIndex {
-                📗NoteView(self.$model.notes[ⓘndex], layout: .widgetSheet_single)
-                    .padding(.horizontal, 32)
+                📗NoteView(source: self.$model.notes[ⓘndex],
+                           titleFont: .largeTitle,
+                           commentFont: .title,
+                           placement: .widgetSheet)
+                .padding(.horizontal, 32)
                 Spacer()
                 HStack {
                     Spacer()
