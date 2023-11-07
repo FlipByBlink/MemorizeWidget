@@ -5,9 +5,8 @@ struct 📥FileImportSection: View {
     @Binding var importedText: String
     @State private var showFileImporter: Bool = false
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
-    @State private var 🚨alertDataSizeLimitExceeded: Bool = false
-    @State private var 🚨showErrorAlert: Bool = false
-    @State private var 🚨errorMessage: String = ""
+    @State private var alertError: Bool = false
+    @State private var 🚨error: Self.🚨Error?
     var body: some View {
         Section {
             📥SeparatorPicker()
@@ -20,18 +19,20 @@ struct 📥FileImportSection: View {
             .fileImporter(isPresented: self.$showFileImporter,
                           allowedContentTypes: [.text],
                           onCompletion: self.action)
-            .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
-                Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
-            } message: {
-                Text("Total notes data over 800kB. Please decrease notes.")
-            }
-            .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
+            .alert("⚠️", isPresented: self.$alertError) {
                 Button("OK") {
-                    self.🚨showErrorAlert = false
-                    self.🚨errorMessage = ""
+                    self.alertError = false
+                    self.🚨error = nil
                 }
             } message: {
-                Text(self.🚨errorMessage)
+                switch self.🚨error {
+                    case .dataSizeLimitExceeded:
+                        Text("Total notes data over 800kB. Please decrease notes.")
+                    case .others(let ⓛocalizedDescription):
+                        Text(ⓛocalizedDescription)
+                    default:
+                        EmptyView()
+                }
             }
         }
     }
@@ -48,18 +49,19 @@ private extension 📥FileImportSection {
                 let ⓣext = try String(contentsOf: ⓤrl)
                 let ⓓataCount = 📚TextConvert.decode(ⓣext, self.separator).dataCount
                 guard (ⓓataCount + self.model.notes.dataCount) < 800000 else {
-                    self.🚨alertDataSizeLimitExceeded = true
+                    self.🚨error = .dataSizeLimitExceeded
+                    self.alertError = true
                     return
                 }
                 self.importedText = ⓣext
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
         } catch {
-            self.🚨errorMessage = error.localizedDescription
-            self.🚨showErrorAlert = true
+            self.🚨error = .others(error.localizedDescription)
+            self.alertError = true
         }
     }
-    //enum 🚨Error: Error {
-    //    case dataSizeLimitExceeded, others
-    //}
+    private enum 🚨Error: Error {
+        case dataSizeLimitExceeded, others(String)
+    }
 }
