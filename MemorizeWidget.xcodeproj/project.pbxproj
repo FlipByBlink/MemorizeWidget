@@ -13,8 +13,8 @@
 		166BC2822AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2832AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2852AF60B3E00729C66 /* 🔖TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2842AF60B3E00729C66 /* 🔖TabView.swift */; };
-		166BC28E2AF619EB00729C66 /* 🄸nputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC28D2AF619EB00729C66 /* 🄸nputType.swift */; };
-		166BC2902AF61AD900729C66 /* 🄼ainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC28F2AF61AD900729C66 /* 🄼ainView.swift */; };
+		166BC28E2AF619EB00729C66 /* 📨InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC28D2AF619EB00729C66 /* 📨InputType.swift */; };
+		166BC2902AF61AD900729C66 /* 📨RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC28F2AF61AD900729C66 /* 📨RootView.swift */; };
 		166BC2932AF6228900729C66 /* 🔩BeforeAfterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2922AF6228900729C66 /* 🔩BeforeAfterImages.swift */; };
 		166BC2952AF6230000729C66 /* 🔩CustomizeSearchLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2942AF6230000729C66 /* 🔩CustomizeSearchLink.swift */; };
 		166BC2972AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2962AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift */; };
@@ -202,7 +202,7 @@
 		F5B5A46228C6EDA1005B6E0F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46128C6EDA1005B6E0F /* App.swift */; };
 		F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5A46328C6EDA1005B6E0F /* ContentView.swift */; };
 		F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */; };
-		F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
+		F5CEA5F42924AAAC00752277 /* 📨HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */; };
 		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
 		F5CEA5FB2924AAAC00752277 /* ShareExtension(iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5CEA6022925C93E00752277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
@@ -236,7 +236,7 @@
 		F5FE2D9F29DE8AB3008C728B /* ℹ️AboutAppTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F527F47629D5404800E9FB97 /* ℹ️AboutAppTab.swift */; };
 		F5FE2DA129DE8AB3008C728B /* Widget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* Widget.swift */; };
 		F5FE2DA429DE8AB3008C728B /* 📨ShareExtensionModel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */; };
-		F5FE2DA529DE8AB3008C728B /* 🄷ostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */; };
+		F5FE2DA529DE8AB3008C728B /* 📨HostingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */; };
 		F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */; };
 		F5FE2DA829DEB1F7008C728B /* 💁GuideTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */; };
 /* End PBXBuildFile section */
@@ -375,7 +375,7 @@
 				F5FE2D9F29DE8AB3008C728B /* ℹ️AboutAppTab.swift in CopyFiles */,
 				F5FE2DA129DE8AB3008C728B /* Widget.swift in CopyFiles */,
 				F5FE2DA429DE8AB3008C728B /* 📨ShareExtensionModel.swift in CopyFiles */,
-				F5FE2DA529DE8AB3008C728B /* 🄷ostingViewController.swift in CopyFiles */,
+				F5FE2DA529DE8AB3008C728B /* 📨HostingViewController.swift in CopyFiles */,
 				F59EEFF128F3FCEB002D9AD7 /* ℹ️AboutApp.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,8 +397,8 @@
 /* Begin PBXFileReference section */
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
-		166BC28D2AF619EB00729C66 /* 🄸nputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄸nputType.swift"; sourceTree = "<group>"; };
-		166BC28F2AF61AD900729C66 /* 🄼ainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄼ainView.swift"; sourceTree = "<group>"; };
+		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
+		166BC28F2AF61AD900729C66 /* 📨RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨RootView.swift"; sourceTree = "<group>"; };
 		166BC2922AF6228900729C66 /* 🔩BeforeAfterImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩BeforeAfterImages.swift"; sourceTree = "<group>"; };
 		166BC2942AF6230000729C66 /* 🔩CustomizeSearchLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩CustomizeSearchLink.swift"; sourceTree = "<group>"; };
 		166BC2962AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩DeleteAllNotesButton.swift"; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 		F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ShareExtension(iOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄷ostingViewController.swift"; sourceTree = "<group>"; };
+		F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨HostingViewController.swift"; sourceTree = "<group>"; };
 		F5CEA5F62924AAAC00752277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F5CEA5F82924AAAC00752277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5CEA5FF2924AB1900752277 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
@@ -906,9 +906,9 @@
 			isa = PBXGroup;
 			children = (
 				F5AAE662292B53D400FB8406 /* 📨ShareExtensionModel.swift */,
-				F5CEA5F32924AAAC00752277 /* 🄷ostingViewController.swift */,
-				166BC28F2AF61AD900729C66 /* 🄼ainView.swift */,
-				166BC28D2AF619EB00729C66 /* 🄸nputType.swift */,
+				F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */,
+				166BC28F2AF61AD900729C66 /* 📨RootView.swift */,
+				166BC28D2AF619EB00729C66 /* 📨InputType.swift */,
 				F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */,
 				F5CEA5F82924AAAC00752277 /* Info.plist */,
 				F5CEA5FF2924AB1900752277 /* ShareExtension.entitlements */,
@@ -1279,12 +1279,12 @@
 				F5AAE668292B754000FB8406 /* 💾UserDefaults.swift in Sources */,
 				F527F48329D5699D00E9FB97 /* 📗Note.swift in Sources */,
 				166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,
-				F5CEA5F42924AAAC00752277 /* 🄷ostingViewController.swift in Sources */,
-				166BC2902AF61AD900729C66 /* 🄼ainView.swift in Sources */,
+				F5CEA5F42924AAAC00752277 /* 📨HostingViewController.swift in Sources */,
+				166BC2902AF61AD900729C66 /* 📨RootView.swift in Sources */,
 				F5AAE663292B53D400FB8406 /* 📨ShareExtensionModel.swift in Sources */,
 				168D5F1E2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				168D5F0A2AF6034900A100A7 /* 📚Notes.swift in Sources */,
-				166BC28E2AF619EB00729C66 /* 🄸nputType.swift in Sources */,
+				166BC28E2AF619EB00729C66 /* 📨InputType.swift in Sources */,
 				F5EE7EBB29DFEEB100012A12 /* 💾ICloud.swift in Sources */,
 				16DD530A2AF88E67008F555A /* 📚TextConvert.swift in Sources */,
 			);

@@ -11,6 +11,8 @@
 "comment" = "コメント";
 "Notes count: %@" = "ノート数: %@";
 "no comment" = "コメントなし";
+"No title" = "タイトルなし";
+"No comment" = "コメントなし";
 "Deleted." = "削除完了";
 "Delete" = "削除";
 "Dictionary" = "辞書";

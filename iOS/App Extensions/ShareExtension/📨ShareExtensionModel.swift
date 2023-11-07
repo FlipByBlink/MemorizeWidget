@@ -3,7 +3,7 @@ import SwiftUI
 class 📨ShareExtensionModel: ObservableObject {
     var extensionContext: NSExtensionContext? = nil
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
-    @Published var type: 🄸nputType? = nil
+    @Published var type: 📨InputType? = nil
     @Published var importedFileText: String = ""
     @Published var singleNote: 📗Note = .empty
     @Published var importSelectedTextAsSingleNote: Bool = true

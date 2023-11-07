@@ -1,11 +1,11 @@
 import UIKit
 import SwiftUI
 
-class 🄷ostingViewController: UIHostingController<🄼ainView> {
+class 📨HostingViewController: UIHostingController<📨RootView> {
     private let model = 📨ShareExtensionModel()
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: 🄼ainView(self.model))
+        super.init(coder: aDecoder, rootView: 📨RootView(self.model))
     }
     
     override func viewDidLoad() {

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 🄼ainView: View {
+struct 📨RootView: View {
     @ObservedObject var model: 📨ShareExtensionModel
     var body: some View {
         NavigationStack {
@@ -67,7 +67,7 @@ struct 🄼ainView: View {
     }
 }
 
-private extension 🄼ainView {
+private extension 📨RootView {
     private func separatorPicker() -> some View {
         Section {
             Picker(selection: self.$model.separator) {
@@ -107,6 +107,7 @@ private extension 🄼ainView {
         }
         .disabled(self.model.type == .improperFile)
         .disabled(self.model.type == .exceedDataLimitation)
+        .disabled(self.model.singleNote.title.isEmpty)
     }
     private func closeButton() -> some View {
         Button {
