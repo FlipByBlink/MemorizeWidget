@@ -32,7 +32,7 @@ private extension 🗑TrashMenu {
     }
     private func singleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
         HStack {
-            self.noteView(ⓒontent.notes.first ?? .init("🐛"))
+            self.noteView(ⓒontent.notes.first ?? .init("BUG"))
             Spacer()
             self.restoreButton(ⓒontent)
                 .labelStyle(.iconOnly)

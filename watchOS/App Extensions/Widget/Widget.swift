@@ -4,17 +4,19 @@ import SwiftUI
 @main
 struct WatchOSWidgetBundle: WidgetBundle {
     var body: some Widget {
-        🪧Widget()
+        Self.PrimaryWidget()
         🪧NewNoteShortcutWidget()
     }
 }
 
-private struct 🪧Widget: Widget {
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
-            🪧EntryView(ⓔntry)
+private extension WatchOSWidgetBundle {
+    private struct PrimaryWidget: Widget {
+        var body: some WidgetConfiguration {
+            StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
+                🪧EntryView(ⓔntry)
+            }
+            .configurationDisplayName("Notes")
+            .description("Show a note.")
         }
-        .configurationDisplayName("Notes")
-        .description("Show a note.")
     }
 }
