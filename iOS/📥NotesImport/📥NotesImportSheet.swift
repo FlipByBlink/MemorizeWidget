@@ -2,29 +2,23 @@ import SwiftUI
 
 struct 📥NotesImportView: View {
     @EnvironmentObject var model: 📱AppModel
-    @State private var showFileImporter: Bool = false
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
-    @State private var pastedText: String = ""
     @State private var importedText: String = ""
     private var convertedNotes: 📚Notes { 📚TextConvert.decode(self.importedText, self.separator) }
-    @FocusState private var textFieldFocus: Bool
-    @State private var 🚨alertDataSizeLimitExceeded: Bool = false
-    @State private var 🚨showErrorAlert: Bool = false
-    @State private var 🚨errorMessage: String = ""
     var body: some View {
         NavigationStack {
             List {
                 if self.convertedNotes.isEmpty {
                     self.inputModePicker()
                     switch self.inputMode {
-                        case .file: self.fileImportSection()
-                        case .text: self.textImportSection()
+                        case .file: 📥FileImportSection(self.$importedText)
+                        case .text: 📥TextImportSection(self.$importedText)
                     }
-                    📥InputExample(mode: self.$inputMode)
+                    📥InputExample()
                     Self.notSupportMultiLineTextInNoteSection()
                 } else {
-                    self.separatorPicker()
+                    📥SeparatorPicker()
                     self.convertedNotesSection()
                 }
             }
@@ -44,19 +38,6 @@ struct 📥NotesImportView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .animation(.default, value: self.convertedNotes)
-        .alert("⚠️ Data size limitation", isPresented: self.$🚨alertDataSizeLimitExceeded) {
-            Button("Yes") { self.🚨alertDataSizeLimitExceeded = false }
-        } message: {
-            Text("Total notes data over 800kB. Please decrease notes.")
-        }
-        .alert("⚠️", isPresented: self.$🚨showErrorAlert) {
-            Button("OK") {
-                self.🚨showErrorAlert = false
-                self.🚨errorMessage = ""
-            }
-        } message: {
-            Text(self.🚨errorMessage)
-        }
     }
 }
 
@@ -75,75 +56,6 @@ private extension 📥NotesImportView {
             .listRowBackground(Color.clear)
         }
     }
-    private func fileImportSection() -> some View {
-        Section {
-            self.separatorPicker()
-            Button {
-                self.showFileImporter.toggle()
-            } label: {
-                Label("Import a text-encoded file",
-                      systemImage: "folder.badge.plus")
-                .padding(.vertical, 8)
-            }
-            .fileImporter(isPresented: self.$showFileImporter,
-                          allowedContentTypes: [.text],
-                          onCompletion: self.fileImportAction)
-        }
-    }
-    private func textImportSection() -> some View {
-        Section {
-            self.separatorPicker()
-            TextEditor(text: self.$pastedText)
-                .focused(self.$textFieldFocus)
-                .font(.subheadline.monospaced())
-                .frame(height: 100)
-                .padding(8)
-                .overlay {
-                    if self.pastedText.isEmpty {
-                        Label("Paste the text here.",
-                              systemImage: "square.and.pencil")
-                        .font(.subheadline)
-                        .rotationEffect(.degrees(2))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.accentColor)
-                        .opacity(0.5)
-                        .allowsHitTesting(false)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .keyboard) {
-                        Button {
-                            self.textFieldFocus = false
-                        } label: {
-                            Label("Done", systemImage: "keyboard.chevron.compact.down")
-                        }
-                    }
-                }
-            Button {
-                self.importedText = self.pastedText
-            } label: {
-                Label("Convert this text to notes", systemImage: "text.badge.plus")
-                    .padding(.vertical, 8)
-            }
-            .disabled(self.pastedText.isEmpty)
-        }
-        .animation(.default, value: self.pastedText.isEmpty)
-    }
-    private func separatorPicker() -> some View {
-        Picker(selection: self.$separator) {
-            Text("Tab ␣ ")
-                .tag(📚TextConvert.Separator.tab)
-                .accessibilityLabel("Tab")
-            Text("Comma , ")
-                .tag(📚TextConvert.Separator.comma)
-                .accessibilityLabel("Comma")
-            Text("(Title only)")
-                .tag(📚TextConvert.Separator.titleOnly)
-                .accessibilityLabel("Title only")
-        } label: {
-            Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
-        }
-    }
     private func convertedNotesSection() -> some View {
         Section {
             ForEach(self.convertedNotes) { ⓝote in
@@ -157,24 +69,6 @@ private extension 📥NotesImportView {
             }
         } header: {
             Text("Notes count: \(self.convertedNotes.count)")
-        }
-    }
-    private func fileImportAction(_ ⓡesult: Result<URL, Error>) {
-        do {
-            let ⓤrl = try ⓡesult.get()
-            if ⓤrl.startAccessingSecurityScopedResource() {
-                let ⓣext = try String(contentsOf: ⓤrl)
-                let ⓓataCount = 📚TextConvert.decode(ⓣext, self.separator).dataCount
-                guard (ⓓataCount + self.model.notes.dataCount) < 800000 else {
-                    self.🚨alertDataSizeLimitExceeded = true
-                    return
-                }
-                self.importedText = ⓣext
-                ⓤrl.stopAccessingSecurityScopedResource()
-            }
-        } catch {
-            self.🚨errorMessage = error.localizedDescription
-            self.🚨showErrorAlert = true
         }
     }
     private static func notSupportMultiLineTextInNoteSection() -> some View {
