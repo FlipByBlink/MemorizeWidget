@@ -19,7 +19,7 @@ extension 📰SheetOnContentView: Identifiable, Hashable {
                         case .widget: 📖WidgetSheetView()
 #if os(iOS)
                         case .notesImport: 📥NotesImportView()
-                        case .dictionary(let viewController): 📘DictionaryView(viewController)
+                        case .dictionary(let ⓥiewController): 📘DictionaryView(ⓥiewController)
 #endif
                     }
                 }

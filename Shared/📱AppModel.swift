@@ -8,10 +8,10 @@ class 📱AppModel: ObservableObject {
     @Published var presentedSheetOnContentView: 📰SheetOnContentView?
     @Published var trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet?
+    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
 #endif
     init() {
         self.forwardFromUserDefaults_1_1_2()
@@ -139,10 +139,6 @@ extension 📱AppModel {
     var exceedDataSizePerhaps: Bool {
         self.notes.dataCount > 800000
     }
-    func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
-        let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
-        return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000
-    }
 }
 
 extension 📱AppModel {
@@ -172,3 +168,12 @@ extension 📱AppModel {
         }
     }
 }
+
+#if os(iOS)
+extension 📱AppModel {
+    func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
+        let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
+        return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000
+    }
+}
+#endif

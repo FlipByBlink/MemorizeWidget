@@ -5,7 +5,7 @@ struct 🗑TrashModel: Codable {
 }
 
 extension 🗑TrashModel {
-    static var empty: Self { Self(deletedContents: []) }
+    static var empty: Self { .init(deletedContents: []) }
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
         let ⓓeletedNotes = ⓝotes.filter { !$0.isEmpty }
         guard !ⓓeletedNotes.isEmpty else { return }

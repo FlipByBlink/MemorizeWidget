@@ -4,14 +4,14 @@ struct 📥TextImportSection: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding var importedText: String
     @State private var pastedText: String = ""
-    @FocusState private var textFieldFocus: Bool
+    @FocusState private var textEditorFocus: Bool
     @State private var alertError: Bool = false
     @State private var caughtError: 📥Error?
     var body: some View {
         Section {
             📥SeparatorPicker()
             TextEditor(text: self.$pastedText)
-                .focused(self.$textFieldFocus)
+                .focused(self.$textEditorFocus)
                 .font(.subheadline.monospaced())
                 .frame(height: 100)
                 .padding(8)
@@ -30,7 +30,7 @@ struct 📥TextImportSection: View {
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
                         Button {
-                            self.textFieldFocus = false
+                            self.textEditorFocus = false
                         } label: {
                             Label("Done", systemImage: "keyboard.chevron.compact.down")
                         }
