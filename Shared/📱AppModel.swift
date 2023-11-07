@@ -5,12 +5,12 @@ import WidgetKit
 class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
     @Published var createdNewNoteID: UUID? = nil
-    @Published var presentedSheetOnContentView: 📰SheetOnContentView?
+    @Published var presentedSheetOnContentView: 📰SheetOnContentView? = nil
     @Published var trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
-    @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet?
+    @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet? = nil
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
 #endif
     init() {
@@ -101,32 +101,30 @@ extension 📱AppModel {
 
 extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
-        Task { @MainActor in
-            self.presentedSheetOnContentView = nil
+        self.presentedSheetOnContentView = nil
 #if os(iOS)
-            self.presentedSheetOnWidgetSheet = nil
+        self.presentedSheetOnWidgetSheet = nil
 #endif
-            if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
-                switch ⓘnfo {
-                    case .singleNote(_), .multiNotes(_):
-                        self.presentedSheetOnContentView = .widget(ⓘnfo)
-                    case .newNoteShortcut:
+        if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
+            switch ⓘnfo {
+                case .singleNote(_), .multiNotes(_):
+                    self.presentedSheetOnContentView = .widget(ⓘnfo)
+                case .newNoteShortcut:
 #if os(iOS)
-                        break
+                    break
 #elseif os(watchOS)
-                        self.presentedSheetOnContentView = .newNoteShortcut
+                    self.presentedSheetOnContentView = .newNoteShortcut
 #endif
-                    case .noNote, .widgetPlaceholder:
-                        break
-                }
-                💥Feedback.light()
-            } else {
-                assertionFailure()
+                case .noNote, .widgetPlaceholder:
+                    break
             }
-#if os(iOS)
-            self.selectedTab = .notesList
-#endif
+            💥Feedback.light()
+        } else {
+            assertionFailure()
         }
+#if os(iOS)
+        self.selectedTab = .notesList
+#endif
     }
 }
 

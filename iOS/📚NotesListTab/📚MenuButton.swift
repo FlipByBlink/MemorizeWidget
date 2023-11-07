@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 🎛️NoteMenuButton: View {
+struct 📚MenuButton: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding private var note: 📗Note
     var body: some View {
@@ -23,7 +23,7 @@ struct 🎛️NoteMenuButton: View {
     }
 }
 
-private extension 🎛️NoteMenuButton {
+private extension 📚MenuButton {
     private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
         Button {
