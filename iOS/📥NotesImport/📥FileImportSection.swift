@@ -4,9 +4,8 @@ struct 📥FileImportSection: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding var importedText: String
     @State private var showFileImporter: Bool = false
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @State private var alertError: Bool = false
-    @State private var 🚨error: Self.🚨Error?
+    @State private var caughtError: 📥Error?
     var body: some View {
         Section {
             📥SeparatorPicker()
@@ -20,19 +19,9 @@ struct 📥FileImportSection: View {
                           allowedContentTypes: [.text],
                           onCompletion: self.action)
             .alert("⚠️", isPresented: self.$alertError) {
-                Button("OK") {
-                    self.alertError = false
-                    self.🚨error = nil
-                }
+                Button("OK") { self.caughtError = nil }
             } message: {
-                switch self.🚨error {
-                    case .dataSizeLimitExceeded:
-                        Text("Total notes data over 800kB. Please decrease notes.")
-                    case .others(let ⓛocalizedDescription):
-                        Text(ⓛocalizedDescription)
-                    default:
-                        EmptyView()
-                }
+                self.caughtError?.messageText()
             }
         }
     }
@@ -47,21 +36,17 @@ private extension 📥FileImportSection {
             let ⓤrl = try ⓡesult.get()
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
-                let ⓓataCount = 📚TextConvert.decode(ⓣext, self.separator).dataCount
-                guard (ⓓataCount + self.model.notes.dataCount) < 800000 else {
-                    self.🚨error = .dataSizeLimitExceeded
+                if self.model.exceedDataSize(ⓣext) {
+                    self.caughtError = .dataSizeLimitExceeded
                     self.alertError = true
-                    return
+                } else {
+                    self.importedText = ⓣext
                 }
-                self.importedText = ⓣext
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
         } catch {
-            self.🚨error = .others(error.localizedDescription)
+            self.caughtError = .others(error.localizedDescription)
             self.alertError = true
         }
-    }
-    private enum 🚨Error: Error {
-        case dataSizeLimitExceeded, others(String)
     }
 }

@@ -34,6 +34,7 @@
 		168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */; };
 		168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */; };
 		168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
+		168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743752AF9D14B000F0F79 /* 📥Error.swift */; };
 		168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -418,6 +419,7 @@
 		1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥FileImportSection.swift"; sourceTree = "<group>"; };
 		168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥TextImportSection.swift"; sourceTree = "<group>"; };
 		168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥SeparatorPicker.swift"; sourceTree = "<group>"; };
+		168743752AF9D14B000F0F79 /* 📥Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥Error.swift"; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F142AF6056300A100A7 /* 🔖TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabModel.swift"; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 				168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */,
 				1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */,
 				168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */,
+				168743752AF9D14B000F0F79 /* 📥Error.swift */,
 				166BC2B52AF6361600729C66 /* 📥InputExample.swift */,
 			);
 			path = "📥NotesImport";
@@ -1263,6 +1266,7 @@
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,
 				16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */,
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
+				168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */,
 				166BC2A62AF628E300729C66 /* 🎛️NoteMenuButton.swift in Sources */,
 				166BC2B42AF635C700729C66 /* 📥InputMode.swift in Sources */,
 			);

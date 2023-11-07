@@ -6,12 +6,13 @@ class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
     @Published var createdNewNoteID: UUID? = nil
     @Published var presentedSheetOnContentView: 📰SheetOnContentView?
+    @Published var trash: 🗑TrashModel = .load()
+    @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
+    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet?
 #endif
-    @Published var trash: 🗑TrashModel = .load()
-    @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
     init() {
         self.forwardFromUserDefaults_1_1_2()
         self.setPlaceholder()
@@ -137,6 +138,10 @@ extension 📱AppModel {
     }
     var exceedDataSizePerhaps: Bool {
         self.notes.dataCount > 800000
+    }
+    func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
+        let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
+        return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000
     }
 }
 

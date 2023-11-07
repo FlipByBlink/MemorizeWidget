@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct 📥SeparatorPicker: View {
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
+    @EnvironmentObject var model: 📱AppModel
     var body: some View {
-        Picker(selection: self.$separator) {
+        Picker(selection: self.$model.separator) {
             Text("Tab ␣ ")
                 .tag(📚TextConvert.Separator.tab)
                 .accessibilityLabel("Tab")

@@ -3,9 +3,7 @@ import SwiftUI
 struct 📥NotesImportView: View {
     @EnvironmentObject var model: 📱AppModel
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @State private var importedText: String = ""
-    private var convertedNotes: 📚Notes { 📚TextConvert.decode(self.importedText, self.separator) }
     var body: some View {
         NavigationStack {
             List {
@@ -42,6 +40,9 @@ struct 📥NotesImportView: View {
 }
 
 private extension 📥NotesImportView {
+    private var convertedNotes: 📚Notes {
+        📚TextConvert.decode(self.importedText, self.model.separator)
+    }
     private func inputModePicker() -> some View {
         Section {
             Picker(selection: self.$inputMode) {
