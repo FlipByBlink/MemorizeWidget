@@ -7,6 +7,7 @@ struct 📖DictionaryButton: View {
 #if !targetEnvironment(macCatalyst)
         Button {
             self.model.presentedSheetOnWidgetSheet = .dictionary(.init(term: self.term))
+            UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }

@@ -28,6 +28,7 @@ private extension 🎛️NoteMenuButton {
 #if !targetEnvironment(macCatalyst)
         Button {
             self.model.presentedSheetOnContentView = .dictionary(.init(term: self.note.title))
+            UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
         }

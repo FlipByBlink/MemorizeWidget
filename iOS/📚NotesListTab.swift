@@ -31,7 +31,7 @@ struct 📚NotesListTab: View {
                             .disabled(self.model.notes.isEmpty)
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        self.importNotesButton()
+                        self.presentNotesImportSheetButton()
                     }
                 }
             }
@@ -69,7 +69,7 @@ private extension 📚NotesListTab {
         }
         .id("NewNoteButton")
     }
-    private func importNotesButton() -> some View {
+    private func presentNotesImportSheetButton() -> some View {
         Button {
             UISelectionFeedbackGenerator().selectionChanged()
             self.model.presentedSheetOnContentView = .notesImport

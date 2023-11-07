@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 📥InputExample: View {
-    @Binding var mode: 🄸nputMode
+    @Binding var mode: 📥InputMode
     var body: some View {
         Section {
             switch self.mode {

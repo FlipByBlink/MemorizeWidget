@@ -4,10 +4,10 @@ import WidgetKit
 @MainActor
 class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
-    @Published var tabSelection: 🔖Tab = .notesList
     @Published var createdNewNoteID: UUID? = nil
     @Published var presentedSheetOnContentView: 📰SheetOnContentView?
 #if os(iOS)
+    @Published var selectedTab: 🔖Tab = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet?
 #endif
     @Published var trash: 🗑TrashModel = .load()
@@ -118,7 +118,9 @@ extension 📱AppModel {
             } else {
                 assertionFailure()
             }
-            self.tabSelection = .notesList
+#if os(iOS)
+            self.selectedTab = .notesList
+#endif
         }
     }
 }

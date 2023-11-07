@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 📘DictionaryView: View {
-    var referenceLibraryViewController: UIReferenceLibraryViewController
+    private var referenceLibraryViewController: UIReferenceLibraryViewController
     var body: some View {
         🅄IReferenceLibraryView(self.referenceLibraryViewController)
             .ignoresSafeArea()
@@ -13,15 +13,15 @@ struct 📘DictionaryView: View {
 }
 
 private struct 🅄IReferenceLibraryView: UIViewControllerRepresentable {
-    private var viewController: UIReferenceLibraryViewController
+    private var referenceLibraryViewController: UIReferenceLibraryViewController
     func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
-        self.viewController
+        self.referenceLibraryViewController
     }
     func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {
-        //Nothing to do
+        /* Nothing to do */
     }
-    init(_ viewController: UIReferenceLibraryViewController) {
-        self.viewController = viewController
+    init(_ referenceLibraryViewController: UIReferenceLibraryViewController) {
+        self.referenceLibraryViewController = referenceLibraryViewController
     }
 }
 

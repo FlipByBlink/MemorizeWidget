@@ -56,7 +56,7 @@ private extension 📗NoteView {
     }
     private var thin: Bool {
         !self.model.randomMode
-        && self.model.notes.first != self.source
+        && (self.source != self.model.notes.first)
     }
     private var isNewNote: Bool {
         self.source.id == self.model.createdNewNoteID

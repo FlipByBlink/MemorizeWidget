@@ -1,4 +1,3 @@
-//MARK: Work in progress
 import SwiftUI
 
 enum 📖SheetOnWidgetSheet {
