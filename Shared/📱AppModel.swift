@@ -1,6 +1,7 @@
 import SwiftUI
 import WidgetKit
 
+//MARK: Initializer, Stored property
 @MainActor
 class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
@@ -24,7 +25,7 @@ class 📱AppModel: ObservableObject {
     }
 }
 
-//MARK: ComputedProperty, Method
+//MARK: Computed property, Method
 extension 📱AppModel {
     func deleteNoteOnNotesList(_ ⓘndexSet: IndexSet) {
         guard let ⓘndex = ⓘndexSet.first else { return }
@@ -100,6 +101,7 @@ extension 📱AppModel {
     }
 }
 
+//MARK: Handle widget URL
 extension 📱AppModel {
     func handleWidgetURL(_ ⓤrl: URL) {
         self.presentedSheetOnContentView = nil
@@ -134,6 +136,7 @@ extension 📱AppModel {
     }
 }
 
+//MARK: Others
 extension 📱AppModel {
     var openedWidgetNoteIDs: [UUID] {
         self.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
@@ -158,6 +161,7 @@ extension 📱AppModel {
     }
 }
 
+//MARK: iCloud
 extension 📱AppModel {
     @objc
     func iCloudDidChangeExternally(_ notification: Notification) {
@@ -172,6 +176,7 @@ extension 📱AppModel {
     }
 }
 
+//MARK: Migration ver 1.1.2
 extension 📱AppModel {
     func forwardFromUserDefaults_1_1_2() {
         guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }

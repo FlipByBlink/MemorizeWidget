@@ -1,7 +1,11 @@
 import WidgetKit
 
 enum 🪧WidgetInfo {
-    case singleNote(UUID), multiNotes([UUID]), newNoteShortcut, noNote, widgetPlaceholder
+    case singleNote(UUID)
+    case multiNotes([UUID])
+    case newNoteShortcut
+    case noNote
+    case widgetPlaceholder
 }
 
 extension 🪧WidgetInfo: Hashable {

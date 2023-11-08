@@ -170,12 +170,12 @@
 		F54C76262AA6C1AE00801313 /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C830D2AA5CDF80033A04B /* ℹ️AboutApp.swift */; };
 		F54C76272AA6C1AE00801313 /* Widget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* Widget.swift */; };
 		F54C76282AA6C1AE00801313 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
-		F54C762A2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
-		F54C762B2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
-		F54C762C2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
-		F54C762D2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
-		F54C762E2AA6CAEF00801313 /* 🪧MultiNotesCount.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
-		F54C762F2AA6CAF400801313 /* 🪧MultiNotesCount.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */; };
+		F54C762A2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
+		F54C762B2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
+		F54C762C2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
+		F54C762D2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
+		F54C762E2AA6CAEF00801313 /* WidgetFamily(extension).swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
+		F54C762F2AA6CAF400801313 /* WidgetFamily(extension).swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */; };
 		F568F19029E3A5DA005A1D1A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* App.swift */; };
 		F568F19229E3A5DA005A1D1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView.swift */; };
 		F568F19A29E3A5DC005A1D1A /* MemorizeW.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F568F18D29E3A5DA005A1D1A /* MemorizeW.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -292,7 +292,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
-				F54C762F2AA6CAF400801313 /* 🪧MultiNotesCount.swift in CopyFiles */,
+				F54C762F2AA6CAF400801313 /* WidgetFamily(extension).swift in CopyFiles */,
 				F54C760F2AA6C1AE00801313 /* 📱AppModel.swift in CopyFiles */,
 				F54C76102AA6C1AE00801313 /* 📗Note.swift in CopyFiles */,
 				F54C76112AA6C1AE00801313 /* 💾ICloud.swift in CopyFiles */,
@@ -349,7 +349,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
-				F54C762E2AA6CAEF00801313 /* 🪧MultiNotesCount.swift in CopyFiles */,
+				F54C762E2AA6CAEF00801313 /* WidgetFamily(extension).swift in CopyFiles */,
 				F54C75FE2AA6C17F00801313 /* 🪧WidgetInfo.swift in CopyFiles */,
 				F54C75FF2AA6C17F00801313 /* 🪧Provider.swift in CopyFiles */,
 				F54C76002AA6C17F00801313 /* 🪧AccessoryWidgetView.swift in CopyFiles */,
@@ -494,7 +494,7 @@
 		F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
 		F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘Dictionary.swift"; sourceTree = "<group>"; };
 		F527F48029D5699C00E9FB97 /* 📗Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Note.swift"; sourceTree = "<group>"; };
-		F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧MultiNotesCount.swift"; sourceTree = "<group>"; };
+		F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetFamily(extension).swift"; sourceTree = "<group>"; };
 		F568F18D29E3A5DA005A1D1A /* MemorizeW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F568F18F29E3A5DA005A1D1A /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F568F19129E3A5DA005A1D1A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -822,8 +822,8 @@
 				F50C83372AA5E6E70033A04B /* 🪧Provider.swift */,
 				F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */,
 				F5FE2D8429DBC2D1008C728B /* 🪧NewNoteShortcutWidget.swift */,
-				F54C76292AA6CAA800801313 /* 🪧MultiNotesCount.swift */,
 				F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */,
+				F54C76292AA6CAA800801313 /* WidgetFamily(extension).swift */,
 			);
 			path = "🪧Widget";
 			sourceTree = "<group>";
@@ -1206,7 +1206,7 @@
 				F50C83402AA5ED910033A04B /* 📖WidgetNotesSheet.swift in Sources */,
 				16C98FED2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift in Sources */,
 				168D5F062AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */,
-				F54C762B2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
+				F54C762B2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */,
 				F568F19229E3A5DA005A1D1A /* ContentView.swift in Sources */,
 				F50C83132AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
 				168D5F0B2AF6034900A100A7 /* 📚Notes.swift in Sources */,
@@ -1229,7 +1229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */,
-				F54C762D2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
+				F54C762D2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */,
 				F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */,
 				F50C83362AA5E6470033A04B /* 🪧WidgetInfo.swift in Sources */,
 				16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */,
@@ -1269,7 +1269,7 @@
 				166BC2852AF60B3E00729C66 /* 🔖TabView.swift in Sources */,
 				F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */,
 				F5EE7EB929DFEEB100012A12 /* 💾ICloud.swift in Sources */,
-				F54C762A2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
+				F54C762A2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */,
 				168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */,
 				16C98FF52AFB2C0A00F0F251 /* 📥NotesImportModel.swift in Sources */,
 				166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,
@@ -1355,7 +1355,7 @@
 				F527F48229D5699D00E9FB97 /* 📗Note.swift in Sources */,
 				168D5F092AF6034900A100A7 /* 📚Notes.swift in Sources */,
 				F5AAE667292B753F00FB8406 /* 💾UserDefaults.swift in Sources */,
-				F54C762C2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
+				F54C762C2AA6CAA800801313 /* WidgetFamily(extension).swift in Sources */,
 				F50C83972AA60A8D0033A04B /* 🪧SystemWidgetView.swift in Sources */,
 				166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				F50C83392AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
