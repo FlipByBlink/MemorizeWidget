@@ -66,8 +66,8 @@ private extension 📗NoteView {
         }
     }
     private func staticNoteView() -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
+        VStack(spacing: 6) {
+            HStack {
                 Group {
                     self.source.title.isEmpty ? Text("+ title") : Text(self.source.title)
                 }
@@ -76,16 +76,21 @@ private extension 📗NoteView {
                 .opacity(self.thinTitleOnNotesList ? 0.4 : 1)
                 .animation(.default.speed(1.5), value: self.thinTitleOnNotesList)
                 .padding(.bottom, 1)
-                .onTapGesture { self.startToInput(.title) }
+                Spacer(minLength: 0)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture { self.startToInput(.title) }
+            HStack {
                 Group {
                     self.source.comment.isEmpty ? Text("no comment") : Text(self.source.comment)
                 }
                 .font(self.commentFont.weight(.light))
                 .foregroundStyle(self.source.comment.isEmpty ? .tertiary : .secondary)
                 .padding(.bottom, 1)
-                .onTapGesture { self.startToInput(.comment) }
+                Spacer(minLength: 0)
             }
-            Spacer(minLength: 0)
+            .contentShape(Rectangle())
+            .onTapGesture { self.startToInput(.comment) }
         }
     }
     private func startToInput(_ ⓐrea: Self.FocusArea) {
