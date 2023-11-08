@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
-        🔖TabView()
+        🏢RootView()
             .onOpenURL(perform: self.model.handleWidgetURL)
             .modifier(💬RequestUserReview())
             .modifier(🩹Workaround.HideTitleBarOnMacCatalyst())

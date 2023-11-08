@@ -11,6 +11,7 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
+    @Published var selectedSidebar: 🔖Tab? = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet? = nil
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
@@ -126,7 +127,7 @@ extension 📱AppModel {
             assertionFailure()
         }
 #if os(iOS)
-        self.selectedTab = .notesList
+        self.switchNotesListTab()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             if self.inAppPurchaseModel.checkToShowADSheet() {
                 self.presentedSheetOnWidgetSheet = .ad
