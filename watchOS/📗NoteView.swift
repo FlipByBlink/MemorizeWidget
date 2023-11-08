@@ -4,7 +4,7 @@ struct 📗NoteView: View {
     @EnvironmentObject var model: 📱AppModel
     @Environment(\.dismiss) var dismiss
     @Binding private var note: 📗Note
-    private var kind: Self.Kind = .notesMenu
+    private var placement: Self.Placement = .notesMenu
     var body: some View {
         List {
             TextField("Title", text: self.$note.title)
@@ -12,11 +12,11 @@ struct 📗NoteView: View {
             TextField("Comment", text: self.$note.comment)
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            switch self.kind {
+            switch self.placement {
                 case .notesMenu:
                     self.moveSectionOnNotesMenu()
                     self.removeButton()
-                case .notesSheet:
+                case .widgetSheet:
                     if self.model.randomMode {
                         self.removeButton()
                     } else {
@@ -26,12 +26,12 @@ struct 📗NoteView: View {
             }
         }
     }
-    enum Kind {
-        case notesMenu, notesSheet
+    enum Placement {
+        case notesMenu, widgetSheet
     }
-    init(_ note: Binding<📗Note>, _ kind: Self.Kind) {
+    init(_ note: Binding<📗Note>, _ placement: Self.Placement) {
         self._note = note
-        self.kind = kind
+        self.placement = placement
     }
 }
 

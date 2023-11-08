@@ -26,7 +26,7 @@ private extension 📖WidgetSheetView {
         var body: some View {
             if let ⓝoteIndex {
                 NavigationLink {
-                    📗NoteView(self.$model.notes[ⓝoteIndex], .notesSheet)
+                    📗NoteView(self.$model.notes[ⓝoteIndex], .widgetSheet)
                 } label: {
                     VStack(alignment: .leading) {
                         Text(self.model.notes[ⓝoteIndex].title)

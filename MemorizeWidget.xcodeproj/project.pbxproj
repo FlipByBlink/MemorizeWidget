@@ -56,6 +56,8 @@
 		16C98FEA2AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */; };
 		16C98FEC2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */; };
 		16C98FED2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */; };
+		16C98FEF2AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */; };
+		16C98FF02AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */; };
 		16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16D7B6DE2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
@@ -85,7 +87,7 @@
 		F50C83212AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */; };
 		F50C83232AA5D1A00033A04B /* 💬RequestUserReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83222AA5D19F0033A04B /* 💬RequestUserReview.swift */; };
 		F50C83252AA5D39A0033A04B /* 🆕NewNoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83242AA5D39A0033A04B /* 🆕NewNoteCommand.swift */; };
-		F50C83272AA5E1090033A04B /* 💁TipsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83262AA5E1090033A04B /* 💁TipsMenu.swift */; };
+		F50C83272AA5E1090033A04B /* 💁GuideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */; };
 		F50C83292AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */; };
 		F50C832A2AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */; };
 		F50C832C2AA5E4FB0033A04B /* 🪧EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
@@ -161,7 +163,7 @@
 		F54C76222AA6C1AE00801313 /* 🔩MainMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */; };
 		F54C76232AA6C1AE00801313 /* 🗑TrashMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83472AA5F01B0033A04B /* 🗑TrashMenu.swift */; };
 		F54C76242AA6C1AE00801313 /* 🆕NewNoteShortcut.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C833D2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift */; };
-		F54C76252AA6C1AE00801313 /* 💁TipsMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83262AA5E1090033A04B /* 💁TipsMenu.swift */; };
+		F54C76252AA6C1AE00801313 /* 💁GuideMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */; };
 		F54C76262AA6C1AE00801313 /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C830D2AA5CDF80033A04B /* ℹ️AboutApp.swift */; };
 		F54C76272AA6C1AE00801313 /* Widget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* Widget.swift */; };
 		F54C76282AA6C1AE00801313 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
@@ -309,7 +311,7 @@
 				F54C76222AA6C1AE00801313 /* 🔩MainMenu.swift in CopyFiles */,
 				F54C76232AA6C1AE00801313 /* 🗑TrashMenu.swift in CopyFiles */,
 				F54C76242AA6C1AE00801313 /* 🆕NewNoteShortcut.swift in CopyFiles */,
-				F54C76252AA6C1AE00801313 /* 💁TipsMenu.swift in CopyFiles */,
+				F54C76252AA6C1AE00801313 /* 💁GuideMenu.swift in CopyFiles */,
 				F54C76262AA6C1AE00801313 /* ℹ️AboutApp.swift in CopyFiles */,
 				F54C76272AA6C1AE00801313 /* Widget.swift in CopyFiles */,
 				F54C76282AA6C1AE00801313 /* 🪧EntryView.swift in CopyFiles */,
@@ -437,6 +439,7 @@
 		16C98FE52AFB09A300F0F251 /* 🔩MenuViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MenuViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔀RandomModeToggle.swift"; sourceTree = "<group>"; };
+		16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideViewComponent.swift"; sourceTree = "<group>"; };
 		16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnContentView.swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
 		16DD530C2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
@@ -458,7 +461,7 @@
 		F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchaseModel.swift"; sourceTree = "<group>"; };
 		F50C83222AA5D19F0033A04B /* 💬RequestUserReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "💬RequestUserReview.swift"; sourceTree = "<group>"; };
 		F50C83242AA5D39A0033A04B /* 🆕NewNoteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🆕NewNoteCommand.swift"; sourceTree = "<group>"; };
-		F50C83262AA5E1090033A04B /* 💁TipsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁TipsMenu.swift"; sourceTree = "<group>"; };
+		F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideMenu.swift"; sourceTree = "<group>"; };
 		F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧ContainerBackground.swift"; sourceTree = "<group>"; };
 		F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧EntryView.swift"; sourceTree = "<group>"; };
 		F50C832D2AA5E56D0033A04B /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
@@ -778,6 +781,7 @@
 				16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */,
 				16C98FE52AFB09A300F0F251 /* 🔩MenuViewComponent.swift */,
 				16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */,
+				16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */,
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
 				F50C83112AA5CE7F0033A04B /* 🗒️StaticInfo.swift */,
 			);
@@ -789,7 +793,7 @@
 			children = (
 				F50C83472AA5F01B0033A04B /* 🗑TrashMenu.swift */,
 				F50C833D2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift */,
-				F50C83262AA5E1090033A04B /* 💁TipsMenu.swift */,
+				F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */,
 				F50C830D2AA5CDF80033A04B /* ℹ️AboutApp.swift */,
 			);
 			path = Rest;
@@ -1180,9 +1184,10 @@
 				1687437A2AFA38C3000F0F79 /* 📱AppModel(extension).swift in Sources */,
 				F50C83422AA5EDAF0033A04B /* 📗NoteView.swift in Sources */,
 				F50C83482AA5F01B0033A04B /* 🗑TrashMenu.swift in Sources */,
+				16C98FF02AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */,
 				F568F1A529E3A6A1005A1D1A /* 🗑TrashModel.swift in Sources */,
 				16C98FE72AFB09A300F0F251 /* 🔩MenuViewComponent.swift in Sources */,
-				F50C83272AA5E1090033A04B /* 💁TipsMenu.swift in Sources */,
+				F50C83272AA5E1090033A04B /* 💁GuideMenu.swift in Sources */,
 				F568F1AA29E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				16C98FEA2AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */,
 				F568F1A029E3A629005A1D1A /* 📗Note.swift in Sources */,
@@ -1263,6 +1268,7 @@
 				F527F47729D5404800E9FB97 /* ℹ️AboutAppTab.swift in Sources */,
 				F527F47529D53FDF00E9FB97 /* 🔩MenuTab.swift in Sources */,
 				168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */,
+				16C98FEF2AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */,
 				F568F21429E42A59005A1D1A /* 🪧WidgetEntry.swift in Sources */,
 				F50C83122AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheet.swift in Sources */,

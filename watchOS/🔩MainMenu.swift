@@ -23,7 +23,7 @@ private extension 🔩MainMenu {
         Section {
             🔀RandomModeToggle()
         } footer: {
-            Text("Change the note per 5 minutes.")
+            🔀RandomModeToggle.Caption()
         }
     }
     private struct CommentOnWidgetSection: View {

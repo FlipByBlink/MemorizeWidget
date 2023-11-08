@@ -20,9 +20,9 @@ struct ContentView: View {
                     Label("Menu", systemImage: "gearshape")
                 }
                 NavigationLink {
-                    💁TipsMenu()
+                    💁GuideMenu()
                 } label: {
-                    Label("Tips", systemImage: "star.bubble")
+                    Label("Guide", systemImage: "star.bubble")
                 }
                 NavigationLink {
                     ℹ️AboutAppMenu()

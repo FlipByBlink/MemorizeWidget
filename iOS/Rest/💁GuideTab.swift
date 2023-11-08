@@ -21,29 +21,12 @@ private struct 🄳ataSection: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Section {
-            Label("Sync notes between devices by iCloud.", systemImage: "icloud")
-            Label("Data limitation is 1 mega byte.", systemImage: "exclamationmark.icloud")
-            Label("If the data size is exceeded, please reduce the number of notes or clear the trash.",
-                  systemImage: "externaldrive.badge.xmark")
+            💁GuideViewComponent.AboutDataSync()
             if #unavailable(iOS 16) {
                 Label("Data changed on another device will be synchronized when the app is launched on this device. (iOS15 only)",
                       systemImage: "exclamationmark.triangle")
             }
-            VStack {
-                HStack {
-                    Label("Notes data count", systemImage: "books.vertical")
-                    Spacer()
-                    Text(self.model.notes.dataCount.formatted(.byteCount(style: .file)))
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-                if self.model.exceedDataSizePerhaps {
-                    Text("⚠️ NOTICE DATA LIMITATION")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                        .padding(4)
-                }
-            }
+            💁GuideViewComponent.AboutDataCount()
         } header: {
             Text("Data")
         }

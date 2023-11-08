@@ -48,7 +48,7 @@ private extension 📚NotesListTab {
             🔀RandomModeToggle()
                 .padding(.vertical, 8)
         } footer: {
-            Text("Change the note per 5 minutes.")
+            🔀RandomModeToggle.Caption()
         }
     }
     private func newNoteOnTopButton() -> some View {

@@ -11,4 +11,9 @@ struct 🔀RandomModeToggle: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
+    struct Caption: View {
+        var body: some View {
+            Text("Change the note per 5 minutes.")
+        }
+    }
 }
