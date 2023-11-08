@@ -87,7 +87,7 @@ extension 📱AppModel {
         self.notes.insert(contentsOf: ⓝotes, at: 0)
         self.saveNotes()
     }
-    func restore(_ ⓒontent: 🄳eletedContent) {
+    func restore(_ ⓒontent: 🗑DeletedContent) {
         let ⓡestoredNotes = ⓒontent.notes.map { 📗Note($0.title, $0.comment) }
         self.insertOnTop(ⓡestoredNotes)
         self.trash.remove(ⓒontent)

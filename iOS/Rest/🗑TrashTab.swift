@@ -19,7 +19,7 @@ struct 🗑TrashTab: View {
 }
 
 private extension 🗑TrashTab {
-    private func contentSection(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func contentSection(_ ⓒontent: 🗑DeletedContent) -> some View {
         Section {
             if ⓒontent.notes.count == 1 {
                 self.singleNoteRow(ⓒontent)
@@ -32,9 +32,9 @@ private extension 🗑TrashTab {
             Text(" (\(ⓒontent.date.formatted(.dateTime.month().day().hour().minute())))")
         }
     }
-    private func singleNoteRow(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func singleNoteRow(_ ⓒontent: 🗑DeletedContent) -> some View {
         HStack {
-            self.noteView(ⓒontent.notes.first ?? .init("🐛"))
+            self.noteView(ⓒontent.notes.first ?? .init("BUG"))
             Spacer()
             self.restoreButton(ⓒontent)
                 .labelStyle(.iconOnly)
@@ -45,7 +45,7 @@ private extension 🗑TrashTab {
                 .padding(4)
         }
     }
-    private func multiNotesRows(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func multiNotesRows(_ ⓒontent: 🗑DeletedContent) -> some View {
         Group {
             self.restoreButton(ⓒontent)
                 .font(.body.weight(.medium))
@@ -64,7 +64,7 @@ private extension 🗑TrashTab {
             .padding(4)
         }
     }
-    private func restoreButton(_ ⓒontent: 🄳eletedContent) -> some View {
+    private func restoreButton(_ ⓒontent: 🗑DeletedContent) -> some View {
         Button {
             self.model.restore(ⓒontent)
         } label: {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🗑TrashModel: Codable {
-    private(set) var deletedContents: 🄳eletedContents
+    private(set) var deletedContents: 🗑DeletedContents
 }
 
 extension 🗑TrashModel {
@@ -9,11 +9,11 @@ extension 🗑TrashModel {
     mutating func storeDeletedNotes(_ ⓝotes: 📚Notes) {
         let ⓓeletedNotes = ⓝotes.filter { !$0.isEmpty }
         guard !ⓓeletedNotes.isEmpty else { return }
-        let ⓒontent = 🄳eletedContent(date: .now, notes: ⓓeletedNotes)
+        let ⓒontent = 🗑DeletedContent(date: .now, notes: ⓓeletedNotes)
         self.deletedContents.insert(ⓒontent, at: 0)
         self.save()
     }
-    mutating func remove(_ ⓒontent: 🄳eletedContent) {
+    mutating func remove(_ ⓒontent: 🗑DeletedContent) {
         self.deletedContents.removeAll { $0 == ⓒontent }
         self.save()
     }

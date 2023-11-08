@@ -37,8 +37,8 @@
 		168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743752AF9D14B000F0F79 /* 📥Error.swift */; };
 		168743782AFA25D7000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */; };
 		1687437A2AFA38C3000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */; };
-		168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
-		168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */; };
+		168D5F052AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */; };
+		168D5F062AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
 		168D5F092AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
 		168D5F0A2AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -424,7 +424,7 @@
 		168743752AF9D14B000F0F79 /* 📥Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥Error.swift"; sourceTree = "<group>"; };
 		168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
 		168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
-		168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🄳eletedContent.swift"; sourceTree = "<group>"; };
+		168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑DeletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F142AF6056300A100A7 /* 🔖TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabModel.swift"; sourceTree = "<group>"; };
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
@@ -670,7 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				F5FE2D8B29DD585E008C728B /* 🗑TrashModel.swift */,
-				168D5F042AF6011D00A100A7 /* 🄳eletedContent.swift */,
+				168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */,
 			);
 			path = "🗑Trash";
 			sourceTree = "<group>";
@@ -1178,7 +1178,7 @@
 				F568F21129E3E907005A1D1A /* 🔩MainMenu.swift in Sources */,
 				F50C833E2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift in Sources */,
 				F50C83402AA5ED910033A04B /* 📖WidgetNotesSheet.swift in Sources */,
-				168D5F062AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */,
+				168D5F062AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */,
 				F54C762B2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
 				F568F19229E3A5DA005A1D1A /* ContentView.swift in Sources */,
 				F50C83132AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
@@ -1278,7 +1278,7 @@
 				F527F47F29D555A700E9FB97 /* 📘Dictionary.swift in Sources */,
 				F50C83382AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
 				166BC2B82AF66CC900729C66 /* 📖SigleNoteLayoutView.swift in Sources */,
-				168D5F052AF6011D00A100A7 /* 🄳eletedContent.swift in Sources */,
+				168D5F052AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */,
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,
 				16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */,
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
