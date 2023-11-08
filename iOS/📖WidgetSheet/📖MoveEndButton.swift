@@ -7,17 +7,18 @@ struct 📖MoveEndButton: View {
     var body: some View {
         Button {
             self.model.moveEnd(self.note)
-            withAnimation { self.done = true }
+            withAnimation(.default.speed(2)) { self.done = true }
         } label: {
             Label("Move end", systemImage: "arrow.down.to.line")
         }
         .disabled(self.model.notes.last == self.note)
         .opacity(self.done ? 0.33 : 1)
-        .overlay {
+        .overlay(alignment: .bottomTrailing) {
             if self.done {
-                Image(systemName: "checkmark")
+                Image(systemName: "checkmark.circle.fill")
                     .imageScale(.small)
-                    .symbolRenderingMode(.hierarchical)
+                    .fontWeight(.semibold)
+                    .offset(x: 12, y: 8)
             }
         }
     }
