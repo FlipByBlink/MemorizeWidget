@@ -59,6 +59,7 @@
 		16C98FF02AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */; };
 		16C98FF22AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
 		16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
+		16C98FF52AFB2C0A00F0F251 /* 📥NotesImportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF42AFB2C0A00F0F251 /* 📥NotesImportModel.swift */; };
 		16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16D7B6DE2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
@@ -441,6 +442,7 @@
 		16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔀RandomModeToggle.swift"; sourceTree = "<group>"; };
 		16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚮DeleteAllNotesButton.swift"; sourceTree = "<group>"; };
+		16C98FF42AFB2C0A00F0F251 /* 📥NotesImportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportModel.swift"; sourceTree = "<group>"; };
 		16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnContentView.swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
 		16DD530C2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
@@ -634,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				F527F47829D5407F00E9FB97 /* 📥NotesImportSheet.swift */,
+				16C98FF42AFB2C0A00F0F251 /* 📥NotesImportModel.swift */,
 				166BC2B32AF635C700729C66 /* 📥InputMode.swift */,
 				168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */,
 				1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */,
@@ -1264,6 +1267,7 @@
 				F5EE7EB929DFEEB100012A12 /* 💾ICloud.swift in Sources */,
 				F54C762A2AA6CAA800801313 /* 🪧MultiNotesCount.swift in Sources */,
 				168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */,
+				16C98FF52AFB2C0A00F0F251 /* 📥NotesImportModel.swift in Sources */,
 				166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				166BC2AB2AF62ACE00729C66 /* 📖WidgetSheetView.swift in Sources */,
 				F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */,
