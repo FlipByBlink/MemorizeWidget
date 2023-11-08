@@ -55,6 +55,7 @@ private extension 📗NoteView {
                 .foregroundStyle(.secondary)
                 .opacity(0.8)
         }
+        .submitLabel(.done)
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
         .onChange(of: self.focusArea, perform: self.handleUnfocus)
         .onChange(of: self.scenePhase, perform: self.sceneHandling(_:))
