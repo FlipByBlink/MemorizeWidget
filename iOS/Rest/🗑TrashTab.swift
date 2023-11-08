@@ -9,7 +9,7 @@ struct 🗑TrashTab: View {
                     self.contentSection($0)
                 }
                 self.emptyTrashView()
-                Self.aboutTrashSection()
+                🗑TrashViewComponent.AboutSection()
             }
             .navigationTitle("Trash")
             .toolbar { self.clearButton() }
@@ -27,9 +27,7 @@ private extension 🗑TrashTab {
                 self.multiNotesRows(ⓒontent)
             }
         } header: {
-            Text(ⓒontent.date, style: .offset)
-            +
-            Text(" (\(ⓒontent.date.formatted(.dateTime.month().day().hour().minute())))")
+            🗑TrashViewComponent.DateText(source: ⓒontent)
         }
     }
     private func singleNoteRow(_ ⓒontent: 🗑DeletedContent) -> some View {
@@ -65,22 +63,12 @@ private extension 🗑TrashTab {
         }
     }
     private func restoreButton(_ ⓒontent: 🗑DeletedContent) -> some View {
-        Button {
-            self.model.restore(ⓒontent)
-        } label: {
-            Label("Restore \(ⓒontent.notes.count) notes",
-                  systemImage: "arrow.uturn.backward.circle.fill")
+        🗑TrashViewComponent.RestoreButton(source: ⓒontent)
             .padding(.vertical, 4)
-        }
-        .accessibilityLabel("Restore")
     }
     private func clearButton() -> some View {
         Menu {
-            Button(role: .destructive) {
-                self.model.trash.clearDeletedContents()
-            } label: {
-                Label("Clear trash", systemImage: "trash.slash")
-            }
+            🗑TrashViewComponent.ClearButton()
         } label: {
             Label("Clear trash", systemImage: "trash.slash")
         }
@@ -100,15 +88,5 @@ private extension 🗑TrashTab {
                 .listRowBackground(Color.clear)
             }
         }
-    }
-    private static func aboutTrashSection() -> some View {
-        Section {
-            Label("After 7 days, the notes will be permanently deleted.",
-                  systemImage: "clock.badge.exclamationmark")
-            Label("Trash do not sync with iCloud.", systemImage: "xmark.icloud")
-        }
-        .font(.subheadline)
-        .foregroundStyle(.secondary)
-        .listRowBackground(Color.clear)
     }
 }

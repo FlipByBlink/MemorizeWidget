@@ -45,13 +45,8 @@ struct 📚NotesListTab: View {
 private extension 📚NotesListTab {
     private func randomModeSection() -> some View {
         Section {
-            Toggle(isOn: self.$model.randomMode) {
-                Label("Random mode", systemImage: "shuffle")
-                    .padding(.vertical, 8)
-            }
-            .onChange(of: self.model.randomMode) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            🔀RandomModeToggle()
+                .padding(.vertical, 8)
         } footer: {
             Text("Change the note per 5 minutes.")
         }

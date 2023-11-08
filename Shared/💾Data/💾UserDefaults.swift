@@ -16,7 +16,7 @@ extension 💾UserDefaults {
     //        let ⓓata = try JSONEncoder().encode(ⓝotes)
     //        Self.appGroup.set(ⓓata, forKey: "Notes")
     //    } catch {
-    //        print("🚨", error); assertionFailure()
+    //        print(error); assertionFailure()
     //    }
     //}
     static func loadNotesOfVer_1_1_2() -> 📚Notes? {

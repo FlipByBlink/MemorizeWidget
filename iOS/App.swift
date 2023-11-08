@@ -2,14 +2,14 @@ import SwiftUI
 
 @main
 struct IOSApp: App {
-    @StateObject private var appModel = 📱AppModel()
+    @StateObject private var model = 📱AppModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(self.appModel)
+                .environmentObject(self.model)
         }
         .commands {
-            🆕NewNoteCommand(self.appModel)
+            🆕NewNoteCommand(self.model)
         }
     }
 }

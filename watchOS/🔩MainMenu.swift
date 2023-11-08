@@ -1,5 +1,4 @@
 import SwiftUI
-import WidgetKit
 
 struct 🔩MainMenu: View {
     @EnvironmentObject var model: 📱AppModel
@@ -7,7 +6,7 @@ struct 🔩MainMenu: View {
         List {
             self.randomModeSection()
             Section {
-                Self.MultiNotesOption()
+                🔩MenuViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
             } header: {
                 Text("Widget")
@@ -22,38 +21,16 @@ struct 🔩MainMenu: View {
 private extension 🔩MainMenu {
     private func randomModeSection() -> some View {
         Section {
-            Toggle(isOn: self.$model.randomMode) {
-                Label("Random mode", systemImage: "shuffle")
-            }
-            .onChange(of: self.model.randomMode) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            🔀RandomModeToggle()
         } footer: {
             Text("Change the note per 5 minutes.")
         }
     }
-    private struct MultiNotesOption: View {
-        @AppStorage("multiNotes", store: .ⓐppGroup) var value: Bool = false
-        var body: some View {
-            Toggle(isOn: self.$value) {
-                Label("Show multi notes", systemImage: "doc.on.doc")
-            }
-            .onChange(of: self.value) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
-        }
-    }
     private struct CommentOnWidgetSection: View {
-        @AppStorage("ShowComment", store: .ⓐppGroup) var value: Bool = false
         @AppStorage("multiNotes", store: .ⓐppGroup) var multiNotesMode: Bool = false
         var body: some View {
-            Toggle(isOn: self.$value) {
-                Label("Show comment", systemImage: "text.append")
-            }
-            .disabled(self.multiNotesMode)
-            .onChange(of: self.value) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            🔩MenuViewComponent.ShowCommentToggle()
+                .disabled(self.multiNotesMode)
         }
     }
     private func trashMenuLink() -> some View {
