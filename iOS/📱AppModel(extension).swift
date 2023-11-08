@@ -1,9 +1,9 @@
 import SwiftUI
 
 extension 📱AppModel {
-    func handleNewNoteShortcut(_ ⓤrl: URL, _ ⓢcrollViewProxy: ScrollViewProxy) { //TODO: 挙動を微調整する必要あり
+    func handleNewNoteShortcut(_ ⓤrl: URL, _ ⓢcrollViewProxy: ScrollViewProxy) {
         if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 ⓢcrollViewProxy.scrollTo("NewNoteButton")
                 self.addNewNoteOnTop()
             }

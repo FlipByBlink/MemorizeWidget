@@ -26,7 +26,7 @@ struct 📚NotesListTab: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .onChange(of: self.self.model.createdNewNoteID) { ⓢcrollViewProxy.scrollTo($0) }
-                .onOpenURL { self.model.handleNewNoteShortcut($0, ⓢcrollViewProxy) } //TODO: 挙動を微調整する必要あり
+                .onOpenURL { self.model.handleNewNoteShortcut($0, ⓢcrollViewProxy) }
                 .animation(.default, value: self.model.notes)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
