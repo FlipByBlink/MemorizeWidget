@@ -107,6 +107,7 @@ private extension 📥NotesImportView {
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
+                .font(.title3)
         }
         .foregroundStyle(Color.secondary)
     }

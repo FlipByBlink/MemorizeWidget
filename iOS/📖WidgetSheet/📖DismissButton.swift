@@ -9,6 +9,7 @@ struct 📖DismissButton: View {
         } label: {
             Image(systemName: "xmark.circle.fill")
                 .symbolRenderingMode(.hierarchical)
+                .font(.title3)
         }
         .foregroundColor(.secondary)
         .keyboardShortcut(.cancelAction)
