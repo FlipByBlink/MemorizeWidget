@@ -1,29 +1,41 @@
 import SwiftUI
 
-struct 📚MenuButton: View {
+struct 📚SubButtons: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding private var note: 📗Note
     var body: some View {
-        Menu {
-            self.dictionaryButton()
-            🔍SearchButton(self.note)
-            self.insertNewNoteBelowButton()
-            self.moveButtons()
-            Section { 🚮DeleteNoteButton(self.note) }
-        } label: {
-            Label("Menu", systemImage: "ellipsis.circle")
-                .foregroundColor(.secondary)
-                .labelStyle(.iconOnly)
-                .padding(12)
+        HStack {
+            if self.isIPad {
+                self.dictionaryButton()
+                🔍SearchButton(self.note, padding: 8)
+            }
+            Menu {
+                if !self.isIPad {
+                    self.dictionaryButton()
+                    🔍SearchButton(self.note)
+                }
+                self.insertNewNoteBelowButton()
+                self.moveButtons()
+                Section { 🚮DeleteNoteButton(self.note) }
+            } label: {
+                Label("Menu", systemImage: "ellipsis.circle")
+                    .padding(8)
+            }
+            .hoverEffect()
+            .modifier(🩹Workaround.CloseMenePopup())
         }
-        .modifier(🩹Workaround.CloseMenePopup())
+        .padding(4)
+        .foregroundStyle(Color.secondary)
+        .labelStyle(.iconOnly)
+        .buttonStyle(.plain)
     }
     init(_ note: Binding<📗Note>) {
         self._note = note
     }
 }
 
-private extension 📚MenuButton {
+private extension 📚SubButtons {
+    private var isIPad: Bool { UIDevice.current.userInterfaceIdiom == .pad }
     private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
         Button {
@@ -31,7 +43,9 @@ private extension 📚MenuButton {
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
+                .padding(8)
         }
+        .hoverEffect()
 #else
         📘DictionaryButtonOnMac(term: self.term)
 #endif

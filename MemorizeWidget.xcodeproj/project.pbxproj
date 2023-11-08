@@ -20,7 +20,7 @@
 		166BC2992AF623BC00729C66 /* 🔩ExportNotesLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2982AF623BC00729C66 /* 🔩ExportNotesLink.swift */; };
 		166BC29B2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC29A2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift */; };
 		166BC29D2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC29C2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift */; };
-		166BC2A62AF628E300729C66 /* 📚MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2A52AF628E300729C66 /* 📚MenuButton.swift */; };
+		166BC2A62AF628E300729C66 /* 📚SubButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2A52AF628E300729C66 /* 📚SubButtons.swift */; };
 		166BC2AB2AF62ACE00729C66 /* 📖WidgetSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2AA2AF62ACE00729C66 /* 📖WidgetSheetView.swift */; };
 		166BC2AD2AF62BB900729C66 /* 📖DeletedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2AC2AF62BB900729C66 /* 📖DeletedNoteView.swift */; };
 		166BC2AF2AF62C2100729C66 /* 📖DictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2AE2AF62C2100729C66 /* 📖DictionaryButton.swift */; };
@@ -417,7 +417,7 @@
 		166BC2982AF623BC00729C66 /* 🔩ExportNotesLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩ExportNotesLink.swift"; sourceTree = "<group>"; };
 		166BC29A2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩CommentOnWidgetOption.swift"; sourceTree = "<group>"; };
 		166BC29C2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MultiNotesOnWidgetOption.swift"; sourceTree = "<group>"; };
-		166BC2A52AF628E300729C66 /* 📚MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚MenuButton.swift"; sourceTree = "<group>"; };
+		166BC2A52AF628E300729C66 /* 📚SubButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚SubButtons.swift"; sourceTree = "<group>"; };
 		166BC2AA2AF62ACE00729C66 /* 📖WidgetSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖WidgetSheetView.swift"; sourceTree = "<group>"; };
 		166BC2AC2AF62BB900729C66 /* 📖DeletedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DeletedNoteView.swift"; sourceTree = "<group>"; };
 		166BC2AE2AF62C2100729C66 /* 📖DictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DictionaryButton.swift"; sourceTree = "<group>"; };
@@ -589,7 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				F527F47029D53F5A00E9FB97 /* 📚NotesListTab.swift */,
-				166BC2A52AF628E300729C66 /* 📚MenuButton.swift */,
+				166BC2A52AF628E300729C66 /* 📚SubButtons.swift */,
 			);
 			path = "📚NotesListTab";
 			sourceTree = "<group>";
@@ -1317,7 +1317,7 @@
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				16C98FEC2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift in Sources */,
 				168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */,
-				166BC2A62AF628E300729C66 /* 📚MenuButton.swift in Sources */,
+				166BC2A62AF628E300729C66 /* 📚SubButtons.swift in Sources */,
 				166BC2B42AF635C700729C66 /* 📥InputMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

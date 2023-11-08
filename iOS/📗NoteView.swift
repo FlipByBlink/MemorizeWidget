@@ -23,7 +23,7 @@ struct 📗NoteView: View {
             .padding(.vertical, 12)
             .animation(.default, value: self.inputting)
             if self.placement == .notesList {
-                📚MenuButton(self.inputting ? self.$inputtingNote : self.$source)
+                📚SubButtons(self.inputting ? self.$inputtingNote : self.$source)
             }
         }
     }

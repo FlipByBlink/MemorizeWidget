@@ -5,13 +5,17 @@ struct 🔍SearchButton: View {
     @AppStorage("SearchLeadingText") var inputtedLeadingText: String = ""
     @AppStorage("SearchTrailingText") var trailingText: String = ""
     private var query: String
+    private var padding: CGFloat
     var body: some View {
         Button(action: self.action) {
             Label("Search", systemImage: "magnifyingglass")
+                .padding(self.padding)
         }
+        .hoverEffect()
     }
-    init(_ note: 📗Note) {
+    init(_ note: 📗Note, padding: CGFloat = 0) {
         self.query = note.title
+        self.padding = padding
     }
 }
 
