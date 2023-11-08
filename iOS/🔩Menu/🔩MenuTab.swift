@@ -10,7 +10,7 @@ struct 🔩MenuTab: View {
                     🔩CustomizeSearchLink()
                     🔩ExportNotesLink()
                 }
-                🔩DeleteAllNotesButton()
+                🚮DeleteAllNotesButton()
             }
             .navigationTitle("Menu")
         }

@@ -17,7 +17,6 @@
 		166BC2902AF61AD900729C66 /* 📨RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC28F2AF61AD900729C66 /* 📨RootView.swift */; };
 		166BC2932AF6228900729C66 /* 🔩BeforeAfterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2922AF6228900729C66 /* 🔩BeforeAfterImages.swift */; };
 		166BC2952AF6230000729C66 /* 🔩CustomizeSearchLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2942AF6230000729C66 /* 🔩CustomizeSearchLink.swift */; };
-		166BC2972AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2962AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift */; };
 		166BC2992AF623BC00729C66 /* 🔩ExportNotesLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC2982AF623BC00729C66 /* 🔩ExportNotesLink.swift */; };
 		166BC29B2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC29A2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift */; };
 		166BC29D2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC29C2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift */; };
@@ -58,6 +57,8 @@
 		16C98FED2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */; };
 		16C98FEF2AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */; };
 		16C98FF02AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */; };
+		16C98FF22AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
+		16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
 		16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16D7B6DE2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
@@ -411,7 +412,6 @@
 		166BC28F2AF61AD900729C66 /* 📨RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨RootView.swift"; sourceTree = "<group>"; };
 		166BC2922AF6228900729C66 /* 🔩BeforeAfterImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩BeforeAfterImages.swift"; sourceTree = "<group>"; };
 		166BC2942AF6230000729C66 /* 🔩CustomizeSearchLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩CustomizeSearchLink.swift"; sourceTree = "<group>"; };
-		166BC2962AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩DeleteAllNotesButton.swift"; sourceTree = "<group>"; };
 		166BC2982AF623BC00729C66 /* 🔩ExportNotesLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩ExportNotesLink.swift"; sourceTree = "<group>"; };
 		166BC29A2AF623C600729C66 /* 🔩CommentOnWidgetOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩CommentOnWidgetOption.swift"; sourceTree = "<group>"; };
 		166BC29C2AF623D100729C66 /* 🔩MultiNotesOnWidgetOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MultiNotesOnWidgetOption.swift"; sourceTree = "<group>"; };
@@ -440,6 +440,7 @@
 		16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔀RandomModeToggle.swift"; sourceTree = "<group>"; };
 		16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideViewComponent.swift"; sourceTree = "<group>"; };
+		16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚮DeleteAllNotesButton.swift"; sourceTree = "<group>"; };
 		16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnContentView.swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
 		16DD530C2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
@@ -610,7 +611,6 @@
 				166BC2942AF6230000729C66 /* 🔩CustomizeSearchLink.swift */,
 				166BC2922AF6228900729C66 /* 🔩BeforeAfterImages.swift */,
 				166BC2982AF623BC00729C66 /* 🔩ExportNotesLink.swift */,
-				166BC2962AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift */,
 			);
 			path = "🔩Menu";
 			sourceTree = "<group>";
@@ -779,6 +779,7 @@
 			children = (
 				16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🔀RandomModeToggle.swift */,
+				16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */,
 				16C98FE52AFB09A300F0F251 /* 🔩MenuViewComponent.swift */,
 				16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */,
 				16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */,
@@ -1206,6 +1207,7 @@
 				F568F1A429E3A668005A1D1A /* 💾UserDefaults.swift in Sources */,
 				F568F1A329E3A629005A1D1A /* 📱AppModel.swift in Sources */,
 				F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */,
+				16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */,
 				F50C83352AA5E6470033A04B /* 🪧WidgetInfo.swift in Sources */,
 				168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				F568F19029E3A5DA005A1D1A /* App.swift in Sources */,
@@ -1245,7 +1247,6 @@
 			files = (
 				F50C831D2AA5D0970033A04B /* 🛒InAppPurchaseView.swift in Sources */,
 				166BC2932AF6228900729C66 /* 🔩BeforeAfterImages.swift in Sources */,
-				166BC2972AF623AE00729C66 /* 🔩DeleteAllNotesButton.swift in Sources */,
 				166BC2B62AF6361600729C66 /* 📥InputExample.swift in Sources */,
 				F50C83252AA5D39A0033A04B /* 🆕NewNoteCommand.swift in Sources */,
 				F50C83332AA5E6470033A04B /* 🪧WidgetInfo.swift in Sources */,
@@ -1256,6 +1257,7 @@
 				168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */,
 				168D5F152AF6056300A100A7 /* 🔖TabModel.swift in Sources */,
 				F527F48129D5699D00E9FB97 /* 📗Note.swift in Sources */,
+				16C98FF22AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */,
 				F5FE2D8929DCDF12008C728B /* 🚮DeleteNoteButton.swift in Sources */,
 				166BC2852AF60B3E00729C66 /* 🔖TabView.swift in Sources */,
 				F527F47129D53F5A00E9FB97 /* 📚NotesListTab.swift in Sources */,

@@ -9,7 +9,6 @@ struct 🔩ExportNotesLink: View {
             Label("Export notes as text", systemImage: "square.and.arrow.up")
         }
         .disabled(self.model.notes.isEmpty)
-        .animation(.default, value: self.model.notes.isEmpty)
     }
     private struct Destination: View {
         @EnvironmentObject var model: 📱AppModel
