@@ -5,8 +5,7 @@ struct 🪧EntryView: View {
     var body: some View {
         Group {
             if self.info.targetedNotes.isEmpty {
-                Image(systemName: "book.closed")
-                    .foregroundStyle(.tertiary)
+                🪧PlaceholderView()
             } else {
                 🪧AccessoryWidgetView(self.info)
             }

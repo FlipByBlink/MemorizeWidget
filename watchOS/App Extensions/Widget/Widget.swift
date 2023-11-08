@@ -13,7 +13,10 @@ private extension WatchOSWidgetBundle {
     private struct PrimaryWidget: Widget {
         var body: some WidgetConfiguration {
             StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
-                🪧EntryView(ⓔntry)
+                switch ⓔntry.info {
+                    case .widgetPlaceholder: 🪧PlaceholderView()
+                    default: 🪧EntryView(ⓔntry)
+                }
             }
             .configurationDisplayName("Notes")
             .description("Show a note.")
