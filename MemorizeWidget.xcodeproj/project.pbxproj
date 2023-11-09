@@ -70,6 +70,7 @@
 		16DD530D2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD530C2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift */; };
 		16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
 		16EDAF3D2AFB888400881864 /* 🏢RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF3C2AFB888400881864 /* 🏢RootView.swift */; };
+		16EDAF432AFC7B9800881864 /* 🏢IPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF422AFC7B9800881864 /* 🏢IPadView.swift */; };
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F507EAA628CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F507EAA728CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
@@ -450,6 +451,7 @@
 		16DD530C2AF89EDF008F555A /* 📖SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
 		16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PlaceholderView.swift"; sourceTree = "<group>"; };
 		16EDAF3C2AFB888400881864 /* 🏢RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏢RootView.swift"; sourceTree = "<group>"; };
+		16EDAF422AFC7B9800881864 /* 🏢IPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏢IPadView.swift"; sourceTree = "<group>"; };
 		F507EA9328C9FCC900ECF06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F507EA9528C9FDC500ECF06A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F507EA9B28CA145000ECF06A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -725,6 +727,15 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		16EDAF442AFC7BA000881864 /* 🏢RootView */ = {
+			isa = PBXGroup;
+			children = (
+				16EDAF3C2AFB888400881864 /* 🏢RootView.swift */,
+				16EDAF422AFC7B9800881864 /* 🏢IPadView.swift */,
+			);
+			path = "🏢RootView";
+			sourceTree = "<group>";
+		};
 		F507EA9728CA145000ECF06A /* 🌐Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,8 +939,8 @@
 				F5B5A46128C6EDA1005B6E0F /* App.swift */,
 				F5B5A46328C6EDA1005B6E0F /* ContentView.swift */,
 				168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */,
-				16EDAF3C2AFB888400881864 /* 🏢RootView.swift */,
 				F51CAF6429D6AEFA0065EF30 /* 📗NoteView.swift */,
+				16EDAF442AFC7BA000881864 /* 🏢RootView */,
 				1626B7952AFA5B3200845F80 /* 📚NotesListTab */,
 				1687436E2AF9BD0C000F0F79 /* 🔖Tab */,
 				166BC2A92AF62AC100729C66 /* 📖WidgetSheet */,
@@ -1293,6 +1304,7 @@
 				168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */,
 				F5FE2D8C29DD585E008C728B /* 🗑TrashModel.swift in Sources */,
 				F5AAE666292B741B00FB8406 /* 💾UserDefaults.swift in Sources */,
+				16EDAF432AFC7B9800881864 /* 🏢IPadView.swift in Sources */,
 				F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */,
 				166BC2AF2AF62C2100729C66 /* 📖DictionaryButton.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📗NoteView.swift in Sources */,
