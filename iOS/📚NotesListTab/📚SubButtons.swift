@@ -2,6 +2,7 @@ import SwiftUI
 
 struct 📚SubButtons: View {
     @EnvironmentObject var model: 📱AppModel
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
@@ -28,6 +29,7 @@ struct 📚SubButtons: View {
         .foregroundStyle(Color.secondary)
         .labelStyle(.iconOnly)
         .buttonStyle(.plain)
+        .font(self.dynamicTypeSize > .accessibility1 ? .system(size: 24) : .body)
     }
     init(_ note: Binding<📗Note>) {
         self._note = note
