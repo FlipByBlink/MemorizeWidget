@@ -26,6 +26,8 @@ private extension 🏢IPadView {
                 List(selection: self.$model.selectedSidebar) {
                     ForEach(🔖Tab.allCases) { $0.label() }
                 }
+                .modifier(🔢NotesCountText.BottomToolbar())
+                .background(ignoresSafeAreaEdges: .all)
                 .navigationSplitViewColumnWidth(280) //default: 320
             } detail: {
                 self.model.selectedSidebar?.detailView

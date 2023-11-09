@@ -20,8 +20,7 @@ struct 📚NotesListTab: View {
                         .onDelete { self.model.deleteNoteOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }
                     } footer: {
-                        Text("Notes count: \(self.model.notes.count)")
-                            .opacity(self.model.notes.count < 6  ? 0 : 1)
+                        🔢NotesCountText.ListFooter()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
