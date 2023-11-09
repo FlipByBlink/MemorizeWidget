@@ -34,6 +34,15 @@ extension 📱AppModel {
             }
         }
     }
+    func dismissWidgetSheetOnBackground(_ ⓢcenePhase: ScenePhase) {
+        guard case .widget(_) = self.presentedSheetOnContentView else {
+            return
+        }
+        if ⓢcenePhase == .background {
+            self.presentedSheetOnWidgetSheet = nil
+            self.presentedSheetOnContentView = nil
+        }
+    }
     func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
         let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
         return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000

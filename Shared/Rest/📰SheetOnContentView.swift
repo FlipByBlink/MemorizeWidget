@@ -27,6 +27,9 @@ extension 📰SheetOnContentView: Identifiable, Hashable {
 #endif
                     }
                 }
+#if os(iOS)
+                .modifier(📖DismissWidgetSheetOnBackground())
+#endif
         }
     }
     var widgetInfo: 🪧WidgetInfo? {
