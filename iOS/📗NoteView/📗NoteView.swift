@@ -5,7 +5,7 @@ struct 📗NoteView: View {
     @Binding var source: 📗Note
     var titleFont: Font
     var commentFont: Font
-    var placement: Self.Placement
+    var placement: 📗Placement
     @Environment(\.scenePhase) var scenePhase
     @State private var inputting: Bool = false
     @State private var inputtingNote: 📗Note = .empty
@@ -26,9 +26,6 @@ struct 📗NoteView: View {
                 📚SubButtons(self.inputting ? self.$inputtingNote : self.$source)
             }
         }
-    }
-    enum Placement {
-        case notesList, widgetSheet
     }
 }
 
