@@ -115,7 +115,7 @@ extension 📱AppModel {
                     self.presentedSheetOnContentView = .widget(ⓘnfo)
                 case .newNoteShortcut:
 #if os(iOS)
-                    break
+                    self.addNewNoteByNewNoteShortcut()
 #elseif os(watchOS)
                     self.presentedSheetOnContentView = .newNoteShortcut
 #endif
@@ -128,11 +128,7 @@ extension 📱AppModel {
         }
 #if os(iOS)
         self.switchNotesListTab()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            if self.inAppPurchaseModel.checkToShowADSheet() {
-                self.presentedSheetOnWidgetSheet = .ad
-            }
-        }
+        self.handleToPresentADSheet()
 #endif
     }
 }
