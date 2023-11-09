@@ -6,10 +6,8 @@ struct 🔩MenuTab: View {
             List {
                 🔩MultiNotesOnWidgetOption()
                 🔩CommentOnWidgetOption()
-                Section {
-                    🔩CustomizeSearchLink()
-                    🔩ExportNotesLink()
-                }
+                Section { 🔩CustomizeSearchLink() }
+                Section { 🔩ExportNotesLink() }
                 🚮DeleteAllNotesButton()
             }
             .navigationTitle("Menu")

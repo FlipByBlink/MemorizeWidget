@@ -6,7 +6,7 @@ struct 🔩ExportNotesLink: View {
         NavigationLink {
             Self.Destination()
         } label: {
-            Label("Export notes as text", systemImage: "square.and.arrow.up")
+            Label("Export notes as text", systemImage: "tray.and.arrow.up")
         }
         .disabled(self.model.notes.isEmpty)
     }
@@ -22,7 +22,7 @@ struct 🔩ExportNotesLink: View {
                         Text(self.text)
                             .font(.subheadline.monospaced().italic())
                             .textSelection(.enabled)
-                            .lineLimit(50)
+                            .lineLimit(30)
                             .padding()
                     }
                     Label("Copy the above text", systemImage: "hand.point.up.left")
