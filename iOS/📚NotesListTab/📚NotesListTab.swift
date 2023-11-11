@@ -30,12 +30,17 @@ struct 📚NotesListTab: View {
                 .onOpenURL { self.model.scrollTopByNewNoteShortcut($0, ⓢcrollViewProxy) }
                 .animation(.default, value: self.model.notes)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
                         EditButton()
                             .disabled(self.model.notes.isEmpty)
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            self.presentNotesImportSheetButton()
+                        }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        self.presentNotesImportSheetButton()
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            self.presentNotesImportSheetButton()
+                        }
                     }
                 }
             }

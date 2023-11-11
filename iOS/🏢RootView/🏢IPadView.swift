@@ -32,21 +32,15 @@ private extension 🏢IPadView {
                 .modifier(🔢NotesCountText.BottomToolbar())
                 .background(ignoresSafeAreaEdges: .all)
                 .navigationSplitViewColumnWidth(280) //default: 320
+                .environment(\.defaultMinListRowHeight, 50)
             } detail: {
-                self.model.selectedSidebar?.detailView
-                Self.Workaround.SpareDetailView()
-            }
-            .navigationSplitViewStyle(.balanced)
-        }
-        private enum Workaround {
-            struct SpareDetailView: View {
-                @EnvironmentObject var model: 📱AppModel
-                var body: some View {
-                    if self.model.selectedSidebar == nil {
-                        📚NotesListTab()
-                    }
+                if let ⓢelectedSidebar = self.model.selectedSidebar {
+                    ⓢelectedSidebar.detailView
+                } else {
+                    📚NotesListTab() //spare
                 }
             }
+            .navigationSplitViewStyle(.balanced)
         }
     }
 }
