@@ -4,7 +4,7 @@ struct 🪧EntryView: View {
     private var tag: 🪧Tag
     var body: some View {
         Group {
-            if self.tag.targetedNotes.isEmpty {
+            if self.tag.loadTargetedNotes().isEmpty {
                 🪧NoNoteView()
             } else {
                 🪧AccessoryWidgetView(self.tag)

@@ -29,7 +29,7 @@ struct 🪧SystemWidgetView: View {
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
     init(_ ⓣag: 🪧Tag) {
-        self.notes = ⓣag.targetedNotes
+        self.notes = ⓣag.loadTargetedNotes()
     }
 }
 

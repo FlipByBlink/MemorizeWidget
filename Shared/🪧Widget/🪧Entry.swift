@@ -46,6 +46,9 @@ extension 🪧Entry {
                 }
         }
     }
+}
+
+private extension 🪧Entry {
     private var notesCount: Int {
         if 🎛️Option.multiNotesMode {
             switch self.timelineProviderContext.family {

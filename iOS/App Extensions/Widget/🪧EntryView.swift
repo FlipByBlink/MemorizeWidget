@@ -5,7 +5,7 @@ struct 🪧EntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         Group {
-            if self.tag.targetedNotes.isEmpty {
+            if self.tag.loadTargetedNotes().isEmpty {
                 🪧NoNoteView()
             } else {
                 switch self.widgetFamily {

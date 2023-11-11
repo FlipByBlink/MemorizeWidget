@@ -112,7 +112,7 @@ extension 📱AppModel {
         if let ⓣag = 🪧Tag.decode(ⓤrl) {
             switch ⓣag {
                 case .notes(_):
-                    if !ⓣag.targetedNotes.isEmpty {
+                    if !ⓣag.targetedNoteIDs.isEmpty {
                         self.presentedSheetOnContentView = .widget(ⓣag)
                     } else {
                         break
@@ -146,7 +146,7 @@ extension 📱AppModel {
         self.notes.index(self.openedWidgetNoteIDs.first)
     }
     var openedWidgetNotesCount: Int {
-        self.presentedSheetOnContentView?.widgetTag?.targetedNotesCount ?? 0
+        self.presentedSheetOnContentView?.widgetTag?.targetedNoteIDs.count ?? 0
     }
     var deletedAllWidgetNotes: Bool {
         guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {

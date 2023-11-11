@@ -16,7 +16,7 @@ struct 🪧AccessoryWidgetView: View {
         }
     }
     init(_ ⓣag: 🪧Tag) {
-        self.notes = ⓣag.targetedNotes
+        self.notes = ⓣag.loadTargetedNotes()
     }
 }
 
