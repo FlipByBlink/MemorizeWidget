@@ -15,8 +15,8 @@ struct 🪧AccessoryWidgetView: View {
             default: Text(verbatim: "BUG")
         }
     }
-    init(_ tag: 🪧Tag) {
-        self.notes = tag.targetedNotes
+    init(_ ⓣag: 🪧Tag) {
+        self.notes = ⓣag.targetedNotes
     }
 }
 

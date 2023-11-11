@@ -17,7 +17,7 @@ struct 🪧Entry: TimelineEntry {
 
 extension 🪧Entry {
     func pickNotes() -> 📚Notes {
-        var ⓐllNotes: 📚Notes = .load() ?? []
+        var ⓐllNotes = .load() ?? []
         if 🎛️Option.randomMode {
             return Array(ⓐllNotes.shuffled().prefix(self.notesCount))
         } else {
@@ -37,11 +37,12 @@ extension 🪧Entry {
                     case .newNoteShortcut:
                         return .newNoteShortcut
                     case .primary, .sub:
-                        guard let targetedNotes else {
+                        if let ⓘds = self.targetedNotes?.map({ $0.id}) {
+                            return .notes(ⓘds)
+                        } else {
                             assertionFailure()
                             return .notes([])
                         }
-                        return .notes(targetedNotes.map { $0.id })
                 }
         }
     }

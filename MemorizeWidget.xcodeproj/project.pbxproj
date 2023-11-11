@@ -188,7 +188,7 @@
 		F54C76242AA6C1AE00801313 /* 🆕NewNoteShortcut.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C833D2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift */; };
 		F54C76252AA6C1AE00801313 /* 💁GuideMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */; };
 		F54C76262AA6C1AE00801313 /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C830D2AA5CDF80033A04B /* ℹ️AboutApp.swift */; };
-		F54C76272AA6C1AE00801313 /* Widget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* Widget.swift */; };
+		F54C76272AA6C1AE00801313 /* WidgetBundle.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* WidgetBundle.swift */; };
 		F54C76282AA6C1AE00801313 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
 		F568F19029E3A5DA005A1D1A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F18F29E3A5DA005A1D1A /* App.swift */; };
 		F568F19229E3A5DA005A1D1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F19129E3A5DA005A1D1A /* ContentView.swift */; };
@@ -206,7 +206,7 @@
 		F568F1AF29E3AB9A005A1D1A /* 🗑TrashTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */; };
 		F568F1F529E3C565005A1D1A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F568F1F629E3C565005A1D1A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
-		F568F1F929E3C565005A1D1A /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* Widget.swift */; };
+		F568F1F929E3C565005A1D1A /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* WidgetBundle.swift */; };
 		F568F1FF29E3C567005A1D1A /* Widget(watchOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
@@ -328,7 +328,7 @@
 				F54C76242AA6C1AE00801313 /* 🆕NewNoteShortcut.swift in CopyFiles */,
 				F54C76252AA6C1AE00801313 /* 💁GuideMenu.swift in CopyFiles */,
 				F54C76262AA6C1AE00801313 /* ℹ️AboutApp.swift in CopyFiles */,
-				F54C76272AA6C1AE00801313 /* Widget.swift in CopyFiles */,
+				F54C76272AA6C1AE00801313 /* WidgetBundle.swift in CopyFiles */,
 				F54C76282AA6C1AE00801313 /* 🪧EntryView.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,7 +523,7 @@
 		F568F1A829E3A703005A1D1A /* 💥Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💥Feedback.swift"; sourceTree = "<group>"; };
 		F568F1AB29E3A91C005A1D1A /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
 		F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(watchOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F568F1F829E3C565005A1D1A /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		F568F1F829E3C565005A1D1A /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F568F20429E3C56D005A1D1A /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		F568F21029E3E907005A1D1A /* 🔩MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MainMenu.swift"; sourceTree = "<group>"; };
@@ -932,7 +932,7 @@
 		F568F1F729E3C565005A1D1A /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				F568F1F829E3C565005A1D1A /* Widget.swift */,
+				F568F1F829E3C565005A1D1A /* WidgetBundle.swift */,
 				1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */,
 				F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */,
 				1671563C2AFF354800043F03 /* 🪧NoNoteView.swift */,
@@ -1294,7 +1294,7 @@
 				16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */,
 				1671563A2AFF2E2200043F03 /* 🎛️Option.swift in Sources */,
 				168D5F0C2AF6034900A100A7 /* 📚Notes.swift in Sources */,
-				F568F1F929E3C565005A1D1A /* Widget.swift in Sources */,
+				F568F1F929E3C565005A1D1A /* WidgetBundle.swift in Sources */,
 				1671563F2AFF37DF00043F03 /* 🪧PrimaryWidget.swift in Sources */,
 				1671562F2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				166BC2832AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,

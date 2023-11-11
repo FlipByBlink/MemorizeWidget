@@ -28,8 +28,8 @@ struct 🪧SystemWidgetView: View {
         .padding(self.edgeInsets)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
-    init(_ tag: 🪧Tag) {
-        self.notes = tag.targetedNotes
+    init(_ ⓣag: 🪧Tag) {
+        self.notes = ⓣag.targetedNotes
     }
 }
 

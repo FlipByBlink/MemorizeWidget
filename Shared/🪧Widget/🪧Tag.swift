@@ -25,7 +25,7 @@ extension 🪧Tag: Hashable {
     }
     var url: URL { .init(string: self.urlString)! }
     var targetedNotes: 📚Notes {
-        let ⓐllNotes: 📚Notes = .load() ?? []
+        let ⓐllNotes = .load() ?? []
         switch self {
             case .notes(let ⓘds):
                 return ⓘds.compactMap { ⓘd in

@@ -21,7 +21,7 @@ struct 🪧EntryView: View {
         .widgetURL(self.tag.url)
         .modifier(🪧ContainerBackground())
     }
-    init(_ entry: 🪧Entry) {
-        self.tag = entry.tag
+    init(_ ⓔntry: 🪧Entry) {
+        self.tag = ⓔntry.tag
     }
 }

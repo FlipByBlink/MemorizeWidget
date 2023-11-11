@@ -15,7 +15,7 @@ struct 📖DictionaryButton: View {
         📘DictionaryButtonOnMac(term: self.term)
 #endif
     }
-    init(_ note: 📗Note) {
-        self.term = note.title
+    init(_ ⓝote: 📗Note) {
+        self.term = ⓝote.title
     }
 }
