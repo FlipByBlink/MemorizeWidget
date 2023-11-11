@@ -2,26 +2,25 @@ import SwiftUI
 import WidgetKit
 
 struct 🪧AccessoryWidgetView: View {
-    private var tag: 🪧Tag
+    private var notes: [📗Note]
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         switch self.widgetFamily {
             case .accessoryInline: self.inlineView()
             case .accessoryCircular: self.circularView()
             case .accessoryRectangular: self.rectangularView()
-            #if os(watchOS)
+#if os(watchOS)
             case .accessoryCorner: self.cornerView()
-            #endif
+#endif
             default: Text(verbatim: "BUG")
         }
     }
     init(_ tag: 🪧Tag) {
-        self.tag = tag
+        self.notes = tag.targetedNotes
     }
 }
 
 private extension 🪧AccessoryWidgetView {
-    private var notes: [📗Note] { self.tag.targetedNotes }
     private func inlineView() -> some View {
         Text(self.notes.first?.title ?? "No note")
     }
@@ -56,7 +55,7 @@ private extension 🪧AccessoryWidgetView {
                     .lineLimit(self.notes.count > 1 ? 1 : 3)
                     .font(.system(size: self.notes.count > 1 ? 17 : 24,
                                   weight: .semibold))
-                if self.notes.count == 1
+                if (self.notes.count == 1)
                     && 🎛️Option.showCommentMode
                     && !ⓝote.comment.isEmpty {
                     Text(ⓝote.comment)

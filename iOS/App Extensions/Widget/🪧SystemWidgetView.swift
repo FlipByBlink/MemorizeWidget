@@ -1,10 +1,9 @@
 import SwiftUI
 
 struct 🪧SystemWidgetView: View {
-    private var tag: 🪧Tag
+    private var notes: 📚Notes
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
-    @AppStorage("ShowComment", store: .ⓐppGroup) var showComment: Bool = false
     var body: some View {
         VStack(spacing: 0) {
             Spacer(minLength: 0)
@@ -12,7 +11,7 @@ struct 🪧SystemWidgetView: View {
                 VStack(spacing: self.notes.count == 1 ? 6 : 2) {
                     Text(ⓝote.title)
                         .font(self.titleFont.bold())
-                    if self.showComment, !ⓝote.comment.isEmpty {
+                    if 🎛️Option.showCommentMode, !ⓝote.comment.isEmpty {
                         Text(ⓝote.comment)
                             .font(self.commentFont)
                             .fontWeight(self.commentFontWeight)
@@ -30,12 +29,11 @@ struct 🪧SystemWidgetView: View {
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
     init(_ tag: 🪧Tag) {
-        self.tag = tag
+        self.notes = tag.targetedNotes
     }
 }
 
 private extension 🪧SystemWidgetView {
-    private var notes: 📚Notes { self.tag.targetedNotes }
     private var titleFont: Font {
         switch self.widgetFamily {
             case .systemSmall:
@@ -44,13 +42,19 @@ private extension 🪧SystemWidgetView {
                 return self.notes.count == 1 ? .title : .headline
             case .systemLarge:
                 switch self.notes.count {
-                    case 1: return .largeTitle
-                    case 2, 3, 4, 5: return self.showComment ? .title3 : .title
-                    case 6: return self.showComment ? .headline : .title
-                    default: assertionFailure(); return .title
+                    case 1:
+                        return .largeTitle
+                    case 2, 3, 4, 5:
+                        return 🎛️Option.showCommentMode ? .title3 : .title
+                    case 6:
+                        return 🎛️Option.showCommentMode ? .headline : .title
+                    default: 
+                        assertionFailure()
+                        return .title
                 }
             default:
-                assertionFailure(); return .largeTitle
+                assertionFailure()
+                return .largeTitle
         }
     }
     private var commentFont: Font {
@@ -82,7 +86,8 @@ private extension 🪧SystemWidgetView {
             case .systemLarge:
                 return self.notes.count < 4 ? 3 : 1
             default:
-                assertionFailure(); return 1
+                assertionFailure()
+                return 1
         }
     }
     private var edgeInsets: EdgeInsets {

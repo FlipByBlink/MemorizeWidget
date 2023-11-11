@@ -28,6 +28,7 @@ struct 📚NotesListTab: View {
                 .scrollDismissesKeyboard(.interactively)
                 .onChange(of: self.self.model.createdNewNoteID) { ⓢcrollViewProxy.scrollTo($0) }
                 .onOpenURL { self.model.scrollTopByNewNoteShortcut($0, ⓢcrollViewProxy) }
+                .animation(.default, value: self.model.notes)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()

@@ -1,19 +1,19 @@
 import SwiftUI
 
 struct 🪧EntryView: View {
-    private var entry: 🪧Entry
+    private var tag: 🪧Tag
     var body: some View {
         Group {
-            if self.entry.tag.targetedNotes.isEmpty {
-                🪧PlaceholderView()
+            if self.tag.targetedNotes.isEmpty {
+                🪧NoNoteView()
             } else {
-                🪧AccessoryWidgetView(self.entry.tag)
+                🪧AccessoryWidgetView(self.tag)
             }
         }
-        .widgetURL(self.entry.tag.url)
+        .widgetURL(self.tag.url)
         .modifier(🪧ContainerBackground())
     }
     init(_ entry: 🪧Entry) {
-        self.entry = entry
+        self.tag = entry.tag
     }
 }

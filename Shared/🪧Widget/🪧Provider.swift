@@ -11,14 +11,12 @@ extension 🪧Provider: TimelineProvider {
               phase: .placeholder,
               context: context)
     }
-    
     func getSnapshot(in context: Context, completion: @escaping (🪧Entry) -> ()) {
         completion(.init(date: .now,
                          kind: self.kind,
                          phase: .snapshot,
                          context: context))
     }
-    
     func getTimeline(in context: Context, completion: @escaping (Timeline<🪧Entry>) -> ()) {
         if 🎛️Option.multiNotesMode {
             var ⓔntries: [🪧Entry] = []

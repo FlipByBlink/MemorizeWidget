@@ -1,10 +1,10 @@
-import WidgetKit
 import SwiftUI
 
 @main
-struct WatchOSWidgetBundle: WidgetBundle {
+struct IOSWidgetBundle: WidgetBundle {
     var body: some Widget {
         🪧PrimaryWidget()
         🪧NewNoteShortcutWidget()
+        🪧SubWidget()
     }
 }
