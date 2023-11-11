@@ -1,27 +1,27 @@
 import SwiftUI
 
 struct 🪧EntryView: View {
-    private var info: 🪧WidgetInfo
+    private var tag: 🪧Tag
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         Group {
-            if self.info.targetedNotes.isEmpty {
+            if self.tag.targetedNotes.isEmpty {
                 🪧NoNoteView()
             } else {
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge:
-                        🪧SystemWidgetView(self.info)
+                        🪧SystemWidgetView(self.tag)
                     case .accessoryInline, .accessoryCircular, .accessoryRectangular:
-                        🪧AccessoryWidgetView(self.info)
+                        🪧AccessoryWidgetView(self.tag)
                     default:
                         Text(verbatim: "BUG")
                 }
             }
         }
-        .widgetURL(self.info.url)
+        .widgetURL(self.tag.url)
         .modifier(🪧ContainerBackground())
     }
-    init(_ ⓔntry: 🪧WidgetEntry) {
-        self.info = ⓔntry.info
+    init(_ entry: 🪧Entry) {
+        self.tag = entry.tag
     }
 }

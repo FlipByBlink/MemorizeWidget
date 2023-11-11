@@ -16,7 +16,7 @@ extension 📱AppModel {
         self.selectedSidebar = .notesList
     }
     func scrollTopByNewNoteShortcut(_ ⓤrl: URL, _ ⓢcrollViewProxy: ScrollViewProxy) {
-        if case .newNoteShortcut = 🪧WidgetInfo.load(ⓤrl) {
+        if case .newNoteShortcut = 🪧Tag.decode(ⓤrl) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 ⓢcrollViewProxy.scrollTo("NewNoteButton")
             }

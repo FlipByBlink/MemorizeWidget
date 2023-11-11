@@ -12,9 +12,10 @@ struct WatchOSWidgetBundle: WidgetBundle {
 private extension WatchOSWidgetBundle {
     private struct PrimaryWidget: Widget {
         var body: some WidgetConfiguration {
-            StaticConfiguration(kind: "MWComplication", provider: 🪧Provider()) { ⓔntry in
-                switch ⓔntry.info {
-                    case .widgetPlaceholder: 🪧PlaceholderView()
+            StaticConfiguration(kind: "MWComplication",
+                                provider: 🪧Provider(kind: .primary)) { ⓔntry in
+                switch ⓔntry.phase {
+                    case .placeholder: 🪧PlaceholderView()
                     default: 🪧EntryView(ⓔntry)
                 }
             }

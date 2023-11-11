@@ -109,17 +109,21 @@ extension 📱AppModel {
 #if os(iOS)
         self.presentedSheetOnWidgetSheet = nil
 #endif
-        if let ⓘnfo = 🪧WidgetInfo.load(ⓤrl) {
-            switch ⓘnfo {
-                case .singleNote(_), .multiNotes(_):
-                    self.presentedSheetOnContentView = .widget(ⓘnfo)
+        if let ⓣag = 🪧Tag.decode(ⓤrl) {
+            switch ⓣag {
+                case .notes(_):
+                    if !ⓣag.targetedNotes.isEmpty {
+                        self.presentedSheetOnContentView = .widget(ⓣag)
+                    } else {
+                        break
+                    }
                 case .newNoteShortcut:
 #if os(iOS)
                     self.addNewNoteByNewNoteShortcut()
 #elseif os(watchOS)
                     self.presentedSheetOnContentView = .newNoteShortcut
 #endif
-                case .noNote, .widgetPlaceholder:
+                case .placeholder:
                     break
             }
             💥Feedback.light()
@@ -136,20 +140,19 @@ extension 📱AppModel {
 //MARK: Others
 extension 📱AppModel {
     var openedWidgetNoteIDs: [UUID] {
-        self.presentedSheetOnContentView?.widgetInfo?.targetedNoteIDs ?? []
+        self.presentedSheetOnContentView?.widgetTag?.targetedNoteIDs ?? []
     }
     var openedWidgetSingleNoteIndex: Int? {
         self.notes.index(self.openedWidgetNoteIDs.first)
     }
     var openedWidgetNotesCount: Int {
-        self.presentedSheetOnContentView?.widgetInfo?.targetedNotesCount ?? 0
+        self.presentedSheetOnContentView?.widgetTag?.targetedNotesCount ?? 0
     }
     var deletedAllWidgetNotes: Bool {
-        guard case .widget(let info) = self.presentedSheetOnContentView,
-              let ⓘds = info.targetedNoteIDs else {
+        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
             return false
         }
-        return ⓘds.allSatisfy { ⓘd in
+        return ⓣag.targetedNoteIDs.allSatisfy { ⓘd in
             !self.notes.contains { $0.id == ⓘd }
         }
     }

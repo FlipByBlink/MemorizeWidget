@@ -48,7 +48,7 @@ private extension 🪧NewNoteShortcutWidget {
                     default: Text(verbatim: "BUG")
                 }
             }
-            .widgetURL(🪧WidgetInfo.newNoteShortcut.url)
+            .widgetURL(🪧Tag.newNoteShortcut.url)
             .modifier(🪧ContainerBackground())
         }
         private static func circularView() -> some View {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🪧SystemWidgetView: View {
-    private var info: 🪧WidgetInfo
+    private var tag: 🪧Tag
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     @AppStorage("ShowComment", store: .ⓐppGroup) var showComment: Bool = false
@@ -29,13 +29,13 @@ struct 🪧SystemWidgetView: View {
         .padding(self.edgeInsets)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
-    init(_ info: 🪧WidgetInfo) {
-        self.info = info
+    init(_ tag: 🪧Tag) {
+        self.tag = tag
     }
 }
 
 private extension 🪧SystemWidgetView {
-    private var notes: [📗Note] { self.info.targetedNotes }
+    private var notes: 📚Notes { self.tag.targetedNotes }
     private var titleFont: Font {
         switch self.widgetFamily {
             case .systemSmall:

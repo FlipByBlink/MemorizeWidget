@@ -13,7 +13,8 @@ struct IOSWidgetBundle: WidgetBundle {
 private extension IOSWidgetBundle {
     private struct PrimaryWidget: Widget {
         var body: some WidgetConfiguration {
-            StaticConfiguration(kind: "main", provider: 🪧Provider()) { ⓔntry in
+            StaticConfiguration(kind: "main",
+                                provider: 🪧Provider(kind: .primary)) { ⓔntry in
                 🪧EntryView(ⓔntry)
             }
             .configurationDisplayName("MemorizeWidget")
@@ -26,7 +27,8 @@ private extension IOSWidgetBundle {
     private struct SubWidget: Widget {
         private var families: [WidgetFamily] = []
         var body: some WidgetConfiguration {
-            StaticConfiguration(kind: "sub", provider: 🪧Provider()) { ⓔntry in
+            StaticConfiguration(kind: "sub",
+                                provider: 🪧Provider(kind: .sub)) { ⓔntry in
                 🪧EntryView(ⓔntry)
             }
             .configurationDisplayName("Sub widget")

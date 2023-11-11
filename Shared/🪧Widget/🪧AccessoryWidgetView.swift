@@ -2,9 +2,8 @@ import SwiftUI
 import WidgetKit
 
 struct 🪧AccessoryWidgetView: View {
-    private var info: 🪧WidgetInfo
+    private var tag: 🪧Tag
     @Environment(\.widgetFamily) var widgetFamily
-    @AppStorage("ShowComment", store: .ⓐppGroup) var showComment: Bool = false
     var body: some View {
         switch self.widgetFamily {
             case .accessoryInline: self.inlineView()
@@ -16,13 +15,13 @@ struct 🪧AccessoryWidgetView: View {
             default: Text(verbatim: "BUG")
         }
     }
-    init(_ info: 🪧WidgetInfo) {
-        self.info = info
+    init(_ tag: 🪧Tag) {
+        self.tag = tag
     }
 }
 
 private extension 🪧AccessoryWidgetView {
-    private var notes: [📗Note] { self.info.targetedNotes }
+    private var notes: [📗Note] { self.tag.targetedNotes }
     private func inlineView() -> some View {
         Text(self.notes.first?.title ?? "No note")
     }
@@ -57,13 +56,13 @@ private extension 🪧AccessoryWidgetView {
                     .lineLimit(self.notes.count > 1 ? 1 : 3)
                     .font(.system(size: self.notes.count > 1 ? 17 : 24,
                                   weight: .semibold))
-                if case .singleNote(_) = self.info {
-                    if self.showComment, !ⓝote.comment.isEmpty {
-                        Text(ⓝote.comment)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                    }
+                if self.notes.count == 1
+                    && 🎛️Option.showCommentMode
+                    && !ⓝote.comment.isEmpty {
+                    Text(ⓝote.comment)
+                        .fontWeight(.medium)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
             }
         }

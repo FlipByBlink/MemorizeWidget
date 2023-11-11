@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum 📰SheetOnContentView {
-    case widget(🪧WidgetInfo)
+    case widget(🪧Tag)
 #if os(iOS)
     case notesImport
     case dictionary(UIReferenceLibraryViewController)
@@ -32,7 +32,7 @@ extension 📰SheetOnContentView: Identifiable, Hashable {
 #endif
         }
     }
-    var widgetInfo: 🪧WidgetInfo? {
-        if case .widget(let ⓘnfo) = self { ⓘnfo } else { nil }
+    var widgetTag: 🪧Tag? {
+        if case .widget(let ⓣag) = self { ⓣag } else { nil }
     }
 }
