@@ -1,19 +1,22 @@
 import SwiftUI
 
+//TODO: 要再検討。horizontalSizeClassでの切り替えだとバックグラウンド移行時にViewがリセットされてscrollやnavigationがリセットされてしまうので一旦コメントアウトした。
+
 struct 🏢IPadView: View {
     @EnvironmentObject var model: 📱AppModel
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+//    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
-        Group {
-            switch self.horizontalSizeClass {
-                case .compact: 🔖TabView()
-                case .regular: Self.SplitView()
-                default: 🔖TabView()
-            }
-        }
-        .onChange(of: self.horizontalSizeClass) {
-            self.model.switchLayout($0)
-        }
+        Self.SplitView()
+//        Group {
+//            switch self.horizontalSizeClass {
+//                case .compact: 🔖TabView()
+//                case .regular: Self.SplitView()
+//                default: 🔖TabView()
+//            }
+//        }
+//        .onChange(of: self.horizontalSizeClass) {
+//            self.model.switchLayout($0)
+//        }
     }
 }
 
