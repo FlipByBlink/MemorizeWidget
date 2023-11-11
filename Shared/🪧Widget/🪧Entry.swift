@@ -52,7 +52,7 @@ extension 🪧Entry {
                 case .systemSmall, .systemMedium:
                     🎛️Option.showCommentMode ? 2 : 3
                 case .systemLarge, .systemExtraLarge:
-                    🎛️Option.showCommentMode ? 6 : 5
+                    🎛️Option.showCommentMode ? 5 : 6
                 case .accessoryCorner, .accessoryCircular, .accessoryInline:
                     1
                 case .accessoryRectangular:

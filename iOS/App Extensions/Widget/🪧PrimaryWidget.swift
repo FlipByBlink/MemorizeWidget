@@ -4,10 +4,11 @@ import SwiftUI
 struct 🪧PrimaryWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "main",
-                            provider: 🪧Provider(kind: .primary)) { ⓔntry in
-            switch ⓔntry.phase {
-                case .placeholder: 🪧PlaceholderView()
-                case .snapshot, .inTimeline: 🪧EntryView(ⓔntry)
+                            provider: 🪧Provider(kind: .primary)) {
+            if $0.phase == .placeholder {
+                🪧PlaceholderView()
+            } else {
+                🪧EntryView($0)
             }
         }
         .configurationDisplayName("MemorizeWidget")

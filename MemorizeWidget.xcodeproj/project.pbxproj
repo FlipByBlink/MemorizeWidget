@@ -95,6 +95,7 @@
 		16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
 		16EDAF3D2AFB888400881864 /* 🏢RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF3C2AFB888400881864 /* 🏢RootView.swift */; };
 		16EDAF432AFC7B9800881864 /* 🏢IPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF422AFC7B9800881864 /* 🏢IPadView.swift */; };
+		16FB78BF2AFF4CCA009388F2 /* 🪧SubWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156422AFF387900043F03 /* 🪧SubWidget.swift */; };
 		F507EA9628C9FDC500ECF06A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507EA9528C9FDC500ECF06A /* StoreKit.framework */; };
 		F507EAA628CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
 		F507EAA728CA145000ECF06A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9A28CA145000ECF06A /* Localizable.strings */; };
@@ -682,6 +683,7 @@
 		167156352AFF2A4700043F03 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				167156422AFF387900043F03 /* 🪧SubWidget.swift */,
 				F5FE2D8429DBC2D1008C728B /* 🪧NewNoteShortcutWidget.swift */,
 				16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */,
 				F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */,
@@ -1022,7 +1024,6 @@
 			children = (
 				F5D30CCC28C6F6C8001198AF /* WidgetBundle.swift */,
 				167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */,
-				167156422AFF387900043F03 /* 🪧SubWidget.swift */,
 				F5FE2D8029DBBFA5008C728B /* 🪧EntryView.swift */,
 				F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */,
 				F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */,
@@ -1307,6 +1308,7 @@
 				F50C839C2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,
 				168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				F50C832A2AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */,
+				16FB78BF2AFF4CCA009388F2 /* 🪧SubWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
