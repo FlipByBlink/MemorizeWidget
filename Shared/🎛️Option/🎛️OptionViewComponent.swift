@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-enum 🔩MenuViewComponent {
+enum 🎛️OptionViewComponent {
     struct MultiNotesToggle: View {
         @AppStorage("multiNotes", store: .ⓐppGroup) var value: Bool = false
         var body: some View {

@@ -6,7 +6,7 @@ struct 🔩MainMenu: View {
         List {
             self.randomModeSection()
             Section {
-                🔩MenuViewComponent.MultiNotesToggle()
+                🎛️OptionViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
             } header: {
                 Text("Widget")
@@ -21,15 +21,15 @@ struct 🔩MainMenu: View {
 private extension 🔩MainMenu {
     private func randomModeSection() -> some View {
         Section {
-            🔀RandomModeToggle()
+            🎛️RandomModeToggle()
         } footer: {
-            🔀RandomModeToggle.Caption()
+            🎛️RandomModeToggle.Caption()
         }
     }
     private struct CommentOnWidgetSection: View {
         @AppStorage("multiNotes", store: .ⓐppGroup) var multiNotesMode: Bool = false
         var body: some View {
-            🔩MenuViewComponent.ShowCommentToggle()
+            🎛️OptionViewComponent.ShowCommentToggle()
                 .disabled(self.multiNotesMode)
         }
     }

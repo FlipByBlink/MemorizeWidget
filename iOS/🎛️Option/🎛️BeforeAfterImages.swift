@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 🔩BeforeAfterImages: View {
+struct 🎛️BeforeAfterImages: View {
     private var before: String
     private var after: String
     var body: some View {

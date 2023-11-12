@@ -34,7 +34,7 @@ extension 🔖Sidebar: CaseIterable, Identifiable {
         var body: some View {
             switch self.selectedTab {
                 case .notesList: 📚NotesListTab()
-                case .option: 🔩MenuTab()
+                case .option: 🎛️OptionTab()
                 case .trash: 🗑TrashTab()
                 case .guide: 💁GuideTab()
             }

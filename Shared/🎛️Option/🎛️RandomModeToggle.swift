@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-struct 🔀RandomModeToggle: View {
+struct 🎛️RandomModeToggle: View {
     @EnvironmentObject var model: 📱AppModel
 #if os(iOS)
     @Environment(\.editMode) var editMode

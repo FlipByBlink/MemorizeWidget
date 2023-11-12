@@ -13,7 +13,7 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
                             switch ⓘtem {
                                 case .widget: 📖WidgetSheetView()
                                 case .notesImport: 📥NotesImportSheetView()
-                                case .notesExport: 📤ExportNotesSheetView()
+                                case .notesExport: 📤NotesExportSheetView()
                                 case .customizeSearch: 🔍CustomizeSearchSheetView()
                                 case .dictionary(_): EmptyView()
                                 case .aboutApp: Self.aboutAppSheetView()

@@ -51,10 +51,10 @@ struct 📚NotesListTab: View {
 private extension 📚NotesListTab {
     private func randomModeSection() -> some View {
         Section {
-            🔀RandomModeToggle()
+            🎛️RandomModeToggle()
                 .padding(.vertical, 8)
         } footer: {
-            🔀RandomModeToggle.Caption()
+            🎛️RandomModeToggle.Caption()
         }
     }
     private struct NewNoteOnTopButton: View {
