@@ -27,7 +27,7 @@ private extension 🏢IPadView {
             NavigationSplitView {
                 List(🔖Tab.allCases,
                      selection: self.$model.selectedSidebar,
-                     rowContent: \.sidebarLabel)
+                     rowContent: \.sidebarLink)
                 .background(ignoresSafeAreaEdges: .all)
                 .navigationSplitViewColumnWidth(280) //default: 320
                 .environment(\.defaultMinListRowHeight, 50)

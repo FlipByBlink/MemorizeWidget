@@ -27,8 +27,11 @@ extension 🔖Tab: CaseIterable, Identifiable {
     func bottomBarLabel() -> some View {
         Label(self.title, systemImage: self.iconName)
     }
-    var sidebarLabel: some View {
-        Label(self.title, systemImage: self.iconName)
+    var sidebarLink: some View {
+        NavigationLink(value: self) {
+            Label(self.title, systemImage: self.iconName)
+        }
+        //よくわからないがサンプルコードではNavigationLinkで実装してたため、とりあえず実装
     }
     var detailView: Self.DetailView { .init(selectedTab: self) }
     struct DetailView: View {
