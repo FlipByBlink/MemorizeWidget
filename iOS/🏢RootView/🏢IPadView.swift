@@ -3,7 +3,7 @@ import SwiftUI
 //TODO: 要再検討。horizontalSizeClassでの切り替えだとバックグラウンド移行時にViewがリセットされてscrollやnavigationがリセットされてしまうので一旦コメントアウトした。
 
 struct 🏢IPadView: View {
-    @EnvironmentObject var model: 📱AppModel
+//    @EnvironmentObject var model: 📱AppModel
 //    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         Self.SplitView()
@@ -25,9 +25,9 @@ private extension 🏢IPadView {
         @EnvironmentObject var model: 📱AppModel
         var body: some View {
             NavigationSplitView {
-                List(selection: self.$model.selectedSidebar) {
-                    ForEach(🔖Tab.allCases) { $0.label() }
-                }
+                List(🔖Tab.allCases,
+                     selection: self.$model.selectedSidebar,
+                     rowContent: \.sidebarLabel)
                 .background(ignoresSafeAreaEdges: .all)
                 .navigationSplitViewColumnWidth(280) //default: 320
                 .environment(\.defaultMinListRowHeight, 50)

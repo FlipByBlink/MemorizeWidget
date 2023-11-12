@@ -24,7 +24,10 @@ extension 🔖Tab: CaseIterable, Identifiable {
             case .app: "info"
         }
     }
-    func label() -> some View {
+    func bottomBarLabel() -> some View {
+        Label(self.title, systemImage: self.iconName)
+    }
+    var sidebarLabel: some View {
         Label(self.title, systemImage: self.iconName)
     }
     var detailView: Self.DetailView { .init(selectedTab: self) }
@@ -41,7 +44,7 @@ extension 🔖Tab: CaseIterable, Identifiable {
                 }
             }
             .tag(self.selectedTab)
-            .tabItem(self.selectedTab.label)
+            .tabItem(self.selectedTab.bottomBarLabel)
         }
     }
 }
