@@ -43,8 +43,7 @@ private extension 📚SubButtons {
     private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
         Button {
-            self.model.presentedSheetOnContentView = .dictionary(.init(term: self.note.title))
-            UISelectionFeedbackGenerator().selectionChanged()
+            self.model.presentSheet(.dictionary(.init(term: self.note.title)))
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
                 .padding(8)

@@ -11,7 +11,7 @@ class 📱AppModel: ObservableObject {
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
-    @Published var selectedSidebar: 🔖Tab? = .notesList
+    @Published var selectedSidebar: 🔖Sidebar? = .notesList
     @Published var presentedSheetOnWidgetSheet: 📖SheetOnWidgetSheet? = nil
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
@@ -139,6 +139,10 @@ extension 📱AppModel {
 
 //MARK: Others
 extension 📱AppModel {
+    func presentSheet(_ ⓣarget: 📰SheetOnContentView) {
+        💥Feedback.light()
+        self.presentedSheetOnContentView = ⓣarget
+    }
     var openedWidgetNoteIDs: [UUID] {
         self.presentedSheetOnContentView?.widgetTag?.targetedNoteIDs ?? []
     }

@@ -7,7 +7,7 @@ struct ContentView: View {
             .onOpenURL(perform: self.model.handleWidgetURL)
             .modifier(💬RequestUserReview())
             .modifier(🩹Workaround.HideTitleBarOnMacCatalyst())
-            .modifier(📰SheetOnContentView.Handler())
+            .modifier(📰SheetHandlerOnContentView())
             .environmentObject(self.model.inAppPurchaseModel)
     }
 }

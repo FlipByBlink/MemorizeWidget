@@ -14,8 +14,6 @@ struct 🔩MultiNotesOnWidgetOption: View {
                 }
             }
             .padding()
-        } header: {
-            Text("Option")
         }
     }
 }

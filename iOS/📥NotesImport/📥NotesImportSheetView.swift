@@ -1,45 +1,44 @@
 import SwiftUI
 
-struct 📥NotesImportView: View {
+struct 📥NotesImportSheetView: View {
     @EnvironmentObject var model: 📱AppModel
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
     @State private var importedText: String = ""
     var body: some View {
-        NavigationStack {
-            List {
-                if self.convertedNotes.isEmpty {
-                    self.inputModePicker()
-                    switch self.inputMode {
-                        case .file: 📥FileImportSection(self.$importedText)
-                        case .text: 📥TextImportSection(self.$importedText)
-                    }
-                    📥InputExample()
-                    Self.notSupportMultiLineTextInNoteSection()
-                } else {
-                    📥SeparatorPicker()
-                    self.convertedNotesSection()
+        List {
+            if self.convertedNotes.isEmpty {
+                self.inputModePicker()
+                switch self.inputMode {
+                    case .file: 📥FileImportSection(self.$importedText)
+                    case .text: 📥TextImportSection(self.$importedText)
                 }
+                📥InputExample()
+                Self.notSupportMultiLineTextInNoteSection()
+            } else {
+                📥SeparatorPicker()
+                self.convertedNotesSection()
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    if self.convertedNotes.isEmpty { 
-                        self.dismissButton()
-                    } else {
-                        self.cancelButton()
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if !self.convertedNotes.isEmpty { self.submitButton() }
-                }
-            }
-            .navigationTitle("Import")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                if !self.convertedNotes.isEmpty {
+                    self.cancelButton()
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                if !self.convertedNotes.isEmpty {
+                    self.submitButton()
+                }
+            }
+            //FIXME: ボタンの競合
+        }
+        .navigationTitle("Import")
+        .navigationBarTitleDisplayMode(.inline)
         .animation(.default, value: self.convertedNotes)
     }
 }
 
-private extension 📥NotesImportView {
+private extension 📥NotesImportSheetView {
     private var convertedNotes: 📚Notes {
         📚TextConvert.decode(self.importedText, self.model.separator)
     }
@@ -99,16 +98,5 @@ private extension 📥NotesImportView {
             Label("Done", systemImage: "checkmark")
                 .font(.body.weight(.semibold))
         }
-    }
-    private func dismissButton() -> some View {
-        Button {
-            self.model.presentedSheetOnContentView = nil
-            UISelectionFeedbackGenerator().selectionChanged()
-        } label: {
-            Image(systemName: "xmark.circle.fill")
-                .symbolRenderingMode(.hierarchical)
-                .font(.title3)
-        }
-        .foregroundStyle(Color.secondary)
     }
 }

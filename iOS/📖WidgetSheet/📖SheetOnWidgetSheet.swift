@@ -13,7 +13,7 @@ extension 📖SheetOnWidgetSheet: Identifiable, Hashable {
             content
                 .sheet(item: self.$model.presentedSheetOnWidgetSheet) {
                     switch $0 {
-                        case .dictionary(let ⓥiewController): 📘DictionaryView(ⓥiewController)
+                        case .dictionary(let ⓥiewController): 📘DictionarySheetView(ⓥiewController)
                         case .ad: 📣ADContentView()
                     }
                 }
