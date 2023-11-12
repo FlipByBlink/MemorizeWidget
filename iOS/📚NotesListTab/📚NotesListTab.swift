@@ -9,7 +9,7 @@ struct 📚NotesListTab: View {
                 List {
                     self.randomModeSection()
                     Section {
-                        self.newNoteOnTopButton()
+                        Self.NewNoteOnTopButton()
                         ForEach(self.$model.notes) {
                             📗NoteView(source: $0,
                                        titleFont: .title2,
@@ -32,11 +32,11 @@ struct 📚NotesListTab: View {
                 .toolbar {
                     switch UIDevice.current.userInterfaceIdiom {
                         case .phone:
-                            self.presentImportSheetButton(placement: .topBarLeading)
+                            Self.PresentImportSheetButton(placement: .topBarLeading)
                             self.editButton(placement: .topBarTrailing)
                         case .pad:
                             self.editButton(placement: .bottomBar)
-                            self.presentImportSheetButton(placement: .bottomBar)
+                            Self.PresentImportSheetButton(placement: .bottomBar)
                             self.notesCountTextOnBottomBar()
                         default:
                             ToolbarItem { EmptyView() }
@@ -58,13 +58,18 @@ private extension 📚NotesListTab {
             🔀RandomModeToggle.Caption()
         }
     }
-    private func newNoteOnTopButton() -> some View {
-        Button(action: self.model.addNewNoteOnTop) {
-            Label("New note", systemImage: "plus")
-                .font(.title3.weight(.semibold))
-                .padding(.vertical, 7)
+    private struct NewNoteOnTopButton: View {
+        @EnvironmentObject var model: 📱AppModel
+        @Environment(\.editMode) var editMode
+        var body: some View {
+            Button(action: self.model.addNewNoteOnTop) {
+                Label("New note", systemImage: "plus")
+                    .font(.title3.weight(.semibold))
+                    .padding(.vertical, 7)
+            }
+            .id("NewNoteButton")
+            .disabled(self.editMode?.wrappedValue == .active)
         }
-        .id("NewNoteButton")
     }
     private func notesCountTextOnFooter() -> some View {
         Group {
@@ -87,13 +92,19 @@ private extension 📚NotesListTab {
                 .disabled(self.model.notes.isEmpty)
         }
     }
-    private func presentImportSheetButton(placement: ToolbarItemPlacement) -> some ToolbarContent {
-        ToolbarItem(placement: placement) {
-            Button {
-                UISelectionFeedbackGenerator().selectionChanged()
-                self.model.presentedSheetOnContentView = .notesImport
-            } label: {
-                Label("Import notes", systemImage: "tray.and.arrow.down")
+    private struct PresentImportSheetButton: ToolbarContent {
+        @EnvironmentObject var model: 📱AppModel
+        @Environment(\.editMode) var editMode
+        let placement: ToolbarItemPlacement
+        var body: some ToolbarContent {
+            ToolbarItem(placement: placement) {
+                Button {
+                    UISelectionFeedbackGenerator().selectionChanged()
+                    self.model.presentedSheetOnContentView = .notesImport
+                } label: {
+                    Label("Import notes", systemImage: "tray.and.arrow.down")
+                }
+                .disabled(self.editMode?.wrappedValue == .active)
             }
         }
     }

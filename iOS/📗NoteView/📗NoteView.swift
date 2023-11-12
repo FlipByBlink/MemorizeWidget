@@ -57,6 +57,9 @@ private extension 📗NoteView {
         .onSubmit { UISelectionFeedbackGenerator().selectionChanged() }
         .onChange(of: self.focusArea, perform: self.handleUnfocus)
         .onChange(of: self.scenePhase, perform: self.sceneHandling(_:))
+        .onChange(of: self.editMode?.wrappedValue == .active) {
+            if $0 { self.focusArea = nil }
+        }
         .onAppear {
             if self.isNewNote {
                 self.startToInput(.title)
