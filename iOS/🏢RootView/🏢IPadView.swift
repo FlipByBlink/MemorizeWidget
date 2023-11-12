@@ -23,9 +23,8 @@ struct 🏢IPadView: View {
 private extension 🏢IPadView {
     private struct SplitView: View {
         @EnvironmentObject var model: 📱AppModel
-        @State private var columnVisibility: NavigationSplitViewVisibility = .all
         var body: some View {
-            NavigationSplitView(columnVisibility: self.$columnVisibility) {
+            NavigationSplitView {
                 List(selection: self.$model.selectedSidebar) {
                     ForEach(🔖Tab.allCases) { $0.label() }
                 }
