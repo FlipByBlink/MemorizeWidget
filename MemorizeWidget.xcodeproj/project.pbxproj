@@ -67,7 +67,6 @@
 		168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
-		16A026622AFC99A300694CF2 /* 🔢NotesCountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026612AFC99A200694CF2 /* 🔢NotesCountText.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
 		16A026722AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -457,7 +456,6 @@
 		168D5F142AF6056300A100A7 /* 🔖Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Tab.swift"; sourceTree = "<group>"; };
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
 		16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Placement.swift"; sourceTree = "<group>"; };
-		16A026612AFC99A200694CF2 /* 🔢NotesCountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔢NotesCountText.swift"; sourceTree = "<group>"; };
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
 		16C98FE52AFB09A300F0F251 /* 🔩MenuViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔩MenuViewComponent.swift"; sourceTree = "<group>"; };
@@ -888,7 +886,6 @@
 				F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */,
 				F527F47E29D555A700E9FB97 /* 📘Dictionary.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
-				16A026612AFC99A200694CF2 /* 🔢NotesCountText.swift */,
 				F50C83242AA5D39A0033A04B /* 🆕NewNoteCommand.swift */,
 				F527F47A29D5424C00E9FB97 /* 🩹Workaround.swift */,
 				F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */,
@@ -1321,7 +1318,6 @@
 				166BC2B62AF6361600729C66 /* 📥InputExample.swift in Sources */,
 				F50C83252AA5D39A0033A04B /* 🆕NewNoteCommand.swift in Sources */,
 				166BC2992AF623BC00729C66 /* 🔩ExportNotesLink.swift in Sources */,
-				16A026622AFC99A300694CF2 /* 🔢NotesCountText.swift in Sources */,
 				16C98FE92AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */,
 				166BC2BA2AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift in Sources */,
 				F50C831B2AA5D08D0033A04B /* 📣ADComponents.swift in Sources */,

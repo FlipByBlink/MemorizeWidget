@@ -20,7 +20,9 @@ struct 📚NotesListTab: View {
                         .onDelete { self.model.deleteNoteOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }
                     } footer: {
-                        🔢NotesCountText.ListFooter()
+                        if self.model.notes.count > 7 {
+                            Text("Notes count: \(self.model.notes.count)")
+                        }
                     }
                     .animation(.default, value: self.model.notes)
                 }
@@ -30,17 +32,16 @@ struct 📚NotesListTab: View {
                 .onOpenURL { self.model.scrollTopByNewNoteShortcut($0, ⓢcrollViewProxy) }
                 .animation(.default, value: self.model.notes)
                 .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        EditButton()
-                            .disabled(self.model.notes.isEmpty)
-                        if UIDevice.current.userInterfaceIdiom == .pad {
-                            self.presentNotesImportSheetButton()
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        if UIDevice.current.userInterfaceIdiom == .phone {
-                            self.presentNotesImportSheetButton()
-                        }
+                    switch UIDevice.current.userInterfaceIdiom {
+                        case .phone:
+                            self.presentImportSheetButton(placement: .topBarLeading)
+                            self.editButton(placement: .topBarTrailing)
+                        case .pad:
+                            self.editButton(placement: .bottomBar)
+                            self.presentImportSheetButton(placement: .bottomBar)
+                            self.notesCountText()
+                        default:
+                            ToolbarItem { EmptyView() }
                     }
                 }
             }
@@ -65,12 +66,27 @@ private extension 📚NotesListTab {
         }
         .id("NewNoteButton")
     }
-    private func presentNotesImportSheetButton() -> some View {
-        Button {
-            UISelectionFeedbackGenerator().selectionChanged()
-            self.model.presentedSheetOnContentView = .notesImport
-        } label: {
-            Label("Import notes", systemImage: "tray.and.arrow.down")
+    private func notesCountText() -> some ToolbarContent {
+        ToolbarItem(placement: .status) {
+            Text("Notes count: \(self.model.notes.count)")
+                .font(.footnote.weight(.light))
+                .foregroundStyle(.secondary)
+        }
+    }
+    private func editButton(placement: ToolbarItemPlacement) -> some ToolbarContent {
+        ToolbarItem(placement: placement) {
+            EditButton()
+                .disabled(self.model.notes.isEmpty)
+        }
+    }
+    private func presentImportSheetButton(placement: ToolbarItemPlacement) -> some ToolbarContent {
+        ToolbarItem(placement: placement) {
+            Button {
+                UISelectionFeedbackGenerator().selectionChanged()
+                self.model.presentedSheetOnContentView = .notesImport
+            } label: {
+                Label("Import notes", systemImage: "tray.and.arrow.down")
+            }
         }
     }
 }
