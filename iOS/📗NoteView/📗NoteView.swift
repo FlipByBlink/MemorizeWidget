@@ -7,6 +7,7 @@ struct 📗NoteView: View {
     var commentFont: Font
     var placement: 📗Placement
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.editMode) var editMode
     @State private var inputting: Bool = false
     @State private var inputtingNote: 📗Note = .empty
     @FocusState private var focusArea: Self.FocusArea?
@@ -92,6 +93,7 @@ private extension 📗NoteView {
         }
     }
     private func startToInput(_ ⓐrea: Self.FocusArea) {
+        guard self.editMode?.wrappedValue != .active else { return }
         self.inputtingNote = self.source
         withAnimation { self.inputting = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {

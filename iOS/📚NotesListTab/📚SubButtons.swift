@@ -3,6 +3,7 @@ import SwiftUI
 struct 📚SubButtons: View {
     @EnvironmentObject var model: 📱AppModel
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    @Environment(\.editMode) var editMode
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
@@ -29,6 +30,7 @@ struct 📚SubButtons: View {
         .foregroundStyle(Color.secondary)
         .labelStyle(.iconOnly)
         .buttonStyle(.plain)
+        .disabled(self.editMode?.wrappedValue == .active)
         .font(self.dynamicTypeSize > .accessibility1 ? .system(size: 24) : .body)
     }
     init(_ note: Binding<📗Note>) {

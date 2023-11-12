@@ -20,9 +20,7 @@ struct 📚NotesListTab: View {
                         .onDelete { self.model.deleteNoteOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }
                     } footer: {
-                        if self.model.notes.count > 7 {
-                            Text("Notes count: \(self.model.notes.count)")
-                        }
+                        self.notesCountTextOnFooter()
                     }
                     .animation(.default, value: self.model.notes)
                 }
@@ -39,11 +37,13 @@ struct 📚NotesListTab: View {
                         case .pad:
                             self.editButton(placement: .bottomBar)
                             self.presentImportSheetButton(placement: .bottomBar)
-                            self.notesCountText()
+                            self.notesCountTextOnBottomBar()
                         default:
                             ToolbarItem { EmptyView() }
                     }
                 }
+                .toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .hidden : .visible,
+                         for: .navigationBar)
             }
         }
     }
@@ -66,10 +66,18 @@ private extension 📚NotesListTab {
         }
         .id("NewNoteButton")
     }
-    private func notesCountText() -> some ToolbarContent {
+    private func notesCountTextOnFooter() -> some View {
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .phone
+                && self.model.notes.count > 7 {
+                Text("Notes count: \(self.model.notes.count)")
+            }
+        }
+    }
+    private func notesCountTextOnBottomBar() -> some ToolbarContent {
         ToolbarItem(placement: .status) {
             Text("Notes count: \(self.model.notes.count)")
-                .font(.footnote.weight(.light))
+                .font(.caption.weight(.light))
                 .foregroundStyle(.secondary)
         }
     }
