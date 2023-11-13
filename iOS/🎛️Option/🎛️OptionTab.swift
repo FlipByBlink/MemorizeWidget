@@ -2,10 +2,12 @@ import SwiftUI
 
 struct 🎛️OptionTab: View {
     var body: some View {
-        List {
-            🎛️MultiNotesOnWidgetOption()
-            🎛️CommentOnWidgetOption()
+        NavigationStack {
+            List {
+                🎛️MultiNotesOnWidgetOption()
+                🎛️CommentOnWidgetOption()
+            }
+            .navigationTitle("Option")
         }
-        .navigationTitle("Option")
     }
 }

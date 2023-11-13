@@ -33,8 +33,8 @@ extension 🔖Tab: CaseIterable, Identifiable {
         var body: some View {
             Group {
                 switch self.selectedTab {
-                    case .notesList: NavigationStack { 📚NotesListTab() }
-                    case .option: NavigationStack { 🎛️OptionTab() }
+                    case .notesList: 📚NotesListTab()
+                    case .option: 🎛️OptionTab()
                     case .trash: 🗑TrashTab()
                     case .guide: 💁GuideTab()
                     case .app: ℹ️AboutAppTab()

@@ -1,11 +1,11 @@
 import SwiftUI
 
-enum 📖SheetOnWidgetSheet {
+enum 📰SheetOnWidgetSheet {
     case dictionary(UIReferenceLibraryViewController)
     case ad
 }
 
-extension 📖SheetOnWidgetSheet: Identifiable, Hashable {
+extension 📰SheetOnWidgetSheet: Identifiable, Hashable {
     var id: Self { self }
     struct Handler: ViewModifier {
         @EnvironmentObject var model: 📱AppModel

@@ -1,22 +1,18 @@
 import SwiftUI
 
 struct 📥TextImportSection: View {
-    @EnvironmentObject var model: 📱AppModel
-    @Binding var importedText: String
-    @State private var pastedText: String = ""
+    @EnvironmentObject var model: 📥NotesImportModel
     @FocusState private var textEditorFocus: Bool
-    @State private var alertError: Bool = false
-    @State private var caughtError: 📥Error?
     var body: some View {
         Section {
             📥SeparatorPicker()
-            TextEditor(text: self.$pastedText)
+            TextEditor(text: self.$model.pastedText)
                 .focused(self.$textEditorFocus)
                 .font(.subheadline.monospaced())
                 .frame(height: 100)
                 .padding(8)
                 .overlay {
-                    if self.pastedText.isEmpty {
+                    if self.model.pastedText.isEmpty {
                         Label("Paste the text here.",
                               systemImage: "square.and.pencil")
                         .font(.subheadline)
@@ -37,26 +33,18 @@ struct 📥TextImportSection: View {
                     }
                 }
             Button {
-                if self.model.exceedDataSize(self.pastedText) {
-                    self.caughtError = .dataSizeLimitExceeded
-                    self.alertError = true
-                } else {
-                    self.importedText = self.pastedText
-                }
+                self.model.importPastedText()
             } label: {
                 Label("Convert this text to notes", systemImage: "text.badge.plus")
                     .padding(.vertical, 8)
             }
-            .disabled(self.pastedText.isEmpty)
+            .disabled(self.model.pastedText.isEmpty)
         }
-        .animation(.default, value: self.pastedText.isEmpty)
-        .alert("⚠️", isPresented: self.$alertError) {
-            Button("OK") { self.caughtError = nil }
+        .animation(.default, value: self.model.pastedText.isEmpty)
+        .alert("⚠️", isPresented: self.$model.alertError) {
+            Button("OK") { self.model.caughtError = nil }
         } message: {
-            self.caughtError?.messageText()
+            self.model.caughtError?.messageText()
         }
-    }
-    init(_ importedText: Binding<String>) {
-        self._importedText = importedText
     }
 }

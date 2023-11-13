@@ -1,22 +1,17 @@
-//MARK: Work in progress
-
 import SwiftUI
 
 @MainActor
 class 📥NotesImportModel: ObservableObject {
     @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
     @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
-    @Published var importedText: String = ""
     @Published var pastedText: String = ""
     @Published var showFileImporter: Bool = false
     @Published var alertError: Bool = false
     @Published var caughtError: 📥Error?
+    @Published var navigationPath: NavigationPath = .init()
 }
 
 extension 📥NotesImportModel {
-    var convertedNotes: 📚Notes {
-        📚TextConvert.decode(self.importedText, self.separator)
-    }
     func fileImporterAction(_ ⓡesult: Result<URL, Error>) {
         do {
             let ⓤrl = try ⓡesult.get()
@@ -26,7 +21,7 @@ extension 📥NotesImportModel {
                     self.caughtError = .dataSizeLimitExceeded
                     self.alertError = true
                 } else {
-                    self.importedText = ⓣext
+                    self.navigationPath.append(ⓣext)
                 }
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
@@ -40,12 +35,16 @@ extension 📥NotesImportModel {
             self.caughtError = .dataSizeLimitExceeded
             self.alertError = true
         } else {
-            self.importedText = self.pastedText
+            self.navigationPath.append(self.pastedText)
         }
     }
     func exceedingDataSize(_ ⓒonvertingText: String) -> Bool {
         let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
         let ⓔxistingNotes = 📚Notes.load() ?? []
         return (ⓒonvertingNotes.dataCount + ⓔxistingNotes.dataCount) > 800000
+    }
+    func cancel() {
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        self.navigationPath.removeLast()
     }
 }
