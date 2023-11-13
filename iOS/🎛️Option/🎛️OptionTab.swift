@@ -6,6 +6,7 @@ struct 🎛️OptionTab: View {
             List {
                 🎛️MultiNotesOnWidgetOption()
                 🎛️CommentOnWidgetOption()
+                🔍CustomizeSearchSheetButton(placement: .optionTab)
             }
             .navigationTitle("Option")
         }

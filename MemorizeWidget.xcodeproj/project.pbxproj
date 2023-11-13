@@ -91,6 +91,7 @@
 		16C98FF22AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
 		16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
 		16C98FF52AFB2C0A00F0F251 /* 📥NotesImportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF42AFB2C0A00F0F251 /* 📥NotesImportModel.swift */; };
+		16D5418D2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5418C2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift */; };
 		16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16D7B6DE2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */; };
 		16DC5E8F2B01D6C7007BC531 /* 📚DisableInEditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC5E8E2B01D6C7007BC531 /* 📚DisableInEditMode.swift */; };
@@ -484,6 +485,7 @@
 		16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚮DeleteAllNotesButton.swift"; sourceTree = "<group>"; };
 		16C98FF42AFB2C0A00F0F251 /* 📥NotesImportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportModel.swift"; sourceTree = "<group>"; };
+		16D5418C2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍CustomizeSearchSheetButton.swift"; sourceTree = "<group>"; };
 		16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnContentView.swift"; sourceTree = "<group>"; };
 		16DC5E8E2B01D6C7007BC531 /* 📚DisableInEditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚DisableInEditMode.swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 				16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */,
 				16EA37DA2B02366E0033EB3E /* 🔍BrowserView.swift */,
 				166BC2942AF6230000729C66 /* 🔍CustomizeSearchSheetView.swift */,
+				16D5418C2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift */,
 			);
 			path = "🔍Search";
 			sourceTree = "<group>";
@@ -1447,6 +1450,7 @@
 				F50C83382AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
 				16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */,
 				166BC2B82AF66CC900729C66 /* 📖SigleNoteLayoutView.swift in Sources */,
+				16D5418D2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift in Sources */,
 				16C08BC92B01BF3700A0D65D /* 📥NotesImportSheetButton.swift in Sources */,
 				168D5F052AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */,
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,

@@ -7,6 +7,9 @@ struct 🔍CustomizeSearchSheetView: View {
         NavigationStack {
             List {
                 Section {
+                    Text("ノートのタイトルでWebサービスを検索できます。")
+                }
+                Section {
                     VStack {
                         self.previewView()
                         TextField("Leading component", 
@@ -18,7 +21,7 @@ struct 🔍CustomizeSearchSheetView: View {
                     }
                     .textFieldStyle(.roundedBorder)
                 } header: {
-                    Text("Customize URL scheme")
+                    Text("URL scheme")
                 }
                 Section { self.tryButton() }
                 Section {

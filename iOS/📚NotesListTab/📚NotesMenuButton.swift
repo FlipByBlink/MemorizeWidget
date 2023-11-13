@@ -11,7 +11,7 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
                 }
                 self.notesExportSheetButton()
                 Divider()
-                self.customizeSearchSheetButton()
+                🔍CustomizeSearchSheetButton(placement: .bottomBar)
                 Divider()
                 🚮DeleteAllNotesButton()
             } label: {
@@ -24,13 +24,6 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
 }
 
 private extension 📚NotesMenuButton {
-    private func customizeSearchSheetButton() -> some View {
-        Button {
-            self.model.presentSheet(.customizeSearch)
-        } label: {
-            Label("Customize search", systemImage: "magnifyingglass")
-        }
-    }
     private func notesExportSheetButton() -> some View {
         Button {
             self.model.presentSheet(.notesExport)
