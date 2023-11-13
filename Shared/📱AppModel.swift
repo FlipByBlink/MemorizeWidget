@@ -12,8 +12,8 @@ class 📱AppModel: ObservableObject {
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var selectedSidebar: 🔖Sidebar? = .notesList
+    @Published var splitViewVisibility: NavigationSplitViewVisibility = .all
     @Published var presentedSheetOnWidgetSheet: 📰SheetOnWidgetSheet? = nil
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #endif
     init() {

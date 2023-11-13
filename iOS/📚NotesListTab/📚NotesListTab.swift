@@ -35,6 +35,7 @@ struct 📚NotesListTab: View {
                             Self.MenuButton(placement: .topBarLeading)
                             self.editButton(placement: .topBarTrailing)
                         case .pad:
+                            self.sidebarButton()
                             Self.MenuButton(placement: .bottomBar)
                             self.notesCountTextOnBottomBar()
                             self.editButton(placement: .bottomBar)
@@ -42,9 +43,8 @@ struct 📚NotesListTab: View {
                             ToolbarItem { EmptyView() }
                     }
                 }
-                //.toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .hidden : .visible,
-                //         for: .navigationBar)
-                //sidebarを非表示にすると再度sidebarを表示することが難しくなってしまう
+                .toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .hidden : .visible,
+                         for: .navigationBar)
             }
         }
     }
@@ -91,6 +91,17 @@ private extension 📚NotesListTab {
         ToolbarItem(placement: placement) {
             EditButton()
                 .disabled(self.model.notes.isEmpty)
+        }
+    }
+    private func sidebarButton() -> some ToolbarContent {
+        ToolbarItem(placement: .bottomBar) {
+            if self.model.splitViewVisibility == .detailOnly {
+                Button {
+                    self.model.splitViewVisibility = .all
+                } label: {
+                    Label("Sidebar", systemImage: "sidebar.left")
+                }
+            }
         }
     }
     private struct MenuButton: ToolbarContent {

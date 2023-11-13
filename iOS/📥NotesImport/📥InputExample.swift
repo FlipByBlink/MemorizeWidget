@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct 📥InputExample: View {
-    @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
+    @EnvironmentObject var model: 📥NotesImportModel
     var body: some View {
         Section {
-            switch self.inputMode {
+            switch self.model.inputMode {
                 case .file:
                     HStack {
                         Image("sample_numbers")

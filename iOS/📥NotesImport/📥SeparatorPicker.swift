@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 📥SeparatorPicker: View {
-    @EnvironmentObject var model: 📱AppModel
+    @EnvironmentObject var model: 📥NotesImportModel
     var body: some View {
         Picker(selection: self.$model.separator) {
             Text("Tab ␣ ")
@@ -14,7 +14,8 @@ struct 📥SeparatorPicker: View {
                 .tag(📚TextConvert.Separator.titleOnly)
                 .accessibilityLabel("Title only")
         } label: {
-            Label("Separator", systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
+            Label("Separator", 
+                  systemImage: "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
         }
     }
 }
