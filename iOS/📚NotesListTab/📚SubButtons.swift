@@ -27,7 +27,7 @@ struct 📚SubButtons: View {
             .modifier(🩹Workaround.CloseMenePopup())
         }
         .padding(4)
-        .foregroundStyle(Color.secondary)
+        .foregroundStyle(.secondary)
         .labelStyle(.iconOnly)
         .buttonStyle(.plain)
         .disabled(self.editing)
