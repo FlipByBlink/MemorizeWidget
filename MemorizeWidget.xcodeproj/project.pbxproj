@@ -102,7 +102,7 @@
 		16DD530B2AF88E68008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
 		16DD530D2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD530C2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift */; };
 		16EA37D92B01F9680033EB3E /* 🔍SearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */; };
-		16EA37DB2B02366E0033EB3E /* 🔍BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37DA2B02366E0033EB3E /* 🔍BrowserView.swift */; };
+		16EA37DB2B02366E0033EB3E /* 🔍UIKitSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37DA2B02366E0033EB3E /* 🔍UIKitSafariView.swift */; };
 		16EA37DD2B0236DB0033EB3E /* 🔍SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */; };
 		16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
 		16EDAF3D2AFB888400881864 /* 🏢RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF3C2AFB888400881864 /* 🏢RootView.swift */; };
@@ -491,7 +491,7 @@
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
 		16DD530C2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
 		16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchSheetView.swift"; sourceTree = "<group>"; };
-		16EA37DA2B02366E0033EB3E /* 🔍BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍BrowserView.swift"; sourceTree = "<group>"; };
+		16EA37DA2B02366E0033EB3E /* 🔍UIKitSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍UIKitSafariView.swift"; sourceTree = "<group>"; };
 		16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchModel.swift"; sourceTree = "<group>"; };
 		16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PlaceholderView.swift"; sourceTree = "<group>"; };
 		16EDAF3C2AFB888400881864 /* 🏢RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏢RootView.swift"; sourceTree = "<group>"; };
@@ -710,7 +710,7 @@
 				16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */,
 				F527F47C29D5557100E9FB97 /* 🔍SearchButton.swift */,
 				16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */,
-				16EA37DA2B02366E0033EB3E /* 🔍BrowserView.swift */,
+				16EA37DA2B02366E0033EB3E /* 🔍UIKitSafariView.swift */,
 				166BC2942AF6230000729C66 /* 🔍CustomizeSearchSheetView.swift */,
 				16D5418C2B02502D0090B5FE /* 🔍CustomizeSearchSheetButton.swift */,
 			);
@@ -1445,7 +1445,7 @@
 				166BC29B2AF623C600729C66 /* 🎛️CommentOnWidgetOption.swift in Sources */,
 				F50C83462AA5EE900033A04B /* 📣ADContentView.swift in Sources */,
 				166BC2B12AF62C4B00729C66 /* 📖MoveEndButton.swift in Sources */,
-				16EA37DB2B02366E0033EB3E /* 🔍BrowserView.swift in Sources */,
+				16EA37DB2B02366E0033EB3E /* 🔍UIKitSafariView.swift in Sources */,
 				F527F47F29D555A700E9FB97 /* 📘DictionarySheetView.swift in Sources */,
 				F50C83382AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
 				16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */,

@@ -3,9 +3,9 @@ import SwiftUI
 struct 🔍SearchSheetView: View {
     var url: URL
     var body: some View {
-        🔍BrowserView(url: self.url)
+        🔍UIKitSafariView(url: self.url)
             .ignoresSafeArea()
-            .presentationDetents([.medium])
+            .presentationDetents([.height(640)])
     }
     init(_ url: URL) {
         self.url = url

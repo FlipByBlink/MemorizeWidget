@@ -7,13 +7,18 @@ struct 🔍CustomizeSearchSheetView: View {
         NavigationStack {
             List {
                 Section {
-                    Text("ノートのタイトルでWebサービスを検索できます。")
+                    Text("Webサービスでノートのタイトルを検索します。")
                 }
                 Section {
                     VStack {
                         self.previewView()
-                        TextField("Leading component", 
-                                  text: self.$model.inputtedLeadingText)
+                        HStack {
+                            Text("https://")
+                                .fontWeight(.medium)
+                                .foregroundStyle(.secondary)
+                            TextField("Leading component",
+                                      text: self.$model.inputtedLeadingText)
+                        }
                         TextField("Trailing component",
                                   text: self.$model.trailingText)
                         .font(.subheadline)
@@ -21,9 +26,9 @@ struct 🔍CustomizeSearchSheetView: View {
                     }
                     .textFieldStyle(.roundedBorder)
                 } header: {
-                    Text("URL scheme")
+                    Text("URL")
                 }
-                Section { self.tryButton() }
+                Section { self.testButton() }
                 Section {
                     Text("Pre-installed shortcut to search in DuckDuckGo.")
                         .font(.subheadline)
@@ -52,14 +57,14 @@ private extension 🔍CustomizeSearchSheetView {
                 self.model.inputtedLeadingText.isEmpty ? .secondary : .primary
             )
     }
-    private func tryButton() -> some View {
+    private func testButton() -> some View {
         Button {
             self.presentTestSheet = true
         } label: {
             Label("Test", systemImage: "magnifyingglass")
         }
         .sheet(isPresented: self.$presentTestSheet) {
-            🔍BrowserView(url: self.model.generateURL("NOTETITLE"))
+            🔍SearchSheetView(self.model.generateURL("NOTETITLE"))
         }
     }
 }
