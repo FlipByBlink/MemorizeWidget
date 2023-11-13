@@ -9,7 +9,7 @@ struct 📚NotesListTab: View {
                 List {
                     self.randomModeSection()
                     Section {
-                        Self.NewNoteOnTopButton()
+                        self.newNoteOnTopButton()
                         ForEach(self.$model.notes) {
                             📗NoteView(source: $0,
                                        titleFont: .title2,
@@ -55,21 +55,19 @@ private extension 📚NotesListTab {
             🎛️RandomModeToggle()
                 .padding(.vertical, 8)
         } footer: {
-            🎛️RandomModeToggle.Caption()
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                🎛️RandomModeToggle.Caption()
+            }
         }
     }
-    private struct NewNoteOnTopButton: View {
-        @EnvironmentObject var model: 📱AppModel
-        @Environment(\.editMode) var editMode
-        var body: some View {
-            Button(action: self.model.addNewNoteOnTop) {
-                Label("New note", systemImage: "plus")
-                    .font(.title3.weight(.semibold))
-                    .padding(.vertical, 7)
-            }
-            .id("NewNoteButton")
-            .disabled(self.editMode?.wrappedValue == .active)
+    private func newNoteOnTopButton() -> some View {
+        Button(action: self.model.addNewNoteOnTop) {
+            Label("New note", systemImage: "plus")
+                .font(.title3.weight(.semibold))
+                .padding(.vertical, 7)
         }
+        .id("NewNoteButton")
+        .modifier(📚DisableInEditMode())
     }
     private func notesCountTextOnFooter() -> some View {
         Group {

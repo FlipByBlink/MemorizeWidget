@@ -3,23 +3,42 @@ import WidgetKit
 
 struct 🎛️RandomModeToggle: View {
     @EnvironmentObject var model: 📱AppModel
-#if os(iOS)
-    @Environment(\.editMode) var editMode
-#endif
     var body: some View {
         Toggle(isOn: self.$model.randomMode) {
-            Label("Random mode", systemImage: "shuffle")
+            LabeledContent {
+                Self.captionForIPad()
+            } label: {
+                Label("Random mode", systemImage: "shuffle")
+            }
         }
         .onChange(of: self.model.randomMode) { _ in
             WidgetCenter.shared.reloadAllTimelines()
         }
 #if os(iOS)
-        .disabled(self.editMode?.wrappedValue == .active)
+        .modifier(📚DisableInEditMode())
 #endif
     }
     struct Caption: View {
         var body: some View {
             Text("Change the note per 5 minutes.")
         }
+    }
+}
+
+private extension 🎛️RandomModeToggle {
+    private static func captionForIPad() -> some View {
+#if os(iOS)
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Text("Per 5 minutes")
+                    .font(.caption.weight(.light))
+                    .padding(.trailing, 8)
+            } else {
+                EmptyView()
+            }
+        }
+#else
+        EmptyView()
+#endif
     }
 }

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct 📚NotesMenuButton: ToolbarContent { // 🪄
     @EnvironmentObject var model: 📱AppModel
-    @Environment(\.editMode) var editMode
     let placement: ToolbarItemPlacement
     var body: some ToolbarContent {
         ToolbarItem(placement: self.placement) {
@@ -19,7 +18,7 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
                 Label("Menu", systemImage: "wand.and.rays")
             }
             .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
-            .disabled(self.editMode?.wrappedValue == .active)
+            .modifier(📚DisableInEditMode())
         }
     }
 }
