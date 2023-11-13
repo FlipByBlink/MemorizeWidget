@@ -27,7 +27,6 @@ struct 📗NoteView: View {
                 📚SubButtons(self.inputting ? self.$inputtingNote : self.$source)
             }
         }
-        .modifier(Self.FocusableIOS17())
     }
 }
 

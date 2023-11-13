@@ -10,6 +10,7 @@ struct 🆕NewNoteCommand: Commands {
                 Text("New note")
             }
             .keyboardShortcut("n")
+            .disabled(self.model.selectedSidebar != .notesList)
         }
     }
     init(_ model: 📱AppModel) {
