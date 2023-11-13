@@ -6,7 +6,16 @@ enum 🔖Tab {
 
 extension 🔖Tab: CaseIterable, Identifiable {
     var id: Self { self }
-    var title: LocalizedStringKey {
+    func label() -> some View {
+        Label(self.title, systemImage: self.iconName)
+    }
+    var detailView: some View {
+        Self.DetailView(selectedTab: self)
+    }
+}
+
+private extension 🔖Tab {
+    private var title: LocalizedStringKey {
         switch self {
             case .notesList: "Notes"
             case .option: "Option"
@@ -15,7 +24,7 @@ extension 🔖Tab: CaseIterable, Identifiable {
             case .app: "App"
         }
     }
-    var iconName: String {
+    private var iconName: String {
         switch self {
             case .notesList: "text.justify.leading"
             case .option: "gearshape"
@@ -24,11 +33,7 @@ extension 🔖Tab: CaseIterable, Identifiable {
             case .app: "info"
         }
     }
-    func label() -> some View {
-        Label(self.title, systemImage: self.iconName)
-    }
-    var detailView: Self.DetailView { .init(selectedTab: self) }
-    struct DetailView: View {
+    private struct DetailView: View {
         var selectedTab: 🔖Tab
         var body: some View {
             Group {

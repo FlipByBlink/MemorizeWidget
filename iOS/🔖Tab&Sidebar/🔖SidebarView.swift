@@ -5,10 +5,12 @@ struct 🔖SidebarView: View {
     var body: some View {
         List(🔖Sidebar.allCases,
              selection: self.$model.selectedSidebar,
-             rowContent: \.link)
+             rowContent: \.label)
         .background(ignoresSafeAreaEdges: .all)
         .navigationSplitViewColumnWidth(280) //default: 320
         .environment(\.defaultMinListRowHeight, 50)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.visible, for: .navigationBar)
         .toolbar { self.bottomBarButtons() }
     }
 }

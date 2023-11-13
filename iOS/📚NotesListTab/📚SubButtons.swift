@@ -7,7 +7,7 @@ struct 📚SubButtons: View {
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
-            if self.isIPad {
+            if self.isIPad && !self.editing {
                 self.dictionaryButton()
                 🔍SearchButton(self.note, padding: 8)
             }
@@ -30,7 +30,7 @@ struct 📚SubButtons: View {
         .foregroundStyle(Color.secondary)
         .labelStyle(.iconOnly)
         .buttonStyle(.plain)
-        .disabled(self.editMode?.wrappedValue == .active)
+        .disabled(self.editing)
         .font(self.dynamicTypeSize > .accessibility1 ? .system(size: 24) : .body)
     }
     init(_ note: Binding<📗Note>) {
@@ -39,7 +39,12 @@ struct 📚SubButtons: View {
 }
 
 private extension 📚SubButtons {
-    private var isIPad: Bool { UIDevice.current.userInterfaceIdiom == .pad }
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    private var editing: Bool {
+        self.editMode?.wrappedValue.isEditing == true
+    }
     private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
         Button {

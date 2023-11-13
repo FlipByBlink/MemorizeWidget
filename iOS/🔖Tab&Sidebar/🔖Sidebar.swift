@@ -6,7 +6,19 @@ enum 🔖Sidebar {
 
 extension 🔖Sidebar: CaseIterable, Identifiable {
     var id: Self { self }
-    var title: LocalizedStringKey {
+    var label: some View {
+        Label(self.title, systemImage: self.iconName)
+        //NavigationLink(value: self) {
+        //    Label(self.title, systemImage: self.iconName)
+        //} よく分からないがサンプルコードではNavigationLinkで実装してる例あり。
+    }
+    var detailView: some View {
+        Self.DetailView(selectedTab: self)
+    }
+}
+
+private extension 🔖Sidebar {
+    private var title: LocalizedStringKey {
         switch self {
             case .notesList: "Notes"
             case .option: "Option"
@@ -14,7 +26,7 @@ extension 🔖Sidebar: CaseIterable, Identifiable {
             case .guide: "Guide"
         }
     }
-    var iconName: String {
+    private var iconName: String {
         switch self {
             case .notesList: "text.justify.leading"
             case .option: "gearshape"
@@ -22,14 +34,7 @@ extension 🔖Sidebar: CaseIterable, Identifiable {
             case .guide: "questionmark"
         }
     }
-    var link: some View {
-        NavigationLink(value: self) {
-            Label(self.title, systemImage: self.iconName)
-        }
-        //よくわからないがサンプルコードではNavigationLinkで実装してたため、とりあえず実装
-    }
-    var detailView: Self.DetailView { .init(selectedTab: self) }
-    struct DetailView: View {
+    private struct DetailView: View {
         var selectedTab: 🔖Sidebar
         var body: some View {
             switch self.selectedTab {
