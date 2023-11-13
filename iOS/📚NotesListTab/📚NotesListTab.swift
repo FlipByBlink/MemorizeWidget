@@ -32,19 +32,18 @@ struct 📚NotesListTab: View {
                 .toolbar {
                     switch UIDevice.current.userInterfaceIdiom {
                         case .phone:
-                            Self.MenuButton(placement: .topBarLeading)
-                            self.editButton(placement: .topBarTrailing)
+                            📚NotesMenuButton(placement: .topBarLeading)
                         case .pad:
-                            self.sidebarButton()
-                            Self.MenuButton(placement: .bottomBar)
+                            ToolbarItem(placement: .bottomBar) {
+                                📥NotesImportSheetButton()
+                            }
                             self.notesCountTextOnBottomBar()
-                            self.editButton(placement: .bottomBar)
+                            📚NotesMenuButton(placement: .bottomBar)
                         default:
                             ToolbarItem { EmptyView() }
                     }
+                    self.editButton(placement: .topBarTrailing)
                 }
-                .toolbar(UIDevice.current.userInterfaceIdiom == .pad ? .hidden : .visible,
-                         for: .navigationBar)
             }
         }
     }
@@ -91,54 +90,6 @@ private extension 📚NotesListTab {
         ToolbarItem(placement: placement) {
             EditButton()
                 .disabled(self.model.notes.isEmpty)
-        }
-    }
-    private func sidebarButton() -> some ToolbarContent {
-        ToolbarItem(placement: .bottomBar) {
-            if self.model.splitViewVisibility == .detailOnly {
-                Button {
-                    self.model.splitViewVisibility = .all
-                } label: {
-                    Label("Sidebar", systemImage: "sidebar.left")
-                }
-            }
-        }
-    }
-    private struct MenuButton: ToolbarContent {
-        @EnvironmentObject var model: 📱AppModel
-        @Environment(\.editMode) var editMode
-        let placement: ToolbarItemPlacement
-        var body: some ToolbarContent {
-            ToolbarItem(placement: self.placement) {
-                Menu {
-                    Button {
-                        self.model.presentSheet(.notesImport)
-                    } label: {
-                        Label("Import notes", systemImage: "tray.and.arrow.down")
-                    }
-                    Menu {
-                        Button {
-                            self.model.presentSheet(.notesExport)
-                        } label: {
-                            Label("Export notes", systemImage: "tray.and.arrow.up")
-                        }
-                        .disabled(self.model.notes.isEmpty)
-                        Divider()
-                        Button {
-                            self.model.presentSheet(.customizeSearch)
-                        } label: {
-                            Label("Customize search", systemImage: "magnifyingglass")
-                        }
-                        Divider()
-                        🚮DeleteAllNotesButton()
-                    } label: {
-                        Label("More", systemImage: "ellipsis")
-                    }
-                } label: {
-                    Label("Menu", systemImage: "wand.and.rays")
-                }
-                .disabled(self.editMode?.wrappedValue == .active)
-            }
         }
     }
 }

@@ -12,7 +12,6 @@ class 📱AppModel: ObservableObject {
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var selectedSidebar: 🔖Sidebar? = .notesList
-    @Published var splitViewVisibility: NavigationSplitViewVisibility = .all
     @Published var presentedSheetOnWidgetSheet: 📰SheetOnWidgetSheet? = nil
     let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #endif

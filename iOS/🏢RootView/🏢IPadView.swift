@@ -3,7 +3,7 @@ import SwiftUI
 struct 🏢IPadView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$model.splitViewVisibility) {
+        NavigationSplitView {
             🔖SidebarView()
         } detail: {
             if let ⓢelectedSidebar = self.model.selectedSidebar {
@@ -19,7 +19,7 @@ struct 🏢IPadView: View {
 private extension 🏢IPadView {
     private static func placeholderView() -> some View {
         Label("Select sidebar", systemImage: "arrowshape.left")
-            .font(.largeTitle)
-            .foregroundStyle(.secondary)
+            .font(.title)
+            .foregroundStyle(.tertiary)
     }
 }
