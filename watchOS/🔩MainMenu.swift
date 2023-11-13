@@ -11,8 +11,8 @@ struct 🔩MainMenu: View {
             } header: {
                 Text("Widget")
             }
-            Section { self.trashMenuLink() }
-            Section { 🚮DeleteAllNotesButton() }
+            self.trashMenuLink()
+            self.deleteAllNotesButton()
         }
         .navigationTitle("Menu")
     }
@@ -34,14 +34,22 @@ private extension 🔩MainMenu {
         }
     }
     private func trashMenuLink() -> some View {
-        NavigationLink {
-            🗑TrashMenu()
-        } label: {
-            LabeledContent {
-                Text(verbatim: "\(self.model.trash.deletedContents.count)")
+        Section {
+            NavigationLink {
+                🗑TrashMenu()
             } label: {
-                Label("Trash", systemImage: "trash")
+                LabeledContent {
+                    Text(verbatim: "\(self.model.trash.deletedContents.count)")
+                } label: {
+                    Label("Trash", systemImage: "trash")
+                }
             }
+        }
+    }
+    private func deleteAllNotesButton() -> some View {
+        Section {
+            🚮DeleteAllNotesButton()
+                .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
         }
     }
 }

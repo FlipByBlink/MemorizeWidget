@@ -18,6 +18,7 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
             } label: {
                 Label("Menu", systemImage: "wand.and.rays")
             }
+            .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
             .disabled(self.editMode?.wrappedValue == .active)
         }
     }

@@ -7,6 +7,7 @@ class 📱AppModel: ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
     @Published var createdNewNoteID: UUID? = nil
     @Published var presentedSheetOnContentView: 📰SheetOnContentView? = nil
+    @Published var presentedAllNotesDeleteConfirmDialog: Bool = false
     @Published var trash: 🗑TrashModel = .load()
     @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
 #if os(iOS)
