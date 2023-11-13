@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🔍SearchButton: View {
-    @Environment(\.openURL) var openURL
+    @EnvironmentObject var model: 📱AppModel
     @AppStorage("SearchLeadingText") var inputtedLeadingText: String = ""
     @AppStorage("SearchTrailingText") var trailingText: String = ""
     private var query: String
@@ -29,7 +29,7 @@ private extension 🔍SearchButton {
         let ⓣext = ⓛeadingText + self.query + self.trailingText
         guard let ⓔncodedText = ⓣext.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let ⓤrl = URL(string: ⓔncodedText) else { return }
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        self.openURL(ⓤrl)
+        💥Feedback.light()
+        self.model.presentSheet(.search(.init(url: ⓤrl)))
     }
 }

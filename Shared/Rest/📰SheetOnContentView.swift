@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import SafariServices
+#endif
 
 enum 📰SheetOnContentView {
     case widget(🪧Tag)
@@ -6,6 +9,7 @@ enum 📰SheetOnContentView {
     case notesImport
     case notesExport
     case customizeSearch
+    case search(SFSafariViewController)
     case dictionary(UIReferenceLibraryViewController)
     case aboutApp
     case purchase

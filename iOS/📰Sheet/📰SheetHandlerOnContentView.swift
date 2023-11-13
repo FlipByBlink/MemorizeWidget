@@ -10,6 +10,7 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
                     case .notesImport: 📥NotesImportSheetView()
                     case .notesExport: 📤NotesExportSheetView()
                     case .customizeSearch: 🔍CustomizeSearchSheetView()
+                    case .search(let ⓥiewController): 🔍SearchSheetView(ⓥiewController)
                     case .dictionary(let ⓥiewController): 📘DictionarySheetView(ⓥiewController)
                     case .aboutApp: Self.aboutAppSheetView()
                     case .purchase: Self.purchaseSheetView()

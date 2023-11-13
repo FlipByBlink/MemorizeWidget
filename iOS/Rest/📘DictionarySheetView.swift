@@ -1,27 +1,26 @@
 import SwiftUI
 
 struct 📘DictionarySheetView: View {
-    private var referenceLibraryViewController: UIReferenceLibraryViewController
+    private var viewController: UIReferenceLibraryViewController
     var body: some View {
-        🅄IReferenceLibraryView(self.referenceLibraryViewController)
+        Self.UIKitView(viewController: self.viewController)
             .ignoresSafeArea()
             .presentationDetents([.medium])
     }
     init(_ referenceLibraryViewController: UIReferenceLibraryViewController) {
-        self.referenceLibraryViewController = referenceLibraryViewController
+        self.viewController = referenceLibraryViewController
     }
 }
 
-private struct 🅄IReferenceLibraryView: UIViewControllerRepresentable {
-    private var referenceLibraryViewController: UIReferenceLibraryViewController
-    func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
-        self.referenceLibraryViewController
-    }
-    func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController,
-                                context: Context) {
-        /* Nothing to do */
-    }
-    init(_ referenceLibraryViewController: UIReferenceLibraryViewController) {
-        self.referenceLibraryViewController = referenceLibraryViewController
+private extension 📘DictionarySheetView {
+    private struct UIKitView: UIViewControllerRepresentable {
+        var viewController: UIReferenceLibraryViewController
+        func makeUIViewController(context: Context) -> UIReferenceLibraryViewController {
+            self.viewController
+        }
+        func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController,
+                                    context: Context) {
+            /* Nothing to do */
+        }
     }
 }
