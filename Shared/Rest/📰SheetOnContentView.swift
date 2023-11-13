@@ -16,7 +16,7 @@ enum 📰SheetOnContentView {
 
 extension 📰SheetOnContentView: Identifiable, Hashable {
     var id: Self { self }
-    var widgetTag: 🪧Tag? {
+    var widgetTag: 🪧Tag? { //TODO: 再検討
         if case .widget(let ⓣag) = self { ⓣag } else { nil }
     }
 }

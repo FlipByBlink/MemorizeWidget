@@ -7,7 +7,6 @@ struct IOSApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(self.model)
-                .task { self.model.presentedSheetOnContentView = .notesImport }
         }
         .commands {
             🆕NewNoteCommand(self.model)

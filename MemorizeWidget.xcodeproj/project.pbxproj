@@ -35,6 +35,7 @@
 		166C253A2B00E919008124DC /* 📘DictionaryButtonOnMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25392B00E919008124DC /* 📘DictionaryButtonOnMac.swift */; };
 		166C253E2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C253D2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift */; };
 		166C25402B019E30008124DC /* 📰DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C253F2B019E30008124DC /* 📰DismissButton.swift */; };
+		166C25432B01A9C5008124DC /* 🔖SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25422B01A9C5008124DC /* 🔖SidebarView.swift */; };
 		1671562C2AFEFD1300043F03 /* 🪧Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671562B2AFEFD1300043F03 /* 🪧Kind.swift */; };
 		1671562D2AFEFD1300043F03 /* 🪧Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671562B2AFEFD1300043F03 /* 🪧Kind.swift */; };
 		1671562E2AFEFD1300043F03 /* 🪧Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671562B2AFEFD1300043F03 /* 🪧Kind.swift */; };
@@ -448,6 +449,7 @@
 		166C25392B00E919008124DC /* 📘DictionaryButtonOnMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘DictionaryButtonOnMac.swift"; sourceTree = "<group>"; };
 		166C253D2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥ConvertedNotesMenu.swift"; sourceTree = "<group>"; };
 		166C253F2B019E30008124DC /* 📰DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰DismissButton.swift"; sourceTree = "<group>"; };
+		166C25422B01A9C5008124DC /* 🔖SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖SidebarView.swift"; sourceTree = "<group>"; };
 		1671562B2AFEFD1300043F03 /* 🪧Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Kind.swift"; sourceTree = "<group>"; };
 		167156302AFEFD2400043F03 /* 🪧Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Phase.swift"; sourceTree = "<group>"; };
 		167156362AFF2E2200043F03 /* 🎛️Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️Option.swift"; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 				168D5F142AF6056300A100A7 /* 🔖Tab.swift */,
 				166BC2842AF60B3E00729C66 /* 🔖TabView.swift */,
 				166C25302B00A488008124DC /* 🔖Sidebar.swift */,
+				166C25422B01A9C5008124DC /* 🔖SidebarView.swift */,
 			);
 			path = "🔖Tab&Sidebar";
 			sourceTree = "<group>";
@@ -1385,6 +1388,7 @@
 				F568F21429E42A59005A1D1A /* 🪧Entry.swift in Sources */,
 				F50C83122AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
 				1671562C2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
+				166C25432B01A9C5008124DC /* 🔖SidebarView.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheetView.swift in Sources */,
 				16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */,
 				166C25312B00A488008124DC /* 🔖Sidebar.swift in Sources */,

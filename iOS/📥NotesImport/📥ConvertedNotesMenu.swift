@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct 📥ConvertedNotesMenu: View {
-    @EnvironmentObject var appModel: 📱AppModel
     @EnvironmentObject var model: 📥NotesImportModel
     var importedText: String
     var body: some View {
@@ -10,15 +9,15 @@ struct 📥ConvertedNotesMenu: View {
             self.convertedNotesSection()
         }
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) { self.cancelButton() }
-            ToolbarItem(placement: .topBarTrailing) { self.submitButton() }
+            self.cancelButton()
+            Self.SubmitButton(self.convertedNotes)
         }
         .navigationBarBackButtonHidden()
     }
 }
 
 private extension 📥ConvertedNotesMenu {
-    var convertedNotes: 📚Notes {
+    private var convertedNotes: 📚Notes {
         📚TextConvert.decode(self.importedText, self.model.separator)
     }
     private func convertedNotesSection() -> some View {
@@ -36,24 +35,33 @@ private extension 📥ConvertedNotesMenu {
             Text("Notes count: \(self.convertedNotes.count)")
         }
     }
-    private func cancelButton() -> some View {
-        Button(role: .cancel) {
-            self.model.cancel()
-        } label: {
-            Image(systemName: "xmark")
-                .font(.title3.weight(.heavy))
+    private func cancelButton() -> some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Button(role: .cancel) {
+                self.model.cancel()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.title3.weight(.black))
+            }
+            .accessibilityLabel("Cancel")
+            .tint(.red)
         }
-        .accessibilityLabel("Cancel")
-        .tint(.red)
     }
-    private func submitButton() -> some View {
-        Button {
-            self.appModel.insertOnTop(self.convertedNotes)
-            self.appModel.presentedSheetOnContentView = nil
-            UINotificationFeedbackGenerator().notificationOccurred(.success)
-        } label: {
-            Image(systemName: "checkmark")
-                .font(.title3.weight(.heavy))
+    private struct SubmitButton: ToolbarContent {
+        @EnvironmentObject var model: 📱AppModel
+        var convertedNotes: 📚Notes
+        var body: some ToolbarContent {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    self.model.submitNotesImport(self.convertedNotes)
+                } label: {
+                    Image(systemName: "checkmark")
+                        .font(.title3.weight(.black))
+                }
+            }
+        }
+        init(_ convertedNotes: 📚Notes) {
+            self.convertedNotes = convertedNotes
         }
     }
 }

@@ -43,8 +43,9 @@ extension 📱AppModel {
             self.presentedSheetOnContentView = nil
         }
     }
-    func exceedDataSize(_ ⓒonvertingText: String) -> Bool {
-        let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
-        return (ⓒonvertingNotes.dataCount + self.notes.dataCount) > 800000
+    func submitNotesImport(_ ⓒonvertedNotes: 📚Notes) {
+        self.insertOnTop(ⓒonvertedNotes)
+        self.presentedSheetOnContentView = nil
+        💥Feedback.success()
     }
 }

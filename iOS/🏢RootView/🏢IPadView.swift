@@ -25,32 +25,14 @@ private extension 🏢IPadView {
         @EnvironmentObject var model: 📱AppModel
         var body: some View {
             NavigationSplitView {
-                List(🔖Sidebar.allCases,
-                     selection: self.$model.selectedSidebar,
-                     rowContent: \.link)
-                .background(ignoresSafeAreaEdges: .all)
-                .navigationSplitViewColumnWidth(280) //default: 320
-                .environment(\.defaultMinListRowHeight, 50)
-                .toolbar {
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        Button {
-                            self.model.presentSheet(.aboutApp)
-                        } label: {
-                            Label("App", systemImage: "info.circle")
-                        }
-                        Spacer()
-                        Button {
-                            self.model.presentSheet(.purchase)
-                        } label: {
-                            Label("Purchase", systemImage: "cart")
-                        }
-                    }
-                }
+                🔖SidebarView()
             } detail: {
                 if let ⓢelectedSidebar = self.model.selectedSidebar {
                     ⓢelectedSidebar.detailView
                 } else {
-                    📚NotesListTab() //spare
+                    Label("Select sidebar", systemImage: "arrowshape.left")
+                        .font(.largeTitle)
+                        .foregroundStyle(.secondary)
                 }
             }
             .navigationSplitViewStyle(.balanced)

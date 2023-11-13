@@ -38,7 +38,7 @@ private extension 🔩MainMenu {
             🗑TrashMenu()
         } label: {
             LabeledContent {
-                Text("\(self.model.trash.deletedContents.count)")
+                Text(verbatim: "\(self.model.trash.deletedContents.count)")
             } label: {
                 Label("Trash", systemImage: "trash")
             }

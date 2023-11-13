@@ -18,33 +18,42 @@ extension 📥NotesImportModel {
             if ⓤrl.startAccessingSecurityScopedResource() {
                 let ⓣext = try String(contentsOf: ⓤrl)
                 if self.exceedingDataSize(ⓣext) {
-                    self.caughtError = .dataSizeLimitExceeded
-                    self.alertError = true
+                    self.setAlert(.dataSizeLimitExceeded)
                 } else {
-                    self.navigationPath.append(ⓣext)
+                    self.presentConvertedNotesMenu(ⓣext)
                 }
                 ⓤrl.stopAccessingSecurityScopedResource()
             }
         } catch {
-            self.caughtError = .others(error.localizedDescription)
-            self.alertError = true
+            self.setAlert(.others(error.localizedDescription))
         }
     }
     func importPastedText() {
         if self.exceedingDataSize(self.pastedText) {
-            self.caughtError = .dataSizeLimitExceeded
-            self.alertError = true
+            self.setAlert(.dataSizeLimitExceeded)
         } else {
-            self.navigationPath.append(self.pastedText)
+            self.presentConvertedNotesMenu(self.pastedText)
         }
     }
-    func exceedingDataSize(_ ⓒonvertingText: String) -> Bool {
+    func cancel() {
+        self.navigationPath.removeLast()
+        💥Feedback.light()
+    }
+}
+
+private extension 📥NotesImportModel {
+    private func presentConvertedNotesMenu(_ ⓣext: String) {
+        self.navigationPath.append(ⓣext)
+        💥Feedback.success()
+    }
+    private func setAlert(_ ⓔrror: 📥Error) {
+        self.caughtError = ⓔrror
+        self.alertError = true
+        💥Feedback.warning()
+    }
+    private func exceedingDataSize(_ ⓒonvertingText: String) -> Bool {
         let ⓒonvertingNotes = 📚TextConvert.decode(ⓒonvertingText, self.separator)
         let ⓔxistingNotes = 📚Notes.load() ?? []
         return (ⓒonvertingNotes.dataCount + ⓔxistingNotes.dataCount) > 800000
-    }
-    func cancel() {
-        UINotificationFeedbackGenerator().notificationOccurred(.warning)
-        self.navigationPath.removeLast()
     }
 }
