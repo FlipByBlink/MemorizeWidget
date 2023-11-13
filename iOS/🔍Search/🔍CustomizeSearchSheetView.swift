@@ -26,7 +26,7 @@ struct 🔍CustomizeSearchSheetView: View {
                     }
                     .textFieldStyle(.roundedBorder)
                 } header: {
-                    Text("URL")
+                    Text("Edit URL")
                 }
                 Section { self.testButton() }
                 Section {

@@ -1,6 +1,7 @@
 import SwiftUI
 
 enum 📰SheetOnWidgetSheet {
+    case search(URL)
     case dictionary(UIReferenceLibraryViewController)
     case ad
 }
@@ -13,6 +14,7 @@ extension 📰SheetOnWidgetSheet: Identifiable, Hashable {
             content
                 .sheet(item: self.$model.presentedSheetOnWidgetSheet) {
                     switch $0 {
+                        case .search(let ⓤrl): 🔍SearchSheetView(ⓤrl)
                         case .dictionary(let ⓥiewController): 📘DictionarySheetView(ⓥiewController)
                         case .ad: 📣ADContentView()
                     }

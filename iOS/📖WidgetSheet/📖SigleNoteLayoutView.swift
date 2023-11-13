@@ -16,7 +16,7 @@ struct 📖SigleNoteLayoutView: View {
                     Spacer()
                     📖DictionaryButton(self.model.notes[ⓘndex])
                     Spacer()
-                    🔍SearchButton(self.model.notes[ⓘndex])
+                    📖SearchButton(self.model.notes[ⓘndex])
                     Spacer()
                     🚮DeleteNoteButton(self.model.notes[ⓘndex])
                     Spacer()

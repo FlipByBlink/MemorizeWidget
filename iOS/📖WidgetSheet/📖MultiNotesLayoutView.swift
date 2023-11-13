@@ -38,7 +38,7 @@ private extension 📖MultiNotesLayoutView {
                             Spacer()
                             📖DictionaryButton(self.model.notes[ⓘndex])
                             Spacer()
-                            🔍SearchButton(self.model.notes[ⓘndex])
+                            📖SearchButton(self.model.notes[ⓘndex])
                             Spacer()
                             if !self.model.randomMode {
                                 📖MoveEndButton(self.model.notes[ⓘndex])
@@ -62,7 +62,7 @@ private extension 📖MultiNotesLayoutView {
                                    placement: .widgetSheet)
                         HStack(spacing: 24) {
                             📖DictionaryButton(self.model.notes[ⓘndex])
-                            🔍SearchButton(self.model.notes[ⓘndex])
+                            📖SearchButton(self.model.notes[ⓘndex])
                             if !self.model.randomMode { 📖MoveEndButton(self.model.notes[ⓘndex]) }
                             🚮DeleteNoteButton(self.model.notes[ⓘndex])
                         }
