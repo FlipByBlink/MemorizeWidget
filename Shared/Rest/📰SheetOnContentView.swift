@@ -9,7 +9,7 @@ enum 📰SheetOnContentView {
     case notesImport
     case notesExport
     case customizeSearch
-    case search(SFSafariViewController)
+    case search(URL)
     case dictionary(UIReferenceLibraryViewController)
     case aboutApp
     case purchase
