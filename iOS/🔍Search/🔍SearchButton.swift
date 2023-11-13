@@ -2,14 +2,14 @@ import SwiftUI
 import SafariServices
 
 struct 🔍SearchButton: View {
-    @EnvironmentObject var model: 📱AppModel
+    @EnvironmentObject var appModel: 📱AppModel
     @StateObject private var searchModel: 🔍SearchModel = .init()
     private var query: String
     private var padding: CGFloat
     var body: some View {
         Button {
             let ⓤrl = self.searchModel.generateURL(self.query)
-            self.model.presentSheet(.search(ⓤrl))
+            self.appModel.presentSheet(.search(ⓤrl))
         } label: {
             Label("Search", systemImage: "magnifyingglass")
                 .padding(self.padding)

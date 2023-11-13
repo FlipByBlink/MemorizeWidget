@@ -1,7 +1,4 @@
 import SwiftUI
-#if os(iOS)
-import SafariServices
-#endif
 
 enum 📰SheetOnContentView {
     case widget(🪧Tag)

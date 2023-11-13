@@ -2,6 +2,7 @@ import SwiftUI
 
 struct 🔍CustomizeSearchSheetView: View {
     @StateObject private var model: 🔍SearchModel = .init()
+    @State private var presentTestSheet: Bool = false
     var body: some View {
         NavigationStack {
             List {
@@ -19,11 +20,7 @@ struct 🔍CustomizeSearchSheetView: View {
                 } header: {
                     Text("Customize URL scheme")
                 }
-                Section {
-                    🔍SearchButton(.init("NOTETITLE"))
-                } header: {
-                    Text("Test")
-                }
+                Section { self.tryButton() }
                 Section {
                     Text("Pre-installed shortcut to search in DuckDuckGo.")
                         .font(.subheadline)
@@ -51,5 +48,15 @@ private extension 🔍CustomizeSearchSheetView {
             .foregroundStyle(
                 self.model.inputtedLeadingText.isEmpty ? .secondary : .primary
             )
+    }
+    private func tryButton() -> some View {
+        Button {
+            self.presentTestSheet = true
+        } label: {
+            Label("Test", systemImage: "magnifyingglass")
+        }
+        .sheet(isPresented: self.$presentTestSheet) {
+            🔍BrowserView(url: self.model.generateURL("NOTETITLE"))
+        }
     }
 }
