@@ -30,7 +30,11 @@ enum 🎛️OptionViewComponent {
         var body: some View {
             Picker(selection: self.$value) {
                 ForEach(🎛️WidgetTitleSizeForSingleMode.allCases) {
-                    Text($0.rawValue)
+                    switch $0 {
+                        case .small: Label("Small", systemImage: "minus")
+                        case .default: Text("Default")
+                        case .large: Label("Large", systemImage: "plus")
+                    }
                 }
             } label: {
                 Label("Title font size on widget (single note mode only)",

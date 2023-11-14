@@ -1,5 +1,5 @@
 enum 🎛️WidgetTitleSizeForSingleMode: String {
-    case small, `default`, max
+    case small, `default`, large
 }
 
 extension 🎛️WidgetTitleSizeForSingleMode: Identifiable, CaseIterable {

@@ -39,7 +39,7 @@ private extension 🪧AccessoryWidgetView {
                         .padding(.horizontal, 3)
                         .widgetAccentable()
                         .lineSpacing(0)
-                        .lineLimit(self.notes.count == 2 ? 2 : nil)
+                        .lineLimit(self.notes.count <= 2 ? 2 : nil)
                 }
             }
             .clipShape(Circle())
@@ -77,14 +77,14 @@ private extension 🪧AccessoryWidgetView {
                 switch 🎛️Option.widgetTitleSizeForSingleMode {
                     case .small: .caption
                     case .default: .body
-                    case .max: .system(size: 36)
+                    case .large: .system(size: 36)
                 }
             case .accessoryRectangular:
                 if self.notes.count == 1 {
                     switch 🎛️Option.widgetTitleSizeForSingleMode {
                         case .small: .system(size: 15, weight: .semibold)
                         case .default: .system(size: 24, weight: .semibold)
-                        case .max: .system(size: 48, weight: .semibold)
+                        case .large: .system(size: 48, weight: .semibold)
                     }
                 } else {
                     .system(size: 17, weight: .semibold)
