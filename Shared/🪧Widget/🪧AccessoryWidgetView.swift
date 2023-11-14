@@ -29,32 +29,28 @@ private extension 🪧AccessoryWidgetView {
             AccessoryWidgetBackground()
             ZStack {
                 Color.clear
-                VStack(spacing: 2) {
-                    ForEach(self.notes) { ⓝote in
-                        if self.notes.firstIndex(of: ⓝote) == 1 { Divider() }
-                        Text(ⓝote.title)
-                            .multilineTextAlignment(.center)
-                            .font(self.notes.count == 1 ? .body : .caption)
-                            .fontWeight(.semibold)
-                            .lineSpacing(0)
-                            .minimumScaleFactor(0.8)
-                            .padding(.horizontal, 3)
-                            .widgetAccentable()
-                    }
+                if let ⓝote = self.notes.first {
+                    Text(ⓝote.title)
+                        .multilineTextAlignment(.center)
+                        .font(self.titleFontSize)
+                        .fontWeight(.semibold)
+                        .lineSpacing(0)
+                        .minimumScaleFactor(0.6)
+                        .padding(.horizontal, 3)
+                        .widgetAccentable()
+                        .lineSpacing(0)
+                        .lineLimit(self.notes.count == 2 ? 2 : nil)
                 }
-                .padding(.vertical, 1)
-                .lineLimit(self.notes.count == 2 ? 2 : nil)
             }
             .clipShape(Circle())
         }
     }
     private func rectangularView() -> some View {
-        VStack {
+        VStack(spacing: 0) {
             ForEach(self.notes) { ⓝote in
                 Text(ⓝote.title)
                     .lineLimit(self.notes.count > 1 ? 1 : 3)
-                    .font(.system(size: self.notes.count > 1 ? 17 : 24,
-                                  weight: .semibold))
+                    .font(self.titleFontSize)
                 if (self.notes.count == 1)
                     && 🎛️Option.showCommentMode
                     && !ⓝote.comment.isEmpty {
@@ -74,5 +70,27 @@ private extension 🪧AccessoryWidgetView {
             .font(.title.weight(.medium))
             .widgetAccentable()
             .widgetLabel(self.notes.first?.title ?? "No note")
+    }
+    private var titleFontSize: Font {
+        switch self.widgetFamily {
+            case .accessoryCircular:
+                switch 🎛️Option.widgetTitleSizeForSingleMode {
+                    case .small: .caption
+                    case .default: .body
+                    case .max: .system(size: 36)
+                }
+            case .accessoryRectangular:
+                if self.notes.count == 1 {
+                    switch 🎛️Option.widgetTitleSizeForSingleMode {
+                        case .small: .system(size: 15, weight: .semibold)
+                        case .default: .system(size: 24, weight: .semibold)
+                        case .max: .system(size: 48, weight: .semibold)
+                    }
+                } else {
+                    .system(size: 17, weight: .semibold)
+                }
+            default:
+                .body
+        }
     }
 }

@@ -7,6 +7,10 @@ struct IOSApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(self.model)
+                .task {
+                    self.model.selectedSidebar = .option
+                    self.model.selectedTab = .option
+                }//MARK: DEBUG
         }
         .commands {
             🆕NewNoteCommand(self.model)

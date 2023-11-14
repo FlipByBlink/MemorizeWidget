@@ -24,4 +24,21 @@ enum 🎛️OptionViewComponent {
             }
         }
     }
+    struct WidgetTitleSizeForSingleModePicker: View {
+        @AppStorage("widgetTitleSizeForSingleMode", store: .ⓐppGroup)
+        var value: 🎛️WidgetTitleSizeForSingleMode = .default
+        var body: some View {
+            Picker(selection: self.$value) {
+                ForEach(🎛️WidgetTitleSizeForSingleMode.allCases) {
+                    Text($0.rawValue)
+                }
+            } label: {
+                Label("Title font size on widget (single note mode only)",
+                      systemImage: "textformat.size")
+            }
+            .onChange(of: self.value) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+        }
+    }
 }
