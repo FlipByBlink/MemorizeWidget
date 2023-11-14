@@ -11,8 +11,6 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
                 }
                 self.notesExportSheetButton()
                 Divider()
-                🔍CustomizeSearchSheetButton(placement: .bottomBar)
-                Divider()
                 🚮DeleteAllNotesButton()
             } label: {
                 Label("Menu", systemImage: "wand.and.rays")

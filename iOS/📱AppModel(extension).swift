@@ -1,16 +1,6 @@
 import SwiftUI
 
 extension 📱AppModel {
-//    func switchLayout(_ ⓗorizontalSizeClass: UserInterfaceSizeClass?) { //TODO: 要再検討
-//        switch ⓗorizontalSizeClass {
-//            case .compact:
-//                self.selectedTab = self.selectedSidebar ?? .notesList
-//            case .regular:
-//                self.selectedSidebar = self.selectedTab
-//            default:
-//                break
-//        }
-//    }
     func switchNotesListTab() {
         self.selectedTab = .notesList
         self.selectedSidebar = .notesList

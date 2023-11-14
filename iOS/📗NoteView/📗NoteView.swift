@@ -122,14 +122,14 @@ private extension 📗NoteView {
             self.focusArea = nil
         }
     }
-    private struct FocusableIOS17: ViewModifier { //deferment
-        func body(content: Content) -> some View {
-            if #available(iOS 17.0, *) {
-                content
-                    .focusable()
-            } else {
-                content
-            }
-        }
-    }
+    //private struct FocusableIOS17: ViewModifier { //deferment
+    //    func body(content: Content) -> some View {
+    //        if #available(iOS 17.0, *) {
+    //            content
+    //                .focusable()
+    //        } else {
+    //            content
+    //        }
+    //    }
+    //}
 }
