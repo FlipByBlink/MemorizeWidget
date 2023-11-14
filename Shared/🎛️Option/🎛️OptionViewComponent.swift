@@ -24,24 +24,77 @@ enum 🎛️OptionViewComponent {
             }
         }
     }
-    struct WidgetTitleSizeForSingleModePicker: View {
-        @AppStorage("widgetTitleSizeForSingleMode", store: .ⓐppGroup)
-        var value: 🎛️WidgetTitleSizeForSingleMode = .default
-        var body: some View {
-            Picker(selection: self.$value) {
-                ForEach(🎛️WidgetTitleSizeForSingleMode.allCases) {
-                    switch $0 {
-                        case .small: Label("Small", systemImage: "minus")
-                        case .default: Text("Default")
-                        case .large: Label("Large", systemImage: "plus")
-                    }
+    enum FontSize {
+        struct CustomizeFontSizeToggle: View {
+            @AppStorage("customizeFontSize", store: .ⓐppGroup) var value: Bool = false
+            var body: some View {
+                Toggle(isOn: self.$value) {
+                    Label("Customize font size", systemImage: "textformat.size")
                 }
-            } label: {
-                Label("Title font size on widget (single note mode only)",
-                      systemImage: "textformat.size")
+                .onChange(of: self.value) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
             }
-            .onChange(of: self.value) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
+        }
+        struct TitleForSystemFamilyPreview: View {
+            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup)
+            var value: Int = 22
+            var body: some View {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 12) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 36, style: .continuous)
+                                .fill(.white)
+                                .shadow(color: .gray, radius: 4)
+                            Text(verbatim: "(TITLE)")
+                                .font(.system(size: CGFloat(self.value), weight: .bold))
+                                .foregroundStyle(.purple)
+                        }
+                        .frame(width: 280, height: 280)
+                        Text("Preview")
+                            .foregroundStyle(.secondary)
+                            .tracking(0.5)
+                            .font(.subheadline.italic().weight(.light))
+                    }
+                    .padding(.top, 24)
+                    Spacer()
+                }
+                .listRowBackground(Color.clear)
+            }
+        }
+        struct TitleForSystemFamilyPicker: View {
+            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup)
+            var value: Int = 22
+            var body: some View {
+                Picker(selection: self.$value) {
+                    ForEach(9 ..< 250, id: \.self) {
+                        Text($0.description)
+                    }
+                } label: {
+                    Label("Title font size",
+                          systemImage: "textformat.size")
+                }
+                .onChange(of: self.value) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            }
+        }
+        struct TitleForAccessoryFamilyPicker: View {
+            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup)
+            var value: Int = 14
+            var body: some View {
+                Picker(selection: self.$value) {
+                    ForEach(7 ..< 40, id: \.self) {
+                        Text($0.description)
+                    }
+                } label: {
+                    Label("Title font size", 
+                          systemImage: "textformat.size")
+                }
+                .onChange(of: self.value) { _ in
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
             }
         }
     }

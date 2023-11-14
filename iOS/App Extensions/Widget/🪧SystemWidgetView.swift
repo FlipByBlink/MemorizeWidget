@@ -35,26 +35,30 @@ struct 🪧SystemWidgetView: View {
 
 private extension 🪧SystemWidgetView {
     private var titleFont: Font {
-        switch self.widgetFamily {
-            case .systemSmall:
-                return self.notes.count == 1 ? .title3 : .headline
-            case .systemMedium:
-                return self.notes.count == 1 ? .title : .headline
-            case .systemLarge:
-                switch self.notes.count {
-                    case 1:
-                        return .largeTitle
-                    case 2, 3, 4, 5:
-                        return 🎛️Option.showCommentMode ? .title3 : .title
-                    case 6:
-                        return 🎛️Option.showCommentMode ? .headline : .title
-                    default: 
-                        assertionFailure()
-                        return .title
-                }
-            default:
-                assertionFailure()
-                return .largeTitle
+        if 🎛️Option.customizeFontSize {
+            return .system(size: CGFloat(🎛️Option.titleSizeForSystemFamily))
+        } else {
+            switch self.widgetFamily {
+                case .systemSmall:
+                    return self.notes.count == 1 ? .title3 : .headline
+                case .systemMedium:
+                    return self.notes.count == 1 ? .title : .headline
+                case .systemLarge:
+                    switch self.notes.count {
+                        case 1:
+                            return .largeTitle
+                        case 2, 3, 4, 5:
+                            return 🎛️Option.showCommentMode ? .title3 : .title
+                        case 6:
+                            return 🎛️Option.showCommentMode ? .headline : .title
+                        default:
+                            assertionFailure()
+                            return .title
+                    }
+                default:
+                    assertionFailure()
+                    return .largeTitle
+            }
         }
     }
     private var commentFont: Font {

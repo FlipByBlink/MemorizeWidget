@@ -59,6 +59,7 @@
 		168743762AF9D14B000F0F79 /* 📥Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743752AF9D14B000F0F79 /* 📥Error.swift */; };
 		168743782AFA25D7000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */; };
 		1687437A2AFA38C3000F0F79 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */; };
+		168C304C2B037BEA0058AED6 /* 🎛️FontSizeOptionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C304B2B037BEA0058AED6 /* 🎛️FontSizeOptionMenu.swift */; };
 		168D5F052AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */; };
 		168D5F062AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */; };
 		168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F072AF6034900A100A7 /* 📚Notes.swift */; };
@@ -102,10 +103,6 @@
 		16DD530A2AF88E67008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
 		16DD530B2AF88E68008F555A /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
 		16DD530D2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD530C2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift */; };
-		16E07C3F2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */; };
-		16E07C402B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */; };
-		16E07C412B0324E4005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */; };
-		16E07C432B0324E5005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */; };
 		16EA37D92B01F9680033EB3E /* 🔍SearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */; };
 		16EA37DD2B0236DB0033EB3E /* 🔍SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */; };
 		16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
@@ -474,6 +471,7 @@
 		168743752AF9D14B000F0F79 /* 📥Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥Error.swift"; sourceTree = "<group>"; };
 		168743772AFA25D7000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
 		168743792AFA38C3000F0F79 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
+		168C304B2B037BEA0058AED6 /* 🎛️FontSizeOptionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️FontSizeOptionMenu.swift"; sourceTree = "<group>"; };
 		168D5F042AF6011D00A100A7 /* 🗑DeletedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑DeletedContent.swift"; sourceTree = "<group>"; };
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F142AF6056300A100A7 /* 🔖Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Tab.swift"; sourceTree = "<group>"; };
@@ -495,7 +493,6 @@
 		16DC5E8E2B01D6C7007BC531 /* 📚DisableInEditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚DisableInEditMode.swift"; sourceTree = "<group>"; };
 		16DD53062AF88B4A008F555A /* 📚TextConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚TextConvert.swift"; sourceTree = "<group>"; };
 		16DD530C2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetOnWidgetSheet.swift"; sourceTree = "<group>"; };
-		16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️WidgetTitleSizeForSingleMode.swift"; sourceTree = "<group>"; };
 		16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchSheetView.swift"; sourceTree = "<group>"; };
 		16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchModel.swift"; sourceTree = "<group>"; };
 		16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PlaceholderView.swift"; sourceTree = "<group>"; };
@@ -666,6 +663,7 @@
 				166BC29C2AF623D100729C66 /* 🎛️MultiNotesOnWidgetOption.swift */,
 				166BC29A2AF623C600729C66 /* 🎛️CommentOnWidgetOption.swift */,
 				166BC2922AF6228900729C66 /* 🎛️BeforeAfterImages.swift */,
+				168C304B2B037BEA0058AED6 /* 🎛️FontSizeOptionMenu.swift */,
 			);
 			path = "🎛️Option";
 			sourceTree = "<group>";
@@ -728,7 +726,6 @@
 				167156362AFF2E2200043F03 /* 🎛️Option.swift */,
 				16C98FE52AFB09A300F0F251 /* 🎛️OptionViewComponent.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */,
-				16E07C3E2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift */,
 			);
 			path = "🎛️Option";
 			sourceTree = "<group>";
@@ -1328,7 +1325,6 @@
 				F568F21129E3E907005A1D1A /* 🔩MainMenu.swift in Sources */,
 				F50C833E2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift in Sources */,
 				F50C83402AA5ED910033A04B /* 📖WidgetNotesSheet.swift in Sources */,
-				16E07C402B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */,
 				16C98FED2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift in Sources */,
 				168D5F062AF6011D00A100A7 /* 🗑DeletedContent.swift in Sources */,
 				F568F19229E3A5DA005A1D1A /* ContentView.swift in Sources */,
@@ -1377,7 +1373,6 @@
 				168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 				F50C832A2AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */,
 				16FB78BF2AFF4CCA009388F2 /* 🪧SubWidget.swift in Sources */,
-				16E07C432B0324E5005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1419,6 +1414,7 @@
 				168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */,
 				16C98FEF2AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */,
 				F568F21429E42A59005A1D1A /* 🪧Entry.swift in Sources */,
+				168C304C2B037BEA0058AED6 /* 🎛️FontSizeOptionMenu.swift in Sources */,
 				F50C83122AA5CE7F0033A04B /* 🗒️StaticInfo.swift in Sources */,
 				1671562C2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				166C25432B01A9C5008124DC /* 🔖SidebarView.swift in Sources */,
@@ -1434,7 +1430,6 @@
 				16EDAF432AFC7B9800881864 /* 🏢IPadView.swift in Sources */,
 				F5FE2DA729DEB0BA008C728B /* 💁GuideTab.swift in Sources */,
 				166BC2AF2AF62C2100729C66 /* 📖DictionaryButton.swift in Sources */,
-				16E07C3F2B031F89005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */,
 				F51CAF6529D6AEFA0065EF30 /* 📗NoteView.swift in Sources */,
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
 				F568F1A729E3A6C9005A1D1A /* 🗑TrashTab.swift in Sources */,
@@ -1514,7 +1509,6 @@
 				F50C83972AA60A8D0033A04B /* 🪧SystemWidgetView.swift in Sources */,
 				1671562D2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */,
-				16E07C412B0324E4005CBDCC /* 🎛️WidgetTitleSizeForSingleMode.swift in Sources */,
 				167156322AFEFD2400043F03 /* 🪧Phase.swift in Sources */,
 				F50C83392AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
 				F50C839B2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,

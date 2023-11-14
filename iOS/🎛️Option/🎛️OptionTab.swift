@@ -4,7 +4,9 @@ struct 🎛️OptionTab: View {
     var body: some View {
         NavigationStack {
             List {
-                🎛️OptionViewComponent.WidgetTitleSizeForSingleModePicker()
+                NavigationLink("🎛️FontSizeOptionMenu") {
+                    🎛️FontSizeOptionMenu()
+                }
                 🎛️MultiNotesOnWidgetOption()
                 🎛️CommentOnWidgetOption()
                 🔍CustomizeSearchSheetButton()

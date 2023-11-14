@@ -11,6 +11,11 @@ struct IOSApp: App {
                     self.model.selectedSidebar = .option
                     self.model.selectedTab = .option
                 }//MARK: DEBUG
+                .sheet(isPresented: .constant(true)) {
+                    NavigationStack {
+                        🎛️FontSizeOptionMenu()
+                    }
+                }
         }
         .commands {
             🆕NewNoteCommand(self.model)
