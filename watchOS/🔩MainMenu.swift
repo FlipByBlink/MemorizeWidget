@@ -6,7 +6,7 @@ struct 🔩MainMenu: View {
         List {
             self.randomModeSection()
             Section {
-                🎛️OptionViewComponent.MultiNotesToggle()
+                🎛️ViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
             } header: {
                 Text("Widget")
@@ -29,7 +29,7 @@ private extension 🔩MainMenu {
     private struct CommentOnWidgetSection: View {
         @AppStorage("multiNotes", store: .ⓐppGroup) var multiNotesMode: Bool = false
         var body: some View {
-            🎛️OptionViewComponent.ShowCommentToggle()
+            🎛️ViewComponent.ShowCommentToggle()
                 .disabled(self.multiNotesMode)
         }
     }

@@ -55,7 +55,7 @@ private extension 🪧Entry {
                 case .systemSmall, .systemMedium:
                     🎛️Option.showCommentMode ? 2 : 3
                 case .systemLarge, .systemExtraLarge:
-                    🎛️Option.showCommentMode ? 5 : 6
+                    🎛️Option.showCommentMode ? 4 : 5
                 case .accessoryCorner, .accessoryCircular, .accessoryInline:
                     1
                 case .accessoryRectangular:

@@ -4,7 +4,7 @@ struct 🎛️FontSizeOptionMenu: View {
     @AppStorage("customizeFontSize", store: .ⓐppGroup) var customizeFontSize: Bool = false
     var body: some View {
         List {
-            🎛️OptionViewComponent.FontSize.CustomizeFontSizeToggle()
+            🎛️ViewComponent.FontSize.CustomizeToggle()
             Group {
                 Section { Self.SystemWidgetMenuLink() }
                 Section { Self.AccessoryWidgetMenuLink() }
@@ -22,13 +22,10 @@ private extension 🎛️FontSizeOptionMenu {
         var body: some View {
             NavigationLink {
                 List {
-                    🎛️OptionViewComponent
-                        .FontSize
-                        .TitleForSystemFamilyPreview()
+                    🎛️ViewComponent.FontSize.SystemFamilyPreview()
                     Section {
-                        🎛️OptionViewComponent
-                            .FontSize
-                            .TitleForSystemFamilyPicker()
+                        🎛️ViewComponent.FontSize.TitleForSystemFamilyPicker()
+                        🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
                     }
                     Section { Self.about() }
                 }
@@ -68,8 +65,8 @@ private extension 🎛️FontSizeOptionMenu {
         var body: some View {
             NavigationLink {
                 List {
-                    //🎚️AccessoryWidgetPreview()
-                    🎛️OptionViewComponent.FontSize.TitleForAccessoryFamilyPicker()
+                    //AccessoryWidgetPreview()
+                    🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
                     Section { Self.about() }
                 }
                 .navigationTitle("Accessory widget")

@@ -3,7 +3,7 @@ import SwiftUI
 struct 🎛️CommentOnWidgetOption: View {
     var body: some View {
         Section {
-            🎛️OptionViewComponent.ShowCommentToggle()
+            🎛️ViewComponent.ShowCommentToggle()
                     .padding(.vertical, 8)
             VStack(spacing: 12) {
                 🎛️BeforeAfterImages("homeSmall_commentOff", "homeSmall_commentOn")

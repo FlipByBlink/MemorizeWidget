@@ -81,8 +81,8 @@
 		16A026742AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
 		16C08BC92B01BF3700A0D65D /* 📥NotesImportSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */; };
 		16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */; };
-		16C98FE62AFB09A300F0F251 /* 🎛️OptionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️OptionViewComponent.swift */; };
-		16C98FE72AFB09A300F0F251 /* 🎛️OptionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️OptionViewComponent.swift */; };
+		16C98FE62AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */; };
+		16C98FE72AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */; };
 		16C98FE92AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */; };
 		16C98FEA2AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */; };
 		16C98FEC2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */; };
@@ -481,7 +481,7 @@
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
 		16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportSheetButton.swift"; sourceTree = "<group>"; };
 		16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesMenuButton.swift"; sourceTree = "<group>"; };
-		16C98FE52AFB09A300F0F251 /* 🎛️OptionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️OptionViewComponent.swift"; sourceTree = "<group>"; };
+		16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️ViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️RandomModeToggle.swift"; sourceTree = "<group>"; };
 		16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideViewComponent.swift"; sourceTree = "<group>"; };
@@ -724,7 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				167156362AFF2E2200043F03 /* 🎛️Option.swift */,
-				16C98FE52AFB09A300F0F251 /* 🎛️OptionViewComponent.swift */,
+				16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */,
 			);
 			path = "🎛️Option";
@@ -1313,7 +1313,7 @@
 				F50C83482AA5F01B0033A04B /* 🗑TrashMenu.swift in Sources */,
 				16C98FF02AFB134C00F0F251 /* 💁GuideViewComponent.swift in Sources */,
 				F568F1A529E3A6A1005A1D1A /* 🗑TrashModel.swift in Sources */,
-				16C98FE72AFB09A300F0F251 /* 🎛️OptionViewComponent.swift in Sources */,
+				16C98FE72AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */,
 				F50C83272AA5E1090033A04B /* 💁GuideMenu.swift in Sources */,
 				F568F1AA29E3A703005A1D1A /* 💥Feedback.swift in Sources */,
 				16C98FEA2AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift in Sources */,
@@ -1443,7 +1443,7 @@
 				168743782AFA25D7000F0F79 /* 📱AppModel(extension).swift in Sources */,
 				166BC2AD2AF62BB900729C66 /* 📖DeletedNoteView.swift in Sources */,
 				166BC2952AF6230000729C66 /* 🔍CustomizeSearchSheetView.swift in Sources */,
-				16C98FE62AFB09A300F0F251 /* 🎛️OptionViewComponent.swift in Sources */,
+				16C98FE62AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */,
 				F527F47B29D5424C00E9FB97 /* 🩹Workaround.swift in Sources */,
 				16DD530D2AF89EDF008F555A /* 📰SheetOnWidgetSheet.swift in Sources */,
 				16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */,

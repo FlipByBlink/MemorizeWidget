@@ -3,7 +3,7 @@ import SwiftUI
 struct 🎛️MultiNotesOnWidgetOption: View {
     var body: some View {
         Section {
-            🎛️OptionViewComponent.MultiNotesToggle()
+            🎛️ViewComponent.MultiNotesToggle()
                 .padding(.vertical, 8)
             VStack(spacing: 12) {
                 🎛️BeforeAfterImages("home_multiNotes_before",

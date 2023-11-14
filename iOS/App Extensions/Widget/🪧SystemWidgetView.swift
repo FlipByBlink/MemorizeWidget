@@ -62,18 +62,22 @@ private extension 🪧SystemWidgetView {
         }
     }
     private var commentFont: Font {
-        switch self.widgetFamily {
-            case .systemSmall, .systemMedium:
-                return self.notes.count == 1 ? .body : .caption
-            case .systemLarge:
-                switch self.notes.count {
-                    case 1: return .title3
-                    case 2, 3, 4, 5: return .subheadline
-                    case 6: return .caption
-                    default: assertionFailure(); return .title
-                }
-            default:
-                assertionFailure(); return .body
+        if 🎛️Option.customizeFontSize {
+            return .system(size: CGFloat(🎛️Option.commentSizeForSystemFamily))
+        } else {
+            switch self.widgetFamily {
+                case .systemSmall, .systemMedium:
+                    return self.notes.count == 1 ? .body : .caption
+                case .systemLarge:
+                    switch self.notes.count {
+                        case 1: return .title3
+                        case 2, 3, 4, 5: return .subheadline
+                        case 6: return .caption
+                        default: assertionFailure(); return .title
+                    }
+                default:
+                    assertionFailure(); return .body
+            }
         }
     }
     private var commentFontWeight: Font.Weight {
