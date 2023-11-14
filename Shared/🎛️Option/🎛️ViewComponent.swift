@@ -49,7 +49,7 @@ enum 🎛️ViewComponent {
                             RoundedRectangle(cornerRadius: 36, style: .continuous)
                                 .fill(.white)
                                 .shadow(color: .gray, radius: 4)
-                            VStack {
+                            VStack(spacing: 5) {
                                 Text(verbatim: "(TITLE)")
                                     .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                     .foregroundStyle(.purple)
@@ -68,6 +68,8 @@ enum 🎛️ViewComponent {
                     Spacer()
                 }
                 .listRowBackground(Color.clear)
+                .animation(.default, value: self.titleValue)
+                .animation(.default, value: self.commentValue)
             }
         }
         struct TitleForSystemFamilyPicker: View {

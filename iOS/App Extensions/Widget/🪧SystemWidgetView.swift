@@ -55,6 +55,16 @@ private extension 🪧SystemWidgetView {
                             assertionFailure()
                             return .title
                     }
+                case .systemExtraLarge:
+                    switch self.notes.count {
+                        case 1:
+                            return .system(size: 54)
+                        case 2, 3, 4, 5:
+                            return 🎛️Option.showCommentMode ? .title3 : .title
+                        default:
+                            assertionFailure()
+                            return .title
+                    }
                 default:
                     assertionFailure()
                     return .largeTitle
@@ -68,7 +78,7 @@ private extension 🪧SystemWidgetView {
             switch self.widgetFamily {
                 case .systemSmall, .systemMedium:
                     return self.notes.count == 1 ? .body : .caption
-                case .systemLarge:
+                case .systemLarge, .systemExtraLarge:
                     switch self.notes.count {
                         case 1: return .title3
                         case 2, 3, 4, 5: return .subheadline
@@ -90,9 +100,9 @@ private extension 🪧SystemWidgetView {
     private var lineLimitNumber: Int {
         switch self.widgetFamily {
             case .systemSmall, .systemMedium:
-                return self.notes.count == 1 ? 3 : 1
-            case .systemLarge:
-                return self.notes.count < 4 ? 3 : 1
+                return self.notes.count == 1 ? 4 : 1
+            case .systemLarge, .systemExtraLarge:
+                return self.notes.count < 4 ? 5 : 1
             default:
                 assertionFailure()
                 return 1
@@ -103,6 +113,7 @@ private extension 🪧SystemWidgetView {
             case .systemSmall: return .init(top: 8, leading: 16, bottom: 8, trailing: 16)
             case .systemMedium: return .init(top: 8, leading: 24, bottom: 8, trailing: 24)
             case .systemLarge: return .init(top: 12, leading: 32, bottom: 12, trailing: 32)
+            case .systemExtraLarge: return .init(top: 12, leading: 42, bottom: 12, trailing: 42)
             default: assertionFailure(); return .init()
         }
     }
