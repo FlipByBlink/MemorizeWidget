@@ -2,7 +2,7 @@ import SwiftUI
 import SafariServices
 
 struct 🔍SearchSheetView: View {
-    var url: URL
+    private var url: URL
     var body: some View {
         Self.UIKitView(url: self.url)
             .ignoresSafeArea()
@@ -14,7 +14,7 @@ struct 🔍SearchSheetView: View {
 }
 
 private extension 🔍SearchSheetView {
-    struct UIKitView: UIViewControllerRepresentable {
+    private struct UIKitView: UIViewControllerRepresentable {
         var url: URL
         func makeUIViewController(context: Context) -> SFSafariViewController {
             .init(url: self.url)

@@ -6,7 +6,7 @@ enum 🔖Sidebar {
 
 extension 🔖Sidebar: CaseIterable, Identifiable {
     var id: Self { self }
-    var label: some View {
+    func label() -> some View {
         Label(self.title, systemImage: self.iconName)
         //NavigationLink(value: self) {
         //    Label(self.title, systemImage: self.iconName)

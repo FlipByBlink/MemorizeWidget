@@ -786,14 +786,14 @@
 			path = "🗑Trash";
 			sourceTree = "<group>";
 		};
-		168D5F0D2AF603B500A100A7 /* 📗Note */ = {
+		168D5F0D2AF603B500A100A7 /* 📗Note&Notes */ = {
 			isa = PBXGroup;
 			children = (
 				F527F48029D5699C00E9FB97 /* 📗Note.swift */,
 				168D5F072AF6034900A100A7 /* 📚Notes.swift */,
 				16DD53062AF88B4A008F555A /* 📚TextConvert.swift */,
 			);
-			path = "📗Note";
+			path = "📗Note&Notes";
 			sourceTree = "<group>";
 		};
 		168D5F1A2AF6085E00A100A7 /* 💾Data */ = {
@@ -978,7 +978,7 @@
 			isa = PBXGroup;
 			children = (
 				F5D30CD828C70546001198AF /* 📱AppModel.swift */,
-				168D5F0D2AF603B500A100A7 /* 📗Note */,
+				168D5F0D2AF603B500A100A7 /* 📗Note&Notes */,
 				F50C83312AA5E62A0033A04B /* 🪧Widget */,
 				168D5F1A2AF6085E00A100A7 /* 💾Data */,
 				168D5F032AF6010E00A100A7 /* 🗑Trash */,

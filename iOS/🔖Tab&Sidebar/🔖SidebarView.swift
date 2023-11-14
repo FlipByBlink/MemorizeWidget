@@ -3,9 +3,9 @@ import SwiftUI
 struct 🔖SidebarView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
-        List(🔖Sidebar.allCases,
-             selection: self.$model.selectedSidebar,
-             rowContent: \.label)
+        List(selection: self.$model.selectedSidebar) {
+            ForEach(🔖Sidebar.allCases) { $0.label() }
+        }
         .background(ignoresSafeAreaEdges: .all)
         .navigationSplitViewColumnWidth(280) //default: 320
         .environment(\.defaultMinListRowHeight, 50)
