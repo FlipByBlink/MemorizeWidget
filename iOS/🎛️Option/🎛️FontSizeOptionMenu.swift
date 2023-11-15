@@ -98,7 +98,7 @@ private extension 🎛️FontSizeOptionMenu {
         }
     }
     private struct LinkOpacity: ViewModifier {
-        @AppStorage("customizeFontSize", store: .ⓐppGroup) var customizeFontSize: Bool = false
+        @AppStorage(🎛️Key.FontSize.customize, store: .ⓐppGroup) var customizeFontSize: Bool = false
         func body(content: Content) -> some View {
             content
                 .opacity(self.customizeFontSize ? 1 : 0.5)

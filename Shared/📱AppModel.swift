@@ -9,7 +9,7 @@ class 📱AppModel: ObservableObject {
     @Published var presentedSheetOnContentView: 📰SheetOnContentView? = nil
     @Published var presentedAllNotesDeleteConfirmDialog: Bool = false
     @Published var trash: 🗑TrashModel = .load()
-    @AppStorage("RandomMode", store: .ⓐppGroup) var randomMode: Bool = false
+    @AppStorage(🎛️Key.randomMode, store: .ⓐppGroup) var randomMode: Bool = false
 #if os(iOS)
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var selectedSidebar: 🔖Sidebar? = .notesList

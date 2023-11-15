@@ -2,8 +2,8 @@ import SwiftUI
 
 @MainActor
 class 📥NotesImportModel: ObservableObject {
-    @AppStorage("InputMode", store: .ⓐppGroup) var inputMode: 📥InputMode = .file
-    @AppStorage("separator", store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
+    @AppStorage(🎛️Key.Import.inputMode, store: .ⓐppGroup) var inputMode: 📥InputMode = .file
+    @AppStorage(🎛️Key.Import.textSeparator, store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @Published var pastedText: String = ""
     @Published var showFileImporter: Bool = false
     @Published var alertError: Bool = false

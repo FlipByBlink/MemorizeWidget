@@ -36,7 +36,7 @@ struct 🪧SystemWidgetView: View {
 private extension 🪧SystemWidgetView {
     private var titleFont: Font {
         if 🎛️Option.customizeFontSize {
-            return .system(size: CGFloat(🎛️Option.titleSizeForSystemFamily))
+            return .system(size: CGFloat(🎛️Option.FontSize.SystemFamily.title))
         } else {
             switch self.widgetFamily {
                 case .systemSmall:
@@ -73,7 +73,7 @@ private extension 🪧SystemWidgetView {
     }
     private var commentFont: Font {
         if 🎛️Option.customizeFontSize {
-            return .system(size: CGFloat(🎛️Option.commentSizeForSystemFamily))
+            return .system(size: CGFloat(🎛️Option.FontSize.SystemFamily.comment))
         } else {
             switch self.widgetFamily {
                 case .systemSmall, .systemMedium:

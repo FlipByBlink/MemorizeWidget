@@ -1,8 +1,8 @@
 import SwiftUI
 
 class 🔍SearchModel: ObservableObject {
-    @AppStorage("SearchLeadingText") var inputtedLeadingText: String = ""
-    @AppStorage("SearchTrailingText") var trailingText: String = ""
+    @AppStorage(🎛️Key.Search.leadingText) var inputtedLeadingText: String = ""
+    @AppStorage(🎛️Key.Search.trailingText) var trailingText: String = ""
     func entireText(_ ⓠuery: String) -> String {
         "https://\(self.leadingText)\(ⓠuery)\(self.trailingText)"
     }
@@ -35,13 +35,13 @@ private extension 🔍SearchModel {
     }
     private enum MigrationToVer_1_4 {
         static func removeHttpScheme() {
-            if var source = UserDefaults.standard.string(forKey: "SearchLeadingText") {
+            if var source = UserDefaults.standard.string(forKey: 🎛️Key.Search.leadingText) {
                 if source.hasPrefix("http://") {
                     source.trimPrefix("http://")
                 } else if source.hasPrefix("https://") {
                     source.trimPrefix("https://")
                 }
-                UserDefaults.standard.set(source, forKey: "SearchLeadingText")
+                UserDefaults.standard.set(source, forKey: 🎛️Key.Search.leadingText)
             }
         }
     }

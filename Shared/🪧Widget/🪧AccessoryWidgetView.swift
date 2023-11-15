@@ -73,7 +73,7 @@ private extension 🪧AccessoryWidgetView {
     }
     private var titleFontSize: Font {
         if 🎛️Option.customizeFontSize {
-            .system(size: CGFloat(🎛️Option.titleSizeForAccessoryFamily))
+            .system(size: CGFloat(🎛️Option.FontSize.AccessoryFamily.title))
         } else {
             switch self.widgetFamily {
                 case .accessoryCircular:
@@ -91,7 +91,7 @@ private extension 🪧AccessoryWidgetView {
     }
     private var commentFontSize: Font {
         if 🎛️Option.customizeFontSize {
-            .system(size: CGFloat(🎛️Option.commentSizeForAccessoryFamily))
+            .system(size: CGFloat(🎛️Option.FontSize.AccessoryFamily.comment))
         } else {
             .body
         }

@@ -27,7 +27,7 @@ private extension 🔩MainMenu {
         }
     }
     private struct CommentOnWidgetSection: View {
-        @AppStorage("multiNotes", store: .ⓐppGroup) var multiNotesMode: Bool = false
+        @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup) var multiNotesMode: Bool = false
         var body: some View {
             🎛️ViewComponent.ShowCommentToggle()
                 .disabled(self.multiNotesMode)

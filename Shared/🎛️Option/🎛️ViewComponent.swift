@@ -3,7 +3,7 @@ import WidgetKit
 
 enum 🎛️ViewComponent {
     struct MultiNotesToggle: View {
-        @AppStorage("multiNotes", store: .ⓐppGroup) var value: Bool = false
+        @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
                 Label("Show multi notes on widget", systemImage: "doc.on.doc")
@@ -12,7 +12,7 @@ enum 🎛️ViewComponent {
         }
     }
     struct ShowCommentToggle: View {
-        @AppStorage("ShowComment", store: .ⓐppGroup) var value: Bool = false
+        @AppStorage(🎛️Key.showCommentMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
                 Label("Show comment on widget", systemImage: "captions.bubble")
@@ -22,7 +22,7 @@ enum 🎛️ViewComponent {
     }
     enum FontSize {
         struct CustomizeToggle: View {
-            @AppStorage("customizeFontSize", store: .ⓐppGroup) var value: Bool = false
+            @AppStorage(🎛️Key.FontSize.customize, store: .ⓐppGroup) var value: Bool = false
             var body: some View {
                 Toggle(isOn: self.$value) {
                     Label("Customize font size", systemImage: "textformat.size")
@@ -31,8 +31,8 @@ enum 🎛️ViewComponent {
             }
         }
         struct SystemFamilyPreview: View {
-            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup) var titleValue: Int = 22
-            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup) var commentValue: Int = 12
+            @AppStorage(🎛️Key.FontSize.SystemFamily.title, store: .ⓐppGroup) var titleValue: Int = 22
+            @AppStorage(🎛️Key.FontSize.SystemFamily.comment, store: .ⓐppGroup) var commentValue: Int = 12
             var body: some View {
                 HStack {
                     Spacer()
@@ -65,7 +65,7 @@ enum 🎛️ViewComponent {
             }
         }
         struct TitleForSystemFamilyPicker: View {
-            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup) var value: Int = 22
+            @AppStorage(🎛️Key.FontSize.SystemFamily.title, store: .ⓐppGroup) var value: Int = 22
             var body: some View {
                 Picker(selection: self.$value) {
                     ForEach(9 ..< 250, id: \.self) { Text("\($0)") }
@@ -76,7 +76,7 @@ enum 🎛️ViewComponent {
             }
         }
         struct CommentForSystemFamilyPicker: View {
-            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup) var value: Int = 12
+            @AppStorage(🎛️Key.FontSize.SystemFamily.comment, store: .ⓐppGroup) var value: Int = 12
             var body: some View {
                 Picker(selection: self.$value) {
                     ForEach(6 ..< 60, id: \.self) { Text("\($0)") }
@@ -87,13 +87,13 @@ enum 🎛️ViewComponent {
             }
         }
         struct AccessoryFamilyPreview: View {
-            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup) var titleValue: Int = 14
-            @AppStorage("commentSizeForAccessoryFamily", store: .ⓐppGroup) var commentValue: Int = 9
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var titleValue: Int = 14
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup) var commentValue: Int = 9
             var body: some View {
                 HStack {
                     Spacer()
                     VStack(spacing: 12) {
-                        HStack(spacing: 12) {
+                        HStack(spacing: 16) {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 12, style: .continuous)
                                     .fill(.white)
@@ -132,7 +132,7 @@ enum 🎛️ViewComponent {
             }
         }
         struct TitleForAccessoryFamilyPicker: View {
-            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup) var value: Int = 18
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var value: Int = 18
             var body: some View {
                 Picker(selection: self.$value) {
                     ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
@@ -143,7 +143,7 @@ enum 🎛️ViewComponent {
             }
         }
         struct CommentForAccessoryFamilyPicker: View {
-            @AppStorage("commentSizeForAccessoryFamily", store: .ⓐppGroup) var value: Int = 10
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup) var value: Int = 10
             var body: some View {
                 Picker(selection: self.$value) {
                     ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
