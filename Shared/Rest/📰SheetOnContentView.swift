@@ -5,6 +5,7 @@ enum 📰SheetOnContentView {
 #if os(iOS)
     case notesImport
     case notesExport
+    case customizeFontSize
     case customizeSearch
     case search(URL)
     case dictionary(UIReferenceLibraryViewController)

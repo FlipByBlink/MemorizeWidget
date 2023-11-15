@@ -8,6 +8,7 @@ struct 🔩MainMenu: View {
             Section {
                 🎛️ViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
+                Self.fontSizeMenuLink()
             } header: {
                 Text("Widget")
             }
@@ -43,6 +44,20 @@ private extension 🔩MainMenu {
                 } label: {
                     Label("Trash", systemImage: "trash")
                 }
+            }
+        }
+    }
+    private static func fontSizeMenuLink() -> some View {
+        Section {
+            NavigationLink {
+                List {
+                    🎛️ViewComponent.FontSize.AccessoryFamilyPreview()
+                    🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
+                    🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
+                }
+                .navigationTitle("Font size")
+            } label: {
+                Label("Customize font size", systemImage: "textformat.size")
             }
         }
     }

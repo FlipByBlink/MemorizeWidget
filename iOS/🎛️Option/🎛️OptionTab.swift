@@ -4,9 +4,7 @@ struct 🎛️OptionTab: View {
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink("🎛️FontSizeOptionMenu") {
-                    🎛️FontSizeOptionMenu()
-                }
+                NavigationLink("🎛️FontSizeOptionMenu") { 🎛️FontSizeOptionMenu() } //TODO: ちゃんと実装
                 🎛️MultiNotesOnWidgetOption()
                 🎛️CommentOnWidgetOption()
                 🔍CustomizeSearchSheetButton()
