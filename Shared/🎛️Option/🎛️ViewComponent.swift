@@ -86,51 +86,6 @@ enum 🎛️ViewComponent {
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
         }
-        struct AccessoryFamilyPreview: View {
-            @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var titleValue: Int = 14
-            @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup) var commentValue: Int = 9
-            var body: some View {
-                HStack {
-                    Spacer()
-                    VStack(spacing: 12) {
-                        HStack(spacing: 16) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(.white)
-                                    .shadow(color: .gray, radius: 3)
-                                VStack(spacing: 2) {
-                                    Text(verbatim: "(TITLE)")
-                                        .font(.system(size: CGFloat(self.titleValue), weight: .bold))
-                                        .foregroundStyle(.purple)
-                                    Text(verbatim: "(Comment)")
-                                        .font(.system(size: CGFloat(self.commentValue), weight: .light))
-                                        .foregroundStyle(.green)
-                                }
-                            }
-                            .frame(width: 200, height: 80) //TODO: 実際のサイズに近付ける
-                            ZStack {
-                                Circle()
-                                    .fill(.white)
-                                    .shadow(color: .gray, radius: 3)
-                                Text(verbatim: "(TITLE)")
-                                    .font(.system(size: CGFloat(self.titleValue), weight: .bold))
-                                    .foregroundStyle(.purple)
-                            }
-                            .frame(width: 70, height: 70) //TODO: 実際のサイズに近付ける
-                        }
-                        Text("Preview")
-                            .foregroundStyle(.secondary)
-                            .tracking(0.5)
-                            .font(.subheadline.italic().weight(.light))
-                    }
-                    .padding(.top, 12)
-                    Spacer()
-                }
-                .listRowBackground(Color.clear)
-                .animation(.default, value: self.titleValue)
-                .animation(.default, value: self.commentValue)
-            }
-        }
         struct TitleForAccessoryFamilyPicker: View {
             @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var value: Int = 18
             var body: some View {

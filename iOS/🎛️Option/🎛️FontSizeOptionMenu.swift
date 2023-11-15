@@ -21,6 +21,8 @@ private extension 🎛️FontSizeOptionMenu {
                     Section {
                         🎛️ViewComponent.FontSize.TitleForSystemFamilyPicker()
                         🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
+                    } footer: {
+                        Text("環境やテキストによって実際に表示されるサイズは変化します")
                     }
                     Section { Self.about() }
                 }
@@ -61,10 +63,12 @@ private extension 🎛️FontSizeOptionMenu {
         var body: some View {
             NavigationLink {
                 List {
-                    🎛️ViewComponent.FontSize.AccessoryFamilyPreview()
+                    Self.Preview()
                     Section {
                         🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
                         🎛️ViewComponent.FontSize.CommentForAccessoryFamilyPicker()
+                    } footer: {
+                        Text("環境やテキストによって実際に表示されるサイズは変化します")
                     }
                     Section { Self.about() }
                 }
@@ -82,6 +86,51 @@ private extension 🎛️FontSizeOptionMenu {
                           systemImage: "slider.horizontal.3")
                 }
                 .modifier(🎛️FontSizeOptionMenu.LinkOpacity())
+            }
+        }
+        private struct Preview: View {
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var titleValue: Int = 14
+            @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup) var commentValue: Int = 9
+            var body: some View {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 12) {
+                        HStack(spacing: 16) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .fill(.white)
+                                    .shadow(color: .gray, radius: 3)
+                                VStack(spacing: 2) {
+                                    Text(verbatim: "(TITLE)")
+                                        .font(.system(size: CGFloat(self.titleValue), weight: .bold))
+                                        .foregroundStyle(.purple)
+                                    Text(verbatim: "(Comment)")
+                                        .font(.system(size: CGFloat(self.commentValue), weight: .light))
+                                        .foregroundStyle(.green)
+                                }
+                            }
+                            .frame(width: 200, height: 80) //TODO: 実際のサイズに近付ける
+                            ZStack {
+                                Circle()
+                                    .fill(.white)
+                                    .shadow(color: .gray, radius: 3)
+                                Text(verbatim: "(TITLE)")
+                                    .font(.system(size: CGFloat(self.titleValue), weight: .bold))
+                                    .foregroundStyle(.purple)
+                            }
+                            .frame(width: 70, height: 70) //TODO: 実際のサイズに近付ける
+                        }
+                        Text("Preview")
+                            .foregroundStyle(.secondary)
+                            .tracking(0.5)
+                            .font(.subheadline.italic().weight(.light))
+                    }
+                    .padding(.top, 12)
+                    Spacer()
+                }
+                .listRowBackground(Color.clear)
+                .animation(.default, value: self.titleValue)
+                .animation(.default, value: self.commentValue)
             }
         }
         private static func about() -> some View {
