@@ -8,9 +8,7 @@ enum 🎛️ViewComponent {
             Toggle(isOn: self.$value) {
                 Label("Show multi notes on widget", systemImage: "doc.on.doc")
             }
-            .onChange(of: self.value) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
     }
     struct ShowCommentToggle: View {
@@ -19,9 +17,7 @@ enum 🎛️ViewComponent {
             Toggle(isOn: self.$value) {
                 Label("Show comment on widget", systemImage: "captions.bubble")
             }
-            .onChange(of: self.value) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
     }
     enum FontSize {
@@ -31,16 +27,12 @@ enum 🎛️ViewComponent {
                 Toggle(isOn: self.$value) {
                     Label("Customize font size", systemImage: "textformat.size")
                 }
-                .onChange(of: self.value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
+                .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
         }
         struct SystemFamilyPreview: View {
-            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup)
-            var titleValue: Int = 22
-            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup)
-            var commentValue: Int = 12
+            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup) var titleValue: Int = 22
+            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup) var commentValue: Int = 12
             var body: some View {
                 HStack {
                     Spacer()
@@ -73,54 +65,81 @@ enum 🎛️ViewComponent {
             }
         }
         struct TitleForSystemFamilyPicker: View {
-            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup)
-            var value: Int = 22
+            @AppStorage("titleSizeForSystemFamily", store: .ⓐppGroup) var value: Int = 22
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(9 ..< 250, id: \.self) {
-                        Text($0.description)
-                    }
+                    ForEach(9 ..< 250, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Title font size",
-                          systemImage: "textformat.size")
+                    Label("Title font size", systemImage: "textformat.size")
                 }
-                .onChange(of: self.value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
+                .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
         }
         struct CommentForSystemFamilyPicker: View {
-            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup)
-            var value: Int = 12
+            @AppStorage("commentSizeForSystemFamily", store: .ⓐppGroup) var value: Int = 12
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(6 ..< 60, id: \.self) {
-                        Text($0.description)
-                    }
+                    ForEach(6 ..< 60, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Comment font size",
-                          systemImage: "captions.bubble")
+                    Label("Comment font size", systemImage: "captions.bubble")
                 }
-                .onChange(of: self.value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
+                .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
+            }
+        }
+        struct AccessoryFamilyPreview: View {
+            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup) var titleValue: Int = 14
+            @AppStorage("commentSizeForAccessoryFamily", store: .ⓐppGroup) var commentValue: Int = 9
+            var body: some View {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 12) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(.white)
+                                .shadow(color: .gray, radius: 3)
+                            VStack(spacing: 2) {
+                                Text(verbatim: "(TITLE)")
+                                    .font(.system(size: CGFloat(self.titleValue), weight: .bold))
+                                    .foregroundStyle(.purple)
+                                Text(verbatim: "(Comment)")
+                                    .font(.system(size: CGFloat(self.commentValue), weight: .light))
+                                    .foregroundStyle(.green)
+                            }
+                        }
+                        .frame(width: 200, height: 80)
+                        Text("Preview")
+                            .foregroundStyle(.secondary)
+                            .tracking(0.5)
+                            .font(.subheadline.italic().weight(.light))
+                    }
+                    .padding(.top, 12)
+                    Spacer()
                 }
+                .listRowBackground(Color.clear)
+                .animation(.default, value: self.titleValue)
+                .animation(.default, value: self.commentValue)
             }
         }
         struct TitleForAccessoryFamilyPicker: View {
-            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup)
-            var value: Int = 14
+            @AppStorage("titleSizeForAccessoryFamily", store: .ⓐppGroup) var value: Int = 18
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(7 ..< 40, id: \.self) {
-                        Text($0.description)
-                    }
+                    ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Title font size", 
-                          systemImage: "textformat.size")
+                    Label("Title font size",  systemImage: "textformat.size")
                 }
-                .onChange(of: self.value) { _ in
-                    WidgetCenter.shared.reloadAllTimelines()
+                .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
+            }
+        }
+        struct CommentForAccessoryFamilyPicker: View {
+            @AppStorage("commentSizeForAccessoryFamily", store: .ⓐppGroup) var value: Int = 10
+            var body: some View {
+                Picker(selection: self.$value) {
+                    ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
+                } label: {
+                    Label("Comment font size",  systemImage: "captions.bubble")
                 }
+                .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
         }
     }

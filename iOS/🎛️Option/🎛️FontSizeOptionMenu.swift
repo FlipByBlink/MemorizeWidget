@@ -61,8 +61,11 @@ private extension 🎛️FontSizeOptionMenu {
         var body: some View {
             NavigationLink {
                 List {
-                    //AccessoryWidgetPreview()
-                    🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
+                    🎛️ViewComponent.FontSize.AccessoryFamilyPreview()
+                    Section {
+                        🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
+                        🎛️ViewComponent.FontSize.CommentForAccessoryFamilyPicker()
+                    }
                     Section { Self.about() }
                 }
                 .navigationTitle("Accessory widget")

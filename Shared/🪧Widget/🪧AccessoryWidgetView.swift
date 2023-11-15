@@ -72,27 +72,28 @@ private extension 🪧AccessoryWidgetView {
             .widgetLabel(self.notes.first?.title ?? "No note")
     }
     private var titleFontSize: Font {
-        switch self.widgetFamily {
-            case .accessoryCircular:
-                    .body
-//                switch 🎛️Option.widgetTitleSizeForSingleMode {
-//                    case .small: .caption
-//                    case .default: .body
-//                    case .large: .system(size: 36)
-//                }
-            case .accessoryRectangular:
-                if self.notes.count == 1 {
-                    .system(size: 24, weight: .semibold)
-//                    switch 🎛️Option.widgetTitleSizeForSingleMode {
-//                        case .small: .system(size: 15, weight: .semibold)
-//                        case .default: .system(size: 24, weight: .semibold)
-//                        case .large: .system(size: 48, weight: .semibold)
-//                    }
-                } else {
-                    .system(size: 17, weight: .semibold)
-                }
-            default:
-                .body
+        if 🎛️Option.customizeFontSize {
+            .system(size: CGFloat(🎛️Option.titleSizeForAccessoryFamily))
+        } else {
+            switch self.widgetFamily {
+                case .accessoryCircular:
+                        .body
+                case .accessoryRectangular:
+                    if self.notes.count == 1 {
+                        .system(size: 24, weight: .semibold)
+                    } else {
+                        .system(size: 17, weight: .semibold)
+                    }
+                default:
+                        .body
+            }
+        }
+    }
+    private var commentFontSize: Font {
+        if 🎛️Option.customizeFontSize {
+            .system(size: CGFloat(🎛️Option.commentSizeForAccessoryFamily))
+        } else {
+            .body
         }
     }
 }
