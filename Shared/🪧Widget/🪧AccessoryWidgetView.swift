@@ -55,6 +55,7 @@ private extension 🪧AccessoryWidgetView {
                     && 🎛️Option.showCommentMode
                     && !ⓝote.comment.isEmpty {
                     Text(ⓝote.comment)
+                        .font(self.commentFontSize)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
