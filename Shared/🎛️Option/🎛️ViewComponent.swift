@@ -93,20 +93,31 @@ enum 🎛️ViewComponent {
                 HStack {
                     Spacer()
                     VStack(spacing: 12) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(.white)
-                                .shadow(color: .gray, radius: 3)
-                            VStack(spacing: 2) {
+                        HStack(spacing: 12) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .fill(.white)
+                                    .shadow(color: .gray, radius: 3)
+                                VStack(spacing: 2) {
+                                    Text(verbatim: "(TITLE)")
+                                        .font(.system(size: CGFloat(self.titleValue), weight: .bold))
+                                        .foregroundStyle(.purple)
+                                    Text(verbatim: "(Comment)")
+                                        .font(.system(size: CGFloat(self.commentValue), weight: .light))
+                                        .foregroundStyle(.green)
+                                }
+                            }
+                            .frame(width: 200, height: 80) //TODO: 実際のサイズに近付ける
+                            ZStack {
+                                Circle()
+                                    .fill(.white)
+                                    .shadow(color: .gray, radius: 3)
                                 Text(verbatim: "(TITLE)")
                                     .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                     .foregroundStyle(.purple)
-                                Text(verbatim: "(Comment)")
-                                    .font(.system(size: CGFloat(self.commentValue), weight: .light))
-                                    .foregroundStyle(.green)
                             }
+                            .frame(width: 70, height: 70) //TODO: 実際のサイズに近付ける
                         }
-                        .frame(width: 200, height: 80)
                         Text("Preview")
                             .foregroundStyle(.secondary)
                             .tracking(0.5)
