@@ -1,16 +1,11 @@
 import SwiftUI
 
 struct 🎛️FontSizeOptionMenu: View {
-    @AppStorage("customizeFontSize", store: .ⓐppGroup) var customizeFontSize: Bool = false
     var body: some View {
         List {
             🎛️ViewComponent.FontSize.CustomizeToggle()
-            Group {
-                Section { Self.SystemWidgetMenuLink() }
-                Section { Self.AccessoryWidgetMenuLink() }
-            }
-            .disabled(!self.customizeFontSize)
-            .animation(.default, value: self.customizeFontSize)
+            Section { Self.SystemWidgetMenuLink() }
+            Section { Self.AccessoryWidgetMenuLink() }
         }
         .navigationTitle("Font size on widget")
     }
@@ -42,6 +37,7 @@ private extension 🎛️FontSizeOptionMenu {
                     Label(self.horizontalSizeClass == .compact ? "System\nwidget" : "System widget",
                           systemImage: "slider.horizontal.3")
                 }
+                .modifier(🎛️FontSizeOptionMenu.LinkOpacity())
             }
         }
         private static func about() -> some View {
@@ -82,6 +78,7 @@ private extension 🎛️FontSizeOptionMenu {
                     Label(self.horizontalSizeClass == .compact ? "Accessory\nwidget" : "Accessory widget",
                           systemImage: "slider.horizontal.3")
                 }
+                .modifier(🎛️FontSizeOptionMenu.LinkOpacity())
             }
         }
         private static func about() -> some View {
@@ -95,6 +92,14 @@ private extension 🎛️FontSizeOptionMenu {
             .foregroundStyle(.secondary)
             .frame(maxWidth: .infinity)
             .listRowBackground(Color.clear)
+        }
+    }
+    private struct LinkOpacity: ViewModifier {
+        @AppStorage("customizeFontSize", store: .ⓐppGroup) var customizeFontSize: Bool = false
+        func body(content: Content) -> some View {
+            content
+                .opacity(self.customizeFontSize ? 1 : 0.5)
+                .animation(.default, value: self.customizeFontSize)
         }
     }
 }
