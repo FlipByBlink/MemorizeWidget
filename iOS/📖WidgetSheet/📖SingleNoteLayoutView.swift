@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📖SigleNoteLayoutView: View {
+struct 📖SingleNoteLayoutView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         VStack {

@@ -9,8 +9,8 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
                     case .widget: 📖WidgetSheetView()
                     case .notesImport: 📥NotesImportSheetView()
                     case .notesExport: 📤NotesExportSheetView()
-                    case .customizeFontSize: Self.fontCustomizeView()
-                    case .customizeSearch: 🔍CustomizeSearchSheetView()
+                    case .customizeFontSize: Self.fontCustomizeSheetView()
+                    case .customizeSearch: Self.customizeSearchSheetView()
                     case .search(let ⓤrl): 🔍SearchSheetView(ⓤrl)
                     case .dictionary(let ⓥiewController): 📘DictionarySheetView(ⓥiewController)
                     case .aboutApp: Self.aboutAppSheetView()
@@ -22,9 +22,15 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
 }
 
 private extension 📰SheetHandlerOnContentView {
-    private static func fontCustomizeView() -> some View {
+    private static func fontCustomizeSheetView() -> some View {
         NavigationStack {
             🎛️FontSizeOptionMenu()
+                .toolbar { 📰DismissButton() }
+        }
+    }
+    private static func customizeSearchSheetView() -> some View {
+        NavigationStack {
+            🔍CustomizeSearchMenu()
                 .toolbar { 📰DismissButton() }
         }
     }

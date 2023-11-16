@@ -6,7 +6,7 @@ struct 📖WidgetSheetView: View {
         NavigationStack {
             Group {
                 if self.model.openedWidgetNotesCount == 1 {
-                    📖SigleNoteLayoutView()
+                    📖SingleNoteLayoutView()
                 } else {
                     📖MultiNotesLayoutView()
                 }

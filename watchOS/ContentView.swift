@@ -6,10 +6,10 @@ struct ContentView: View {
         NavigationStack {
             List {
                 NavigationLink {
-                    📚NotesMenu()
+                    📚NotesListMenu()
                 } label: {
                     LabeledContent {
-                        Text("\(self.model.notes.count)")
+                        Text(verbatim: "\(self.model.notes.count)")
                     } label: {
                         Label("Notes", systemImage: "books.vertical")
                     }

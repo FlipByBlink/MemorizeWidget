@@ -21,11 +21,7 @@ private extension 🎛️MultiNotesOnWidgetOption {
         if #available(iOS 17.0, *) {
             true
         } else {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                true
-            } else {
-                false
-            }
+            UIDevice.current.userInterfaceIdiom == .phone
         }
     }
 }

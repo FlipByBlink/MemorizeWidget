@@ -5,7 +5,7 @@ struct 🗑TrashMenu: View {
     var body: some View {
         List {
             ForEach(self.model.trash.deletedContents) {
-                self.contentSection($0)
+                Self.contentSection($0)
             }
             self.emptyTrashView()
             🗑TrashViewComponent.AboutSection()
@@ -17,22 +17,22 @@ struct 🗑TrashMenu: View {
 }
 
 private extension 🗑TrashMenu {
-    private func contentSection(_ ⓒontent: 🗑DeletedContent) -> some View {
+    private static func contentSection(_ ⓒontent: 🗑DeletedContent) -> some View {
         Section {
             if ⓒontent.notes.count == 1 {
-                self.singleNoteRow(ⓒontent)
+                Self.singleNoteRow(ⓒontent)
             } else {
-                self.multiNotesRows(ⓒontent)
+                Self.multiNotesRows(ⓒontent)
             }
         } header: {
             🗑TrashViewComponent.DateText(source: ⓒontent)
         }
     }
-    private func singleNoteRow(_ ⓒontent: 🗑DeletedContent) -> some View {
+    private static func singleNoteRow(_ ⓒontent: 🗑DeletedContent) -> some View {
         HStack {
-            self.noteView(ⓒontent.notes.first ?? .init("BUG"))
+            Self.noteView(ⓒontent.notes.first ?? .init("BUG"))
             Spacer()
-            self.restoreButton(ⓒontent)
+            Self.restoreButton(ⓒontent)
                 .labelStyle(.iconOnly)
                 .buttonStyle(.plain)
                 .font(.title2)
@@ -41,29 +41,27 @@ private extension 🗑TrashMenu {
                 .padding(4)
         }
     }
-    private func multiNotesRows(_ ⓒontent: 🗑DeletedContent) -> some View {
+    private static func multiNotesRows(_ ⓒontent: 🗑DeletedContent) -> some View {
         Group {
-            self.restoreButton(ⓒontent)
+            Self.restoreButton(ⓒontent)
                 .font(.body.weight(.medium))
             ForEach(ⓒontent.notes) {
-                self.noteView($0)
+                Self.noteView($0)
                     .padding(.leading)
             }
         }
     }
-    private func noteView(_ ⓝote: 📗Note) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(ⓝote.title)
-                    .font(.body.weight(.semibold))
-                Text(ⓝote.comment)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(4)
+    private static func noteView(_ ⓝote: 📗Note) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(ⓝote.title)
+                .font(.body.weight(.semibold))
+            Text(ⓝote.comment)
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
+        .padding(4)
     }
-    private func restoreButton(_ ⓒontent: 🗑DeletedContent) -> some View {
+    private static func restoreButton(_ ⓒontent: 🗑DeletedContent) -> some View {
         🗑TrashViewComponent.RestoreButton(source: ⓒontent)
             .padding(.vertical, 4)
     }

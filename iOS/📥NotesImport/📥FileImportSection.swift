@@ -15,7 +15,7 @@ struct 📥FileImportSection: View {
                           allowedContentTypes: [.text]) {
                 self.model.fileImporterAction($0)
             }
-            .alert("⚠️", isPresented: self.$model.alertError) {
+            .alert("⚠️ Error", isPresented: self.$model.alertError) {
                 Button("OK") { self.model.caughtError = nil }
             } message: {
                 self.model.caughtError?.messageText()

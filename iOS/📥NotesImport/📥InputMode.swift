@@ -1,3 +1,4 @@
 enum 📥InputMode: String {
-    case file, text
+    case file
+    case text
 }

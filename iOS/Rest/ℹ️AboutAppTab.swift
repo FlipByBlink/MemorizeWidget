@@ -8,8 +8,10 @@ struct ℹ️AboutAppTab: View {
                     ℹ️IconAndName()
                     ℹ️AppStoreLink()
                     NavigationLink {
-                        List { ℹ️AboutAppContent() }
-                            .navigationTitle(.init("About App", tableName: "🌐AboutApp"))
+                        List {
+                            ℹ️AboutAppContent()
+                        }
+                        .navigationTitle(.init("About App", tableName: "🌐AboutApp"))
                     } label: {
                         Label(String(localized: "About App", table: "🌐AboutApp"),
                               systemImage: "doc")

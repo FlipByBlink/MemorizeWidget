@@ -47,10 +47,10 @@ enum 🎛️ViewComponent {
                                 .fill(.white)
                                 .shadow(color: .gray, radius: 4)
                             VStack(spacing: 5) {
-                                Text(verbatim: "(TITLE)")
+                                Text("(TITLE)")
                                     .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                     .foregroundStyle(.purple)
-                                Text(verbatim: "(Comment)")
+                                Text("(Comment)")
                                     .font(.system(size: CGFloat(self.commentValue), weight: .light))
                                     .foregroundStyle(.green)
                             }
@@ -75,7 +75,7 @@ enum 🎛️ViewComponent {
             
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(9 ..< 250, id: \.self) { Text("\($0)") }
+                    ForEach(9 ..< 270, id: \.self) { Text(verbatim: "\($0)") }
                 } label: {
                     Label("Title size", systemImage: "textformat.size")
                 }
@@ -88,7 +88,7 @@ enum 🎛️ViewComponent {
             
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(6 ..< 60, id: \.self) { Text("\($0)") }
+                    ForEach(6 ..< 60, id: \.self) { Text(verbatim: "\($0)") }
                 } label: {
                     Label("Comment size", systemImage: "captions.bubble")
                 }
@@ -101,7 +101,7 @@ enum 🎛️ViewComponent {
             
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
+                    ForEach(7 ..< 80, id: \.self) { Text(verbatim: "\($0)") }
                 } label: {
                     Label("Title size",  systemImage: "textformat.size")
                 }
@@ -114,7 +114,7 @@ enum 🎛️ViewComponent {
             
             var body: some View {
                 Picker(selection: self.$value) {
-                    ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
+                    ForEach(7 ..< 22, id: \.self) { Text(verbatim: "\($0)") }
                 } label: {
                     Label("Comment size",  systemImage: "captions.bubble")
                 }

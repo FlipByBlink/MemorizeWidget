@@ -1,7 +1,11 @@
 import SwiftUI
 
 enum 📥Error: Error {
-    case dataSizeLimitExceeded, others(String)
+    case dataSizeLimitExceeded
+    case others(String)
+}
+
+extension 📥Error {
     func messageText() -> some View {
         switch self {
             case .dataSizeLimitExceeded:

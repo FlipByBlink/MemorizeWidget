@@ -1,3 +1,5 @@
 enum 🪧Kind {
-    case primary, sub, newNoteShortcut
+    case primary
+    case sub
+    case newNoteShortcut
 }

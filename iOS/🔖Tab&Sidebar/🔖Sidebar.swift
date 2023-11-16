@@ -1,16 +1,20 @@
 import SwiftUI
 
 enum 🔖Sidebar {
-    case notesList, option, trash, guide
+    case notesList
+    case option
+    case trash
+    case guide
 }
 
 extension 🔖Sidebar: CaseIterable, Identifiable {
     var id: Self { self }
     func label() -> some View {
-        Label(self.title, systemImage: self.iconName)
-        //NavigationLink(value: self) {
-        //    Label(self.title, systemImage: self.iconName)
-        //} よく分からないがサンプルコードではNavigationLinkで実装してる例あり。
+        //Label(self.title, systemImage: self.iconName)
+        NavigationLink(value: self) {
+            Label(self.title, systemImage: self.iconName)
+        }
+        //よく分からないがサンプルコードではNavigationLinkで実装してる例あり。
     }
     var detailView: some View {
         Self.DetailView(selectedTab: self)

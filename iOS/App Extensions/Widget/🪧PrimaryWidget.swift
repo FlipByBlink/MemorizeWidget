@@ -3,8 +3,7 @@ import SwiftUI
 
 struct 🪧PrimaryWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "main",
-                            provider: 🪧Provider(kind: .primary)) {
+        StaticConfiguration(kind: "main", provider: 🪧Provider(kind: .primary)) {
             if $0.phase == .placeholder {
                 🪧PlaceholderView()
             } else {
@@ -14,7 +13,7 @@ struct 🪧PrimaryWidget: Widget {
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
         .contentMarginsDisabled()
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge,
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge,
                             .accessoryInline, .accessoryRectangular, .accessoryCircular])
     }
 }

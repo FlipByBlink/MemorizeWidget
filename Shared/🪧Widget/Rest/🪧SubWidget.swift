@@ -3,8 +3,7 @@ import SwiftUI
 
 struct 🪧SubWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "sub",
-                            provider: 🪧Provider(kind: .sub)) {
+        StaticConfiguration(kind: "sub", provider: 🪧Provider(kind: .sub)) {
             if $0.phase == .placeholder {
                 🪧PlaceholderView()
             } else {
@@ -25,7 +24,7 @@ private extension 🪧SubWidget {
 #if os(iOS)
         ⓥalue.append(contentsOf: [.systemSmall, .systemMedium])
         if UIDevice.current.userInterfaceIdiom == .pad {
-            ⓥalue.append(.systemLarge)
+            ⓥalue.append(contentsOf: [.systemLarge, .systemExtraLarge])
         }
 #elseif os(watchOS)
         ⓥalue.append(.accessoryCorner)

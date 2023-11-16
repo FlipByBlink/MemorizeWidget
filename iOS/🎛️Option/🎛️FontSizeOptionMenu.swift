@@ -105,10 +105,10 @@ private extension 🎛️FontSizeOptionMenu {
                                     .fill(.white)
                                     .shadow(color: .gray, radius: 3)
                                 VStack(spacing: 2) {
-                                    Text(verbatim: "(TITLE)")
+                                    Text("(TITLE)")
                                         .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                         .foregroundStyle(.purple)
-                                    Text(verbatim: "(Comment)")
+                                    Text("(Comment)")
                                         .font(.system(size: CGFloat(self.commentValue), weight: .light))
                                         .foregroundStyle(.green)
                                 }
@@ -118,7 +118,7 @@ private extension 🎛️FontSizeOptionMenu {
                                 Circle()
                                     .fill(.white)
                                     .shadow(color: .gray, radius: 3)
-                                Text(verbatim: "(TITLE)")
+                                Text("(TITLE)")
                                     .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                     .foregroundStyle(.purple)
                             }

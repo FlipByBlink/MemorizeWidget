@@ -1,3 +1,4 @@
 enum 📗Placement {
-    case notesList, widgetSheet
+    case notesList
+    case widgetSheet
 }

@@ -1,3 +1,5 @@
 enum 🪧Phase {
-    case placeholder, snapshot, inTimeline
+    case placeholder
+    case snapshot
+    case inTimeline
 }

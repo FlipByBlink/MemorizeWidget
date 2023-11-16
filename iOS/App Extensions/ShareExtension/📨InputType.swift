@@ -1,3 +1,6 @@
 enum 📨InputType {
-    case textFile, selectedText, improperFile, exceedDataLimitation
+    case textFile
+    case selectedText
+    case improperFile
+    case exceedDataLimitation
 }

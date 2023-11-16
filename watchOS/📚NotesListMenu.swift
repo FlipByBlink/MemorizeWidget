@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📚NotesMenu: View {
+struct 📚NotesListMenu: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
@@ -26,7 +26,7 @@ struct 📚NotesMenu: View {
     }
 }
 
-private extension 📚NotesMenu {
+private extension 📚NotesListMenu {
     private func newNoteButton() -> some View {
         TextFieldLink {
             Label("New note", systemImage: "plus")

@@ -9,7 +9,7 @@ struct 🪧EntryView: View {
                 🪧NoNoteView()
             } else {
                 switch self.widgetFamily {
-                    case .systemSmall, .systemMedium, .systemLarge:
+                    case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
                         🪧SystemWidgetView(self.tag)
                     case .accessoryInline, .accessoryCircular, .accessoryRectangular:
                         🪧AccessoryWidgetView(self.tag)

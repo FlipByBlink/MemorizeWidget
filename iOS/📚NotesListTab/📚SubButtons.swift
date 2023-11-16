@@ -7,12 +7,12 @@ struct 📚SubButtons: View {
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
-            if self.isIPad && !self.editing {
+            if Self.isIPad && !self.editing {
                 self.dictionaryButton()
                 🔍SearchButton(self.note, padding: 8)
             }
             Menu {
-                if !self.isIPad {
+                if !Self.isIPad {
                     self.dictionaryButton()
                     🔍SearchButton(self.note)
                 }
@@ -39,7 +39,7 @@ struct 📚SubButtons: View {
 }
 
 private extension 📚SubButtons {
-    private var isIPad: Bool {
+    private static var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
     }
     private var editing: Bool {

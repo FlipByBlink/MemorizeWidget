@@ -1,7 +1,11 @@
 import SwiftUI
 
 enum 🔖Tab {
-    case notesList, option, trash, guide, app
+    case notesList
+    case option
+    case trash
+    case guide
+    case app
 }
 
 extension 🔖Tab: CaseIterable, Identifiable {

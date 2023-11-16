@@ -37,18 +37,18 @@ private struct 🄸mportNotesSection: View {
     var body: some View {
         Section {
             VStack(spacing: 12) {
-                Image("importNotesButton")
+                Image(.importNotesButton)
                     .shadow(radius: 2, y: 1)
                 Text("Import notes from plain text or text base file(csv, tsv, txt).")
             }
             .padding(12)
             HStack(spacing: 8) {
-                Image("shareSheetText")
+                Image(.shareSheetText)
                     .padding(8)
                 Text("Import selected text as notes from other app.")
             }
             HStack(spacing: 8) {
-                Image("shareSheetFile")
+                Image(.shareSheetFile)
                     .padding(8)
                 Text("Import a text-base file as notes from other app.")
             }
@@ -63,7 +63,7 @@ private struct 🅃ipsSection: View {
         Section {
             HStack(spacing: 12) {
                 HStack(spacing: 4) {
-                    Image("deleteBySwiping")
+                    Image(.deleteBySwiping)
                         .shadow(radius: 1, y: -1)
                         .shadow(radius: 1, y: 1)
                     Image(systemName: "cursorarrow.motionlines")
@@ -74,7 +74,7 @@ private struct 🅃ipsSection: View {
             }
             HStack(spacing: 12) {
                 HStack(spacing: 4) {
-                    Image("moveBySwiping")
+                    Image(.moveBySwiping)
                         .shadow(radius: 1, y: -1)
                         .shadow(radius: 1, y: 1)
                     Image(systemName: "hand.draw")
@@ -113,15 +113,11 @@ private struct 🄰ppleSupportLinkSection: View {
         }
 #endif
     }
-    private static var activeLockScreenWidget: Bool {
+    private static var supportLockScreenWidget: Bool {
         if #available(iOS 17.0, *) {
             true
         } else {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                true
-            } else {
-                false
-            }
+            UIDevice.current.userInterfaceIdiom == .phone
         }
     }
     var body: some View {
@@ -140,7 +136,7 @@ private struct 🄰ppleSupportLinkSection: View {
                 .padding(.vertical, 4)
             }
             .accessibilityLabel(Self.labelTitle)
-            if Self.activeLockScreenWidget {
+            if Self.supportLockScreenWidget {
                 Link(destination: .init(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
                         Label("Create a custom iPhone Lock Screen", systemImage: "link")

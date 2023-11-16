@@ -41,7 +41,7 @@ struct 📥TextImportSection: View {
             .disabled(self.model.pastedText.isEmpty)
         }
         .animation(.default, value: self.model.pastedText.isEmpty)
-        .alert("⚠️", isPresented: self.$model.alertError) {
+        .alert("⚠️ Error", isPresented: self.$model.alertError) {
             Button("OK") { self.model.caughtError = nil }
         } message: {
             self.model.caughtError?.messageText()
