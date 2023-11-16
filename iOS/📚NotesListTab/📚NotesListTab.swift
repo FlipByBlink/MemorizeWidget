@@ -7,7 +7,7 @@ struct 📚NotesListTab: View {
         NavigationStack {
             ScrollViewReader { ⓢcrollViewProxy in
                 List {
-                    self.randomModeSection()
+                    Self.RandomModeSection()
                     Section {
                         self.newNoteOnTopButton()
                         ForEach(self.$model.notes) {
@@ -50,13 +50,17 @@ struct 📚NotesListTab: View {
 }
 
 private extension 📚NotesListTab {
-    private func randomModeSection() -> some View {
-        Section {
-            🎛️RandomModeToggle()
-                .padding(.vertical, 8)
-        } footer: {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                🎛️RandomModeToggle.Caption()
+    private struct RandomModeSection: View {
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
+        var body: some View {
+            Section {
+                🎛️RandomModeToggle()
+                    .padding(.vertical, 8)
+            } footer: {
+                if UIDevice.current.userInterfaceIdiom == .phone
+                    || self.horizontalSizeClass == .compact {
+                    🎛️RandomModeToggle.Caption()
+                }
             }
         }
     }

@@ -3,12 +3,18 @@ import WidgetKit
 
 struct 🎛️RandomModeToggle: View {
     @EnvironmentObject var model: 📱AppModel
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         Toggle(isOn: self.$model.randomMode) {
-            LabeledContent {
-                Self.captionForIPad()
-            } label: {
-                Label("Random mode", systemImage: "shuffle")
+            switch self.horizontalSizeClass {
+                case .compact:
+                    Label("Random mode", systemImage: "shuffle")
+                default:
+                    LabeledContent {
+                        Self.captionForIPad()
+                    } label: {
+                        Label("Random mode", systemImage: "shuffle")
+                    }
             }
         }
         .onChange(of: self.model.randomMode) { _ in
