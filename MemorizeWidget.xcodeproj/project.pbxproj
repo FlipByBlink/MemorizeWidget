@@ -62,6 +62,7 @@
 		167317DD2B05942100656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317DB2B05942100656005 /* 🎛️Default.swift */; };
 		167317DE2B05942100656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317DB2B05942100656005 /* 🎛️Default.swift */; };
 		167317DF2B05942100656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317DB2B05942100656005 /* 🎛️Default.swift */; };
+		167317E12B059F9A00656005 /* 🎛️FontSizeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */; };
 		168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */; };
 		168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */; };
 		168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
@@ -476,6 +477,7 @@
 		167156422AFF387900043F03 /* 🪧SubWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧SubWidget.swift"; sourceTree = "<group>"; };
 		167317C32B04F31900656005 /* 🎛️Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️Key.swift"; sourceTree = "<group>"; };
 		167317DB2B05942100656005 /* 🎛️Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🎛️Default.swift"; sourceTree = "<group>"; };
+		167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️FontSizeMenu.swift"; sourceTree = "<group>"; };
 		1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥FileImportSection.swift"; sourceTree = "<group>"; };
 		168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥TextImportSection.swift"; sourceTree = "<group>"; };
 		168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥SeparatorPicker.swift"; sourceTree = "<group>"; };
@@ -922,6 +924,7 @@
 		F50C83022AA5CD410033A04B /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */,
 				F50C83472AA5F01B0033A04B /* 🗑TrashMenu.swift */,
 				F50C833D2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift */,
 				F50C83262AA5E1090033A04B /* 💁GuideMenu.swift */,
@@ -1350,6 +1353,7 @@
 				1671562E2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				167156332AFEFD2400043F03 /* 🪧Phase.swift in Sources */,
 				F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */,
+				167317E12B059F9A00656005 /* 🎛️FontSizeMenu.swift in Sources */,
 				16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */,
 				16A026732AFCF10400694CF2 /* 🪧Tag.swift in Sources */,
 				168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,

@@ -4,23 +4,23 @@ struct 🔩MainMenu: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List {
-            self.randomModeSection()
+            Self.randomModeSection()
             Section {
                 🎛️ViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
-                Self.FontSizeMenu()
+                Self.fontSizeMenuLink()
             } header: {
                 Text("Widget")
             }
             self.trashMenuLink()
-            self.deleteAllNotesButton()
+            Self.deleteAllNotesButton()
         }
         .navigationTitle("Menu")
     }
 }
 
 private extension 🔩MainMenu {
-    private func randomModeSection() -> some View {
+    private static func randomModeSection() -> some View {
         Section {
             🎛️RandomModeToggle()
         } footer: {
@@ -47,53 +47,16 @@ private extension 🔩MainMenu {
             }
         }
     }
-    private struct FontSizeMenu: View {
-        @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup)
-        var titleValue: Int = 🎛️Default.FontSize.AccessoryFamily.title
-        
-        @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup)
-        var commentValue: Int = 🎛️Default.FontSize.AccessoryFamily.comment
-        
-        var body: some View {
-            Section {
-                NavigationLink {
-                    List {
-                        Section {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(.white)
-                                    .shadow(color: .gray, radius: 3)
-                                VStack(spacing: 2) {
-                                    Text(verbatim: "(TITLE)")
-                                        .font(.system(size: CGFloat(self.titleValue), weight: .bold))
-                                        .foregroundStyle(.purple)
-                                    Text(verbatim: "(Comment)")
-                                        .font(.system(size: CGFloat(self.commentValue), weight: .light))
-                                        .foregroundStyle(.green)
-                                }
-                            }
-                            .frame(height: 72) //TODO: 実際のサイズに近付ける
-                            .listRowBackground(Color.clear)
-                            .animation(.default, value: self.titleValue)
-                            .animation(.default, value: self.commentValue)
-                        } header: {
-                            Text("Preview")
-                        }
-                        Section {
-                            🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
-                            🎛️ViewComponent.FontSize.CommentForAccessoryFamilyPicker()
-                        } footer: {
-                            Text("環境やテキストによって実際に表示されるサイズは変化します")
-                        }
-                    }
-                    .navigationTitle("Font size")
-                } label: {
-                    Label("Customize font size", systemImage: "textformat.size")
-                }
+    private static func fontSizeMenuLink() -> some View {
+        Section {
+            NavigationLink {
+                🎛️FontSizeMenu()
+            } label: {
+                Label("Customize font size", systemImage: "textformat.size")
             }
         }
     }
-    private func deleteAllNotesButton() -> some View {
+    private static func deleteAllNotesButton() -> some View {
         Section {
             🚮DeleteAllNotesButton()
                 .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
