@@ -144,13 +144,19 @@ extension 📱AppModel {
         self.presentedSheetOnContentView = ⓣarget
     }
     var openedWidgetNoteIDs: [UUID] {
-        self.presentedSheetOnContentView?.widgetTag?.targetedNoteIDs ?? []
+        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
+            return []
+        }
+        return ⓣag.targetedNoteIDs
     }
     var openedWidgetSingleNoteIndex: Int? {
         self.notes.index(self.openedWidgetNoteIDs.first)
     }
     var openedWidgetNotesCount: Int {
-        self.presentedSheetOnContentView?.widgetTag?.targetedNoteIDs.count ?? 0
+        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
+            return 0
+        }
+        return ⓣag.targetedNoteIDs.count
     }
     var deletedAllWidgetNotes: Bool {
         guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
