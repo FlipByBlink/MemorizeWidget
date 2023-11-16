@@ -58,6 +58,10 @@
 		167317C62B04F55000656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
 		167317C72B04F55100656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
 		167317C82B04F96A00656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
+		167317D32B058DD200656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317D22B058DD200656005 /* 🎛️Default.swift */; };
+		167317D42B058DD200656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317D22B058DD200656005 /* 🎛️Default.swift */; };
+		167317D62B058DD200656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317D22B058DD200656005 /* 🎛️Default.swift */; };
+		167317D72B058DD200656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317D22B058DD200656005 /* 🎛️Default.swift */; };
 		168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */; };
 		168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */; };
 		168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
@@ -471,6 +475,7 @@
 		167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PrimaryWidget.swift"; sourceTree = "<group>"; };
 		167156422AFF387900043F03 /* 🪧SubWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧SubWidget.swift"; sourceTree = "<group>"; };
 		167317C32B04F31900656005 /* 🎛️Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️Key.swift"; sourceTree = "<group>"; };
+		167317D22B058DD200656005 /* 🎛️Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "🎛️Default.swift"; path = "../../../../Desktop/🎛️Default.swift"; sourceTree = "<group>"; };
 		1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥FileImportSection.swift"; sourceTree = "<group>"; };
 		168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥TextImportSection.swift"; sourceTree = "<group>"; };
 		168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥SeparatorPicker.swift"; sourceTree = "<group>"; };
@@ -731,6 +736,7 @@
 			children = (
 				167156362AFF2E2200043F03 /* 🎛️Option.swift */,
 				167317C32B04F31900656005 /* 🎛️Key.swift */,
+				167317D22B058DD200656005 /* 🎛️Default.swift */,
 				16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */,
 			);
@@ -1343,6 +1349,7 @@
 				1671562E2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				167156332AFEFD2400043F03 /* 🪧Phase.swift in Sources */,
 				F568F1A229E3A629005A1D1A /* 💾ICloud.swift in Sources */,
+				167317D62B058DD200656005 /* 🎛️Default.swift in Sources */,
 				16C98FF32AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift in Sources */,
 				16A026732AFCF10400694CF2 /* 🪧Tag.swift in Sources */,
 				168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
@@ -1367,6 +1374,7 @@
 				1671563D2AFF354800043F03 /* 🪧NoNoteView.swift in Sources */,
 				16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */,
 				1671563A2AFF2E2200043F03 /* 🎛️Option.swift in Sources */,
+				167317D72B058DD200656005 /* 🎛️Default.swift in Sources */,
 				168D5F0C2AF6034900A100A7 /* 📚Notes.swift in Sources */,
 				F568F1F929E3C565005A1D1A /* WidgetBundle.swift in Sources */,
 				1671563F2AFF37DF00043F03 /* 🪧PrimaryWidget.swift in Sources */,
@@ -1429,6 +1437,7 @@
 				1671562C2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
 				166C25432B01A9C5008124DC /* 🔖SidebarView.swift in Sources */,
 				F527F47929D5407F00E9FB97 /* 📥NotesImportSheetView.swift in Sources */,
+				167317D32B058DD200656005 /* 🎛️Default.swift in Sources */,
 				16D7B6DD2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */,
 				166C25312B00A488008124DC /* 🔖Sidebar.swift in Sources */,
 				F568F1A929E3A703005A1D1A /* 💥Feedback.swift in Sources */,
@@ -1524,6 +1533,7 @@
 				167156322AFEFD2400043F03 /* 🪧Phase.swift in Sources */,
 				F50C83392AA5E6E70033A04B /* 🪧Provider.swift in Sources */,
 				F50C839B2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift in Sources */,
+				167317D42B058DD200656005 /* 🎛️Default.swift in Sources */,
 				F5FE2D8229DBBFA5008C728B /* 🪧EntryView.swift in Sources */,
 				168D5F1D2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
 			);

@@ -48,8 +48,12 @@ private extension 🔩MainMenu {
         }
     }
     private struct FontSizeMenu: View {
-        @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup) var titleValue: Int = 14
-        @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup) var commentValue: Int = 9
+        @AppStorage(🎛️Key.FontSize.AccessoryFamily.title, store: .ⓐppGroup)
+        var titleValue: Int = 🎛️Default.FontSize.AccessoryFamily.title
+        
+        @AppStorage(🎛️Key.FontSize.AccessoryFamily.comment, store: .ⓐppGroup)
+        var commentValue: Int = 🎛️Default.FontSize.AccessoryFamily.comment
+        
         var body: some View {
             Section {
                 NavigationLink {
