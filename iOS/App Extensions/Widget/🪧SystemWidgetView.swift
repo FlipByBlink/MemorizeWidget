@@ -49,8 +49,6 @@ private extension 🪧SystemWidgetView {
                             return .largeTitle
                         case 2, 3, 4, 5:
                             return 🎛️Option.showCommentMode ? .title3 : .title
-                        case 6:
-                            return 🎛️Option.showCommentMode ? .headline : .title
                         default:
                             assertionFailure()
                             return .title
@@ -58,7 +56,7 @@ private extension 🪧SystemWidgetView {
                 case .systemExtraLarge:
                     switch self.notes.count {
                         case 1:
-                            return .system(size: 54)
+                            return .system(size: 120)
                         case 2, 3, 4, 5:
                             return 🎛️Option.showCommentMode ? .title3 : .title
                         default:
@@ -78,11 +76,16 @@ private extension 🪧SystemWidgetView {
             switch self.widgetFamily {
                 case .systemSmall, .systemMedium:
                     return self.notes.count == 1 ? .body : .caption
-                case .systemLarge, .systemExtraLarge:
+                case .systemLarge:
                     switch self.notes.count {
                         case 1: return .title3
                         case 2, 3, 4, 5: return .subheadline
-                        case 6: return .caption
+                        default: assertionFailure(); return .title
+                    }
+                case .systemExtraLarge:
+                    switch self.notes.count {
+                        case 1: return .title
+                        case 2, 3, 4, 5: return .body
                         default: assertionFailure(); return .title
                     }
                 default:
