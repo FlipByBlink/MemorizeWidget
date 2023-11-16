@@ -11,6 +11,7 @@ struct 📖SearchButton: View {
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Label("Search", systemImage: "magnifyingglass")
+                .padding(8)
         }
         .hoverEffect()
     }

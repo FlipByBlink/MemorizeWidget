@@ -60,7 +60,7 @@ private extension 📖MultiNotesLayoutView {
                                    titleFont: self.lessThan4 ? .title : .body,
                                    commentFont: self.lessThan4 ? .title3 : .subheadline,
                                    placement: .widgetSheet)
-                        HStack(spacing: 24) {
+                        HStack(spacing: 8) {
                             📖DictionaryButton(self.model.notes[ⓘndex])
                             📖SearchButton(self.model.notes[ⓘndex])
                             if !self.model.randomMode { 📖MoveEndButton(self.model.notes[ⓘndex]) }

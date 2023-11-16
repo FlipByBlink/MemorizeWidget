@@ -10,7 +10,9 @@ struct 📖MoveEndButton: View {
             withAnimation(.default.speed(2)) { self.done = true }
         } label: {
             Label("Move end", systemImage: "arrow.down.to.line")
+                .padding(8)
         }
+        .hoverEffect()
         .disabled(self.model.notes.last == self.note)
         .opacity(self.done ? 0.33 : 1)
         .overlay(alignment: .bottomTrailing) {

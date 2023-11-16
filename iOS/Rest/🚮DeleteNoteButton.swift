@@ -8,7 +8,9 @@ struct 🚮DeleteNoteButton: View {
             self.model.removeNote(self.note)
         } label: {
             Label("Delete", systemImage: "trash")
+                .padding(8)
         }
+        .hoverEffect()
     }
     init(_ note: 📗Note) {
         self.note = note

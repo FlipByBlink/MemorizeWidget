@@ -10,7 +10,9 @@ struct 📖DictionaryButton: View {
             UISelectionFeedbackGenerator().selectionChanged()
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
+                .padding(8)
         }
+        .hoverEffect()
 #else
         📘DictionaryButtonOnMac(term: self.term)
 #endif
