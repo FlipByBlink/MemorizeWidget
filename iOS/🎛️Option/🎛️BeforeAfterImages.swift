@@ -1,28 +1,24 @@
 import SwiftUI
 
 struct 🎛️BeforeAfterImages: View {
-    private var before: String
-    private var after: String
+    private var before: ImageResource
+    private var after: ImageResource
     var body: some View {
         HStack {
             Image(self.before)
                 .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 200)
-                .cornerRadius(16)
-                .shadow(radius: 2)
+                .aspectRatio(contentMode: .fit)
             Image(systemName: "arrow.right")
                 .font(.title2.weight(.semibold))
                 .foregroundStyle(.secondary)
             Image(self.after)
                 .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 200)
-                .cornerRadius(16)
-                .shadow(radius: 2)
+                .aspectRatio(contentMode: .fit)
         }
+        .frame(maxHeight: 170)
+        .environment(\.layoutDirection, .leftToRight)
     }
-    init(_ before: String, _ after: String) {
+    init(_ before: ImageResource, _ after: ImageResource) {
         self.before = before
         self.after = after
     }

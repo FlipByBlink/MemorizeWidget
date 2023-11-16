@@ -6,11 +6,10 @@ struct 🎛️MultiNotesOnWidgetOption: View {
             🎛️ViewComponent.MultiNotesToggle()
                 .padding(.vertical, 8)
             VStack(spacing: 12) {
-                🎛️BeforeAfterImages("home_multiNotes_before",
-                                    "home_multiNotes_after")
+                🎛️BeforeAfterImages(.systemFamilyDefault, .systemFamilyMultiNotes)
                 if UIDevice.current.userInterfaceIdiom == .phone {
-                    🎛️BeforeAfterImages("lockscreen_multiNotes_before",
-                                        "lockscreen_multiNotes_after")
+//                    🎛️BeforeAfterImages("lockscreen_multiNotes_before",
+//                                        "lockscreen_multiNotes_after")
                 }
             }
             .padding()
