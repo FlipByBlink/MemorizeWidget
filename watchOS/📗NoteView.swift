@@ -27,7 +27,8 @@ struct 📗NoteView: View {
         }
     }
     enum Placement {
-        case notesMenu, widgetSheet
+        case notesMenu
+        case widgetSheet
     }
     init(_ note: Binding<📗Note>, _ placement: Self.Placement) {
         self._note = note

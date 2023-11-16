@@ -160,13 +160,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Placeholder"
+            "value" : "・Font size option\n・Improve UI for iPad\n・Sub widget for non-random-mode\n・Open search-result in app browser\n・Several small fix/change/improve"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "プレースホルダー"
+            "value" : "・フォントサイズ変更オプション\n・iPad向けデザインの大幅な改善\n・非ランダムモード向けにサブウィジェットをサポート\n・検索結果をアプリ内ブラウザで表示\n・様々な軽微な修正/変更/改善"
           }
         }
       }
