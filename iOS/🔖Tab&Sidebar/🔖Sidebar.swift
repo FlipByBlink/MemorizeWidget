@@ -9,12 +9,12 @@ enum 🔖Sidebar {
 
 extension 🔖Sidebar: CaseIterable, Identifiable {
     var id: Self { self }
-    func label() -> some View {
-        //Label(self.title, systemImage: self.iconName)
+    func navigationLink() -> some View {
         NavigationLink(value: self) {
             Label(self.title, systemImage: self.iconName)
         }
         //よく分からないがサンプルコードではNavigationLinkで実装してる例あり。
+        //Label(self.title, systemImage: self.iconName) ← これとの差異がよく分からない。
     }
     var detailView: some View {
         Self.DetailView(selectedTab: self)

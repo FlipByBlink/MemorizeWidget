@@ -4,7 +4,7 @@ struct 🔖SidebarView: View {
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         List(selection: self.$model.selectedSidebar) {
-            ForEach(🔖Sidebar.allCases) { $0.label() }
+            ForEach(🔖Sidebar.allCases) { $0.navigationLink() }
         }
         .background(ignoresSafeAreaEdges: .all)
         .navigationSplitViewColumnWidth(280) //default: 320

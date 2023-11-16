@@ -6,7 +6,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Flashcard on widget. Memorize notes in everyday life.\n\nYou create freely notes for widget.\n\nApp present the notes on widget.\n\n\nOption\n\n- Random mode: widget changes the note per 5 minutes.\n\n- Show multi notes.\n\n- Show comment on widget.\n\n\nRest\n\n- Import file(e.g. tsv, csv, txt) or text.\n\n- System dictionary support.\n\n- Customizable search function.\n\n- Sync between devices by iCloud.\n\n\nMulti platform support\n\niPhone: Home screen, Lock screen, StandBy(iOS 17)\n\niPad: Home screen, Lock screen(iPadOS 17)\n\nMac: Notification center, Desktop(macOS 14)\n\nApple Watch: Complication, Smart Stack(watchOS 10)"
+            "value" : "Flashcard on widget. Memorize notes in everyday life.\n\nYou create freely notes for widget.\n\nApp presents the notes on widget.\n\n\nOption\n\n- Random mode: widget changes the note per 5 minutes.\n\n- Show multi notes.\n\n- Show comment on widget.\n\n\nRest\n\n- Import file(e.g. tsv, csv, txt) or text.\n\n- System dictionary support.\n\n- Customizable search function.\n\n- Sync between devices by iCloud.\n\n\nMulti platform support\n\niPhone: Home screen, Lock screen, StandBy(iOS 17)\n\niPad: Home screen, Lock screen(iPadOS 17)\n\nMac: Notification center, Desktop(macOS 14)\n\nApple Watch: Complication, Smart Stack(watchOS 10)"
           }
         },
         "ja" : {

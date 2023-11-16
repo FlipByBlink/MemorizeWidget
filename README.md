@@ -13,11 +13,23 @@ __iPhone, iPad, Apple Watch, Mac__
 
 Description
 ------------
-Flashcard on widget. Memorize a note in everyday life.
+Flashcard on widget. Memorize notes in everyday life.
 
-- Two mode. "One note mode" or "Random note mode".
+You create freely notes for widget.
 
-- In Random note mode, widget changes the note per 5 minutes.
+App presents the notes on widget.
+
+
+Option
+
+- Random mode: widget changes the note per 5 minutes.
+
+- Show multi notes.
+
+- Show comment on widget.
+
+
+Rest
 
 - Import file(e.g. tsv, csv, txt) or text.
 
@@ -26,13 +38,6 @@ Flashcard on widget. Memorize a note in everyday life.
 - Customizable search function.
 
 - Sync between devices by iCloud.
-
-
-Options
-
-- Show multi notes.
-
-- Show comment on widget.
 
 
 Multi platform support
