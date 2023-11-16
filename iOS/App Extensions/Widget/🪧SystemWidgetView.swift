@@ -42,11 +42,11 @@ private extension 🪧SystemWidgetView {
                 case .systemSmall:
                     return self.notes.count == 1 ? .title3 : .headline
                 case .systemMedium:
-                    return self.notes.count == 1 ? .title : .headline
+                    return self.notes.count == 1 ? .largeTitle : .headline
                 case .systemLarge:
                     switch self.notes.count {
                         case 1:
-                            return .largeTitle
+                            return .system(size: 60)
                         case 2, 3, 4, 5:
                             return 🎛️Option.showCommentMode ? .title3 : .title
                         default:

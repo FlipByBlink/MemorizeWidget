@@ -57,7 +57,7 @@ private extension 📖MultiNotesLayoutView {
                 } else {
                     HStack(spacing: 0) {
                         📗NoteView(source: self.$model.notes[ⓘndex],
-                                   titleFont: self.lessThan4 ? .title : .body,
+                                   titleFont: self.lessThan4 ? .title : .title3,
                                    commentFont: self.lessThan4 ? .title3 : .subheadline,
                                    placement: .widgetSheet)
                         HStack(spacing: 8) {

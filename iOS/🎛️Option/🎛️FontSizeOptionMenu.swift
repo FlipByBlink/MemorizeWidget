@@ -51,6 +51,7 @@ private extension 🎛️FontSizeOptionMenu {
                 Desktop
                 Lock screen(iPad)
                 """)
+            .padding()
             .multilineTextAlignment(.center)
             .font(.caption)
             .foregroundStyle(.secondary)
@@ -143,6 +144,7 @@ private extension 🎛️FontSizeOptionMenu {
                 Lock screen
                 Apple Watch complication
                 """)
+            .padding()
             .multilineTextAlignment(.center)
             .font(.caption)
             .foregroundStyle(.secondary)
