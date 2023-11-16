@@ -160,7 +160,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "・Font size option\n・Improve UI for iPad\n・Sub widget for non-random-mode\n・Open search-result in app browser\n・Several small fix/change/improve"
+            "value" : "・Add font size option\n・Improve UI for iPad\n・Sub widget for non-random-mode\n・Open search-result in app browser\n・Several small fix/change/improve"
           }
         },
         "ja" : {
