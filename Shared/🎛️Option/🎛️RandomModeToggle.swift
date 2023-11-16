@@ -6,16 +6,15 @@ struct 🎛️RandomModeToggle: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         Toggle(isOn: self.$model.randomMode) {
-            switch self.horizontalSizeClass {
-                case .compact:
-                    Label("Random mode", systemImage: "shuffle")
-                default:
-                    LabeledContent {
-                        Self.captionForIPad()
-                    } label: {
-                        Label("Random mode", systemImage: "shuffle")
-                    }
+#if os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                self.labelForIPad()
+            } else {
+                Self.label()
             }
+#else
+            Self.label()
+#endif
         }
         .onChange(of: self.model.randomMode) { _ in
             WidgetCenter.shared.reloadAllTimelines()
@@ -32,15 +31,23 @@ struct 🎛️RandomModeToggle: View {
 }
 
 private extension 🎛️RandomModeToggle {
-    private static func captionForIPad() -> some View {
+    private static func label() -> some View {
+        Label("Random mode", systemImage: "shuffle")
+    }
+    private func labelForIPad() -> some View {
 #if os(iOS)
         Group {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                Text("Per 5 minutes")
-                    .font(.caption.weight(.light))
-                    .padding(.trailing, 8)
-            } else {
-                EmptyView()
+            switch self.horizontalSizeClass {
+                case .compact:
+                    Self.label()
+                default:
+                    LabeledContent {
+                        Text("Per 5 minutes")
+                            .font(.caption.weight(.light))
+                            .padding(.trailing, 8)
+                    } label: {
+                        Self.label()
+                    }
             }
         }
 #else
