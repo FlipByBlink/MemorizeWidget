@@ -29,7 +29,7 @@ private extension 🎛️FontSizeOptionMenu {
                 .navigationTitle("System widget")
             } label: {
                 LabeledContent {
-                    Image(.homeScreenExample)
+                    Image(.systemFamilyExample)
                         .resizable()
                         .scaledToFit()
                         .frame(width: self.horizontalSizeClass == .compact ? 120 : 180)
@@ -75,7 +75,7 @@ private extension 🎛️FontSizeOptionMenu {
                 .navigationTitle("Accessory widget")
             } label: {
                 LabeledContent {
-                    Image(.lockScreenExample)
+                    Image(.accessoryFamilyExample)
                         .resizable()
                         .scaledToFit()
                         .frame(width: self.horizontalSizeClass == .compact ? 120 : 180)
