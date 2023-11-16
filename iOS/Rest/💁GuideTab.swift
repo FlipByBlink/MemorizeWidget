@@ -19,7 +19,6 @@ struct 💁GuideTab: View {
 }
 
 private struct 🄳ataSection: View {
-    @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Section {
             💁GuideViewComponent.AboutDataSync()
@@ -92,7 +91,7 @@ private struct 🅃ipsSection: View {
 }
 
 private struct 🄰ppleSupportLinkSection: View {
-    private var urlString: String {
+    private static var urlString: String {
 #if targetEnvironment(macCatalyst)
         "https://support.apple.com/guide/mac-help/add-customize-widgets-notification-center-mchl52be5da5/mac"
 #else
@@ -103,7 +102,7 @@ private struct 🄰ppleSupportLinkSection: View {
         }
 #endif
     }
-    private var labelTitle: LocalizedStringKey {
+    private static var labelTitle: LocalizedStringKey {
 #if targetEnvironment(macCatalyst)
         "Add and customize widgets in Notification Center on Mac"
 #else
@@ -114,14 +113,25 @@ private struct 🄰ppleSupportLinkSection: View {
         }
 #endif
     }
+    private static var activeLockScreenWidget: Bool {
+        if #available(iOS 17.0, *) {
+            true
+        } else {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                true
+            } else {
+                false
+            }
+        }
+    }
     var body: some View {
         Section {
-            Link(destination: .init(string: self.urlString)!) {
+            Link(destination: .init(string: Self.urlString)!) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Label(self.labelTitle, systemImage: "link")
+                    Label(Self.labelTitle, systemImage: "link")
                     HStack {
                         Spacer()
-                        Text(self.urlString)
+                        Text(Self.urlString)
                             .font(.caption2.italic())
                             .multilineTextAlignment(.center)
                         Spacer()
@@ -129,8 +139,8 @@ private struct 🄰ppleSupportLinkSection: View {
                 }
                 .padding(.vertical, 4)
             }
-            .accessibilityLabel(self.labelTitle)
-            if UIDevice.current.userInterfaceIdiom == .phone, #available(iOS 16.0, *) {
+            .accessibilityLabel(Self.labelTitle)
+            if Self.activeLockScreenWidget {
                 Link(destination: .init(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
                     VStack(alignment: .leading, spacing: 6) {
                         Label("Create a custom iPhone Lock Screen", systemImage: "link")
