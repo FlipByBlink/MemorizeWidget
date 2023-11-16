@@ -28,6 +28,7 @@ enum 🎛️ViewComponent {
                     Label("Customize font size", systemImage: "textformat.size")
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
+                .task { 🎛️Default.setValues() }
             }
         }
         struct SystemFamilyPreview: View {
