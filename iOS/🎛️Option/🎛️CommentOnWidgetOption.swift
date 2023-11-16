@@ -5,13 +5,27 @@ struct 🎛️CommentOnWidgetOption: View {
         Section {
             🎛️ViewComponent.ShowCommentToggle()
                     .padding(.vertical, 8)
-            VStack(spacing: 12) {
+            VStack(spacing: 16) {
                 🎛️BeforeAfterImages(.systemFamilyDefault, .systemFamilyShowComment)
-                if UIDevice.current.userInterfaceIdiom == .phone {
-//                    🎛️BeforeAfterImages("lockscreen_commentOff", "lockscreen_commentOn")
+                if Self.showAccessoryFamilyPreview {
+                    🎛️BeforeAfterImages(.accessoryFamilyDefault, .accessoryFamilyShowComment)
                 }
             }
             .padding()
+        }
+    }
+}
+
+private extension 🎛️CommentOnWidgetOption {
+    private static var showAccessoryFamilyPreview: Bool {
+        if #available(iOS 17.0, *) {
+            true
+        } else {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                true
+            } else {
+                false
+            }
         }
     }
 }

@@ -5,14 +5,27 @@ struct 🎛️MultiNotesOnWidgetOption: View {
         Section {
             🎛️ViewComponent.MultiNotesToggle()
                 .padding(.vertical, 8)
-            VStack(spacing: 12) {
+            VStack(spacing: 16) {
                 🎛️BeforeAfterImages(.systemFamilyDefault, .systemFamilyMultiNotes)
-                if UIDevice.current.userInterfaceIdiom == .phone {
-//                    🎛️BeforeAfterImages("lockscreen_multiNotes_before",
-//                                        "lockscreen_multiNotes_after")
+                if Self.showAccessoryFamilyPreview {
+                    🎛️BeforeAfterImages(.accessoryFamilyDefault, .accessoryFamilyMultiNotes)
                 }
             }
             .padding()
+        }
+    }
+}
+
+private extension 🎛️MultiNotesOnWidgetOption {
+    private static var showAccessoryFamilyPreview: Bool {
+        if #available(iOS 17.0, *) {
+            true
+        } else {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                true
+            } else {
+                false
+            }
         }
     }
 }
