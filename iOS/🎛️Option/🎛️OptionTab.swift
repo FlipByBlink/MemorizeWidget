@@ -8,7 +8,7 @@ struct 🎛️OptionTab: View {
                 self.fontSizeMenuLink() //TODO: ちゃんと実装
                 🎛️MultiNotesOnWidgetOption()
                 🎛️CommentOnWidgetOption()
-                🔍CustomizeSearchSheetButton()
+                self.customizeSearchLink()
                 self.fontSizeMenuLink()
             }
             .navigationTitle("Option")
@@ -17,6 +17,26 @@ struct 🎛️OptionTab: View {
 }
 
 private extension 🎛️OptionTab {
+    private func customizeSearchLink() -> some View {
+        Group {
+            switch UIDevice.current.userInterfaceIdiom {
+                case .phone:
+                    NavigationLink {
+                        🔍CustomizeSearchMenu()
+                    } label: {
+                        Label("Customize search function", systemImage: "magnifyingglass")
+                    }
+                case .pad:
+                    Button {
+                        self.model.presentSheet(.customizeSearch)
+                    } label: {
+                        Label("Customize search function", systemImage: "magnifyingglass")
+                    }
+                default:
+                    EmptyView()
+            }
+        }
+    }
     private func fontSizeMenuLink() -> some View {
         Group {
             switch UIDevice.current.userInterfaceIdiom {
