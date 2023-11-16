@@ -8,7 +8,7 @@ struct 🚮DeleteAllNotesButton: View {
         } label: {
             Label("Delete all notes", systemImage: "delete.backward.fill")
         }
-        .listItemTint(self.model.notes.isEmpty ? .accentColor : .red)
+        .listItemTint(self.model.notes.isEmpty ? nil : .red)
         .disabled(self.model.notes.isEmpty)
     }
 }

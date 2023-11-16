@@ -76,7 +76,7 @@ enum 🎛️ViewComponent {
                 Picker(selection: self.$value) {
                     ForEach(9 ..< 250, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Title font size", systemImage: "textformat.size")
+                    Label("Title size", systemImage: "textformat.size")
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
@@ -89,7 +89,7 @@ enum 🎛️ViewComponent {
                 Picker(selection: self.$value) {
                     ForEach(6 ..< 60, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Comment font size", systemImage: "captions.bubble")
+                    Label("Comment size", systemImage: "captions.bubble")
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
@@ -102,7 +102,7 @@ enum 🎛️ViewComponent {
                 Picker(selection: self.$value) {
                     ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Title font size",  systemImage: "textformat.size")
+                    Label("Title size",  systemImage: "textformat.size")
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
@@ -115,7 +115,7 @@ enum 🎛️ViewComponent {
                 Picker(selection: self.$value) {
                     ForEach(7 ..< 40, id: \.self) { Text("\($0)") }
                 } label: {
-                    Label("Comment font size",  systemImage: "captions.bubble")
+                    Label("Comment size",  systemImage: "captions.bubble")
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
