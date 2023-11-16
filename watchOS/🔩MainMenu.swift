@@ -52,7 +52,7 @@ private extension 🔩MainMenu {
             NavigationLink {
                 🎛️FontSizeMenu()
             } label: {
-                Label("Customize font size", systemImage: "textformat.size")
+                Label("Font size", systemImage: "textformat.size")
             }
         }
     }

@@ -18,6 +18,10 @@ struct 📖SigleNoteLayoutView: View {
                     Spacer()
                     📖SearchButton(self.model.notes[ⓘndex])
                     Spacer()
+                    if !self.model.randomMode {
+                        📖MoveEndButton(self.model.notes[ⓘndex])
+                        Spacer()
+                    }
                     🚮DeleteNoteButton(self.model.notes[ⓘndex])
                     Spacer()
                 }
