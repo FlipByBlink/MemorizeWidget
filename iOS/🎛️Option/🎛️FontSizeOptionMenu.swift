@@ -114,7 +114,7 @@ private extension 🎛️FontSizeOptionMenu {
                                         .foregroundStyle(.green)
                                 }
                             }
-                            .frame(width: 200, height: 80) //TODO: 実際のサイズに近付ける
+                            .frame(width: 180, height: 76)
                             ZStack {
                                 Circle()
                                     .fill(.white)
@@ -123,7 +123,7 @@ private extension 🎛️FontSizeOptionMenu {
                                     .font(.system(size: CGFloat(self.titleValue), weight: .bold))
                                     .foregroundStyle(.purple)
                             }
-                            .frame(width: 70, height: 70) //TODO: 実際のサイズに近付ける
+                            .frame(width: 76, height: 76)
                         }
                         Text("Preview")
                             .foregroundStyle(.secondary)

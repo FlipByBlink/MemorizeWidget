@@ -33,7 +33,7 @@ struct 🎛️FontSizeMenu: View {
                             .foregroundStyle(.green)
                     }
                 }
-                .frame(height: 72) //TODO: 実際のサイズに近付ける
+                .frame(height: 76)
                 .listRowBackground(Color.clear)
                 .animation(.default, value: self.titleValue)
                 .animation(.default, value: self.commentValue)
