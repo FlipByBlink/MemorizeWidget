@@ -3,8 +3,9 @@ import SwiftUI
 class 🔍SearchModel: ObservableObject {
     @AppStorage(🎛️Key.Search.leadingText) var inputtedLeadingText: String = ""
     @AppStorage(🎛️Key.Search.trailingText) var trailingText: String = ""
+    @AppStorage(🎛️Key.Search.openURLInOtherApp) var openURLInOtherApp: Bool = false
     func entireText(_ ⓠuery: String) -> String {
-        "https://\(self.leadingText)\(ⓠuery)\(self.trailingText)"
+        "\(self.leadingText)\(ⓠuery)\(self.trailingText)"
     }
     func generateURL(_ ⓠuery: String) -> URL {
         guard let ⓔncodedText = Self.percentEncode(self.entireText(ⓠuery)),
@@ -14,15 +15,25 @@ class 🔍SearchModel: ObservableObject {
         💥Feedback.light()
         return ⓤrl
     }
-    init() {
-        Self.MigrationToVer_1_4.removeHttpScheme()
+    var ableInAppSearch: Bool {
+        if self.inputtedLeadingText.hasPrefix("http://")
+            || self.inputtedLeadingText.hasPrefix("https://") {
+            true
+        } else {
+            if self.inputtedLeadingText.isEmpty,
+               self.trailingText.isEmpty {
+                true
+            } else {
+                false
+            }
+        }
     }
 }
 
 private extension 🔍SearchModel {
     private var leadingText: String {
         if self.inputtedLeadingText.isEmpty {
-            "duckduckgo.com/?q="
+            "https://duckduckgo.com/?q="
         } else {
             self.inputtedLeadingText
         }
@@ -32,17 +43,5 @@ private extension 🔍SearchModel {
     }
     private static func placeholderURL(_ ⓠuery: String) -> URL {
         .init(string: "https://duckduckgo.com/?q=\(ⓠuery)")!
-    }
-    private enum MigrationToVer_1_4 {
-        static func removeHttpScheme() {
-            if var source = UserDefaults.standard.string(forKey: 🎛️Key.Search.leadingText) {
-                if source.hasPrefix("http://") {
-                    source.trimPrefix("http://")
-                } else if source.hasPrefix("https://") {
-                    source.trimPrefix("https://")
-                }
-                UserDefaults.standard.set(source, forKey: 🎛️Key.Search.leadingText)
-            }
-        }
     }
 }

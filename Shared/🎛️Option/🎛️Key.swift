@@ -9,6 +9,7 @@ enum 🎛️Key {
     enum Search {
         static let leadingText = "SearchLeadingText"
         static let trailingText = "SearchTrailingText"
+        static let openURLInOtherApp = "openURLInOtherApp"
     }
     enum FontSize {
         static let customize = "customizeFontSize"

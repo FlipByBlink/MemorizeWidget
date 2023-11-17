@@ -876,6 +876,16 @@
         }
       }
     },
+    "Open the URL in other apps" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "他のアプリでURLを開く"
+          }
+        }
+      }
+    },
     "Option" : {
       "localizations" : {
         "ja" : {
@@ -916,22 +926,12 @@
         }
       }
     },
-    "Pre-install" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "初期設定"
-          }
-        }
-      }
-    },
     "Pre-installed shortcut to search in DuckDuckGo." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「DuckDuckGo」で検索するショートカットをプリセットしています。"
+            "value" : "「DuckDuckGo」で検索するショートカットをプリセットしています"
           }
         }
       }
@@ -1210,6 +1210,16 @@
         }
       }
     },
+    "The prefix must contain \"http://\" or \"https://\"" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭に「http://」か「https://」を含めてください"
+          }
+        }
+      }
+    },
     "This is spare widget for the purpose of second widget" : {
       "localizations" : {
         "ja" : {
@@ -1326,7 +1336,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "web検索サービスでノートのタイトルを検索します。"
+            "value" : "web検索サービスでノートのタイトルを検索します"
           }
         }
       }

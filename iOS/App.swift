@@ -7,6 +7,9 @@ struct IOSApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(self.model)
+                .task {
+                    self.model.presentedSheetOnContentView = .customizeSearch
+                }
         }
         .commands {
             🆕NewNoteCommand(self.model)
