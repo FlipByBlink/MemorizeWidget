@@ -540,7 +540,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウィジェット上のフォントサイズ"
+            "value" : "フォントサイズ"
           }
         }
       }
