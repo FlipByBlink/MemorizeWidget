@@ -283,16 +283,6 @@
         }
       }
     },
-    "Copy the above text" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "上記のテキストをコピーしてください"
-          }
-        }
-      }
-    },
     "Create a custom iPhone Lock Screen" : {
       "localizations" : {
         "ja" : {

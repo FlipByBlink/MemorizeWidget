@@ -48,13 +48,9 @@ private extension 📤NotesExportSheetView {
                 .rotationEffect(.degrees(10))
         }
         .mask {
-            VStack(spacing: 0) {
-                Color.white
-                LinearGradient(colors: [.white, .clear],
-                               startPoint: .top,
-                               endPoint: .bottom)
-                .frame(height: 100)
-            }
+            LinearGradient(colors: [.white, .clear],
+                           startPoint: .init(x: 0.5, y: 0.8),
+                           endPoint: .init(x: 0.5, y: 1.0))
         }
     }
 }
