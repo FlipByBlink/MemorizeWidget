@@ -51,6 +51,7 @@ private extension 🪧AccessoryWidgetView {
                 Text(ⓝote.title)
                     .lineLimit(self.notes.count > 1 ? 1 : 3)
                     .font(self.titleFontSize)
+                    .fontWeight(.semibold)
                 if (self.notes.count == 1)
                     && 🎛️Option.showCommentMode
                     && !ⓝote.comment.isEmpty {
@@ -81,9 +82,9 @@ private extension 🪧AccessoryWidgetView {
                         .body
                 case .accessoryRectangular:
                     if self.notes.count == 1 {
-                        .system(size: 24, weight: .semibold)
+                        .system(size: 28)
                     } else {
-                        .system(size: 17, weight: .semibold)
+                        .system(size: 17)
                     }
                 default:
                         .body
