@@ -36,38 +36,39 @@ private extension 🪧SubWidget {
         var condition: Bool
         func body(content: Content) -> some View {
             if self.condition {
-                content
-                    .overlay {
-                        ZStack(alignment: .bottom) {
-                            Color.clear
-                            switch self.widgetFamily {
+                ZStack {
+                    Color.clear
+                    content
+                }
+                .overlay(alignment: .bottom) {
+                    switch self.widgetFamily {
 #if os(iOS) || os(macOS)
-                                case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
-                                    Text("Sub")
-                                        .font(.caption)
-                                        .fontWeight(.medium)
-                                        .padding(4)
+                        case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
+                            Text("Sub")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .padding(4)
 #if os(iOS)
-                                        .foregroundStyle(.secondary)
+                                .foregroundStyle(.secondary)
 #endif
-                                        .background(.regularMaterial)
-                                        .clipShape(RoundedRectangle(cornerRadius: 6))
-                                        .padding(8)
+                                .background(.regularMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 6))
+                                .padding(8)
 #endif
 #if os(iOS) || os(watchOS)
-                                case .accessoryCircular, .accessoryRectangular:
-                                    Text("Sub")
-                                        .underline()
-                                        .foregroundStyle(.secondary)
-                                        .font(.caption2.weight(.semibold))
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.6)
+                        case .accessoryCircular, .accessoryRectangular:
+                            Text("Sub")
+                                .padding(4)
+                                .font(.caption2.weight(.semibold))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.6)
+                                .background(.background.opacity(0.8))
+                                .clipShape(RoundedRectangle(cornerRadius: 6))
 #endif
-                                default:
-                                    EmptyView()
-                            }
-                        }
+                        default:
+                            EmptyView()
                     }
+                }
             } else {
                 content
             }
