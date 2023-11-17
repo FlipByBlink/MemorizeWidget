@@ -35,11 +35,10 @@ private extension 🪧AccessoryWidgetView {
                         .font(self.titleFontSize)
                         .fontWeight(.semibold)
                         .lineSpacing(0)
-                        .minimumScaleFactor(0.6)
+                        .minimumScaleFactor(0.8)
                         .padding(.horizontal, 3)
                         .widgetAccentable()
                         .lineSpacing(0)
-                        .lineLimit(self.notes.count <= 2 ? 2 : nil)
                 }
             }
             .clipShape(Circle())

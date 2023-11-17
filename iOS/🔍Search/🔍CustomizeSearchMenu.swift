@@ -18,9 +18,11 @@ struct 🔍CustomizeSearchMenu: View {
                             .foregroundStyle(.secondary)
                         TextField("Leading component",
                                   text: self.$model.inputtedLeadingText)
+                        .accessibilityLabel("Leading component")
                     }
                     TextField("Trailing component",
                               text: self.$model.trailingText)
+                    .accessibilityLabel("Trailing component")
                     .font(.subheadline)
                     .padding(.bottom, 6)
                 }

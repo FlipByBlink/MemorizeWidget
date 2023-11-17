@@ -45,6 +45,7 @@ private extension 🎛️RandomModeToggle {
                         Text("Per 5 minutes")
                             .font(.caption.weight(.light))
                             .padding(.trailing, 8)
+                            .accessibilityLabel(Text(verbatim: ""))
                     } label: {
                         Self.label()
                     }
