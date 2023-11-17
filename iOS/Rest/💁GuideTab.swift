@@ -142,7 +142,7 @@ private struct 🄰ppleSupportLinkSection: View {
                         Label("Create a custom iPhone Lock Screen", systemImage: "link")
                         HStack {
                             Spacer()
-                            Text("https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")
+                            Text(verbatim: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")
                                 .font(.caption2.italic())
                                 .multilineTextAlignment(.center)
                             Spacer()

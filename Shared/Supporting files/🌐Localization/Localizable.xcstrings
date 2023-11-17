@@ -1,0 +1,1396 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "__Target__\nHome screen\nNotification center\nStandBy\nDesktop\nLock screen(iPad)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "__対象__\nホーム画面\n通知センター\nスタンバイ\nデスクトップ\nロック画面(iPad)"
+          }
+        }
+      }
+    },
+    "__Target__\nLock screen\nApple Watch complication" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "__対象__\nロック画面\nApple Watchコンプリケーション"
+          }
+        }
+      }
+    },
+    "(Comment)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(コメント)"
+          }
+        }
+      }
+    },
+    "(Title only)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(タイトルのみ)"
+          }
+        }
+      }
+    },
+    "(TITLE)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(タイトル)"
+          }
+        }
+      }
+    },
+    "+ comment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+ コメント"
+          }
+        }
+      }
+    },
+    "+ title" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+ タイトル"
+          }
+        }
+      }
+    },
+    "⚠️ Data size limitation" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ データサイズ制限"
+          }
+        }
+      }
+    },
+    "⚠️ Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ エラー"
+          }
+        }
+      }
+    },
+    "⚠️ NOTICE DATA LIMITATION" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ データサイズ制限に注意"
+          }
+        }
+      }
+    },
+    "About App" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリについて"
+          }
+        }
+      }
+    },
+    "Accessory\nwidget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小さめ\nウィジェット"
+          }
+        }
+      }
+    },
+    "Accessory widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小さめウィジェット"
+          }
+        }
+      }
+    },
+    "Actual size may vary depending on \"device environment\" and \"the text\"" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "実際の大きさは「デバイスの環境」や「表示されるテキスト」によって異なる場合があります。"
+          }
+        }
+      }
+    },
+    "Add and customize widgets in Notification Center on Mac" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macの通知センターでウィジェットを追加する/カスタマイズする"
+          }
+        }
+      }
+    },
+    "After 7 days, the notes will be permanently deleted." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7日経過すると、完全に削除されます。"
+          }
+        }
+      }
+    },
+    "App" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ"
+          }
+        }
+      }
+    },
+    "App for iPhone / iPad / Mac / Apple Watch" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone/iPad/Mac/Apple Watch向けアプリ"
+          }
+        }
+      }
+    },
+    "Apple Support Page Link" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple公式サポートサイトリンク"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "Change the note per 5 minutes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "約5分毎にランダムでノートが切り替わります。"
+          }
+        }
+      }
+    },
+    "Clear trash" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゴミ箱を空にする"
+          }
+        }
+      }
+    },
+    "Comma" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カンマ"
+          }
+        }
+      }
+    },
+    "Comma , " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カンマ , "
+          }
+        }
+      }
+    },
+    "comment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメント"
+          }
+        }
+      }
+    },
+    "Comment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメント"
+          }
+        }
+      }
+    },
+    "Comment size" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメントのサイズ"
+          }
+        }
+      }
+    },
+    "Convert this text to notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このテキストをノートに変換する"
+          }
+        }
+      }
+    },
+    "Copy the above text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上記のテキストをコピーしてください"
+          }
+        }
+      }
+    },
+    "Create a custom iPhone Lock Screen" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhoneのロック画面をパーソナライズする"
+          }
+        }
+      }
+    },
+    "Customize font size" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォントサイズを変更"
+          }
+        }
+      }
+    },
+    "Customize search" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「検索」をカスタマイズ"
+          }
+        }
+      }
+    },
+    "Customize search function" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「検索」をカスタマイズ"
+          }
+        }
+      }
+    },
+    "Customize URL scheme" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URLスキームをカスタマイズ"
+          }
+        }
+      }
+    },
+    "cute, pretty, kawaii" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データ"
+          }
+        }
+      }
+    },
+    "Data changed on another device will be synchronized when the app is launched on this device. (iOS15 only)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "別の端末で変更されたデータは、この端末のアプリを起動したタイミングで同期されます。(iOS15のみ)"
+          }
+        }
+      }
+    },
+    "Data limitation is 1 mega byte." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大1メガバイトのデータ制限があります。"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
+          }
+        }
+      }
+    },
+    "Delete a note by swiping the row." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スワイプしてノートを削除できます。"
+          }
+        }
+      }
+    },
+    "Delete all notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全てのノートを削除"
+          }
+        }
+      }
+    },
+    "Deleted." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除完了"
+          }
+        }
+      }
+    },
+    "Dictionary" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辞書"
+          }
+        }
+      }
+    },
+    "Directions" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注記"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
+          }
+        }
+      }
+    },
+    "Edit URL" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URLを編集"
+          }
+        }
+      }
+    },
+    "Empty" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートなし"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "Example" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "例"
+          }
+        }
+      }
+    },
+    "Export notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートを書き出す"
+          }
+        }
+      }
+    },
+    "Export notes as text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストとしてエクスポート"
+          }
+        }
+      }
+    },
+    "File" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル"
+          }
+        }
+      }
+    },
+    "Font size" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォントサイズ"
+          }
+        }
+      }
+    },
+    "Font size on widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェット上のフォントサイズ"
+          }
+        }
+      }
+    },
+    "good night." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Guide" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ガイド"
+          }
+        }
+      }
+    },
+    "How to add and edit widgets on your iPhone" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone でウィジェットを追加・編集する方法"
+          }
+        }
+      }
+    },
+    "If lock screen widgets don't update, please close this app or switch to another app." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロック画面ウィジェットが更新されない場合は、アプリを閉じたりアプリを切り替えたりすると変更が反映されます。"
+          }
+        }
+      }
+    },
+    "If the data size is exceeded, please reduce the number of notes or clear the trash." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もしデータ容量を超過してしまった場合は、ノートを減らしたり、ゴミ箱を空にしてください。"
+          }
+        }
+      }
+    },
+    "Import a text-base file as notes from other app." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "他のアプリで選択したファイルからノートを作成出来ます。"
+          }
+        }
+      }
+    },
+    "Import a text-encoded file" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストベースのファイルを取り込む"
+          }
+        }
+      }
+    },
+    "Import as some notes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数個のノートとして取り込む。"
+          }
+        }
+      }
+    },
+    "Import notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートを取り込む"
+          }
+        }
+      }
+    },
+    "Import notes from plain text or text base file(csv, tsv, txt)." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストやファイル(csv, tsv, txt)からノートをインポート出来ます。"
+          }
+        }
+      }
+    },
+    "Import selected text as notes from other app." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "他のアプリで選択したテキストからノートを作成出来ます。"
+          }
+        }
+      }
+    },
+    "Leading component" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭部分"
+          }
+        }
+      }
+    },
+    "MemorizeWidget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗記ウィジェット"
+          }
+        }
+      }
+    },
+    "Menu" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メニュー"
+          }
+        }
+      }
+    },
+    "Mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "モード"
+          }
+        }
+      }
+    },
+    "Move" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移動"
+          }
+        }
+      }
+    },
+    "Move a note by drag and drop the row." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ドラッグ・アンド・ドロップでノートを移動できます。"
+          }
+        }
+      }
+    },
+    "Move end" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾へ移動"
+          }
+        }
+      }
+    },
+    "Move top" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭へ移動"
+          }
+        }
+      }
+    },
+    "New note" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規ノート"
+          }
+        }
+      }
+    },
+    "New note shortcut" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規ノートショートカット"
+          }
+        }
+      }
+    },
+    "no comment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメントなし"
+          }
+        }
+      }
+    },
+    "No comment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメントなし"
+          }
+        }
+      }
+    },
+    "No note" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートなし"
+          }
+        }
+      }
+    },
+    "No title" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトルなし"
+          }
+        }
+      }
+    },
+    "Not support multi line text in note." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「ノート内での改行」はサポート対象外です。"
+          }
+        }
+      }
+    },
+    "Not text file(UTF-8)." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストファイル(UTF-8)ではありません。"
+          }
+        }
+      }
+    },
+    "Notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート"
+          }
+        }
+      }
+    },
+    "Notes count" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート数"
+          }
+        }
+      }
+    },
+    "Notes count: %@" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート数: %@"
+          }
+        }
+      }
+    },
+    "Notes count: %lld" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート数: %lld"
+          }
+        }
+      }
+    },
+    "Notes data count" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在のデータサイズ"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解しました"
+          }
+        }
+      }
+    },
+    "OK, delete all notes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はい、全てのノートを削除します。"
+          }
+        }
+      }
+    },
+    "Option" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプション"
+          }
+        }
+      }
+    },
+    "Paste the text here." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ここにテキストを貼り付ける"
+          }
+        }
+      }
+    },
+    "Per 5 minutes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "約5分毎"
+          }
+        }
+      }
+    },
+    "Plain text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレーンテキスト"
+          }
+        }
+      }
+    },
+    "Pre-install" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "初期設定"
+          }
+        }
+      }
+    },
+    "Pre-installed shortcut to search in DuckDuckGo." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「DuckDuckGo」で検索するショートカットをプリセットしています。"
+          }
+        }
+      }
+    },
+    "Preview" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレビュー"
+          }
+        }
+      }
+    },
+    "Purchase" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支払い"
+          }
+        }
+      }
+    },
+    "Random mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ランダムモード"
+          }
+        }
+      }
+    },
+    "Restore" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元"
+          }
+        }
+      }
+    },
+    "Restore %@ notes" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@個のノートを復元"
+          }
+        }
+      }
+    },
+    "Restore %lld notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld個のノートを復元"
+          }
+        }
+      }
+    },
+    "Search" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
+          }
+        }
+      }
+    },
+    "Search button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索ボタン"
+          }
+        }
+      }
+    },
+    "Select sidebar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サイドバーを選択してください"
+          }
+        }
+      }
+    },
+    "Selected text import is not supported on macOS." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択テキストのインポート機能はmacOSでは対応していません。"
+          }
+        }
+      }
+    },
+    "Separator" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "区切り文字"
+          }
+        }
+      }
+    },
+    "Shortcut to add new note." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規ノートを追加するためのショートカットです。"
+          }
+        }
+      }
+    },
+    "Show a note." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートを表示します。"
+          }
+        }
+      }
+    },
+    "Show comment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コメントも表示"
+          }
+        }
+      }
+    },
+    "Show comment on widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェット上にコメントも表示"
+          }
+        }
+      }
+    },
+    "Show multi notes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数のノートを表示"
+          }
+        }
+      }
+    },
+    "Show multi notes on widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェット上で複数のノートを表示"
+          }
+        }
+      }
+    },
+    "strawberry" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Sub" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブ"
+          }
+        }
+      }
+    },
+    "Sub widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "予備のウィジェット"
+          }
+        }
+      }
+    },
+    "Sync notes between devices by iCloud." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iCloudによって端末間でノートが同期されます。"
+          }
+        }
+      }
+    },
+    "System\nwidget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きめ\nウィジェット"
+          }
+        }
+      }
+    },
+    "System widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きめウィジェット"
+          }
+        }
+      }
+    },
+    "Tab" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タブ"
+          }
+        }
+      }
+    },
+    "Tab ␣ " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タブ ␣ "
+          }
+        }
+      }
+    },
+    "Test" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テスト"
+          }
+        }
+      }
+    },
+    "Text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキスト"
+          }
+        }
+      }
+    },
+    "This is spare widget for the purpose of second widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これは2個目のウィジェットを配置する際に用います。"
+          }
+        }
+      }
+    },
+    "This text is TSV(tab-separated values) format." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このテキストはTSVフォーマットです。"
+          }
+        }
+      }
+    },
+    "Tips" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小ネタ"
+          }
+        }
+      }
+    },
+    "Title" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトル"
+          }
+        }
+      }
+    },
+    "Title only" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトルのみ"
+          }
+        }
+      }
+    },
+    "Title size" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトルのサイズ"
+          }
+        }
+      }
+    },
+    "Total notes data over 800kB. Please decrease notes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートのデータサイズの合計が800kBを超えてます。ノートの数を減らしてください。"
+          }
+        }
+      }
+    },
+    "Trailing component" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾部分"
+          }
+        }
+      }
+    },
+    "Trash" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゴミ箱"
+          }
+        }
+      }
+    },
+    "Trash do not sync with iCloud." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゴミ箱はiCloudで同期されません。"
+          }
+        }
+      }
+    },
+    "URL scheme" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URLスキーム"
+          }
+        }
+      }
+    },
+    "Use the web search service with the note title." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "web検索サービスでノートのタイトルを検索します。"
+          }
+        }
+      }
+    },
+    "Use widgets on your iPad" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad でウィジェットを使う"
+          }
+        }
+      }
+    },
+    "Widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェット"
+          }
+        }
+      }
+    },
+    "おやすみなさい" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "可愛い" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "苺" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
