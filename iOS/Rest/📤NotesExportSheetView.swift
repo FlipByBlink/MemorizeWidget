@@ -10,15 +10,7 @@ struct 📤NotesExportSheetView: View {
                     Label("Notes count", systemImage: "books.vertical")
                         .badge(self.model.notes.count)
                     if let ⓒonvertedText {
-                        ScrollView(.horizontal) {
-                            Text(ⓒonvertedText)
-                                .font(.subheadline.monospaced().italic())
-                                .textSelection(.enabled)
-                                .lineLimit(30)
-                                .padding()
-                        }
-                        Label("Copy the above text", systemImage: "hand.point.up.left")
-                            .foregroundStyle(.secondary)
+                        Self.exampleView(ⓒonvertedText)
                         ShareLink(item: ⓒonvertedText)
                     } else {
                         ProgressView()
@@ -33,6 +25,36 @@ struct 📤NotesExportSheetView: View {
             .task { self.ⓒonvertedText = 📚TextConvert.encodeToTSV(self.model.notes) }
             .animation(.default, value: self.ⓒonvertedText == nil)
             .toolbar { 📰DismissButton() }
+        }
+    }
+}
+
+private extension 📤NotesExportSheetView {
+    private static func exampleView(_ ⓒonvertedText: String) -> some View {
+        ScrollView(.horizontal) {
+            Text(ⓒonvertedText)
+                .font(.subheadline.monospaced().italic())
+                .textSelection(.enabled)
+                .lineLimit(16)
+                .padding(.top)
+                .padding(.horizontal)
+        }
+        .background {
+            Text("Example")
+                .font(.system(size: 50,
+                              weight: .heavy,
+                              design: .rounded))
+                .foregroundStyle(.quaternary)
+                .rotationEffect(.degrees(10))
+        }
+        .mask {
+            VStack(spacing: 0) {
+                Color.white
+                LinearGradient(colors: [.white, .clear],
+                               startPoint: .top,
+                               endPoint: .bottom)
+                .frame(height: 100)
+            }
         }
     }
 }
