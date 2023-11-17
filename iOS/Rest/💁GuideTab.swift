@@ -14,7 +14,7 @@ struct 💁GuideTab: View {
             }
             .navigationTitle("Guide")
         }
-        .badge(self.model.exceedDataSizePerhaps ? "!" : nil)
+        .badge(self.model.exceedDataSizePerhaps ? Text(verbatim: "!") : nil)
     }
 }
 

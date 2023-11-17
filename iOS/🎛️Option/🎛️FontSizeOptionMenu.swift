@@ -22,7 +22,7 @@ private extension 🎛️FontSizeOptionMenu {
                         🎛️ViewComponent.FontSize.TitleForSystemFamilyPicker()
                         🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
                     } footer: {
-                        Text("環境やテキストによって実際に表示されるサイズは変化します")
+                        🎛️ViewComponent.FontSize.NoticeText()
                     }
                     Section { Self.about() }
                 }
@@ -69,7 +69,7 @@ private extension 🎛️FontSizeOptionMenu {
                         🎛️ViewComponent.FontSize.TitleForAccessoryFamilyPicker()
                         🎛️ViewComponent.FontSize.CommentForAccessoryFamilyPicker()
                     } footer: {
-                        Text("環境やテキストによって実際に表示されるサイズは変化します")
+                        🎛️ViewComponent.FontSize.NoticeText()
                     }
                     Section { Self.about() }
                 }

@@ -6,7 +6,7 @@ enum 🗑TrashViewComponent {
         var body: some View {
             Text(self.source.date, style: .offset)
             +
-            Text(" (\(self.source.date.formatted(.dateTime.month().day().hour().minute())))")
+            Text(verbatim: " (\(self.source.date.formatted(.dateTime.month().day().hour().minute())))")
         }
     }
     struct RestoreButton: View {

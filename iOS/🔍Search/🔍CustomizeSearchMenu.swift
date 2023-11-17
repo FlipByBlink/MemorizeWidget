@@ -7,13 +7,13 @@ struct 🔍CustomizeSearchMenu: View {
     var body: some View {
         List {
             Section {
-                Text("Webサービスでノートのタイトルを検索します。")
+                Text("Use the web search service with the note title.")
             }
             Section {
                 VStack {
                     self.previewView()
                     HStack {
-                        Text("https://")
+                        Text(verbatim: "https://")
                             .fontWeight(.medium)
                             .foregroundStyle(.secondary)
                         TextField("Leading component",

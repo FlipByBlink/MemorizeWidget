@@ -40,7 +40,7 @@ struct 🎛️FontSizeMenu: View {
             } header: {
                 Text("Preview")
             } footer: {
-                Text("環境やテキストによって実際に表示されるサイズは変化します")
+                🎛️ViewComponent.FontSize.NoticeText()
             }
         }
         .navigationTitle("Font size")

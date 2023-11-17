@@ -121,5 +121,10 @@ enum 🎛️ViewComponent {
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
             }
         }
+        struct NoticeText: View {
+            var body: some View {
+                Text(#"Actual size may vary depending on "device environment" and "the text""#)
+            }
+        }
     }
 }
