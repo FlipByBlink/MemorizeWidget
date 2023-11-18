@@ -16,15 +16,19 @@ class 🔍SearchModel: ObservableObject {
         return ⓤrl
     }
     var ableInAppSearch: Bool {
-        if self.inputtedLeadingText.hasPrefix("http://")
-            || self.inputtedLeadingText.hasPrefix("https://") {
+        if self.openURLInOtherApp {
             true
         } else {
-            if self.inputtedLeadingText.isEmpty,
-               self.trailingText.isEmpty {
+            if self.inputtedLeadingText.hasPrefix("http://")
+                || self.inputtedLeadingText.hasPrefix("https://") {
                 true
             } else {
-                false
+                if self.inputtedLeadingText.isEmpty,
+                   self.trailingText.isEmpty {
+                    true
+                } else {
+                    false
+                }
             }
         }
     }
