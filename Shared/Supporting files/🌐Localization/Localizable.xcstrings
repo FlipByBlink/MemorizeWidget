@@ -323,6 +323,16 @@
         }
       }
     },
+    "Customize font size…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォントサイズを変更…"
+          }
+        }
+      }
+    },
     "Customize search" : {
       "localizations" : {
         "ja" : {
@@ -339,6 +349,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "「検索」をカスタマイズ"
+          }
+        }
+      }
+    },
+    "Customize search function…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「検索」をカスタマイズ…"
           }
         }
       }

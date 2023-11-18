@@ -29,7 +29,7 @@ private extension 🎛️OptionTab {
                     Button {
                         self.model.presentSheet(.customizeFontSize)
                     } label: {
-                        Label("Customize font size", systemImage: "textformat.size")
+                        Label("Customize font size…", systemImage: "textformat.size")
                     }
                 default:
                     EmptyView()
@@ -49,7 +49,7 @@ private extension 🎛️OptionTab {
                     Button {
                         self.model.presentSheet(.customizeSearch)
                     } label: {
-                        Label("Customize search function", systemImage: "magnifyingglass")
+                        Label("Customize search function…", systemImage: "magnifyingglass")
                     }
                 default:
                     EmptyView()
