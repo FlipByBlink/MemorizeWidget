@@ -125,4 +125,43 @@ extension 🗒️StaticInfo {
         }
     }
 }
+
+#elseif os(macOS)
+extension 🗒️StaticInfo {
+    enum SourceCodeCategory: String, CaseIterable, Identifiable {
+        case main, Rest, Widget
+        var id: Self { self }
+        var fileNames: [String] {
+            switch self {
+                case .main: ["App.swift",
+                             "ContentView.swift",
+                             "📱AppModel.swift",
+                             "📗NoteModel.swift"]
+                case .Rest: ["📖WidgetNotesSheet.swift",
+                             "📗NoteView.swift",
+                             "📚NotesMenu.swift",
+                             "🔩MainMenu.swift",
+                             "🗑TrashMenu.swift",
+                             "💁TipsMenu.swift",
+                             "🆕NewNoteShortcut.swift",
+                             "💥Feedback.swift",
+                             "💾ICloud.swift",
+                             "💾UserDefaults.swift",
+                             "🗑TrashModel.swift",
+                             "🗒️StaticInfo.swift",
+                             "ℹ️AboutApp.swift"]
+                case .Widget: ["Widget.swift",
+                               "🪧WidgetState.swift",
+                               "🪧WidgetInfo.swift",
+                               "🪧WidgetEntry.swift",
+                               "🪧Provider.swift",
+                               "🪧EntryView.swift",
+                               "🪧NewNoteShortcutWidget.swift",
+                               "🪧MultiNotesCount.swift",
+                               "🪧ContainerBackground.swift",
+                               "🪧AccessoryWidgetView.swift"]
+            }
+        }
+    }
+}
 #endif

@@ -30,5 +30,18 @@ enum 💥Feedback {
     static func warning() {
         WKInterfaceDevice.current().play(.success)
     }
+#elseif os(macOS)
+    static func light() {
+        
+    }
+    static func success() {
+        
+    }
+    static func error() {
+        
+    }
+    static func warning() {
+        
+    }
 #endif
 }
