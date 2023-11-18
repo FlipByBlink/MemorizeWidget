@@ -5,7 +5,7 @@ struct 📘DictionarySheetView: View {
     var body: some View {
         Self.UIKitView(viewController: self.viewController)
             .ignoresSafeArea()
-            .presentationDetents([.height(640)])
+            .presentationDetents([.height(550)])
     }
     init(_ referenceLibraryViewController: UIReferenceLibraryViewController) {
         self.viewController = referenceLibraryViewController

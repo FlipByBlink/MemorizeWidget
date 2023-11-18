@@ -6,7 +6,7 @@ struct 🔍SearchSheetView: View {
     var body: some View {
         Self.UIKitView(url: self.url)
             .ignoresSafeArea()
-            .presentationDetents([.height(640)])
+            .presentationDetents([.height(550)])
     }
     init(_ url: URL) {
         self.url = url
