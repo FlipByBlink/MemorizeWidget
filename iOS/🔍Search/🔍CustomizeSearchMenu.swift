@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🔍CustomizeSearchMenu: View {
-    @StateObject private var model: 🔍SearchModel = .init()
+    @StateObject var model: 🔍SearchModel = .init()
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.openURL) var openURL
     @State private var presentTestSheet: Bool = false
@@ -29,6 +29,7 @@ struct 🔍CustomizeSearchMenu: View {
                 Text("Edit URL")
             } footer: {
                 Text(#"The prefix must contain "http://" or "https://""#)
+                    .strikethrough(self.model.openURLInOtherApp)
             }
             Section { self.testButton() }
             Section {
@@ -58,7 +59,9 @@ private extension 🔍CustomizeSearchMenu {
     private func testButton() -> some View {
         Button {
             if self.model.openURLInOtherApp {
-                self.openURL(self.model.generateURL("NOTETITLE"))
+                self.openURL(self.model.generateURL("NOTETITLE")) {
+                    if $0 == false { self.model.alertOpenURLFailure = true }
+                }
             } else {
                 self.presentTestSheet = true
             }
@@ -67,6 +70,7 @@ private extension 🔍CustomizeSearchMenu {
                 .fontWeight(.semibold)
         }
         .disabled(!self.model.ableInAppSearch)
+        .modifier(🔍FailureAlert(self.model))
         .sheet(isPresented: self.$presentTestSheet) {
             🔍SearchSheetView(self.model.generateURL("NOTETITLE"))
         }

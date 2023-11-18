@@ -1,8 +1,16 @@
-//
-//  🔍FailureAlert.swift
-//  iOS
-//
-//  Created by FULLNAME on 2023/11/18.
-//
+import SwiftUI
 
-import Foundation
+struct 🔍FailureAlert: ViewModifier {
+    @ObservedObject var model: 🔍SearchModel
+    func body(content: Content) -> some View {
+        content
+            .alert("⚠️ Failed to open URL", isPresented: self.$model.alertOpenURLFailure) {
+                Button("OK") {}
+            } message: {
+                Text("Change the URL")
+            }
+    }
+    init(_ model: 🔍SearchModel) {
+        self.model = model
+    }
+}

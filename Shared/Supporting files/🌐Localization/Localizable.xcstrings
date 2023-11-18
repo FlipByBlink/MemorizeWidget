@@ -91,6 +91,16 @@
         }
       }
     },
+    "⚠️ Failed to open URL" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ 失敗しました"
+          }
+        }
+      }
+    },
     "⚠️ NOTICE DATA LIMITATION" : {
       "localizations" : {
         "ja" : {
@@ -208,6 +218,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "約5分毎にランダムでノートが切り替わります。"
+          }
+        }
+      }
+    },
+    "Change the URL" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URLを変更してください"
           }
         }
       }

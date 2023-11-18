@@ -4,6 +4,7 @@ class 🔍SearchModel: ObservableObject {
     @AppStorage(🎛️Key.Search.leadingText) var inputtedLeadingText: String = ""
     @AppStorage(🎛️Key.Search.trailingText) var trailingText: String = ""
     @AppStorage(🎛️Key.Search.openURLInOtherApp) var openURLInOtherApp: Bool = false
+    @Published var alertOpenURLFailure: Bool = false
     func entireText(_ ⓠuery: String) -> String {
         "\(self.leadingText)\(ⓠuery)\(self.trailingText)"
     }

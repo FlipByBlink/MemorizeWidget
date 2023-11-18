@@ -1,20 +1,22 @@
 import SwiftUI
 
 struct 📚SubButtons: View {
-    @EnvironmentObject var model: 📱AppModel
+    @EnvironmentObject var appModel: 📱AppModel
+    @StateObject var searchModel: 🔍SearchModel = .init()
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @Environment(\.editMode) var editMode
+    @Environment(\.openURL) var openURL
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
             if Self.isIPad && !self.editing {
                 self.dictionaryButton()
-                🔍SearchButton(self.note, padding: 8)
+                self.searchButton(self.note.title)
             }
             Menu {
                 if !Self.isIPad {
                     self.dictionaryButton()
-                    🔍SearchButton(self.note)
+                    self.searchButton(self.note.title)
                 }
                 self.insertNewNoteBelowButton()
                 self.moveButtons()
@@ -32,6 +34,7 @@ struct 📚SubButtons: View {
         .buttonStyle(.plain)
         .disabled(self.editing)
         .font(self.dynamicTypeSize > .accessibility1 ? .system(size: 24) : .body)
+        .modifier(🔍FailureAlert(self.searchModel))
     }
     init(_ note: Binding<📗Note>) {
         self._note = note
@@ -48,7 +51,7 @@ private extension 📚SubButtons {
     private func dictionaryButton() -> some View {
 #if !targetEnvironment(macCatalyst)
         Button {
-            self.model.presentSheet(.dictionary(.init(term: self.note.title)))
+            self.appModel.presentSheet(.dictionary(.init(term: self.note.title)))
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
                 .padding(8)
@@ -58,9 +61,26 @@ private extension 📚SubButtons {
         📘DictionaryButtonOnMac(term: self.term)
 #endif
     }
+    private func searchButton(_ ⓠuery: String) -> some View {
+        Button {
+            let ⓤrl = self.searchModel.generateURL(ⓠuery)
+            if self.searchModel.openURLInOtherApp {
+                self.openURL(ⓤrl) {
+                    if $0 == false { self.searchModel.alertOpenURLFailure = true }
+                }
+            } else {
+                self.appModel.presentSheet(.search(ⓤrl))
+            }
+        } label: {
+            Label("Search", systemImage: "magnifyingglass")
+                .padding(8)
+        }
+        .disabled(!self.searchModel.ableInAppSearch)
+        .hoverEffect()
+    }
     private func insertNewNoteBelowButton() -> some View {
         Button {
-            self.model.addNewNoteBelow(self.note)
+            self.appModel.addNewNoteBelow(self.note)
         } label: {
             Label("New note", systemImage: "text.append")
         }
@@ -68,17 +88,17 @@ private extension 📚SubButtons {
     private func moveButtons() -> some View {
         Section {
             Button {
-                self.model.moveTop(self.note)
+                self.appModel.moveTop(self.note)
             } label: {
                 Label("Move top", systemImage: "arrow.up.to.line")
             }
-            .disabled(self.model.notes.first == self.note)
+            .disabled(self.appModel.notes.first == self.note)
             Button {
-                self.model.moveEnd(self.note)
+                self.appModel.moveEnd(self.note)
             } label: {
                 Label("Move end", systemImage: "arrow.down.to.line")
             }
-            .disabled(self.model.notes.last == self.note)
+            .disabled(self.appModel.notes.last == self.note)
         }
     }
 }
