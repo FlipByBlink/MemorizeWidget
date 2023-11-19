@@ -32,7 +32,7 @@ private extension 🪄Commands {
     private struct OpenNotesWindowButton: View {
         @Environment(\.openWindow) var openWindow
         var body: some View {
-            Button("Open notes") {
+            Button("Open main window") {
                 self.openWindow(id: "notes")
             }
         }

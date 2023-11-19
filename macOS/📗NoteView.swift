@@ -16,12 +16,15 @@ struct 📗NoteView: View {
                     .opacity(self.model.notesSelection.contains(self.source.id)
                              && self.source.comment.isEmpty ? 0.5 : 1)
             }
-            ToolButton(kind: .dictionary)
-            ToolButton(kind: .search)
-            ToolButton(kind: .trash)
+            Self.ToolButton(kind: .dictionary)
+            Self.ToolButton(kind: .search)
+            Self.ToolButton(kind: .trash)
         }
         .padding(4)
-        .onSubmit { self.model.notesSelection = [self.source.id] }
+        .onSubmit {
+            self.model.saveNotes()
+            self.model.notesSelection = [self.source.id]
+        }
         .contextMenu {
             Button("先頭へ移動") {}
             Button("末尾へ移動") {}
@@ -39,34 +42,36 @@ struct 📗NoteView: View {
     }
 }
 
-struct ToolButton: View {
-    var kind: Self.Kind
-    @State private var ホバー中: Bool = false
-    var body: some View {
-        Button {
-            switch self.kind {
-                case .dictionary: break
-                case .search: break
-                case .trash: break
+private extension 📗NoteView {
+    struct ToolButton: View {
+        var kind: Self.Kind
+        @State private var ホバー中: Bool = false
+        var body: some View {
+            Button {
+                switch self.kind {
+                    case .dictionary: break
+                    case .search: break
+                    case .trash: break
+                }
+            } label: {
+                Image(systemName: self.kind.icon)
+                    .padding(8)
+                    .contentShape(Rectangle())
             }
-        } label: {
-            Image(systemName: self.kind.icon)
-                .padding(8)
-                .contentShape(Rectangle())
+            .buttonStyle(.plain)
+            .font(.title3.weight(.medium))
+            .foregroundStyle(self.ホバー中 ? .primary : .tertiary)
+            .animation(.default.speed(2), value: self.ホバー中)
+            .onHover { self.ホバー中 = $0 }
         }
-        .buttonStyle(.plain)
-        .font(.title3.weight(.medium))
-        .foregroundStyle(self.ホバー中 ? .primary : .tertiary)
-        .animation(.default.speed(2), value: self.ホバー中)
-        .onHover { self.ホバー中 = $0 }
-    }
-    enum Kind {
-        case dictionary, search, trash
-        var icon: String {
-            switch self {
-                case .dictionary: "character.book.closed"
-                case .search: "magnifyingglass"
-                case .trash: "trash"
+        enum Kind {
+            case dictionary, search, trash
+            var icon: String {
+                switch self {
+                    case .dictionary: "character.book.closed"
+                    case .search: "magnifyingglass"
+                    case .trash: "trash"
+                }
             }
         }
     }
