@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct 🪄Commands: Commands {
-//    @ObservedObject var model: 📱AppModel
     var body: some Commands {
         🛒InAppPurchaseCommand()
         CommandGroup(replacing: .systemServices) { EmptyView() }
@@ -22,9 +21,6 @@ struct 🪄Commands: Commands {
         }
         ℹ️HelpCommands()
     }
-//    init(_ model: 📱AppModel) {
-//        self.model = model
-//    }
 }
 
 private extension 🪄Commands {
@@ -55,26 +51,40 @@ private extension 🪄Commands {
     //}
     private struct NewNoteAboveButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notes) var notes
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Insert new note above") {
                 self.model?.insertAbove()
             }
             .keyboardShortcut("[")
-            .disabled(self.model?.notesSelection.count != 1)
+            .disabled(
+                (self.notesSelection?.count != 1)
+                ||
+                (self.notesSelection?.first == self.notes?.first?.id)
+            )
         }
     }
     private struct NewNoteBelowButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notes) var notes
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Insert new note below") {
                 self.model?.insertBelow()
             }
             .keyboardShortcut("]")
-            .disabled(self.model?.notesSelection.count != 1)
+            .disabled(
+                (self.notesSelection?.count != 1)
+                ||
+                (self.notesSelection?.first == self.notes?.last?.id)
+            )
         }
     }
     private struct MoveTopButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notes) var notes
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Move top") {
                 let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
@@ -83,11 +93,17 @@ private extension 🪄Commands {
                 }
             }
             .keyboardShortcut("t")
-            .disabled(self.model?.notesSelection.first == self.model?.notes.first?.id)
+            .disabled(
+                (self.notesSelection?.isEmpty == true)
+                ||
+                (self.notesSelection?.first == self.notes?.first?.id)
+            )
         }
     }
     private struct MoveEndButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notes) var notes
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Move end") {
                 let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
@@ -96,25 +112,31 @@ private extension 🪄Commands {
                 }
             }
             .keyboardShortcut("e")
-            .disabled(self.model?.notesSelection.first == self.model?.notes.last?.id)
+            .disabled(
+                (self.notesSelection?.isEmpty == true)
+                ||
+                (self.notesSelection?.first == self.notes?.last?.id)
+            )
         }
     }
     private struct DictionaryButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Look up the title in dictionaries") {
             }
             .keyboardShortcut("d")
-            .disabled(self.model?.notesSelection != nil)
+            .disabled(self.notesSelection?.count != 1)
         }
     }
     private struct SearchButton: View {
         @FocusedObject var model: 📱AppModel?
+        @FocusedValue(\.notesSelection) var notesSelection
         var body: some View {
             Button("Search the title") {
             }
             .keyboardShortcut("s")
-            .disabled(self.model?.notesSelection != nil)
+            .disabled(self.notesSelection?.count != 1)
         }
     }
 }

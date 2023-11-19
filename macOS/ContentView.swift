@@ -6,6 +6,8 @@ struct ContentView: View {
         NavigationStack {
             📚NotesListPanel()
         }
+        .focusedValue(\.notesSelection, self.model.notesSelection)
+        .focusedValue(\.notes, self.model.notes)
         .focusedObject(self.model)
         .onOpenURL(perform: self.model.handleWidgetURL)
         .modifier(📰SheetHandlerOnContentView())
