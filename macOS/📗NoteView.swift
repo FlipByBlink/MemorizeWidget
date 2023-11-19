@@ -29,7 +29,7 @@ struct 📗NoteView: View {
             Button("検索") {}
             Divider()
             Button("末尾へ移動") {}
-            Button("銭湯へ移動") {}
+            Button("先頭へ移動") {}
             Divider()
             Button("上に新規ノート") {}
             Button("下に新規ノート") {}

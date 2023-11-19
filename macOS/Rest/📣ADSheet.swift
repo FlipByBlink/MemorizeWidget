@@ -2,7 +2,7 @@ import SwiftUI
 
 struct 📣ADSheet: ViewModifier {
     @EnvironmentObject var appModel: 📱AppModel
-    @State private var targetApp: 📣ADTargetApp = .pickUpAppWithout(.FlipByBlink)
+    @State private var targetApp: 📣ADTargetApp = .pickUpAppWithout(.MemorizeWidget)
     @State private var showSheet: Bool = false
     func body(content: Content) -> some View {
         content

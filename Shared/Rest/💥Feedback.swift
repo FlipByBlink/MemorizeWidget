@@ -32,16 +32,16 @@ enum 💥Feedback {
     }
 #elseif os(macOS)
     static func light() {
-        
+        /* Nothing */
     }
     static func success() {
-        
+        /* Nothing */
     }
     static func error() {
-        
+        NSSound.beep()
     }
     static func warning() {
-        
+        NSSound.beep()
     }
 #endif
 }

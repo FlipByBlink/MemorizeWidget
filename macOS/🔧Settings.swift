@@ -1,33 +1,54 @@
 import SwiftUI
 
 struct 🔧Settings: Scene {
-    var model: 📱AppModel
+    private var model: 📱AppModel
     var body: some Scene {
         Settings {
             TabView {
                 Form {
+                    Spacer()
                     Section {
                         🎛️RandomModeToggle()
                     } footer: {
                         🎛️RandomModeToggle.Caption()
+                            .foregroundStyle(.secondary)
                     }
-                    🎛️ViewComponent.MultiNotesToggle()
-                    🎛️ViewComponent.ShowCommentToggle()
-                }
-                .formStyle(.grouped)
-                .tabItem { Label("Widget", systemImage: "rectangle.3.group") }
-                Form {
+                    Spacer()
+                    Section {
+                        🎛️ViewComponent.MultiNotesToggle()
+                        🎛️ViewComponent.ShowCommentToggle()
+                    }
+                    Spacer()
                     Self.MenuBarShortcutToggle()
+                    Spacer()
                 }
-                .padding(24)
-                .tabItem { Label("App", systemImage: "app") }
+                .padding(32)
+                .tabItem {
+                    Label("General", systemImage: "rectangle.3.group")
+                }
+                Form {
+                    Spacer()
+                    🎛️ViewComponent.FontSize.CustomizeToggle()
+                        .labelStyle(.titleOnly)
+                        .toggleStyle(.switch)
+                    Spacer()
+                    🎛️ViewComponent.FontSize.TitleForSystemFamilyPicker()
+                    🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
+                    Spacer()
+                }
+                .padding(96)
+                .tabItem {
+                    Label("Font", systemImage: "textformat.size")
+                }
                 Form {
                     Text("Placeholder")
                 }
                 .padding(24)
-                .tabItem { Label("Search", systemImage: "magnifyingglass") }
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
             }
-            .frame(width: 400, height: 250)
+            .frame(width: 400, height: 300)
             .environmentObject(self.model)
         }
         .windowResizability(.contentSize)

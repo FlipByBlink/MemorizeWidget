@@ -7,6 +7,8 @@ struct ContentView: View {
             📚NotesListPanel()
         }
         .focusedObject(self.model)
+        .onOpenURL(perform: self.model.handleWidgetURL)
+        .modifier(📰SheetHandlerOnContentView())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())
         .frame(minWidth: 360, minHeight: 240)

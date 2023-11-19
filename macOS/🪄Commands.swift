@@ -10,7 +10,6 @@ struct 🪄Commands: Commands {
         }
         CommandMenu("Notes") {
             Self.NewNoteOnTopButton()
-            Self.NewNoteOnEndButton()
             Divider()
             Self.NewNoteAboveButton()
             Self.NewNoteBelowButton()
@@ -46,15 +45,14 @@ private extension 🪄Commands {
             .keyboardShortcut("n")
         }
     }
-    private struct NewNoteOnEndButton: View {
-        @FocusedObject var model: 📱AppModel?
-        var body: some View {
-            Button("New note on end") {
-                self.model?.addNewNoteOnTop()
-            }
-            .keyboardShortcut("n", modifiers: [.command, .shift])
-        }
-    }
+    //private struct NewNoteOnEndButton: View {
+    //    @FocusedObject var model: 📱AppModel?
+    //    var body: some View {
+    //        Button("New note on end") {
+    //        }
+    //        .keyboardShortcut("n", modifiers: [.command, .shift])
+    //    }
+    //}
     private struct NewNoteAboveButton: View {
         @FocusedObject var model: 📱AppModel?
         var body: some View {
