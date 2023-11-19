@@ -10,6 +10,6 @@ struct MacOSApp: App {
         }
         .commands { 🪄Commands() }
         🏗️MenuBarShortcut(self.model)
-        🔧Settings()
+        🔧Settings(self.model)
     }
 }

@@ -1,25 +1,40 @@
 import SwiftUI
 
 struct 🔧Settings: Scene {
+    var model: 📱AppModel
     var body: some Scene {
         Settings {
             TabView {
                 Form {
-                    Self.MenuBarShortcutToggle()
-                    Toggle("Toggle", isOn: .constant(false))
-                    Picker("Picker", selection: .constant(1)) {
-                        Text("1").tag(1); Text("2").tag(2); Text("3").tag(3);
+                    Section {
+                        🎛️RandomModeToggle()
+                    } footer: {
+                        🎛️RandomModeToggle.Caption()
                     }
-                    Link("Link", destination: URL(string: "http://apple.com")!)
+                    🎛️ViewComponent.MultiNotesToggle()
+                    🎛️ViewComponent.ShowCommentToggle()
                 }
                 .padding(24)
-                .tabItem { Label("1", systemImage: "1.circle") }
-                Text("2")
-                    .tabItem { Label("2", systemImage: "2.circle") }
+                .tabItem { Label("Widget", systemImage: "rectangle.3.group") }
+                Form {
+                    Self.MenuBarShortcutToggle()
+                }
+                .padding(24)
+                .tabItem { Label("App", systemImage: "app") }
+                Form {
+                    Text("Placeholder")
+                }
+                .padding(24)
+                .tabItem { Label("Search", systemImage: "magnifyingglass") }
             }
             .frame(width: 400, height: 250)
+            .environmentObject(self.model)
         }
         .windowResizability(.contentSize)
+        .defaultPosition(.init(x: 0.1, y: 0.1))
+    }
+    init(_ model: 📱AppModel) {
+        self.model = model
     }
 }
 
