@@ -1,0 +1,20 @@
+{
+  "images" : [
+    {
+      "filename" : "TWtop1200wEN.heic",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "TWtop1200wJA.heic",
+      "idiom" : "universal",
+      "locale" : "ja"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
+  }
+}

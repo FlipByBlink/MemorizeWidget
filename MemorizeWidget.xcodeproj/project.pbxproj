@@ -36,7 +36,6 @@
 		166C25312B00A488008124DC /* 🔖Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25302B00A488008124DC /* 🔖Sidebar.swift */; };
 		166C25362B00DFB0008124DC /* 📰SheetHandlerOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25352B00DFB0008124DC /* 📰SheetHandlerOnContentView.swift */; };
 		166C25382B00E072008124DC /* 📰SheetHandlerOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25372B00E072008124DC /* 📰SheetHandlerOnContentView.swift */; };
-		166C253A2B00E919008124DC /* 📘DictionaryButtonOnMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25392B00E919008124DC /* 📘DictionaryButtonOnMac.swift */; };
 		166C253E2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C253D2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift */; };
 		166C25402B019E30008124DC /* 📰DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C253F2B019E30008124DC /* 📰DismissButton.swift */; };
 		166C25432B01A9C5008124DC /* 🔖SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25422B01A9C5008124DC /* 🔖SidebarView.swift */; };
@@ -69,6 +68,17 @@
 		167317DF2B05942100656005 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317DB2B05942100656005 /* 🎛️Default.swift */; };
 		167317E12B059F9A00656005 /* 🎛️FontSizeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */; };
 		167317E32B05A62200656005 /* 🔍CustomizeSearchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317E22B05A62200656005 /* 🔍CustomizeSearchMenu.swift */; };
+		1673E06C2B0A027100D621D3 /* 📘DictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C25392B00E919008124DC /* 📘DictionaryButton.swift */; };
+		1673E0762B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */; };
+		1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */; };
+		1673E0782B0A059400D621D3 /* 📣ADSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0702B0A059400D621D3 /* 📣ADSheet.swift */; };
+		1673E0792B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */; };
+		1673E07A2B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */; };
+		1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */; };
+		1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0742B0A059400D621D3 /* 📣ADContent.swift */; };
+		1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */; };
+		1673E07E2B0A05FF00D621D3 /* 📣ADModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C831E2AA5D0A70033A04B /* 📣ADModel.swift */; };
+		1673E07F2B0A060200D621D3 /* 🛒InAppPurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */; };
 		168743702AF9C6E9000F0F79 /* 📥FileImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */; };
 		168743722AF9CAA5000F0F79 /* 📥TextImportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */; };
 		168743742AF9CB38000F0F79 /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
@@ -542,7 +552,7 @@
 		166C25302B00A488008124DC /* 🔖Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Sidebar.swift"; sourceTree = "<group>"; };
 		166C25352B00DFB0008124DC /* 📰SheetHandlerOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetHandlerOnContentView.swift"; sourceTree = "<group>"; };
 		166C25372B00E072008124DC /* 📰SheetHandlerOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetHandlerOnContentView.swift"; sourceTree = "<group>"; };
-		166C25392B00E919008124DC /* 📘DictionaryButtonOnMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘DictionaryButtonOnMac.swift"; sourceTree = "<group>"; };
+		166C25392B00E919008124DC /* 📘DictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📘DictionaryButton.swift"; sourceTree = "<group>"; };
 		166C253D2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥ConvertedNotesMenu.swift"; sourceTree = "<group>"; };
 		166C253F2B019E30008124DC /* 📰DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰DismissButton.swift"; sourceTree = "<group>"; };
 		166C25422B01A9C5008124DC /* 🔖SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖SidebarView.swift"; sourceTree = "<group>"; };
@@ -558,6 +568,14 @@
 		167317DB2B05942100656005 /* 🎛️Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🎛️Default.swift"; sourceTree = "<group>"; };
 		167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️FontSizeMenu.swift"; sourceTree = "<group>"; };
 		167317E22B05A62200656005 /* 🔍CustomizeSearchMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍CustomizeSearchMenu.swift"; sourceTree = "<group>"; };
+		1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchaseWindow.swift"; sourceTree = "<group>"; };
+		1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️HelpCommands.swift"; sourceTree = "<group>"; };
+		1673E0702B0A059400D621D3 /* 📣ADSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣ADSheet.swift"; sourceTree = "<group>"; };
+		1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchaseCommand.swift"; sourceTree = "<group>"; };
+		1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchaseMenu.swift"; sourceTree = "<group>"; };
+		1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "💬RequestUserReview.swift"; sourceTree = "<group>"; };
+		1673E0742B0A059400D621D3 /* 📣ADContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣ADContent.swift"; sourceTree = "<group>"; };
+		1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️HelpWindows.swift"; sourceTree = "<group>"; };
 		1687436F2AF9C6E9000F0F79 /* 📥FileImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥FileImportSection.swift"; sourceTree = "<group>"; };
 		168743712AF9CAA5000F0F79 /* 📥TextImportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥TextImportSection.swift"; sourceTree = "<group>"; };
 		168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥SeparatorPicker.swift"; sourceTree = "<group>"; };
@@ -773,9 +791,7 @@
 			isa = PBXGroup;
 			children = (
 				F59EEFE828F3FACB002D9AD7 /* ℹ️AboutApp.swift */,
-				F50C831E2AA5D0A70033A04B /* 📣ADModel.swift */,
 				F50C831A2AA5D08D0033A04B /* 📣ADComponents.swift */,
-				F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */,
 				F50C831C2AA5D0970033A04B /* 🛒InAppPurchaseView.swift */,
 			);
 			path = Rest;
@@ -877,6 +893,21 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
+		1673E06D2B0A059400D621D3 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1673E0702B0A059400D621D3 /* 📣ADSheet.swift */,
+				1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */,
+				1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */,
+				1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */,
+				1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */,
+				1673E0742B0A059400D621D3 /* 📣ADContent.swift */,
+				1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */,
+				1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		1687436E2AF9BD0C000F0F79 /* 🔖Tab&Sidebar */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,10 +994,12 @@
 				16C3D7732B0968BA00849D96 /* ContentView.swift */,
 				167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */,
 				16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */,
+				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
 				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
 				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
 				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,
+				1673E06D2B0A059400D621D3 /* Rest */,
 				16C3D77E2B09696500849D96 /* Supporting files */,
 				16C3D7C12B0989CC00849D96 /* App Extensions */,
 			);
@@ -1076,6 +1109,8 @@
 				16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */,
 				16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */,
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
+				F50C831E2AA5D0A70033A04B /* 📣ADModel.swift */,
+				F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */,
 				F50C83112AA5CE7F0033A04B /* 🗒️StaticInfo.swift */,
 			);
 			path = Rest;
@@ -1124,7 +1159,6 @@
 				F5FE2D8829DCDF12008C728B /* 🚮DeleteNoteButton.swift */,
 				F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */,
 				F527F47E29D555A700E9FB97 /* 📘DictionarySheetView.swift */,
-				166C25392B00E919008124DC /* 📘DictionaryButtonOnMac.swift */,
 				F50C83242AA5D39A0033A04B /* 🆕NewNoteCommand.swift */,
 				F527F47A29D5424C00E9FB97 /* 🩹Workaround.swift */,
 				F5FE2DA629DEB0BA008C728B /* 💁GuideTab.swift */,
@@ -1548,33 +1582,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C3D7742B0968BA00849D96 /* ContentView.swift in Sources */,
+				1673E0792B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift in Sources */,
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
 				16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */,
+				1673E07F2B0A060200D621D3 /* 🛒InAppPurchaseModel.swift in Sources */,
 				16C3D7902B096A3000849D96 /* 🗑TrashModel.swift in Sources */,
 				16C3D7A42B096BEE00849D96 /* 📱AppModel(extension).swift in Sources */,
 				16C3D7802B096A2700849D96 /* 💾UserDefaults.swift in Sources */,
+				1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */,
 				16C3D7932B096A3700849D96 /* 🎛️RandomModeToggle.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
+				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteView.swift in Sources */,
+				1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */,
 				16C3D7922B096A3000849D96 /* 🗑TrashViewComponent.swift in Sources */,
+				1673E07E2B0A05FF00D621D3 /* 📣ADModel.swift in Sources */,
 				16C3D77F2B096A2700849D96 /* 💾ICloud.swift in Sources */,
 				16C3D7912B096A3000849D96 /* 🗑DeletedContent.swift in Sources */,
 				16C3D79B2B096B0F00849D96 /* 🗒️StaticInfo.swift in Sources */,
+				1673E06C2B0A027100D621D3 /* 📘DictionaryButton.swift in Sources */,
+				1673E0762B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift in Sources */,
 				16C3D7882B096A2700849D96 /* UserDefaults(extension).swift in Sources */,
 				16C3D79C2B096B3500849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				16C3D78F2B096A2700849D96 /* 📚Notes.swift in Sources */,
 				16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */,
 				16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */,
 				16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */,
+				1673E0782B0A059400D621D3 /* 📣ADSheet.swift in Sources */,
 				16C3D7832B096A2700849D96 /* 📱AppModel.swift in Sources */,
 				16C3D7942B096A3700849D96 /* 🎛️Key.swift in Sources */,
 				16C3D7A82B096C5900849D96 /* FocusedValues(extension).swift in Sources */,
 				16C3D7722B0968BA00849D96 /* App.swift in Sources */,
 				167182932B09F41200A7AD8D /* 📚NotesListPanel.swift in Sources */,
 				16C3D7992B096AEE00849D96 /* 💁GuideViewComponent.swift in Sources */,
+				1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */,
 				16C3D78A2B096A2700849D96 /* 📚TextConvert.swift in Sources */,
+				1673E07A2B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift in Sources */,
 				16C3D7812B096A2700849D96 /* 📗Note.swift in Sources */,
 				16C3D7962B096A3700849D96 /* 🎛️Option.swift in Sources */,
 				16C3D78E2B096A2700849D96 /* 🪧ContainerBackground.swift in Sources */,
@@ -1706,7 +1751,6 @@
 				166BC2BA2AF66CEE00729C66 /* 📖MultiNotesLayoutView.swift in Sources */,
 				F50C831B2AA5D08D0033A04B /* 📣ADComponents.swift in Sources */,
 				16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */,
-				166C253A2B00E919008124DC /* 📘DictionaryButtonOnMac.swift in Sources */,
 				16EA37DD2B0236DB0033EB3E /* 🔍SearchModel.swift in Sources */,
 				168D5F082AF6034900A100A7 /* 📚Notes.swift in Sources */,
 				167317DC2B05942100656005 /* 🎛️Default.swift in Sources */,

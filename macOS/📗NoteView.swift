@@ -15,6 +15,7 @@ struct 📗NoteView: View {
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(.secondary)
             }
+            .focusedValue(\.フォーカス値, self.source.id)
             .onSubmit {
                 self.model.saveNotes()
                 self.model.notesSelection = [self.source.id]
@@ -37,7 +38,6 @@ struct 📗NoteView: View {
                 self.model.createdNewNoteID = nil
             }
         }
-        .focusedValue(\.フォーカス値, self.source.id)
     }
 }
 

@@ -128,6 +128,9 @@ extension 🗒️StaticInfo {
 
 #elseif os(macOS)
 extension 🗒️StaticInfo {
+    static let versionInfos: [(version: String, date: String)] = [
+        ("1.4", "2023-11-16(temporary)")
+    ] //降順。先頭の方が新しい
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main, Rest, Widget
         var id: Self { self }

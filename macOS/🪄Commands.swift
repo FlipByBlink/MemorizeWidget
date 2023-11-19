@@ -3,7 +3,7 @@ import SwiftUI
 struct 🪄Commands: Commands {
 //    @ObservedObject var model: 📱AppModel
     var body: some Commands {
-//        🛒InAppPurchaseCommand()
+        🛒InAppPurchaseCommand()
         CommandGroup(replacing: .systemServices) { EmptyView() }
         CommandGroup(after: .newItem) {
             Self.OpenNotesWindowButton()
@@ -21,7 +21,7 @@ struct 🪄Commands: Commands {
             Self.DictionaryButton()
             Self.SearchButton()
         }
-//        ℹ️HelpCommands()
+        ℹ️HelpCommands()
     }
 //    init(_ model: 📱AppModel) {
 //        self.model = model

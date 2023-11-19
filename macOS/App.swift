@@ -11,5 +11,7 @@ struct MacOSApp: App {
         .commands { 🪄Commands() }
         🏗️MenuBarShortcut(self.model)
         🔧Settings(self.model)
+        ℹ️HelpWindows()
+        🛒InAppPurchaseWindow()
     }
 }

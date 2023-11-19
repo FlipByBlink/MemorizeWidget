@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "appstore_badge 1.svg",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "appstore_badge.svg",
+      "idiom" : "universal",
+      "locale" : "ja"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true,
+    "preserves-vector-representation" : true
+  }
+}

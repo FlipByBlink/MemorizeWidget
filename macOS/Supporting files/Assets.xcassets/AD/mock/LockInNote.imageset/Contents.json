@@ -1,0 +1,20 @@
+{
+  "images" : [
+    {
+      "filename" : "topLIN1200w（大）.heic",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "top1200w（大）.heic",
+      "idiom" : "universal",
+      "locale" : "ja"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
+  }
+}

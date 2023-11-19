@@ -14,9 +14,11 @@ class 📱AppModel: ObservableObject {
     @Published var selectedTab: 🔖Tab = .notesList
     @Published var selectedSidebar: 🔖Sidebar? = .notesList
     @Published var presentedSheetOnWidgetSheet: 📰SheetOnWidgetSheet? = nil
-    let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #elseif os(macOS)
     @Published var notesSelection: Set<UUID> = []
+#endif
+#if os(iOS) || os(macOS)
+    let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #endif
     init() {
         self.forwardFromUserDefaults_1_1_2()

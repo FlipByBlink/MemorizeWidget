@@ -1,12 +1,14 @@
 import SwiftUI
 
-struct 📘DictionaryButtonOnMac: View {
+struct 📘DictionaryButton: View {
+    @EnvironmentObject var model: 📱AppModel
     @Environment(\.openURL) var openURL
-    var term: String
     var body: some View {
         Button {
-            guard let ⓟath = self.term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+            let ⓝote = self.model.notes.first { $0.id == self.model.notesSelection.first }
+            guard let ⓟath = ⓝote?.title.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
                   let ⓤrl = URL(string: "dict://" + ⓟath) else {
+                NSSound.beep()
                 return
             }
             self.openURL(ⓤrl)
