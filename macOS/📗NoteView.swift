@@ -3,25 +3,25 @@ import SwiftUI
 struct 📗NoteView: View {
     @EnvironmentObject var model: 📱AppModel
     @FocusState private var titleFocus: Bool
-    @Binding var note: 📗Note
+    @Binding var source: 📗Note
     var body: some View {
         HStack(spacing: 4) {
             VStack(spacing: 4) {
-                TextField("No title", text: self.$note.title, axis: .vertical)
+                TextField("No title", text: self.$source.title, axis: .vertical)
                     .font(.headline)
                     .focused(self.$titleFocus)
-                TextField("No comment", text: self.$note.comment, axis: .vertical)
-                    .disabled(self.note.title.isEmpty)
+                TextField("No comment", text: self.$source.comment, axis: .vertical)
+                    .disabled(self.source.title.isEmpty)
                     .font(.subheadline.weight(.medium))
-                    .opacity(self.model.notesSelection.contains(self.note.id)
-                             && self.note.comment.isEmpty ? 0.5 : 1)
+                    .opacity(self.model.notesSelection.contains(self.source.id)
+                             && self.source.comment.isEmpty ? 0.5 : 1)
             }
             ToolButton(kind: .dictionary)
             ToolButton(kind: .search)
             ToolButton(kind: .trash)
         }
         .padding(4)
-        .onSubmit { self.model.notesSelection = [self.note.id] }
+        .onSubmit { self.model.notesSelection = [self.source.id] }
         .contextMenu {
             Button("先頭へ移動") {}
             Button("末尾へ移動") {}
@@ -30,12 +30,12 @@ struct 📗NoteView: View {
             Button("下部へ新規ノート") {}
         }
         .onChange(of: self.model.createdNewNoteID) {
-            if $0 == self.note.id {
+            if $0 == self.source.id {
                 self.titleFocus = true
                 self.model.createdNewNoteID = nil
             }
         }
-        .focusedValue(\.フォーカス値, self.note.id)
+        .focusedValue(\.フォーカス値, self.source.id)
     }
 }
 

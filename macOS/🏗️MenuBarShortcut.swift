@@ -2,7 +2,7 @@ import SwiftUI
 
 struct 🏗️MenuBarShortcut: Scene {
     @ObservedObject var model: 📱AppModel
-    @AppStorage("showMenuBar") var showMenuBar: Bool = true
+    @AppStorage(🎛️Key.showMenuBar) var showMenuBar: Bool = true
     var body: some Scene {
         MenuBarExtra("New note",
                      systemImage: "square.and.pencil",

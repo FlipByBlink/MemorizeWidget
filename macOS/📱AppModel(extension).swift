@@ -2,7 +2,7 @@ import SwiftUI
 
 extension 📱AppModel {
     func clearSelection() {
-        self.notesSelection = []
+        self.notesSelection.removeAll()
     }
     func removeSelectedNote() {
         self.notes.removeAll { self.notesSelection.contains($0.id) }

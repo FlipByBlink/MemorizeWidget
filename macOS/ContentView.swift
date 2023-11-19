@@ -7,7 +7,7 @@ struct ContentView: View {
             List(selection: self.$model.notesSelection) {
                 Section {
                     ForEach(self.$model.notes) {
-                        📗NoteView(note: $0)
+                        📗NoteView(source: $0)
                     }
                     .onMove { self.model.moveNote($0, $1) }
                     .onDelete { self.model.deleteNoteOnNotesList($0) }

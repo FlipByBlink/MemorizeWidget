@@ -22,4 +22,7 @@ enum 🎛️Key {
             static let comment = "commentSizeForAccessoryFamily"
         }
     }
+#if os(macOS)
+    static let showMenuBar = "showMenuBar"
+#endif
 }

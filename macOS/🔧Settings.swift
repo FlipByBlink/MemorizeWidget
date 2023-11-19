@@ -40,9 +40,9 @@ struct 🔧Settings: Scene {
 
 private extension 🔧Settings {
     private struct MenuBarShortcutToggle: View {
-        @AppStorage("showMenuBar") var showMenuBar: Bool = true
+        @AppStorage(🎛️Key.showMenuBar) var value: Bool = true
         var body: some View {
-            Toggle(isOn: self.$showMenuBar) {
+            Toggle(isOn: self.$value) {
                 Label("Menubar shortcut", systemImage: "menubar.arrow.up.rectangle")
             }
         }
