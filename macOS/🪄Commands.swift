@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct 🪄Commands: Commands {
+    @FocusedObject var model: 📱AppModel?
+    @FocusedValue(\.notes) var notes
+    @FocusedValue(\.notesSelection) var notesSelection
     var body: some Commands {
         🛒InAppPurchaseCommand()
         CommandGroup(replacing: .systemServices) { EmptyView() }
@@ -8,16 +11,16 @@ struct 🪄Commands: Commands {
             Self.OpenNotesWindowButton()
         }
         CommandMenu("Notes") {
-            Self.NewNoteOnTopButton()
+            self.newNoteOnTopButton()
             Divider()
-            Self.NewNoteAboveButton()
-            Self.NewNoteBelowButton()
+            self.newNoteAboveButton()
+            self.newNoteBelowButton()
             Divider()
-            Self.MoveTopButton()
-            Self.MoveEndButton()
+            self.moveTopButton()
+            self.moveEndButton()
             Divider()
-            Self.DictionaryButton()
-            Self.SearchButton()
+            self.dictionaryButton()
+            self.searchButton()
         }
         ℹ️HelpCommands()
     }
@@ -32,111 +35,72 @@ private extension 🪄Commands {
             }
         }
     }
-    private struct NewNoteOnTopButton: View {
-        @FocusedObject var model: 📱AppModel?
-        var body: some View {
-            Button("New note on top") {
-                self.model?.addNewNoteOnTop()
-            }
-            .keyboardShortcut("n")
+    private func newNoteOnTopButton() -> some View {
+        Button("New note on top") {
+            self.model?.addNewNoteOnTop()
         }
+        .keyboardShortcut("n")
     }
-    //private struct NewNoteOnEndButton: View {
-    //    @FocusedObject var model: 📱AppModel?
-    //    var body: some View {
-    //        Button("New note on end") {
-    //        }
-    //        .keyboardShortcut("n", modifiers: [.command, .shift])
-    //    }
-    //}
-    private struct NewNoteAboveButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notes) var notes
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Insert new note above") {
-                self.model?.insertAbove()
-            }
-            .keyboardShortcut("[")
-            .disabled(
-                (self.notesSelection?.count != 1)
-                ||
-                (self.notesSelection?.first == self.notes?.first?.id)
-            )
+    private func newNoteAboveButton() -> some View {
+        Button("Insert new note above") {
+            self.model?.insertAbove()
         }
+        .keyboardShortcut("[")
+        .disabled(
+            (self.notesSelection?.count != 1)
+            ||
+            (self.notesSelection?.first == self.notes?.first?.id)
+        )
     }
-    private struct NewNoteBelowButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notes) var notes
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Insert new note below") {
-                self.model?.insertBelow()
-            }
-            .keyboardShortcut("]")
-            .disabled(
-                (self.notesSelection?.count != 1)
-                ||
-                (self.notesSelection?.first == self.notes?.last?.id)
-            )
+    private func newNoteBelowButton() -> some View {
+        Button("Insert new note below") {
+            self.model?.insertBelow()
         }
+        .keyboardShortcut("]")
+        .disabled(
+            (self.notesSelection?.count != 1)
+            ||
+            (self.notesSelection?.first == self.notes?.last?.id)
+        )
     }
-    private struct MoveTopButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notes) var notes
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Move top") {
-                let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
-                if let ⓝote {
-                    self.model?.moveTop(ⓝote)
-                }
+    private func moveTopButton() -> some View {
+        Button("Move top") {
+            let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
+            if let ⓝote {
+                self.model?.moveTop(ⓝote)
             }
-            .keyboardShortcut("t")
-            .disabled(
-                (self.notesSelection?.isEmpty == true)
-                ||
-                (self.notesSelection?.first == self.notes?.first?.id)
-            )
         }
+        .keyboardShortcut("t")
+        .disabled(
+            (self.notesSelection?.isEmpty == true)
+            ||
+            (self.notesSelection?.first == self.notes?.first?.id)
+        )
     }
-    private struct MoveEndButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notes) var notes
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Move end") {
-                let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
-                if let ⓝote {
-                    self.model?.moveEnd(ⓝote)
-                }
+    private func moveEndButton() -> some View {
+        Button("Move end") {
+            let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
+            if let ⓝote {
+                self.model?.moveEnd(ⓝote)
             }
-            .keyboardShortcut("e")
-            .disabled(
-                (self.notesSelection?.isEmpty == true)
-                ||
-                (self.notesSelection?.first == self.notes?.last?.id)
-            )
         }
+        .keyboardShortcut("e")
+        .disabled(
+            (self.notesSelection?.isEmpty == true)
+            ||
+            (self.notesSelection?.first == self.notes?.last?.id)
+        )
     }
-    private struct DictionaryButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Look up the title in dictionaries") {
-            }
-            .keyboardShortcut("d")
-            .disabled(self.notesSelection?.count != 1)
+    private func dictionaryButton() -> some View {
+        Button("Look up the title in dictionaries") {
         }
+        .keyboardShortcut("d")
+        .disabled(self.notesSelection?.count != 1)
     }
-    private struct SearchButton: View {
-        @FocusedObject var model: 📱AppModel?
-        @FocusedValue(\.notesSelection) var notesSelection
-        var body: some View {
-            Button("Search the title") {
-            }
-            .keyboardShortcut("s")
-            .disabled(self.notesSelection?.count != 1)
+    private func searchButton() -> some View {
+        Button("Search the title") {
         }
+        .keyboardShortcut("s")
+        .disabled(self.notesSelection?.count != 1)
     }
 }
