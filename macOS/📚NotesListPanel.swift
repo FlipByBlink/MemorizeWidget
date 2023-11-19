@@ -15,7 +15,7 @@ struct 📚NotesListPanel: View {
             }
         }
         .toolbar { self.newNoteOnTopButton() }
-        .navigationTitle("ノートリスト")
+        .navigationTitle("ノート")
         .onDeleteCommand { self.model.removeSelectedNote() }
         .onExitCommand { self.model.clearSelection() }
         .animation(.default, value: self.model.notes)

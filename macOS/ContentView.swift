@@ -9,6 +9,6 @@ struct ContentView: View {
         .focusedObject(self.model)
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())
-        .frame(minWidth: 360, minHeight: 300)
+        .frame(minWidth: 360, minHeight: 240)
     }
 }

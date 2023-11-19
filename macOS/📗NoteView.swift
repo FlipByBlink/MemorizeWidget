@@ -20,17 +20,19 @@ struct 📗NoteView: View {
                 self.model.saveNotes()
                 self.model.notesSelection = [self.source.id]
             }
-            Self.ToolButton(kind: .dictionary)
-            Self.ToolButton(kind: .search)
-            Self.ToolButton(kind: .trash)
+            Self.RemoveButton(self.source)
         }
-        .padding(4)
+        .padding(.vertical, 6)
+        .padding(.leading, 4)
         .contextMenu {
-            Button("先頭へ移動") {}
-            Button("末尾へ移動") {}
+            Button("辞書") {}
+            Button("検索") {}
             Divider()
-            Button("上部へ新規ノート") {}
-            Button("下部へ新規ノート") {}
+            Button("末尾へ移動") {}
+            Button("銭湯へ移動") {}
+            Divider()
+            Button("上に新規ノート") {}
+            Button("下に新規ノート") {}
         }
         .onChange(of: self.model.createdNewNoteID) {
             if $0 == self.source.id {
@@ -42,36 +44,26 @@ struct 📗NoteView: View {
 }
 
 private extension 📗NoteView {
-    struct ToolButton: View {
-        var kind: Self.Kind
+    private struct RemoveButton: View {
+        @EnvironmentObject var model: 📱AppModel
         @State private var ホバー中: Bool = false
+        var source: 📗Note
         var body: some View {
             Button {
-                switch self.kind {
-                    case .dictionary: break
-                    case .search: break
-                    case .trash: break
-                }
+                self.model.removeNote(self.source, feedback: false)
             } label: {
-                Image(systemName: self.kind.icon)
-                    .padding(8)
+                Image(systemName: "trash")
+                    .font(.title3.weight(.medium))
+                    .padding(4)
                     .contentShape(Rectangle())
             }
-            .buttonStyle(.plain)
-            .font(.title3.weight(.medium))
+            .buttonStyle(.borderless)
             .foregroundStyle(self.ホバー中 ? .primary : .tertiary)
             .animation(.default.speed(2), value: self.ホバー中)
             .onHover { self.ホバー中 = $0 }
         }
-        enum Kind {
-            case dictionary, search, trash
-            var icon: String {
-                switch self {
-                    case .dictionary: "character.book.closed"
-                    case .search: "magnifyingglass"
-                    case .trash: "trash"
-                }
-            }
+        init(_ source: 📗Note) {
+            self.source = source
         }
     }
 }

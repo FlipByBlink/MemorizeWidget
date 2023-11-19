@@ -7,6 +7,7 @@ struct MacOSApp: App {
         Window("Notes", id: "notes") {
             ContentView()
         }
+        .defaultSize(width: 360, height: 240)
         .commands { 🪄Commands() }
         🏗️MenuBarShortcut(self.model)
         🔧Settings(self.model)
