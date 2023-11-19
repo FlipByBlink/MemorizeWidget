@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160A5A642B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */; };
+		160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */; };
 		160C59292B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592A2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592B2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
@@ -111,7 +112,6 @@
 		16C08BC92B01BF3700A0D65D /* 📥NotesImportSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */; };
 		16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */; };
 		16C3D7722B0968BA00849D96 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7712B0968BA00849D96 /* App.swift */; };
-		16C3D7742B0968BA00849D96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7732B0968BA00849D96 /* ContentView.swift */; };
 		16C3D7762B0968BC00849D96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C3D7752B0968BC00849D96 /* Assets.xcassets */; };
 		16C3D77F2B096A2700849D96 /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		16C3D7802B096A2700849D96 /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
@@ -533,6 +533,7 @@
 
 /* Begin PBXFileReference section */
 		160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetHandlerOnContentView.swift"; sourceTree = "<group>"; };
+		160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesWindow.swift"; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
@@ -600,7 +601,6 @@
 		16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesMenuButton.swift"; sourceTree = "<group>"; };
 		16C3D76F2B0968B900849D96 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C3D7712B0968BA00849D96 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		16C3D7732B0968BA00849D96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16C3D7752B0968BC00849D96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16C3D77A2B0968BC00849D96 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🏗️MenuBarShortcut.swift"; sourceTree = "<group>"; };
@@ -781,6 +781,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160A5A672B0A469800E6F4EB /* 📚NotesWindow */ = {
+			isa = PBXGroup;
+			children = (
+				160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */,
+				167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */,
+				16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */,
+			);
+			path = "📚NotesWindow";
+			sourceTree = "<group>";
+		};
 		1626B7952AFA5B3200845F80 /* 📚NotesListTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,9 +1007,7 @@
 				16C3D7712B0968BA00849D96 /* App.swift */,
 				16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */,
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
-				16C3D7732B0968BA00849D96 /* ContentView.swift */,
-				167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */,
-				16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */,
+				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
 				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
 				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
 				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
@@ -1589,7 +1597,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C3D7742B0968BA00849D96 /* ContentView.swift in Sources */,
 				1673E0792B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift in Sources */,
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
 				16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */,
@@ -1601,6 +1608,7 @@
 				1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */,
 				16C3D7932B096A3700849D96 /* 🎛️RandomModeToggle.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
+				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
