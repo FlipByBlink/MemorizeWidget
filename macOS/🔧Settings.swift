@@ -14,7 +14,7 @@ struct 🔧Settings: Scene {
                     🎛️ViewComponent.MultiNotesToggle()
                     🎛️ViewComponent.ShowCommentToggle()
                 }
-                .padding(24)
+                .formStyle(.grouped)
                 .tabItem { Label("Widget", systemImage: "rectangle.3.group") }
                 Form {
                     Self.MenuBarShortcutToggle()
