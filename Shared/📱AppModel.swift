@@ -3,7 +3,8 @@ import WidgetKit
 
 //MARK: Initializer, Stored property
 @MainActor
-class 📱AppModel: ObservableObject {
+final
+class 📱AppModel: NSObject, ObservableObject {
     @Published var notes: 📚Notes = .load() ?? []
     @Published var createdNewNoteID: UUID? = nil
     @Published var presentedSheetOnContentView: 📰SheetOnContentView? = nil
@@ -20,7 +21,8 @@ class 📱AppModel: ObservableObject {
 #if os(iOS) || os(macOS)
     let inAppPurchaseModel = 🛒InAppPurchaseModel(id: "MemorizeWidget.adfree")
 #endif
-    init() {
+    override init() {
+        super.init()
         self.forwardFromUserDefaults_1_1_2()
         self.setPlaceholder()
         self.notes.cleanEmptyTitleNotes()
