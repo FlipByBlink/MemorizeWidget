@@ -6,25 +6,24 @@ struct 📗NoteView: View {
     @Binding var source: 📗Note
     var body: some View {
         HStack(spacing: 4) {
-            VStack(spacing: 4) {
+            VStack(spacing: 2) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.headline)
                     .focused(self.$titleFocus)
+                    .font(.title3.bold())
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
                     .font(.subheadline.weight(.medium))
-                    .opacity(self.model.notesSelection.contains(self.source.id)
-                             && self.source.comment.isEmpty ? 0.5 : 1)
+                    .foregroundStyle(.secondary)
+            }
+            .onSubmit {
+                self.model.saveNotes()
+                self.model.notesSelection = [self.source.id]
             }
             Self.ToolButton(kind: .dictionary)
             Self.ToolButton(kind: .search)
             Self.ToolButton(kind: .trash)
         }
         .padding(4)
-        .onSubmit {
-            self.model.saveNotes()
-            self.model.notesSelection = [self.source.id]
-        }
         .contextMenu {
             Button("先頭へ移動") {}
             Button("末尾へ移動") {}

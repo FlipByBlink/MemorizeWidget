@@ -11,12 +11,10 @@ struct 📚NotesListPanel: View {
                 .onMove { self.model.moveNote($0, $1) }
                 .onDelete { self.model.deleteNoteOnNotesList($0) }
             } footer: {
-                if self.model.notes.count > 10 {
-                    Text("ノート数: \(self.$model.notes.count)")
-                }
+                Self.Footer()
             }
         }
-        .toolbar { self.newNoteButton() }
+        .toolbar { self.newNoteOnTopButton() }
         .navigationTitle("ノートリスト")
         .onDeleteCommand { self.model.removeSelectedNote() }
         .onExitCommand { self.model.clearSelection() }
@@ -25,11 +23,19 @@ struct 📚NotesListPanel: View {
 }
 
 private extension 📚NotesListPanel {
-    private func newNoteButton() -> some View {
+    private func newNoteOnTopButton() -> some View {
         Button {
             self.model.addNewNoteOnTop()
         } label: {
             Label("新規ノート", systemImage: "plus")
+        }
+    }
+    private struct Footer: View {
+        @EnvironmentObject var model: 📱AppModel
+        var body: some View {
+            if self.model.notes.count > 10 {
+                Text("ノート数: \(self.model.notes.count)")
+            }
         }
     }
 }
