@@ -102,16 +102,14 @@ private extension 🪄Commands {
         )
     }
     private func dictionaryButton() -> some View {
-        Button("Look up the title in dictionaries") {
-        }
+        📘DictionaryButton(notes: self.targetNotes,
+                           labelTitle: "Look up the title in dictionaries")
         .keyboardShortcut("d")
-        .disabled(self.targetNotes.count != 1)
     }
     private func searchButton() -> some View {
-        Button("Search the title") {
-        }
+        🔍SearchButton(notes: self.targetNotes,
+                       labelTitle: "Search the title")
         .keyboardShortcut("s")
-        .disabled(self.targetNotes.count != 1)
     }
     private struct OpenTrashWindowButton: View {
         @Environment(\.openWindow) var openWindow

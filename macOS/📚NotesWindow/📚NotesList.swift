@@ -57,9 +57,10 @@ private extension 📚NotesList {
     }
     private func contextMenu(_ ⓘtems: Set<UUID>) -> some View {
         Group {
+            let ⓝotes: Set<📗Note> = .init(self.model.notes.filter { ⓘtems.contains($0.id) })
             Text(ⓘtems.debugDescription)
-            Button("辞書") {}
-            Button("検索") {}
+            📘DictionaryButton(notes: ⓝotes)
+            🔍SearchButton(notes: ⓝotes)
             Divider()
             Button("末尾へ移動") {}
             Button("先頭へ移動") {}
