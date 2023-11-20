@@ -34,9 +34,8 @@ class 📱AppModel: NSObject, ObservableObject {
 
 //MARK: Computed property, Method
 extension 📱AppModel {
-    func deleteNoteOnNotesList(_ ⓘndexSet: IndexSet) {
-        guard let ⓘndex = ⓘndexSet.first else { return }
-        self.trash.storeDeletedNotes([self.notes[ⓘndex]])
+    func deleteNotesOnNotesList(_ ⓘndexSet: IndexSet) { //TODO: 要動作確認
+        self.trash.storeDeletedNotes(ⓘndexSet.map { self.notes[$0] })
         self.notes.remove(atOffsets: ⓘndexSet)
         self.saveNotes()
     }

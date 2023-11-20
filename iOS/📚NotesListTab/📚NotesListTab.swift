@@ -17,7 +17,7 @@ struct 📚NotesListTab: View {
                                        placement: .notesList)
                             .id($0.id)
                         }
-                        .onDelete { self.model.deleteNoteOnNotesList($0) }
+                        .onDelete { self.model.deleteNotesOnNotesList($0) }
                         .onMove { self.model.moveNote($0, $1) }
                     } footer: {
                         self.notesCountTextOnFooter()

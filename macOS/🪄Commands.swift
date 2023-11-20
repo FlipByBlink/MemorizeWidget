@@ -4,6 +4,7 @@ struct 🪄Commands: Commands {
     @FocusedObject var model: 📱AppModel?
     @FocusedValue(\.notes) var notes
     @FocusedValue(\.notesSelection) var notesSelection
+    @FocusedValue(\.editingNote) var editingNote
     var body: some Commands {
         🛒InAppPurchaseCommand()
         CommandGroup(replacing: .systemServices) { EmptyView() }

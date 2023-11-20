@@ -13,7 +13,7 @@ struct 📚NotesListMenu: View {
                 }
             }
             .onDelete {
-                self.model.deleteNoteOnNotesList($0)
+                self.model.deleteNotesOnNotesList($0)
                 💥Feedback.warning()
             }
             .onMove {

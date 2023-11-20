@@ -12,22 +12,12 @@ struct 📗NoteRow: View {
                     .disabled(self.source.title.isEmpty)
                     .font(.body.weight(.light))
             }
-            .focusedValue(\.editingNote, self.source.id)
+            .focusedValue(\.editingNote, self.source)
             .onSubmit { self.model.submitTextField(self.source) }
             Self.RemoveButton(self.source)
         }
         .padding(.vertical, 6)
         .padding(.leading, 4)
-        .contextMenu {
-            Button("辞書") {}
-            Button("検索") {}
-            Divider()
-            Button("末尾へ移動") {}
-            Button("先頭へ移動") {}
-            Divider()
-            Button("上に新規ノート") {}
-            Button("下に新規ノート") {}
-        }
     }
 }
 

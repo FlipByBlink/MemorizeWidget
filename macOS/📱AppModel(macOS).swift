@@ -17,6 +17,9 @@ extension 📱AppModel {
         self.clearSelection()
         self.addNewNoteOnTop()
     }
+    //func targetNotesForCommands(_ ⓔditingNote: 📗Note?) -> Set<📗Note> {
+    //
+    //}
     func insertAbove() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
             self.clearSelection()
@@ -30,3 +33,19 @@ extension 📱AppModel {
         }
     }
 }
+
+//enum ActionKind {
+//    case commandForSelectedNote
+//    case commandForEditingNote(📗Note)
+//    case onDeleteInForEach(IndexSet)
+//    case onMoveInForEach(IndexSet, Int)
+//    case contextMenu(Set<UUID>)
+//    case trailingButton(📗Note)
+//    case newNoteOnTopButton
+//}
+
+//enum ActionKind {
+//    case delete
+//    case move
+//    case insert
+//}

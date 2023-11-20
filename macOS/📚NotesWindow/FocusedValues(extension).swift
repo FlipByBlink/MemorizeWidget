@@ -5,7 +5,7 @@ extension FocusedValues {
         get { self[Self.EditingNoteKey.self] }
         set { self[Self.EditingNoteKey.self] = newValue }
     }
-    struct EditingNoteKey: FocusedValueKey { typealias Value = UUID }
+    struct EditingNoteKey: FocusedValueKey { typealias Value = 📗Note }
     
     var notes: Self.NotesKey.Value? {
         get { self[Self.NotesKey.self] }
