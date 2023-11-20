@@ -6,6 +6,7 @@ extension 📱AppModel {
     }
     func removeSelectedNote() {
         self.notes.removeAll { self.notesSelection.contains($0.id) }
+        self.clearSelection()
     }
     func insertAbove() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {

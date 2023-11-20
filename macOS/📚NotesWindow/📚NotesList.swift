@@ -2,11 +2,19 @@ import SwiftUI
 
 struct 📚NotesList: View {
     @EnvironmentObject var model: 📱AppModel
+    @FocusState private var focusedNoteID: UUID?
     var body: some View {
         List(selection: self.$model.notesSelection) {
             Section {
-                ForEach(self.$model.notes) {
-                    📗NoteRow(source: $0)
+                ForEach(self.$model.notes) { ⓝote in
+                    📗NoteRow(source: ⓝote)
+                        .focused(self.$focusedNoteID, equals: ⓝote.id)
+                        .onChange(of: self.model.createdNewNoteID) {
+                            if $0 == ⓝote.id {
+                                self.focusedNoteID = ⓝote.id
+                                self.model.createdNewNoteID = nil
+                            }
+                        }
                 }
                 .onMove { self.model.moveNote($0, $1) }
                 .onDelete { self.model.deleteNoteOnNotesList($0) }

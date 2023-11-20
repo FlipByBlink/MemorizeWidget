@@ -25,10 +25,21 @@ extension FocusedValues {
     //"focusable"の外側に"focusedValue(\.フォーカス値, _)"を呼ぶ。
 }
 
-//struct FocusedValuesモニター: View {
-//    @FocusedValue(\.フォーカス値) var 現在のフォーカス
-//    //@FocusedBinding(\.フォーカス値) var 現在のフォーカス
-//    var body: some View {
-//        Text("フォーカス値: " + self.現在のフォーカス.debugDescription)
-//    }
-//}
+//#if DEBUG
+struct FocusedValuesモニター: ViewModifier {
+    @FocusedValue(\.notes) var notes
+    @FocusedValue(\.notesSelection) var notesSelection
+    //@FocusedBinding(\.フォーカス値) var 現在のフォーカス
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .accessoryBar(id: "1")) {
+                    Text("notes: " + self.notes.debugDescription)
+                }
+                ToolbarItem(placement: .accessoryBar(id: "2")) {
+                    Text("notesSelection: " + self.notesSelection.debugDescription)
+                }
+            }
+    }
+}
+//#endif

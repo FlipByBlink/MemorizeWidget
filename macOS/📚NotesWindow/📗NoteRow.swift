@@ -2,13 +2,11 @@ import SwiftUI
 
 struct 📗NoteRow: View {
     @EnvironmentObject var model: 📱AppModel
-    @FocusState private var titleFocus: Bool
     @Binding var source: 📗Note
     var body: some View {
         HStack(spacing: 4) {
             VStack(spacing: 2) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .focused(self.$titleFocus)
                     .font(.title3.bold())
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
@@ -32,12 +30,6 @@ struct 📗NoteRow: View {
             Divider()
             Button("上に新規ノート") {}
             Button("下に新規ノート") {}
-        }
-        .onChange(of: self.model.createdNewNoteID) {
-            if $0 == self.source.id {
-                self.titleFocus = true
-                self.model.createdNewNoteID = nil
-            }
         }
     }
 }
