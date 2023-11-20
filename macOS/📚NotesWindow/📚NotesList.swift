@@ -10,14 +10,14 @@ struct 📚NotesList: View {
                     📗NoteRow(source: $0)
                         .focused(self.$focusedNoteID, equals: $0.id)
                 }
-                .onMove { self.model.moveNote($0, $1) }
-                .onDelete { self.model.deleteNotesOnNotesList($0) }
+                .onMove { self.model.moveNoteForDynamicView($0, $1) }
+                .onDelete { self.model.deleteNotesForDynamicView($0) }
             } footer: {
                 Self.Footer()
             }
         }
         .toolbar { self.newNoteOnTopButton() }
-        .onDeleteCommand { self.model.removeSelectedNote() }
+        .onDeleteCommand { self.model.removeNotesByDeleteCommand() }
         .onExitCommand { self.model.clearSelection() }
         .modifier(Self.NewNoteFocusHandler(state: self._focusedNoteID))
         .animation(.default, value: self.model.notes)
@@ -42,7 +42,7 @@ private extension 📚NotesList {
     }
     private func newNoteOnTopButton() -> some View {
         Button {
-            self.model.insertNewNoteOnTop()
+            self.model.addNewNoteOnTop()
         } label: {
             Label("新規ノート", systemImage: "plus")
         }
@@ -55,7 +55,6 @@ private extension 📚NotesList {
             }
         }
     }
-    
     private func contextMenu(_ ⓘtems: Set<UUID>) -> some View {
         Group {
             Text(ⓘtems.debugDescription)

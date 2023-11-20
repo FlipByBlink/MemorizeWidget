@@ -13,11 +13,11 @@ struct 📚NotesListMenu: View {
                 }
             }
             .onDelete {
-                self.model.deleteNotesOnNotesList($0)
+                self.model.deleteNotesForDynamicView($0)
                 💥Feedback.warning()
             }
             .onMove {
-                self.model.moveNote($0, $1)
+                self.model.moveNoteForDynamicView($0, $1)
                 💥Feedback.light()
             }
         }

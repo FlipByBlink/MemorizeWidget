@@ -17,8 +17,8 @@ struct 📚NotesListTab: View {
                                        placement: .notesList)
                             .id($0.id)
                         }
-                        .onDelete { self.model.deleteNotesOnNotesList($0) }
-                        .onMove { self.model.moveNote($0, $1) }
+                        .onDelete { self.model.deleteNotesForDynamicView($0) }
+                        .onMove { self.model.moveNoteForDynamicView($0, $1) }
                     } footer: {
                         self.notesCountTextOnFooter()
                     }

@@ -1,6 +1,16 @@
 import SwiftUI
 
 extension 📱AppModel {
+    func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
+        guard let ⓘndex = self.notes.firstIndex(of: ⓣargetNote) else { return }
+        self.notes[ⓘndex].title = ⓘnputtedNote.title
+        self.notes[ⓘndex].comment = ⓘnputtedNote.comment
+        self.saveNotes()
+    }
+    func addNewNoteBelow(_ ⓝote: 📗Note) {
+        guard let ⓘndex = self.notes.firstIndex(of: ⓝote) else { return }
+        self.addNewNote(index: ⓘndex + 1)
+    }
     func switchNotesListTab() {
         self.selectedTab = .notesList
         self.selectedSidebar = .notesList

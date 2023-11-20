@@ -8,14 +8,10 @@ extension 📱AppModel {
     func clearSelection() {
         self.notesSelection.removeAll()
     }
-    func removeSelectedNote() {
+    func removeNotesByDeleteCommand() {
         self.notes.removeAll { self.notesSelection.contains($0.id) }
         self.saveNotes()
         self.clearSelection()
-    }
-    func insertNewNoteOnTop() {
-        self.clearSelection()
-        self.addNewNoteOnTop()
     }
     func insertAbove(_ ⓣargetNotes: Set<📗Note>) {
         if let ⓝote = ⓣargetNotes.first,

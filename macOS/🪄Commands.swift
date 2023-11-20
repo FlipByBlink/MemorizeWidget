@@ -53,7 +53,7 @@ private extension 🪄Commands {
     }
     private func newNoteOnTopButton() -> some View {
         Button("New note on top") {
-            self.model?.insertNewNoteOnTop()
+            self.model?.addNewNoteOnTop()
         }
         .keyboardShortcut("n")
     }
@@ -62,14 +62,22 @@ private extension 🪄Commands {
             self.model?.insertAbove(self.targetNotes)
         }
         .keyboardShortcut("[")
-        .disabled(self.targetNotes.count != 1)
+        .disabled(
+            (self.targetNotes.count != 1)
+            ||
+            (self.editingNote?.title.isEmpty == true)
+        )
     }
     private func newNoteBelowButton() -> some View {
         Button("Insert new note below") {
             self.model?.insertBelow(self.targetNotes)
         }
         .keyboardShortcut("]")
-        .disabled(self.targetNotes.count != 1)
+        .disabled(
+            (self.targetNotes.count != 1)
+            ||
+            (self.editingNote?.title.isEmpty == true)
+        )
     }
     private func moveTopButton() -> some View {
         Button("Move top") {

@@ -34,12 +34,12 @@ class 📱AppModel: NSObject, ObservableObject {
 
 //MARK: Computed property, Method
 extension 📱AppModel {
-    func deleteNotesOnNotesList(_ ⓘndexSet: IndexSet) { //TODO: 要動作確認
+    func deleteNotesForDynamicView(_ ⓘndexSet: IndexSet) { //TODO: 要動作確認
         self.trash.storeDeletedNotes(ⓘndexSet.map { self.notes[$0] })
         self.notes.remove(atOffsets: ⓘndexSet)
         self.saveNotes()
     }
-    func moveNote(_ ⓢource: IndexSet, _ ⓓestination: Int) {
+    func moveNoteForDynamicView(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
         self.saveNotes()
     }
@@ -50,12 +50,12 @@ extension 📱AppModel {
         💥Feedback.light()
     }
     func addNewNoteOnTop() {
+#if os(macOS)
+        self.clearSelection()
+#endif
         self.addNewNote(index: 0)
     }
-    func addNewNoteBelow(_ ⓝote: 📗Note) {
-        guard let ⓘndex = self.notes.firstIndex(of: ⓝote) else { return }
-        self.addNewNote(index: ⓘndex + 1)
-    }
+#if os(iOS) || os(watchOS)
     func moveTop(_ ⓝote: 📗Note) {
         guard let ⓘndex = self.notes.firstIndex(of: ⓝote) else { return }
         self.notes.move(fromOffsets: [ⓘndex], toOffset: 0)
@@ -68,6 +68,7 @@ extension 📱AppModel {
         self.saveNotes()
         💥Feedback.light()
     }
+#endif
     func removeNote(_ ⓝote: 📗Note, feedback ⓕeedback: Bool = true) {
         self.trash.storeDeletedNotes([ⓝote])
         withAnimation { self.notes.removeAll(where: { $0 == ⓝote }) }
@@ -77,12 +78,6 @@ extension 📱AppModel {
     func removeNote(_ ⓘd: UUID) {
         guard let ⓝote = self.notes.first(where: { $0.id == ⓘd }) else { return }
         self.removeNote(ⓝote)
-    }
-    func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
-        guard let ⓘndex = self.notes.firstIndex(of: ⓣargetNote) else { return }
-        self.notes[ⓘndex].title = ⓘnputtedNote.title
-        self.notes[ⓘndex].comment = ⓘnputtedNote.comment
-        self.saveNotes()
     }
     func removeAllNotes() {
         self.trash.storeDeletedNotes(self.notes)
