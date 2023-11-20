@@ -6,6 +6,7 @@ struct MacOSApp: App {
     var body: some Scene {
         📚NotesWindow()
             .commands { 🪄Commands() }
+        🗑TrashWindow()
         🏗️MenuBarShortcut(self.model)
         🔧Settings(self.model)
         ℹ️HelpWindows()

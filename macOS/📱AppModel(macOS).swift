@@ -11,11 +11,13 @@ extension 📱AppModel {
     }
     func insertAbove() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
+            self.clearSelection()
             self.addNewNote(index: ⓘndex)
         }
     }
     func insertBelow() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
+            self.clearSelection()
             self.addNewNote(index: ⓘndex + 1)
         }
     }

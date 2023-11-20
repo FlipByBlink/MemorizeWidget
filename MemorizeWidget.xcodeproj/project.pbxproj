@@ -10,6 +10,8 @@
 		160A5A642B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */; };
 		160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */; };
 		160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */; };
+		160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */; };
+		160A5A6E2B0AED3B00E6F4EB /* 🗑ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */; };
 		160C59292B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592A2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592B2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
@@ -536,6 +538,8 @@
 		160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetHandlerOnContentView.swift"; sourceTree = "<group>"; };
 		160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesWindow.swift"; sourceTree = "<group>"; };
 		160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚ContentView.swift"; sourceTree = "<group>"; };
+		160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashWindow.swift"; sourceTree = "<group>"; };
+		160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑ContentView.swift"; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
@@ -797,6 +801,15 @@
 			path = "📚NotesWindow";
 			sourceTree = "<group>";
 		};
+		160A5A6A2B0AECFC00E6F4EB /* 🗑Trash */ = {
+			isa = PBXGroup;
+			children = (
+				160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */,
+				160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */,
+			);
+			path = "🗑Trash";
+			sourceTree = "<group>";
+		};
 		1626B7952AFA5B3200845F80 /* 📚NotesListTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,6 +1028,7 @@
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
 				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
+				160A5A6A2B0AECFC00E6F4EB /* 🗑Trash */,
 				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
 				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,
 				1673E06D2B0A059400D621D3 /* Rest */,
@@ -1613,6 +1627,7 @@
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
 				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
+				160A5A6E2B0AED3B00E6F4EB /* 🗑ContentView.swift in Sources */,
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
@@ -1629,6 +1644,7 @@
 				16C3D78F2B096A2700849D96 /* 📚Notes.swift in Sources */,
 				16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */,
 				16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */,
+				160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */,
 				16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */,
 				1673E0782B0A059400D621D3 /* 📣ADSheet.swift in Sources */,
 				16C3D7832B096A2700849D96 /* 📱AppModel.swift in Sources */,

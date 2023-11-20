@@ -19,17 +19,25 @@ struct 📚NotesList: View {
         .toolbar { self.newNoteOnTopButton() }
         .onDeleteCommand { self.model.removeSelectedNote() }
         .onExitCommand { self.model.clearSelection() }
-        .onChange(of: self.model.createdNewNoteID) {
-            if let ⓝewNoteID = $0 {
-                self.focusedNoteID = ⓝewNoteID
-                self.model.createdNewNoteID = nil
-            }
-        }
+        .modifier(Self.NewNoteFocusHandler(state: self._focusedNoteID))
         .animation(.default, value: self.model.notes)
     }
 }
 
 private extension 📚NotesList {
+    private struct NewNoteFocusHandler: ViewModifier {
+        @EnvironmentObject var model: 📱AppModel
+        @FocusState var state: UUID?
+        func body(content: Content) -> some View {
+            content
+                .onChange(of: self.model.createdNewNoteID) {
+                    if let ⓝewNoteID = $0 {
+                        self.state = ⓝewNoteID
+                        self.model.createdNewNoteID = nil
+                    }
+                }
+        }
+    }
     private func newNoteOnTopButton() -> some View {
         Button {
             self.model.clearSelection()

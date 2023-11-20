@@ -5,8 +5,7 @@ extension 📱AppModel: NSApplicationDelegate {
         false
     }
     func applicationDidResignActive(_ notification: Notification) {
-        print(Date.now.description, "applicationDidResignActive")
-        // save 検討
+        self.saveNotes()
     }
     func application(_ application: NSApplication, open urls: [URL]) {
         //guard let ⓤrl = urls.first else { return }

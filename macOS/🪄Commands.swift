@@ -22,7 +22,7 @@ struct 🪄Commands: Commands {
             self.dictionaryButton()
             self.searchButton()
             Divider()
-            self.openTrashButton()
+            Self.OpenTrashWindowButton()
             Divider()
             self.deleteAllNotesButton()
         }
@@ -107,8 +107,12 @@ private extension 🪄Commands {
         .keyboardShortcut("s")
         .disabled(self.notesSelection?.count != 1)
     }
-    private func openTrashButton() -> some View {
-        Button("Open trash") {
+    private struct OpenTrashWindowButton: View {
+        @Environment(\.openWindow) var openWindow
+        var body: some View {
+            Button("Open trash") {
+                self.openWindow(id: "trash")
+            }
         }
     }
     private func deleteAllNotesButton() -> some View {
