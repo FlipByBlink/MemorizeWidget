@@ -6,15 +6,9 @@ struct 📚NotesList: View {
     var body: some View {
         List(selection: self.$model.notesSelection) {
             Section {
-                ForEach(self.$model.notes) { ⓝote in
-                    📗NoteRow(source: ⓝote)
-                        .focused(self.$focusedNoteID, equals: ⓝote.id)
-                        .onChange(of: self.model.createdNewNoteID) {
-                            if $0 == ⓝote.id {
-                                self.focusedNoteID = ⓝote.id
-                                self.model.createdNewNoteID = nil
-                            }
-                        }
+                ForEach(self.$model.notes) {
+                    📗NoteRow(source: $0)
+                        .focused(self.$focusedNoteID, equals: $0.id)
                 }
                 .onMove { self.model.moveNote($0, $1) }
                 .onDelete { self.model.deleteNoteOnNotesList($0) }
@@ -25,6 +19,12 @@ struct 📚NotesList: View {
         .toolbar { self.newNoteOnTopButton() }
         .onDeleteCommand { self.model.removeSelectedNote() }
         .onExitCommand { self.model.clearSelection() }
+        .onChange(of: self.model.createdNewNoteID) {
+            if let ⓝewNoteID = $0 {
+                self.focusedNoteID = ⓝewNoteID
+                self.model.createdNewNoteID = nil
+            }
+        }
         .animation(.default, value: self.model.notes)
     }
 }
@@ -32,7 +32,8 @@ struct 📚NotesList: View {
 private extension 📚NotesList {
     private func newNoteOnTopButton() -> some View {
         Button {
-            self.model.addNewNoteOnTop() //TODO: 修正
+            self.model.clearSelection()
+            self.model.addNewNoteOnTop()
         } label: {
             Label("新規ノート", systemImage: "plus")
         }

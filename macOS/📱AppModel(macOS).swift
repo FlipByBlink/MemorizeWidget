@@ -6,28 +6,17 @@ extension 📱AppModel {
     }
     func removeSelectedNote() {
         self.notes.removeAll { self.notesSelection.contains($0.id) }
+        self.saveNotes()
         self.clearSelection()
     }
     func insertAbove() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
-            self.insertNewNote(ⓘndex)
+            self.addNewNote(index: ⓘndex)
         }
     }
     func insertBelow() {
         if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
-            self.insertNewNote(ⓘndex + 1)
-        }
-    }
-}
-
-private extension 📱AppModel {
-    private func insertNewNote(_ ⓘndex: Int) {
-        let ⓝewNote: 📗Note = .empty
-        self.notes.insert(ⓝewNote, at: ⓘndex)
-        self.notesSelection.removeAll()
-        Task {
-            try? await Task.sleep(for: .seconds(0.4))
-            self.createdNewNoteID = ⓝewNote.id
+            self.addNewNote(index: ⓘndex + 1)
         }
     }
 }

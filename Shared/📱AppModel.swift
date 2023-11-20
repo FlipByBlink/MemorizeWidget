@@ -44,7 +44,7 @@ extension 📱AppModel {
         self.notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
         self.saveNotes()
     }
-    private func addNewNote(index ⓘndex: Int) {
+    func addNewNote(index ⓘndex: Int) {
         let ⓝewNote: 📗Note = .empty
         self.notes.insert(ⓝewNote, at: ⓘndex)
         self.createdNewNoteID = ⓝewNote.id
