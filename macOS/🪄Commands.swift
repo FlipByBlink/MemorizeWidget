@@ -41,7 +41,7 @@ private extension 🪄Commands {
     }
     private func newNoteOnTopButton() -> some View {
         Button("New note on top") {
-            self.model?.addNewNoteOnTop()
+            self.model?.insertNewNoteOnTop()
         }
         .keyboardShortcut("n")
     }

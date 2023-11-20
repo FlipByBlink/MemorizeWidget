@@ -12,11 +12,8 @@ struct 📗NoteRow: View {
                     .disabled(self.source.title.isEmpty)
                     .font(.body.weight(.light))
             }
-            .focusedValue(\.フォーカス値, self.source.id)
-            .onSubmit {
-                self.model.saveNotes()
-                self.model.notesSelection = [self.source.id]
-            }
+            .focusedValue(\.editingNote, self.source.id)
+            .onSubmit { self.model.submitTextField(self.source) }
             Self.RemoveButton(self.source)
         }
         .padding(.vertical, 6)
@@ -38,10 +35,10 @@ private extension 📗NoteRow {
     private struct RemoveButton: View {
         @EnvironmentObject var model: 📱AppModel
         @State private var ホバー中: Bool = false
-        var source: 📗Note
+        private var source: 📗Note
         var body: some View {
             Button {
-                self.model.removeNote(self.source, feedback: false)
+                self.model.removeNote(self.source)
             } label: {
                 Image(systemName: "trash")
                     .font(.title3.weight(.medium))

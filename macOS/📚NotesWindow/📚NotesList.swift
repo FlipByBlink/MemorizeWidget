@@ -40,8 +40,7 @@ private extension 📚NotesList {
     }
     private func newNoteOnTopButton() -> some View {
         Button {
-            self.model.clearSelection()
-            self.model.addNewNoteOnTop()
+            self.model.insertNewNoteOnTop()
         } label: {
             Label("新規ノート", systemImage: "plus")
         }

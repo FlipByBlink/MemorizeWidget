@@ -1,11 +1,11 @@
 import SwiftUI
 
 extension FocusedValues {
-    var フォーカス値: Self.フォーカスキー.Value? {
-        get { self[Self.フォーカスキー.self] }
-        set { self[Self.フォーカスキー.self] = newValue }
+    var editingNote: Self.EditingNoteKey.Value? {
+        get { self[Self.EditingNoteKey.self] }
+        set { self[Self.EditingNoteKey.self] = newValue }
     }
-    struct フォーカスキー: FocusedValueKey { typealias Value = UUID }
+    struct EditingNoteKey: FocusedValueKey { typealias Value = UUID }
     
     var notes: Self.NotesKey.Value? {
         get { self[Self.NotesKey.self] }
@@ -29,7 +29,6 @@ extension FocusedValues {
 struct FocusedValuesモニター: ViewModifier {
     @FocusedValue(\.notes) var notes
     @FocusedValue(\.notesSelection) var notesSelection
-    //@FocusedBinding(\.フォーカス値) var 現在のフォーカス
     func body(content: Content) -> some View {
         content
             .toolbar {

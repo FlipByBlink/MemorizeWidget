@@ -41,7 +41,7 @@ enum 💥Feedback {
         NSSound.beep()
     }
     static func warning() {
-        NSSound.beep()
+        /* Nothing */
     }
 #endif
 }
