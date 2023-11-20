@@ -79,11 +79,13 @@ private extension 🗑ContentView {
                 ZStack {
                     Color.clear
                     Label("Empty", systemImage: "xmark.bin")
-                        .font(.title2)
-                        .foregroundStyle(.secondary)
+                        .font(.title.weight(.semibold))
+                        .fontDesign(.rounded)
+                        .foregroundStyle(.tertiary)
                 }
                 .padding(32)
                 .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             }
         }
     }

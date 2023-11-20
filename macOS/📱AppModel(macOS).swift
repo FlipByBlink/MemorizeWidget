@@ -9,7 +9,9 @@ extension 📱AppModel {
         self.notesSelection.removeAll()
     }
     func removeNotesByDeleteCommand() {
-        self.notes.removeAll { self.notesSelection.contains($0.id) }
+        let ⓣargetNotes = self.notes.filter { self.notesSelection.contains($0.id) }
+        self.trash.storeDeletedNotes(ⓣargetNotes)
+        self.notes.removeAll { ⓣargetNotes.contains($0) }
         self.saveNotes()
         self.clearSelection()
     }
