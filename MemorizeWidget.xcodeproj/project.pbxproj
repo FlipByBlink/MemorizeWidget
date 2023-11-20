@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		160A5A642B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */; };
 		160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */; };
+		160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */; };
 		160C59292B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592A2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592B2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
@@ -58,7 +59,7 @@
 		1671563F2AFF37DF00043F03 /* 🪧PrimaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */; };
 		167156412AFF384300043F03 /* 🪧PrimaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */; };
 		167156432AFF387900043F03 /* 🪧SubWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156422AFF387900043F03 /* 🪧SubWidget.swift */; };
-		167182932B09F41200A7AD8D /* 📚NotesListPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */; };
+		167182932B09F41200A7AD8D /* 📚NotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167182922B09F41200A7AD8D /* 📚NotesList.swift */; };
 		167317C42B04F31900656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
 		167317C52B04F31900656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
 		167317C62B04F55000656005 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
@@ -144,7 +145,7 @@
 		16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79E2B096BED00849D96 /* 🪄Commands.swift */; };
 		16C3D7A42B096BEE00849D96 /* 📱AppModel(macOS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */; };
 		16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */; };
-		16C3D7A62B096BEE00849D96 /* 📗NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */; };
+		16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */; };
 		16C3D7A82B096C5900849D96 /* FocusedValues(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */; };
 		16C3D7C72B0989F400849D96 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		16C3D7C82B0989F500849D96 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
@@ -534,6 +535,7 @@
 /* Begin PBXFileReference section */
 		160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📰SheetHandlerOnContentView.swift"; sourceTree = "<group>"; };
 		160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesWindow.swift"; sourceTree = "<group>"; };
+		160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚ContentView.swift"; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
@@ -567,7 +569,7 @@
 		1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PrimaryWidget.swift"; sourceTree = "<group>"; };
 		167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PrimaryWidget.swift"; sourceTree = "<group>"; };
 		167156422AFF387900043F03 /* 🪧SubWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧SubWidget.swift"; sourceTree = "<group>"; };
-		167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesListPanel.swift"; sourceTree = "<group>"; };
+		167182922B09F41200A7AD8D /* 📚NotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesList.swift"; sourceTree = "<group>"; };
 		167317C32B04F31900656005 /* 🎛️Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️Key.swift"; sourceTree = "<group>"; };
 		167317DB2B05942100656005 /* 🎛️Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🎛️Default.swift"; sourceTree = "<group>"; };
 		167317E02B059F9A00656005 /* 🎛️FontSizeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️FontSizeMenu.swift"; sourceTree = "<group>"; };
@@ -607,7 +609,7 @@
 		16C3D79E2B096BED00849D96 /* 🪄Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🪄Commands.swift"; sourceTree = "<group>"; };
 		16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📱AppModel(macOS).swift"; sourceTree = "<group>"; };
 		16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔧Settings.swift"; sourceTree = "<group>"; };
-		16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📗NoteView.swift"; sourceTree = "<group>"; };
+		16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📗NoteRow.swift"; sourceTree = "<group>"; };
 		16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusedValues(extension).swift"; sourceTree = "<group>"; };
 		16C3D7C62B0989F400849D96 /* Widget(macOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(macOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C3D7CA2B0989F500849D96 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -785,8 +787,9 @@
 			isa = PBXGroup;
 			children = (
 				160A5A652B0A451C00E6F4EB /* 📚NotesWindow.swift */,
-				167182922B09F41200A7AD8D /* 📚NotesListPanel.swift */,
-				16C3D7A12B096BEE00849D96 /* 📗NoteView.swift */,
+				160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */,
+				167182922B09F41200A7AD8D /* 📚NotesList.swift */,
+				16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */,
 			);
 			path = "📚NotesWindow";
 			sourceTree = "<group>";
@@ -1612,7 +1615,7 @@
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
-				16C3D7A62B096BEE00849D96 /* 📗NoteView.swift in Sources */,
+				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
 				1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */,
 				16C3D7922B096A3000849D96 /* 🗑TrashViewComponent.swift in Sources */,
 				1673E07E2B0A05FF00D621D3 /* 📣ADModel.swift in Sources */,
@@ -1632,7 +1635,7 @@
 				16C3D7942B096A3700849D96 /* 🎛️Key.swift in Sources */,
 				16C3D7A82B096C5900849D96 /* FocusedValues(extension).swift in Sources */,
 				16C3D7722B0968BA00849D96 /* App.swift in Sources */,
-				167182932B09F41200A7AD8D /* 📚NotesListPanel.swift in Sources */,
+				167182932B09F41200A7AD8D /* 📚NotesList.swift in Sources */,
 				1673E0812B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift in Sources */,
 				16C3D7992B096AEE00849D96 /* 💁GuideViewComponent.swift in Sources */,
 				1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */,
@@ -1644,6 +1647,7 @@
 				16C3D79A2B096B0C00849D96 /* 💥Feedback.swift in Sources */,
 				16C3D7822B096A2700849D96 /* 🪧Entry.swift in Sources */,
 				16C3D78B2B096A2700849D96 /* 🪧Provider.swift in Sources */,
+				160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */,
 				16C3D7982B096A6400849D96 /* 📰SheetOnContentView.swift in Sources */,
 				16C3D78C2B096A2700849D96 /* 🪧Phase.swift in Sources */,
 			);

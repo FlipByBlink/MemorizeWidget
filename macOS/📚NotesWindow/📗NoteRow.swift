@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 📗NoteView: View {
+struct 📗NoteRow: View {
     @EnvironmentObject var model: 📱AppModel
     @FocusState private var titleFocus: Bool
     @Binding var source: 📗Note
@@ -12,8 +12,7 @@ struct 📗NoteView: View {
                     .font(.title3.bold())
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
-                    .font(.subheadline.weight(.medium))
-                    .foregroundStyle(.secondary)
+                    .font(.body.weight(.light))
             }
             .focusedValue(\.フォーカス値, self.source.id)
             .onSubmit {
@@ -43,7 +42,7 @@ struct 📗NoteView: View {
     }
 }
 
-private extension 📗NoteView {
+private extension 📗NoteRow {
     private struct RemoveButton: View {
         @EnvironmentObject var model: 📱AppModel
         @State private var ホバー中: Bool = false
