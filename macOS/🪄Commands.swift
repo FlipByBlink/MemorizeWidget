@@ -21,6 +21,10 @@ struct 🪄Commands: Commands {
             Divider()
             self.dictionaryButton()
             self.searchButton()
+            Divider()
+            self.openTrashButton()
+            Divider()
+            self.deleteAllNotesButton()
         }
         ℹ️HelpCommands()
     }
@@ -102,5 +106,15 @@ private extension 🪄Commands {
         }
         .keyboardShortcut("s")
         .disabled(self.notesSelection?.count != 1)
+    }
+    private func openTrashButton() -> some View {
+        Button("Open trash") {
+        }
+    }
+    private func deleteAllNotesButton() -> some View {
+        Button("Delete all notes") {
+            self.model?.removeAllNotes()
+        }
+        .disabled(self.notes?.isEmpty == true)
     }
 }

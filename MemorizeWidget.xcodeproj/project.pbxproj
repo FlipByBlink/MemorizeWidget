@@ -790,6 +790,9 @@
 				160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */,
 				167182922B09F41200A7AD8D /* 📚NotesList.swift */,
 				16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */,
+				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
+				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
+				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 			);
 			path = "📚NotesWindow";
 			sourceTree = "<group>";
@@ -1011,9 +1014,6 @@
 				16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */,
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
 				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
-				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
-				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
-				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
 				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
 				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,

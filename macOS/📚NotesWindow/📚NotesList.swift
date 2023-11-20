@@ -24,7 +24,7 @@ struct 📚NotesList: View {
 private extension 📚NotesList {
     private func newNoteOnTopButton() -> some View {
         Button {
-            self.model.addNewNoteOnTop()
+            self.model.addNewNoteOnTop() //TODO: 修正
         } label: {
             Label("新規ノート", systemImage: "plus")
         }

@@ -47,6 +47,14 @@ struct 🔧Settings: Scene {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
+                Form {
+                    💁GuideViewComponent.AboutDataSync()
+                    💁GuideViewComponent.AboutDataCount()
+                }
+                .formStyle(.grouped)
+                .tabItem {
+                    Label("Guide", systemImage: "questionmark")
+                }
             }
             .frame(width: 400, height: 300)
             .environmentObject(self.model)
