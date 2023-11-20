@@ -17,20 +17,29 @@ extension 📱AppModel {
         self.clearSelection()
         self.addNewNoteOnTop()
     }
-    //func targetNotesForCommands(_ ⓔditingNote: 📗Note?) -> Set<📗Note> {
-    //
-    //}
-    func insertAbove() {
-        if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
+    func insertAbove(_ ⓣargetNotes: Set<📗Note>) {
+        if let ⓝote = ⓣargetNotes.first,
+           let ⓘndex = self.notes.firstIndex(of: ⓝote) {
             self.clearSelection()
             self.addNewNote(index: ⓘndex)
         }
     }
-    func insertBelow() {
-        if let ⓘndex = self.notes.firstIndex(where: { $0.id == self.notesSelection.first }) {
+    func insertBelow(_ ⓣargetNotes: Set<📗Note>) {
+        if let ⓝote = ⓣargetNotes.first,
+           let ⓘndex = self.notes.firstIndex(of: ⓝote) {
             self.clearSelection()
             self.addNewNote(index: ⓘndex + 1)
         }
+    }
+    func moveTop(_ ⓝotes: Set<📗Note>) {
+        self.notes.move(fromOffsets: .init(ⓝotes.compactMap({ self.notes.firstIndex(of: $0)})),
+                        toOffset: 0)
+        self.saveNotes()
+    }
+    func moveEnd(_ ⓝotes: Set<📗Note>) {
+        self.notes.move(fromOffsets: .init(ⓝotes.compactMap({ self.notes.firstIndex(of: $0)})),
+                        toOffset: self.notes.endIndex)
+        self.saveNotes()
     }
 }
 

@@ -32,6 +32,17 @@ struct 🪄Commands: Commands {
 }
 
 private extension 🪄Commands {
+    private var targetNotes: Set<📗Note> {
+        if let editingNote {
+            [editingNote]
+        } else {
+            if let notes, let notesSelection {
+                .init(notes.filter { notesSelection.contains($0.id) })
+            } else {
+                []
+            }
+        }
+    }
     private struct OpenNotesWindowButton: View {
         @Environment(\.openWindow) var openWindow
         var body: some View {
@@ -48,65 +59,51 @@ private extension 🪄Commands {
     }
     private func newNoteAboveButton() -> some View {
         Button("Insert new note above") {
-            self.model?.insertAbove()
+            self.model?.insertAbove(self.targetNotes)
         }
         .keyboardShortcut("[")
-        .disabled(
-            (self.notesSelection?.count != 1)
-            ||
-            (self.notesSelection?.first == self.notes?.first?.id)
-        )
+        .disabled(self.targetNotes.count != 1)
     }
     private func newNoteBelowButton() -> some View {
         Button("Insert new note below") {
-            self.model?.insertBelow()
+            self.model?.insertBelow(self.targetNotes)
         }
         .keyboardShortcut("]")
-        .disabled(
-            (self.notesSelection?.count != 1)
-            ||
-            (self.notesSelection?.first == self.notes?.last?.id)
-        )
+        .disabled(self.targetNotes.count != 1)
     }
     private func moveTopButton() -> some View {
         Button("Move top") {
-            let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
-            if let ⓝote {
-                self.model?.moveTop(ⓝote)
-            }
+            self.model?.moveTop(self.targetNotes)
         }
         .keyboardShortcut("t")
         .disabled(
-            (self.notesSelection?.isEmpty == true)
+            self.targetNotes.isEmpty
             ||
-            (self.notesSelection?.first == self.notes?.first?.id)
+            self.targetNotes.contains { $0 == self.notes?.first }
         )
     }
     private func moveEndButton() -> some View {
         Button("Move end") {
-            let ⓝote = self.model?.notes.first { $0.id == self.model?.notesSelection.first }
-            if let ⓝote {
-                self.model?.moveEnd(ⓝote)
-            }
+            self.model?.moveEnd(self.targetNotes)
         }
         .keyboardShortcut("e")
         .disabled(
-            (self.notesSelection?.isEmpty == true)
+            self.targetNotes.isEmpty
             ||
-            (self.notesSelection?.first == self.notes?.last?.id)
+            self.targetNotes.contains { $0 == self.notes?.last }
         )
     }
     private func dictionaryButton() -> some View {
         Button("Look up the title in dictionaries") {
         }
         .keyboardShortcut("d")
-        .disabled(self.notesSelection?.count != 1)
+        .disabled(self.targetNotes.count != 1)
     }
     private func searchButton() -> some View {
         Button("Search the title") {
         }
         .keyboardShortcut("s")
-        .disabled(self.notesSelection?.count != 1)
+        .disabled(self.targetNotes.count != 1)
     }
     private struct OpenTrashWindowButton: View {
         @Environment(\.openWindow) var openWindow
@@ -120,6 +117,6 @@ private extension 🪄Commands {
         Button("Delete all notes") {
             self.model?.removeAllNotes()
         }
-        .disabled(self.notes?.isEmpty == true)
+        .disabled(self.targetNotes.isEmpty)
     }
 }
