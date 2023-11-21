@@ -7,7 +7,8 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
             .sheet(item: self.$model.presentedSheetOnContentView) {
                 switch $0 {
                     case .widget: 📖WidgetSheetView()
-                    case .notesImport: 📥NotesImportSheetView()
+                    case .notesImportFile: 📥NotesImportFileSheetView()
+                    case .notesImportText: 📥NotesImportTextSheetView()
                     case .notesExport: 📤NotesExportSheetView()
                 }
             }

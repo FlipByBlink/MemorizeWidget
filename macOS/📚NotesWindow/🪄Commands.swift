@@ -37,7 +37,8 @@ struct 🪄Commands: Commands {
         }
         CommandMenu("Organize") {
             Group {
-                Button("Import notes") { self.model?.presentedSheetOnContentView = .notesImport }
+                Button("Import notes(File)") { self.model?.presentedSheetOnContentView = .notesImportFile }
+                Button("Import notes(Text)") { self.model?.presentedSheetOnContentView = .notesImportText }
                 Button("Export notes") { self.model?.presentedSheetOnContentView = .notesExport }
             }
             .disabled(self.model?.presentedSheetOnContentView != nil)

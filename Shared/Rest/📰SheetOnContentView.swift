@@ -2,8 +2,14 @@ import SwiftUI
 
 enum 📰SheetOnContentView {
     case widget(🪧Tag)
-#if os(iOS) || os(macOS)
+#if os(iOS)
     case notesImport
+#endif
+#if os(macOS)
+    case notesImportFile
+    case notesImportText
+#endif
+#if os(iOS) || os(macOS)
     case notesExport
 #endif
 #if os(iOS)

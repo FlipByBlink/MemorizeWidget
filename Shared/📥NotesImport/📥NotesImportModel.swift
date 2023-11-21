@@ -2,13 +2,15 @@ import SwiftUI
 
 @MainActor
 class 📥NotesImportModel: ObservableObject {
-    @AppStorage(🎛️Key.Import.inputMode, store: .ⓐppGroup) var inputMode: 📥InputMode = .file
     @AppStorage(🎛️Key.Import.textSeparator, store: .ⓐppGroup) var separator: 📚TextConvert.Separator = .tab
     @Published var pastedText: String = ""
     @Published var showFileImporter: Bool = false
     @Published var alertError: Bool = false
     @Published var caughtError: 📥Error?
     @Published var navigationPath: NavigationPath = .init()
+#if os(iOS)
+    @AppStorage(🎛️Key.Import.inputMode, store: .ⓐppGroup) var inputMode: 📥InputMode = .file
+#endif
 }
 
 extension 📥NotesImportModel {
