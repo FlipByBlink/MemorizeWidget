@@ -24,6 +24,10 @@
 		163826232B0C2DF90082266F /* 👆InsertAboveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */; };
 		163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */; };
 		163826272B0C2F980082266F /* 🔝NewNoteOnTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */; };
+		1638262C2B0C6D0B0082266F /* 🔧GeneralPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */; };
+		1638262E2B0C6D550082266F /* 🔧FontSizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */; };
+		163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */; };
+		163826322B0C6DD10082266F /* 🔧SearchCustomizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -555,6 +559,10 @@
 		163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆InsertAboveButton.swift"; sourceTree = "<group>"; };
 		163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👇InsertBelowButton.swift"; sourceTree = "<group>"; };
 		163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔝NewNoteOnTopButton.swift"; sourceTree = "<group>"; };
+		1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧GeneralPanel.swift"; sourceTree = "<group>"; };
+		1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧FontSizePanel.swift"; sourceTree = "<group>"; };
+		1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧GuidePanel.swift"; sourceTree = "<group>"; };
+		163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧SearchCustomizePanel.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
 		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
@@ -809,13 +817,13 @@
 				167182922B09F41200A7AD8D /* 📚NotesList.swift */,
 				16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */,
 				1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */,
-				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
-				1638261A2B0C24770082266F /* 🔍SearchButton.swift */,
 				163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */,
 				1638261E2B0C2D3F0082266F /* 🛫MoveTopButton.swift */,
 				163826202B0C2D770082266F /* 🛬MoveEndButton.swift */,
 				163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */,
 				163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */,
+				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
+				1638261A2B0C24770082266F /* 🔍SearchButton.swift */,
 				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
 				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
@@ -823,13 +831,13 @@
 			path = "📚NotesWindow";
 			sourceTree = "<group>";
 		};
-		160A5A6A2B0AECFC00E6F4EB /* 🗑Trash */ = {
+		160A5A6A2B0AECFC00E6F4EB /* 🗑TrashWindow */ = {
 			isa = PBXGroup;
 			children = (
 				160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */,
 				160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */,
 			);
-			path = "🗑Trash";
+			path = "🗑TrashWindow";
 			sourceTree = "<group>";
 		};
 		1626B7952AFA5B3200845F80 /* 📚NotesListTab */ = {
@@ -841,6 +849,18 @@
 				16DC5E8E2B01D6C7007BC531 /* 📚DisableInEditMode.swift */,
 			);
 			path = "📚NotesListTab";
+			sourceTree = "<group>";
+		};
+		1638262A2B0C6CF20082266F /* 🔧Settings */ = {
+			isa = PBXGroup;
+			children = (
+				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,
+				1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */,
+				1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */,
+				163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */,
+				1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */,
+			);
+			path = "🔧Settings";
 			sourceTree = "<group>";
 		};
 		166BC28A2AF60BA100729C66 /* Rest */ = {
@@ -952,6 +972,7 @@
 		1673E06D2B0A059400D621D3 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
 				1673E0702B0A059400D621D3 /* 📣ADSheet.swift */,
 				1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */,
 				1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */,
@@ -1049,9 +1070,8 @@
 				16C3D79F2B096BED00849D96 /* 📱AppModel(extension).swift */,
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
 				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
-				160A5A6A2B0AECFC00E6F4EB /* 🗑Trash */,
-				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
-				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,
+				160A5A6A2B0AECFC00E6F4EB /* 🗑TrashWindow */,
+				1638262A2B0C6CF20082266F /* 🔧Settings */,
 				1673E06D2B0A059400D621D3 /* Rest */,
 				16C3D77E2B09696500849D96 /* Supporting files */,
 				16C3D7C12B0989CC00849D96 /* App Extensions */,
@@ -1636,6 +1656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1673E0792B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift in Sources */,
+				163826322B0C6DD10082266F /* 🔧SearchCustomizePanel.swift in Sources */,
 				1638261B2B0C24770082266F /* 🔍SearchButton.swift in Sources */,
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
 				163826212B0C2D770082266F /* 🛬MoveEndButton.swift in Sources */,
@@ -1648,6 +1669,7 @@
 				16C3D7802B096A2700849D96 /* 💾UserDefaults.swift in Sources */,
 				1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */,
 				16C3D7932B096A3700849D96 /* 🎛️RandomModeToggle.swift in Sources */,
+				163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
 				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
@@ -1680,6 +1702,7 @@
 				167182932B09F41200A7AD8D /* 📚NotesList.swift in Sources */,
 				1673E0812B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift in Sources */,
 				16C3D7992B096AEE00849D96 /* 💁GuideViewComponent.swift in Sources */,
+				1638262E2B0C6D550082266F /* 🔧FontSizePanel.swift in Sources */,
 				163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */,
 				1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */,
 				16C3D78A2B096A2700849D96 /* 📚TextConvert.swift in Sources */,
@@ -1688,6 +1711,7 @@
 				16C3D7812B096A2700849D96 /* 📗Note.swift in Sources */,
 				16C3D7962B096A3700849D96 /* 🎛️Option.swift in Sources */,
 				16C3D78E2B096A2700849D96 /* 🪧ContainerBackground.swift in Sources */,
+				1638262C2B0C6D0B0082266F /* 🔧GeneralPanel.swift in Sources */,
 				16C3D79A2B096B0C00849D96 /* 💥Feedback.swift in Sources */,
 				16C3D7822B096A2700849D96 /* 🪧Entry.swift in Sources */,
 				16C3D78B2B096A2700849D96 /* 🪧Provider.swift in Sources */,

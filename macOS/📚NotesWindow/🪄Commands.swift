@@ -56,6 +56,7 @@ private extension 🪄Commands {
             Button("Open main window") {
                 self.openWindow(id: "notes")
             }
+            //TODO: 既に開いてた場合のフィードバックを実装
         }
     }
     private struct OpenTrashWindowButton: View {
@@ -71,5 +72,6 @@ private extension 🪄Commands {
             self.model?.removeAllNotes()
         }
         .disabled(self.targetNotes.isEmpty)
+        //TODO: ダイアログ等を実装
     }
 }

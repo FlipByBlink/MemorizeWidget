@@ -49,7 +49,6 @@ private extension 📚SubButtons {
         self.editMode?.wrappedValue.isEditing == true
     }
     private func dictionaryButton() -> some View {
-#if !targetEnvironment(macCatalyst)
         Button {
             self.appModel.presentSheet(.dictionary(.init(term: self.note.title)))
         } label: {
@@ -57,9 +56,6 @@ private extension 📚SubButtons {
                 .padding(8)
         }
         .hoverEffect()
-#else
-        📘DictionaryButtonOnMac(term: self.term)
-#endif
     }
     private func searchButton(_ ⓠuery: String) -> some View {
         Button {

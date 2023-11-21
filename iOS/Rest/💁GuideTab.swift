@@ -92,26 +92,18 @@ private struct 🅃ipsSection: View {
 
 private struct 🄰ppleSupportLinkSection: View {
     private static var urlString: String {
-#if targetEnvironment(macCatalyst)
-        "https://support.apple.com/guide/mac-help/add-customize-widgets-notification-center-mchl52be5da5/mac"
-#else
         if UIDevice.current.userInterfaceIdiom == .pad {
             "https://support.apple.com/HT211328"
         } else {
             "https://support.apple.com/HT207122"
         }
-#endif
     }
     private static var labelTitle: LocalizedStringKey {
-#if targetEnvironment(macCatalyst)
-        "Add and customize widgets in Notification Center on Mac"
-#else
         if UIDevice.current.userInterfaceIdiom == .pad {
             "Use widgets on your iPad"
         } else {
             "How to add and edit widgets on your iPhone"
         }
-#endif
     }
     private static var supportLockScreenWidget: Bool {
         if #available(iOS 17.0, *) {

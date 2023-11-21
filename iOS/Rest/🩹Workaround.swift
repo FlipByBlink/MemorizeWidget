@@ -26,14 +26,4 @@ enum 🩹Workaround {
         //> Attempt to present <_> on <_> (from <_>)
         //> which is already presenting <_UIContextMenuActionsOnlyViewController: _>.
     }
-    struct HideTitleBarOnMacCatalyst: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .onAppear {
-#if targetEnvironment(macCatalyst)
-                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
-#endif
-                }
-        }
-    }
 }
