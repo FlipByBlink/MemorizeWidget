@@ -7,14 +7,14 @@ struct 🚏ContextMenu: View {
         .init(self.model.notes.filter { self.ids.contains($0.id) })
     }
     var body: some View {
-        📘DictionaryButton(notes: self.targetNotes)
-        🔍SearchButton(notes: self.targetNotes)
+        📘DictionaryButton(self.targetNotes)
+        🔍SearchButton(self.targetNotes)
         Divider()
-        🛫MoveTopButton(notes: self.targetNotes)
-        🛬MoveEndButton(notes: self.targetNotes)
+        🛫MoveTopButton(self.targetNotes)
+        🛬MoveEndButton(self.targetNotes)
         Divider()
-        👆InsertAboveButton(notes: self.targetNotes)
-        👇InsertBelowButton(notes: self.targetNotes)
+        👆InsertAboveButton(self.targetNotes)
+        👇InsertBelowButton(self.targetNotes)
     }
     init(_ ids: Set<UUID>) {
         self.ids = ids

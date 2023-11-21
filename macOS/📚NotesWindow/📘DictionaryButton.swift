@@ -2,8 +2,7 @@ import SwiftUI
 
 struct 📘DictionaryButton: View {
     @Environment(\.openURL) var openURL
-    var notes: Set<📗Note>
-    var labelTitle: LocalizedStringKey = "Dictionary"
+    private var notes: Set<📗Note>
     var body: some View {
         Button {
             guard let ⓝote = self.notes.first,
@@ -14,8 +13,11 @@ struct 📘DictionaryButton: View {
             }
             self.openURL(ⓤrl)
         } label: {
-            Label(self.labelTitle, systemImage: "character.book.closed")
+            Label("Look up the title in dictionaries", systemImage: "character.book.closed")
         }
         .disabled(self.notes.count != 1)
+    }
+    init(_ notes: Set<📗Note>) {
+        self.notes = notes
     }
 }

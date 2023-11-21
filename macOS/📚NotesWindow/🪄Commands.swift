@@ -12,16 +12,23 @@ struct 🪄Commands: Commands {
             Self.OpenNotesWindowButton()
         }
         CommandMenu("Notes") {
-            self.newNoteOnTopButton()
+            🔝NewNoteOnTopButton()
+                .keyboardShortcut("n")
             Divider()
-            self.newNoteAboveButton()
-            self.newNoteBelowButton()
+            👆InsertAboveButton(self.targetNotes)
+                .keyboardShortcut("[")
+            👇InsertBelowButton(self.targetNotes)
+                .keyboardShortcut("]")
             Divider()
-            self.moveTopButton()
-            self.moveEndButton()
+            🛫MoveTopButton(self.targetNotes)
+                .keyboardShortcut("t")
+            🛬MoveEndButton(self.targetNotes)
+                .keyboardShortcut("e")
             Divider()
-            self.dictionaryButton()
-            self.searchButton()
+            📘DictionaryButton(self.targetNotes)
+                .keyboardShortcut("d")
+            🔍SearchButton(self.targetNotes)
+                .keyboardShortcut("s")
             Divider()
             Self.OpenTrashWindowButton()
             Divider()
@@ -50,64 +57,6 @@ private extension 🪄Commands {
                 self.openWindow(id: "notes")
             }
         }
-    }
-    private func newNoteOnTopButton() -> some View {
-        🔝NewNoteOnTopButton()
-            .keyboardShortcut("n")
-    }
-    private func newNoteAboveButton() -> some View {
-        Button("Insert new note above") {
-            self.model?.insertAbove(self.targetNotes)
-        }
-        .keyboardShortcut("[")
-        .disabled(
-            (self.targetNotes.count != 1)
-            ||
-            (self.editingNote?.title.isEmpty == true)
-        )
-    }
-    private func newNoteBelowButton() -> some View {
-        Button("Insert new note below") {
-            self.model?.insertBelow(self.targetNotes)
-        }
-        .keyboardShortcut("]")
-        .disabled(
-            (self.targetNotes.count != 1)
-            ||
-            (self.editingNote?.title.isEmpty == true)
-        )
-    }
-    private func moveTopButton() -> some View {
-        Button("Move top") {
-            self.model?.moveTop(self.targetNotes)
-        }
-        .keyboardShortcut("t")
-        .disabled(
-            self.targetNotes.isEmpty
-            ||
-            self.targetNotes.contains { $0 == self.notes?.first }
-        )
-    }
-    private func moveEndButton() -> some View {
-        Button("Move end") {
-            self.model?.moveEnd(self.targetNotes)
-        }
-        .keyboardShortcut("e")
-        .disabled(
-            self.targetNotes.isEmpty
-            ||
-            self.targetNotes.contains { $0 == self.notes?.last }
-        )
-    }
-    private func dictionaryButton() -> some View {
-        📘DictionaryButton(notes: self.targetNotes,
-                           labelTitle: "Look up the title in dictionaries")
-        .keyboardShortcut("d")
-    }
-    private func searchButton() -> some View {
-        🔍SearchButton(notes: self.targetNotes,
-                       labelTitle: "Search the title")
-        .keyboardShortcut("s")
     }
     private struct OpenTrashWindowButton: View {
         @Environment(\.openWindow) var openWindow

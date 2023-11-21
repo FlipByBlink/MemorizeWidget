@@ -2,8 +2,7 @@ import SwiftUI
 
 struct 🔍SearchButton: View { //MARK: WIP
     @Environment(\.openURL) var openURL
-    var notes: Set<📗Note>
-    var labelTitle: LocalizedStringKey = "Search"
+    private var notes: Set<📗Note>
     var body: some View {
         Button {
             guard let ⓝote = self.notes.first,
@@ -14,8 +13,11 @@ struct 🔍SearchButton: View { //MARK: WIP
             }
             self.openURL(ⓤrl)
         } label: {
-            Label(self.labelTitle, systemImage: "character.book.closed")
+            Label("Search the title", systemImage: "character.book.closed")
         }
         .disabled(self.notes.count != 1)
+    }
+    init(_ notes: Set<📗Note>) {
+        self.notes = notes
     }
 }
