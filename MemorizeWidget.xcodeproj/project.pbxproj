@@ -34,6 +34,8 @@
 		1638263E2B0C84160082266F /* 📤NotesExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638263D2B0C84160082266F /* 📤NotesExportSheetView.swift */; };
 		163826412B0C84560082266F /* 🏗️ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826402B0C84560082266F /* 🏗️ContentView.swift */; };
 		163826422B0C8A9A0082266F /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
+		163826432B0CD2CF0082266F /* 🔍SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */; };
+		163826452B0CD6ED0082266F /* 🔍FailureAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A386A52B08367D0007297F /* 🔍FailureAlert.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -921,6 +923,15 @@
 			path = "🏗️MenuBarShortcut";
 			sourceTree = "<group>";
 		};
+		163826442B0CD6E50082266F /* 🔍Search */ = {
+			isa = PBXGroup;
+			children = (
+				16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */,
+				16A386A52B08367D0007297F /* 🔍FailureAlert.swift */,
+			);
+			path = "🔍Search";
+			sourceTree = "<group>";
+		};
 		166BC28A2AF60BA100729C66 /* Rest */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,10 +997,8 @@
 		166C253B2B00EA4E008124DC /* 🔍Search */ = {
 			isa = PBXGroup;
 			children = (
-				16EA37DC2B0236DB0033EB3E /* 🔍SearchModel.swift */,
 				16EA37D82B01F9680033EB3E /* 🔍SearchSheetView.swift */,
 				167317E22B05A62200656005 /* 🔍CustomizeSearchMenu.swift */,
-				16A386A52B08367D0007297F /* 🔍FailureAlert.swift */,
 			);
 			path = "🔍Search";
 			sourceTree = "<group>";
@@ -1327,6 +1336,7 @@
 				168D5F1A2AF6085E00A100A7 /* 💾Data */,
 				168D5F032AF6010E00A100A7 /* 🗑Trash */,
 				166C253C2B00ED86008124DC /* 🎛️Option */,
+				163826442B0CD6E50082266F /* 🔍Search */,
 				F50C83012AA5CD360033A04B /* Rest */,
 				16B595E72AF5F3C4003F3D2A /* Supporting files */,
 			);
@@ -1736,6 +1746,7 @@
 				163826422B0C8A9A0082266F /* 🚮DeleteAllNotesButton.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
+				163826432B0CD2CF0082266F /* 🔍SearchModel.swift in Sources */,
 				1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */,
 				1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */,
 				16C3D7922B096A3000849D96 /* 🗑TrashViewComponent.swift in Sources */,
@@ -1780,6 +1791,7 @@
 				160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */,
 				16C3D7982B096A6400849D96 /* 📰SheetOnContentView.swift in Sources */,
 				16C3D78C2B096A2700849D96 /* 🪧Phase.swift in Sources */,
+				163826452B0CD6ED0082266F /* 🔍FailureAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

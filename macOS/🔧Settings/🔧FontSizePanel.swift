@@ -4,7 +4,6 @@ struct 🔧FontSizePanel: View {
     @AppStorage(🎛️Key.FontSize.customize, store: .ⓐppGroup) var customizeFontSize: Bool = false
     var body: some View {
         Form {
-            Spacer()
             🎛️ViewComponent.FontSize.CustomizeToggle()
                 .labelStyle(.titleOnly)
                 .toggleStyle(.switch)
@@ -14,9 +13,9 @@ struct 🔧FontSizePanel: View {
                 🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()
             }
             .disabled(!self.customizeFontSize)
-            Spacer()
         }
         .padding(96)
+        .padding(.vertical, 32)
         .tabItem {
             Label("Font", systemImage: "textformat.size")
         }

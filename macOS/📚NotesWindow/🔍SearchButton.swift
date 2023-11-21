@@ -1,21 +1,21 @@
 import SwiftUI
 
-struct 🔍SearchButton: View { //MARK: WIP
+struct 🔍SearchButton: View {
+    @StateObject var searchModel: 🔍SearchModel = .init()
     @Environment(\.openURL) var openURL
     private var notes: Set<📗Note>
     var body: some View {
         Button {
-            guard let ⓝote = self.notes.first,
-                  let ⓟath = ⓝote.title.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-                  let ⓤrl = URL(string: "https://duckduckgo.com/?q=" + ⓟath) else {
+            guard let ⓠuery = self.notes.first?.title else {
                 NSSound.beep()
                 return
             }
-            self.openURL(ⓤrl)
+            self.openURL(self.searchModel.generateURL(ⓠuery))
         } label: {
             Label("Search", systemImage: "magnifyingglass")
         }
         .disabled(self.notes.count != 1)
+        .modifier(🔍FailureAlert(self.searchModel))
     }
     init(_ notes: Set<📗Note>) {
         self.notes = notes

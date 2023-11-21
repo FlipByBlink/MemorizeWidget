@@ -22,4 +22,13 @@ enum 🎛️Default {
             💾UserDefaults.appGroup.set(true, forKey: "setDefaultValues")
         }
     }
+    enum Search {
+        static var openURLInOtherApp: Bool {
+#if os(iOS)
+            false
+#elseif os(macOS)
+            true
+#endif
+        }
+    }
 }
