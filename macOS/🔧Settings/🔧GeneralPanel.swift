@@ -31,7 +31,7 @@ private extension 🔧GeneralPanel {
         @AppStorage(🎛️Key.showMenuBar) var value: Bool = true
         var body: some View {
             Toggle(isOn: self.$value) {
-                Label("Menubar shortcut", systemImage: "menubar.arrow.up.rectangle")
+                Label("Menu bar shortcut", systemImage: "menubar.arrow.up.rectangle")
             }
         }
     }
