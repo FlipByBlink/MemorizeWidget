@@ -33,6 +33,7 @@
 		1638263C2B0C83CC0082266F /* 📥NotesImportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638263B2B0C83CC0082266F /* 📥NotesImportSheetView.swift */; };
 		1638263E2B0C84160082266F /* 📤NotesExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638263D2B0C84160082266F /* 📤NotesExportSheetView.swift */; };
 		163826412B0C84560082266F /* 🏗️ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826402B0C84560082266F /* 🏗️ContentView.swift */; };
+		163826422B0C8A9A0082266F /* 🚮DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -1732,6 +1733,7 @@
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
 				160A5A6E2B0AED3B00E6F4EB /* 🗑ContentView.swift in Sources */,
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
+				163826422B0C8A9A0082266F /* 🚮DeleteAllNotesButton.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
 				1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */,

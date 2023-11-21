@@ -27,7 +27,7 @@ struct 🪄Commands: Commands {
             Divider()
         }
         CommandGroup(after: .textEditing) {
-            self.deleteAllNotesButton()
+            🚮DeleteAllNotesButton()
         }
         CommandMenu("Action") {
             📘DictionaryButton(self.targetNotes)
@@ -36,8 +36,11 @@ struct 🪄Commands: Commands {
                 .keyboardShortcut("s")
         }
         CommandMenu("Organize") {
-            Button("Import notes") { self.model?.presentedSheetOnContentView = .notesImport }
-            Button("Export notes") { self.model?.presentedSheetOnContentView = .notesExport }
+            Group {
+                Button("Import notes") { self.model?.presentedSheetOnContentView = .notesImport }
+                Button("Export notes") { self.model?.presentedSheetOnContentView = .notesExport }
+            }
+            .disabled(self.model?.presentedSheetOnContentView != nil)
             Divider()
             Self.OpenTrashWindowButton()
         }
@@ -74,12 +77,5 @@ private extension 🪄Commands {
                 self.openWindow(id: "trash")
             }
         }
-    }
-    private func deleteAllNotesButton() -> some View {
-        Button("Delete all notes") {
-            self.model?.removeAllNotes()
-        }
-        .disabled(self.targetNotes.isEmpty)
-        //TODO: ダイアログ等を実装
     }
 }

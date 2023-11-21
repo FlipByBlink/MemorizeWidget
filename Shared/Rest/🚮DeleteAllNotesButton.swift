@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct 🚮DeleteAllNotesButton: View {
+#if os(iOS) || os(watchOS)
     @EnvironmentObject var model: 📱AppModel
     var body: some View {
         Button {
@@ -11,6 +12,15 @@ struct 🚮DeleteAllNotesButton: View {
         .listItemTint(self.model.notes.isEmpty ? nil : .red)
         .disabled(self.model.notes.isEmpty)
     }
+#elseif os(macOS)
+    @FocusedObject var model: 📱AppModel?
+    var body: some View {
+        Button("Delete all notes") {
+            self.model?.presentedAllNotesDeleteConfirmDialog = true
+        }
+        .disabled(self.model?.notes.isEmpty == true)
+    }
+#endif
 }
 
 extension 🚮DeleteAllNotesButton {

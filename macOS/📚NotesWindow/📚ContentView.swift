@@ -5,11 +5,11 @@ struct 📚ContentView: View {
     var body: some View {
         NavigationStack {
             📚NotesList()
-                .navigationTitle("ノート")
         }
         .onOpenURL(perform: self.model.handleWidgetURL)
         .modifier(🔦FocusedModelHandler())
         .modifier(📰SheetHandlerOnContentView())
+        .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())
     }
