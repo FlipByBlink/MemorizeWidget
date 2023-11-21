@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 🔦FocusedModel: ViewModifier {
+struct 🔦FocusedModelHandler: ViewModifier {
     @EnvironmentObject var model: 📱AppModel
     func body(content: Content) -> some View {
         content

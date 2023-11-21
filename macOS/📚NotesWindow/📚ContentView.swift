@@ -8,7 +8,7 @@ struct 📚ContentView: View {
                 .navigationTitle("ノート")
         }
         .onOpenURL(perform: self.model.handleWidgetURL)
-        .modifier(🔦FocusedModel())
+        .modifier(🔦FocusedModelHandler())
         .modifier(📰SheetHandlerOnContentView())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())

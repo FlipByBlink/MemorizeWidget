@@ -36,8 +36,8 @@ struct 🪄Commands: Commands {
                 .keyboardShortcut("s")
         }
         CommandMenu("Organize") {
-            Button("Import notes") {}
-            Button("Export notes") {}
+            Button("Import notes") { self.model?.presentedSheetOnContentView = .notesImport }
+            Button("Export notes") { self.model?.presentedSheetOnContentView = .notesExport }
             Divider()
             Self.OpenTrashWindowButton()
         }
