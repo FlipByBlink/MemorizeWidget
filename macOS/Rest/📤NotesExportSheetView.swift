@@ -20,8 +20,8 @@ struct 📤NotesExportSheetView: View {
             .task { self.ⓒonvertedText = 📚TextConvert.encodeToTSV(self.model.notes) }
             .animation(.default, value: self.ⓒonvertedText == nil)
             .toolbar {
+                self.cancelButton()
                 self.shareLink()
-                self.dismissButton()
             }
         }
         .frame(width: 500, height: 440)
@@ -52,7 +52,7 @@ private extension 📤NotesExportSheetView {
         }
     }
     private func shareLink() -> some ToolbarContent {
-        ToolbarItem(placement: .automatic) {
+        ToolbarItem(placement: .primaryAction) {
             if let ⓒonvertedText {
                 ShareLink(item: ⓒonvertedText)
             } else {
@@ -60,12 +60,10 @@ private extension 📤NotesExportSheetView {
             }
         }
     }
-    private func dismissButton() -> some ToolbarContent {
-        ToolbarItem(placement: .cancellationAction) {
-            Button {
+    private func cancelButton() -> some ToolbarContent {
+        ToolbarItem(placement: .automatic) {
+            Button("Cancel") {
                 self.model.presentedSheetOnContentView = nil
-            } label: {
-                Label("Dismiss", systemImage: "xmark")
             }
         }
     }

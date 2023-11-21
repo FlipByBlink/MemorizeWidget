@@ -152,6 +152,7 @@
       }
     },
     "Add and customize widgets in Notification Center on Mac" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

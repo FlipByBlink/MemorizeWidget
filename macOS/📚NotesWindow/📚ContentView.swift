@@ -12,6 +12,5 @@ struct 📚ContentView: View {
         .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())
-        .task { self.model.presentedSheetOnContentView = .notesImportText }
     }
 }

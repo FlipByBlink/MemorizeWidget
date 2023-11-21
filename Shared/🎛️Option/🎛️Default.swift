@@ -28,6 +28,8 @@ enum 🎛️Default {
             false
 #elseif os(macOS)
             true
+#else
+            false
 #endif
         }
     }

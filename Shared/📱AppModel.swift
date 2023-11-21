@@ -198,7 +198,7 @@ extension 📱AppModel {
     func forwardFromUserDefaults_1_1_2() {
         guard let ⓝotesVer_1_1_2 = 💾UserDefaults.loadNotesOfVer_1_1_2() else { return }
         self.insertOnTop(ⓝotesVer_1_1_2)
-        trash.storeDeletedNotes(ⓝotesVer_1_1_2)
+        self.trash.storeDeletedNotes(ⓝotesVer_1_1_2)
         💾UserDefaults.clearNotesOfVer_1_1_2()
     }
     func setPlaceholder() {

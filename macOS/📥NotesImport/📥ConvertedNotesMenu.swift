@@ -4,10 +4,11 @@ struct 📥ConvertedNotesMenu: View {
     @EnvironmentObject var model: 📥NotesImportModel
     var importedText: String
     var body: some View {
-        List {
+        Form {
             📥SeparatorPicker()
             self.convertedNotesSection()
         }
+        .formStyle(.grouped)
         .navigationTitle("Convert result")
         .toolbar {
             Self.SubmitButton(self.convertedNotes)
