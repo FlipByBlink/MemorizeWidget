@@ -13,7 +13,7 @@ struct 🔍SearchButton: View { //MARK: WIP
             }
             self.openURL(ⓤrl)
         } label: {
-            Label("Search the title", systemImage: "character.book.closed")
+            Label("Search", systemImage: "magnifyingglass")
         }
         .disabled(self.notes.count != 1)
     }

@@ -28,6 +28,8 @@
 		1638262E2B0C6D550082266F /* 🔧FontSizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */; };
 		163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */; };
 		163826322B0C6DD10082266F /* 🔧SearchCustomizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */; };
+		163826352B0C79FE0082266F /* 🔦FocusedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826342B0C79FE0082266F /* 🔦FocusedModel.swift */; };
+		163826382B0C7C8E0082266F /* 📖WidgetSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -563,6 +565,8 @@
 		1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧FontSizePanel.swift"; sourceTree = "<group>"; };
 		1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧GuidePanel.swift"; sourceTree = "<group>"; };
 		163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧SearchCustomizePanel.swift"; sourceTree = "<group>"; };
+		163826342B0C79FE0082266F /* 🔦FocusedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔦FocusedModel.swift"; sourceTree = "<group>"; };
+		163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖WidgetSheetView.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
 		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
@@ -825,8 +829,8 @@
 				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
 				1638261A2B0C24770082266F /* 🔍SearchButton.swift */,
 				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
-				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
+				163826332B0C79EB0082266F /* 🔦FocusedModel */,
 			);
 			path = "📚NotesWindow";
 			sourceTree = "<group>";
@@ -861,6 +865,36 @@
 				1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */,
 			);
 			path = "🔧Settings";
+			sourceTree = "<group>";
+		};
+		163826332B0C79EB0082266F /* 🔦FocusedModel */ = {
+			isa = PBXGroup;
+			children = (
+				163826342B0C79FE0082266F /* 🔦FocusedModel.swift */,
+				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
+			);
+			path = "🔦FocusedModel";
+			sourceTree = "<group>";
+		};
+		163826362B0C7C6E0082266F /* 📖WidgetSheet */ = {
+			isa = PBXGroup;
+			children = (
+				163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */,
+			);
+			path = "📖WidgetSheet";
+			sourceTree = "<group>";
+		};
+		163826392B0C7F000082266F /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				1673E0742B0A059400D621D3 /* 📣ADContent.swift */,
+				1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */,
+				1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */,
+				1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */,
+				1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */,
+				1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		166BC28A2AF60BA100729C66 /* Rest */ = {
@@ -975,12 +1009,7 @@
 				16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */,
 				1673E0702B0A059400D621D3 /* 📣ADSheet.swift */,
 				1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */,
-				1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */,
-				1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */,
-				1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */,
-				1673E0742B0A059400D621D3 /* 📣ADContent.swift */,
-				1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */,
-				1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */,
+				163826392B0C7F000082266F /* Rest */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -1070,6 +1099,7 @@
 				16C3D79F2B096BED00849D96 /* 📱AppModel(extension).swift */,
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
 				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
+				163826362B0C7C6E0082266F /* 📖WidgetSheet */,
 				160A5A6A2B0AECFC00E6F4EB /* 🗑TrashWindow */,
 				1638262A2B0C6CF20082266F /* 🔧Settings */,
 				1673E06D2B0A059400D621D3 /* Rest */,
@@ -1667,10 +1697,12 @@
 				16C3D7A42B096BEE00849D96 /* 📱AppModel(extension).swift in Sources */,
 				163826272B0C2F980082266F /* 🔝NewNoteOnTopButton.swift in Sources */,
 				16C3D7802B096A2700849D96 /* 💾UserDefaults.swift in Sources */,
+				163826352B0C79FE0082266F /* 🔦FocusedModel.swift in Sources */,
 				1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */,
 				16C3D7932B096A3700849D96 /* 🎛️RandomModeToggle.swift in Sources */,
 				163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
+				163826382B0C7C8E0082266F /* 📖WidgetSheetView.swift in Sources */,
 				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
 				160A5A6E2B0AED3B00E6F4EB /* 🗑ContentView.swift in Sources */,

@@ -39,15 +39,17 @@ private extension 🏗️MenuBarShortcut {
                             .fontWeight(.medium)
                     }
                     Spacer()
-                    Button {} label: { Image(systemName: "character.book.closed") }
-                        .buttonStyle(.borderless)
-                    Button {} label: { Image(systemName: "magnifyingglass") }
-                        .buttonStyle(.borderless)
-                    Button(action: self.addNewNote) {
-                        Image(systemName: "plus.square.on.square")
+                    Group {
+                        📘DictionaryButton([.init(self.title)])
+                        🔍SearchButton([.init(self.title)])
+                        Button(action: self.addNewNote) {
+                            Label("More new note",
+                                  systemImage: "plus.square.on.square")
+                        }
+                        .keyboardShortcut("n")
                     }
+                    .labelStyle(.iconOnly)
                     .buttonStyle(.borderless)
-                    .keyboardShortcut(.init("n"))
                 }
                 .disabled(self.title.isEmpty)
             }
@@ -55,6 +57,7 @@ private extension 🏗️MenuBarShortcut {
             .frame(width: 250)
             .onSubmit(self.done)
             .animation(.default.speed(2), value: self.title.isEmpty)
+            .onExitCommand { self.dismiss() }
         }
         private func done() {
             guard !self.title.isEmpty else { return }

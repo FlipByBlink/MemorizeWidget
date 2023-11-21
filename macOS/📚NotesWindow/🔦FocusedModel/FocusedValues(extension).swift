@@ -26,6 +26,7 @@ extension FocusedValues {
     struct OpenedMainWindow: FocusedValueKey { typealias Value = Bool }
 }
 
+let a🔦 = ""
 //#if DEBUG
 struct FocusedValuesモニター: ViewModifier {
     @FocusedValue(\.notes) var notes

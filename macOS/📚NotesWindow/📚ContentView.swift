@@ -7,11 +7,8 @@ struct 📚ContentView: View {
             📚NotesList()
                 .navigationTitle("ノート")
         }
-        .focusedValue(\.notesSelection, self.model.notesSelection)
-        .focusedValue(\.notes, self.model.notes)
-        .focusedValue(\.openedMainWindow, true)
-        .focusedObject(self.model)
         .onOpenURL(perform: self.model.handleWidgetURL)
+        .modifier(🔦FocusedModel())
         .modifier(📰SheetHandlerOnContentView())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())

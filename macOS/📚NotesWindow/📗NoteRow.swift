@@ -17,7 +17,8 @@ struct 📗NoteRow: View {
             Self.RemoveButton(self.source)
         }
         .padding(.vertical, 6)
-        .padding(.leading, 4)
+        .padding(.leading, 6)
+        .padding(.trailing, 2)
     }
 }
 

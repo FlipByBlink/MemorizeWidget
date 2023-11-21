@@ -13,7 +13,7 @@ struct 📘DictionaryButton: View {
             }
             self.openURL(ⓤrl)
         } label: {
-            Label("Look up the title in dictionaries", systemImage: "character.book.closed")
+            Label("Look up in dictionary", systemImage: "character.book.closed")
         }
         .disabled(self.notes.count != 1)
     }
