@@ -2,8 +2,12 @@ import SwiftUI
 
 extension 📱AppModel {
     func submitTextField(_ ⓢource: 📗Note) {
-        self.saveNotes()
-        self.notesSelection = [ⓢource.id]
+        if ⓢource.title.isEmpty {
+            self.removeNote(ⓢource)
+        } else {
+            self.saveNotes()
+            self.notesSelection = [ⓢource.id]
+        }
     }
     func clearSelection() {
         self.notesSelection.removeAll()
@@ -40,19 +44,3 @@ extension 📱AppModel {
         self.saveNotes()
     }
 }
-
-//enum ActionKind {
-//    case commandForSelectedNote
-//    case commandForEditingNote(📗Note)
-//    case onDeleteInForEach(IndexSet)
-//    case onMoveInForEach(IndexSet, Int)
-//    case contextMenu(Set<UUID>)
-//    case trailingButton(📗Note)
-//    case newNoteOnTopButton
-//}
-
-//enum ActionKind {
-//    case delete
-//    case move
-//    case insert
-//}
