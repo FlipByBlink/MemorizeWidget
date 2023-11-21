@@ -10,7 +10,7 @@ struct 🔧Settings: Scene {
                 🔧SearchCustomizePanel()
                 🔧GuidePanel()
             }
-            .frame(width: 500, height: 400)
+            .frame(width: 540, height: 400)
             .environmentObject(self.model)
         }
         .windowResizability(.contentSize)

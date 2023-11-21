@@ -24,6 +24,7 @@ struct 📚NotesList: View {
             .modifier(Self.NewNoteFocusHandler(self._focusedID, ⓢcrollViewProxy))
             .animation(.default, value: self.model.notes)
             .contextMenu(forSelectionType: UUID.self) { 🚏ContextMenu($0) }
+            .overlay { if self.model.notes.isEmpty { Self.emptyView() } }
         }
     }
 }
@@ -56,5 +57,14 @@ private extension 📚NotesList {
                 Text("ノート数: \(self.model.notes.count)")
             }
         }
+    }
+    private static func emptyView() -> some View {
+        VStack {
+            Image(systemName: "books.vertical")
+            Text("Empty")
+        }
+        .font(.system(size: 40).bold())
+        .fontDesign(.rounded)
+        .foregroundStyle(.quaternary)
     }
 }

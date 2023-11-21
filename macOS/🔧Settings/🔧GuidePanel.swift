@@ -3,9 +3,13 @@ import SwiftUI
 struct 🔧GuidePanel: View {
     var body: some View {
         Form {
-            💁GuideViewComponent.AboutDataSync()
-            💁GuideViewComponent.AboutDataCount()
-            🄰ppleSupportLinkSection()
+            Section {
+                💁GuideViewComponent.AboutDataSync()
+                💁GuideViewComponent.AboutDataCount()
+            } header: {
+                Text("Data")
+            }
+            Self.AppleSupportLinkSection()
         }
         .formStyle(.grouped)
         .tabItem {
@@ -14,31 +18,23 @@ struct 🔧GuidePanel: View {
     }
 }
 
-private struct 🄰ppleSupportLinkSection: View {
-    private static var urlString: String {
-        "https://support.apple.com/guide/mac-help/add-customize-widgets-notification-center-mchl52be5da5/mac"
-    }
-    private static var labelTitle: LocalizedStringKey {
-        "Add and customize widgets in Notification Center on Mac"
-    }
-    var body: some View {
-        Section {
-            Link(destination: .init(string: Self.urlString)!) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Label(Self.labelTitle, systemImage: "link")
-                    HStack {
-                        Spacer()
-                        Text(Self.urlString)
-                            .font(.caption2.italic())
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                    }
+private extension 🔧GuidePanel {
+    private struct AppleSupportLinkSection: View {
+        private static var urlString: String {
+            "https://support.apple.com/guide/mac-help/add-and-customize-widgets-mchl52be5da5/mac"
+        }
+        var body: some View {
+            Section {
+                Link(destination: .init(string: Self.urlString)!) {
+                    Label("Add and customize widgets on Mac", systemImage: "link")
                 }
-                .padding(.vertical, 4)
+            } header: {
+                Text("Apple Support Page Link")
+            } footer: {
+                Text(Self.urlString)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
-            .accessibilityLabel(Self.labelTitle)
-        } header: {
-            Text("Apple Support Page Link")
         }
     }
 }

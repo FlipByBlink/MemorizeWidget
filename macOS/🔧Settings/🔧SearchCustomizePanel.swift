@@ -12,7 +12,7 @@ struct 🔧SearchCustomizePanel: View {
             TextField("Trailing component", text: self.$model.trailingText)
                 .accessibilityLabel("Trailing component")
                 .font(.subheadline)
-            Spacer(minLength: 16)
+            Spacer(minLength: 8)
             self.testButton()
             Spacer(minLength: 16)
             GroupBox {
