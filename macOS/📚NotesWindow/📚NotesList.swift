@@ -16,12 +16,12 @@ struct 📚NotesList: View {
                 Self.Footer()
             }
         }
-        .toolbar { self.newNoteOnTopButton() }
+        .toolbar { 🔝NewNoteOnTopButton() }
         .onDeleteCommand { self.model.removeNotesByDeleteCommand() }
         .onExitCommand { self.model.clearSelection() }
         .modifier(Self.NewNoteFocusHandler(state: self._focusedNoteID))
         .animation(.default, value: self.model.notes)
-        .contextMenu(forSelectionType: UUID.self) { self.contextMenu($0) }
+        .contextMenu(forSelectionType: UUID.self) { 🚏ContextMenu($0) }
     }
 }
 
@@ -40,33 +40,12 @@ private extension 📚NotesList {
                 }
         }
     }
-    private func newNoteOnTopButton() -> some View {
-        Button {
-            self.model.addNewNoteOnTop()
-        } label: {
-            Label("新規ノート", systemImage: "plus")
-        }
-    }
     private struct Footer: View {
         @EnvironmentObject var model: 📱AppModel
         var body: some View {
             if self.model.notes.count > 10 {
                 Text("ノート数: \(self.model.notes.count)")
             }
-        }
-    }
-    private func contextMenu(_ ⓘtems: Set<UUID>) -> some View {
-        Group {
-            let ⓝotes: Set<📗Note> = .init(self.model.notes.filter { ⓘtems.contains($0.id) })
-            Text(ⓘtems.debugDescription)
-            📘DictionaryButton(notes: ⓝotes)
-            🔍SearchButton(notes: ⓝotes)
-            Divider()
-            Button("末尾へ移動") {}
-            Button("先頭へ移動") {}
-            Divider()
-            Button("上に新規ノート") {}
-            Button("下に新規ノート") {}
         }
     }
 }

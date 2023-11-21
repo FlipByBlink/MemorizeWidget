@@ -18,6 +18,12 @@
 		160C592C2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592D2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		1638261B2B0C24770082266F /* 🔍SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261A2B0C24770082266F /* 🔍SearchButton.swift */; };
+		1638261D2B0C2A610082266F /* 🚏ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */; };
+		1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261E2B0C2D3F0082266F /* 🛫MoveTopButton.swift */; };
+		163826212B0C2D770082266F /* 🛬MoveEndButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826202B0C2D770082266F /* 🛬MoveEndButton.swift */; };
+		163826232B0C2DF90082266F /* 👆InsertAboveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */; };
+		163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */; };
+		163826272B0C2F980082266F /* 🔝NewNoteOnTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -146,7 +152,7 @@
 		16C3D79C2B096B3500849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */; };
 		16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79E2B096BED00849D96 /* 🪄Commands.swift */; };
-		16C3D7A42B096BEE00849D96 /* 📱AppModel(macOS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */; };
+		16C3D7A42B096BEE00849D96 /* 📱AppModel(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D79F2B096BED00849D96 /* 📱AppModel(extension).swift */; };
 		16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */; };
 		16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */; };
 		16C3D7A82B096C5900849D96 /* FocusedValues(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */; };
@@ -543,6 +549,12 @@
 		160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑ContentView.swift"; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1638261A2B0C24770082266F /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
+		1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚏ContextMenu.swift"; sourceTree = "<group>"; };
+		1638261E2B0C2D3F0082266F /* 🛫MoveTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🛫MoveTopButton.swift"; sourceTree = "<group>"; };
+		163826202B0C2D770082266F /* 🛬MoveEndButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🛬MoveEndButton.swift"; sourceTree = "<group>"; };
+		163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆InsertAboveButton.swift"; sourceTree = "<group>"; };
+		163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👇InsertBelowButton.swift"; sourceTree = "<group>"; };
+		163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔝NewNoteOnTopButton.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
 		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
@@ -613,7 +625,7 @@
 		16C3D77A2B0968BC00849D96 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🏗️MenuBarShortcut.swift"; sourceTree = "<group>"; };
 		16C3D79E2B096BED00849D96 /* 🪄Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🪄Commands.swift"; sourceTree = "<group>"; };
-		16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📱AppModel(macOS).swift"; sourceTree = "<group>"; };
+		16C3D79F2B096BED00849D96 /* 📱AppModel(extension).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📱AppModel(extension).swift"; sourceTree = "<group>"; };
 		16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔧Settings.swift"; sourceTree = "<group>"; };
 		16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📗NoteRow.swift"; sourceTree = "<group>"; };
 		16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusedValues(extension).swift"; sourceTree = "<group>"; };
@@ -796,8 +808,14 @@
 				160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */,
 				167182922B09F41200A7AD8D /* 📚NotesList.swift */,
 				16C3D7A12B096BEE00849D96 /* 📗NoteRow.swift */,
+				1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */,
 				166C25392B00E919008124DC /* 📘DictionaryButton.swift */,
 				1638261A2B0C24770082266F /* 🔍SearchButton.swift */,
+				163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */,
+				1638261E2B0C2D3F0082266F /* 🛫MoveTopButton.swift */,
+				163826202B0C2D770082266F /* 🛬MoveEndButton.swift */,
+				163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */,
+				163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */,
 				160A5A632B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift */,
 				16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */,
 				16C3D79E2B096BED00849D96 /* 🪄Commands.swift */,
@@ -1028,7 +1046,7 @@
 			isa = PBXGroup;
 			children = (
 				16C3D7712B0968BA00849D96 /* App.swift */,
-				16C3D79F2B096BED00849D96 /* 📱AppModel(macOS).swift */,
+				16C3D79F2B096BED00849D96 /* 📱AppModel(extension).swift */,
 				1673E0802B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift */,
 				160A5A672B0A469800E6F4EB /* 📚NotesWindow */,
 				160A5A6A2B0AECFC00E6F4EB /* 🗑Trash */,
@@ -1620,11 +1638,13 @@
 				1673E0792B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift in Sources */,
 				1638261B2B0C24770082266F /* 🔍SearchButton.swift in Sources */,
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
+				163826212B0C2D770082266F /* 🛬MoveEndButton.swift in Sources */,
 				16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */,
 				1673E07F2B0A060200D621D3 /* 🛒InAppPurchaseModel.swift in Sources */,
 				160A5A642B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift in Sources */,
 				16C3D7902B096A3000849D96 /* 🗑TrashModel.swift in Sources */,
-				16C3D7A42B096BEE00849D96 /* 📱AppModel(macOS).swift in Sources */,
+				16C3D7A42B096BEE00849D96 /* 📱AppModel(extension).swift in Sources */,
+				163826272B0C2F980082266F /* 🔝NewNoteOnTopButton.swift in Sources */,
 				16C3D7802B096A2700849D96 /* 💾UserDefaults.swift in Sources */,
 				1673E0772B0A059400D621D3 /* ℹ️HelpCommands.swift in Sources */,
 				16C3D7932B096A3700849D96 /* 🎛️RandomModeToggle.swift in Sources */,
@@ -1635,6 +1655,7 @@
 				16C3D7972B096A3700849D96 /* 🎛️ViewComponent.swift in Sources */,
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
+				1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */,
 				1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */,
 				16C3D7922B096A3000849D96 /* 🗑TrashViewComponent.swift in Sources */,
 				1673E07E2B0A05FF00D621D3 /* 📣ADModel.swift in Sources */,
@@ -1646,6 +1667,7 @@
 				16C3D7882B096A2700849D96 /* UserDefaults(extension).swift in Sources */,
 				16C3D79C2B096B3500849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				16C3D78F2B096A2700849D96 /* 📚Notes.swift in Sources */,
+				163826232B0C2DF90082266F /* 👆InsertAboveButton.swift in Sources */,
 				16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */,
 				16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */,
 				160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */,
@@ -1658,8 +1680,10 @@
 				167182932B09F41200A7AD8D /* 📚NotesList.swift in Sources */,
 				1673E0812B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift in Sources */,
 				16C3D7992B096AEE00849D96 /* 💁GuideViewComponent.swift in Sources */,
+				163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */,
 				1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */,
 				16C3D78A2B096A2700849D96 /* 📚TextConvert.swift in Sources */,
+				1638261D2B0C2A610082266F /* 🚏ContextMenu.swift in Sources */,
 				1673E07A2B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift in Sources */,
 				16C3D7812B096A2700849D96 /* 📗Note.swift in Sources */,
 				16C3D7962B096A3700849D96 /* 🎛️Option.swift in Sources */,
