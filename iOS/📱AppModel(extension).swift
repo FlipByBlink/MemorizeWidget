@@ -43,9 +43,4 @@ extension 📱AppModel {
             self.presentedSheetOnContentView = nil
         }
     }
-    func submitNotesImport(_ ⓒonvertedNotes: 📚Notes) {
-        self.insertOnTop(ⓒonvertedNotes)
-        self.presentedSheetOnContentView = nil
-        💥Feedback.success()
-    }
 }

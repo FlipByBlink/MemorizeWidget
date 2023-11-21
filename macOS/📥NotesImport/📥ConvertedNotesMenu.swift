@@ -41,9 +41,9 @@ private extension 📥ConvertedNotesMenu {
         var body: some ToolbarContent {
             ToolbarItem(placement: .primaryAction) {
                 Button {
-//                    self.model.submitNotesImport(self.convertedNotes)
+                    self.model.submitNotesImport(self.convertedNotes)
                 } label: {
-                    Label("Apply", systemImage: "checkmark")
+                    Label("Submit", systemImage: "checkmark")
                 }
             }
         }

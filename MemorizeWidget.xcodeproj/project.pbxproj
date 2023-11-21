@@ -42,6 +42,7 @@
 		1638264D2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */; };
 		1638264E2B0CDEE10082266F /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
 		163826502B0CDF320082266F /* 📥ConvertedNotesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */; };
+		163826522B0CE5930082266F /* 📥CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826512B0CE5930082266F /* 📥CancelButton.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -585,6 +586,7 @@
 		1638264A2B0CDDBE0082266F /* 📥NotesImportTextSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportTextSheetView.swift"; sourceTree = "<group>"; };
 		1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotSupportMultiLineTextInNoteSection.swift"; sourceTree = "<group>"; };
 		1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥ConvertedNotesMenu.swift"; sourceTree = "<group>"; };
+		163826512B0CE5930082266F /* 📥CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥CancelButton.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
 		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
@@ -922,6 +924,7 @@
 				1638264A2B0CDDBE0082266F /* 📥NotesImportTextSheetView.swift */,
 				1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */,
 				1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */,
+				163826512B0CE5930082266F /* 📥CancelButton.swift */,
 			);
 			path = "📥NotesImport";
 			sourceTree = "<group>";
@@ -1746,6 +1749,7 @@
 				1638261B2B0C24770082266F /* 🔍SearchButton.swift in Sources */,
 				163826502B0CDF320082266F /* 📥ConvertedNotesMenu.swift in Sources */,
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
+				163826522B0CE5930082266F /* 📥CancelButton.swift in Sources */,
 				163826212B0C2D770082266F /* 🛬MoveEndButton.swift in Sources */,
 				16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */,
 				1673E07F2B0A060200D621D3 /* 🛒InAppPurchaseModel.swift in Sources */,

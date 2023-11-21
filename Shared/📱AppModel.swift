@@ -96,6 +96,13 @@ extension 📱AppModel {
         self.saveNotes()
         💥Feedback.light()
     }
+#if os(iOS) || os(macOS)
+    func submitNotesImport(_ ⓒonvertedNotes: 📚Notes) {
+        self.insertOnTop(ⓒonvertedNotes)
+        self.presentedSheetOnContentView = nil
+        💥Feedback.success()
+    }
+#endif
     func saveNotes() {
         💾ICloud.save(self.notes)
         WidgetCenter.shared.reloadAllTimelines()
