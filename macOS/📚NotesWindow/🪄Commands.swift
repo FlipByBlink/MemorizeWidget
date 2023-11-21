@@ -10,8 +10,7 @@ struct 🪄Commands: Commands {
         CommandGroup(replacing: .systemServices) { EmptyView() }
         CommandGroup(after: .newItem) {
             Self.OpenNotesWindowButton()
-        }
-        CommandMenu("Notes") {
+            Divider()
             🔝NewNoteOnTopButton()
                 .keyboardShortcut("n")
             Divider()
@@ -19,20 +18,28 @@ struct 🪄Commands: Commands {
                 .keyboardShortcut("[")
             👇InsertBelowButton(self.targetNotes)
                 .keyboardShortcut("]")
-            Divider()
+        }
+        CommandGroup(before: .undoRedo) {
             🛫MoveTopButton(self.targetNotes)
                 .keyboardShortcut("t")
             🛬MoveEndButton(self.targetNotes)
                 .keyboardShortcut("e")
             Divider()
+        }
+        CommandGroup(after: .textEditing) {
+            self.deleteAllNotesButton()
+        }
+        CommandMenu("Action") {
             📘DictionaryButton(self.targetNotes)
                 .keyboardShortcut("d")
             🔍SearchButton(self.targetNotes)
                 .keyboardShortcut("s")
+        }
+        CommandMenu("Organize") {
+            Button("Import notes") {}
+            Button("Export notes") {}
             Divider()
             Self.OpenTrashWindowButton()
-            Divider()
-            self.deleteAllNotesButton()
         }
         ℹ️HelpCommands()
     }
@@ -52,11 +59,12 @@ private extension 🪄Commands {
     }
     private struct OpenNotesWindowButton: View {
         @Environment(\.openWindow) var openWindow
+        @FocusedValue(\.openedMainWindow) var openedMainWindow
         var body: some View {
             Button("Open main window") {
                 self.openWindow(id: "notes")
             }
-            //TODO: 既に開いてた場合のフィードバックを実装
+            .disabled(self.openedMainWindow == true)
         }
     }
     private struct OpenTrashWindowButton: View {

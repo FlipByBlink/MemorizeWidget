@@ -9,6 +9,7 @@ struct 📚ContentView: View {
         }
         .focusedValue(\.notesSelection, self.model.notesSelection)
         .focusedValue(\.notes, self.model.notes)
+        .focusedValue(\.openedMainWindow, true)
         .focusedObject(self.model)
         .onOpenURL(perform: self.model.handleWidgetURL)
         .modifier(📰SheetHandlerOnContentView())

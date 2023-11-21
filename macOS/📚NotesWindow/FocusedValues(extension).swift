@@ -19,10 +19,11 @@ extension FocusedValues {
     }
     struct NotesSelectionKey: FocusedValueKey { typealias Value = Set<UUID> }
     
-    //struct フォーカスキー: FocusedValueKey { typealias Value = Binding<UUID> }
-    
-    //@FocusedValue(\.フォーカス値) private var 現在のフォーカス
-    //"focusable"の外側に"focusedValue(\.フォーカス値, _)"を呼ぶ。
+    var openedMainWindow: Self.OpenedMainWindow.Value? {
+        get { self[Self.OpenedMainWindow.self] }
+        set { self[Self.OpenedMainWindow.self] = newValue }
+    }
+    struct OpenedMainWindow: FocusedValueKey { typealias Value = Bool }
 }
 
 //#if DEBUG
