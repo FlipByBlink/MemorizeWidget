@@ -12,6 +12,16 @@
 		160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */; };
 		160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */; };
 		160A5A6E2B0AED3B00E6F4EB /* 🗑ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */; };
+		160BA3EA2B0D9A370011E739 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
+		160BA3EB2B0D9A390011E739 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
+		160BA3EC2B0D9A730011E739 /* 🌐AD&InAppPurchase.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F50C83082AA5CDBD0033A04B /* 🌐AD&InAppPurchase.xcstrings */; };
+		160BA3ED2B0D9A730011E739 /* 🌐ADAppDescription.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F50C83052AA5CDBD0033A04B /* 🌐ADAppDescription.xcstrings */; };
+		160BA3EE2B0D9A730011E739 /* 🌐ADAppName.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F50C83062AA5CDBD0033A04B /* 🌐ADAppName.xcstrings */; };
+		160BA3EF2B0D9C0E0011E739 /* 🌐AboutApp.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F50C83072AA5CDBD0033A04B /* 🌐AboutApp.xcstrings */; };
+		160BA3F22B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F12B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings */; };
+		160BA3F42B0D9C520011E739 /* 🌐VersionHistory.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F32B0D9C520011E739 /* 🌐VersionHistory.xcstrings */; };
+		160BA3F62B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */; };
+		160BA3F72B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */; };
 		160C59292B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592A2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592B2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
@@ -568,6 +578,9 @@
 		160A5A682B0ADB7900E6F4EB /* 📚ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚ContentView.swift"; sourceTree = "<group>"; };
 		160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashWindow.swift"; sourceTree = "<group>"; };
 		160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑ContentView.swift"; sourceTree = "<group>"; };
+		160BA3F12B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "🌐AppStoreDescription.xcstrings"; sourceTree = "<group>"; };
+		160BA3F32B0D9C520011E739 /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
+		160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1638261A2B0C24770082266F /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
 		1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚏ContextMenu.swift"; sourceTree = "<group>"; };
@@ -865,6 +878,16 @@
 				160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */,
 			);
 			path = "🗑TrashWindow";
+			sourceTree = "<group>";
+		};
+		160BA3F02B0D9C310011E739 /* 🌐Localization */ = {
+			isa = PBXGroup;
+			children = (
+				160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */,
+				160BA3F12B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings */,
+				160BA3F32B0D9C520011E739 /* 🌐VersionHistory.xcstrings */,
+			);
+			path = "🌐Localization";
 			sourceTree = "<group>";
 		};
 		1626B7952AFA5B3200845F80 /* 📚NotesListTab */ = {
@@ -1179,6 +1202,7 @@
 				16C3D7752B0968BC00849D96 /* Assets.xcassets */,
 				16C3D77A2B0968BC00849D96 /* macOS.entitlements */,
 				1673E0822B0A094500D621D3 /* Info.plist */,
+				160BA3F02B0D9C310011E739 /* 🌐Localization */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -1217,9 +1241,6 @@
 			isa = PBXGroup;
 			children = (
 				F507EA9C28CA145000ECF06A /* InfoPlist.strings */,
-				F50C83052AA5CDBD0033A04B /* 🌐ADAppDescription.xcstrings */,
-				F50C83062AA5CDBD0033A04B /* 🌐ADAppName.xcstrings */,
-				F50C83082AA5CDBD0033A04B /* 🌐AD&InAppPurchase.xcstrings */,
 				F50C832F2AA5E56D0033A04B /* 🌐AppStoreDescription.xcstrings */,
 				F50C832D2AA5E56D0033A04B /* 🌐VersionHistory.xcstrings */,
 			);
@@ -1300,6 +1321,9 @@
 			children = (
 				160C59282B06F06F003160BE /* Localizable.xcstrings */,
 				F50C83072AA5CDBD0033A04B /* 🌐AboutApp.xcstrings */,
+				F50C83052AA5CDBD0033A04B /* 🌐ADAppDescription.xcstrings */,
+				F50C83062AA5CDBD0033A04B /* 🌐ADAppName.xcstrings */,
+				F50C83082AA5CDBD0033A04B /* 🌐AD&InAppPurchase.xcstrings */,
 			);
 			path = "🌐Localization";
 			sourceTree = "<group>";
@@ -1671,7 +1695,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160BA3EA2B0D9A370011E739 /* Localizable.xcstrings in Resources */,
+				160BA3F42B0D9C520011E739 /* 🌐VersionHistory.xcstrings in Resources */,
+				160BA3EF2B0D9C0E0011E739 /* 🌐AboutApp.xcstrings in Resources */,
+				160BA3F62B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */,
+				160BA3EE2B0D9A730011E739 /* 🌐ADAppName.xcstrings in Resources */,
+				160BA3ED2B0D9A730011E739 /* 🌐ADAppDescription.xcstrings in Resources */,
+				160BA3F22B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings in Resources */,
 				16C3D7762B0968BC00849D96 /* Assets.xcassets in Resources */,
+				160BA3EC2B0D9A730011E739 /* 🌐AD&InAppPurchase.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1679,6 +1711,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160BA3F72B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */,
+				160BA3EB2B0D9A390011E739 /* Localizable.xcstrings in Resources */,
 				16C3D7CF2B0989F700849D96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

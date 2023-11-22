@@ -141,6 +141,16 @@
         }
       }
     },
+    "Action" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アクション"
+          }
+        }
+      }
+    },
     "Actual size may vary depending on \"device environment\" and \"the text\"" : {
       "localizations" : {
         "ja" : {
@@ -151,13 +161,22 @@
         }
       }
     },
-    "Add and customize widgets in Notification Center on Mac" : {
-      "extractionState" : "stale",
+    "Add" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Macの通知センターでウィジェットを追加する/カスタマイズする"
+            "value" : "追加"
+          }
+        }
+      }
+    },
+    "Add and customize widgets on Mac" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macでウィジェットを追加する/カスタマイズする"
           }
         }
       }
@@ -289,6 +308,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "コメントのサイズ"
+          }
+        }
+      }
+    },
+    "Convert result" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変換結果"
           }
         }
       }
@@ -474,6 +503,16 @@
         }
       }
     },
+    "Dismiss" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "ja" : {
@@ -524,6 +563,26 @@
         }
       }
     },
+    "Export %lld notes as tsv text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tsvテキストとして%lld個のノートを書き出す"
+          }
+        }
+      }
+    },
+    "Export a note as tsv text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tsvテキストとして書き出す"
+          }
+        }
+      }
+    },
     "Export notes" : {
       "localizations" : {
         "ja" : {
@@ -545,12 +604,32 @@
         }
       }
     },
+    "Export notes as tsv text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tsvテキストとして書き出す"
+          }
+        }
+      }
+    },
     "File" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ファイル"
+          }
+        }
+      }
+    },
+    "Font" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォント"
           }
         }
       }
@@ -571,6 +650,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "フォントサイズ"
+          }
+        }
+      }
+    },
+    "General" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
           }
         }
       }
@@ -675,6 +764,26 @@
         }
       }
     },
+    "Import notes(file)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルからインポート"
+          }
+        }
+      }
+    },
+    "Import notes(text)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストからインポート"
+          }
+        }
+      }
+    },
     "Import selected text as notes from other app." : {
       "localizations" : {
         "ja" : {
@@ -685,12 +794,42 @@
         }
       }
     },
+    "Insert above" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上に新規ノート"
+          }
+        }
+      }
+    },
+    "Insert below" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下に新規ノート"
+          }
+        }
+      }
+    },
     "Leading component" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "先頭部分"
+          }
+        }
+      }
+    },
+    "Look up in dictionary" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辞書を引く"
           }
         }
       }
@@ -715,12 +854,32 @@
         }
       }
     },
+    "Menu bar shortcut" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メニューバーにショートカット"
+          }
+        }
+      }
+    },
     "Mode" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "モード"
+          }
+        }
+      }
+    },
+    "More new note" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規ノート"
           }
         }
       }
@@ -771,6 +930,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新規ノート"
+          }
+        }
+      }
+    },
+    "New note on top" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最上部に新規ノート"
           }
         }
       }
@@ -916,6 +1085,16 @@
         }
       }
     },
+    "Open main window" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メインウィンドウを開く"
+          }
+        }
+      }
+    },
     "Open the URL in other apps" : {
       "localizations" : {
         "ja" : {
@@ -926,12 +1105,32 @@
         }
       }
     },
+    "Open trash" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゴミ箱を開く"
+          }
+        }
+      }
+    },
     "Option" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "オプション"
+          }
+        }
+      }
+    },
+    "Organize" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "整理"
           }
         }
       }
@@ -1176,6 +1375,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "予備のウィジェット"
+          }
+        }
+      }
+    },
+    "Submit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録"
           }
         }
       }

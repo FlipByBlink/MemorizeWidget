@@ -54,7 +54,7 @@ private extension 📚NotesList {
         @EnvironmentObject var model: 📱AppModel
         var body: some View {
             if self.model.notes.count > 10 {
-                Text("Note count: \(self.model.notes.count)")
+                Text("Notes count: \(self.model.notes.count)")
             }
         }
     }
