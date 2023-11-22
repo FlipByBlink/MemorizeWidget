@@ -55,8 +55,6 @@
 		163826522B0CE5930082266F /* 📥DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826512B0CE5930082266F /* 📥DismissButton.swift */; };
 		163826532B0D8F470082266F /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
 		163826542B0D8F4A0082266F /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
-		163826582B0D90FF0082266F /* 📖SingleNoteLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */; };
-		163826592B0D90FF0082266F /* 📖MultiNotesLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */; };
 		1638265A2B0D90FF0082266F /* 📖DeletedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -210,8 +208,6 @@
 		16A800C62B0DA6940046C526 /* 🔦FocusedModelHandler.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826342B0C79FE0082266F /* 🔦FocusedModelHandler.swift */; };
 		16A800C72B0DA6940046C526 /* FocusedValues(extension).swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7A72B096C5900849D96 /* FocusedValues(extension).swift */; };
 		16A800C82B0DA6940046C526 /* 📖WidgetSheetView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */; };
-		16A800C92B0DA6940046C526 /* 📖SingleNoteLayoutView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */; };
-		16A800CA2B0DA6940046C526 /* 📖MultiNotesLayoutView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */; };
 		16A800CB2B0DA6940046C526 /* 📖DeletedNoteView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */; };
 		16A800CC2B0DA6950046C526 /* 🗑TrashWindow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160A5A6B2B0AED0800E6F4EB /* 🗑TrashWindow.swift */; };
 		16A800CD2B0DA6950046C526 /* 🗑ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160A5A6D2B0AED3B00E6F4EB /* 🗑ContentView.swift */; };
@@ -239,6 +235,7 @@
 		16A800E32B0DA6950046C526 /* WidgetBundle.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7CA2B0989F500849D96 /* WidgetBundle.swift */; };
 		16A800E42B0DA6950046C526 /* 🪧PrimaryWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7CC2B0989F500849D96 /* 🪧PrimaryWidget.swift */; };
 		16A800E52B0DA6950046C526 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7EA2B098D0C00849D96 /* 🪧EntryView.swift */; };
+		16A800E92B0DC05D0046C526 /* 📖NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */; };
 		16C08BC92B01BF3700A0D65D /* 📥NotesImportSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */; };
 		16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */; };
 		16C3D7722B0968BA00849D96 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7712B0968BA00849D96 /* App.swift */; };
@@ -558,8 +555,6 @@
 				16A800C62B0DA6940046C526 /* 🔦FocusedModelHandler.swift in CopyFiles */,
 				16A800C72B0DA6940046C526 /* FocusedValues(extension).swift in CopyFiles */,
 				16A800C82B0DA6940046C526 /* 📖WidgetSheetView.swift in CopyFiles */,
-				16A800C92B0DA6940046C526 /* 📖SingleNoteLayoutView.swift in CopyFiles */,
-				16A800CA2B0DA6940046C526 /* 📖MultiNotesLayoutView.swift in CopyFiles */,
 				16A800CB2B0DA6940046C526 /* 📖DeletedNoteView.swift in CopyFiles */,
 				16A800CC2B0DA6950046C526 /* 🗑TrashWindow.swift in CopyFiles */,
 				16A800CD2B0DA6950046C526 /* 🗑ContentView.swift in CopyFiles */,
@@ -786,8 +781,6 @@
 		1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotSupportMultiLineTextInNoteSection.swift"; sourceTree = "<group>"; };
 		1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥ConvertedNotesMenu.swift"; sourceTree = "<group>"; };
 		163826512B0CE5930082266F /* 📥DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥DismissButton.swift"; sourceTree = "<group>"; };
-		163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖SingleNoteLayoutView.swift"; sourceTree = "<group>"; };
-		163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖MultiNotesLayoutView.swift"; sourceTree = "<group>"; };
 		163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖DeletedNoteView.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
@@ -850,6 +843,7 @@
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
 		16A386A52B08367D0007297F /* 🔍FailureAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔍FailureAlert.swift"; sourceTree = "<group>"; };
+		16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖NoteRow.swift"; sourceTree = "<group>"; };
 		16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportSheetButton.swift"; sourceTree = "<group>"; };
 		16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesMenuButton.swift"; sourceTree = "<group>"; };
 		16C3D76F2B0968B900849D96 /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1110,8 +1104,7 @@
 			isa = PBXGroup;
 			children = (
 				163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */,
-				163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */,
-				163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */,
+				16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */,
 				163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */,
 			);
 			path = "📖WidgetSheet";
@@ -1987,7 +1980,6 @@
 				163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
 				163826382B0C7C8E0082266F /* 📖WidgetSheetView.swift in Sources */,
-				163826592B0D90FF0082266F /* 📖MultiNotesLayoutView.swift in Sources */,
 				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				1638264E2B0CDEE10082266F /* 📥SeparatorPicker.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
@@ -2012,6 +2004,7 @@
 				1673E06C2B0A027100D621D3 /* 📘DictionaryButton.swift in Sources */,
 				1673E0762B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift in Sources */,
 				16C3D7882B096A2700849D96 /* UserDefaults(extension).swift in Sources */,
+				16A800E92B0DC05D0046C526 /* 📖NoteRow.swift in Sources */,
 				16C3D79C2B096B3500849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				16C3D78F2B096A2700849D96 /* 📚Notes.swift in Sources */,
 				1638264D2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift in Sources */,
@@ -2019,7 +2012,6 @@
 				16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */,
 				16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */,
 				160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */,
-				163826582B0D90FF0082266F /* 📖SingleNoteLayoutView.swift in Sources */,
 				16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */,
 				1673E0782B0A059400D621D3 /* 📣ADSheet.swift in Sources */,
 				16C3D7832B096A2700849D96 /* 📱AppModel.swift in Sources */,

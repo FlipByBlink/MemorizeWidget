@@ -12,5 +12,11 @@ struct 📚ContentView: View {
         .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
         .modifier(📣ADSheet())
         .modifier(💬RequestUserReview())
+        .task {
+            self.model.presentedSheetOnContentView =
+                .widget(.notes([self.model.notes[0].id,
+                                self.model.notes[1].id,
+                                self.model.notes[2].id]))
+        }
     }
 }
