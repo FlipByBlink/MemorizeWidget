@@ -3,18 +3,17 @@ import SwiftUI
 struct 🏗️ContentView: View {
     @ObservedObject var model: 📱AppModel
     @Environment(\.dismiss) var dismiss
-    @State private var title: String = ""
-    @State private var comment: String = ""
+    @State private var note: 📗Note = .empty
     @FocusState private var titleFocus: Bool
     var body: some View {
         VStack(spacing: 12) {
             Text("New note").font(.headline)
-            TextField("Title", text: self.$title)
+            TextField("Title", text: self.$note.title)
                 .focused(self.$titleFocus)
                 .font(.title2)
-            TextField("Comment", text: self.$comment)
+            TextField("Comment", text: self.$note.comment)
                 .font(.title3)
-                .disabled(self.title.isEmpty)
+                .disabled(self.note.title.isEmpty)
             HStack(spacing: 12) {
                 Button(action: self.done) {
                     Label("Add", systemImage: "checkmark")
@@ -23,8 +22,8 @@ struct 🏗️ContentView: View {
                 }
                 Spacer()
                 Group {
-                    📘DictionaryButton([.init(self.title)])
-                    🔍SearchButton([.init(self.title)])
+                    📘DictionaryButton([.init(self.note.title)])
+                    🔍SearchButton([.init(self.note.title)])
                     Button(action: self.addNewNote) {
                         Label("More new note",
                               systemImage: "plus.square.on.square")
@@ -34,12 +33,12 @@ struct 🏗️ContentView: View {
                 .labelStyle(.iconOnly)
                 .buttonStyle(.borderless)
             }
-            .disabled(self.title.isEmpty)
+            .disabled(self.note.title.isEmpty)
         }
         .padding()
         .frame(width: 250)
         .onSubmit(self.done)
-        .animation(.default.speed(2), value: self.title.isEmpty)
+        .animation(.default.speed(2), value: self.note.title.isEmpty)
         .onExitCommand { self.dismiss() }
     }
     init(_ model: 📱AppModel) {
@@ -49,16 +48,14 @@ struct 🏗️ContentView: View {
 
 private extension 🏗️ContentView {
     private func done() {
-        guard !self.title.isEmpty else { return }
-        self.model.notes.insert(.init(self.title, self.comment), at: 0)
-        self.title = ""
-        self.comment = ""
+        guard !self.note.title.isEmpty else { return }
+        self.model.notes.insert(self.note, at: 0)
+        self.note = .empty
         self.dismiss()
     }
     private func addNewNote() {
-        self.model.notes.insert(.init(self.title, self.comment), at: 0)
-        self.title = ""
-        self.comment = ""
+        self.model.notes.insert(self.note, at: 0)
+        self.note = .empty
         self.titleFocus = true
     }
 }

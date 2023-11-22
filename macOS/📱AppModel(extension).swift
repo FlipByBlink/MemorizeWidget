@@ -37,10 +37,12 @@ extension 📱AppModel {
         self.notes.move(fromOffsets: .init(ⓝotes.compactMap({ self.notes.firstIndex(of: $0)})),
                         toOffset: 0)
         self.saveNotes()
+        self.clearSelection()
     }
     func moveEnd(_ ⓝotes: Set<📗Note>) {
         self.notes.move(fromOffsets: .init(ⓝotes.compactMap({ self.notes.firstIndex(of: $0)})),
                         toOffset: self.notes.endIndex)
         self.saveNotes()
+        self.clearSelection()
     }
 }
