@@ -21,7 +21,7 @@
 		160BA3F22B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F12B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings */; };
 		160BA3F42B0D9C520011E739 /* 🌐VersionHistory.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F32B0D9C520011E739 /* 🌐VersionHistory.xcstrings */; };
 		160BA3F62B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */; };
-		160BA3F72B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */; };
+		160BA3FA2B0D9E6F0011E739 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160BA3F82B0D9E6F0011E739 /* InfoPlist.xcstrings */; };
 		160C59292B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592A2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
 		160C592B2B06F06F003160BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 160C59282B06F06F003160BE /* Localizable.xcstrings */; };
@@ -581,6 +581,7 @@
 		160BA3F12B0D9C430011E739 /* 🌐AppStoreDescription.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "🌐AppStoreDescription.xcstrings"; sourceTree = "<group>"; };
 		160BA3F32B0D9C520011E739 /* 🌐VersionHistory.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "🌐VersionHistory.xcstrings"; sourceTree = "<group>"; };
 		160BA3F52B0D9C7F0011E739 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		160BA3F82B0D9E6F0011E739 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		160C59282B06F06F003160BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1638261A2B0C24770082266F /* 🔍SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔍SearchButton.swift"; sourceTree = "<group>"; };
 		1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🚏ContextMenu.swift"; sourceTree = "<group>"; };
@@ -1224,6 +1225,7 @@
 				16C3D7CE2B0989F700849D96 /* Assets.xcassets */,
 				16C3D7D02B0989F700849D96 /* Info.plist */,
 				16C3D7D12B0989F700849D96 /* Widget.entitlements */,
+				160BA3F82B0D9E6F0011E739 /* InfoPlist.xcstrings */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1711,7 +1713,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				160BA3F72B0D9C7F0011E739 /* InfoPlist.xcstrings in Resources */,
+				160BA3FA2B0D9E6F0011E739 /* InfoPlist.xcstrings in Resources */,
 				160BA3EB2B0D9A390011E739 /* Localizable.xcstrings in Resources */,
 				16C3D7CF2B0989F700849D96 /* Assets.xcassets in Resources */,
 			);
@@ -2194,8 +2196,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MemorizeWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Ryo Yamashita";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2230,8 +2233,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MemorizeWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Ryo Yamashita";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

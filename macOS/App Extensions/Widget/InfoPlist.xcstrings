@@ -8,13 +8,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "MemorizeWidget"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暗記ウィジェット"
+            "value" : "MacOSWidget"
           }
         }
       }
@@ -26,7 +20,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "macOS"
+            "value" : "Widget(macOS)"
           }
         }
       }
@@ -38,12 +32,6 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Ryo Yamashita"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
             "value" : ""
           }
         }
