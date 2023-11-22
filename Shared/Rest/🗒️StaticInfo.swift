@@ -197,37 +197,83 @@ extension 🗒️StaticInfo {
 #elseif os(watchOS)
 extension 🗒️StaticInfo {
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
-        case main, Rest, Widget
+        case main
+        case AppModel
+        case Note
+        case Sheet
+        case Option
+        case Data
+        case Trash
+        case Rest
+        case Widget
         var id: Self { self }
         var fileNames: [String] {
             switch self {
-                case .main: ["App.swift",
-                             "ContentView.swift",
-                             "📱AppModel.swift",
-                             "📗NoteModel.swift"]
-                case .Rest: ["📖WidgetNotesSheet.swift",
-                             "📗NoteView.swift",
-                             "📚NotesMenu.swift",
-                             "🔩MainMenu.swift",
-                             "🗑TrashMenu.swift",
-                             "💁TipsMenu.swift",
-                             "🆕NewNoteShortcut.swift",
-                             "💥Feedback.swift",
-                             "💾ICloud.swift",
-                             "💾UserDefaults.swift",
-                             "🗑TrashModel.swift",
-                             "🗒️StaticInfo.swift",
-                             "ℹ️AboutApp.swift"]
-                case .Widget: ["Widget.swift",
-                               "🪧WidgetState.swift",
-                               "🪧WidgetInfo.swift",
-                               "🪧WidgetEntry.swift",
-                               "🪧Provider.swift",
-                               "🪧EntryView.swift",
-                               "🪧NewNoteShortcutWidget.swift",
-                               "🪧MultiNotesCount.swift",
-                               "🪧ContainerBackground.swift",
-                               "🪧AccessoryWidgetView.swift"]
+                case .main: [
+                    "App.swift",
+                    "ContentView.swift"
+                ]
+                case .AppModel: [
+                    "📱AppModel.swift",
+                    "📱AppModel(extension).swift",
+                ]
+                case .Note: [
+                    "📗Note.swift",
+                    "📚Notes.swift",
+                    "📗NoteView.swift",
+                    "📚NotesListMenu.swift",
+                ]
+                case .Sheet: [
+                    "📰SheetOnContentView.swift",
+                    "📰SheetHandlerOnContentView.swift",
+                    "📖WidgetSheetView.swift",
+                ]
+                case .Option: [
+                    "🎛️Option.swift",
+                    "🎛️Key.swift",
+                    "🎛️Default.swift",
+                    "🎛️ViewComponent.swift",
+                    "🎛️RandomModeToggle.swift",
+                    "🎛️FontSizeMenu.swift",
+                ]
+                case .Data: [
+                    "💾ICloud.swift",
+                    "💾UserDefaults.swift",
+                    "UserDefaults(extension).swift",
+                    "🩹WorkaroundOnIOS15.swift",
+                ]
+                case .Trash: [
+                    "🗑TrashViewComponent.swift",
+                    "🗑TrashModel.swift",
+                    "🗑DeletedContent.swift",
+                    "🗑TrashMenu.swift",
+                ]
+                case .Rest: [
+                    "🔩MainMenu.swift",
+                    "🚮DeleteAllNotesButton.swift",
+                    "🆕NewNoteShortcut.swift",
+                    "💥Feedback.swift",
+                    "💁GuideMenu.swift",
+                    "💁GuideViewComponent.swift",
+                    "ℹ️AboutApp.swift",
+                    "🗒️StaticInfo.swift",
+                ]
+                case .Widget: [
+                    "WidgetBundle.swift",
+                    "🪧PrimaryWidget.swift",
+                    "🪧SubWidget.swift",
+                    "🪧Kind.swift",
+                    "🪧Phase.swift",
+                    "🪧Tag.swift",
+                    "🪧Provider.swift",
+                    "🪧Entry.swift",
+                    "🪧EntryView.swift",
+                    "🪧AccessoryWidgetView.swift",
+                    "🪧NewNoteShortcutWidget.swift",
+                    "🪧NoNoteView.swift",
+                    "🪧PlaceholderView.swift",
+                    "🪧ContainerBackground.swift",
+                ]
             }
         }
     }
