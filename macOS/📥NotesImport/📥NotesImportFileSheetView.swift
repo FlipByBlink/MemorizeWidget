@@ -10,7 +10,7 @@ struct 📥NotesImportFileSheetView: View {
             }
             .formStyle(.grouped)
             .toolbar {
-                📥CancelButton()
+                📥DismissButton()
                 ToolbarItem(placement: .primaryAction) {
                     if self.model.navigationPath.isEmpty {
                         Button {

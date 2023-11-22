@@ -34,7 +34,7 @@ struct 📥NotesImportTextSheetView: View {
             }
             .navigationTitle("Import notes")
             .toolbar {
-                📥CancelButton()
+                📥DismissButton()
                 ToolbarItem(placement: .primaryAction) {
                     if self.model.navigationPath.isEmpty {
                         Button {
