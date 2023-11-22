@@ -5,64 +5,46 @@ struct 📤NotesExportSheetView: View {
     @State private var ⓒonvertedText: String?
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Label("Notes count", systemImage: "books.vertical")
-                        .badge(self.model.notes.count)
-                    if let ⓒonvertedText {
-                        Self.exampleView(ⓒonvertedText)
+            Group {
+                if let ⓒonvertedText {
+                    Self.exampleView(ⓒonvertedText)
+                } else {
+                    ZStack {
+                        Color.clear
+                        ProgressView()
                     }
-                } footer: {
-                    Text("This text is TSV(tab-separated values) format.")
                 }
             }
-            .navigationTitle("Export notes")
-            .task { self.ⓒonvertedText = 📚TextConvert.encodeToTSV(self.model.notes) }
-            .animation(.default, value: self.ⓒonvertedText == nil)
-            .toolbar {
-                self.cancelButton()
-                self.shareLink()
-            }
+            .navigationTitle(self.navigationTitle)
+            .toolbar { self.dismissButton() }
         }
+        .animation(.default, value: self.ⓒonvertedText == nil)
+        .task { self.ⓒonvertedText = 📚TextConvert.encodeToTSV(self.model.notes) }
         .frame(width: 500, height: 440)
     }
 }
 
 private extension 📤NotesExportSheetView {
+    private var navigationTitle: LocalizedStringKey {
+        if self.model.notes.isEmpty {
+            "Export notes as tsv text"
+        } else if self.model.notes.count == 1 {
+            "Export a note as tsv text"
+        } else {
+            "Export \(self.model.notes.count) notes as tsv text"
+        }
+    }
     private static func exampleView(_ ⓒonvertedText: String) -> some View {
-        ScrollView(.horizontal) {
+        ScrollView {
             Text(ⓒonvertedText)
                 .font(.subheadline.monospaced().italic())
                 .textSelection(.enabled)
-                .lineLimit(16)
-                .padding(.top)
-                .padding(.horizontal)
-                .padding(.bottom, 6)
-                .mask {
-                    LinearGradient(colors: [.white, .clear],
-                                   startPoint: .init(x: 0.5, y: 0.7),
-                                   endPoint: .init(x: 0.5, y: 1.0))
-                }
-        }
-        .background {
-            Text("Example")
-                .font(.system(size: 50, weight: .heavy, design: .rounded))
-                .foregroundStyle(.quaternary)
-                .rotationEffect(.degrees(10))
+                .padding()
         }
     }
-    private func shareLink() -> some ToolbarContent {
-        ToolbarItem(placement: .primaryAction) {
-            if let ⓒonvertedText {
-                ShareLink(item: ⓒonvertedText)
-            } else {
-                ProgressView()
-            }
-        }
-    }
-    private func cancelButton() -> some ToolbarContent {
+    private func dismissButton() -> some ToolbarContent {
         ToolbarItem(placement: .automatic) {
-            Button("Cancel") {
+            Button("Dismiss") {
                 self.model.presentedSheetOnContentView = nil
             }
         }
