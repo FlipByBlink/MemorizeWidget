@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-               BuildableName = "macOS.app"
+               BuildableName = "MemorizeWidget.app"
                BlueprintName = "macOS"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>
@@ -44,11 +44,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-            BuildableName = "macOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../iOS/Supporting files/Configuration.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -61,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-            BuildableName = "macOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>

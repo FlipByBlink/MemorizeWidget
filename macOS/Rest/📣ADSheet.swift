@@ -12,7 +12,9 @@ struct 📣ADSheet: ViewModifier {
             }
             .task {
                 try? await Task.sleep(for: .seconds(0.5))
-                if self.appModel.inAppPurchaseModel.checkToShowADSheet() { self.showSheet = true }
+                if self.appModel.inAppPurchaseModel.checkToShowADSheet() {
+                    self.showSheet = true
+                }
             }
     }
 }
