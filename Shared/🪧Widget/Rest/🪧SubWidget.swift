@@ -31,6 +31,7 @@ private extension 🪧SubWidget {
         ⓥalue.append(contentsOf: [.accessoryCircular, .accessoryRectangular, .accessoryCorner])
 #elseif os(macOS)
         ⓥalue.append(contentsOf: [.systemSmall, .systemMedium, .systemLarge])
+        if #available(macOS 14.0, *) { ⓥalue.append(.systemExtraLarge) }
 #endif
         return ⓥalue
     }

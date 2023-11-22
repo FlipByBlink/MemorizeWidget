@@ -13,6 +13,16 @@ struct 🪧PrimaryWidget: Widget {
         .configurationDisplayName("MemorizeWidget")
         .description("Show a note.")
         .contentMarginsDisabled()
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .supportedFamilies(Self.family)
+    }
+}
+
+private extension 🪧PrimaryWidget {
+    private static var family: [WidgetFamily] {
+        if #available(macOS 14.0, *) {
+            [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
+        } else {
+            [.systemSmall, .systemMedium, .systemLarge]
+        }
     }
 }
