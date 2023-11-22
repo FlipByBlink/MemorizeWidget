@@ -101,7 +101,12 @@ private extension 🪧SystemWidgetView {
                 case .systemLarge:
                     switch self.notes.count {
                         case 1: return .title3
-                        case 2, 3, 4, 5: return .subheadline
+                        case 2, 3, 4, 5: 
+#if os(iOS)
+                            return .subheadline
+#elseif os(macOS)
+                            return .body
+#endif
                         default: assertionFailure(); return .title
                     }
                 case .systemExtraLarge:
