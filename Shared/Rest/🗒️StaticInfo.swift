@@ -23,16 +23,18 @@ enum 🗒️StaticInfo {
 
 #if os(iOS)
 extension 🗒️StaticInfo {
-    static let versionInfos: [(version: String, date: String)] = [("1.4", "2023-11-22(temporary)"),
-                                                                  ("1.3", "2023-09-14"),
-                                                                  ("1.2.1", "2023-05-24"),
-                                                                  ("1.2", "2023-04-14"),
-                                                                  ("1.1.2", "2022-12-05"),
-                                                                  ("1.1.1", "2022-12-01"),
-                                                                  ("1.1", "2022-10-30"),
-                                                                  ("1.0.2", "2022-09-16"),
-                                                                  ("1.0.1", "2022-09-11"),
-                                                                  ("1.0", "2022-09-09")] //降順。先頭の方が新しい
+    static let versionInfos: [(version: String, date: String)] = [
+        ("1.4", "2023-11-23"),
+        ("1.3", "2023-09-14"),
+        ("1.2.1", "2023-05-24"),
+        ("1.2", "2023-04-14"),
+        ("1.1.2", "2022-12-05"),
+        ("1.1.1", "2022-12-01"),
+        ("1.1", "2022-10-30"),
+        ("1.0.2", "2022-09-16"),
+        ("1.0.1", "2022-09-11"),
+        ("1.0", "2022-09-09")
+    ] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main
@@ -282,7 +284,10 @@ extension 🗒️StaticInfo {
 #elseif os(macOS)
 extension 🗒️StaticInfo {
     static let versionInfos: [(version: String, date: String)] = [
-        ("1.4", "2023-11-22(temporary)")
+        ("1.4", "2023-11-23"),
+        ("1.3", "2023-09-14"),
+        ("1.2.1", "2023-05-24"),
+        ("1.2", "2023-04-14"),
     ] //降順。先頭の方が新しい
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main

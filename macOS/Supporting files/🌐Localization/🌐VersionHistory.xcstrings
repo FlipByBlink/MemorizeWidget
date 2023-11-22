@@ -1,5 +1,74 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {},
+  "strings" : {
+    "1.2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・Support \"Sync by iCloud\".\n・Add \"Show multi notes option\".\n・Add \"Move top\"/\"Move end\" buttons.\n・Add \"Trash\".\n・Add \"Export data\".\n・Add \"Large\" widget family.\n・Support Apple Watch.\n・Support Mac.\n・Change AD design.\n・Fix system dictionary bug on iOS16.4.\n・Remove \"Sub widget(home screen small, home screen medium, lock screen circle)\".\n・Small fix/improve."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・iCloudによる端末間でのデータ同期をサポート\n・複数個のノートを表示するオプションの追加\n・ノートを先頭や末尾へ移動する機能の追加\n・ゴミ箱機能の追加\n・データのエクスポート機能の追加\n・大きなサイズのウィジェットを追加\n・新たにApple Watchをサポート\n・新たにMacをサポート\n・広告デザインの変更\n・iOS16.4での辞書機能の不具合を修正\n・「予備のウィジェット(ホームスクリーン(小), ホームスクリーン(中), ロックスクリーン(円型))」を削除\n・その他、細かな修正や改善"
+          }
+        }
+      }
+    },
+    "1.2.1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIX small bug"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "軽微なバグ修正"
+          }
+        }
+      }
+    },
+    "1.3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support iOS 17 / watchOS 10 / macOS 14\nUnsupport iOS 15.x\nAdjust font size on lock screen widget"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS 17/watchOS 10/macOS 14に対応しました\niOS 15.xを非対応にしました\nロック画面ウィジェットのフォントサイズを調整しました"
+          }
+        }
+      }
+    },
+    "1.4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・Add font size option\n・Renewal macOS design\n・Add menu bar new note shortcut\n・Support extra large widget\n・Sub widget for non-random-mode\n・Several small fix/change/improve"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・フォントサイズ変更オプションを追加\n・macOS向けデザインをリニューアル\n・メニューバーから新規ノートを簡単に追加するための機能を追加\n・特大サイズウィジェットをサポート\n・非ランダムモード向けにサブウィジェットをサポート\n・様々な軽微な修正/変更/改善"
+          }
+        }
+      }
+    }
+  },
   "version" : "1.0"
 }
