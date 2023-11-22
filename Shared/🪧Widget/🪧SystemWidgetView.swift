@@ -40,15 +40,27 @@ private extension 🪧SystemWidgetView {
         } else {
             switch self.widgetFamily {
                 case .systemSmall:
+#if os(iOS)
                     return self.notes.count == 1 ? .title3 : .headline
+#elseif os(macOS)
+                    return self.notes.count == 1 ? .title2 : .title3
+#endif
                 case .systemMedium:
+#if os(iOS)
                     return self.notes.count == 1 ? .largeTitle : .headline
+#elseif os(macOS)
+                    return self.notes.count == 1 ? .largeTitle : .title
+#endif
                 case .systemLarge:
                     switch self.notes.count {
                         case 1:
                             return .system(size: 60)
                         case 2, 3, 4, 5:
+#if os(iOS)
                             return 🎛️Option.showCommentMode ? .title3 : .title
+#elseif os(macOS)
+                            return 🎛️Option.showCommentMode ? .title2 : .title
+#endif
                         default:
                             assertionFailure()
                             return .title
@@ -58,7 +70,11 @@ private extension 🪧SystemWidgetView {
                         case 1:
                             return .system(size: 120)
                         case 2, 3, 4, 5:
+#if os(iOS)
                             return 🎛️Option.showCommentMode ? .title3 : .title
+#elseif os(macOS)
+                            return 🎛️Option.showCommentMode ? .title2 : .title
+#endif
                         default:
                             assertionFailure()
                             return .title
@@ -74,8 +90,14 @@ private extension 🪧SystemWidgetView {
             return .system(size: CGFloat(🎛️Option.FontSize.SystemFamily.comment))
         } else {
             switch self.widgetFamily {
-                case .systemSmall, .systemMedium:
+                case .systemSmall:
                     return self.notes.count == 1 ? .body : .caption
+                case .systemMedium:
+#if os(iOS)
+                    return self.notes.count == 1 ? .body : .caption
+#elseif os(macOS)
+                    return self.notes.count == 1 ? .title3 : .body
+#endif
                 case .systemLarge:
                     switch self.notes.count {
                         case 1: return .title3
