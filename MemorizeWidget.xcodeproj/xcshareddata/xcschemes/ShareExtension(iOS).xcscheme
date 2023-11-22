@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5CEA5F02924AAAC00752277"
-               BuildableName = "ShareExtension(iOS).appex"
+               BuildableName = "MemorizeWidgetShareExtension.appex"
                BlueprintName = "ShareExtension(iOS)"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>

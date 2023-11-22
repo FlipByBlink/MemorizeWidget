@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5D30CC428C6F6C8001198AF"
-               BuildableName = "Widget(iOS).appex"
+               BuildableName = "MemorizeWidgetWidget.appex"
                BlueprintName = "Widget(iOS)"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>

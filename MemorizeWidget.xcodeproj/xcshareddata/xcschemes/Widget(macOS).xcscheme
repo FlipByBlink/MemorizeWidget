@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-               BuildableName = "macOS.app"
+               BuildableName = "MemorizeWidget.app"
                BlueprintName = "macOS"
                ReferencedContainer = "container:MemorizeWidget.xcodeproj">
             </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-            BuildableName = "macOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16C3D76E2B0968B900849D96"
-            BuildableName = "macOS.app"
+            BuildableName = "MemorizeWidget.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MemorizeWidget.xcodeproj">
          </BuildableReference>
