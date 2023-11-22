@@ -669,7 +669,7 @@
 		16A386A52B08367D0007297F /* 🔍FailureAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔍FailureAlert.swift"; sourceTree = "<group>"; };
 		16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotesImportSheetButton.swift"; sourceTree = "<group>"; };
 		16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚NotesMenuButton.swift"; sourceTree = "<group>"; };
-		16C3D76F2B0968B900849D96 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16C3D76F2B0968B900849D96 /* MemorizeWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemorizeWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C3D7712B0968BA00849D96 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16C3D7752B0968BC00849D96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16C3D77A2B0968BC00849D96 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
@@ -1438,7 +1438,7 @@
 				F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */,
 				F568F18D29E3A5DA005A1D1A /* MemorizeW.app */,
 				F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */,
-				16C3D76F2B0968B900849D96 /* macOS.app */,
+				16C3D76F2B0968B900849D96 /* MemorizeWidget.app */,
 				16C3D7C62B0989F400849D96 /* Widget(macOS).appex */,
 			);
 			name = Products;
@@ -1520,7 +1520,7 @@
 			);
 			name = macOS;
 			productName = MemorizeWidget;
-			productReference = 16C3D76F2B0968B900849D96 /* macOS.app */;
+			productReference = 16C3D76F2B0968B900849D96 /* MemorizeWidget.app */;
 			productType = "com.apple.product-type.application";
 		};
 		16C3D7C52B0989F400849D96 /* Widget(macOS) */ = {
@@ -2207,7 +2207,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidget;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2244,7 +2244,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidget;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

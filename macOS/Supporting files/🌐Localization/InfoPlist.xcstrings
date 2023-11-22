@@ -26,7 +26,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "macOS"
+            "value" : "MemorizeWidget"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗記ウィジェット"
           }
         }
       }
