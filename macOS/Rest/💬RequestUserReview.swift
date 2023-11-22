@@ -7,7 +7,7 @@ struct 💬RequestUserReview: ViewModifier {
         content
             .task {
                 self.launchCount += 1
-                if [20, 50, 100].contains(self.launchCount) {
+                if [30, 60, 100].contains(self.launchCount) {
                     self.requestReview()
                 }
             }

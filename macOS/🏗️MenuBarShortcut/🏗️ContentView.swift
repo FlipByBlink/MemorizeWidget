@@ -7,7 +7,8 @@ struct 🏗️ContentView: View {
     @FocusState private var titleFocus: Bool
     var body: some View {
         VStack(spacing: 12) {
-            Text("New note").font(.headline)
+            Text("New note")
+                .font(.headline)
             TextField("Title", text: self.$note.title)
                 .focused(self.$titleFocus)
                 .font(.title2)
@@ -15,7 +16,7 @@ struct 🏗️ContentView: View {
                 .font(.title3)
                 .disabled(self.note.title.isEmpty)
             HStack(spacing: 12) {
-                Button(action: self.done) {
+                Button(action: self.submit) {
                     Label("Add", systemImage: "checkmark")
                         .labelStyle(.iconOnly)
                         .fontWeight(.medium)
@@ -37,7 +38,7 @@ struct 🏗️ContentView: View {
         }
         .padding()
         .frame(width: 250)
-        .onSubmit(self.done)
+        .onSubmit(self.submit)
         .animation(.default.speed(2), value: self.note.title.isEmpty)
         .onExitCommand { self.dismiss() }
     }
@@ -47,7 +48,7 @@ struct 🏗️ContentView: View {
 }
 
 private extension 🏗️ContentView {
-    private func done() {
+    private func submit() {
         guard !self.note.title.isEmpty else { return }
         self.model.notes.insert(self.note, at: 0)
         self.note = .empty

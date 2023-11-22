@@ -25,7 +25,7 @@ struct 📗NoteRow: View {
 private extension 📗NoteRow {
     private struct RemoveButton: View {
         @EnvironmentObject var model: 📱AppModel
-        @State private var ホバー中: Bool = false
+        @State private var hovering: Bool = false
         private var source: 📗Note
         var body: some View {
             Button {
@@ -37,9 +37,9 @@ private extension 📗NoteRow {
                     .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
-            .foregroundStyle(self.ホバー中 ? .primary : .tertiary)
-            .animation(.default.speed(2), value: self.ホバー中)
-            .onHover { self.ホバー中 = $0 }
+            .foregroundStyle(self.hovering ? .primary : .tertiary)
+            .animation(.default.speed(2), value: self.hovering)
+            .onHover { self.hovering = $0 }
         }
         init(_ source: 📗Note) {
             self.source = source

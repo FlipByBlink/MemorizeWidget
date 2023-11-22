@@ -2,14 +2,14 @@ import SwiftUI
 
 struct 📚NotesList: View {
     @EnvironmentObject var model: 📱AppModel
-    @FocusState private var focusedID: UUID?
+    @FocusState private var focusedNoteID: UUID?
     var body: some View {
         ScrollViewReader { ⓢcrollViewProxy in
             List(selection: self.$model.notesSelection) {
                 Section {
                     ForEach(self.$model.notes) {
                         📗NoteRow(source: $0)
-                            .focused(self.$focusedID, equals: $0.id)
+                            .focused(self.$focusedNoteID, equals: $0.id)
                             .id($0.id)
                     }
                     .onMove { self.model.moveNoteForDynamicView($0, $1) }
@@ -21,7 +21,7 @@ struct 📚NotesList: View {
             .toolbar { 🔝NewNoteOnTopButton() }
             .onDeleteCommand { self.model.removeNotesByDeleteCommand() }
             .onExitCommand { self.model.clearSelection() }
-            .modifier(Self.NewNoteFocusHandler(self._focusedID, ⓢcrollViewProxy))
+            .modifier(Self.NewNoteFocusHandler(self._focusedNoteID, ⓢcrollViewProxy))
             .animation(.default, value: self.model.notes)
             .contextMenu(forSelectionType: UUID.self) { 🚏ContextMenu($0) }
             .overlay { if self.model.notes.isEmpty { Self.emptyView() } }
@@ -54,7 +54,7 @@ private extension 📚NotesList {
         @EnvironmentObject var model: 📱AppModel
         var body: some View {
             if self.model.notes.count > 10 {
-                Text("ノート数: \(self.model.notes.count)")
+                Text("Note count: \(self.model.notes.count)")
             }
         }
     }

@@ -7,7 +7,7 @@ struct 📣ADSheet: ViewModifier {
     func body(content: Content) -> some View {
         content
             .sheet(isPresented: self.$showSheet) {
-                📣ADContent(self.targetApp, second: 5)
+                📣ADContent(self.targetApp, second: 8)
                     .environmentObject(self.appModel.inAppPurchaseModel)
             }
             .task {
