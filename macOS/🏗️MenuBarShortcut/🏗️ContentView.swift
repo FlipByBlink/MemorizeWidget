@@ -23,8 +23,8 @@ struct 🏗️ContentView: View {
                 }
                 Spacer()
                 Group {
-                    📘DictionaryButton([.init(self.note.title)])
-                    🔍SearchButton([.init(self.note.title)])
+                    📘DictionaryButton([self.note])
+                    🔍SearchButton([self.note])
                     Button(action: self.addNewNote) {
                         Label("More new note",
                               systemImage: "plus.square.on.square")
