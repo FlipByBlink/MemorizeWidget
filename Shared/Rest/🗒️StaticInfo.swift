@@ -35,53 +35,160 @@ extension 🗒️StaticInfo {
                                                                   ("1.0", "2022-09-09")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
-        case main, Rest, Widget, ShareExtension
+        case main
+        case AppModel
+        case RootView
+        case TabAndSidebar
+        case NoteModel
+        case NoteView
+        case NotesListTab
+        case WidgetSheet
+        case Sheet
+        case Option
+        case Data
+        case Search
+        case Import
+        case Trash
+        case Rest
+        case Widget
+        case ShareExtension
         var id: Self { self }
         var fileNames: [String] {
             switch self {
-                case .main: ["App.swift",
-                             "ContentView.swift",
-                             "📱AppModel.swift",
-                             "📗NoteModel.swift"]
-                case .Rest: ["💾ICloud.swift",
-                             "📗NoteView.swift",
-                             "📚NotesListTab.swift",
-                             "📖WidgetNotesSheet.swift",
-                             "📘Dictionary.swift",
-                             "🔍SearchButton.swift",
-                             "🚮DeleteNoteButton.swift",
-                             "🗑TrashModel.swift",
-                             "🗑TrashTab.swift",
-                             "📥NotesImportSheet.swift",
-                             "🔩MenuTab.swift",
-                             "🆕NewNoteCommand.swift",
-                             "💥Feedback.swift",
-                             "💁GuideTab.swift",
-                             "🩹Workaround.swift",
-                             "💾UserDefaults.swift",
-                             "🗒️StaticInfo.swift",
-                             "💬RequestUserReview.swift",
-                             "ℹ️AboutAppTab.swift",
-                             "ℹ️AboutApp.swift",
-                             "📣ADSheet.swift",
-                             "📣ADModel.swift",
-                             "📣ADComponents.swift",
-                             "🛒InAppPurchaseModel.swift",
-                             "🛒InAppPurchaseView.swift"]
-                case .Widget: ["Widget.swift",
-                               "🪧WidgetState.swift",
-                               "🪧WidgetInfo.swift",
-                               "🪧WidgetEntry.swift",
-                               "🪧Provider.swift",
-                               "🪧EntryView.swift",
-                               "🪧SystemWidgetView.swift",
-                               "🪧AccessoryWidgetView.swift",
-                               "🪧NoNoteView.swift",
-                               "🪧NewNoteShortcutWidget.swift",
-                               "🪧MultiNotesCount.swift",
-                               "🪧ContainerBackground.swift"]
-                case .ShareExtension: ["🄷ostingViewController.swift",
-                                       "📨ShareExtensionModel.swift"]
+                case .main: [
+                    "App.swift",
+                    "ContentView.swift"
+                ]
+                case .AppModel: [
+                    "📱AppModel.swift",
+                    "📱AppModel(extension).swift",
+                ]
+                case .RootView: [
+                    "🏢RootView.swift",
+                    "🏢IPadView.swift",
+                ]
+                case .TabAndSidebar: [
+                    "🔖Tab.swift",
+                    "🔖TabView.swift",
+                    "🔖Sidebar.swift",
+                    "🔖SidebarView.swift",
+                ]
+                case .NoteModel: [
+                    "📗Note.swift",
+                    "📚Notes.swift",
+                    "📚TextConvert.swift"
+                ]
+                case .NoteView: [
+                    "📗NoteView.swift",
+                    "📗Placement.swift",
+                ]
+                case .NotesListTab: [
+                    "📚NotesListTab.swift",
+                    "📚SubButtons.swift",
+                    "📚NotesMenuButton.swift",
+                    "📚DisableInEditMode.swift",
+                ]
+                case .WidgetSheet: [
+                    "📖WidgetSheetView.swift",
+                    "📖SingleNoteLayoutView.swift",
+                    "📖MultiNotesLayoutView.swift",
+                    "📖DeletedNoteView.swift",
+                    "📖DictionaryButton.swift",
+                    "📖SearchButton.swift",
+                    "📖MoveEndButton.swift",
+                    "📖DismissWidgetSheetOnBackground.swift",
+                ]
+                case .Sheet: [
+                    "📰SheetOnContentView.swift",
+                    "📰SheetHandlerOnContentView.swift",
+                    "📰SheetOnWidgetSheet.swift",
+                    "📰DismissButton.swift",
+                ]
+                case .Option: [
+                    "🎛️Option.swift",
+                    "🎛️Key.swift",
+                    "🎛️Default.swift",
+                    "🎛️ViewComponent.swift",
+                    "🎛️RandomModeToggle.swift",
+                    "🎛️OptionTab.swift",
+                    "🎛️MultiNotesOnWidgetOption.swift",
+                    "🎛️CommentOnWidgetOption.swift",
+                    "🎛️BeforeAfterImages.swift",
+                    "🎛️FontSizeOptionMenu.swift",
+                ]
+                case .Data: [
+                    "💾ICloud.swift",
+                    "💾UserDefaults.swift",
+                    "UserDefaults(extension).swift",
+                    "🩹WorkaroundOnIOS15.swift",
+                ]
+                case .Search: [
+                    "🔍SearchModel.swift",
+                    "🔍FailureAlert.swift",
+                    "🔍SearchSheetView.swift",
+                    "🔍CustomizeSearchMenu.swift",
+                ]
+                case .Import: [
+                    "📥NotesImportModel.swift",
+                    "📥Error.swift",
+                    "📥SeparatorPicker.swift",
+                    "📥InputMode.swift",
+                    "📥NotesImportSheetView.swift",
+                    "📥ConvertedNotesMenu.swift",
+                    "📥FileImportSection.swift",
+                    "📥TextImportSection.swift",
+                    "📥InputExample.swift",
+                    "📥NotesImportSheetButton.swift",
+                ]
+                case .Trash: [
+                    "🗑TrashViewComponent.swift",
+                    "🗑TrashModel.swift",
+                    "🗑DeletedContent.swift",
+                    "🗑TrashTab.swift",
+                ]
+                case .Rest: [
+                    "📤NotesExportSheetView.swift",
+                    "🚮DeleteNoteButton.swift",
+                    "🚮DeleteAllNotesButton.swift",
+                    "📘DictionarySheetView.swift",
+                    "🆕NewNoteCommand.swift",
+                    "💥Feedback.swift",
+                    "🩹Workaround.swift",
+                    "💁GuideTab.swift",
+                    "💁GuideViewComponent.swift",
+                    "💬RequestUserReview.swift",
+                    "ℹ️AboutAppTab.swift",
+                    "ℹ️AboutApp.swift",
+                    "📣ADModel.swift",
+                    "📣ADContentView.swift",
+                    "📣ADComponents.swift",
+                    "🛒InAppPurchaseModel.swift",
+                    "🛒InAppPurchaseView.swift",
+                    "🗒️StaticInfo.swift",
+                ]
+                case .Widget: [
+                    "WidgetBundle.swift",
+                    "🪧PrimaryWidget.swift",
+                    "🪧SubWidget.swift",
+                    "🪧Kind.swift",
+                    "🪧Phase.swift",
+                    "🪧Tag.swift",
+                    "🪧Provider.swift",
+                    "🪧Entry.swift",
+                    "🪧EntryView.swift",
+                    "🪧SystemWidgetView.swift",
+                    "🪧AccessoryWidgetView.swift",
+                    "🪧NewNoteShortcutWidget.swift",
+                    "🪧NoNoteView.swift",
+                    "🪧PlaceholderView.swift",
+                    "🪧ContainerBackground.swift",
+                ]
+                case .ShareExtension: [
+                    "📨ShareExtensionModel.swift",
+                    "📨HostingViewController.swift",
+                    "📨RootView.swift",
+                    "📨InputType.swift",
+                ]
             }
         }
     }
@@ -132,7 +239,20 @@ extension 🗒️StaticInfo {
         ("1.4", "2023-11-22(temporary)")
     ] //降順。先頭の方が新しい
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
-        case main, AppModel, NoteModel, NotesWindow, WidgetSheet, Data, Trash, Option, Settings, Search, Import, MenuBarShortcut, Widget, Rest
+        case main
+        case AppModel
+        case NoteModel
+        case NotesWindow
+        case WidgetSheet
+        case Data
+        case Option
+        case Settings
+        case Search
+        case Import
+        case Trash
+        case MenuBarShortcut
+        case Widget
+        case Rest
         var id: Self { self }
         var fileNames: [String] {
             switch self {
@@ -179,13 +299,6 @@ extension 🗒️StaticInfo {
                     "UserDefaults(extension).swift",
                     "🩹WorkaroundOnIOS15.swift",
                 ]
-                case .Trash: [
-                    "🗑TrashViewComponent.swift",
-                    "🗑TrashModel.swift",
-                    "🗑DeletedContent.swift",
-                    "🗑TrashWindow.swift",
-                    "🗑ContentView.swift",
-                ]
                 case .Option: [
                     "🎛️Option.swift",
                     "🎛️Key.swift",
@@ -213,6 +326,13 @@ extension 🗒️StaticInfo {
                     "📥ConvertedNotesMenu.swift",
                     "📥DismissButton.swift",
                     "📥NotSupportMultiLineTextInNoteSection.swift",
+                ]
+                case .Trash: [
+                    "🗑TrashViewComponent.swift",
+                    "🗑TrashModel.swift",
+                    "🗑DeletedContent.swift",
+                    "🗑TrashWindow.swift",
+                    "🗑ContentView.swift",
                 ]
                 case .MenuBarShortcut: [
                     "🏗️MenuBarShortcut.swift",
