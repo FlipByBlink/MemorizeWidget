@@ -4,10 +4,10 @@ struct 📖NoteRow: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding var source: 📗Note
     var body: some View {
-        HStack(spacing: 4) {
-            VStack(spacing: 6) {
+        HStack(spacing: 16) {
+            VStack(spacing: 7) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.title2.bold())
+                    .font(.title.weight(.semibold))
                     .textFieldStyle(.plain)
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
@@ -16,36 +16,27 @@ struct 📖NoteRow: View {
             }
             .focusedValue(\.editingNote, self.source)
             .onSubmit { self.model.submitTextField(self.source) }
-            Self.RemoveButton(self.source)
+            HStack(spacing: 12) {
+                🔍SearchButton([self.source])
+                📘DictionaryButton([self.source])
+                📖MoveEndButton(self.source)
+                self.removeButton()
+            }
+            .labelStyle(.iconOnly)
         }
         .padding(.vertical, 12)
         .padding(.leading, 8)
         .padding(.trailing, 4)
-        .frame(minHeight: 140)
+        .frame(minHeight: 150)
     }
 }
 
 private extension 📖NoteRow {
-    private struct RemoveButton: View {
-        @EnvironmentObject var model: 📱AppModel
-        @State private var hovering: Bool = false
-        private var source: 📗Note
-        var body: some View {
-            Button {
-                self.model.removeNote(self.source)
-            } label: {
-                Image(systemName: "trash")
-                    .font(.title3.weight(.medium))
-                    .padding(4)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.borderless)
-            .foregroundStyle(self.hovering ? .primary : .tertiary)
-            .animation(.default.speed(2), value: self.hovering)
-            .onHover { self.hovering = $0 }
-        }
-        init(_ source: 📗Note) {
-            self.source = source
+    private func removeButton() -> some View {
+        Button {
+            self.model.removeNote(self.source)
+        } label: {
+            Label("Delete", systemImage: "trash")
         }
     }
 }

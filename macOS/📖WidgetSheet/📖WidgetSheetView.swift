@@ -15,12 +15,13 @@ struct 📖WidgetSheetView: View { //MARK: WIP
                     📖DeletedNoteView()
                 }
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, 44)
             .toolbar {
                 Button("Dismiss") { self.model.presentedSheetOnContentView = nil }
             }
             //.modifier(📰SheetOnWidgetSheet.Handler())
         }
-        .frame(width: 500, height: 500)
+        .frame(width: 550,
+               height: 180 * .init(self.model.openedWidgetNoteIDs.count))
     }
 }
