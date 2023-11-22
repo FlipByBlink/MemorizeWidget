@@ -64,7 +64,7 @@ Contact
 sear_pandora_0x@icloud.com
 
 
-AppStore link
+App Store link
 --------------
 https://apps.apple.com/app/id1644276262
 
@@ -99,8 +99,8 @@ This application don't collect user infomation.
 <br>
 <br>
 
-<!-- URL "Support page for AppStore" -->
+<!-- URL "Support page for App Store" -->
 <!-- https://flipbyblink.github.io/MemorizeWidget/ -->
 
-<!-- URL "Privacy Policy for AppStore" -->
+<!-- URL "Privacy Policy for App Store" -->
 <!-- https://flipbyblink.github.io/MemorizeWidget/#privacy-policy-for-appstore -->
