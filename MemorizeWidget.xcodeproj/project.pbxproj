@@ -522,7 +522,7 @@
 		F568F1F529E3C565005A1D1A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F568F1F629E3C565005A1D1A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F568F1F929E3C565005A1D1A /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F1F829E3C565005A1D1A /* WidgetBundle.swift */; };
-		F568F1FF29E3C567005A1D1A /* Widget(watchOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F568F1FF29E3C567005A1D1A /* MemorizeWidgetWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F568F1F429E3C565005A1D1A /* MemorizeWidgetWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AAE665292B741B00FB8406 /* 💾UserDefaults.swift */; };
 		F568F20829E3C697005A1D1A /* 📗Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527F48029D5699C00E9FB97 /* 📗Note.swift */; };
@@ -545,12 +545,12 @@
 		F5B6FEE528C9BDDC0045D44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */; };
 		F5CEA5F42924AAAC00752277 /* 📨HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */; };
 		F5CEA5F72924AAAC00752277 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */; };
-		F5CEA5FB2924AAAC00752277 /* ShareExtension(iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5CEA5FB2924AAAC00752277 /* MemorizeWidgetShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CEA5F12924AAAC00752277 /* MemorizeWidgetShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5CEA6022925C93E00752277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F507EA9C28CA145000ECF06A /* InfoPlist.strings */; };
 		F5D30CC828C6F6C8001198AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC728C6F6C8001198AF /* WidgetKit.framework */; };
 		F5D30CCA28C6F6C8001198AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30CC928C6F6C8001198AF /* SwiftUI.framework */; };
 		F5D30CCD28C6F6C8001198AF /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CCC28C6F6C8001198AF /* WidgetBundle.swift */; };
-		F5D30CD328C6F6C9001198AF /* Widget(iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5D30CD328C6F6C9001198AF /* MemorizeWidgetWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5D30CC528C6F6C8001198AF /* MemorizeWidgetWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F5D30CD928C70546001198AF /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		F5EE7EB929DFEEB100012A12 /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
 		F5EE7EBA29DFEEB100012A12 /* 💾ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE7EB829DFEEB100012A12 /* 💾ICloud.swift */; };
@@ -801,7 +801,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F568F1FF29E3C567005A1D1A /* Widget(watchOS).appex in Embed Foundation Extensions */,
+				F568F1FF29E3C567005A1D1A /* MemorizeWidgetWidget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,8 +921,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F5CEA5FB2924AAAC00752277 /* ShareExtension(iOS).appex in Embed Foundation Extensions */,
-				F5D30CD328C6F6C9001198AF /* Widget(iOS).appex in Embed Foundation Extensions */,
+				F5CEA5FB2924AAAC00752277 /* MemorizeWidgetShareExtension.appex in Embed Foundation Extensions */,
+				F5D30CD328C6F6C9001198AF /* MemorizeWidgetWidget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1107,7 +1107,7 @@
 		F568F1A629E3A6C9005A1D1A /* 🗑TrashTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashTab.swift"; sourceTree = "<group>"; };
 		F568F1A829E3A703005A1D1A /* 💥Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💥Feedback.swift"; sourceTree = "<group>"; };
 		F568F1AB29E3A91C005A1D1A /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
-		F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(watchOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F568F1F429E3C565005A1D1A /* MemorizeWidgetWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemorizeWidgetWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F568F1F829E3C565005A1D1A /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 		F568F1FC29E3C567005A1D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F568F20429E3C56D005A1D1A /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
@@ -1126,12 +1126,12 @@
 		F5B5A46328C6EDA1005B6E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5B5A46528C6EDA3005B6E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5B6FED828C9BDDC0045D44A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ShareExtension(iOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CEA5F12924AAAC00752277 /* MemorizeWidgetShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemorizeWidgetShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CEA5F32924AAAC00752277 /* 📨HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨HostingViewController.swift"; sourceTree = "<group>"; };
 		F5CEA5F62924AAAC00752277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F5CEA5F82924AAAC00752277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5CEA5FF2924AB1900752277 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
-		F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Widget(iOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D30CC528C6F6C8001198AF /* MemorizeWidgetWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemorizeWidgetWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D30CC728C6F6C8001198AF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F5D30CC928C6F6C8001198AF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F5D30CCC28C6F6C8001198AF /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -1791,10 +1791,10 @@
 			isa = PBXGroup;
 			children = (
 				F5B5A45E28C6EDA1005B6E0F /* MemorizeWidget.app */,
-				F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */,
-				F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */,
+				F5D30CC528C6F6C8001198AF /* MemorizeWidgetWidget.appex */,
+				F5CEA5F12924AAAC00752277 /* MemorizeWidgetShareExtension.appex */,
 				F568F18D29E3A5DA005A1D1A /* MemorizeW.app */,
-				F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */,
+				F568F1F429E3C565005A1D1A /* MemorizeWidgetWidget.appex */,
 				16C3D76F2B0968B900849D96 /* MemorizeWidget.app */,
 				16C3D7C62B0989F400849D96 /* Widget(macOS).appex */,
 			);
@@ -1932,7 +1932,7 @@
 			);
 			name = "Widget(watchOS)";
 			productName = MWComplicationExtension;
-			productReference = F568F1F429E3C565005A1D1A /* Widget(watchOS).appex */;
+			productReference = F568F1F429E3C565005A1D1A /* MemorizeWidgetWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F5B5A45D28C6EDA1005B6E0F /* iOS */ = {
@@ -1972,7 +1972,7 @@
 			);
 			name = "ShareExtension(iOS)";
 			productName = MWShareExtension;
-			productReference = F5CEA5F12924AAAC00752277 /* ShareExtension(iOS).appex */;
+			productReference = F5CEA5F12924AAAC00752277 /* MemorizeWidgetShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F5D30CC428C6F6C8001198AF /* Widget(iOS) */ = {
@@ -1989,7 +1989,7 @@
 			);
 			name = "Widget(iOS)";
 			productName = MWWidgetExtension;
-			productReference = F5D30CC528C6F6C8001198AF /* Widget(iOS).appex */;
+			productReference = F5D30CC528C6F6C8001198AF /* MemorizeWidgetWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -2694,7 +2694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp;
 				PRODUCT_NAME = MemorizeW;
 				SDKROOT = watchos;
@@ -2726,7 +2726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp;
 				PRODUCT_NAME = MemorizeW;
 				SDKROOT = watchos;
@@ -2757,9 +2757,9 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp.MWComplication;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetWidget;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2788,9 +2788,9 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.watchkitapp.MWComplication;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetWidget;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2948,7 +2948,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
 				PRODUCT_NAME = MemorizeWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2987,7 +2987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget;
 				PRODUCT_NAME = MemorizeWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3017,9 +3017,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetShareExtension;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
@@ -3048,9 +3048,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWShareExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetShareExtension;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
@@ -3081,9 +3081,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetWidget;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -3114,9 +3114,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.MemorizeWidget.MWWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MemorizeWidgetWidget;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
