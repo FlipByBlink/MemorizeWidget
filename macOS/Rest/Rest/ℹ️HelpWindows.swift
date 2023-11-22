@@ -82,12 +82,12 @@ private struct 📓SourceCodeWindow: Scene {
                     self.repositoryLinks()
                 }
                 .navigationTitle(.init("Source code", tableName: "🌐AboutApp"))
-                .frame(minWidth: 220)
+                .frame(minWidth: 270)
             } detail: {
                 Text("← Select file", tableName: "🌐AboutApp")
                     .foregroundStyle(.tertiary)
             }
-            .frame(minWidth: 1000, minHeight: 600)
+            .frame(minWidth: 1100, minHeight: 600)
         }
         .windowResizability(.contentMinSize)
     }

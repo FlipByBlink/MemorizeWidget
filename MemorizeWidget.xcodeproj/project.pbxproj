@@ -237,6 +237,8 @@
 		16A800E52B0DA6950046C526 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7EA2B098D0C00849D96 /* 🪧EntryView.swift */; };
 		16A800E92B0DC05D0046C526 /* 📖NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */; };
 		16A800EB2B0DD2F80046C526 /* 📖MoveEndButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A800EA2B0DD2F80046C526 /* 📖MoveEndButton.swift */; };
+		16A800EC2B0DE4160046C526 /* 📖NoteRow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */; };
+		16A800ED2B0DE4160046C526 /* 📖MoveEndButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16A800EA2B0DD2F80046C526 /* 📖MoveEndButton.swift */; };
 		16C08BC92B01BF3700A0D65D /* 📥NotesImportSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BC82B01BF3700A0D65D /* 📥NotesImportSheetButton.swift */; };
 		16C08BCB2B01C1C300A0D65D /* 📚NotesMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C08BCA2B01C1C300A0D65D /* 📚NotesMenuButton.swift */; };
 		16C3D7722B0968BA00849D96 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7712B0968BA00849D96 /* App.swift */; };
@@ -536,6 +538,8 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16A800EC2B0DE4160046C526 /* 📖NoteRow.swift in CopyFiles */,
+				16A800ED2B0DE4160046C526 /* 📖MoveEndButton.swift in CopyFiles */,
 				16A800B52B0DA6940046C526 /* App.swift in CopyFiles */,
 				16A800B62B0DA6940046C526 /* 📱AppModel(extension).swift in CopyFiles */,
 				16A800B72B0DA6940046C526 /* 📱AppModel(NSApplicationDelegate).swift in CopyFiles */,

@@ -169,9 +169,9 @@ extension 🗒️StaticInfo {
                 ]
                 case .WidgetSheet: [
                     "📖WidgetSheetView.swift",
-                    "📖SingleNoteLayoutView.swift",
-                    "📖MultiNotesLayoutView.swift",
+                    "📖NoteRow.swift",
                     "📖DeletedNoteView.swift",
+                    "📖MoveEndButton.swift",
                 ]
                 case .Data: [
                     "💾ICloud.swift",
@@ -219,14 +219,14 @@ extension 🗒️StaticInfo {
                     "🏗️ContentView.swift",
                 ]
                 case .Widget: [
+                    "WidgetBundle.swift",
+                    "🪧PrimaryWidget.swift",
+                    "🪧SubWidget.swift",
                     "🪧Kind.swift",
                     "🪧Phase.swift",
                     "🪧Tag.swift",
                     "🪧Provider.swift",
                     "🪧Entry.swift",
-                    "WidgetBundle.swift",
-                    "🪧PrimaryWidget.swift",
-                    "🪧SubWidget.swift",
                     "🪧EntryView.swift",
                     "🪧SystemWidgetView.swift",
                     "🪧NoNoteView.swift",
