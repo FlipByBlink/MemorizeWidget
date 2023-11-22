@@ -6,9 +6,9 @@ struct 📖WidgetSheetView: View { //MARK: WIP
         NavigationStack {
             Group {
                 if self.model.openedWidgetNotesCount == 1 {
-                    Text("📖SingleNoteLayoutView()")
+                    📖SingleNoteLayoutView()
                 } else {
-                    Text("📖MultiNotesLayoutView()")
+                    📖MultiNotesLayoutView()
                 }
             }
             //.modifier(📰SheetOnWidgetSheet.Handler())

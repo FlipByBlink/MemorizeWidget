@@ -43,6 +43,11 @@
 		1638264E2B0CDEE10082266F /* 📥SeparatorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168743732AF9CB38000F0F79 /* 📥SeparatorPicker.swift */; };
 		163826502B0CDF320082266F /* 📥ConvertedNotesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */; };
 		163826522B0CE5930082266F /* 📥DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826512B0CE5930082266F /* 📥DismissButton.swift */; };
+		163826532B0D8F470082266F /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		163826542B0D8F4A0082266F /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		163826582B0D90FF0082266F /* 📖SingleNoteLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */; };
+		163826592B0D90FF0082266F /* 📖MultiNotesLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */; };
+		1638265A2B0D90FF0082266F /* 📖DeletedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */; };
 		166BC27F2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2802AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
 		166BC2812AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */; };
@@ -83,7 +88,6 @@
 		167156392AFF2E2200043F03 /* 🎛️Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156362AFF2E2200043F03 /* 🎛️Option.swift */; };
 		1671563A2AFF2E2200043F03 /* 🎛️Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156362AFF2E2200043F03 /* 🎛️Option.swift */; };
 		1671563B2AFF337800043F03 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
-		1671563D2AFF354800043F03 /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671563C2AFF354800043F03 /* 🪧NoNoteView.swift */; };
 		1671563F2AFF37DF00043F03 /* 🪧PrimaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */; };
 		167156412AFF384300043F03 /* 🪧PrimaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */; };
 		167156432AFF387900043F03 /* 🪧SubWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167156422AFF387900043F03 /* 🪧SubWidget.swift */; };
@@ -148,7 +152,6 @@
 		16C3D7822B096A2700849D96 /* 🪧Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568F21329E42A59005A1D1A /* 🪧Entry.swift */; };
 		16C3D7832B096A2700849D96 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D30CD828C70546001198AF /* 📱AppModel.swift */; };
 		16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1671562B2AFEFD1300043F03 /* 🪧Kind.swift */; };
-		16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2D8429DBC2D1008C728B /* 🪧NewNoteShortcutWidget.swift */; };
 		16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
 		16C3D7882B096A2700849D96 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		16C3D78A2B096A2700849D96 /* 📚TextConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD53062AF88B4A008F555A /* 📚TextConvert.swift */; };
@@ -199,7 +202,6 @@
 		16C3D7E82B098C7200849D96 /* 🎛️Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317C32B04F31900656005 /* 🎛️Key.swift */; };
 		16C3D7E92B098C7700849D96 /* 🎛️Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167317DB2B05942100656005 /* 🎛️Default.swift */; };
 		16C3D7EB2B098D0C00849D96 /* 🪧EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7EA2B098D0C00849D96 /* 🪧EntryView.swift */; };
-		16C3D7EE2B098D6F00849D96 /* 🪧NoNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D7EC2B098D3B00849D96 /* 🪧NoNoteView.swift */; };
 		16C3D7EF2B098E8D00849D96 /* 🪧SystemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
 		16C98FE62AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */; };
 		16C98FE72AFB09A300F0F251 /* 🎛️ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */; };
@@ -587,6 +589,9 @@
 		1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥NotSupportMultiLineTextInNoteSection.swift"; sourceTree = "<group>"; };
 		1638264F2B0CDF320082266F /* 📥ConvertedNotesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥ConvertedNotesMenu.swift"; sourceTree = "<group>"; };
 		163826512B0CE5930082266F /* 📥DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📥DismissButton.swift"; sourceTree = "<group>"; };
+		163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖SingleNoteLayoutView.swift"; sourceTree = "<group>"; };
+		163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖MultiNotesLayoutView.swift"; sourceTree = "<group>"; };
+		163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📖DeletedNoteView.swift"; sourceTree = "<group>"; };
 		166BC27E2AF60A4F00729C66 /* 🩹WorkaroundOnIOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🩹WorkaroundOnIOS15.swift"; sourceTree = "<group>"; };
 		166BC2842AF60B3E00729C66 /* 🔖TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖TabView.swift"; sourceTree = "<group>"; };
 		166BC28D2AF619EB00729C66 /* 📨InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📨InputType.swift"; sourceTree = "<group>"; };
@@ -615,7 +620,6 @@
 		1671562B2AFEFD1300043F03 /* 🪧Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Kind.swift"; sourceTree = "<group>"; };
 		167156302AFEFD2400043F03 /* 🪧Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Phase.swift"; sourceTree = "<group>"; };
 		167156362AFF2E2200043F03 /* 🎛️Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️Option.swift"; sourceTree = "<group>"; };
-		1671563C2AFF354800043F03 /* 🪧NoNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧NoNoteView.swift"; sourceTree = "<group>"; };
 		1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PrimaryWidget.swift"; sourceTree = "<group>"; };
 		167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧PrimaryWidget.swift"; sourceTree = "<group>"; };
 		167156422AFF387900043F03 /* 🪧SubWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧SubWidget.swift"; sourceTree = "<group>"; };
@@ -668,7 +672,6 @@
 		16C3D7D02B0989F700849D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16C3D7D12B0989F700849D96 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		16C3D7EA2B098D0C00849D96 /* 🪧EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧EntryView.swift"; sourceTree = "<group>"; };
-		16C3D7EC2B098D3B00849D96 /* 🪧NoNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧NoNoteView.swift"; sourceTree = "<group>"; };
 		16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️ViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FE82AFB0B2B00F0F251 /* 🗑TrashViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗑TrashViewComponent.swift"; sourceTree = "<group>"; };
 		16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️RandomModeToggle.swift"; sourceTree = "<group>"; };
@@ -900,6 +903,9 @@
 			isa = PBXGroup;
 			children = (
 				163826372B0C7C8E0082266F /* 📖WidgetSheetView.swift */,
+				163826552B0D90FF0082266F /* 📖SingleNoteLayoutView.swift */,
+				163826562B0D90FF0082266F /* 📖MultiNotesLayoutView.swift */,
+				163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */,
 			);
 			path = "📖WidgetSheet";
 			sourceTree = "<group>";
@@ -1052,6 +1058,7 @@
 			children = (
 				167156422AFF387900043F03 /* 🪧SubWidget.swift */,
 				F5FE2D8429DBC2D1008C728B /* 🪧NewNoteShortcutWidget.swift */,
+				F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */,
 				16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */,
 				F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */,
 			);
@@ -1190,7 +1197,6 @@
 				16C3D7CA2B0989F500849D96 /* WidgetBundle.swift */,
 				16C3D7CC2B0989F500849D96 /* 🪧PrimaryWidget.swift */,
 				16C3D7EA2B098D0C00849D96 /* 🪧EntryView.swift */,
-				16C3D7EC2B098D3B00849D96 /* 🪧NoNoteView.swift */,
 				16C3D7CE2B0989F700849D96 /* Assets.xcassets */,
 				16C3D7D02B0989F700849D96 /* Info.plist */,
 				16C3D7D12B0989F700849D96 /* Widget.entitlements */,
@@ -1372,7 +1378,6 @@
 				F568F1F829E3C565005A1D1A /* WidgetBundle.swift */,
 				1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */,
 				F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */,
-				1671563C2AFF354800043F03 /* 🪧NoNoteView.swift */,
 				F50C83002AA5CC6B0033A04B /* Supporting files */,
 			);
 			path = Widget;
@@ -1465,7 +1470,6 @@
 				F5D30CCC28C6F6C8001198AF /* WidgetBundle.swift */,
 				167156402AFF384300043F03 /* 🪧PrimaryWidget.swift */,
 				F5FE2D8029DBBFA5008C728B /* 🪧EntryView.swift */,
-				F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */,
 				F50C82FF2AA5CC5F0033A04B /* Supporting files */,
 			);
 			path = Widget;
@@ -1751,7 +1755,6 @@
 				16C3D7A22B096BEE00849D96 /* 🏗️MenuBarShortcut.swift in Sources */,
 				163826522B0CE5930082266F /* 📥DismissButton.swift in Sources */,
 				163826212B0C2D770082266F /* 🛬MoveEndButton.swift in Sources */,
-				16C3D7862B096A2700849D96 /* 🪧NewNoteShortcutWidget.swift in Sources */,
 				1673E07F2B0A060200D621D3 /* 🛒InAppPurchaseModel.swift in Sources */,
 				160A5A642B0A2D6000E6F4EB /* 📰SheetHandlerOnContentView.swift in Sources */,
 				16C3D7902B096A3000849D96 /* 🗑TrashModel.swift in Sources */,
@@ -1764,6 +1767,7 @@
 				163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */,
 				16C3D7842B096A2700849D96 /* 🪧Kind.swift in Sources */,
 				163826382B0C7C8E0082266F /* 📖WidgetSheetView.swift in Sources */,
+				163826592B0D90FF0082266F /* 📖MultiNotesLayoutView.swift in Sources */,
 				160A5A662B0A451D00E6F4EB /* 📚NotesWindow.swift in Sources */,
 				1638264E2B0CDEE10082266F /* 📥SeparatorPicker.swift in Sources */,
 				16C3D7952B096A3700849D96 /* 🎛️Default.swift in Sources */,
@@ -1773,6 +1777,7 @@
 				1673E07C2B0A059400D621D3 /* 📣ADContent.swift in Sources */,
 				163826492B0CD9C00082266F /* 📥Error.swift in Sources */,
 				16C3D7A62B096BEE00849D96 /* 📗NoteRow.swift in Sources */,
+				1638265A2B0D90FF0082266F /* 📖DeletedNoteView.swift in Sources */,
 				163826432B0CD2CF0082266F /* 🔍SearchModel.swift in Sources */,
 				1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */,
 				1673E07B2B0A059400D621D3 /* 💬RequestUserReview.swift in Sources */,
@@ -1794,6 +1799,7 @@
 				16C3D7A32B096BEE00849D96 /* 🪄Commands.swift in Sources */,
 				16C3D7872B096A2700849D96 /* 🪧Tag.swift in Sources */,
 				160A5A6C2B0AED0800E6F4EB /* 🗑TrashWindow.swift in Sources */,
+				163826582B0D90FF0082266F /* 📖SingleNoteLayoutView.swift in Sources */,
 				16C3D7A52B096BEE00849D96 /* 🔧Settings.swift in Sources */,
 				1673E0782B0A059400D621D3 /* 📣ADSheet.swift in Sources */,
 				16C3D7832B096A2700849D96 /* 📱AppModel.swift in Sources */,
@@ -1835,7 +1841,6 @@
 				16C3D7E42B098C5E00849D96 /* 💾UserDefaults.swift in Sources */,
 				16C3D7E72B098C6F00849D96 /* 🎛️Option.swift in Sources */,
 				16C3D7DD2B098C2600849D96 /* 🪧Tag.swift in Sources */,
-				16C3D7EE2B098D6F00849D96 /* 🪧NoNoteView.swift in Sources */,
 				16C3D7E62B098C5E00849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */,
 				16C3D7EF2B098E8D00849D96 /* 🪧SystemWidgetView.swift in Sources */,
 				16C3D7E52B098C5E00849D96 /* UserDefaults(extension).swift in Sources */,
@@ -1848,6 +1853,7 @@
 				16C3D7DC2B098C2600849D96 /* 🪧Kind.swift in Sources */,
 				16C3D7CD2B0989F500849D96 /* 🪧PrimaryWidget.swift in Sources */,
 				16C3D7E12B098C5600849D96 /* 🪧PlaceholderView.swift in Sources */,
+				163826542B0D8F4A0082266F /* 🪧NoNoteView.swift in Sources */,
 				16C3D7DB2B098C2600849D96 /* 🪧Phase.swift in Sources */,
 				16C3D7EB2B098D0C00849D96 /* 🪧EntryView.swift in Sources */,
 				16C3D7DA2B098C2600849D96 /* 🪧Entry.swift in Sources */,
@@ -1908,8 +1914,8 @@
 				F568F20529E3C697005A1D1A /* 💾ICloud.swift in Sources */,
 				16A026742AFCF10400694CF2 /* 🪧Tag.swift in Sources */,
 				F568F20729E3C697005A1D1A /* 💾UserDefaults.swift in Sources */,
+				163826532B0D8F470082266F /* 🪧NoNoteView.swift in Sources */,
 				167156342AFEFD2400043F03 /* 🪧Phase.swift in Sources */,
-				1671563D2AFF354800043F03 /* 🪧NoNoteView.swift in Sources */,
 				167317DF2B05942100656005 /* 🎛️Default.swift in Sources */,
 				16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */,
 				1671563A2AFF2E2200043F03 /* 🎛️Option.swift in Sources */,

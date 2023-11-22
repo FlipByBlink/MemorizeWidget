@@ -5,6 +5,12 @@ struct 🪧NoNoteView: View {
     var body: some View {
         Group {
             switch self.widgetFamily {
+                case .systemSmall, .systemMedium:
+                    Label("No note", systemImage: "book.closed")
+                        .font(.title)
+                case .systemLarge, .systemExtraLarge:
+                    Label("No note", systemImage: "book.closed")
+                        .font(.largeTitle)
                 case .accessoryRectangular:
                     Label("No note", systemImage: "book.closed")
                         .font(.headline)
