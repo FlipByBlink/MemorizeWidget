@@ -1296,9 +1296,9 @@
 			children = (
 				1673E0742B0A059400D621D3 /* 📣ADContent.swift */,
 				1673E0752B0A059400D621D3 /* ℹ️HelpWindows.swift */,
+				1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */,
 				1673E06E2B0A059400D621D3 /* 🛒InAppPurchaseWindow.swift */,
 				1673E0722B0A059400D621D3 /* 🛒InAppPurchaseMenu.swift */,
-				1673E06F2B0A059400D621D3 /* ℹ️HelpCommands.swift */,
 				1673E0712B0A059400D621D3 /* 🛒InAppPurchaseCommand.swift */,
 			);
 			path = Rest;
@@ -1450,8 +1450,8 @@
 			isa = PBXGroup;
 			children = (
 				1638263D2B0C84160082266F /* 📤NotesExportSheetView.swift */,
-				1673E0702B0A059400D621D3 /* 📣ADSheet.swift */,
 				1673E0732B0A059400D621D3 /* 💬RequestUserReview.swift */,
+				1673E0702B0A059400D621D3 /* 📣ADSheet.swift */,
 				163826392B0C7F000082266F /* Rest */,
 			);
 			path = Rest;

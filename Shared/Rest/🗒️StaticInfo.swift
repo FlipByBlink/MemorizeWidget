@@ -406,13 +406,13 @@ extension 🗒️StaticInfo {
                 ]
                 case .Rest: [
                     "📤NotesExportSheetView.swift",
-                    "📣ADSheet.swift",
                     "💬RequestUserReview.swift",
+                    "📣ADSheet.swift",
                     "📣ADContent.swift",
                     "ℹ️HelpWindows.swift",
+                    "ℹ️HelpCommands.swift",
                     "🛒InAppPurchaseWindow.swift",
                     "🛒InAppPurchaseMenu.swift",
-                    "ℹ️HelpCommands.swift",
                     "🛒InAppPurchaseCommand.swift",
                 ]
             }
