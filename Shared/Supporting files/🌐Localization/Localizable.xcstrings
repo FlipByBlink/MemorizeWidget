@@ -1359,16 +1359,6 @@
         }
       }
     },
-    "Sub" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サブ"
-          }
-        }
-      }
-    },
     "Sub widget" : {
       "localizations" : {
         "ja" : {
