@@ -6,6 +6,7 @@ struct 🪄Commands: Commands {
     @FocusedValue(\.notesSelection) var notesSelection
     @FocusedValue(\.editingNote) var editingNote
     @FocusedValue(\.openedMainWindow) var openedMainWindow
+    @FocusedValue(\.presentedSheetOnContentView) var presentedSheetOnContentView
     @Environment(\.openWindow) var openWindow
     var body: some Commands {
         🛒InAppPurchaseCommand()
@@ -16,7 +17,7 @@ struct 🪄Commands: Commands {
         CommandGroup(after: .newItem) {
             self.openMainWindowButton()
         }
-        if self.openedMainWindow == true {
+        if self.activeNotesPanel {
             CommandGroup(after: .newItem) {
                 Divider()
                 🔝NewNoteOnTopButton()
@@ -55,7 +56,6 @@ struct 🪄Commands: Commands {
                         self.model?.presentSheet(.notesExport)
                     }
                 }
-                .disabled(self.model?.presentedSheetOnContentView != nil)
                 Divider()
                 Button("Open trash") {
                     self.openWindow(id: "trash")
@@ -66,6 +66,11 @@ struct 🪄Commands: Commands {
 }
 
 private extension 🪄Commands {
+    private var activeNotesPanel: Bool {
+        (self.openedMainWindow == true)
+        &&
+        (self.presentedSheetOnContentView == nil)
+    }
     private var targetNotes: Set<📗Note> {
         if let editingNote {
             [editingNote]

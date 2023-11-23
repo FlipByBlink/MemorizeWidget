@@ -24,4 +24,10 @@ extension FocusedValues {
         set { self[Self.OpenedMainWindow.self] = newValue }
     }
     struct OpenedMainWindow: FocusedValueKey { typealias Value = Bool }
+    
+    var presentedSheetOnContentView: Self.PresentedSheetOnContentView.Value? {
+        get { self[Self.PresentedSheetOnContentView.self] }
+        set { self[Self.PresentedSheetOnContentView.self] = newValue }
+    }
+    struct PresentedSheetOnContentView: FocusedValueKey { typealias Value = 📰SheetOnContentView }
 }
