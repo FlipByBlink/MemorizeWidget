@@ -5,7 +5,6 @@ extension 📱AppModel {
         if ⓢource.title.isEmpty {
             self.removeNote(ⓢource)
         } else {
-            self.saveNotes()
             self.notesSelection = [ⓢource.id]
         }
     }

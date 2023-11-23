@@ -5,7 +5,7 @@ extension 📱AppModel: NSApplicationDelegate {
         false
     }
     func applicationDidResignActive(_ notification: Notification) {
-        self.saveNotes()
+        self.saveNotes(withWidgetReload: false)
     }
     func application(_ application: NSApplication, open urls: [URL]) {
         if let ⓤrl = urls.first {

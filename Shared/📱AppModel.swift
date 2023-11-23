@@ -103,9 +103,11 @@ extension 📱AppModel {
         💥Feedback.success()
     }
 #endif
-    func saveNotes() {
+    func saveNotes(withWidgetReload ⓦidgetReload: Bool = true) {
         💾ICloud.save(self.notes)
-        WidgetCenter.shared.reloadAllTimelines()
+        if ⓦidgetReload {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }
 

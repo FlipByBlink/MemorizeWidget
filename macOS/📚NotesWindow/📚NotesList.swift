@@ -22,6 +22,7 @@ struct 📚NotesList: View {
             .onDeleteCommand { self.model.removeNotesByDeleteCommand() }
             .onExitCommand { self.model.clearSelection() }
             .modifier(Self.NewNoteFocusHandler(self._focusedNoteID, ⓢcrollViewProxy))
+            .onChange(of: self.focusedNoteID) { if $0 == nil { self.model.saveNotes() } }
             .animation(.default, value: self.model.notes)
             .contextMenu(forSelectionType: UUID.self) { 🚏ContextMenu($0) }
             .overlay { if self.model.notes.isEmpty { Self.emptyView() } }
