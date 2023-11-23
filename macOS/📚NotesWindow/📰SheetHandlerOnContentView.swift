@@ -12,5 +12,14 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
                     case .notesExport: 📤NotesExportSheetView()
                 }
             }
+            .onChange(of: self.model.presentedSheetOnContentView) {
+                if $0 != nil { self.clearSelectionOnPresentingSheet() }
+            }
+    }
+}
+
+private extension 📰SheetHandlerOnContentView {
+    func clearSelectionOnPresentingSheet() {
+        self.model.clearSelection()
     }
 }
