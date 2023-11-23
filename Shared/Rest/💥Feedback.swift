@@ -38,7 +38,7 @@ enum 💥Feedback {
         /* Nothing */
     }
     static func error() {
-        NSSound.beep()
+        /* Nothing */
     }
     static func warning() {
         /* Nothing */

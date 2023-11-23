@@ -34,7 +34,7 @@ class 📱AppModel: NSObject, ObservableObject {
 
 //MARK: Computed property, Method
 extension 📱AppModel {
-    func deleteNotesForDynamicView(_ ⓘndexSet: IndexSet) { //TODO: 要動作確認
+    func deleteNotesForDynamicView(_ ⓘndexSet: IndexSet) {
         self.trash.storeDeletedNotes(ⓘndexSet.map { self.notes[$0] })
         self.notes.remove(atOffsets: ⓘndexSet)
         self.saveNotes()

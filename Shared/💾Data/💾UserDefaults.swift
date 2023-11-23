@@ -1,4 +1,4 @@
-import WidgetKit
+import Foundation
 
 enum 💾UserDefaults {
     static var appGroup: UserDefaults {
