@@ -28,6 +28,8 @@ Option
 
 - Show comment on widget.
 
+- Font size on widget.
+
 
 Rest
 

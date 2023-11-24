@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Flashcard on widget. Memorize notes in everyday life.\n\nYou create freely notes for widget.\n\nApp presents the notes on widget.\n\n\nOption\n\n- Random mode: widget changes the note per 5 minutes.\n\n- Show multi notes.\n\n- Show comment on widget.\n\n\nRest\n\n- Import file(e.g. tsv, csv, txt) or text.\n\n- System dictionary support.\n\n- Customizable search function.\n\n- Sync between devices by iCloud.\n\n\nMulti platform support\n\niPhone: Home screen, Lock screen, StandBy(iOS 17)\n\niPad: Home screen, Lock screen(iPadOS 17)\n\nMac: Notification center, Desktop(macOS 14)\n\nApple Watch: Complication, Smart Stack(watchOS 10)"
+            "value" : "Flashcard on widget. Memorize notes in everyday life.\n\nYou create freely notes for widget.\n\nApp presents the notes on widget.\n\n\nOption\n\n- Random mode: widget changes the note per 5 minutes.\n\n- Show multi notes.\n\n- Show comment on widget.\n\n- Font size on widget.\n\n\nRest\n\n- Import file(e.g. tsv, csv, txt) or text.\n\n- System dictionary support.\n\n- Customizable search function.\n\n- Sync between devices by iCloud.\n\n\nMulti platform support\n\niPhone: Home screen, Lock screen, StandBy(iOS 17)\n\niPad: Home screen, Lock screen(iPadOS 17)\n\nMac: Notification center, Desktop(macOS 14)\n\nApple Watch: Complication, Smart Stack(watchOS 10)"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウィジェット機能を用いてホーム画面やロック画面などに暗記帳を表示します。\n\n日常の中で暗記帳をたくさんチラ見して知識を脳に染み込ませるためのアプリです。\n\n自由にノートを作成できます。\n\nそのノートはウィジェット上にシンプルに表示されます。\n\n\nオプション\n\n・ランダムモード: このモードでは5分毎にウィジェット上のノートをランダムに更新\n\n・ウィジェット上で複数個のノートを表示\n\n・ウィジェット上でノートの「コメント」を表示\n\n\nその他\n\n・テキストやファイル(csv、tsv、txtなど)から暗記帳データをインポート可能\n\n・OS内蔵の辞書と連携\n\n・カスタマイズ可能な検索機能\n\n・iCloudによって端末間でデータを同期\n\n\nマルチプラットフォーム対応\n\niPhone : ホーム画面、ロック画面、スタンバイ(iOS 17)\n\niPad : ホーム画面、ロック画面(iPadOS 17)\n\nMac : 通知センター、デスクトップ(macOS 14)\n\nApple Watch : コンプリケーション、スマートスタック(watchOS 10)"
+            "value" : "ウィジェット機能を用いてホーム画面やロック画面などに暗記帳を表示します。\n\n日常の中で暗記帳をたくさんチラ見して知識を脳に染み込ませるためのアプリです。\n\n自由にノートを作成できます。\n\nそのノートはウィジェット上にシンプルに表示されます。\n\n\nオプション\n\n・ランダムモード: このモードでは5分毎にウィジェット上のノートをランダムに更新\n\n・ウィジェット上で複数個のノートを表示\n\n・ウィジェット上でノートの「コメント」を表示\n\n・ウィジェット上のフォントのサイズを変更\n\n\nその他\n\n・テキストやファイル(csv、tsv、txtなど)から暗記帳データをインポート可能\n\n・OS内蔵の辞書と連携\n\n・カスタマイズ可能な検索機能\n\n・iCloudによって端末間でデータを同期\n\n\nマルチプラットフォーム対応\n\niPhone : ホーム画面、ロック画面、スタンバイ(iOS 17)\n\niPad : ホーム画面、ロック画面(iPadOS 17)\n\nMac : 通知センター、デスクトップ(macOS 14)\n\nApple Watch : コンプリケーション、スマートスタック(watchOS 10)"
           }
         }
       }

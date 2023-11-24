@@ -68,7 +68,7 @@ private extension 🪧SystemWidgetView {
                 case .systemExtraLarge:
                     switch self.notes.count {
                         case 1:
-                            return .system(size: 120)
+                            return .system(size: 110)
                         case 2, 3, 4, 5:
 #if os(iOS)
                             return 🎛️Option.showCommentMode ? .title3 : .title
