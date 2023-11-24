@@ -513,6 +513,16 @@
         }
       }
     },
+    "Dismiss sheet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シートを閉じる"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "ja" : {

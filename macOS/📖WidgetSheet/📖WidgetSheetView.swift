@@ -25,6 +25,7 @@ struct 📖WidgetSheetView: View {
             }
         }
         .modifier(📣ADSheet())
+        .animation(.default, value: self.model.presentedSheetOnContentView)
         .onAppear {
             self.windowMinHeight = self.noteMinHeight * .init(self.model.openedWidgetNoteIDs.count)
         }
@@ -32,7 +33,7 @@ struct 📖WidgetSheetView: View {
 }
 
 private extension 📖WidgetSheetView {
-    var noteMinHeight: CGFloat {
+    private var noteMinHeight: CGFloat {
         if self.model.openedWidgetNotesCount < 4 {
             180
         } else {

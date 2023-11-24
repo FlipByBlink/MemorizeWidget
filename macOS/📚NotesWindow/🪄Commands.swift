@@ -16,6 +16,7 @@ struct 🪄Commands: Commands {
         }
         CommandGroup(after: .newItem) {
             self.openMainWindowButton()
+            self.dismissWidgetSheetButton()
         }
         if self.activeNotesPanel {
             CommandGroup(after: .newItem) {
@@ -87,5 +88,15 @@ private extension 🪄Commands {
             self.openWindow(id: "notes")
         }
         .disabled(self.openedMainWindow == true)
+    }
+    private func dismissWidgetSheetButton() -> some View {
+        Group {
+            if case .widget(_) = self.presentedSheetOnContentView {
+                Divider()
+                Button("Dismiss sheet") {
+                    self.model?.presentedSheetOnContentView = nil
+                }
+            }
+        }
     }
 }
