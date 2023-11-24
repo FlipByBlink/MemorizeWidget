@@ -7,11 +7,11 @@ struct 📖NoteRow: View {
         HStack(spacing: 16) {
             VStack(spacing: 7) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.title.weight(.semibold))
+                    .font(self.titleFont.weight(.semibold))
                     .textFieldStyle(.plain)
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
-                    .font(.title3.weight(.light))
+                    .font(self.commentFont.weight(.light))
                     .textFieldStyle(.plain)
             }
             .focusedValue(\.editingNote, self.source)
@@ -27,7 +27,6 @@ struct 📖NoteRow: View {
         .padding(.vertical, 12)
         .padding(.leading, 8)
         .padding(.trailing, 4)
-        .frame(minHeight: 150)
     }
 }
 
@@ -37,6 +36,20 @@ private extension 📖NoteRow {
             self.model.removeNote(self.source)
         } label: {
             Label("Delete", systemImage: "trash")
+        }
+    }
+    private var titleFont: Font {
+        if self.model.openedWidgetNotesCount < 4 {
+            .title
+        } else {
+            .title2
+        }
+    }
+    private var commentFont: Font {
+        if self.model.openedWidgetNotesCount < 4 {
+            .title3
+        } else {
+            .body
         }
     }
 }
