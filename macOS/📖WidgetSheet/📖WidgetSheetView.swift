@@ -2,6 +2,7 @@ import SwiftUI
 
 struct 📖WidgetSheetView: View {
     @EnvironmentObject var model: 📱AppModel
+    @State private var windowHeight: CGFloat?
     var body: some View {
         NavigationStack {
             VStack {
@@ -21,7 +22,9 @@ struct 📖WidgetSheetView: View {
             }
         }
         .modifier(📣ADSheet())
-        .frame(width: 550,
-               height: 180 * .init(self.model.openedWidgetNoteIDs.count))
+        .frame(width: 550, height: self.windowHeight)
+        .onAppear {
+            self.windowHeight = .init(180 * self.model.openedWidgetNoteIDs.count)
+        }
     }
 }
