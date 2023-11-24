@@ -4,22 +4,21 @@ struct 📗NoteRow: View {
     @EnvironmentObject var model: 📱AppModel
     @Binding var source: 📗Note
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 12) {
             VStack(spacing: 4) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.system(size: 19))
+                    .font(.system(size: 17))
                     .bold()
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
                     .font(.body.weight(.light))
-                    .foregroundStyle(.secondary)
             }
             .focusedValue(\.editingNote, self.source)
             .onSubmit { self.model.submitTextField(self.source) }
             Self.RemoveButton(self.source)
         }
-        .padding(.vertical, 12)
-        .padding(.leading, 12)
+        .padding(.vertical, 10)
+        .padding(.leading, 10)
         .padding(.trailing, 4)
     }
 }
