@@ -408,7 +408,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "可愛い、キュート"
           }
         }
       }
@@ -679,7 +679,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "おやすみなさい、グッナイ"
           }
         }
       }
@@ -1364,7 +1364,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "苺、ストロベリー"
           }
         }
       }
@@ -1615,7 +1615,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "Good night."
           }
         }
       }
@@ -1625,7 +1625,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "Cute"
           }
         }
       }
@@ -1635,7 +1635,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "Strawberry"
           }
         }
       }
