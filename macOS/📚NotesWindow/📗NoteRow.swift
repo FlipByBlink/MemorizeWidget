@@ -14,7 +14,7 @@ struct 📗NoteRow: View {
                     .font(.body.weight(.light))
             }
             .focusedValue(\.editingNote, self.source)
-            .onSubmit { self.model.submitTextField(self.source) }
+            .onSubmit { self.model.notesSelection = [self.source.id] }
             Self.RemoveButton(self.source)
         }
         .padding(.vertical, 10)

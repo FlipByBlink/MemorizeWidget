@@ -1,13 +1,6 @@
 import SwiftUI
 
 extension 📱AppModel {
-    func submitTextField(_ ⓢource: 📗Note) {
-        if ⓢource.title.isEmpty {
-            self.removeNote(ⓢource)
-        } else {
-            self.notesSelection = [ⓢource.id]
-        }
-    }
     func clearSelection() {
         self.notesSelection.removeAll()
     }
