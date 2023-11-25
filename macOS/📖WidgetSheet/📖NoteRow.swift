@@ -15,7 +15,7 @@ struct 📖NoteRow: View {
                     .textFieldStyle(.plain)
             }
             .focusedValue(\.editingNote, self.source)
-            .onSubmit { self.model.submitTextField(self.source) }
+            .onSubmit { self.model.saveNotes() }
             HStack(spacing: 12) {
                 🔍SearchButton([self.source])
                 📘DictionaryButton([self.source])

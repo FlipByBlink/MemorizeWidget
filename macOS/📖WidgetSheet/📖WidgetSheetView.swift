@@ -29,6 +29,7 @@ struct 📖WidgetSheetView: View {
         .onAppear {
             self.windowMinHeight = self.noteMinHeight * .init(self.model.openedWidgetNoteIDs.count)
         }
+        .onDisappear { self.model.saveNotes() }
     }
 }
 
