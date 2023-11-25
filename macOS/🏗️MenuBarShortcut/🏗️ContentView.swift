@@ -51,11 +51,13 @@ private extension 🏗️ContentView {
     private func submit() {
         guard !self.note.title.isEmpty else { return }
         self.model.notes.insert(self.note, at: 0)
+        self.model.saveNotes()
         self.note = .empty
         self.dismiss()
     }
     private func addNewNote() {
         self.model.notes.insert(self.note, at: 0)
+        self.model.saveNotes()
         self.note = .empty
         self.titleFocus = true
     }
