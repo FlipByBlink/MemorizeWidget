@@ -26,6 +26,7 @@ struct 📗NoteRow: View {
 private extension 📗NoteRow {
     private struct RemoveButton: View {
         @EnvironmentObject var model: 📱AppModel
+        @FocusedValue(\.editingNote) var editingNote
         @State private var hovering: Bool = false
         private var source: 📗Note
         var body: some View {
@@ -41,6 +42,7 @@ private extension 📗NoteRow {
             .foregroundStyle(self.hovering ? .primary : .tertiary)
             .animation(.default.speed(2), value: self.hovering)
             .onHover { self.hovering = $0 }
+            .disabled(self.editingNote != nil)
         }
         init(_ source: 📗Note) {
             self.source = source
