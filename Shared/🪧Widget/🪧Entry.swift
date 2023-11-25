@@ -23,7 +23,7 @@ extension 🪧Entry {
         } else {
             guard !ⓐllNotes.isEmpty else { return [] }
             if self.kind == .sub {
-                ⓐllNotes.removeFirst(self.notesCount)
+                ⓐllNotes = .init(ⓐllNotes.dropFirst(self.notesCount))
             }
             return Array(ⓐllNotes.prefix(self.notesCount))
         }
