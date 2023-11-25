@@ -38,6 +38,7 @@ struct 🪄Commands: Commands {
             }
             CommandGroup(after: .textEditing) {
                 🚮DeleteAllNotesButton()
+                    .disabled(self.editingNote != nil)
             }
             CommandMenu("Action") {
                 📘DictionaryButton(self.targetNotes)
