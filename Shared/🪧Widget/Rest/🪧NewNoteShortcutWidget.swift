@@ -52,8 +52,7 @@ private struct 🪧NewNoteShortcutView: View {
         ZStack {
             AccessoryWidgetBackground()
             Image(systemName: "plus")
-                .imageScale(.large)
-                .fontWeight(.semibold)
+                .font(.title.bold())
                 .widgetAccentable()
         }
     }

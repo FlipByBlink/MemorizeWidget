@@ -37,7 +37,7 @@ extension 🪧Entry {
                     case .newNoteShortcut:
                         return .newNoteShortcut
                     case .primary, .sub:
-                        if let ⓘds = self.targetedNotes?.map({ $0.id}) {
+                        if let ⓘds = self.targetedNotes?.map({ $0.id }) {
                             return .notes(ⓘds)
                         } else {
                             assertionFailure()
