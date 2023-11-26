@@ -8,21 +8,24 @@ struct 🪧NoNoteView: View {
                 case .systemSmall, .systemMedium:
                     Label("No note", systemImage: "book.closed")
                         .font(.title)
+                        .foregroundStyle(.tertiary)
                 case .systemLarge, .systemExtraLarge:
                     Label("No note", systemImage: "book.closed")
                         .font(.largeTitle)
+                        .foregroundStyle(.tertiary)
                 case .accessoryRectangular:
                     Label("No note", systemImage: "book.closed")
                         .font(.headline)
+                        .foregroundStyle(.secondary)
                 case .accessoryCircular:
                     Text("No note")
-                        .font(.subheadline)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
                 case .accessoryInline, .accessoryCorner:
                     Label("No note", systemImage: "book.closed")
                 default:
                     Image(systemName: "book.closed")
             }
         }
-        .foregroundStyle(.tertiary)
     }
 }
