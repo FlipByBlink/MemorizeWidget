@@ -343,6 +343,7 @@ extension 🗒️StaticInfo {
                     "📖NoteRow.swift",
                     "📖DeletedNoteView.swift",
                     "📖MoveEndButton.swift",
+                    "📖SheetDebug.swift",
                 ]
                 case .Data: [
                     "💾ICloud.swift",

@@ -144,6 +144,7 @@
 		168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168FB0C12B147A4D007E4879 /* 📖SheetDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
+		168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -626,6 +627,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */,
 				16A800EC2B0DE4160046C526 /* 📖NoteRow.swift in CopyFiles */,
 				16A800ED2B0DE4160046C526 /* 📖MoveEndButton.swift in CopyFiles */,
 				16A800B52B0DA6940046C526 /* App.swift in CopyFiles */,

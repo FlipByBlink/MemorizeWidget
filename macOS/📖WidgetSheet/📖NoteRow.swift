@@ -92,6 +92,7 @@ private extension 📖NoteRow {
                 .textFieldStyle(.plain)
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundStyle(.tertiary)
+                .disabled(true)
                 .overlay {
                     Image(systemName: "trash")
                         .font(.title2.bold())
