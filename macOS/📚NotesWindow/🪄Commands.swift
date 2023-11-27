@@ -88,6 +88,7 @@ private extension 🪄Commands {
         Button("Open main window") {
             self.openWindow(id: "notes")
         }
+        .keyboardShortcut("o")
         .disabled(self.openedMainWindow == true)
     }
     private func dismissWidgetSheetButton() -> some View {
