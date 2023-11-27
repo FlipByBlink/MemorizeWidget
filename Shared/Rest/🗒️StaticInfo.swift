@@ -364,8 +364,8 @@ extension 🗒️StaticInfo {
                 ]
                 case .Settings: [
                     "🔧Settings.swift",
-                    "🔧GeneralPanel.swift",
-                    "🔧FontSizePanel.swift",
+                    "🔧WidgetPanel.swift",
+                    "🔧MenuBarPanel.swift",
                     "🔧SearchCustomizePanel.swift",
                     "🔧GuidePanel.swift",
                 ]

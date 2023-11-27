@@ -5,8 +5,8 @@ struct 🔧Settings: Scene {
     var body: some Scene {
         Settings {
             TabView {
-                🔧GeneralPanel()
-                🔧FontSizePanel()
+                🔧WidgetPanel()
+                🔧MenuBarPanel()
                 🔧SearchCustomizePanel()
                 🔧GuidePanel()
             }

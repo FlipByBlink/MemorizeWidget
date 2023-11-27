@@ -34,8 +34,7 @@
 		163826232B0C2DF90082266F /* 👆InsertAboveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */; };
 		163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */; };
 		163826272B0C2F980082266F /* 🔝NewNoteOnTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */; };
-		1638262C2B0C6D0B0082266F /* 🔧GeneralPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */; };
-		1638262E2B0C6D550082266F /* 🔧FontSizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */; };
+		1638262C2B0C6D0B0082266F /* 🔧WidgetPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262B2B0C6D0B0082266F /* 🔧WidgetPanel.swift */; };
 		163826302B0C6D940082266F /* 🔧GuidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */; };
 		163826322B0C6DD10082266F /* 🔧SearchCustomizePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */; };
 		163826352B0C79FE0082266F /* 🔦FocusedModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163826342B0C79FE0082266F /* 🔦FocusedModelHandler.swift */; };
@@ -156,6 +155,8 @@
 		16900BEE2B14C1FD00EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16900BEF2B14C20700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16900BF02B14C21700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BF22B14C47C00EB756C /* 🔧MenuBarPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BF12B14C47C00EB756C /* 🔧MenuBarPanel.swift */; };
+		16900BF32B14C6EA00EB756C /* 🔧MenuBarPanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BF12B14C47C00EB756C /* 🔧MenuBarPanel.swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -230,8 +231,7 @@
 		16A800D12B0DA6950046C526 /* 📥NotSupportMultiLineTextInNoteSection.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1638264C2B0CDE3C0082266F /* 📥NotSupportMultiLineTextInNoteSection.swift */; };
 		16A800D22B0DA6950046C526 /* 📥DismissButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826512B0CE5930082266F /* 📥DismissButton.swift */; };
 		16A800D32B0DA6950046C526 /* 🔧Settings.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */; };
-		16A800D42B0DA6950046C526 /* 🔧GeneralPanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */; };
-		16A800D52B0DA6950046C526 /* 🔧FontSizePanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */; };
+		16A800D42B0DA6950046C526 /* 🔧WidgetPanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1638262B2B0C6D0B0082266F /* 🔧WidgetPanel.swift */; };
 		16A800D62B0DA6950046C526 /* 🔧SearchCustomizePanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */; };
 		16A800D72B0DA6950046C526 /* 🔧GuidePanel.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */; };
 		16A800D82B0DA6950046C526 /* 🏗️MenuBarShortcut.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16C3D79D2B096BED00849D96 /* 🏗️MenuBarShortcut.swift */; };
@@ -638,6 +638,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16900BF32B14C6EA00EB756C /* 🔧MenuBarPanel.swift in CopyFiles */,
 				16900BF02B14C21700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */,
 				16A800EC2B0DE4160046C526 /* 📖NoteRow.swift in CopyFiles */,
@@ -671,8 +672,7 @@
 				16A800D12B0DA6950046C526 /* 📥NotSupportMultiLineTextInNoteSection.swift in CopyFiles */,
 				16A800D22B0DA6950046C526 /* 📥DismissButton.swift in CopyFiles */,
 				16A800D32B0DA6950046C526 /* 🔧Settings.swift in CopyFiles */,
-				16A800D42B0DA6950046C526 /* 🔧GeneralPanel.swift in CopyFiles */,
-				16A800D52B0DA6950046C526 /* 🔧FontSizePanel.swift in CopyFiles */,
+				16A800D42B0DA6950046C526 /* 🔧WidgetPanel.swift in CopyFiles */,
 				16A800D62B0DA6950046C526 /* 🔧SearchCustomizePanel.swift in CopyFiles */,
 				16A800D72B0DA6950046C526 /* 🔧GuidePanel.swift in CopyFiles */,
 				16A800D82B0DA6950046C526 /* 🏗️MenuBarShortcut.swift in CopyFiles */,
@@ -965,8 +965,7 @@
 		163826222B0C2DF90082266F /* 👆InsertAboveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆InsertAboveButton.swift"; sourceTree = "<group>"; };
 		163826242B0C2E1D0082266F /* 👇InsertBelowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👇InsertBelowButton.swift"; sourceTree = "<group>"; };
 		163826262B0C2F980082266F /* 🔝NewNoteOnTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔝NewNoteOnTopButton.swift"; sourceTree = "<group>"; };
-		1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧GeneralPanel.swift"; sourceTree = "<group>"; };
-		1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧FontSizePanel.swift"; sourceTree = "<group>"; };
+		1638262B2B0C6D0B0082266F /* 🔧WidgetPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧WidgetPanel.swift"; sourceTree = "<group>"; };
 		1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧GuidePanel.swift"; sourceTree = "<group>"; };
 		163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧SearchCustomizePanel.swift"; sourceTree = "<group>"; };
 		163826342B0C79FE0082266F /* 🔦FocusedModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔦FocusedModelHandler.swift"; sourceTree = "<group>"; };
@@ -1039,6 +1038,7 @@
 		168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetDebug.swift"; sourceTree = "<group>"; };
 		168FB0C32B148243007E4879 /* FocusedValues(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FocusedValues(extension).swift"; sourceTree = "<group>"; };
 		16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️MultilineTextAlignment.swift"; sourceTree = "<group>"; };
+		16900BF12B14C47C00EB756C /* 🔧MenuBarPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔧MenuBarPanel.swift"; sourceTree = "<group>"; };
 		16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Placement.swift"; sourceTree = "<group>"; };
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
@@ -1284,8 +1284,8 @@
 			isa = PBXGroup;
 			children = (
 				16C3D7A02B096BEE00849D96 /* 🔧Settings.swift */,
-				1638262B2B0C6D0B0082266F /* 🔧GeneralPanel.swift */,
-				1638262D2B0C6D550082266F /* 🔧FontSizePanel.swift */,
+				1638262B2B0C6D0B0082266F /* 🔧WidgetPanel.swift */,
+				16900BF12B14C47C00EB756C /* 🔧MenuBarPanel.swift */,
 				163826312B0C6DD10082266F /* 🔧SearchCustomizePanel.swift */,
 				1638262F2B0C6D940082266F /* 🔧GuidePanel.swift */,
 			);
@@ -2203,6 +2203,7 @@
 				16C3D77F2B096A2700849D96 /* 💾ICloud.swift in Sources */,
 				1638263E2B0C84160082266F /* 📤NotesExportSheetView.swift in Sources */,
 				16C3D7912B096A3000849D96 /* 🗑DeletedContent.swift in Sources */,
+				16900BF22B14C47C00EB756C /* 🔧MenuBarPanel.swift in Sources */,
 				163826412B0C84560082266F /* 🏗️ContentView.swift in Sources */,
 				168FB0C12B147A4D007E4879 /* 📖SheetDebug.swift in Sources */,
 				16C3D79B2B096B0F00849D96 /* 🗒️StaticInfo.swift in Sources */,
@@ -2229,7 +2230,6 @@
 				167182932B09F41200A7AD8D /* 📚NotesList.swift in Sources */,
 				1673E0812B0A08FF00D621D3 /* 📱AppModel(NSApplicationDelegate).swift in Sources */,
 				16C3D7992B096AEE00849D96 /* 💁GuideViewComponent.swift in Sources */,
-				1638262E2B0C6D550082266F /* 🔧FontSizePanel.swift in Sources */,
 				163826252B0C2E1D0082266F /* 👇InsertBelowButton.swift in Sources */,
 				1673E07D2B0A059400D621D3 /* ℹ️HelpWindows.swift in Sources */,
 				16C3D78A2B096A2700849D96 /* 📚TextConvert.swift in Sources */,
@@ -2238,7 +2238,7 @@
 				16C3D7812B096A2700849D96 /* 📗Note.swift in Sources */,
 				16C3D7962B096A3700849D96 /* 🎛️Option.swift in Sources */,
 				16C3D78E2B096A2700849D96 /* 🪧ContainerBackground.swift in Sources */,
-				1638262C2B0C6D0B0082266F /* 🔧GeneralPanel.swift in Sources */,
+				1638262C2B0C6D0B0082266F /* 🔧WidgetPanel.swift in Sources */,
 				16C3D79A2B096B0C00849D96 /* 💥Feedback.swift in Sources */,
 				16C3D7822B096A2700849D96 /* 🪧Entry.swift in Sources */,
 				16900BEC2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,

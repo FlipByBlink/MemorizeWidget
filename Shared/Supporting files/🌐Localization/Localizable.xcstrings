@@ -644,16 +644,6 @@
         }
       }
     },
-    "Font" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フォント"
-          }
-        }
-      }
-    },
     "Font size" : {
       "localizations" : {
         "ja" : {
@@ -670,16 +660,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "フォントサイズ"
-          }
-        }
-      }
-    },
-    "General" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一般"
           }
         }
       }
@@ -890,6 +870,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "メニューバーにショートカットを表示"
+          }
+        }
+      }
+    },
+    "MenuBar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メニューバー"
           }
         }
       }
