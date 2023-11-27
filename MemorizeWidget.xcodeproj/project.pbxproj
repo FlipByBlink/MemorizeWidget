@@ -153,6 +153,9 @@
 		16900BEB2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16900BEC2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16900BED2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BEE2B14C1FD00EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BEF2B14C20700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BF02B14C21700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -635,6 +638,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16900BF02B14C21700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */,
 				16A800EC2B0DE4160046C526 /* 📖NoteRow.swift in CopyFiles */,
 				16A800ED2B0DE4160046C526 /* 📖MoveEndButton.swift in CopyFiles */,
@@ -743,6 +747,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16900BEF2B14C20700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				16A801402B0DEFAC0046C526 /* 💁GuideViewComponent.swift in CopyFiles */,
 				16A801412B0DEFAC0046C526 /* 📱AppModel(extension).swift in CopyFiles */,
 				16A801422B0DEFAC0046C526 /* 📰SheetHandlerOnContentView.swift in CopyFiles */,
@@ -823,6 +828,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16900BEE2B14C1FD00EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				168FB0C52B148809007E4879 /* FocusedValues(extension).swift in CopyFiles */,
 				16A801292B0DEA300046C526 /* 🪧PrimaryWidget.swift in CopyFiles */,
 				16A8012A2B0DEA300046C526 /* 📨RootView.swift in CopyFiles */,

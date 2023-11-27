@@ -889,7 +889,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "メニューバーにショートカット"
+            "value" : "メニューバーにショートカットを表示"
           }
         }
       }
@@ -1373,7 +1373,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "コメントも表示"
+            "value" : "コメントを表示"
           }
         }
       }
@@ -1383,7 +1383,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウィジェット上にコメントも表示"
+            "value" : "ウィジェット上にコメントを表示"
           }
         }
       }

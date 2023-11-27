@@ -58,13 +58,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "・Renewal macOS design\n・Add font size option\n・Add menu bar new note shortcut\n・Support extra large widget\n・Sub widget for non-random-mode\n・Several small fix/change/improve"
+            "value" : "・Renewal macOS design\n・Add font size option\n・Add multi line text alignment option\n・Add menu bar new note shortcut\n・Support extra large widget\n・Sub widget for non-random-mode\n・Several small fix/change/improve"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "・macOS向けデザインをリニューアル\n・フォントサイズ変更オプションを追加\n・メニューバーから新規ノートを簡単に追加するための機能を追加\n・特大サイズウィジェットをサポート\n・非ランダムモード向けにサブウィジェットをサポート\n・様々な軽微な修正/変更/改善"
+            "value" : "・macOS向けデザインをリニューアル\n・フォントサイズ変更オプションを追加\n・複数行の揃え方オプションを追加\n・メニューバーから新規ノートを簡単に追加するための機能を追加\n・特大サイズウィジェットをサポート\n・非ランダムモード向けにサブウィジェットをサポート\n・様々な軽微な修正/変更/改善"
           }
         }
       }

@@ -111,6 +111,7 @@ extension 🗒️StaticInfo {
                     "🎛️Option.swift",
                     "🎛️Key.swift",
                     "🎛️Default.swift",
+                    "🎛️MultilineTextAlignment.swift",
                     "🎛️ViewComponent.swift",
                     "🎛️RandomModeToggle.swift",
                     "🎛️OptionTab.swift",
@@ -235,6 +236,7 @@ extension 🗒️StaticInfo {
                     "🎛️Option.swift",
                     "🎛️Key.swift",
                     "🎛️Default.swift",
+                    "🎛️MultilineTextAlignment.swift",
                     "🎛️ViewComponent.swift",
                     "🎛️RandomModeToggle.swift",
                     "🎛️FontSizeMenu.swift",
@@ -356,6 +358,7 @@ extension 🗒️StaticInfo {
                     "🎛️Option.swift",
                     "🎛️Key.swift",
                     "🎛️Default.swift",
+                    "🎛️MultilineTextAlignment.swift",
                     "🎛️ViewComponent.swift",
                     "🎛️RandomModeToggle.swift",
                 ]
