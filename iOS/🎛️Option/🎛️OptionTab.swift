@@ -7,6 +7,7 @@ struct 🎛️OptionTab: View {
             List {
                 🎛️MultiNotesOnWidgetOption()
                 🎛️CommentOnWidgetOption()
+                🎛️ViewComponent.MultilineTextAlignmentPicker()
                 self.fontSizeMenuLink()
                 self.customizeSearchLink()
             }
@@ -17,7 +18,7 @@ struct 🎛️OptionTab: View {
 
 private extension 🎛️OptionTab {
     private func fontSizeMenuLink() -> some View {
-        Group {
+        Section {
             switch UIDevice.current.userInterfaceIdiom {
                 case .phone:
                     NavigationLink {

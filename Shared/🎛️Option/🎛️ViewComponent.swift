@@ -6,7 +6,16 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
-                Label("Show multi notes on widget", systemImage: "doc.on.doc")
+                Label {
+#if os(iOS)
+                    Text("Show multi notes on widget")
+#elseif os(watchOS) || os(macOS)
+                    Text("Show multi notes")
+#endif
+                } icon: {
+                    Image(systemName: "doc.on.doc")
+                }
+                    
             }
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
@@ -15,7 +24,38 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.showCommentMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
-                Label("Show comment on widget", systemImage: "captions.bubble")
+                Label {
+#if os(iOS)
+                    Text("Show comment on widget")
+#elseif os(watchOS) || os(macOS)
+                    Text("Show comment")
+#endif
+                } icon: {
+                    Image(systemName: "captions.bubble")
+                }
+            }
+            .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
+        }
+    }
+    struct MultilineTextAlignmentPicker: View {
+        @AppStorage(🎛️Key.multilineTextAlignment, store: .ⓐppGroup) 
+        var value: 🎛️MultilineTextAlignment = .center
+        
+        var body: some View {
+            Picker(selection: self.$value) {
+                ForEach(🎛️MultilineTextAlignment.allCases) {
+                    Label($0.localizedTitle, systemImage: $0.iconName)
+                }
+            } label: {
+                Label {
+#if os(iOS)
+                    Text("Multi line text alignment on widget")
+#elseif os(watchOS) || os(macOS)
+                    Text("Multi line text alignment")
+#endif
+                } icon: {
+                    Image(systemName: "align.horizontal.center")
+                }
             }
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }

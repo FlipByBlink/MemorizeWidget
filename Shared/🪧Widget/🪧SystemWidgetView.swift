@@ -19,7 +19,7 @@ struct 🪧SystemWidgetView: View {
                     }
                 }
                 .lineLimit(self.lineLimitNumber)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
                 .minimumScaleFactor(0.9)
                 Spacer(minLength: 0)
             }

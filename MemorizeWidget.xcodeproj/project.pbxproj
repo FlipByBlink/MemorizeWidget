@@ -147,6 +147,12 @@
 		168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
 		168FB0C42B148243007E4879 /* FocusedValues(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB0C32B148243007E4879 /* FocusedValues(extension).swift */; };
 		168FB0C52B148809007E4879 /* FocusedValues(extension).swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168FB0C32B148243007E4879 /* FocusedValues(extension).swift */; };
+		16900BE82B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BE92B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BEA2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BEB2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BEC2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
+		16900BED2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -1026,6 +1032,7 @@
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
 		168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetDebug.swift"; sourceTree = "<group>"; };
 		168FB0C32B148243007E4879 /* FocusedValues(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FocusedValues(extension).swift"; sourceTree = "<group>"; };
+		16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎛️MultilineTextAlignment.swift"; sourceTree = "<group>"; };
 		16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Placement.swift"; sourceTree = "<group>"; };
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
@@ -1429,6 +1436,7 @@
 				167317DB2B05942100656005 /* 🎛️Default.swift */,
 				16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */,
+				16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */,
 			);
 			path = "🎛️Option";
 			sourceTree = "<group>";
@@ -2227,6 +2235,7 @@
 				1638262C2B0C6D0B0082266F /* 🔧GeneralPanel.swift in Sources */,
 				16C3D79A2B096B0C00849D96 /* 💥Feedback.swift in Sources */,
 				16C3D7822B096A2700849D96 /* 🪧Entry.swift in Sources */,
+				16900BEC2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				163826472B0CD9930082266F /* 📥NotesImportModel.swift in Sources */,
 				16C3D78B2B096A2700849D96 /* 🪧Provider.swift in Sources */,
 				160A5A692B0ADB7900E6F4EB /* 📚ContentView.swift in Sources */,
@@ -2247,6 +2256,7 @@
 				16C3D7E72B098C6F00849D96 /* 🎛️Option.swift in Sources */,
 				16C3D7DD2B098C2600849D96 /* 🪧Tag.swift in Sources */,
 				16C3D7E62B098C5E00849D96 /* 🩹WorkaroundOnIOS15.swift in Sources */,
+				16900BED2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				16C3D7EF2B098E8D00849D96 /* 🪧SystemWidgetView.swift in Sources */,
 				16C3D7E52B098C5E00849D96 /* UserDefaults(extension).swift in Sources */,
 				16C3D7E82B098C7200849D96 /* 🎛️Key.swift in Sources */,
@@ -2284,6 +2294,7 @@
 				167317C52B04F31900656005 /* 🎛️Key.swift in Sources */,
 				16D7B6DE2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift in Sources */,
 				F50C833C2AA5E7950033A04B /* 🪧Entry.swift in Sources */,
+				16900BEA2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				166C25382B00E072008124DC /* 📰SheetHandlerOnContentView.swift in Sources */,
 				F568F21129E3E907005A1D1A /* 🔩MainMenu.swift in Sources */,
 				F50C833E2AA5ED5F0033A04B /* 🆕NewNoteShortcut.swift in Sources */,
@@ -2325,6 +2336,7 @@
 				16EDAF392AFB57B700881864 /* 🪧PlaceholderView.swift in Sources */,
 				1671563A2AFF2E2200043F03 /* 🎛️Option.swift in Sources */,
 				168D5F0C2AF6034900A100A7 /* 📚Notes.swift in Sources */,
+				16900BEB2B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				F568F1F929E3C565005A1D1A /* WidgetBundle.swift in Sources */,
 				1671563F2AFF37DF00043F03 /* 🪧PrimaryWidget.swift in Sources */,
 				1671562F2AFEFD1300043F03 /* 🪧Kind.swift in Sources */,
@@ -2401,6 +2413,7 @@
 				F5B5A46428C6EDA1005B6E0F /* ContentView.swift in Sources */,
 				F568F1A729E3A6C9005A1D1A /* 🗑TrashTab.swift in Sources */,
 				F50C83202AA5D0A70033A04B /* 📣ADModel.swift in Sources */,
+				16900BE82B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				166C25402B019E30008124DC /* 📰DismissButton.swift in Sources */,
 				166C25362B00DFB0008124DC /* 📰SheetHandlerOnContentView.swift in Sources */,
 				166BC29D2AF623D100729C66 /* 🎛️MultiNotesOnWidgetOption.swift in Sources */,
@@ -2460,6 +2473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1671563B2AFF337800043F03 /* 🪧PlaceholderView.swift in Sources */,
+				16900BE92B1499D700EB756C /* 🎛️MultilineTextAlignment.swift in Sources */,
 				F5EE7EBA29DFEEB100012A12 /* 💾ICloud.swift in Sources */,
 				167156382AFF2E2200043F03 /* 🎛️Option.swift in Sources */,
 				F50C83292AA5E3430033A04B /* 🪧ContainerBackground.swift in Sources */,

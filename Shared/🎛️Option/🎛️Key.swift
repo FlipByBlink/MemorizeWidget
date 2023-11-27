@@ -2,6 +2,7 @@ enum 🎛️Key {
     static let multiNotesMode = "multiNotes"
     static let randomMode = "RandomMode"
     static let showCommentMode = "ShowComment"
+    static let multilineTextAlignment = "multilineTextAlignment"
     enum Import {
         static let inputMode = "InputMode"
         static let textSeparator = "separator"

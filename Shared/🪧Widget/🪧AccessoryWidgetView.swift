@@ -31,8 +31,8 @@ private extension 🪧AccessoryWidgetView {
                 Color.clear
                 if let ⓝote = self.notes.first {
                     Text(ⓝote.title)
-                        .multilineTextAlignment(.center)
                         .font(self.titleFontSize)
+                        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
                         .fontWeight(.semibold)
                         .lineSpacing(0)
                         .minimumScaleFactor(0.8)
@@ -64,7 +64,7 @@ private extension 🪧AccessoryWidgetView {
         }
         .widgetAccentable()
         .minimumScaleFactor(0.8)
-        .multilineTextAlignment(.center)
+        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
     }
     private func cornerView() -> some View {
         Image(systemName: "tag")

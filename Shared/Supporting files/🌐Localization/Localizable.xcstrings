@@ -231,6 +231,16 @@
         }
       }
     },
+    "center" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中心"
+          }
+        }
+      }
+    },
     "Change the note per 5 minutes." : {
       "localizations" : {
         "ja" : {
@@ -824,6 +834,16 @@
         }
       }
     },
+    "leading" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先頭"
+          }
+        }
+      }
+    },
     "Leading component" : {
       "localizations" : {
         "ja" : {
@@ -930,6 +950,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "先頭へ移動"
+          }
+        }
+      }
+    },
+    "Multi line text alignment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数行の揃え方"
+          }
+        }
+      }
+    },
+    "Multi line text alignment on widget" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数行の揃え方"
           }
         }
       }
@@ -1211,6 +1251,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ランダムモード"
+          }
+        }
+      }
+    },
+    "Rest" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
           }
         }
       }
@@ -1535,6 +1585,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ノートのデータサイズの合計が800kBを超えてます。ノートの数を減らしてください。"
+          }
+        }
+      }
+    },
+    "trailing" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "末尾"
           }
         }
       }

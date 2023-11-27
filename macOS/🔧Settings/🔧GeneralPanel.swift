@@ -3,23 +3,21 @@ import SwiftUI
 struct 🔧GeneralPanel: View {
     var body: some View {
         Form {
-            Spacer()
             Section {
                 🎛️RandomModeToggle()
             } footer: {
                 🎛️RandomModeToggle.Caption()
-                    .foregroundStyle(.secondary)
             }
-            Spacer()
             Section {
                 🎛️ViewComponent.MultiNotesToggle()
                 🎛️ViewComponent.ShowCommentToggle()
+                🎛️ViewComponent.MultilineTextAlignmentPicker()
+            } header: {
+                Text("Widget")
             }
-            Spacer()
             Self.MenuBarShortcutToggle()
-            Spacer()
         }
-        .padding(32)
+        .formStyle(.grouped)
         .tabItem {
             Label("General", systemImage: "rectangle.3.group")
         }
@@ -30,8 +28,13 @@ private extension 🔧GeneralPanel {
     private struct MenuBarShortcutToggle: View {
         @AppStorage(🎛️Key.showMenuBar) var value: Bool = true
         var body: some View {
-            Toggle(isOn: self.$value) {
-                Label("Menu bar shortcut", systemImage: "menubar.arrow.up.rectangle")
+            Section {
+                Toggle(isOn: self.$value) {
+                    Label("Menu bar shortcut", 
+                          systemImage: "menubar.arrow.up.rectangle")
+                }
+            } header: {
+                Text("Rest")
             }
         }
     }

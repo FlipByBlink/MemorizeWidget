@@ -8,6 +8,7 @@ struct 🔩MainMenu: View {
             Section {
                 🎛️ViewComponent.MultiNotesToggle()
                 Self.CommentOnWidgetSection()
+                🎛️ViewComponent.MultilineTextAlignmentPicker()
                 Self.fontSizeMenuLink()
             } header: {
                 Text("Widget")
@@ -34,6 +35,15 @@ private extension 🔩MainMenu {
                 .disabled(self.multiNotesMode)
         }
     }
+    private static func fontSizeMenuLink() -> some View {
+        Section {
+            NavigationLink {
+                🎛️FontSizeMenu()
+            } label: {
+                Label("Font size", systemImage: "textformat.size")
+            }
+        }
+    }
     private func trashMenuLink() -> some View {
         Section {
             NavigationLink {
@@ -45,15 +55,8 @@ private extension 🔩MainMenu {
                     Label("Trash", systemImage: "trash")
                 }
             }
-        }
-    }
-    private static func fontSizeMenuLink() -> some View {
-        Section {
-            NavigationLink {
-                🎛️FontSizeMenu()
-            } label: {
-                Label("Font size", systemImage: "textformat.size")
-            }
+        } header: {
+            Text("Rest")
         }
     }
     private static func deleteAllNotesButton() -> some View {
