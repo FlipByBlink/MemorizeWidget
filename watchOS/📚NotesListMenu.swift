@@ -12,14 +12,11 @@ struct 📚NotesListMenu: View {
                     Self.NoteLinkLabel(note: ⓝote)
                 }
             }
-            .onDelete {
-                self.model.deleteNotesForDynamicView($0)
-                💥Feedback.warning()
-            }
             .onMove {
                 self.model.moveNoteForDynamicView($0, $1)
                 💥Feedback.light()
             }
+            .onDelete(perform: self.model.deleteNotesForDynamicView)
         }
         .animation(.default, value: self.model.notes)
         .navigationTitle("Notes")

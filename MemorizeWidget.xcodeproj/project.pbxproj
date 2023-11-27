@@ -145,6 +145,8 @@
 		168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168FB0C12B147A4D007E4879 /* 📖SheetDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
 		168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
+		168FB0C42B148243007E4879 /* FocusedValues(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB0C32B148243007E4879 /* FocusedValues(extension).swift */; };
+		168FB0C52B148809007E4879 /* FocusedValues(extension).swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 168FB0C32B148243007E4879 /* FocusedValues(extension).swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -815,6 +817,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				168FB0C52B148809007E4879 /* FocusedValues(extension).swift in CopyFiles */,
 				16A801292B0DEA300046C526 /* 🪧PrimaryWidget.swift in CopyFiles */,
 				16A8012A2B0DEA300046C526 /* 📨RootView.swift in CopyFiles */,
 				16A8012B2B0DEA300046C526 /* 📨InputType.swift in CopyFiles */,
@@ -1022,6 +1025,7 @@
 		168D5F142AF6056300A100A7 /* 🔖Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Tab.swift"; sourceTree = "<group>"; };
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
 		168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetDebug.swift"; sourceTree = "<group>"; };
+		168FB0C32B148243007E4879 /* FocusedValues(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FocusedValues(extension).swift"; sourceTree = "<group>"; };
 		16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Placement.swift"; sourceTree = "<group>"; };
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
@@ -1526,6 +1530,7 @@
 			children = (
 				F51CAF6429D6AEFA0065EF30 /* 📗NoteView.swift */,
 				16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */,
+				168FB0C32B148243007E4879 /* FocusedValues(extension).swift */,
 			);
 			path = "📗NoteView";
 			sourceTree = "<group>";
@@ -2420,6 +2425,7 @@
 				F59EEFEC28F3FACB002D9AD7 /* ℹ️AboutApp.swift in Sources */,
 				16DD53072AF88B4A008F555A /* 📚TextConvert.swift in Sources */,
 				168D5F1C2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */,
+				168FB0C42B148243007E4879 /* FocusedValues(extension).swift in Sources */,
 				167156372AFF2E2200043F03 /* 🎛️Option.swift in Sources */,
 				167317E32B05A62200656005 /* 🔍CustomizeSearchMenu.swift in Sources */,
 				166C253E2B00F2E3008124DC /* 📥ConvertedNotesMenu.swift in Sources */,

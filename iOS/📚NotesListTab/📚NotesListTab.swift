@@ -3,6 +3,7 @@ import WidgetKit
 
 struct 📚NotesListTab: View {
     @EnvironmentObject var model: 📱AppModel
+    @FocusedValue(\.editingNote) var editingNote
     var body: some View {
         NavigationStack {
             ScrollViewReader { ⓢcrollViewProxy in
@@ -17,8 +18,10 @@ struct 📚NotesListTab: View {
                                        placement: .notesList)
                             .id($0.id)
                         }
-                        .onDelete { self.model.deleteNotesForDynamicView($0) }
                         .onMove { self.model.moveNoteForDynamicView($0, $1) }
+                        .onDelete(
+                            perform: self.editingNote == nil ? self.model.deleteNotesForDynamicView : nil
+                        )
                     } footer: {
                         self.notesCountTextOnFooter()
                     }

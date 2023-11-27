@@ -6,6 +6,7 @@ struct 📚SubButtons: View {
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @Environment(\.editMode) var editMode
     @Environment(\.openURL) var openURL
+    @FocusedValue(\.editingNote) var editingNote
     @Binding private var note: 📗Note
     var body: some View {
         HStack {
@@ -20,7 +21,10 @@ struct 📚SubButtons: View {
                 }
                 self.insertNewNoteBelowButton()
                 self.moveButtons()
-                Section { 🚮DeleteNoteButton(self.note) }
+                Section {
+                    🚮DeleteNoteButton(self.note)
+                        .disabled(self.editingNote != nil)
+                }
             } label: {
                 Label("Menu", systemImage: "ellipsis.circle")
                     .padding(8)

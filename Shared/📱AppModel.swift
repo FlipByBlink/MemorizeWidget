@@ -34,14 +34,19 @@ class 📱AppModel: NSObject, ObservableObject {
 
 //MARK: Computed property, Method
 extension 📱AppModel {
-    func deleteNotesForDynamicView(_ ⓘndexSet: IndexSet) {
-        self.trash.storeDeletedNotes(ⓘndexSet.map { self.notes[$0] })
-        self.notes.remove(atOffsets: ⓘndexSet)
-        self.saveNotes()
-    }
     func moveNoteForDynamicView(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
         self.saveNotes()
+    }
+    var deleteNotesForDynamicView: Optional<(IndexSet) -> Void> {
+        { ⓘndexSet in
+            self.trash.storeDeletedNotes(ⓘndexSet.map { self.notes[$0] })
+            self.notes.remove(atOffsets: ⓘndexSet)
+            self.saveNotes()
+#if os(watchOS)
+            💥Feedback.warning()
+#endif
+        }
     }
     func addNewNote(index ⓘndex: Int) {
         let ⓝewNote: 📗Note = .empty
