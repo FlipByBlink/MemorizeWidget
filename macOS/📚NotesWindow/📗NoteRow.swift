@@ -7,12 +7,13 @@ struct 📗NoteRow: View {
         HStack(spacing: 12) {
             VStack(spacing: 4) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.system(size: 17))
+                    .font(.title3)
                     .bold()
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
                     .font(.body.weight(.light))
             }
+            .fixedSize(horizontal: false, vertical: true)
             .focusedValue(\.editingNote, self.source)
             .onSubmit { self.model.notesSelection = [self.source.id] }
             Self.RemoveButton(self.source)
@@ -50,4 +51,4 @@ private extension 📗NoteRow {
     }
 }
 
-//Workaround(macOS 14.1.1): There is a bug that the last line of multiple lines is hidden. This problem was resolved by specifying the font size with a specific numerical value.
+//Workaround(macOS 14.1.1): There is a bug that the last line of multiple lines is hidden. This problem was resolved by fixedSize(horizontal: false, vertical: true).
