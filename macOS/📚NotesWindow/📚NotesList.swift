@@ -13,7 +13,7 @@ struct 📚NotesList: View {
                             .id($0.id)
                     }
                     .onMove { self.model.moveNoteForDynamicView($0, $1) }
-                    .onDelete { self.model.deleteNotesForDynamicView($0) }
+                    .onDelete(perform: self.onDeleteAction)
                 } footer: {
                     Self.Footer()
                 }
@@ -49,6 +49,13 @@ private extension 📚NotesList {
         init(_ state: FocusState<UUID?>, _ scrollViewProxy: ScrollViewProxy) {
             self._state = state
             self.scrollViewProxy = scrollViewProxy
+        }
+    }
+    private var onDeleteAction: Optional<(IndexSet) -> Void> {
+        if self.focusedNoteID == nil {
+            self.model.deleteNotesForDynamicView(_:)
+        } else {
+            nil
         }
     }
     private struct Footer: View {
