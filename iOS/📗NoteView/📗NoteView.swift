@@ -107,7 +107,7 @@ private extension 📗NoteView {
         if ⓕocus == nil {
             if self.inputtingNote.isEmpty {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.66) {
-                    self.model.removeNote(self.source, feedback: false)
+                    self.model.removeNote(self.source) //FIXME: onDeleteでクラッシュする
                 }
             } else {
                 self.model.apply(self.inputtingNote, target: self.source)
