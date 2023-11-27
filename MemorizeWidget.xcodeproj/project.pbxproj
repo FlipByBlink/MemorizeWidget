@@ -143,6 +143,7 @@
 		168D5F1E2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168D5F1F2AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
 		168D5F202AF6087700A100A7 /* UserDefaults(extension).swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */; };
+		168FB0C12B147A4D007E4879 /* 📖SheetDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */; };
 		16A026602AFC89DD00694CF2 /* 📗Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */; };
 		16A026642AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */; };
 		16A026712AFCF10400694CF2 /* 🪧Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A026702AFCF10400694CF2 /* 🪧Tag.swift */; };
@@ -1018,6 +1019,7 @@
 		168D5F072AF6034900A100A7 /* 📚Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📚Notes.swift"; sourceTree = "<group>"; };
 		168D5F142AF6056300A100A7 /* 🔖Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔖Tab.swift"; sourceTree = "<group>"; };
 		168D5F1B2AF6087700A100A7 /* UserDefaults(extension).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults(extension).swift"; sourceTree = "<group>"; };
+		168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖SheetDebug.swift"; sourceTree = "<group>"; };
 		16A0265F2AFC89DD00694CF2 /* 📗Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📗Placement.swift"; sourceTree = "<group>"; };
 		16A026632AFCB0B400694CF2 /* 📖DismissWidgetSheetOnBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📖DismissWidgetSheetOnBackground.swift"; sourceTree = "<group>"; };
 		16A026702AFCF10400694CF2 /* 🪧Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧Tag.swift"; sourceTree = "<group>"; };
@@ -1287,6 +1289,7 @@
 				16A800E82B0DC05D0046C526 /* 📖NoteRow.swift */,
 				163826572B0D90FF0082266F /* 📖DeletedNoteView.swift */,
 				16A800EA2B0DD2F80046C526 /* 📖MoveEndButton.swift */,
+				168FB0C02B147A4D007E4879 /* 📖SheetDebug.swift */,
 			);
 			path = "📖WidgetSheet";
 			sourceTree = "<group>";
@@ -2180,6 +2183,7 @@
 				1638263E2B0C84160082266F /* 📤NotesExportSheetView.swift in Sources */,
 				16C3D7912B096A3000849D96 /* 🗑DeletedContent.swift in Sources */,
 				163826412B0C84560082266F /* 🏗️ContentView.swift in Sources */,
+				168FB0C12B147A4D007E4879 /* 📖SheetDebug.swift in Sources */,
 				16C3D79B2B096B0F00849D96 /* 🗒️StaticInfo.swift in Sources */,
 				1638263C2B0C83CC0082266F /* 📥NotesImportFileSheetView.swift in Sources */,
 				1673E06C2B0A027100D621D3 /* 📘DictionaryButton.swift in Sources */,
