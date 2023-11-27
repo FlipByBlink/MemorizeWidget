@@ -66,12 +66,14 @@ private extension 🪧AccessoryWidgetView {
         .minimumScaleFactor(0.8)
         .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
     }
+#if os(watchOS)
     private func cornerView() -> some View {
         Image(systemName: "tag")
             .font(.title.weight(.medium))
             .widgetAccentable()
             .widgetLabel(self.notes.first?.title ?? "No note")
     }
+#endif
     private var titleFontSize: Font {
         if 🎛️Option.customizeFontSize {
             .system(size: CGFloat(🎛️Option.FontSize.AccessoryFamily.title))

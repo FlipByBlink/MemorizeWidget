@@ -59,10 +59,14 @@ private extension 🪧Entry {
                     🎛️Option.showCommentMode ? 2 : 3
                 case .systemLarge, .systemExtraLarge:
                     🎛️Option.showCommentMode ? 4 : 5
-                case .accessoryCorner, .accessoryCircular, .accessoryInline:
+                case .accessoryCircular, .accessoryInline:
                     1
                 case .accessoryRectangular:
                     🎛️Option.showCommentMode ? 1 : 3
+#if os(watchOS)
+                case .accessoryCorner:
+                    1
+#endif
                 @unknown default:
                     1
             }

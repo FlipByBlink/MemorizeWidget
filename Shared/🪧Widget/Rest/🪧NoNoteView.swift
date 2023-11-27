@@ -28,8 +28,12 @@ struct 🪧NoNoteView: View {
                 Text("No note")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
-            case .accessoryInline, .accessoryCorner:
+            case .accessoryInline:
                 Label("No note", systemImage: "book.closed")
+#if os(watchOS)
+            case .accessoryCorner:
+                Label("No note", systemImage: "book.closed")
+#endif
             default:
                 Image(systemName: "book.closed")
         }
