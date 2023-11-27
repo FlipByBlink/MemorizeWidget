@@ -31,34 +31,22 @@ struct 🪧PlaceholderView: View {
 private extension 🪧PlaceholderView {
     private var titleFontSize: CGFloat {
         switch self.widgetFamily {
-            case .accessoryRectangular:
-                20
-            case .systemSmall:
-                23
-            case .systemMedium:
-                30
-            case .systemLarge:
-                40
-            case .systemExtraLarge:
-                50
-            default:
-                23
+            case .accessoryRectangular: 20
+            case .systemSmall: 23
+            case .systemMedium: 30
+            case .systemLarge: 40
+            case .systemExtraLarge: 50
+            default: 23
         }
     }
     private var commentFontSize: CGFloat {
         switch self.widgetFamily {
-            case .accessoryRectangular:
-                14
-            case .systemSmall:
-                16
-            case .systemMedium:
-                20
-            case .systemLarge:
-                23
-            case .systemExtraLarge:
-                24
-            default:
-                14
+            case .accessoryRectangular: 14
+            case .systemSmall: 16
+            case .systemMedium: 20
+            case .systemLarge: 23
+            case .systemExtraLarge: 24
+            default: 14
         }
     }
 }

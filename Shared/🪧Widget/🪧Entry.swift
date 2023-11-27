@@ -11,7 +11,10 @@ struct 🪧Entry: TimelineEntry {
         self.kind = kind
         self.phase = phase
         self.timelineProviderContext = context
-        self.targetedNotes = self.pickNotes()
+        if [.primary, .sub].contains(self.kind),
+           [.snapshot, .inTimeline].contains(self.phase) {
+            self.targetedNotes = self.pickNotes()
+        }
     }
 }
 
