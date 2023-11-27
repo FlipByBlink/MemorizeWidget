@@ -17,7 +17,8 @@ struct 📖MoveEndButton: View {
                 if self.done {
                     Image(systemName: "checkmark")
                         .fontWeight(.heavy)
-                        .background(.background)
+                        .padding(2)
+                        .background(.background.opacity(0.9))
                 }
             }
         }
