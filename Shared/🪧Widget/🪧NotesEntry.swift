@@ -1,36 +1,25 @@
 import WidgetKit
 
-struct 🪧Entry: TimelineEntry {
+struct 🪧NotesEntry: TimelineEntry {
     let date: Date
     var kind: 🪧Kind
     var phase: 🪧Phase
-    var timelineProviderContext: TimelineProviderContext
-    var targetedNotes: 📚Notes?
+    var pickedNotes: 📚Notes
     init(date: Date, kind: 🪧Kind, phase: 🪧Phase, context: TimelineProviderContext) {
         self.date = date
         self.kind = kind
         self.phase = phase
-        self.timelineProviderContext = context
-        if [.primary, .sub].contains(self.kind),
-           [.snapshot, .inTimeline].contains(self.phase) {
-            self.targetedNotes = self.pickNotes()
+        switch phase {
+            case .placeholder:
+                self.pickedNotes = []
+            case .snapshot, .inTimeline:
+                let ⓝoteCount = Self.notesCount(context.family)
+                self.pickedNotes = Self.pickNotes(kind, ⓝoteCount)
         }
     }
 }
 
-extension 🪧Entry {
-    func pickNotes() -> 📚Notes {
-        var ⓐllNotes = .load() ?? []
-        if 🎛️Option.randomMode {
-            return Array(ⓐllNotes.shuffled().prefix(self.notesCount))
-        } else {
-            guard !ⓐllNotes.isEmpty else { return [] }
-            if self.kind == .sub {
-                ⓐllNotes = .init(ⓐllNotes.dropFirst(self.notesCount))
-            }
-            return Array(ⓐllNotes.prefix(self.notesCount))
-        }
-    }
+extension 🪧NotesEntry {
     var tag: 🪧Tag {
         switch self.phase {
             case .placeholder:
@@ -38,23 +27,19 @@ extension 🪧Entry {
             case .snapshot, .inTimeline:
                 switch self.kind {
                     case .newNoteShortcut:
+                        assertionFailure()
                         return .newNoteShortcut
                     case .primary, .sub:
-                        if let ⓘds = self.targetedNotes?.map({ $0.id }) {
-                            return .notes(ⓘds)
-                        } else {
-                            assertionFailure()
-                            return .notes([])
-                        }
+                        return .notes(self.pickedNotes.map { $0.id })
                 }
         }
     }
 }
 
-private extension 🪧Entry {
-    private var notesCount: Int {
+private extension 🪧NotesEntry {
+    private static func notesCount(_ ⓦidgetFamily: WidgetFamily) -> Int {
         if 🎛️Option.multiNotesMode {
-            switch self.timelineProviderContext.family {
+            switch ⓦidgetFamily {
                 case .systemSmall, .systemMedium:
                     🎛️Option.showCommentMode ? 2 : 3
                 case .systemLarge, .systemExtraLarge:
@@ -72,6 +57,18 @@ private extension 🪧Entry {
             }
         } else {
             1
+        }
+    }
+    private static func pickNotes(_ ⓚind: 🪧Kind, _ ⓒount: Int) -> 📚Notes {
+        var ⓐllNotes = .load() ?? []
+        if 🎛️Option.randomMode {
+            return Array(ⓐllNotes.shuffled().prefix(ⓒount))
+        } else {
+            guard !ⓐllNotes.isEmpty else { return [] }
+            if ⓚind == .sub {
+                ⓐllNotes = .init(ⓐllNotes.dropFirst(ⓒount))
+            }
+            return Array(ⓐllNotes.prefix(ⓒount))
         }
     }
 }

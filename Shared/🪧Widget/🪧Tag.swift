@@ -24,23 +24,11 @@ extension 🪧Tag: Hashable {
         }
     }
     var url: URL { .init(string: self.urlString)! }
-    var targetedNoteIDs: [UUID] {
+    var pickedNotesIDs: [UUID] {
         switch self {
             case .notes(let ⓘds):
                 return ⓘds
             case .newNoteShortcut, .placeholder:
-                assertionFailure()
-                return []
-        }
-    }
-    func loadTargetedNotes() -> 📚Notes {
-        let ⓐllNotes = .load() ?? []
-        switch self {
-            case .notes(let ⓘds):
-                return ⓘds.compactMap { ⓘd in
-                    ⓐllNotes.first { $0.id == ⓘd }
-                }
-            case .placeholder, .newNoteShortcut:
                 assertionFailure()
                 return []
         }

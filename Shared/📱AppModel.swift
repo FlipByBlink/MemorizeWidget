@@ -126,7 +126,7 @@ extension 📱AppModel {
         if let ⓣag = 🪧Tag.decode(ⓤrl) {
             switch ⓣag {
                 case .notes(_):
-                    if !ⓣag.targetedNoteIDs.isEmpty {
+                    if !ⓣag.pickedNotesIDs.isEmpty {
                         self.presentedSheetOnContentView = .widget(ⓣag)
                     } else {
                         break
@@ -161,7 +161,7 @@ extension 📱AppModel {
         guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
             return []
         }
-        return ⓣag.targetedNoteIDs
+        return ⓣag.pickedNotesIDs
     }
     var openedWidgetSingleNoteIndex: Int? {
         self.notes.index(self.openedWidgetNoteIDs.first)
@@ -170,13 +170,13 @@ extension 📱AppModel {
         guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
             return 0
         }
-        return ⓣag.targetedNoteIDs.count
+        return ⓣag.pickedNotesIDs.count
     }
     var deletedAllWidgetNotes: Bool {
         guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
             return false
         }
-        return ⓣag.targetedNoteIDs.allSatisfy { ⓘd in
+        return ⓣag.pickedNotesIDs.allSatisfy { ⓘd in
             !self.notes.contains { $0.id == ⓘd }
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🪧SystemWidgetView: View {
-    private var notes: 📚Notes
+    var notes: 📚Notes
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
     var body: some View {
@@ -27,9 +27,6 @@ struct 🪧SystemWidgetView: View {
         .frame(maxWidth: .infinity)
         .padding(self.edgeInsets)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
-    }
-    init(_ ⓣag: 🪧Tag) {
-        self.notes = ⓣag.loadTargetedNotes()
     }
 }
 

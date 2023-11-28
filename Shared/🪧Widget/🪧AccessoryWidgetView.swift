@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 struct 🪧AccessoryWidgetView: View {
-    private var notes: [📗Note]
+    var notes: [📗Note]
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         switch self.widgetFamily {
@@ -14,9 +14,6 @@ struct 🪧AccessoryWidgetView: View {
 #endif
             default: Text(verbatim: "BUG")
         }
-    }
-    init(_ ⓣag: 🪧Tag) {
-        self.notes = ⓣag.loadTargetedNotes()
     }
 }
 

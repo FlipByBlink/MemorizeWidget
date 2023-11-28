@@ -5,21 +5,21 @@ struct 🪧Provider {
 }
  
 extension 🪧Provider: TimelineProvider {
-    func placeholder(in context: Context) -> 🪧Entry {
+    func placeholder(in context: Context) -> 🪧NotesEntry {
         .init(date: .now,
               kind: self.kind,
               phase: .placeholder,
               context: context)
     }
-    func getSnapshot(in context: Context, completion: @escaping (🪧Entry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (🪧NotesEntry) -> ()) {
         completion(.init(date: .now,
                          kind: self.kind,
                          phase: .snapshot,
                          context: context))
     }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<🪧Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<🪧NotesEntry>) -> ()) {
         if 🎛️Option.multiNotesMode {
-            var ⓔntries: [🪧Entry] = []
+            var ⓔntries: [🪧NotesEntry] = []
             [0, 5, 10, 15, 20].forEach {
                 let ⓓate = Calendar.current.date(byAdding: .minute, value: $0, to: .now)!
                 ⓔntries.append(.init(date: ⓓate,
