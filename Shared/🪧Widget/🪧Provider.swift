@@ -33,7 +33,7 @@ extension 🪧Provider: TimelineProvider {
                 .init(entries: [.init(date: .now,
                                       kind: self.kind,
                                       phase: .inTimeline,
-                                      pickedNotes: self.pickSingleNotes())],
+                                      pickedNotes: self.pickSingleNote())],
                       policy: .after(Calendar.current.date(byAdding: .minute, value: 20, to: .now)!))
             )
         }
@@ -54,7 +54,7 @@ private extension 🪧Provider {
             return Array(ⓐllNotes.prefix(ⓒount))
         }
     }
-    private func pickSingleNotes() -> 📚Notes {
+    private func pickSingleNote() -> 📚Notes {
         var ⓐllNotes = .load() ?? []
         if 🎛️Option.randomMode {
             if let ⓝote = ⓐllNotes.randomElement() {

@@ -11,6 +11,9 @@ extension 📱AppModel {
         guard let ⓘndex = self.notes.firstIndex(of: ⓝote) else { return }
         self.addNewNote(index: ⓘndex + 1)
     }
+    var openedWidgetSingleNoteIndex: Int? {
+        self.notes.index(self.openedWidgetNoteIDs.first)
+    }
     func switchNotesListTab() {
         self.selectedTab = .notesList
         self.selectedSidebar = .notesList

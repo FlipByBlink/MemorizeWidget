@@ -32,7 +32,7 @@ class 📱AppModel: NSObject, ObservableObject {
     }
 }
 
-//MARK: Computed property, Method
+//MARK: Handle notes
 extension 📱AppModel {
     func moveNoteForDynamicView(_ ⓢource: IndexSet, _ ⓓestination: Int) {
         self.notes.move(fromOffsets: ⓢource, toOffset: ⓓestination)
@@ -101,6 +101,12 @@ extension 📱AppModel {
         self.saveNotes()
         💥Feedback.light()
     }
+    func saveNotes(withWidgetReload ⓦidgetReload: Bool = true) {
+        💾ICloud.save(self.notes)
+        if ⓦidgetReload {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
 #if os(iOS) || os(macOS)
     func submitNotesImport(_ ⓒonvertedNotes: 📚Notes) {
         self.insertOnTop(ⓒonvertedNotes)
@@ -108,12 +114,6 @@ extension 📱AppModel {
         💥Feedback.success()
     }
 #endif
-    func saveNotes(withWidgetReload ⓦidgetReload: Bool = true) {
-        💾ICloud.save(self.notes)
-        if ⓦidgetReload {
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-    }
 }
 
 //MARK: Handle widget URL
@@ -153,10 +153,6 @@ extension 📱AppModel {
 
 //MARK: Others
 extension 📱AppModel {
-    func presentSheet(_ ⓣarget: 📰SheetOnContentView) {
-        💥Feedback.light()
-        self.presentedSheetOnContentView = ⓣarget
-    }
     var openedWidgetNoteIDs: [UUID] {
         if case .widget(let ⓣag) = self.presentedSheetOnContentView,
            case .notes(let ⓘds) = ⓣag {
@@ -165,12 +161,19 @@ extension 📱AppModel {
             []
         }
     }
-    var openedWidgetSingleNoteIndex: Int? {
-        self.notes.index(self.openedWidgetNoteIDs.first)
-    }
     var openedWidgetNotesCount: Int {
         self.openedWidgetNoteIDs.count
     }
+    var exceedDataSizePerhaps: Bool {
+        self.notes.dataCount > 800000
+    }
+#if os(iOS) || os(macOS)
+    func presentSheet(_ ⓣarget: 📰SheetOnContentView) {
+        💥Feedback.light()
+        self.presentedSheetOnContentView = ⓣarget
+    }
+#endif
+#if os(iOS) || os(watchOS)
     var deletedAllWidgetNotes: Bool {
         if self.openedWidgetNoteIDs.count > 0 {
             self.openedWidgetNoteIDs.allSatisfy { ⓘd in
@@ -180,9 +183,7 @@ extension 📱AppModel {
             false
         }
     }
-    var exceedDataSizePerhaps: Bool {
-        self.notes.dataCount > 800000
-    }
+#endif
 }
 
 //MARK: iCloud
