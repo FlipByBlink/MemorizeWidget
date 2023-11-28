@@ -43,7 +43,7 @@ private extension 🪧EntryView {
             case .placeholder:
                 🪧Tag.placeholder.url
             case .snapshot, .inTimeline:
-                🪧Tag.notes(self.entry.pickedNotes.map { $0.id }).url
+                🪧Tag.notes(self.entry.pickedNotes.map(\.id)).url
         }
     }
 }

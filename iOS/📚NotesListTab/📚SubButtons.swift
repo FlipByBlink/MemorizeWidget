@@ -54,7 +54,7 @@ private extension 📚SubButtons {
     }
     private func dictionaryButton() -> some View {
         Button {
-            self.appModel.presentSheet(.dictionary(.init(term: self.note.title)))
+            self.appModel.presentSheetOnContentView(.dictionary(.init(term: self.note.title)))
         } label: {
             Label("Dictionary", systemImage: "character.book.closed")
                 .padding(8)
@@ -69,7 +69,7 @@ private extension 📚SubButtons {
                     if $0 == false { self.searchModel.alertOpenURLFailure = true }
                 }
             } else {
-                self.appModel.presentSheet(.search(ⓤrl))
+                self.appModel.presentSheetOnContentView(.search(ⓤrl))
             }
         } label: {
             Label("Search", systemImage: "magnifyingglass")

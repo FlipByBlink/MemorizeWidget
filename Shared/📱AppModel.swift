@@ -168,7 +168,7 @@ extension 📱AppModel {
         self.notes.dataCount > 800000
     }
 #if os(iOS) || os(macOS)
-    func presentSheet(_ ⓣarget: 📰SheetOnContentView) {
+    func presentSheetOnContentView(_ ⓣarget: 📰SheetOnContentView) {
         💥Feedback.light()
         self.presentedSheetOnContentView = ⓣarget
     }

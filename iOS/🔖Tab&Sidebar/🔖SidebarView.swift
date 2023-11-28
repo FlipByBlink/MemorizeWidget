@@ -19,13 +19,13 @@ private extension 🔖SidebarView {
     private func bottomBarButtons() -> some ToolbarContent {
         ToolbarItemGroup(placement: .bottomBar) {
             Button {
-                self.model.presentSheet(.aboutApp)
+                self.model.presentSheetOnContentView(.aboutApp)
             } label: {
                 Label("App", systemImage: "info.circle")
             }
             Spacer()
             Button {
-                self.model.presentSheet(.purchase)
+                self.model.presentSheetOnContentView(.purchase)
             } label: {
                 Label("Purchase", systemImage: "cart")
             }

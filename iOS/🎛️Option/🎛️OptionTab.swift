@@ -28,7 +28,7 @@ private extension 🎛️OptionTab {
                     }
                 case .pad:
                     Button {
-                        self.model.presentSheet(.customizeFontSize)
+                        self.model.presentSheetOnContentView(.customizeFontSize)
                     } label: {
                         Label("Customize font size…", systemImage: "textformat.size")
                     }
@@ -48,7 +48,7 @@ private extension 🎛️OptionTab {
                     }
                 case .pad:
                     Button {
-                        self.model.presentSheet(.customizeSearch)
+                        self.model.presentSheetOnContentView(.customizeSearch)
                     } label: {
                         Label("Customize search function…", systemImage: "magnifyingglass")
                     }

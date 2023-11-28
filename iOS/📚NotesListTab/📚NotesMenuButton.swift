@@ -24,7 +24,7 @@ struct 📚NotesMenuButton: ToolbarContent { // 🪄
 private extension 📚NotesMenuButton {
     private func notesExportSheetButton() -> some View {
         Button {
-            self.model.presentSheet(.notesExport)
+            self.model.presentSheetOnContentView(.notesExport)
         } label: {
             Label("Export notes", systemImage: "tray.and.arrow.up")
         }

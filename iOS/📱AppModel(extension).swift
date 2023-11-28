@@ -2,14 +2,17 @@ import SwiftUI
 
 extension 📱AppModel {
     func apply(_ ⓘnputtedNote: 📗Note, target ⓣargetNote: 📗Note) {
-        guard let ⓘndex = self.notes.firstIndex(of: ⓣargetNote) else { return }
-        self.notes[ⓘndex].title = ⓘnputtedNote.title
-        self.notes[ⓘndex].comment = ⓘnputtedNote.comment
-        self.saveNotes()
+        if let ⓘndex = self.notes.firstIndex(of: ⓣargetNote) {
+            self.notes[ⓘndex].title = ⓘnputtedNote.title
+            self.notes[ⓘndex].comment = ⓘnputtedNote.comment
+            //Not copy UUID
+            self.saveNotes()
+        }
     }
     func addNewNoteBelow(_ ⓝote: 📗Note) {
-        guard let ⓘndex = self.notes.firstIndex(of: ⓝote) else { return }
-        self.addNewNote(index: ⓘndex + 1)
+        if let ⓘndex = self.notes.firstIndex(of: ⓝote) {
+            self.addNewNote(index: ⓘndex + 1)
+        }
     }
     var openedWidgetSingleNoteIndex: Int? {
         self.notes.index(self.openedWidgetNoteIDs.first)
@@ -38,10 +41,8 @@ extension 📱AppModel {
         }
     }
     func dismissWidgetSheetOnBackground(_ ⓢcenePhase: ScenePhase) {
-        guard case .widget(_) = self.presentedSheetOnContentView else {
-            return
-        }
-        if ⓢcenePhase == .background {
+        if case .widget(_) = self.presentedSheetOnContentView,
+           ⓢcenePhase == .background {
             self.presentedSheetOnWidgetSheet = nil
             self.presentedSheetOnContentView = nil
         }

@@ -49,13 +49,13 @@ struct 🪄Commands: Commands {
             CommandMenu("Organize") {
                 Group {
                     Button("Import notes(file)") {
-                        self.model?.presentSheet(.notesImportFile)
+                        self.model?.presentSheetOnContentView(.notesImportFile)
                     }
                     Button("Import notes(text)") {
-                        self.model?.presentSheet(.notesImportText)
+                        self.model?.presentSheetOnContentView(.notesImportText)
                     }
                     Button("Export notes") {
-                        self.model?.presentSheet(.notesExport)
+                        self.model?.presentSheetOnContentView(.notesExport)
                     }
                 }
                 Divider()
