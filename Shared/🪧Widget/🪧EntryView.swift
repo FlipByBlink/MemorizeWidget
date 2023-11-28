@@ -8,6 +8,7 @@ struct 🪧EntryView: View {
             if self.entry.pickedNotes.isEmpty {
                 🪧NoNoteView()
             } else {
+#if os(iOS)
                 switch self.widgetFamily {
                     case .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge:
                         🪧SystemWidgetView(notes: self.entry.pickedNotes)
@@ -16,6 +17,11 @@ struct 🪧EntryView: View {
                     default:
                         Text(verbatim: "BUG")
                 }
+#elseif os(watchOS)
+                🪧AccessoryWidgetView(notes: self.entry.pickedNotes)
+#elseif os(macOS)
+                🪧SystemWidgetView(notes: self.entry.pickedNotes)
+#endif
             }
         }
         .widgetURL(self.entry.tag.url)
