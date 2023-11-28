@@ -1,4 +1,3 @@
-import WidgetKit
 import SwiftUI
 
 @main

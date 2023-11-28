@@ -1577,8 +1577,8 @@
 			children = (
 				16C3D7CA2B0989F500849D96 /* WidgetBundle.swift */,
 				16C3D7CE2B0989F700849D96 /* Assets.xcassets */,
-				16C3D7D02B0989F700849D96 /* Info.plist */,
 				16C3D7D12B0989F700849D96 /* Widget.entitlements */,
+				16C3D7D02B0989F700849D96 /* Info.plist */,
 				160BA3F82B0D9E6F0011E739 /* InfoPlist.xcstrings */,
 			);
 			path = Widget;
@@ -1622,26 +1622,6 @@
 				F50C83492AA5FF6E0033A04B /* Assets.xcassets */,
 				F568F1AB29E3A91C005A1D1A /* watchOS.entitlements */,
 				F59F8D662AB3D41A00B2D455 /* InfoPlist.strings */,
-			);
-			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		F50C82FF2AA5CC5F0033A04B /* Supporting files */ = {
-			isa = PBXGroup;
-			children = (
-				F50C837E2AA600E80033A04B /* Assets.xcassets */,
-				F5D30CDC28C709D2001198AF /* Widget.entitlements */,
-				F5D30CD028C6F6C9001198AF /* Info.plist */,
-			);
-			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		F50C83002AA5CC6B0033A04B /* Supporting files */ = {
-			isa = PBXGroup;
-			children = (
-				F50C83802AA6010E0033A04B /* Assets.xcassets */,
-				F568F1FC29E3C567005A1D1A /* Info.plist */,
-				F568F20429E3C56D005A1D1A /* Widget.entitlements */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -1759,7 +1739,9 @@
 			isa = PBXGroup;
 			children = (
 				F568F1F829E3C565005A1D1A /* WidgetBundle.swift */,
-				F50C83002AA5CC6B0033A04B /* Supporting files */,
+				F50C83802AA6010E0033A04B /* Assets.xcassets */,
+				F568F20429E3C56D005A1D1A /* Widget.entitlements */,
+				F568F1FC29E3C567005A1D1A /* Info.plist */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1829,8 +1811,8 @@
 				166BC28F2AF61AD900729C66 /* 📨RootView.swift */,
 				166BC28D2AF619EB00729C66 /* 📨InputType.swift */,
 				F5CEA5F52924AAAC00752277 /* MainInterface.storyboard */,
-				F5CEA5F82924AAAC00752277 /* Info.plist */,
 				F5CEA5FF2924AB1900752277 /* ShareExtension.entitlements */,
+				F5CEA5F82924AAAC00752277 /* Info.plist */,
 			);
 			path = ShareExtension;
 			sourceTree = "<group>";
@@ -1849,7 +1831,9 @@
 			isa = PBXGroup;
 			children = (
 				F5D30CCC28C6F6C8001198AF /* WidgetBundle.swift */,
-				F50C82FF2AA5CC5F0033A04B /* Supporting files */,
+				F50C837E2AA600E80033A04B /* Assets.xcassets */,
+				F5D30CDC28C709D2001198AF /* Widget.entitlements */,
+				F5D30CD028C6F6C9001198AF /* Info.plist */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -2765,12 +2749,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/App Extensions/Widget/Supporting files/Widget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "watchOS/App Extensions/Widget/Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/App Extensions/Widget/Supporting files/Info.plist";
+				INFOPLIST_FILE = "watchOS/App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2796,12 +2780,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/App Extensions/Widget/Supporting files/Widget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "watchOS/App Extensions/Widget/Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/App Extensions/Widget/Supporting files/Info.plist";
+				INFOPLIST_FILE = "watchOS/App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3089,12 +3073,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "iOS/App Extensions/Widget/Supporting files/Widget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/App Extensions/Widget/Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/App Extensions/Widget/Supporting files/Info.plist";
+				INFOPLIST_FILE = "iOS/App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -3122,12 +3106,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "iOS/App Extensions/Widget/Supporting files/Widget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/App Extensions/Widget/Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6696GEY228;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/App Extensions/Widget/Supporting files/Info.plist";
+				INFOPLIST_FILE = "iOS/App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MemorizeW;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
