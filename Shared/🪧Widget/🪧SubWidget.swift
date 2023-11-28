@@ -4,11 +4,7 @@ import SwiftUI
 struct 🪧SubWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "sub", provider: 🪧Provider(kind: .sub)) {
-            if $0.phase == .placeholder {
-                🪧PlaceholderView()
-            } else {
-                🪧EntryView($0)
-            }
+            🪧EntryView($0)
         }
         .configurationDisplayName("Sub widget")
         .description("This is spare widget for the purpose of second widget")

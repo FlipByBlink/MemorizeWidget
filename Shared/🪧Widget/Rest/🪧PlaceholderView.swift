@@ -3,28 +3,25 @@ import SwiftUI
 struct 🪧PlaceholderView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
-        Group {
-            switch self.widgetFamily {
+        switch self.widgetFamily {
 #if os(iOS) || os(watchOS)
-                case .accessoryInline, .accessoryCircular:
-                    Text(verbatim: "Placeholder")
+            case .accessoryInline, .accessoryCircular:
+                Text(verbatim: "Placeholder")
 #endif
 #if os(watchOS)
-                case .accessoryCorner:
-                    Image(systemName: "tag")
-                        .widgetLabel("Placeholder" as String)
+            case .accessoryCorner:
+                Image(systemName: "tag")
+                    .widgetLabel("Placeholder" as String)
 #endif
-                default:
-                    VStack(spacing: 2) {
-                        Text(verbatim: "Placeholder")
-                            .font(.system(size: self.titleFontSize))
-                        Text(verbatim: "Placeholder")
-                            .font(.system(size: self.commentFontSize))
-                            .foregroundStyle(.secondary)
-                    }
-            }
+            default:
+                VStack(spacing: 2) {
+                    Text(verbatim: "Placeholder")
+                        .font(.system(size: self.titleFontSize))
+                    Text(verbatim: "Placeholder")
+                        .font(.system(size: self.commentFontSize))
+                        .foregroundStyle(.secondary)
+                }
         }
-        .modifier(🪧ContainerBackground())
     }
 }
 

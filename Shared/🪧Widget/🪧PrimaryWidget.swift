@@ -4,11 +4,7 @@ import SwiftUI
 struct 🪧PrimaryWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: Self.kind, provider: 🪧Provider(kind: .primary)) {
-            if $0.phase == .placeholder {
-                🪧PlaceholderView()
-            } else {
-                🪧EntryView($0)
-            }
+            🪧EntryView($0)
         }
         .configurationDisplayName(Self.configurationDisplayName)
         .description("Show a note.")

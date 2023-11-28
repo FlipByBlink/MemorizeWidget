@@ -24,7 +24,7 @@ extension 🪧Tag: Hashable {
         }
     }
     var url: URL { .init(string: self.urlString)! }
-    var pickedNotesIDs: [UUID] {
+    var pickedNotesIDs: [UUID] { //TODO: 削除検討
         switch self {
             case .notes(let ⓘds):
                 return ⓘds
@@ -33,10 +33,6 @@ extension 🪧Tag: Hashable {
                 return []
         }
     }
-}
-
-//MARK: Decode
-extension 🪧Tag {
     static func decode(_ ⓤrl: URL) -> Self? {
         switch ⓤrl.host {
             case "notes":
