@@ -125,8 +125,8 @@ extension 📱AppModel {
 #endif
         if let ⓣag = 🪧Tag.decode(ⓤrl) {
             switch ⓣag {
-                case .notes(_):
-                    if !ⓣag.pickedNotesIDs.isEmpty {
+                case .notes(let ⓘds):
+                    if !ⓘds.isEmpty {
                         self.presentedSheetOnContentView = .widget(ⓣag)
                     } else {
                         break
@@ -158,26 +158,26 @@ extension 📱AppModel {
         self.presentedSheetOnContentView = ⓣarget
     }
     var openedWidgetNoteIDs: [UUID] {
-        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
-            return []
+        if case .widget(let ⓣag) = self.presentedSheetOnContentView,
+           case .notes(let ⓘds) = ⓣag {
+            ⓘds
+        } else {
+            []
         }
-        return ⓣag.pickedNotesIDs
     }
     var openedWidgetSingleNoteIndex: Int? {
         self.notes.index(self.openedWidgetNoteIDs.first)
     }
     var openedWidgetNotesCount: Int {
-        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
-            return 0
-        }
-        return ⓣag.pickedNotesIDs.count
+        self.openedWidgetNoteIDs.count
     }
     var deletedAllWidgetNotes: Bool {
-        guard case .widget(let ⓣag) = self.presentedSheetOnContentView else {
-            return false
-        }
-        return ⓣag.pickedNotesIDs.allSatisfy { ⓘd in
-            !self.notes.contains { $0.id == ⓘd }
+        if self.openedWidgetNoteIDs.count > 0 {
+            self.openedWidgetNoteIDs.allSatisfy { ⓘd in
+                !self.notes.contains { $0.id == ⓘd }
+            }
+        } else {
+            false
         }
     }
     var exceedDataSizePerhaps: Bool {

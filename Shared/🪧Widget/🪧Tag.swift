@@ -24,15 +24,6 @@ extension 🪧Tag: Hashable {
         }
     }
     var url: URL { .init(string: self.urlString)! }
-    var pickedNotesIDs: [UUID] { //TODO: 削除検討
-        switch self {
-            case .notes(let ⓘds):
-                return ⓘds
-            case .newNoteShortcut, .placeholder:
-                assertionFailure()
-                return []
-        }
-    }
     static func decode(_ ⓤrl: URL) -> Self? {
         switch ⓤrl.host {
             case "notes":
