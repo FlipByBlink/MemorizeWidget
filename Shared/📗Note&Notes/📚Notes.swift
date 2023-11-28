@@ -11,7 +11,7 @@ extension 📚Notes {
 
 extension 📚Notes {
     mutating func cleanEmptyTitleNotes() {
-        self.removeAll { $0.title == "" }
+        self.removeAll { $0.title.isEmpty }
     }
     func index(_ ⓘd: UUID?) -> Int? {
         self.firstIndex { $0.id == ⓘd }
@@ -34,6 +34,7 @@ extension 📚Notes {
         }
     }
     var dataCount: Int { self.encode().count }
+    var exceedDataSizePerhaps: Bool { self.dataCount > 800000 }
 }
 
 extension 📚Notes {

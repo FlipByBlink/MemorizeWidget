@@ -21,18 +21,17 @@ private extension 📖WidgetSheetView {
     private struct NoteDetailLink: View {
         @EnvironmentObject var model: 📱AppModel
         var id: UUID
-        private var ⓝoteIndex: Int? { self.model.notes.index(self.id) }
         private var singleNoteLayout: Bool { self.model.openedWidgetNotesCount == 1 }
         var body: some View {
-            if let ⓝoteIndex {
+            if let ⓘndex = self.model.notes.index(self.id) {
                 NavigationLink {
-                    📗NoteView(self.$model.notes[ⓝoteIndex], .widgetSheet)
+                    📗NoteView(self.$model.notes[ⓘndex], .widgetSheet)
                 } label: {
                     VStack(alignment: .leading) {
-                        Text(self.model.notes[ⓝoteIndex].title)
+                        Text(self.model.notes[ⓘndex].title)
                             .font(self.singleNoteLayout ? .title2 : .title3)
                             .bold()
-                        Text(self.model.notes[ⓝoteIndex].comment)
+                        Text(self.model.notes[ⓘndex].comment)
                             .font(self.singleNoteLayout ? .body : .subheadline)
                             .foregroundStyle(.secondary)
                     }

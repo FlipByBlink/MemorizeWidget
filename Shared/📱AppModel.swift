@@ -164,9 +164,6 @@ extension 📱AppModel {
     var openedWidgetNotesCount: Int {
         self.openedWidgetNoteIDs.count
     }
-    var exceedDataSizePerhaps: Bool {
-        self.notes.dataCount > 800000
-    }
 #if os(iOS) || os(macOS)
     func presentSheetOnContentView(_ ⓣarget: 📰SheetOnContentView) {
         💥Feedback.light()

@@ -5,16 +5,16 @@ struct 💁GuideTab: View {
     var body: some View {
         NavigationStack {
             List {
-                if self.model.exceedDataSizePerhaps { 🄳ataSection() }
+                if self.model.notes.exceedDataSizePerhaps { 🄳ataSection() }
                 🄸mportNotesSection()
                 🅃ipsSection()
-                if !self.model.exceedDataSizePerhaps { 🄳ataSection() }
+                if !self.model.notes.exceedDataSizePerhaps { 🄳ataSection() }
                 🄰ppleSupportLinkSection()
                 🄳irectionsSection()
             }
             .navigationTitle("Guide")
         }
-        .badge(self.model.exceedDataSizePerhaps ? Text(verbatim: "!") : nil)
+        .badge(self.model.notes.exceedDataSizePerhaps ? Text(verbatim: "!") : nil)
     }
 }
 

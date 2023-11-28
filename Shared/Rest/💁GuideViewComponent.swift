@@ -17,7 +17,7 @@ enum 💁GuideViewComponent {
             } label: {
                 Label("Notes data count", systemImage: "books.vertical")
             }
-            if self.model.exceedDataSizePerhaps {
+            if self.model.notes.exceedDataSizePerhaps {
                 Text("⚠️ NOTICE DATA LIMITATION")
                     .font(.headline)
                     .foregroundStyle(.red)
