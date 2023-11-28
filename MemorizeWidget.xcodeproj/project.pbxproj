@@ -51,6 +51,25 @@
 		1636A5742B15B31B009796A6 /* 🪧PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
 		1636A5752B15B328009796A6 /* 🪧SystemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
 		1636A5762B15B32A009796A6 /* 🪧SystemWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
+		1636A5772B15E14A009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */; };
+		1636A5782B15E14A009796A6 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
+		1636A5792B15E14A009796A6 /* 🪧SystemWidgetView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
+		1636A57A2B15E14A009796A6 /* 🪧AccessoryWidgetView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */; };
+		1636A57B2B15E14A009796A6 /* 🪧NoNoteView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		1636A57C2B15E14A009796A6 /* 🪧PlaceholderView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
+		1636A57D2B15E14A009796A6 /* 🪧ContainerBackground.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */; };
+		1636A57E2B15E172009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */; };
+		1636A57F2B15E172009796A6 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
+		1636A5802B15E172009796A6 /* 🪧AccessoryWidgetView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C839A2AA698FA0033A04B /* 🪧AccessoryWidgetView.swift */; };
+		1636A5812B15E172009796A6 /* 🪧NoNoteView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		1636A5822B15E172009796A6 /* 🪧PlaceholderView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
+		1636A5832B15E172009796A6 /* 🪧ContainerBackground.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */; };
+		1636A5842B15E188009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1671563E2AFF37DF00043F03 /* 🪧PrimaryWidget.swift */; };
+		1636A5852B15E188009796A6 /* 🪧EntryView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C832B2AA5E4FB0033A04B /* 🪧EntryView.swift */; };
+		1636A5862B15E188009796A6 /* 🪧SystemWidgetView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83962AA60A8D0033A04B /* 🪧SystemWidgetView.swift */; };
+		1636A5872B15E188009796A6 /* 🪧NoNoteView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83982AA60B040033A04B /* 🪧NoNoteView.swift */; };
+		1636A5882B15E188009796A6 /* 🪧PlaceholderView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EDAF372AFB57B100881864 /* 🪧PlaceholderView.swift */; };
+		1636A5892B15E188009796A6 /* 🪧ContainerBackground.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50C83282AA5E3430033A04B /* 🪧ContainerBackground.swift */; };
 		1638261B2B0C24770082266F /* 🔍SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261A2B0C24770082266F /* 🔍SearchButton.swift */; };
 		1638261D2B0C2A610082266F /* 🚏ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261C2B0C2A610082266F /* 🚏ContextMenu.swift */; };
 		1638261F2B0C2D3F0082266F /* 🛫MoveTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638261E2B0C2D3F0082266F /* 🛫MoveTopButton.swift */; };
@@ -637,6 +656,12 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1636A5842B15E188009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */,
+				1636A5852B15E188009796A6 /* 🪧EntryView.swift in CopyFiles */,
+				1636A5862B15E188009796A6 /* 🪧SystemWidgetView.swift in CopyFiles */,
+				1636A5872B15E188009796A6 /* 🪧NoNoteView.swift in CopyFiles */,
+				1636A5882B15E188009796A6 /* 🪧PlaceholderView.swift in CopyFiles */,
+				1636A5892B15E188009796A6 /* 🪧ContainerBackground.swift in CopyFiles */,
 				16900BF32B14C6EA00EB756C /* 🔧MenuBarPanel.swift in CopyFiles */,
 				16900BF02B14C21700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				168FB0C22B147BB4007E4879 /* 📖SheetDebug.swift in CopyFiles */,
@@ -740,6 +765,12 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1636A57E2B15E172009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */,
+				1636A57F2B15E172009796A6 /* 🪧EntryView.swift in CopyFiles */,
+				1636A5802B15E172009796A6 /* 🪧AccessoryWidgetView.swift in CopyFiles */,
+				1636A5812B15E172009796A6 /* 🪧NoNoteView.swift in CopyFiles */,
+				1636A5822B15E172009796A6 /* 🪧PlaceholderView.swift in CopyFiles */,
+				1636A5832B15E172009796A6 /* 🪧ContainerBackground.swift in CopyFiles */,
 				16900BEF2B14C20700EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				16A801402B0DEFAC0046C526 /* 💁GuideViewComponent.swift in CopyFiles */,
 				16A801412B0DEFAC0046C526 /* 📱AppModel(extension).swift in CopyFiles */,
@@ -815,6 +846,13 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				1636A5772B15E14A009796A6 /* 🪧PrimaryWidget.swift in CopyFiles */,
+				1636A5782B15E14A009796A6 /* 🪧EntryView.swift in CopyFiles */,
+				1636A5792B15E14A009796A6 /* 🪧SystemWidgetView.swift in CopyFiles */,
+				1636A57A2B15E14A009796A6 /* 🪧AccessoryWidgetView.swift in CopyFiles */,
+				1636A57B2B15E14A009796A6 /* 🪧NoNoteView.swift in CopyFiles */,
+				1636A57C2B15E14A009796A6 /* 🪧PlaceholderView.swift in CopyFiles */,
+				1636A57D2B15E14A009796A6 /* 🪧ContainerBackground.swift in CopyFiles */,
 				16900BEE2B14C1FD00EB756C /* 🎛️MultilineTextAlignment.swift in CopyFiles */,
 				168FB0C52B148809007E4879 /* FocusedValues(extension).swift in CopyFiles */,
 				16A8012A2B0DEA300046C526 /* 📨RootView.swift in CopyFiles */,
