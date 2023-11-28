@@ -7,7 +7,7 @@ enum 🪧Tag {
 }
 
 extension 🪧Tag: Hashable {
-    var urlString: String {
+    var url: URL {
         switch self {
             case .notes(let ⓘds):
                 var ⓟath: String = ""
@@ -16,14 +16,13 @@ extension 🪧Tag: Hashable {
                     if ⓘd == ⓘds.last { break }
                     ⓟath += "/"
                 }
-                return "example://notes/\(ⓟath)"
+                return .init(string: "example://notes/\(ⓟath)")!
             case .newNoteShortcut:
-                return "example://newNoteShortcut/"
+                return .init(string: "example://newNoteShortcut/")!
             case .placeholder:
-                return "example://placeholder/"
+                return .init(string: "example://placeholder/")!
         }
     }
-    var url: URL { .init(string: self.urlString)! }
     static func decode(_ ⓤrl: URL) -> Self? {
         switch ⓤrl.host {
             case "notes":
