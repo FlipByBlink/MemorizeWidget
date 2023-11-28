@@ -8,6 +8,7 @@ struct 🔧WidgetPanel: View {
                 🎛️RandomModeToggle()
             } footer: {
                 🎛️RandomModeToggle.Caption()
+                    .foregroundStyle(.secondary)
             }
             Section {
                 🎛️ViewComponent.MultiNotesToggle()

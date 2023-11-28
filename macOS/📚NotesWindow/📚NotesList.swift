@@ -13,9 +13,7 @@ struct 📚NotesList: View {
                             .id($0.id)
                     }
                     .onMove { self.model.moveNoteForDynamicView($0, $1) }
-                    .onDelete(
-                        perform: self.focusedNoteID == nil ? self.model.deleteNotesForDynamicView : nil
-                    )
+                    .onDelete(perform: self.onDeleteAction)
                 } footer: {
                     Self.Footer()
                 }
@@ -33,6 +31,13 @@ struct 📚NotesList: View {
 }
 
 private extension 📚NotesList {
+    private var onDeleteAction: Optional<(IndexSet) -> Void> {
+        if self.focusedNoteID == nil {
+            self.model.deleteNotesForDynamicView
+        } else {
+            nil
+        }
+    }
     private struct NewNoteFocusHandler: ViewModifier {
         @EnvironmentObject var model: 📱AppModel
         @FocusState var state: UUID?

@@ -13,13 +13,7 @@ struct 📰SheetHandlerOnContentView: ViewModifier {
                 }
             }
             .onChange(of: self.model.presentedSheetOnContentView) {
-                if $0 != nil { self.clearSelectionOnPresentingSheet() }
+                if $0 != nil { self.model.clearSelection() }
             }
-    }
-}
-
-private extension 📰SheetHandlerOnContentView {
-    func clearSelectionOnPresentingSheet() {
-        self.model.clearSelection()
     }
 }

@@ -864,16 +864,6 @@
         }
       }
     },
-    "Menu bar shortcut" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メニューバーにショートカットを表示"
-          }
-        }
-      }
-    },
     "MenuBar" : {
       "localizations" : {
         "ja" : {
@@ -990,6 +980,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新規ノートショートカット"
+          }
+        }
+      }
+    },
+    "New note shortcut on menu bar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メニューバーに新規ノート追加用ショートカットを表示"
           }
         }
       }
@@ -1210,7 +1210,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「DuckDuckGo」で検索するショートカットをプリセットしています"
+            "value" : "「DuckDuckGo」で検索するショートカットをプリセットしています。"
           }
         }
       }
@@ -1635,7 +1635,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "web検索サービスでノートのタイトルを検索します"
+            "value" : "web検索サービスでノートのタイトルを検索します。"
           }
         }
       }

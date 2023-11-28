@@ -5,7 +5,7 @@ struct 🔧MenuBarPanel: View {
     var body: some View {
         Form {
             Toggle(isOn: self.$value) {
-                Label("Menu bar shortcut",
+                Label("New note shortcut on menu bar",
                       systemImage: "menubar.arrow.up.rectangle")
             }
         }
