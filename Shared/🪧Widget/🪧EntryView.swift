@@ -29,7 +29,7 @@ struct 🪧EntryView: View {
                     }
             }
         }
-        .widgetURL(self.widgetURL)
+        .widgetURL(self.tag.encode())
         .modifier(🪧ContainerBackground())
     }
     init(_ entry: 🪧Entry) {
@@ -38,12 +38,12 @@ struct 🪧EntryView: View {
 }
 
 private extension 🪧EntryView {
-    private var widgetURL: URL {
+    private var tag: 🪧Tag {
         switch self.entry.phase {
             case .placeholder:
-                🪧Tag.placeholder.url
+                    .placeholder
             case .snapshot, .inTimeline:
-                🪧Tag.notes(self.entry.pickedNotes.map(\.id)).url
+                    .notes(self.entry.pickedNotes.map(\.id))
         }
     }
 }

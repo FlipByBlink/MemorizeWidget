@@ -7,7 +7,7 @@ enum 🪧Tag {
 }
 
 extension 🪧Tag: Hashable {
-    var url: URL {
+    func encode() -> URL {
         switch self {
             case .notes(let ⓘds):
                 var ⓟath: String = ""

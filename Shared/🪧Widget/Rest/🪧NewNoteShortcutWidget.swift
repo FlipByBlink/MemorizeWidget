@@ -45,7 +45,7 @@ private struct 🪧NewNoteShortcutView: View {
                 default: Text(verbatim: "BUG")
             }
         }
-        .widgetURL(🪧Tag.newNoteShortcut.url)
+        .widgetURL(🪧Tag.newNoteShortcut.encode())
         .modifier(🪧ContainerBackground())
     }
     private static func circularView() -> some View {
