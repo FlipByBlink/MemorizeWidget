@@ -65,7 +65,15 @@ enum 🎛️ViewComponent {
             @AppStorage(🎛️Key.FontSize.customize, store: .ⓐppGroup) var value: Bool = false
             var body: some View {
                 Toggle(isOn: self.$value) {
-                    Label("Customize font size", systemImage: "textformat.size")
+                    Label {
+                        Text("Customize font size")
+                    } icon: {
+#if os(macOS)
+                        Image(systemName: "ruler")
+#else
+                        Image(systemName: "textformat.size")
+#endif
+                    }
                 }
                 .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
                 .task { 🎛️Default.setValues() }

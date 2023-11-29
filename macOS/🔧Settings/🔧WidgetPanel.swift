@@ -17,8 +17,6 @@ struct 🔧WidgetPanel: View {
             }
             Section {
                 🎛️ViewComponent.FontSize.CustomizeToggle()
-                    .labelStyle(.titleOnly)
-                    .toggleStyle(.switch)
                 if self.customizeFontSize {
                     🎛️ViewComponent.FontSize.TitleForSystemFamilyPicker()
                     🎛️ViewComponent.FontSize.CommentForSystemFamilyPicker()

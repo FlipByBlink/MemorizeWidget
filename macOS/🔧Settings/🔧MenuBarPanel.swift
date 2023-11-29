@@ -5,10 +5,10 @@ struct 🔧MenuBarPanel: View {
     var body: some View {
         Form {
             Toggle(isOn: self.$value) {
-                Label("New note shortcut on menu bar",
-                      systemImage: "menubar.arrow.up.rectangle")
+                Label("New note shortcut on menu bar", systemImage: "square.and.pencil")
             }
         }
+        .formStyle(.grouped)
         .tabItem {
             Label("MenuBar", systemImage: "menubar.arrow.up.rectangle")
         }
