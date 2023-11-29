@@ -21,7 +21,7 @@ struct 📚NotesList: View {
             .toolbar { 🔝NewNoteOnTopButton() }
             .onDeleteCommand { self.model.removeNotesByDeleteCommand() }
             .onExitCommand { self.model.clearSelection() }
-            .modifier(Self.NewNoteFocusHandler(self._focusedNoteID, ⓢcrollViewProxy))
+            .onChange(of: self.model.createdNewNoteID) { self.handleNewNoteFocus($0, ⓢcrollViewProxy) }
             .onChange(of: self.focusedNoteID) { if $0 == nil { self.model.saveNotes() } }
             .animation(.default, value: self.model.notes)
             .contextMenu(forSelectionType: UUID.self) { 🚏ContextMenu($0) }
@@ -38,24 +38,12 @@ private extension 📚NotesList {
             nil
         }
     }
-    private struct NewNoteFocusHandler: ViewModifier {
-        @EnvironmentObject var model: 📱AppModel
-        @FocusState var state: UUID?
-        var scrollViewProxy: ScrollViewProxy
-        func body(content: Content) -> some View {
-            content
-                .onChange(of: self.model.createdNewNoteID) {
-                    if let ⓝewNoteID = $0 {
-                        self.model.clearSelection()
-                        withAnimation { self.scrollViewProxy.scrollTo(ⓝewNoteID) }
-                        self.state = ⓝewNoteID
-                        self.model.createdNewNoteID = nil
-                    }
-                }
-        }
-        init(_ state: FocusState<UUID?>, _ scrollViewProxy: ScrollViewProxy) {
-            self._state = state
-            self.scrollViewProxy = scrollViewProxy
+    private func handleNewNoteFocus(_ ⓝewNoteID: UUID?, _ ⓢcrollViewProxy: ScrollViewProxy) {
+        if let ⓝewNoteID {
+            self.model.clearSelection()
+            withAnimation { ⓢcrollViewProxy.scrollTo(ⓝewNoteID) }
+            self.focusedNoteID = ⓝewNoteID
+            self.model.createdNewNoteID = nil
         }
     }
     private struct Footer: View {
@@ -71,7 +59,7 @@ private extension 📚NotesList {
             Image(systemName: "books.vertical")
             Text("Empty")
         }
-        .font(.system(size: 40).bold())
+        .font(.system(size: 36).bold())
         .fontDesign(.rounded)
         .foregroundStyle(.quaternary)
     }
