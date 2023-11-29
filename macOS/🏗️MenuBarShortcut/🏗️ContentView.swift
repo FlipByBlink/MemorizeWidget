@@ -19,8 +19,9 @@ struct 🏗️ContentView: View {
                 Button(action: self.submit) {
                     Label("Add", systemImage: "checkmark")
                         .labelStyle(.iconOnly)
-                        .fontWeight(.medium)
+                        .bold()
                 }
+                .buttonStyle(.borderedProminent)
                 Spacer()
                 Group {
                     📘DictionaryButton([self.note])
