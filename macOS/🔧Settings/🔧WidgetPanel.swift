@@ -11,8 +11,8 @@ struct 🔧WidgetPanel: View {
                     .foregroundStyle(.secondary)
             }
             Section {
-                🎛️ViewComponent.MultiNotesToggle()
                 🎛️ViewComponent.ShowCommentToggle()
+                🎛️ViewComponent.MultiNotesToggle()
                 🎛️ViewComponent.MultilineTextAlignmentPicker()
             }
             Section {
