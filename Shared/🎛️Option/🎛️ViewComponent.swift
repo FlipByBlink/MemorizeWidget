@@ -41,6 +41,9 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.multilineTextAlignment, store: .ⓐppGroup) 
         var value: 🎛️MultilineTextAlignment = .center
         
+        @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup)
+        var multiNotesMode: Bool = false
+        
         var body: some View {
             Picker(selection: self.$value) {
                 ForEach(🎛️MultilineTextAlignment.allCases) {
@@ -57,6 +60,8 @@ enum 🎛️ViewComponent {
                     Image(systemName: "align.horizontal.center")
                 }
             }
+            .disabled(self.multiNotesMode)
+            .animation(.default, value: self.multiNotesMode)
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
     }

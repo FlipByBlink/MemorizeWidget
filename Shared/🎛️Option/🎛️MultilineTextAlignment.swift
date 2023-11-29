@@ -29,17 +29,25 @@ extension 🎛️MultilineTextAlignment: CaseIterable, Identifiable {
         }
     }
     func value() -> TextAlignment {
-        switch self {
-            case .leading: .leading
-            case .center: .center
-            case .trailing: .trailing
+        if 🎛️Option.multiNotesMode {
+            .center
+        } else {
+            switch self {
+                case .leading: .leading
+                case .center: .center
+                case .trailing: .trailing
+            }
         }
     }
     func value() -> HorizontalAlignment {
-        switch self {
-            case .leading: .leading
-            case .center: .center
-            case .trailing: .trailing
+        if 🎛️Option.multiNotesMode {
+            .center
+        } else {
+            switch self {
+                case .leading: .leading
+                case .center: .center
+                case .trailing: .trailing
+            }
         }
     }
 }
