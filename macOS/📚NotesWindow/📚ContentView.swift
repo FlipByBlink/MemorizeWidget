@@ -6,7 +6,6 @@ struct 📚ContentView: View {
         NavigationStack {
             📚NotesList()
         }
-        .onOpenURL(perform: self.model.handleWidgetURL)
         .modifier(🔦FocusedModelHandler())
         .modifier(📰SheetHandlerOnContentView())
         .modifier(🚮DeleteAllNotesButton.ConfirmDialog())
