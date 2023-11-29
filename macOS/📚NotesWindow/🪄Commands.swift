@@ -57,6 +57,7 @@ struct 🪄Commands: Commands {
                     Button("Export notes") {
                         self.model?.presentSheetOnContentView(.notesExport)
                     }
+                    .disabled(self.notes?.isEmpty == true)
                 }
                 Divider()
                 Button("Open trash") {
