@@ -10,9 +10,9 @@ struct 📖WidgetSheetView: View {
                     📖NoteRow($0, self.openedWidgetNoteIDsCache)
                 }
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 44)
-            .frame(width: 640)
+            .padding(.vertical, 28)
+            .padding(.horizontal, 40)
+            .frame(width: 500)
             .toolbar { Button("Dismiss") { self.model.presentedSheetOnContentView = nil } }
         }
         .modifier(📣ADSheet())
