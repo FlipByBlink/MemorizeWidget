@@ -24,7 +24,7 @@ enum 🗒️StaticInfo {
 #if os(iOS)
 extension 🗒️StaticInfo {
     static let versionInfos: [(version: String, date: String)] = [
-        ("1.4", "2023-11-28"),
+        ("1.4", "2023-11-29"),
         ("1.3", "2023-09-14"),
         ("1.2.1", "2023-05-24"),
         ("1.2", "2023-04-14"),
@@ -112,9 +112,9 @@ extension 🗒️StaticInfo {
                     "🎛️Key.swift",
                     "🎛️Default.swift",
                     "🎛️MultilineTextAlignment.swift",
+                    "🎛️OptionTab.swift",
                     "🎛️ViewComponent.swift",
                     "🎛️RandomModeToggle.swift",
-                    "🎛️OptionTab.swift",
                     "🎛️MultiNotesOnWidgetOption.swift",
                     "🎛️CommentOnWidgetOption.swift",
                     "🎛️BeforeAfterImages.swift",
@@ -145,10 +145,10 @@ extension 🗒️StaticInfo {
                     "📥NotesImportSheetButton.swift",
                 ]
                 case .Trash: [
-                    "🗑TrashViewComponent.swift",
                     "🗑TrashModel.swift",
                     "🗑DeletedContent.swift",
                     "🗑TrashTab.swift",
+                    "🗑TrashViewComponent.swift",
                 ]
                 case .Rest: [
                     "📤NotesExportSheetView.swift",
@@ -248,10 +248,10 @@ extension 🗒️StaticInfo {
                     "🩹WorkaroundOnIOS15.swift",
                 ]
                 case .Trash: [
-                    "🗑TrashViewComponent.swift",
                     "🗑TrashModel.swift",
                     "🗑DeletedContent.swift",
                     "🗑TrashMenu.swift",
+                    "🗑TrashViewComponent.swift",
                 ]
                 case .Rest: [
                     "🔩MainMenu.swift",
@@ -287,7 +287,7 @@ extension 🗒️StaticInfo {
 #elseif os(macOS)
 extension 🗒️StaticInfo {
     static let versionInfos: [(version: String, date: String)] = [
-        ("1.4", "2023-11-28"),
+        ("1.4", "2023-11-29"),
         ("1.3", "2023-09-14"),
         ("1.2.1", "2023-05-24"),
         ("1.2", "2023-04-14"),
@@ -336,6 +336,8 @@ extension 🗒️StaticInfo {
                     "👇InsertBelowButton.swift",
                     "📘DictionaryButton.swift",
                     "🔍SearchButton.swift",
+                    "🚮DeleteAllNotesButton.swift",
+                    "📰SheetOnContentView.swift",
                     "📰SheetHandlerOnContentView.swift",
                     "🪄Commands.swift",
                     "🔦FocusedModelHandler.swift",
@@ -368,6 +370,7 @@ extension 🗒️StaticInfo {
                     "🔧MenuBarPanel.swift",
                     "🔧SearchCustomizePanel.swift",
                     "🔧GuidePanel.swift",
+                    "💁GuideViewComponent.swift",
                 ]
                 case .Search: [
                     "🔍SearchModel.swift",
@@ -377,18 +380,18 @@ extension 🗒️StaticInfo {
                     "📥NotesImportModel.swift",
                     "📥Error.swift",
                     "📥SeparatorPicker.swift",
-                    "📥NotesImportTextSheetView.swift",
                     "📥NotesImportFileSheetView.swift",
+                    "📥NotesImportTextSheetView.swift",
                     "📥ConvertedNotesMenu.swift",
-                    "📥DismissButton.swift",
                     "📥NotSupportMultiLineTextInNoteSection.swift",
+                    "📥DismissButton.swift",
                 ]
                 case .Trash: [
-                    "🗑TrashViewComponent.swift",
                     "🗑TrashModel.swift",
                     "🗑DeletedContent.swift",
                     "🗑TrashWindow.swift",
                     "🗑ContentView.swift",
+                    "🗑TrashViewComponent.swift",
                 ]
                 case .MenuBarShortcut: [
                     "🏗️MenuBarShortcut.swift",
@@ -411,14 +414,18 @@ extension 🗒️StaticInfo {
                 ]
                 case .Rest: [
                     "📤NotesExportSheetView.swift",
+                    "💥Feedback.swift",
                     "💬RequestUserReview.swift",
+                    "📣ADModel.swift",
                     "📣ADSheet.swift",
                     "📣ADContent.swift",
                     "ℹ️HelpWindows.swift",
                     "ℹ️HelpCommands.swift",
+                    "🛒InAppPurchaseModel.swift",
                     "🛒InAppPurchaseWindow.swift",
                     "🛒InAppPurchaseMenu.swift",
                     "🛒InAppPurchaseCommand.swift",
+                    "🗒️StaticInfo.swift",
                 ]
             }
         }

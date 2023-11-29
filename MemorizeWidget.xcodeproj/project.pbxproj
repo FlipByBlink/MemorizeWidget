@@ -1454,9 +1454,9 @@
 				167156362AFF2E2200043F03 /* 🎛️Option.swift */,
 				167317C32B04F31900656005 /* 🎛️Key.swift */,
 				167317DB2B05942100656005 /* 🎛️Default.swift */,
+				16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */,
 				16C98FE52AFB09A300F0F251 /* 🎛️ViewComponent.swift */,
 				16C98FEB2AFB0E7B00F0F251 /* 🎛️RandomModeToggle.swift */,
-				16900BE72B1499D700EB756C /* 🎛️MultilineTextAlignment.swift */,
 			);
 			path = "🎛️Option";
 			sourceTree = "<group>";
@@ -1669,8 +1669,8 @@
 			children = (
 				16D7B6DC2AF8F4FB00A7A7AE /* 📰SheetOnContentView.swift */,
 				16C98FF12AFB171B00F0F251 /* 🚮DeleteAllNotesButton.swift */,
-				16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */,
 				F568F1A829E3A703005A1D1A /* 💥Feedback.swift */,
+				16C98FEE2AFB134C00F0F251 /* 💁GuideViewComponent.swift */,
 				F50C831E2AA5D0A70033A04B /* 📣ADModel.swift */,
 				F50C831F2AA5D0A70033A04B /* 🛒InAppPurchaseModel.swift */,
 				F50C83112AA5CE7F0033A04B /* 🗒️StaticInfo.swift */,
