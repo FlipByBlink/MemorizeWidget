@@ -109,7 +109,9 @@ private extension 📖NoteRow {
         Group {
             Button {} label: { Image(systemName: "magnifyingglass") }
             Button {} label: { Image(systemName: "character.book.closed") }
-            Button {} label: { Image(systemName: "arrow.down.to.line") }
+            if !self.model.randomMode {
+                Button {} label: { Image(systemName: "arrow.down.to.line") }
+            }
             Button {} label: { Image(systemName: "trash") }
         }
         .disabled(true)
