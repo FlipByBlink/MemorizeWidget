@@ -19,7 +19,7 @@ struct 🪧SystemWidgetView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-                .lineLimit(self.lineLimitNumber)
+                .lineLimit(self.notes.count > 1 ? 1 : nil)
                 .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
                 .minimumScaleFactor(0.9)
                 Spacer(minLength: 0)
@@ -123,17 +123,6 @@ private extension 🪧SystemWidgetView {
             case .fullColor: return .light
             case .vibrant, .accented: return .medium
             default: assertionFailure(); return .regular
-        }
-    }
-    private var lineLimitNumber: Int {
-        switch self.widgetFamily {
-            case .systemSmall, .systemMedium:
-                return self.notes.count == 1 ? 4 : 1
-            case .systemLarge, .systemExtraLarge:
-                return self.notes.count < 4 ? 5 : 1
-            default:
-                assertionFailure()
-                return 1
         }
     }
     private var edgeInsets: EdgeInsets {
