@@ -12,10 +12,15 @@ extension 🪧Provider: TimelineProvider {
               pickedNotes: [])
     }
     func getSnapshot(in context: Context, completion: @escaping (🪧Entry) -> ()) {
+        let ⓟickedNotes = if 🎛️Option.multiNotesMode {
+            self.pickMultiNotes(context.family)
+        } else {
+            self.pickSingleNote()
+        }
         completion(.init(date: .now,
                          kind: self.kind,
                          phase: .snapshot,
-                         pickedNotes: []))
+                         pickedNotes: ⓟickedNotes))
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<🪧Entry>) -> ()) {
         if 🎛️Option.multiNotesMode {

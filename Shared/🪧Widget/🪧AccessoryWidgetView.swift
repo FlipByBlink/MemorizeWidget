@@ -80,7 +80,11 @@ private extension 🪧AccessoryWidgetView {
                         .body
                 case .accessoryRectangular:
                     if self.notes.count == 1 {
-                        .system(size: 28)
+                        if 🎛️Option.showCommentMode {
+                            .system(size: 23)
+                        } else {
+                            .system(size: 28)
+                        }
                     } else {
                         .system(size: 17)
                     }

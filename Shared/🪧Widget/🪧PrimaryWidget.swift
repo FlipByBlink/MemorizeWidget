@@ -8,8 +8,10 @@ struct 🪧PrimaryWidget: Widget {
         }
         .configurationDisplayName(Self.configurationDisplayName)
         .description("Show a note.")
-        .contentMarginsDisabled() //TODO: watchOSでおかしくならないか要確認
         .supportedFamilies(Self.supportedFamilies)
+#if os(iOS) || os(macOS)
+        .contentMarginsDisabled()
+#endif
     }
 }
 
