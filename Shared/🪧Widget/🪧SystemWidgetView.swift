@@ -8,7 +8,8 @@ struct 🪧SystemWidgetView: View {
         VStack(spacing: 0) {
             Spacer(minLength: 0)
             ForEach(self.notes) { ⓝote in
-                VStack(spacing: self.notes.count == 1 ? 6 : 2) {
+                VStack(alignment: 🎛️Option.multilineTextAlignment.value(),
+                       spacing: self.notes.count == 1 ? 6 : 2) {
                     Text(ⓝote.title)
                         .font(self.titleFont.bold())
                     if 🎛️Option.showCommentMode, !ⓝote.comment.isEmpty {
@@ -19,7 +20,7 @@ struct 🪧SystemWidgetView: View {
                     }
                 }
                 .lineLimit(self.lineLimitNumber)
-                .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
+                .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
                 .minimumScaleFactor(0.9)
                 Spacer(minLength: 0)
             }

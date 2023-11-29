@@ -28,7 +28,14 @@ extension 🎛️MultilineTextAlignment: CaseIterable, Identifiable {
             case .trailing: "text.justify.trailing"
         }
     }
-    var value: TextAlignment {
+    func value() -> TextAlignment {
+        switch self {
+            case .leading: .leading
+            case .center: .center
+            case .trailing: .trailing
+        }
+    }
+    func value() -> HorizontalAlignment {
         switch self {
             case .leading: .leading
             case .center: .center

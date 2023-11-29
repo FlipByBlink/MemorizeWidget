@@ -29,7 +29,7 @@ private extension 🪧AccessoryWidgetView {
                 if let ⓝote = self.notes.first {
                     Text(ⓝote.title)
                         .font(self.titleFontSize)
-                        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
+                        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
                         .fontWeight(.semibold)
                         .lineSpacing(0)
                         .minimumScaleFactor(0.8)
@@ -42,7 +42,7 @@ private extension 🪧AccessoryWidgetView {
         }
     }
     private func rectangularView() -> some View {
-        VStack(spacing: 0) {
+        VStack(alignment: 🎛️Option.multilineTextAlignment.value(), spacing: 0) {
             ForEach(self.notes) { ⓝote in
                 Text(ⓝote.title)
                     .lineLimit(self.notes.count > 1 ? 1 : 3)
@@ -61,7 +61,7 @@ private extension 🪧AccessoryWidgetView {
         }
         .widgetAccentable()
         .minimumScaleFactor(0.8)
-        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value)
+        .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
     }
 #if os(watchOS)
     private func cornerView() -> some View {
