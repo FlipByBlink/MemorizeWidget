@@ -39,7 +39,6 @@ extension 🗒️StaticInfo {
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main
         case AppModel
-        case RootView
         case TabAndSidebar
         case NoteModel
         case NoteView
@@ -65,15 +64,11 @@ extension 🗒️StaticInfo {
                     "📱AppModel.swift",
                     "📱AppModel(extension).swift",
                 ]
-                case .RootView: [
-                    "🏢RootView.swift",
-                    "🏢IPadView.swift",
-                ]
                 case .TabAndSidebar: [
                     "🔖Tab.swift",
                     "🔖TabView.swift",
                     "🔖Sidebar.swift",
-                    "🔖SidebarView.swift",
+                    "🔖SplitView.swift",
                 ]
                 case .NoteModel: [
                     "📗Note.swift",
