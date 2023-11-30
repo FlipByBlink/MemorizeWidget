@@ -35,7 +35,6 @@ private extension 🪧AccessoryWidgetView {
                         .minimumScaleFactor(0.8)
                         .padding(.horizontal, 3)
                         .widgetAccentable()
-                        .lineSpacing(0)
                 }
             }
             .clipShape(Circle())
@@ -45,7 +44,7 @@ private extension 🪧AccessoryWidgetView {
         VStack(alignment: 🎛️Option.multilineTextAlignment.value(), spacing: 0) {
             ForEach(self.notes) { ⓝote in
                 Text(ⓝote.title)
-                    .lineLimit(self.notes.count > 1 ? 1 : 3)
+                    .lineLimit(self.notes.count > 1 ? 1 : nil)
                     .font(self.titleFontSize)
                     .fontWeight(.semibold)
                 if (self.notes.count == 1)
@@ -55,7 +54,6 @@ private extension 🪧AccessoryWidgetView {
                         .font(self.commentFontSize)
                         .fontWeight(.medium)
                         .foregroundStyle(.secondary)
-                        .lineLimit(1)
                 }
             }
         }
