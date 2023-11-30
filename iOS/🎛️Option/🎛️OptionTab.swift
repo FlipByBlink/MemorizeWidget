@@ -55,6 +55,8 @@ private extension 🎛️OptionTab {
                 default:
                     EmptyView()
             }
+        } header: {
+            Text("Rest")
         }
     }
 }

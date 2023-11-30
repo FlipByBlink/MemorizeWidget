@@ -28,7 +28,7 @@ struct 🔍CustomizeSearchMenu: View {
             } header: {
                 Text("Edit URL")
             } footer: {
-                Text(#"The prefix must contain "http://" or "https://""#)
+                Text(#"The prefix must contain "http://" or "https://"."#)
                     .strikethrough(self.model.openURLInOtherApp)
             }
             Section { self.testButton() }

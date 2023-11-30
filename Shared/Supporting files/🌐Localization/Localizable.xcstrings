@@ -939,7 +939,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "複数行の揃え方(非複数ノートモードのみ)"
+            "value" : "複数行の揃え方(非複数ノートモード時のみ有効)"
           }
         }
       }
@@ -1469,12 +1469,12 @@
         }
       }
     },
-    "The prefix must contain \"http://\" or \"https://\"" : {
+    "The prefix must contain \"http://\" or \"https://\"." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "先頭に「http://」か「https://」を含めてください"
+            "value" : "先頭に「http://」か「https://」を含めてください。"
           }
         }
       }
