@@ -5,8 +5,8 @@ struct ContentView: View {
     var body: some View {
         🏢RootView()
             .onOpenURL(perform: self.model.handleWidgetURL)
-            .modifier(💬RequestUserReview())
             .modifier(📰SheetHandlerOnContentView())
+            .modifier(💬RequestUserReview())
             .environmentObject(self.model.inAppPurchaseModel)
     }
 }

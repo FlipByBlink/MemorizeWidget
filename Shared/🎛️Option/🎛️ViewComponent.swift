@@ -6,16 +6,7 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
-                Label {
-#if os(iOS)
-                    Text("Show multi notes on widget")
-#elseif os(watchOS) || os(macOS)
-                    Text("Show multi notes")
-#endif
-                } icon: {
-                    Image(systemName: "doc.on.doc")
-                }
-                    
+                Label("Show multi notes", systemImage: "doc.on.doc")
             }
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
@@ -24,15 +15,7 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.showCommentMode, store: .ⓐppGroup) var value: Bool = false
         var body: some View {
             Toggle(isOn: self.$value) {
-                Label {
-#if os(iOS)
-                    Text("Show comment on widget")
-#elseif os(watchOS) || os(macOS)
-                    Text("Show comment")
-#endif
-                } icon: {
-                    Image(systemName: "captions.bubble")
-                }
+                Label("Show comment", systemImage: "captions.bubble")
             }
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
@@ -41,27 +24,15 @@ enum 🎛️ViewComponent {
         @AppStorage(🎛️Key.multilineTextAlignment, store: .ⓐppGroup) 
         var value: 🎛️MultilineTextAlignment = .center
         
-        @AppStorage(🎛️Key.multiNotesMode, store: .ⓐppGroup)
-        var multiNotesMode: Bool = false
-        
         var body: some View {
             Picker(selection: self.$value) {
                 ForEach(🎛️MultilineTextAlignment.allCases) {
                     Label($0.localizedTitle, systemImage: $0.iconName)
                 }
             } label: {
-                Label {
-#if os(iOS)
-                    Text("Multi line text alignment on widget")
-#elseif os(watchOS) || os(macOS)
-                    Text("Multi line text alignment")
-#endif
-                } icon: {
-                    Image(systemName: "align.horizontal.center")
-                }
+                Label("Multi line text alignment (single mode only)",
+                      systemImage: "align.horizontal.center")
             }
-            .disabled(self.multiNotesMode)
-            .animation(.default, value: self.multiNotesMode)
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }
     }

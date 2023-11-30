@@ -4,7 +4,7 @@ struct 🎛️CommentOnWidgetOption: View {
     var body: some View {
         Section {
             🎛️ViewComponent.ShowCommentToggle()
-                    .padding(.vertical, 8)
+                .padding(.vertical, 8)
             VStack(spacing: 16) {
                 🎛️BeforeAfterImages(.systemFamilyDefault, .systemFamilyShowComment)
                 if Self.showAccessoryFamilyPreview {

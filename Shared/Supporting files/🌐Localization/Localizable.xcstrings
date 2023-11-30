@@ -934,22 +934,12 @@
         }
       }
     },
-    "Multi line text alignment" : {
+    "Multi line text alignment (single mode only)" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "複数行の揃え方"
-          }
-        }
-      }
-    },
-    "Multi line text alignment on widget" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "複数行の揃え方"
+            "value" : "複数行の揃え方(非複数ノートモードのみ)"
           }
         }
       }
@@ -1368,16 +1358,6 @@
         }
       }
     },
-    "Show comment on widget" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ウィジェット上にコメントを表示"
-          }
-        }
-      }
-    },
     "Show multi notes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1385,16 +1365,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "複数のノートを表示"
-          }
-        }
-      }
-    },
-    "Show multi notes on widget" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ウィジェット上で複数のノートを表示"
           }
         }
       }
