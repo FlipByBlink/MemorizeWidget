@@ -1,5 +1,5 @@
 MemorizeWidget
----------------
+===============
 __iPhone, iPad, Apple Watch, Mac__
 
 <img src="iOS/Supporting files/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
@@ -20,7 +20,7 @@ You create freely notes for widget.
 App presents the notes on widget.
 
 
-### Option
+#### Option
 
 - Random mode: widget changes the note per 5 minutes.
 
@@ -31,7 +31,7 @@ App presents the notes on widget.
 - Font size on widget.
 
 
-### Rest
+#### Rest
 
 - Import file(e.g. tsv, csv, txt) or text.
 
@@ -42,7 +42,7 @@ App presents the notes on widget.
 - Sync between devices by iCloud.
 
 
-### Multi platform support
+#### Multi platform support
 
 iPhone: Home screen, Lock screen, StandBy(iOS 17)
 
