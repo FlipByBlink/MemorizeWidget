@@ -55,10 +55,10 @@ Apple Watch: Complication, Smart Stack(watchOS 10)
 
 Source code link
 ------------------
-https://github.com/FlipByBlink/MemorizeWidget
+[github.com/FlipByBlink/MemorizeWidget](https://github.com/FlipByBlink/MemorizeWidget)
 
 ### Source code (Mirror) link
-https://gitlab.com/FlipByBlink/MemorizeWidget_Mirror
+[gitlab.com/FlipByBlink/MemorizeWidget_Mirror](https://gitlab.com/FlipByBlink/MemorizeWidget_Mirror)
 
 
 Contact
@@ -68,7 +68,7 @@ sear_pandora_0x@icloud.com
 
 App Store link
 ---------------
-https://apps.apple.com/app/id1644276262
+[apps.apple.com/app/id1644276262](https://apps.apple.com/app/id1644276262)
 
 
 <br>
