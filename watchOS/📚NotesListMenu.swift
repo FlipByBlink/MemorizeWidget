@@ -9,7 +9,7 @@ struct 📚NotesListMenu: View {
                 NavigationLink {
                     📗NoteView(ⓝote, .notesMenu)
                 } label: {
-                    Self.NoteLinkLabel(note: ⓝote)
+                    Self.NoteLinkLabel(target: ⓝote)
                 }
             }
             .onMove {
@@ -33,17 +33,18 @@ private extension 📚NotesListMenu {
     }
     private struct NoteLinkLabel: View {
         @EnvironmentObject var model: 📱AppModel
-        @Binding var note: 📗Note
+        @Binding var target: 📗Note
         private var inactive: Bool {
             !self.model.randomMode
-            && self.model.notes.first != self.note
+            && 
+            self.target != self.model.notes.first
         }
         var body: some View {
             VStack(alignment: .leading) {
-                Text(self.note.title)
+                Text(self.target.title)
                     .font(.headline)
                     .foregroundStyle(self.inactive ? .secondary : .primary)
-                Text(self.note.comment)
+                Text(self.target.comment)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

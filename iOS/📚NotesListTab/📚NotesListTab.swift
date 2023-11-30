@@ -1,12 +1,11 @@
 import SwiftUI
-import WidgetKit
 
 struct 📚NotesListTab: View {
     @EnvironmentObject var model: 📱AppModel
     @FocusedValue(\.editingNote) var editingNote
     var body: some View {
         NavigationStack {
-            ScrollViewReader { ⓢcrollViewProxy in
+            ScrollViewReader { ⓟroxy in
                 List {
                     Self.RandomModeSection()
                     Section {
@@ -19,9 +18,7 @@ struct 📚NotesListTab: View {
                             .id($0.id)
                         }
                         .onMove { self.model.moveNoteForDynamicView($0, $1) }
-                        .onDelete(
-                            perform: self.editingNote == nil ? self.model.deleteNotesForDynamicView : nil
-                        )
+                        .onDelete(perform: self.onDeleteAction)
                     } footer: {
                         self.notesCountTextOnFooter()
                     }
@@ -29,8 +26,8 @@ struct 📚NotesListTab: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .scrollDismissesKeyboard(.interactively)
-                .onChange(of: self.self.model.createdNewNoteID) { ⓢcrollViewProxy.scrollTo($0) }
-                .onOpenURL { self.model.scrollTopByNewNoteShortcut($0, ⓢcrollViewProxy) }
+                .onChange(of: self.self.model.createdNewNoteID) { ⓟroxy.scrollTo($0) }
+                .onOpenURL { self.model.scrollTopByNewNoteShortcut($0, ⓟroxy) }
                 .animation(.default, value: self.model.notes)
                 .toolbar {
                     switch UIDevice.current.userInterfaceIdiom {
@@ -53,6 +50,13 @@ struct 📚NotesListTab: View {
 }
 
 private extension 📚NotesListTab {
+    private var onDeleteAction: Optional<(IndexSet) -> Void> {
+        if self.editingNote == nil {
+            self.model.deleteNotesForDynamicView
+        } else {
+            nil
+        }
+    }
     private struct RandomModeSection: View {
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
         var body: some View {

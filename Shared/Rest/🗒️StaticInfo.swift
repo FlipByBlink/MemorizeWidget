@@ -341,7 +341,6 @@ extension 🗒️StaticInfo {
                 case .WidgetSheet: [
                     "📖WidgetSheetView.swift",
                     "📖NoteRow.swift",
-                    "📖DeletedNoteView.swift",
                     "📖MoveEndButton.swift",
                     "📖SheetDebug.swift",
                 ]
