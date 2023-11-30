@@ -7,20 +7,20 @@ struct 📖MoveEndButton: View {
     var body: some View {
         Button {
             self.model.moveEnd(self.note)
-            withAnimation(.default.speed(2)) { self.done = true }
+            withAnimation(.default.speed(1.5)) { self.done = true }
         } label: {
             Label("Move end", systemImage: "arrow.down.to.line")
                 .padding(8)
         }
         .hoverEffect()
         .disabled(self.model.notes.last == self.note)
-        .opacity(self.done ? 0.33 : 1)
-        .overlay(alignment: .bottomTrailing) {
+        .opacity(self.done ? 0 : 1)
+        .overlay {
             if self.done {
                 Image(systemName: "checkmark.circle.fill")
-                    .imageScale(.small)
-                    .fontWeight(.semibold)
-                    .offset(x: 12, y: 8)
+                    .imageScale(.large)
+                    .bold()
+                    .foregroundStyle(.secondary)
             }
         }
     }
