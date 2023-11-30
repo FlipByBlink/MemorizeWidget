@@ -19,8 +19,8 @@ struct 📖MoveEndButton: View {
             if self.done {
                 Image(systemName: "checkmark.circle.fill")
                     .imageScale(.large)
-                    .bold()
-                    .foregroundStyle(.secondary)
+                    .fontWeight(.heavy)
+                    .foregroundStyle(.tertiary)
             }
         }
     }
