@@ -56,7 +56,7 @@ private extension 🪧AccessoryWidgetView {
                 }
             }
         }
-        .lineLimit(🎛️Option.multiNotesMode || !🎛️Option.customizeFontSize ? 1 : nil)
+        .lineLimit(self.lineLimit)
         .widgetAccentable()
         .minimumScaleFactor(0.9)
         .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
@@ -69,6 +69,21 @@ private extension 🪧AccessoryWidgetView {
             .widgetLabel(self.notes.first?.title ?? "No note")
     }
 #endif
+    private var lineLimit: Int? {
+        if 🎛️Option.multiNotesMode {
+            1
+        } else {
+            if 🎛️Option.customizeFontSize {
+                nil
+            } else {
+                if 🎛️Option.showCommentMode {
+                    1
+                } else {
+                    2
+                }
+            }
+        }
+    }
     private var titleFontSize: Font {
         if 🎛️Option.customizeFontSize {
             .system(size: CGFloat(🎛️Option.FontSize.AccessoryFamily.title))
@@ -79,12 +94,12 @@ private extension 🪧AccessoryWidgetView {
                 case .accessoryRectangular:
                     if self.notes.count == 1 {
                         if 🎛️Option.showCommentMode {
-                            .system(size: 23)
+                            .system(size: 22)
                         } else {
-                            .system(size: 28)
+                            .system(size: 25)
                         }
                     } else {
-                        .system(size: 17)
+                        .system(size: 16)
                     }
                 default:
                         .body
