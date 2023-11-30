@@ -127,10 +127,10 @@ private extension 🪧SystemWidgetView {
     }
     private var edgeInsets: EdgeInsets {
         switch self.widgetFamily {
-            case .systemSmall: return .init(top: 8, leading: 16, bottom: 8, trailing: 16)
-            case .systemMedium: return .init(top: 8, leading: 24, bottom: 8, trailing: 24)
-            case .systemLarge: return .init(top: 12, leading: 32, bottom: 12, trailing: 32)
-            case .systemExtraLarge: return .init(top: 12, leading: 42, bottom: 12, trailing: 42)
+            case .systemSmall: return .init(top: 12, leading: 16, bottom: 12, trailing: 16)
+            case .systemMedium: return .init(top: 12, leading: 24, bottom: 12, trailing: 24)
+            case .systemLarge: return .init(top: 16, leading: 32, bottom: 16, trailing: 32)
+            case .systemExtraLarge: return .init(top: 16, leading: 42, bottom: 16, trailing: 42)
             default: assertionFailure(); return .init()
         }
     }
