@@ -7,8 +7,8 @@ struct 📗NoteRow: View {
         HStack(spacing: 12) {
             VStack(spacing: 4) {
                 TextField("No title", text: self.$source.title, axis: .vertical)
-                    .font(.title3)
-                    .bold()
+                    .font(.system(size: 17))
+                    .fontWeight(self.thinTitle ? .light : .semibold)
                 TextField("No comment", text: self.$source.comment, axis: .vertical)
                     .disabled(self.source.title.isEmpty)
                     .font(.body.weight(.light))
@@ -25,6 +25,11 @@ struct 📗NoteRow: View {
 }
 
 private extension 📗NoteRow {
+    private var thinTitle: Bool {
+        !self.model.randomMode
+        && 
+        self.source != self.model.notes.first
+    }
     private struct RemoveButton: View {
         @EnvironmentObject var model: 📱AppModel
         @FocusedValue(\.editingNote) var editingNote
