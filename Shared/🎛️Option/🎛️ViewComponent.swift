@@ -30,8 +30,12 @@ enum 🎛️ViewComponent {
                     Label($0.localizedTitle, systemImage: $0.iconName)
                 }
             } label: {
-                Label("Multi line text alignment (single mode only)",
-                      systemImage: "align.horizontal.center")
+                Label {
+                    Text("Multi line text alignment (single mode only)")
+                        .accessibilityLabel("Multi line text alignment")
+                } icon: {
+                    Image(systemName: "align.horizontal.center")
+                }
             }
             .onChange(of: self.value) { _ in WidgetCenter.shared.reloadAllTimelines() }
         }

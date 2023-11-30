@@ -944,6 +944,16 @@
         }
       }
     },
+    "Multi line text alignment" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数行の揃え方"
+          }
+        }
+      }
+    },
     "Multi line text alignment (single mode only)" : {
       "localizations" : {
         "ja" : {
