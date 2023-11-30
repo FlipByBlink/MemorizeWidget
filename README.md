@@ -20,7 +20,7 @@ You create freely notes for widget.
 App presents the notes on widget.
 
 
-Option
+### Option
 
 - Random mode: widget changes the note per 5 minutes.
 
@@ -31,7 +31,7 @@ Option
 - Font size on widget.
 
 
-Rest
+### Rest
 
 - Import file(e.g. tsv, csv, txt) or text.
 
@@ -42,7 +42,7 @@ Rest
 - Sync between devices by iCloud.
 
 
-Multi platform support
+### Multi platform support
 
 iPhone: Home screen, Lock screen, StandBy(iOS 17)
 
@@ -62,12 +62,12 @@ https://gitlab.com/FlipByBlink/MemorizeWidget_Mirror
 
 
 Contact
-------------
+--------
 sear_pandora_0x@icloud.com
 
 
 App Store link
---------------
+---------------
 https://apps.apple.com/app/id1644276262
 
 
@@ -81,8 +81,8 @@ https://apps.apple.com/app/id1644276262
 <br>
 <br>
 
-Privacy Policy for AppStore
-----------------------------
+Privacy Policy for App Store
+-----------------------------
 2022-09-08
 
 ### Japanese
@@ -105,4 +105,4 @@ This application don't collect user infomation.
 <!-- https://flipbyblink.github.io/MemorizeWidget/ -->
 
 <!-- URL "Privacy Policy for App Store" -->
-<!-- https://flipbyblink.github.io/MemorizeWidget/#privacy-policy-for-appstore -->
+<!-- https://flipbyblink.github.io/MemorizeWidget/#privacy-policy-for-app-store -->
