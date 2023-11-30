@@ -55,7 +55,7 @@ private extension 📥ConvertedNotesMenu {
                 Button {
                     self.model.submitNotesImport(self.convertedNotes)
                 } label: {
-                    Image(systemName: "checkmark")
+                    Label("Apply", systemImage: "checkmark")
                         .font(.title3.weight(.black))
                 }
             }
