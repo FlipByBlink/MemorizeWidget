@@ -32,7 +32,7 @@ private extension 🪧AccessoryWidgetView {
                         .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
                         .fontWeight(.semibold)
                         .lineSpacing(0)
-                        .minimumScaleFactor(0.8)
+                        .minimumScaleFactor(0.9)
                         .padding(.horizontal, 3)
                         .widgetAccentable()
                 }
@@ -44,7 +44,6 @@ private extension 🪧AccessoryWidgetView {
         VStack(alignment: 🎛️Option.multilineTextAlignment.value(), spacing: 0) {
             ForEach(self.notes) { ⓝote in
                 Text(ⓝote.title)
-                    .lineLimit(self.notes.count > 1 ? 1 : nil)
                     .font(self.titleFontSize)
                     .fontWeight(.semibold)
                 if (self.notes.count == 1)
@@ -57,8 +56,9 @@ private extension 🪧AccessoryWidgetView {
                 }
             }
         }
+        .lineLimit(🎛️Option.multiNotesMode || !🎛️Option.customizeFontSize ? 1 : nil)
         .widgetAccentable()
-        .minimumScaleFactor(0.8)
+        .minimumScaleFactor(0.9)
         .multilineTextAlignment(🎛️Option.multilineTextAlignment.value())
     }
 #if os(watchOS)
