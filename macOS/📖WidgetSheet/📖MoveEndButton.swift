@@ -13,12 +13,11 @@ struct 📖MoveEndButton: View {
                 Label("Move end", systemImage: "arrow.down.to.line")
             }
             .disabled(self.model.notes.last == self.note)
+            .opacity(self.done ? 0 : 1)
             .overlay {
                 if self.done {
                     Image(systemName: "checkmark")
-                        .fontWeight(.heavy)
-                        .padding(2)
-                        .background(.background.opacity(0.9))
+                        .fontWeight(.semibold)
                 }
             }
         }
