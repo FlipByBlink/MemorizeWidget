@@ -18,7 +18,9 @@ struct 📖WidgetSheetView: View {
         .modifier(📣ADSheet())
         .animation(.default, value: self.model.presentedSheetOnContentView)
         .onAppear { self.openedWidgetNoteIDsCache = self.model.openedWidgetNoteIDs }
-        .onChange(of: self.model.openedWidgetNoteIDs) { self.openedWidgetNoteIDsCache = $0 }
+        .onChange(of: self.model.openedWidgetNoteIDs) {
+            if !$0.isEmpty { self.openedWidgetNoteIDsCache = $0 }
+        }
         .onDisappear { self.model.saveNotes() }
     }
 }
