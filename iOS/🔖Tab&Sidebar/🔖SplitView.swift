@@ -15,7 +15,7 @@ struct 🔖SplitView: View {
             .toolbar { self.bottomBarButtons() }
         } detail: {
             if let ⓢelectedSidebar = self.model.selectedSidebar {
-                ⓢelectedSidebar.detailView
+                ⓢelectedSidebar.detailView()
             } else {
                 Self.placeholderView()
             }

@@ -13,8 +13,8 @@ extension 🔖Tab: CaseIterable, Identifiable {
     func label() -> some View {
         Label(self.title, systemImage: self.iconName)
     }
-    var detailView: some View {
-        Self.DetailView(selectedTab: self)
+    func detailView() -> some View {
+        Self.DetailView(selection: self)
     }
 }
 
@@ -38,10 +38,10 @@ private extension 🔖Tab {
         }
     }
     private struct DetailView: View {
-        var selectedTab: 🔖Tab
+        var selection: 🔖Tab
         var body: some View {
             Group {
-                switch self.selectedTab {
+                switch self.selection {
                     case .notesList: 📚NotesListTab()
                     case .option: 🎛️OptionTab()
                     case .trash: 🗑TrashTab()
@@ -49,8 +49,8 @@ private extension 🔖Tab {
                     case .app: ℹ️AboutAppTab()
                 }
             }
-            .tag(self.selectedTab)
-            .tabItem(self.selectedTab.label)
+            .tag(self.selection)
+            .tabItem(self.selection.label)
         }
     }
 }

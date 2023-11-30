@@ -16,8 +16,8 @@ extension 🔖Sidebar: CaseIterable, Identifiable {
         //よく分からないがサンプルコードではNavigationLinkで実装してる例あり。
         //Label(self.title, systemImage: self.iconName) ← これとの差異がよく分からない。
     }
-    var detailView: some View {
-        Self.DetailView(selectedTab: self)
+    func detailView() -> some View {
+        Self.DetailView(selection: self)
     }
 }
 
@@ -39,9 +39,9 @@ private extension 🔖Sidebar {
         }
     }
     private struct DetailView: View {
-        var selectedTab: 🔖Sidebar
+        var selection: 🔖Sidebar
         var body: some View {
-            switch self.selectedTab {
+            switch self.selection {
                 case .notesList: 📚NotesListTab()
                 case .option: 🎛️OptionTab()
                 case .trash: 🗑TrashTab()
