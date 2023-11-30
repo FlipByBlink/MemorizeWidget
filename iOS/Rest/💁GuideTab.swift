@@ -112,6 +112,13 @@ private struct 🄰ppleSupportLinkSection: View {
             UIDevice.current.userInterfaceIdiom == .phone
         }
     }
+    private static var linkForLockScreenWidget: URL {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            .init(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!
+        } else {
+            .init(string: "https://support.apple.com/guide/ipad/create-a-custom-lock-screen-ipad782d4de8/17.0/ipados/17.0")!
+        }
+    }
     var body: some View {
         Section {
             Link(destination: .init(string: Self.urlString)!) {
@@ -129,12 +136,21 @@ private struct 🄰ppleSupportLinkSection: View {
             }
             .accessibilityLabel(Self.labelTitle)
             if Self.supportLockScreenWidget {
-                Link(destination: .init(string: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")!) {
+                let ⓣitle = if UIDevice.current.userInterfaceIdiom == .phone {
+                    Text("Create a custom iPhone Lock Screen")
+                } else {
+                    Text("Create a custom iPad Lock Screen")
+                }
+                Link(destination: Self.linkForLockScreenWidget) {
                     VStack(alignment: .leading, spacing: 6) {
-                        Label("Create a custom iPhone Lock Screen", systemImage: "link")
+                        Label {
+                            ⓣitle
+                        } icon: {
+                            Image(systemName: "link")
+                        }
                         HStack {
                             Spacer()
-                            Text(verbatim: "https://support.apple.com/guide/iphone/create-a-custom-lock-screen-iph4d0e6c351/ios")
+                            Text(verbatim: Self.linkForLockScreenWidget.formatted())
                                 .font(.caption2.italic())
                                 .multilineTextAlignment(.center)
                             Spacer()
@@ -142,7 +158,7 @@ private struct 🄰ppleSupportLinkSection: View {
                     }
                     .padding(.vertical, 4)
                 }
-                .accessibilityLabel("Create a custom iPhone Lock Screen")
+                .accessibilityLabel(ⓣitle)
             }
         } header: {
             Text("Apple Support Page Link")

@@ -342,6 +342,16 @@
         }
       }
     },
+    "Create a custom iPad Lock Screen" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムのiPadロック画面を作成する"
+          }
+        }
+      }
+    },
     "Create a custom iPhone Lock Screen" : {
       "localizations" : {
         "ja" : {
